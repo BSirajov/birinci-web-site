@@ -27,10 +27,12 @@ SITE_NAME = "Bir inci"
 SITE_TITLE = "İbrətamiz deyimlər və hekayələr"
 NAV_LABEL = "İbrətamiz hekayələr"
 HOME_CRUMB = "Ana səhifə"
-ASSET_VERSION = "20260811q"
+ASSET_VERSION = "20260811r"
 
 # Inline Lucide-style stroke icons (24x24 viewBox) for menu items.
 CATEGORY_ICONS: dict[str, str] = {
+    # Top-nav stories menu (not used in category submenu)
+    "layers": '<path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/>',
     # Spirituality / faith
     "sparkles": '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/>',
     # Family / home
@@ -59,6 +61,7 @@ CATEGORY_ICONS: dict[str, str] = {
 
 # Per-icon accent colors for 3D colorful badges.
 ICON_COLORS: dict[str, dict[str, str]] = {
+    "layers": {"from": "#38bdf8", "to": "#0369a1", "glow": "#7dd3fc"},
     "sparkles": {"from": "#7c5cff", "to": "#b44dff", "glow": "#a78bfa"},
     "home": {"from": "#0ea5e9", "to": "#2563eb", "glow": "#38bdf8"},
     "heart": {"from": "#f43f5e", "to": "#e11d48", "glow": "#fb7185"},
@@ -264,7 +267,7 @@ def nav_html(active_slug: str | None, prefix: str) -> str:
     <nav class="primary-nav" id="primaryNav" aria-label="Əsas menyu">
       <details class="nav-dropdown">
         <summary>
-          {menu_icon("book")}
+          {menu_icon("layers")}
           <span>{esc(NAV_LABEL)}</span>
         </summary>
         <ul class="nav-dropdown__list">
