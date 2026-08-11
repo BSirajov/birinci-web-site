@@ -25,7 +25,7 @@ ASSETS = AZ_ROOT / "assets"
 
 SITE_NAME = "Bir inci"
 SITE_TITLE = "İbrətamiz deyimlər və hekayələr"
-NAV_LABEL = "İbrətamiz deyimlər və hekayələr"
+NAV_LABEL = "İbrətamiz hekayələr"
 HOME_CRUMB = "Ana səhifə"
 
 # Inline Lucide-style stroke icons (24x24 viewBox) for menu items.
@@ -979,7 +979,7 @@ body.global-search-open { overflow: hidden; }
 .intro {
   position: relative;
   isolation: isolate;
-  max-width: var(--max-wide);
+  max-width: var(--max);
   margin: 0 auto;
   padding: 1.1rem 1.25rem 0.35rem;
   overflow: hidden;
@@ -987,9 +987,10 @@ body.global-search-open { overflow: hidden; }
 .intro__atmosphere {
   position: absolute;
   top: 0.15rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(56rem, calc(100% - 2.5rem));
+  left: 1.25rem;
+  right: 1.25rem;
+  width: auto;
+  transform: none;
   height: min(18rem, 52vw);
   border-radius: 28px;
   pointer-events: none;
@@ -1019,8 +1020,8 @@ body.global-search-open { overflow: hidden; }
   align-items: center;
   gap: clamp(0.75rem, 2.5vw, 1.75rem);
   width: 100%;
-  max-width: 56rem;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
   padding: 0.55rem 1.35rem 0.45rem 1.6rem;
   border: 1px solid rgba(0, 105, 180, 0.14);
   border-radius: 28px;
