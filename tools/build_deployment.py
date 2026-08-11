@@ -4,6 +4,7 @@
 Copies only what the static host needs:
   - index.html
   - az/index.html, az/categories/, az/assets/, az/data/, az/illustrations/
+  - az/audio/ (optional pre-generated story MP3s)
 
 Excludes builder tools, source .docx stories, and oversized local archives.
 """
@@ -17,6 +18,7 @@ DEPLOY = ROOT / "deployment"
 
 COPY_ROOT_FILES = ("index.html",)
 COPY_AZ_DIRS = ("assets", "categories", "data", "illustrations")
+OPTIONAL_AZ_DIRS = ("audio",)
 COPY_AZ_FILES = ("index.html",)
 
 
@@ -45,6 +47,11 @@ def main() -> None:
         if not src.is_dir():
             raise SystemExit(f"Missing required folder: {src}")
         shutil.copytree(src, az_dst / name)
+
+    for name in OPTIONAL_AZ_DIRS:
+        src = ROOT / "az" / name
+        if src.is_dir():
+            shutil.copytree(src, az_dst / name)
 
     files = sum(1 for p in DEPLOY.rglob("*") if p.is_file())
     size_mb = sum(p.stat().st_size for p in DEPLOY.rglob("*") if p.is_file()) / (1024 * 1024)

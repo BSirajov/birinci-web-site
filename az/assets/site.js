@@ -332,9 +332,12 @@
       "Hörmətli oxucu, bu cihazda Azərbaycan nitq səsi tapılmadı.";
     const failedMessage =
       "Hörmətli oxucu, hazırda səsə çevirməni başlatmaq mümkün olmadı. Zəhmət olmasa bir az sonra yenidən cəhd edin və ya hekayəni oxuyun.";
+    const audioFailedMessage =
+      "Hörmətli oxucu, səs faylını oxumaq mümkün olmadı. Zəhmət olmasa bir az sonra yenidən cəhd edin.";
 
     let activeBtn = null;
     let utterance = null;
+    let audioPlayer = null;
     let suppressError = false;
 
     const setLabel = (btn, text) => {
@@ -357,13 +360,29 @@
       utterance = null;
     };
 
+    const stopAudio = () => {
+      if (!audioPlayer) return;
+      audioPlayer.pause();
+      audioPlayer.removeAttribute("src");
+      audioPlayer.load();
+      audioPlayer = null;
+    };
+
     const stopSpeech = () => {
       suppressError = true;
+      stopAudio();
       if (window.speechSynthesis) window.speechSynthesis.cancel();
       clearActive();
       window.setTimeout(() => {
         suppressError = false;
       }, 80);
+    };
+
+    const isPlaying = (btn) => {
+      if (activeBtn !== btn) return false;
+      if (audioPlayer && !audioPlayer.paused && !audioPlayer.ended) return true;
+      if (window.speechSynthesis && window.speechSynthesis.speaking) return true;
+      return false;
     };
 
     const loadVoices = () =>
@@ -417,6 +436,42 @@
         return body;
       }
       return title ? `${title}. ${body}` : body;
+    };
+
+    const playAudioStory = (btn, src) => {
+      stopSpeech();
+      showNote(btn, "");
+
+      const player = new Audio(src);
+      audioPlayer = player;
+
+      player.addEventListener("playing", () => {
+        activeBtn = btn;
+        btn.setAttribute("aria-pressed", "true");
+        setLabel(btn, "Dayandır");
+      });
+      player.addEventListener("ended", () => {
+        if (audioPlayer === player) audioPlayer = null;
+        clearActive();
+      });
+      player.addEventListener("error", () => {
+        if (suppressError) {
+          clearActive();
+          return;
+        }
+        if (audioPlayer === player) audioPlayer = null;
+        clearActive();
+        showNote(btn, audioFailedMessage);
+      });
+
+      const start = player.play();
+      if (start && typeof start.catch === "function") {
+        start.catch(() => {
+          if (audioPlayer === player) audioPlayer = null;
+          clearActive();
+          showNote(btn, audioFailedMessage);
+        });
+      }
     };
 
     const speakStory = async (btn) => {
@@ -474,9 +529,15 @@
 
     buttons.forEach((btn) => {
       btn.addEventListener("click", () => {
-        if (activeBtn === btn && window.speechSynthesis && window.speechSynthesis.speaking) {
+        if (isPlaying(btn)) {
           stopSpeech();
           showNote(btn, "");
+          return;
+        }
+        const story = btn.closest(".story");
+        const audioSrc = story && story.dataset.audio;
+        if (audioSrc) {
+          playAudioStory(btn, audioSrc);
           return;
         }
         speakStory(btn);

@@ -18,6 +18,7 @@ SITE_ROOT = TOOLS.parent
 AZ_ROOT = SITE_ROOT / "az"
 STORIES = AZ_ROOT / "stories"
 ILLUSTRATIONS = AZ_ROOT / "illustrations"
+AUDIO_DIR = AZ_ROOT / "audio"
 MAP_JSON = Path(__file__).resolve().parent / "story-mapping.json"
 DATA_JSON = AZ_ROOT / "data" / "stories.json"
 PAGES_DIR = AZ_ROOT / "categories"
@@ -27,7 +28,7 @@ SITE_NAME = "Bir inci"
 SITE_TITLE = "İbrətamiz deyimlər və hekayələr"
 NAV_LABEL = "İbrətamiz hekayələr"
 HOME_CRUMB = "Ana səhifə"
-ASSET_VERSION = "20260811r"
+ASSET_VERSION = "20260811t"
 
 # Inline Lucide-style stroke icons (24x24 viewBox) for menu items.
 CATEGORY_ICONS: dict[str, str] = {
@@ -458,9 +459,15 @@ def build_category_page(cat: dict) -> str:
     for s in cat["stories"]:
         paras = "".join(f"<p>{esc(p)}</p>" for p in s["paragraphs"])
         img = f"../illustrations/{esc(s['stem'])}.webp"
+        audio_file = AUDIO_DIR / f"{s['stem']}.mp3"
+        audio_attr = (
+            f' data-audio="../audio/{esc(s["stem"])}.mp3?v={ASSET_VERSION}"'
+            if audio_file.is_file()
+            else ""
+        )
         stories_html.append(
             f"""
-<article class="story news-card" id="{esc(s['stem'])}" data-stem="{esc(s['stem'])}" data-title="{esc(s['title'])}">
+<article class="story news-card" id="{esc(s['stem'])}" data-stem="{esc(s['stem'])}" data-title="{esc(s['title'])}"{audio_attr}>
   <div class="card-header">
     <h2 class="card-title story__title">{esc(s['title'])}</h2>
   </div>
@@ -2415,9 +2422,12 @@ JS = r"""
       "Hörmətli oxucu, bu cihazda Azərbaycan nitq səsi tapılmadı.";
     const failedMessage =
       "Hörmətli oxucu, hazırda səsə çevirməni başlatmaq mümkün olmadı. Zəhmət olmasa bir az sonra yenidən cəhd edin və ya hekayəni oxuyun.";
+    const audioFailedMessage =
+      "Hörmətli oxucu, səs faylını oxumaq mümkün olmadı. Zəhmət olmasa bir az sonra yenidən cəhd edin.";
 
     let activeBtn = null;
     let utterance = null;
+    let audioPlayer = null;
     let suppressError = false;
 
     const setLabel = (btn, text) => {
@@ -2440,13 +2450,29 @@ JS = r"""
       utterance = null;
     };
 
+    const stopAudio = () => {
+      if (!audioPlayer) return;
+      audioPlayer.pause();
+      audioPlayer.removeAttribute("src");
+      audioPlayer.load();
+      audioPlayer = null;
+    };
+
     const stopSpeech = () => {
       suppressError = true;
+      stopAudio();
       if (window.speechSynthesis) window.speechSynthesis.cancel();
       clearActive();
       window.setTimeout(() => {
         suppressError = false;
       }, 80);
+    };
+
+    const isPlaying = (btn) => {
+      if (activeBtn !== btn) return false;
+      if (audioPlayer && !audioPlayer.paused && !audioPlayer.ended) return true;
+      if (window.speechSynthesis && window.speechSynthesis.speaking) return true;
+      return false;
     };
 
     const loadVoices = () =>
@@ -2500,6 +2526,42 @@ JS = r"""
         return body;
       }
       return title ? `${title}. ${body}` : body;
+    };
+
+    const playAudioStory = (btn, src) => {
+      stopSpeech();
+      showNote(btn, "");
+
+      const player = new Audio(src);
+      audioPlayer = player;
+
+      player.addEventListener("playing", () => {
+        activeBtn = btn;
+        btn.setAttribute("aria-pressed", "true");
+        setLabel(btn, "Dayandır");
+      });
+      player.addEventListener("ended", () => {
+        if (audioPlayer === player) audioPlayer = null;
+        clearActive();
+      });
+      player.addEventListener("error", () => {
+        if (suppressError) {
+          clearActive();
+          return;
+        }
+        if (audioPlayer === player) audioPlayer = null;
+        clearActive();
+        showNote(btn, audioFailedMessage);
+      });
+
+      const start = player.play();
+      if (start && typeof start.catch === "function") {
+        start.catch(() => {
+          if (audioPlayer === player) audioPlayer = null;
+          clearActive();
+          showNote(btn, audioFailedMessage);
+        });
+      }
     };
 
     const speakStory = async (btn) => {
@@ -2557,9 +2619,15 @@ JS = r"""
 
     buttons.forEach((btn) => {
       btn.addEventListener("click", () => {
-        if (activeBtn === btn && window.speechSynthesis && window.speechSynthesis.speaking) {
+        if (isPlaying(btn)) {
           stopSpeech();
           showNote(btn, "");
+          return;
+        }
+        const story = btn.closest(".story");
+        const audioSrc = story && story.dataset.audio;
+        if (audioSrc) {
+          playAudioStory(btn, audioSrc);
           return;
         }
         speakStory(btn);
