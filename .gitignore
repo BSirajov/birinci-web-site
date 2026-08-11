@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+Thumbs.db
+desktop.ini
+*.original.webp
+az/Moral-Stories-Collection.docx
+tools/_tmp_*
+helpers/_tmp_*
