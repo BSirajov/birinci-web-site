@@ -26,6 +26,7 @@ ASSETS = AZ_ROOT / "assets"
 SITE_NAME = "Bir inci"
 SITE_TITLE = "İbrətamiz deyimlər və hekayələr"
 NAV_LABEL = "İbrətamiz deyimlər və hekayələr"
+HOME_CRUMB = "Ana səhifə"
 
 # Inline Lucide-style stroke icons (24x24 viewBox) for menu items.
 CATEGORY_ICONS: dict[str, str] = {
@@ -432,7 +433,7 @@ def build_landing(catalog: dict) -> str:
         active_slug=None,
         prefix="",
         body=body,
-        crumbs=[(SITE_NAME, None)],
+        crumbs=[(HOME_CRUMB, None)],
         extra_body_class="page-home",
     )
 
@@ -514,7 +515,7 @@ def build_category_page(cat: dict) -> str:
         prefix="../",
         body=body,
         crumbs=[
-            (SITE_NAME, "../index.html"),
+            (HOME_CRUMB, "../index.html"),
             (NAV_LABEL, "../index.html#kateqoriyalar"),
             (cat["title"], None),
         ],
@@ -839,7 +840,7 @@ body.global-search-open { overflow: hidden; }
   min-width: 0;
 }
 .breadcrumbs__item:not(:last-child)::after {
-  content: "/";
+  content: ">";
   margin: 0 0.45rem;
   color: rgba(0, 78, 140, 0.35);
 }
