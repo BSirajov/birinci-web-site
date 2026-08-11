@@ -3,9 +3,9 @@
     "title": "Allahın dostu",
     "category": "iman-ve-meneviyyat",
     "index": 0,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "friend-of-god.mp3",
-    "bytes": 235296
+    "bytes": 237024
   },
   "gods-pleasure": {
     "title": "Allahın rizası",
@@ -35,17 +35,17 @@
     "title": "Doğru yoldan ayrılmamaq",
     "category": "iman-ve-meneviyyat",
     "index": 4,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "not-leaving-the-right-path.mp3",
-    "bytes": 580464
+    "bytes": 580752
   },
   "the-dervishs-clothes": {
     "title": "Dərvişin üst-başı",
     "category": "iman-ve-meneviyyat",
     "index": 8,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-dervishs-clothes.mp3",
-    "bytes": 141984
+    "bytes": 142848
   },
   "the-dervishs-robe": {
     "title": "Dərviş əbası",
@@ -59,17 +59,17 @@
     "title": "Ey Allahım, əvvəlcə dağa-daşa ver",
     "category": "iman-ve-meneviyyat",
     "index": 10,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "o-god-give-first-to-the-mountains-and-stones.mp3",
-    "bytes": 157968
+    "bytes": 157824
   },
   "the-dervishs-spoons": {
     "title": "Dərviş qaşıqları",
     "category": "iman-ve-meneviyyat",
     "index": 6,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-dervishs-spoons.mp3",
-    "bytes": 565488
+    "bytes": 567504
   },
   "o-god-heal-our-sorrows": {
     "title": "Ey Allahım, dərdlərimizə çarə et",
@@ -91,7 +91,7 @@
     "title": "Halal tikə",
     "category": "iman-ve-meneviyyat",
     "index": 12,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "a-lawful-morsel.mp3",
     "bytes": 136944
   },
@@ -107,17 +107,17 @@
     "title": "Haram pul",
     "category": "iman-ve-meneviyyat",
     "index": 14,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "forbidden-money.mp3",
-    "bytes": 1159488
+    "bytes": 1162656
   },
   "the-idle-devil": {
     "title": "İşsiz şeytan",
     "category": "iman-ve-meneviyyat",
     "index": 16,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-idle-devil.mp3",
-    "bytes": 177552
+    "bytes": 179424
   },
   "the-light-of-the-universe": {
     "title": "Kainat işığı",
@@ -139,9 +139,9 @@
     "title": "Kilsə zəngi",
     "category": "iman-ve-meneviyyat",
     "index": 18,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-church-bell.mp3",
-    "bytes": 259488
+    "bytes": 260352
   },
   "where-does-calamity-come-from": {
     "title": "Müsibət nədən gəlir",
@@ -155,9 +155,9 @@
     "title": "Müsibət və nemət",
     "category": "iman-ve-meneviyyat",
     "index": 22,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "calamity-and-blessing.mp3",
-    "bytes": 114768
+    "bytes": 114912
   },
   "the-mullah-and-the-scholar": {
     "title": "Molla və alim",
@@ -171,9 +171,9 @@
     "title": "Oruclu olmaq",
     "category": "iman-ve-meneviyyat",
     "index": 24,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "to-be-fasting.mp3",
-    "bytes": 349488
+    "bytes": 350928
   },
   "why-are-you-waiting-for-the-last-day-of-the-world": {
     "title": "Niyə dünyanın son gününü gözləyirsiniz",
@@ -187,9 +187,9 @@
     "title": "Möcüzənin qiyməti",
     "category": "iman-ve-meneviyyat",
     "index": 20,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-price-of-a-miracle.mp3",
-    "bytes": 1377072
+    "bytes": 1379088
   },
   "pray-while-washing-your-dishes": {
     "title": "Qab-qacağınızı yuyarkən dua edin",
@@ -203,9 +203,9 @@
     "title": "Qismət olarsa görüşərik",
     "category": "iman-ve-meneviyyat",
     "index": 26,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "if-fate-allows-we-will-meet.mp3",
-    "bytes": 292320
+    "bytes": 293472
   },
   "ramadan-prayer": {
     "title": "Ramazan duası",
@@ -219,17 +219,17 @@
     "title": "Qırx çıxarma",
     "category": "iman-ve-meneviyyat",
     "index": 28,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-fortieth-day-rite.mp3",
-    "bytes": 295632
+    "bytes": 294912
   },
   "help-yourself-o-exalted-god": {
     "title": "Sən özün yardım et uca Allahım",
     "category": "iman-ve-meneviyyat",
     "index": 30,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "help-yourself-o-exalted-god.mp3",
-    "bytes": 200304
+    "bytes": 199584
   },
   "stoning-the-devil": {
     "title": "Şeytanı daşlama",
@@ -243,17 +243,17 @@
     "title": "Şəhadət şərbəti içmək",
     "category": "iman-ve-meneviyyat",
     "index": 32,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "drinking-the-sherbet-of-martyrdom.mp3",
-    "bytes": 162000
+    "bytes": 162288
   },
   "your-hand-at-work-your-hope-in-god": {
     "title": "Əlin işdə, ümidin Allahda",
     "category": "iman-ve-meneviyyat",
     "index": 34,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "your-hand-at-work-your-hope-in-god.mp3",
-    "bytes": 937584
+    "bytes": 939744
   },
   "the-most-beautiful-portion": {
     "title": "Ən gözəl nəsib",
@@ -283,17 +283,17 @@
     "title": "Ailənizin dəyəri",
     "category": "aile-ve-terbiye",
     "index": 0,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-value-of-your-family.mp3",
-    "bytes": 833328
+    "bytes": 843552
   },
   "a-mothers-love": {
     "title": "Ana sevgisi",
     "category": "aile-ve-terbiye",
     "index": 2,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "a-mothers-love.mp3",
-    "bytes": 1000224
+    "bytes": 998640
   },
   "a-fathers-footprints": {
     "title": "Atanın izləri",
@@ -323,15 +323,15 @@
     "title": "Baba və nəvəsi bazarlıqda",
     "category": "aile-ve-terbiye",
     "index": 6,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "grandfather-and-grandson-at-the-market.mp3",
-    "bytes": 422352
+    "bytes": 421632
   },
   "only-my-mother-would-weep": {
     "title": "Bir tək anam ağlar",
     "category": "aile-ve-terbiye",
     "index": 8,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "only-my-mother-would-weep.mp3",
     "bytes": 59472
   },
@@ -339,25 +339,25 @@
     "title": "Fakir Baykurtun unutmadığı ana nəsihəti",
     "category": "aile-ve-terbiye",
     "index": 10,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-mothers-advice-fakir-baykurt-never-forgot.mp3",
-    "bytes": 768240
+    "bytes": 769968
   },
   "father-and-son": {
     "title": "Ata və oğul",
     "category": "aile-ve-terbiye",
     "index": 4,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "father-and-son.mp3",
-    "bytes": 1218960
+    "bytes": 1223712
   },
   "from-a-wise-fathers-advice-to-his-son": {
     "title": "Müdrik atanın oğluna öyüd-nəsihətlərindən",
     "category": "aile-ve-terbiye",
     "index": 12,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "from-a-wise-fathers-advice-to-his-son.mp3",
-    "bytes": 801648
+    "bytes": 802512
   },
   "spinach": {
     "title": "İspanaq",
@@ -371,9 +371,9 @@
     "title": "Tökülən dişlər",
     "category": "aile-ve-terbiye",
     "index": 14,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "fallen-teeth.mp3",
-    "bytes": 225072
+    "bytes": 225504
   },
   "puppies-for-sale": {
     "title": "Satılıq küçüklər",
@@ -395,9 +395,9 @@
     "title": "Yuvanın qurucusu",
     "category": "aile-ve-terbiye",
     "index": 16,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-builder-of-the-nest.mp3",
-    "bytes": 74160
+    "bytes": 74880
   },
   "rotten-seed": {
     "title": "Çürük toxum",
@@ -419,9 +419,9 @@
     "title": "Ən gözəl hədiyyə",
     "category": "aile-ve-terbiye",
     "index": 20,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-most-beautiful-gift.mp3",
-    "bytes": 121536
+    "bytes": 120816
   },
   "hold-my-hand": {
     "title": "Əlimi tut",
@@ -443,25 +443,25 @@
     "title": "Erkən evlilik",
     "category": "sevgi-ve-evlilik",
     "index": 2,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "early-marriage.mp3",
-    "bytes": 558144
+    "bytes": 558720
   },
   "the-purple-jacket": {
     "title": "Bənövşəyi çəpkən",
     "category": "sevgi-ve-evlilik",
     "index": 0,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-purple-jacket.mp3",
-    "bytes": 756576
+    "bytes": 756288
   },
   "raising-children": {
     "title": "Övlad tərbiyəsi",
     "category": "aile-ve-terbiye",
     "index": 18,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "raising-children.mp3",
-    "bytes": 1548000
+    "bytes": 1547712
   },
   "i-kiss-your-eyes": {
     "title": "Gözlərindən öpərəm",
@@ -475,7 +475,7 @@
     "title": "Gül",
     "category": "sevgi-ve-evlilik",
     "index": 6,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-rose.mp3",
     "bytes": 81504
   },
@@ -491,9 +491,9 @@
     "title": "Evlənənlərə tövsiyə",
     "category": "sevgi-ve-evlilik",
     "index": 4,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "advice-for-those-who-marry.mp3",
-    "bytes": 524448
+    "bytes": 525024
   },
   "true-love": {
     "title": "Həqiqi eşq",
@@ -515,7 +515,7 @@
     "title": "Nələr çəkdi qadın bu dünyada",
     "category": "sevgi-ve-evlilik",
     "index": 8,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "what-women-have-endured-in-this-world.mp3",
     "bytes": 647424
   },
@@ -523,9 +523,9 @@
     "title": "Sarı və qırmızı çiçəklər",
     "category": "sevgi-ve-evlilik",
     "index": 12,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "yellow-and-red-flowers.mp3",
-    "bytes": 139968
+    "bytes": 140976
   },
   "do-not-let-your-hearts-part": {
     "title": "Qəlblərinizin ayrılmasına imkan verməyin",
@@ -555,17 +555,17 @@
     "title": "Sevilən insan sevgisini insanlara verən insandır",
     "category": "sevgi-ve-evlilik",
     "index": 14,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-beloved-is-one-who-gives-love-to-people.mp3",
-    "bytes": 745488
+    "bytes": 745056
   },
   "the-red-dress": {
     "title": "Qırmızı don",
     "category": "sevgi-ve-evlilik",
     "index": 10,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-red-dress.mp3",
-    "bytes": 1185264
+    "bytes": 1187856
   },
   "i-love-you": {
     "title": "Səni sevirəm",
@@ -579,9 +579,9 @@
     "title": "Uzaqdan sevmək",
     "category": "sevgi-ve-evlilik",
     "index": 18,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "loving-from-afar.mp3",
-    "bytes": 300528
+    "bytes": 303984
   },
   "what-is-loyalty": {
     "title": "Vəfa nədir",
@@ -595,9 +595,9 @@
     "title": "Sədəf çiçəyi",
     "category": "sevgi-ve-evlilik",
     "index": 16,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-mother-of-pearl-flower.mp3",
-    "bytes": 1265040
+    "bytes": 1267776
   },
   "meddling-in-others-lives": {
     "title": "Başqalarının həyatına qarışmaq",
@@ -619,23 +619,23 @@
     "title": "Atların dostluğu",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 0,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-friendship-of-horses.mp3",
-    "bytes": 401472
+    "bytes": 401904
   },
   "a-pair-of-boots": {
     "title": "Bir cüt çəkmə",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 2,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "a-pair-of-boots.mp3",
-    "bytes": 532512
+    "bytes": 530064
   },
   "gossip": {
     "title": "Dedi-qodu",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 6,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "gossip.mp3",
     "bytes": 591408
   },
@@ -643,9 +643,9 @@
     "title": "Bir stəkan süd",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 4,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "a-glass-of-milk.mp3",
-    "bytes": 907776
+    "bytes": 908496
   },
   "i-want-a-friend": {
     "title": "Dost istərəm",
@@ -667,9 +667,9 @@
     "title": "Dostluq etməyəcəklərin",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 8,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "those-you-should-not-befriend.mp3",
-    "bytes": 191088
+    "bytes": 191376
   },
   "know-your-friend": {
     "title": "Dostunu tanı",
@@ -683,9 +683,9 @@
     "title": "Gedin amma yenə gəlin",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 10,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "go-but-come-again.mp3",
-    "bytes": 163872
+    "bytes": 164592
   },
   "how-we-treat-people": {
     "title": "İnsanlara olan münasibət",
@@ -715,25 +715,25 @@
     "title": "İltifat",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 12,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "a-compliment.mp3",
-    "bytes": 1262592
+    "bytes": 1261296
   },
   "compassion": {
     "title": "Mərhəmət",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 16,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "compassion.mp3",
-    "bytes": 965520
+    "bytes": 967104
   },
   "humanity": {
     "title": "İnsanlıq",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 14,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "humanity.mp3",
-    "bytes": 1682640
+    "bytes": 1681776
   },
   "mockery-is-unacceptable": {
     "title": "Məsxərə yolverilməzdir",
@@ -755,9 +755,9 @@
     "title": "Niyə insanlar mübahisə edəndə qışqırırlar",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 18,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "why-people-shout-when-they-argue.mp3",
-    "bytes": 614448
+    "bytes": 618192
   },
   "your-friends": {
     "title": "Sənin dostların",
@@ -771,33 +771,33 @@
     "title": "Tənha olmaq",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 24,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "to-be-alone.mp3",
-    "bytes": 184752
+    "bytes": 186624
   },
   "to-meet-and-to-know": {
     "title": "Tanış olmaq və tanımaq",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 22,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "to-meet-and-to-know.mp3",
-    "bytes": 93168
+    "bytes": 94464
   },
   "spend-your-time-with-people": {
     "title": "Vaxtını insanlarla keçir",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 26,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "spend-your-time-with-people.mp3",
-    "bytes": 829296
+    "bytes": 833904
   },
   "if-the-road-does-not-tire-you-it-is-because-of-your-companion": {
     "title": "Yol yormursa, yoldaşındandır",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 28,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "if-the-road-does-not-tire-you-it-is-because-of-your-companion.mp3",
-    "bytes": 419472
+    "bytes": 419904
   },
   "welcome-my-bey": {
     "title": "Xoş gəldin bəyim",
@@ -827,7 +827,7 @@
     "title": "Ağzını açma",
     "category": "exlaq-ve-xarakter",
     "index": 2,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "dont-open-your-mouth.mp3",
     "bytes": 89136
   },
@@ -851,9 +851,9 @@
     "title": "Adam olmaq",
     "category": "exlaq-ve-xarakter",
     "index": 0,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "being-human.mp3",
-    "bytes": 360576
+    "bytes": 361728
   },
   "honey-or-dry-bread": {
     "title": "Bal ya quru çörək",
@@ -875,25 +875,25 @@
     "title": "Bu qədər az verməzdi",
     "category": "exlaq-ve-xarakter",
     "index": 6,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "he-would-not-have-given-so-little.mp3",
-    "bytes": 242784
+    "bytes": 244224
   },
   "who-handles-honey-licks-his-finger": {
     "title": "Bal tutan barmağını yalayar",
     "category": "exlaq-ve-xarakter",
     "index": 4,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "who-handles-honey-licks-his-finger.mp3",
-    "bytes": 394704
+    "bytes": 396288
   },
   "do-not-do-these-things": {
     "title": "Bunları etməyin",
     "category": "exlaq-ve-xarakter",
     "index": 8,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "do-not-do-these-things.mp3",
-    "bytes": 139104
+    "bytes": 138384
   },
   "no-one-listens-to-constant-complainers": {
     "title": "Durmadan şikayət edənə kimsə qulaq verməz",
@@ -907,9 +907,9 @@
     "title": "Dürüstlük çiçəyi",
     "category": "exlaq-ve-xarakter",
     "index": 10,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-flower-of-honesty.mp3",
-    "bytes": 751968
+    "bytes": 753120
   },
   "strength-and-sorrow": {
     "title": "Güc və dərd",
@@ -931,9 +931,9 @@
     "title": "Heç bir şeyə dəyişmərəm",
     "category": "exlaq-ve-xarakter",
     "index": 14,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "i-would-not-trade-it-for-anything.mp3",
-    "bytes": 172080
+    "bytes": 172656
   },
   "not-every-sorrow-is-told-to-people": {
     "title": "Hər dərd insanlara söylənməz",
@@ -947,17 +947,17 @@
     "title": "Hər şey bizim öz əlimizdədir",
     "category": "exlaq-ve-xarakter",
     "index": 16,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "everything-is-in-our-own-hands.mp3",
-    "bytes": 380448
+    "bytes": 381168
   },
   "be-sure-of-your-purpose": {
     "title": "Məqsədinizdən əmin olun",
     "category": "exlaq-ve-xarakter",
     "index": 18,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "be-sure-of-your-purpose.mp3",
-    "bytes": 172080
+    "bytes": 172656
   },
   "that-was-not-your-right": {
     "title": "O sənin haqqın deyildi",
@@ -971,17 +971,17 @@
     "title": "Onun ipi ilə quyuya enmək olmaz",
     "category": "exlaq-ve-xarakter",
     "index": 20,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "you-cannot-descend-a-well-on-his-rope.mp3",
-    "bytes": 370944
+    "bytes": 369072
   },
   "attitude-toward-a-problem": {
     "title": "Problemə münasibət",
     "category": "exlaq-ve-xarakter",
     "index": 22,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "attitude-toward-a-problem.mp3",
-    "bytes": 248832
+    "bytes": 250848
   },
   "to-be-cool-headed": {
     "title": "Soyuqqanlı olmaq",
@@ -1011,9 +1011,9 @@
     "title": "Təhsil və ya xasiyyət",
     "category": "exlaq-ve-xarakter",
     "index": 24,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "education-or-character.mp3",
-    "bytes": 456192
+    "bytes": 460080
   },
   "to-give-up": {
     "title": "Vaz keçmək",
@@ -1027,9 +1027,9 @@
     "title": "Vəsflərimiz düşmənimiz ola bilər",
     "category": "exlaq-ve-xarakter",
     "index": 28,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "our-qualities-can-become-our-enemies.mp3",
-    "bytes": 163296
+    "bytes": 164016
   },
   "telling-lies": {
     "title": "Yalan danışmaq",
@@ -1051,9 +1051,9 @@
     "title": "Uzaq duracağınız ifadələr",
     "category": "exlaq-ve-xarakter",
     "index": 26,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "expressions-you-should-stay-away-from.mp3",
-    "bytes": 769248
+    "bytes": 769536
   },
   "a-mature-person": {
     "title": "Yetkin insan",
@@ -1067,9 +1067,9 @@
     "title": "Yaşadığınız heç bir gündən şikayətçi olmayın",
     "category": "exlaq-ve-xarakter",
     "index": 30,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "do-not-complain-about-any-day-you-have-lived.mp3",
-    "bytes": 111888
+    "bytes": 110304
   },
   "try-to-think-this-way": {
     "title": "Çalışın belə düşünün",
@@ -1083,9 +1083,9 @@
     "title": "Çatdırmadım, bacarmadım deməyin",
     "category": "exlaq-ve-xarakter",
     "index": 34,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "dont-say-i-couldnt-deliver-or-i-couldnt-manage.mp3",
-    "bytes": 172080
+    "bytes": 172368
   },
   "turning-hardship-into-opportunity": {
     "title": "Çətinliyi fürsətə çevirmək",
@@ -1099,7 +1099,7 @@
     "title": "Özgüvənli olmaq",
     "category": "exlaq-ve-xarakter",
     "index": 36,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "to-be-self-confident.mp3",
     "bytes": 163872
   },
@@ -1107,9 +1107,9 @@
     "title": "Üzünüz daim gülsün",
     "category": "exlaq-ve-xarakter",
     "index": 38,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "may-your-face-always-smile.mp3",
-    "bytes": 88416
+    "bytes": 88128
   },
   "a-generous-man": {
     "title": "Əliaçıq adam",
@@ -1131,17 +1131,17 @@
     "title": "Ən güclü qalxan",
     "category": "exlaq-ve-xarakter",
     "index": 40,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-strongest-shield.mp3",
-    "bytes": 89856
+    "bytes": 90144
   },
   "the-goose-to-be-plucked": {
     "title": "Yolunacaq qaz",
     "category": "exlaq-ve-xarakter",
     "index": 32,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-goose-to-be-plucked.mp3",
-    "bytes": 967536
+    "bytes": 972144
   },
   "the-one-who-knows-and-the-one-who-does-not": {
     "title": "Bilən və bilməyən",
@@ -1155,9 +1155,9 @@
     "title": "Bildiklərini söylə",
     "category": "soz-sukut-ve-unsiyyet",
     "index": 0,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "say-what-you-know.mp3",
-    "bytes": 158976
+    "bytes": 159552
   },
   "the-three-best-things": {
     "title": "Ən yaxşı üç şey",
@@ -1171,9 +1171,9 @@
     "title": "Dil",
     "category": "soz-sukut-ve-unsiyyet",
     "index": 2,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-tongue.mp3",
-    "bytes": 77616
+    "bytes": 77760
   },
   "what-is-a-word": {
     "title": "Söz nədir",
@@ -1187,17 +1187,17 @@
     "title": "Söz və sükut",
     "category": "soz-sukut-ve-unsiyyet",
     "index": 4,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "word-and-silence.mp3",
-    "bytes": 308448
+    "bytes": 307584
   },
   "silence": {
     "title": "Sükut",
     "category": "soz-sukut-ve-unsiyyet",
     "index": 6,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "silence.mp3",
-    "bytes": 96336
+    "bytes": 94896
   },
   "saying-the-word-in-its-place": {
     "title": "Sözü yerində söyləmək",
@@ -1235,9 +1235,9 @@
     "title": "Axtarmaq",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 0,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "searching.mp3",
-    "bytes": 114480
+    "bytes": 114192
   },
   "spare-time": {
     "title": "Boş vaxt",
@@ -1251,17 +1251,17 @@
     "title": "Ünsiyyət",
     "category": "soz-sukut-ve-unsiyyet",
     "index": 10,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "communication.mp3",
-    "bytes": 90576
+    "bytes": 90144
   },
   "it-is-in-vain": {
     "title": "Boşunadır",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 2,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "it-is-in-vain.mp3",
-    "bytes": 101088
+    "bytes": 101952
   },
   "if-i-dont-do-it-these-days-the-world-wont-collapse": {
     "title": "Bu günlərdə etməsəm, dünya dağılmaz ki",
@@ -1283,9 +1283,9 @@
     "title": "Ciyər",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 6,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "liver.mp3",
-    "bytes": 397008
+    "bytes": 397296
   },
   "a-more-effective-way": {
     "title": "Daha effektiv yol",
@@ -1299,17 +1299,17 @@
     "title": "Bu qayıq da boşdur",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 4,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "this-boat-is-empty-too.mp3",
-    "bytes": 419904
+    "bytes": 419328
   },
   "sowing-millet-at-the-bottom": {
     "title": "Dibinə darı əkmək",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 8,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "sowing-millet-at-the-bottom.mp3",
-    "bytes": 559440
+    "bytes": 561024
   },
   "the-diderot-effect": {
     "title": "Didro effekti",
@@ -1323,9 +1323,9 @@
     "title": "Gecikmək nə deməkdir",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 12,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "what-it-means-to-be-late.mp3",
-    "bytes": 307872
+    "bytes": 310176
   },
   "a-different-path": {
     "title": "Fərqli yol",
@@ -1347,7 +1347,7 @@
     "title": "Dünyada ən gözəl yerlər",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 10,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-most-beautiful-places-in-the-world.mp3",
     "bytes": 100800
   },
@@ -1355,17 +1355,17 @@
     "title": "Hamı dəli olanda ağıllı olmağa gərək yoxdur",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 14,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "no-need-to-be-sane-when-everyone-is-mad.mp3",
-    "bytes": 302544
+    "bytes": 302688
   },
   "a-life-lesson": {
     "title": "Həyat dərsi",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 16,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "a-life-lesson.mp3",
-    "bytes": 201024
+    "bytes": 200448
   },
   "at-the-doctors-appointment": {
     "title": "Həkim qəbulunda",
@@ -1379,9 +1379,9 @@
     "title": "Həyatda öyrəndiklərimiz",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 18,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "what-we-learn-in-life.mp3",
-    "bytes": 133344
+    "bytes": 134496
   },
   "what-matters-in-life": {
     "title": "Həyatda önəmli olan nədir",
@@ -1403,9 +1403,9 @@
     "title": "İki qab su",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 20,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "two-bowls-of-water.mp3",
-    "bytes": 431424
+    "bytes": 431280
   },
   "it-wont-go-to-waste": {
     "title": "İtib batmaz",
@@ -1419,15 +1419,15 @@
     "title": "İstanbullu bir xanımın xatirələrindən",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 22,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "from-the-memoirs-of-a-lady-from-istanbul.mp3",
-    "bytes": 825840
+    "bytes": 828288
   },
   "nothing-is-ever-truly-lost": {
     "title": "İtirdim deyə bir şey yoxdur",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 24,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "nothing-is-ever-truly-lost.mp3",
     "bytes": 76320
   },
@@ -1443,25 +1443,25 @@
     "title": "Kitab dükanında",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 26,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "at-the-bookstore.mp3",
-    "bytes": 734400
+    "bytes": 733392
   },
   "a-windmill-turning-in-still-air": {
     "title": "Küləksiz havada fırlanan yel dəyirmanı",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 28,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "a-windmill-turning-in-still-air.mp3",
-    "bytes": 68112
+    "bytes": 68400
   },
   "the-lecturer-and-the-groom": {
     "title": "Mühazirəçi və mehtər",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 30,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-lecturer-and-the-groom.mp3",
-    "bytes": 347616
+    "bytes": 348480
   },
   "a-magnificent-lesson": {
     "title": "Möhtəşəm dərs",
@@ -1475,9 +1475,9 @@
     "title": "Nyutonun 2-ci qanunu",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 32,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "newtons-second-law.mp3",
-    "bytes": 159696
+    "bytes": 158976
   },
   "teacher-hello-do-you-remember-me": {
     "title": "Müəllim, salam, xatırladınız məni",
@@ -1499,9 +1499,9 @@
     "title": "Suyun xassələri",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 36,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-properties-of-water.mp3",
-    "bytes": 203328
+    "bytes": 204048
   },
   "to-be-full-or-to-be-gone": {
     "title": "Tox və ya yox olmaq",
@@ -1515,25 +1515,25 @@
     "title": "Pambıq tarlasına gedən yol",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 34,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-road-to-the-cotton-field.mp3",
-    "bytes": 985392
+    "bytes": 983088
   },
   "to-dream": {
     "title": "Xəyal etmək",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 38,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "to-dream.mp3",
-    "bytes": 72288
+    "bytes": 72144
   },
   "the-dead-remain-in-life": {
     "title": "Ölən həyatda qalandır",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 40,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-dead-remain-in-life.mp3",
-    "bytes": 100224
+    "bytes": 98784
   },
   "what-do-i-need-it-for": {
     "title": "Nəyimə lazımdır",
@@ -1563,25 +1563,25 @@
     "title": "Üç mənzərə",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 44,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "three-landscapes.mp3",
-    "bytes": 745920
+    "bytes": 743904
   },
   "three-essential-things-for-a-city": {
     "title": "Şəhər üçün üç vacib şey",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 46,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "three-essential-things-for-a-city.mp3",
-    "bytes": 135792
+    "bytes": 135648
   },
   "if-the-door-before-you-wont-open-it-is-not-your-door": {
     "title": "Önünüzdə olan qapı açılmırsa deməli o sizin qapınız deyil",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 42,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "if-the-door-before-you-wont-open-it-is-not-your-door.mp3",
-    "bytes": 424368
+    "bytes": 425952
   },
   "the-grocery-shop-and-the-supermarket": {
     "title": "Baqqal dükanı və supermarket",
@@ -1595,9 +1595,9 @@
     "title": "Bağ və bağban",
     "category": "emek-ruzi-ve-servet",
     "index": 2,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-garden-and-the-gardener.mp3",
-    "bytes": 194112
+    "bytes": 195264
   },
   "the-chief-accountant-and-the-ceo": {
     "title": "Baş mühasib və baş direktor",
@@ -1619,23 +1619,23 @@
     "title": "Balıq dükanında",
     "category": "emek-ruzi-ve-servet",
     "index": 0,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "at-the-fish-shop.mp3",
-    "bytes": 1242576
+    "bytes": 1246176
   },
   "everyone-has-work-to-do": {
     "title": "Hamının işi-gücü var",
     "category": "emek-ruzi-ve-servet",
     "index": 6,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "everyone-has-work-to-do.mp3",
-    "bytes": 450288
+    "bytes": 451296
   },
   "we-are-rich": {
     "title": "Biz zənginik",
     "category": "emek-ruzi-ve-servet",
     "index": 4,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "we-are-rich.mp3",
     "bytes": 413712
   },
@@ -1659,9 +1659,9 @@
     "title": "Mercedes",
     "category": "emek-ruzi-ve-servet",
     "index": 10,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "mercedes.mp3",
-    "bytes": 328752
+    "bytes": 329328
   },
   "the-former-minister-at-the-seminar": {
     "title": "Keçmiş nazir seminarda",
@@ -1691,17 +1691,17 @@
     "title": "Nisyə dəftəri",
     "category": "emek-ruzi-ve-servet",
     "index": 12,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-credit-ledger.mp3",
-    "bytes": 1025856
+    "bytes": 1026144
   },
   "pay-rent-for-the-water": {
     "title": "Su üçün kirayə ödə",
     "category": "emek-ruzi-ve-servet",
     "index": 14,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "pay-rent-for-the-water.mp3",
-    "bytes": 229104
+    "bytes": 226944
   },
   "do-you-have-spending-money": {
     "title": "Xərcliyiniz varmı",
@@ -1715,15 +1715,15 @@
     "title": "İsti çörək",
     "category": "emek-ruzi-ve-servet",
     "index": 8,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "hot-bread.mp3",
-    "bytes": 1518480
+    "bytes": 1521360
   },
   "his-hand-is-at-work": {
     "title": "Əli işdədir",
     "category": "emek-ruzi-ve-servet",
     "index": 18,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "his-hand-is-at-work.mp3",
     "bytes": 152208
   },
@@ -1739,9 +1739,9 @@
     "title": "Bu millət ilə dünya fəth edilə bilər",
     "category": "edalet-ve-cemiyyet",
     "index": 0,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "with-this-nation-the-world-can-be-conquered.mp3",
-    "bytes": 565344
+    "bytes": 565776
   },
   "the-bedouin-whose-camel-was-stolen": {
     "title": "Dəvəsi oğurlanmış bədəvinin hekayəsi",
@@ -1755,17 +1755,17 @@
     "title": "Yaylıq satıcısı",
     "category": "emek-ruzi-ve-servet",
     "index": 16,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-scarf-seller.mp3",
-    "bytes": 1461024
+    "bytes": 1469520
   },
   "the-woman-whose-house-was-robbed": {
     "title": "Evi qarət olunan qadın",
     "category": "edalet-ve-cemiyyet",
     "index": 2,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-woman-whose-house-was-robbed.mp3",
-    "bytes": 203904
+    "bytes": 204624
   },
   "the-just-verdict-of-the-frankfurt-judge": {
     "title": "Frankfurt hakiminin ədalətli hökmü",
@@ -1779,9 +1779,9 @@
     "title": "Nazim Hikmət Bursa həbsxanasında",
     "category": "edalet-ve-cemiyyet",
     "index": 4,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "nazim-hikmet-in-bursa-prison.mp3",
-    "bytes": 493920
+    "bytes": 495504
   },
   "the-bell-to-hang-on-the-cats-neck": {
     "title": "Pişiyin boynundan asılacaq zınqırov",
@@ -1795,9 +1795,9 @@
     "title": "Ədalət var ikən haqsızlıq niyə",
     "category": "edalet-ve-cemiyyet",
     "index": 8,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "why-injustice-when-there-is-justice.mp3",
-    "bytes": 141408
+    "bytes": 142128
   },
   "homeland-and-land": {
     "title": "Vətən və torpaq",
@@ -1819,41 +1819,41 @@
     "title": "Quzuların dərisi",
     "category": "edalet-ve-cemiyyet",
     "index": 6,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-skins-of-the-lambs.mp3",
-    "bytes": 988416
+    "bytes": 991584
   },
   "aging": {
     "title": "Yaşlanma",
     "category": "yaslanma-ve-zaman",
     "index": 2,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "aging.mp3",
-    "bytes": 101952
+    "bytes": 102384
   },
   "the-lions-footprint": {
     "title": "Aslanın izi",
     "category": "temsiller-ve-meseller",
     "index": 0,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-lions-footprint.mp3",
-    "bytes": 210240
+    "bytes": 210960
   },
   "what-changed-after-sixty": {
     "title": "Altmışdan sonra nə dəyişdi",
     "category": "yaslanma-ve-zaman",
     "index": 0,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "what-changed-after-sixty.mp3",
-    "bytes": 985824
+    "bytes": 988992
   },
   "the-elephant-and-the-rope": {
     "title": "Fil və ip",
     "category": "temsiller-ve-meseller",
     "index": 2,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-elephant-and-the-rope.mp3",
-    "bytes": 405792
+    "bytes": 404496
   },
   "two-donkeys": {
     "title": "İki uzunqulaq",
@@ -1883,9 +1883,9 @@
     "title": "Su daşıyan qarışqa",
     "category": "temsiller-ve-meseller",
     "index": 6,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-ant-that-carries-water.mp3",
-    "bytes": 391536
+    "bytes": 395424
   },
   "the-donkeys-law": {
     "title": "Eşşəyin qanunu",
@@ -1907,9 +1907,9 @@
     "title": "Albrecht Dürer",
     "category": "tarix-ve-taninmish-shexsiyyetler",
     "index": 0,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "albrecht-durer.mp3",
-    "bytes": 833040
+    "bytes": 831888
   },
   "architect-sinan-dies-in-a-house-without-water": {
     "title": "Memar Sinan susuz evdə vəfat edir",
@@ -1931,33 +1931,33 @@
     "title": "Allahın verdiyi nemətlər",
     "category": "iman-ve-meneviyyat",
     "index": 2,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "blessings-god-has-given.mp3",
-    "bytes": 153504
+    "bytes": 153936
   },
   "people-who-need-something-from-you": {
     "title": "Sizə işi düşən adamlar",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 20,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "people-who-need-something-from-you.mp3",
-    "bytes": 127296
+    "bytes": 126000
   },
   "explaining-ones-sorrow": {
     "title": "Dərdi izah etmək",
     "category": "exlaq-ve-xarakter",
     "index": 12,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "explaining-ones-sorrow.mp3",
-    "bytes": 115776
+    "bytes": 116640
   },
   "the-shepherd-must-be-called": {
     "title": "Çobanı səsləmək lazımdır",
     "category": "soz-sukut-ve-unsiyyet",
     "index": 8,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "the-shepherd-must-be-called.mp3",
-    "bytes": 526032
+    "bytes": 527472
   },
   "how-to-ward-off-insults": {
     "title": "Təhqirləri necə dəf etməli",
@@ -1987,9 +1987,9 @@
     "title": "Milçək çini qablar dükanında",
     "category": "temsiller-ve-meseller",
     "index": 4,
-    "voice": "az-AZ-BanuNeural",
+    "voice": "az-AZ-BabekNeural",
     "file": "a-fly-in-the-china-shop.mp3",
-    "bytes": 167760
+    "bytes": 168048
   },
   "hayats-life-story": {
     "title": "Həyatın həyat hekayəsi",

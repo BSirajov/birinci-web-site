@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Generate MP3 narration for stories via Microsoft Edge TTS.
 
-Within each category, voices alternate:
+Default voice assignment (when --voice is not set) alternates per category:
   even index → female (az-AZ-BanuNeural)
   odd index  → male   (az-AZ-BabekNeural)
 
@@ -9,6 +9,7 @@ Examples:
   python tools/generate_story_audio.py --all
   python tools/generate_story_audio.py friend-of-god
   python tools/generate_story_audio.py --all --force
+  python tools/generate_story_audio.py --stems-from-voice az-AZ-BanuNeural --voice az-AZ-BabekNeural --force
 """
 from __future__ import annotations
 
@@ -31,9 +32,28 @@ MANIFEST_JSON = AUDIO_DIR / "manifest.json"
 
 VOICE_FEMALE = "az-AZ-BanuNeural"
 VOICE_MALE = "az-AZ-BabekNeural"
+KNOWN_VOICES = (VOICE_FEMALE, VOICE_MALE)
 MAX_CONCURRENCY = 2
 MAX_RETRIES = 8
 RETRY_BASE_DELAY = 2.0
+
+
+def load_manifest() -> dict[str, dict]:
+    if not MANIFEST_JSON.is_file():
+        return {}
+    try:
+        data = json.loads(MANIFEST_JSON.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def stems_with_voice(voice: str) -> set[str]:
+    return {
+        stem
+        for stem, meta in load_manifest().items()
+        if isinstance(meta, dict) and meta.get("voice") == voice
+    }
 
 
 def load_categories() -> list[dict]:
@@ -125,12 +145,7 @@ async def synthesize(text: str, out_path: Path, voice: str) -> None:
 async def run(jobs: list[dict], force: bool) -> None:
     AUDIO_DIR.mkdir(parents=True, exist_ok=True)
     sem = asyncio.Semaphore(MAX_CONCURRENCY)
-    manifest: dict[str, dict] = {}
-    if MANIFEST_JSON.is_file():
-        try:
-            manifest = json.loads(MANIFEST_JSON.read_text(encoding="utf-8"))
-        except json.JSONDecodeError:
-            manifest = {}
+    manifest = load_manifest()
 
     total = len(jobs)
     done = 0
@@ -155,7 +170,7 @@ async def run(jobs: list[dict], force: bool) -> None:
 
         async with sem:
             print(
-                f"→ {stem} [{job['category']} #{job['index']+1}] {voice}",
+                f"-> {stem} [{job['category']} #{job['index']+1}] {voice}",
                 flush=True,
             )
             try:
@@ -203,18 +218,43 @@ def main() -> None:
     parser.add_argument("stems", nargs="*", help="Story stem(s), e.g. friend-of-god")
     parser.add_argument("--all", action="store_true", help="Generate audio for every story")
     parser.add_argument(
+        "--stems-from-voice",
+        metavar="VOICE",
+        help="Select stems whose manifest voice matches VOICE (e.g. az-AZ-BanuNeural)",
+    )
+    parser.add_argument(
+        "--voice",
+        metavar="VOICE",
+        choices=KNOWN_VOICES,
+        help="Force this voice for all selected jobs (overrides alternating assignment)",
+    )
+    parser.add_argument(
         "--force",
         action="store_true",
         help="Regenerate even if an MP3 already exists for that stem/voice",
     )
     args = parser.parse_args()
 
+    selectors = sum(
+        [
+            bool(args.all),
+            bool(args.stems),
+            bool(args.stems_from_voice),
+        ]
+    )
+    if selectors != 1:
+        parser.error("Provide exactly one of: story stem(s), --all, or --stems-from-voice")
+
     if args.all:
         stem_filter = None
-    elif args.stems:
-        stem_filter = set(args.stems)
+    elif args.stems_from_voice:
+        stem_filter = stems_with_voice(args.stems_from_voice)
+        if not stem_filter:
+            raise SystemExit(
+                f"No stems in {MANIFEST_JSON} with voice={args.stems_from_voice}"
+            )
     else:
-        parser.error("Provide story stem(s) or --all")
+        stem_filter = set(args.stems)
 
     if not DATA_JSON.is_file():
         raise SystemExit(f"Missing {DATA_JSON} — run tools/build_website.py first.")
@@ -226,11 +266,14 @@ def main() -> None:
         if missing:
             raise SystemExit(f"Unknown story stem(s): {', '.join(missing)}")
 
-    print(
-        f"Jobs: {len(jobs)}  voices: {VOICE_FEMALE} / {VOICE_MALE} "
-        f"(alternating per category)",
-        flush=True,
-    )
+    if args.voice:
+        for job in jobs:
+            job["voice"] = args.voice
+        voice_msg = f"override={args.voice}"
+    else:
+        voice_msg = f"{VOICE_FEMALE} / {VOICE_MALE} (alternating per category)"
+
+    print(f"Jobs: {len(jobs)}  voices: {voice_msg}", flush=True)
     asyncio.run(run(jobs, force=args.force))
 
 

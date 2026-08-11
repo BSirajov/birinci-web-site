@@ -28,7 +28,7 @@ SITE_NAME = "Bir inci"
 SITE_TITLE = "İbrətamiz deyimlər və hekayələr"
 NAV_LABEL = "İbrətamiz hekayələr"
 HOME_CRUMB = "Ana səhifə"
-ASSET_VERSION = "20260811t"
+ASSET_VERSION = "20260811v"
 
 # Inline Lucide-style stroke icons (24x24 viewBox) for menu items.
 CATEGORY_ICONS: dict[str, str] = {
@@ -214,6 +214,24 @@ def load_catalog() -> dict:
 
 def esc(s: str) -> str:
     return html.escape(s, quote=True)
+
+
+def story_paragraphs_html(paragraphs: list[str]) -> str:
+    """Render story body; mark the final paragraph as the moral callout.
+
+    Stories have no dedicated moral field — the last paragraph is the takeaway
+    (short aphoristic closing) in the source DOCX / stories.json content.
+    """
+    if not paragraphs:
+        return ""
+    parts: list[str] = []
+    last_i = len(paragraphs) - 1
+    for i, p in enumerate(paragraphs):
+        if i == last_i:
+            parts.append(f'<p class="story__moral">{esc(p)}</p>')
+        else:
+            parts.append(f"<p>{esc(p)}</p>")
+    return "".join(parts)
 
 
 def breadcrumbs_html(crumbs: list[tuple[str, str | None]], prefix: str) -> str:
@@ -457,7 +475,7 @@ def build_landing(catalog: dict) -> str:
 def build_category_page(cat: dict) -> str:
     stories_html = []
     for s in cat["stories"]:
-        paras = "".join(f"<p>{esc(p)}</p>" for p in s["paragraphs"])
+        paras = story_paragraphs_html(s["paragraphs"])
         img = f"../illustrations/{esc(s['stem'])}.webp"
         audio_file = AUDIO_DIR / f"{s['stem']}.mp3"
         audio_attr = (
@@ -1855,6 +1873,33 @@ body.global-search-open { overflow: hidden; }
 .story__text p:last-child,
 .story .card-text p:last-child {
   margin-bottom: 0;
+}
+.story__text .story__moral,
+.story .card-text .story__moral {
+  margin: 0.85rem 0 0;
+  padding: 0.85rem 1rem 0.9rem 1.05rem;
+  background: linear-gradient(135deg, #fff8e4 0%, var(--gold-soft) 55%, #ffe9b8 100%);
+  border: 1px solid rgba(201, 155, 59, 0.42);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 1.02em;
+  font-weight: 700;
+  line-height: 1.45;
+  text-align: left;
+  text-justify: auto;
+  hyphens: manual;
+  box-shadow: 0 4px 14px rgba(201, 155, 59, 0.12);
+}
+@media (max-width: 760px) {
+  .story__text .story__moral,
+  .story .card-text .story__moral {
+    margin-top: 0.75rem;
+    padding: 0.75rem 0.85rem 0.8rem 0.9rem;
+    font-size: 1.05em;
+    line-height: 1.42;
+  }
 }
 .story__figure {
   margin: 18px 0 0;
