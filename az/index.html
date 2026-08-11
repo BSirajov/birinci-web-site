@@ -7,25 +7,33 @@
   <meta name="color-scheme" content="light" />
   <title>Bir inci</title>
   <meta name="description" content="Bir inci — ibrətamiz deyimlər və hekayələr toplusu." />
-  <link rel="icon" href="assets/pearl.webp" type="image/webp" />
+  <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="assets/favicon-48.png" type="image/png" sizes="48x48" />
+  <link rel="icon" href="assets/favicon.png" type="image/png" sizes="192x192" />
   <link rel="icon" href="assets/favicon.ico" sizes="any" />
-  <link rel="apple-touch-icon" href="assets/pearl.webp" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/site.css" />
+  <link rel="stylesheet" href="assets/site.css?v=20260811q" />
 </head>
 <body class="page-home" id="top">
   <a class="skip-link" href="#main">Məzmuna keç</a>
   <header class="site-header">
   <div class="site-header__inner">
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Menyunu aç">
+      <span></span><span></span><span></span>
+    </button>
     <a class="brand" href="index.html">
       <img class="brand__logo" src="assets/pearl.webp" alt="" width="36" height="36" />
       <span class="brand__name">Bir inci</span>
     </a>
-    <nav class="primary-nav" aria-label="Əsas menyu">
+    <nav class="primary-nav" id="primaryNav" aria-label="Əsas menyu">
       <details class="nav-dropdown">
-        <summary>İbrətamiz hekayələr</summary>
+        <summary>
+          <span class="menu-icon menu-icon--book" aria-hidden="true" style="--icon-from:#10b981;--icon-to:#059669;--icon-glow:#34d399"><svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg></span>
+          <span>İbrətamiz hekayələr</span>
+        </summary>
         <ul class="nav-dropdown__list">
           <li><a href="categories/iman-ve-meneviyyat.html"><span class="menu-icon menu-icon--sparkles" aria-hidden="true" style="--icon-from:#7c5cff;--icon-to:#b44dff;--icon-glow:#a78bfa"><svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg></span><span>İman və mənəviyyat</span></a></li>
 <li><a href="categories/aile-ve-terbiye.html"><span class="menu-icon menu-icon--home" aria-hidden="true" style="--icon-from:#0ea5e9;--icon-to:#2563eb;--icon-glow:#38bdf8"><svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span><span>Ailə və tərbiyə</span></a></li>
@@ -42,16 +50,19 @@
         </ul>
       </details>
     </nav>
-    <button type="button" class="global-search-toggle" id="global-search-toggle" aria-expanded="false" aria-controls="global-search" title="Axtar" aria-label="Qlobal axtarış">
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <circle cx="11" cy="11" r="7"></circle>
-        <path d="m20 20-3.5-3.5"></path>
-      </svg>
-      <span>Axtar</span>
-    </button>
+    <div class="site-header__actions">
+      <button type="button" class="global-search-toggle" id="global-search-toggle" aria-expanded="false" aria-controls="global-search" title="Axtar (Ctrl+K)" aria-label="Qlobal axtarış, Ctrl+K">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle>
+          <path d="m20 20-3.5-3.5"></path>
+        </svg>
+        <span class="global-search-toggle__label">Axtar…</span>
+        <kbd class="global-search-toggle__kbd">Ctrl+K</kbd>
+      </button>
+    </div>
   </div>
 </header>
-<div class="global-search" id="global-search" hidden data-search-index="assets/search-index.js">
+<div class="global-search" id="global-search" hidden data-search-index="assets/search-index.js?v=20260811q">
   <button type="button" class="global-search__backdrop" data-global-search-close tabindex="-1" aria-label="Axtarışı bağla"></button>
   <div class="global-search__panel" role="dialog" aria-modal="true" aria-labelledby="global-search-title">
     <div class="global-search__head">
@@ -212,6 +223,6 @@
       <p>İbrətamiz deyimlər və hekayələr</p>
     </div>
   </footer>
-  <script src="assets/site.js" defer></script>
+  <script src="assets/site.js?v=20260811q" defer></script>
 </body>
 </html>

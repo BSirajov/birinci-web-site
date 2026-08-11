@@ -7,25 +7,33 @@
   <meta name="color-scheme" content="light" />
   <title>Hikmət və həyat dərsləri · Bir inci</title>
   <meta name="description" content="Həyatın mənası, seçimlər və düşüncə tərzi." />
-  <link rel="icon" href="../assets/pearl.webp" type="image/webp" />
+  <link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="../assets/favicon-48.png" type="image/png" sizes="48x48" />
+  <link rel="icon" href="../assets/favicon.png" type="image/png" sizes="192x192" />
   <link rel="icon" href="../assets/favicon.ico" sizes="any" />
-  <link rel="apple-touch-icon" href="../assets/pearl.webp" />
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" sizes="180x180" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/site.css" />
+  <link rel="stylesheet" href="../assets/site.css?v=20260811q" />
 </head>
 <body class="page-category" id="top">
   <a class="skip-link" href="#main">Məzmuna keç</a>
   <header class="site-header">
   <div class="site-header__inner">
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Menyunu aç">
+      <span></span><span></span><span></span>
+    </button>
     <a class="brand" href="../index.html">
       <img class="brand__logo" src="../assets/pearl.webp" alt="" width="36" height="36" />
       <span class="brand__name">Bir inci</span>
     </a>
-    <nav class="primary-nav" aria-label="Əsas menyu">
+    <nav class="primary-nav" id="primaryNav" aria-label="Əsas menyu">
       <details class="nav-dropdown">
-        <summary>İbrətamiz hekayələr</summary>
+        <summary>
+          <span class="menu-icon menu-icon--book" aria-hidden="true" style="--icon-from:#10b981;--icon-to:#059669;--icon-glow:#34d399"><svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg></span>
+          <span>İbrətamiz hekayələr</span>
+        </summary>
         <ul class="nav-dropdown__list">
           <li><a href="../categories/iman-ve-meneviyyat.html"><span class="menu-icon menu-icon--sparkles" aria-hidden="true" style="--icon-from:#7c5cff;--icon-to:#b44dff;--icon-glow:#a78bfa"><svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg></span><span>İman və mənəviyyat</span></a></li>
 <li><a href="../categories/aile-ve-terbiye.html"><span class="menu-icon menu-icon--home" aria-hidden="true" style="--icon-from:#0ea5e9;--icon-to:#2563eb;--icon-glow:#38bdf8"><svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span><span>Ailə və tərbiyə</span></a></li>
@@ -42,16 +50,19 @@
         </ul>
       </details>
     </nav>
-    <button type="button" class="global-search-toggle" id="global-search-toggle" aria-expanded="false" aria-controls="global-search" title="Axtar" aria-label="Qlobal axtarış">
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <circle cx="11" cy="11" r="7"></circle>
-        <path d="m20 20-3.5-3.5"></path>
-      </svg>
-      <span>Axtar</span>
-    </button>
+    <div class="site-header__actions">
+      <button type="button" class="global-search-toggle" id="global-search-toggle" aria-expanded="false" aria-controls="global-search" title="Axtar (Ctrl+K)" aria-label="Qlobal axtarış, Ctrl+K">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle>
+          <path d="m20 20-3.5-3.5"></path>
+        </svg>
+        <span class="global-search-toggle__label">Axtar…</span>
+        <kbd class="global-search-toggle__kbd">Ctrl+K</kbd>
+      </button>
+    </div>
   </div>
 </header>
-<div class="global-search" id="global-search" hidden data-search-index="../assets/search-index.js">
+<div class="global-search" id="global-search" hidden data-search-index="../assets/search-index.js?v=20260811q">
   <button type="button" class="global-search__backdrop" data-global-search-close tabindex="-1" aria-label="Axtarışı bağla"></button>
   <div class="global-search__panel" role="dialog" aria-modal="true" aria-labelledby="global-search-title">
     <div class="global-search__head">
@@ -170,8 +181,21 @@
     <h2 class="card-title story__title">Axtarmaq</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Bir şeyi olmadığı yerdə axtarmaq axtarmaq deyil, özünü aldatmaqdır — vəfanı vəfasızda, ədəbi həyasızda, mərhəməti vicdansızda axtarmaq kimi.</p><p>Olmayan şeyi olmadığı yerdə axtarmaq özünü aldatmaqdır. Hər kəsdən hər şeyi gözləmə — insanı verə biləcəyi qədər tanı.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Bir şeyi olmadığı yerdə axtarmaq axtarmaq deyil, özünü aldatmaqdır — vəfanı vəfasızda, ədəbi həyasızda, mərhəməti vicdansızda axtarmaq kimi.</p><p>Olmayan şeyi olmadığı yerdə axtarmaq özünü aldatmaqdır. Hər kəsdən hər şeyi gözləmə — insanı verə biləcəyi qədər tanı.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/searching.webp" alt="Axtarmaq illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -182,8 +206,21 @@
     <h2 class="card-title story__title">Boş vaxt</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Bəziləri sizinlə boş vaxtı olanda söhbət edər, bəziləri isə sizinlə söhbət etmək üçün boş vaxt ayırar.</p><p>Vaxt geri qayıtmayan yeganə sərvətdir. Kim onu sənin üçün könüllü xərcləyirsə, o insanın qədrini bil.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Bəziləri sizinlə boş vaxtı olanda söhbət edər, bəziləri isə sizinlə söhbət etmək üçün boş vaxt ayırar.</p><p>Vaxt geri qayıtmayan yeganə sərvətdir. Kim onu sənin üçün könüllü xərcləyirsə, o insanın qədrini bil.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/spare-time.webp" alt="Boş vaxt illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -194,8 +231,21 @@
     <h2 class="card-title story__title">Boşunadır</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Axmağa nəsihət vermək, cahillə mübahisə etmək, ikiüzlü ilə dost olmaq boşunadır.</p><p>Kiminlə vaxt keçirdiyini seçmək əslində həyatını necə yaşayacağını seçməkdir. Cahillə mübahisə, ikiüzlü ilə dostluq boşa gedən ömürdür.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Axmağa nəsihət vermək, cahillə mübahisə etmək, ikiüzlü ilə dost olmaq boşunadır.</p><p>Kiminlə vaxt keçirdiyini seçmək əslində həyatını necə yaşayacağını seçməkdir. Cahillə mübahisə, ikiüzlü ilə dostluq boşa gedən ömürdür.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/it-is-in-vain.webp" alt="Boşunadır illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -206,8 +256,21 @@
     <h2 class="card-title story__title">Bu günlərdə etməsəm, dünya dağılmaz ki</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Bir əməkdaşımızdan ona həvalə edilmiş bir tapşırığın icrasının hansı mərhələdə olduğunu soruşduqda, onun verdiyi cavab məni dərindən məyus etdi:</p><p>“Bu günlərdə etməsəm, dünya dağılmaz ki…”</p><p>Bir anlıq düşündüm: Bəli, dünya dağılmaz. Amma bəs bizim aramızdakı etibar? O da dağılmazmı? Bu münasibət əməkdaşlığımıza, qarşılıqlı hörmətimizə və gördüyümüz ümumi işə zərər vurmazmı?</p><p>Məsələ tapşırığın bir neçə gün gecikməsi deyildi. Məsələ insanın üzərinə götürdüyü öhdəliyə münasibəti idi. Çünki məsuliyyət təkcə işi görmək deyil, verilən sözə sahib çıxmaq, qarşı tərəfin etimadını doğrultmaq və insanların sənə arxalana bilməsini təmin etməkdir.</p><p>Düşünürəm ki, üzərinə götürdüyün hər hansı bir öhdəliyə bu cür məsuliyyətsiz yanaşmaq doğru deyil. Daha da təəssüf doğuran isə bu yanaşmanın ifadə tərzi idi. Mənə görə, belə bir cavab ən azı kobud səslənir və qarşı tərəfin vaxtına, əməyinə və etimadına yetərincə dəyər verilmədiyini göstərir.</p><p>Etiraf edim ki, bu sözlər qəlbimi sındırdı. Həmin an anladım ki, əməkdaşlığımız əvvəlki kimi davam edə bilməyəcək. Çünki istənilən peşəkar münasibətin təməli etibardır. Etibar sarsıldıqda isə iş birliyi də ciddi sınaq qarşısında qalır.</p><p>Məni daha çox məyus edən isə odur ki, həmkarım nə dediyi sözün yanlışlığını anladı, nə buna görə üzr istədi, nə də tapşırığı yerinə yetirdi. Nəticədə, ona olan etimadım sarsıldığı üçün problemin həllini başqa yolla təmin etməyə məcbur oldum.</p><p>Bu hadisə mənə bir daha göstərdi ki, təşkilatlarda ən qiymətli resurs nə vaxtdır, nə puldur, nə də texnologiya. Ən qiymətli resurs insanların bir-birinə olan etimadıdır. Etimadı qazanmaq illər tələb edə bilər, onu itirmək isə bəzən cəmi bir cümlə ilə mümkündür..</p><p>.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Bir əməkdaşımızdan ona həvalə edilmiş bir tapşırığın icrasının hansı mərhələdə olduğunu soruşduqda, onun verdiyi cavab məni dərindən məyus etdi:</p><p>“Bu günlərdə etməsəm, dünya dağılmaz ki…”</p><p>Bir anlıq düşündüm: Bəli, dünya dağılmaz. Amma bəs bizim aramızdakı etibar? O da dağılmazmı? Bu münasibət əməkdaşlığımıza, qarşılıqlı hörmətimizə və gördüyümüz ümumi işə zərər vurmazmı?</p><p>Məsələ tapşırığın bir neçə gün gecikməsi deyildi. Məsələ insanın üzərinə götürdüyü öhdəliyə münasibəti idi. Çünki məsuliyyət təkcə işi görmək deyil, verilən sözə sahib çıxmaq, qarşı tərəfin etimadını doğrultmaq və insanların sənə arxalana bilməsini təmin etməkdir.</p><p>Düşünürəm ki, üzərinə götürdüyün hər hansı bir öhdəliyə bu cür məsuliyyətsiz yanaşmaq doğru deyil. Daha da təəssüf doğuran isə bu yanaşmanın ifadə tərzi idi. Mənə görə, belə bir cavab ən azı kobud səslənir və qarşı tərəfin vaxtına, əməyinə və etimadına yetərincə dəyər verilmədiyini göstərir.</p><p>Etiraf edim ki, bu sözlər qəlbimi sındırdı. Həmin an anladım ki, əməkdaşlığımız əvvəlki kimi davam edə bilməyəcək. Çünki istənilən peşəkar münasibətin təməli etibardır. Etibar sarsıldıqda isə iş birliyi də ciddi sınaq qarşısında qalır.</p><p>Məni daha çox məyus edən isə odur ki, həmkarım nə dediyi sözün yanlışlığını anladı, nə buna görə üzr istədi, nə də tapşırığı yerinə yetirdi. Nəticədə, ona olan etimadım sarsıldığı üçün problemin həllini başqa yolla təmin etməyə məcbur oldum.</p><p>Bu hadisə mənə bir daha göstərdi ki, təşkilatlarda ən qiymətli resurs nə vaxtdır, nə puldur, nə də texnologiya. Ən qiymətli resurs insanların bir-birinə olan etimadıdır. Etimadı qazanmaq illər tələb edə bilər, onu itirmək isə bəzən cəmi bir cümlə ilə mümkündür..</p><p>.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/if-i-dont-do-it-these-days-the-world-wont-collapse.webp" alt="Bu günlərdə etməsəm, dünya dağılmaz ki illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -218,8 +281,21 @@
     <h2 class="card-title story__title">Bu qayıq da boşdur</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Ustadım söyləyərdi:</p><p>Gəncliyimdə tez-tez gölə gedər, təklikdə xəyala dalıb düşünərdim. Kiçik bir qayığım var idi. Saatlarla o qayıqda üzər, düşüncələr aləmində özümə hüzur tapardım.</p><p>Bir gün səhər tezdən, dan yeri söküləndə həmişəki kimi qayığımda oturub dərin düşüncələrə dalmışdım.</p><p>Birdən kiminsə qayığı mənim qayığıma çırpıldı və bütün xəyal dünyamı sarsıtdı. Çox əsəbiləşdim. O qayığın sahibini söymək niyyəti ilə gözlərimi açdım və mənə çırpılan qayığın boş olduğunu gördüm. Qayıqda hirsimi tökə biləcəyim kimsə yox idi. Ona görə də gözlərimi yumdum və yenidən gözəl xəyallar aləminə qərq oldum. Gün çıxanda artıq ruhumun tam hüzura qovuşduğunu hiss etdim.</p><p>Boş qayıq mənə bir dərs oldu. O gündən bəri kimsə məni incitməyə çalışanda sadəcə öz-özümə deyirəm:</p><p>— Bu qayıq da boşdur.</p><p>İnsan hüzurunu qorumaq istəyirsə, hər hadisənin arxasında pis niyyət axtarmamalıdır. Bəzən bizi narahat edən şey sadəcə təsadüfdür; onu böyüdüb qəzəbə çevirib-çevirməmək isə artıq bizim seçimimizdir.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Ustadım söyləyərdi:</p><p>Gəncliyimdə tez-tez gölə gedər, təklikdə xəyala dalıb düşünərdim. Kiçik bir qayığım var idi. Saatlarla o qayıqda üzər, düşüncələr aləmində özümə hüzur tapardım.</p><p>Bir gün səhər tezdən, dan yeri söküləndə həmişəki kimi qayığımda oturub dərin düşüncələrə dalmışdım.</p><p>Birdən kiminsə qayığı mənim qayığıma çırpıldı və bütün xəyal dünyamı sarsıtdı. Çox əsəbiləşdim. O qayığın sahibini söymək niyyəti ilə gözlərimi açdım və mənə çırpılan qayığın boş olduğunu gördüm. Qayıqda hirsimi tökə biləcəyim kimsə yox idi. Ona görə də gözlərimi yumdum və yenidən gözəl xəyallar aləminə qərq oldum. Gün çıxanda artıq ruhumun tam hüzura qovuşduğunu hiss etdim.</p><p>Boş qayıq mənə bir dərs oldu. O gündən bəri kimsə məni incitməyə çalışanda sadəcə öz-özümə deyirəm:</p><p>— Bu qayıq da boşdur.</p><p>İnsan hüzurunu qorumaq istəyirsə, hər hadisənin arxasında pis niyyət axtarmamalıdır. Bəzən bizi narahat edən şey sadəcə təsadüfdür; onu böyüdüb qəzəbə çevirib-çevirməmək isə artıq bizim seçimimizdir.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/this-boat-is-empty-too.webp" alt="Bu qayıq da boşdur illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -230,8 +306,21 @@
     <h2 class="card-title story__title">Bu yol haraya gedir</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Bu yol haraya gedir?</p><p>Yolla gedən bir gənc yolun kənarında oturmuş yaşlı bir kişiyə rast gəlir və soruşur:</p><p>— Dayı, bu yol haraya gedir?</p><p>— Heç yerə, oğlum.</p><p>— Necə yəni? Heç yerə getməyən yol olar?</p><p>— Vallah, mən əlli ildir buradayam; bu yol necə vardısa, elə də yerində durur. Gedib-gələn insanlardır.</p><p>Yol yerində durur, gedib-gələn insandır. Yolun hara apardığını yox, özünün hara getdiyini bil.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Bu yol haraya gedir?</p><p>Yolla gedən bir gənc yolun kənarında oturmuş yaşlı bir kişiyə rast gəlir və soruşur:</p><p>— Dayı, bu yol haraya gedir?</p><p>— Heç yerə, oğlum.</p><p>— Necə yəni? Heç yerə getməyən yol olar?</p><p>— Vallah, mən əlli ildir buradayam; bu yol necə vardısa, elə də yerində durur. Gedib-gələn insanlardır.</p><p>Yol yerində durur, gedib-gələn insandır. Yolun hara apardığını yox, özünün hara getdiyini bil.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/where-does-this-road-go.webp" alt="Bu yol haraya gedir illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -242,8 +331,21 @@
     <h2 class="card-title story__title">Ciyər</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>«Ciyər» sözünün işləndiyi ifadələr — bir-birinə çox yaxın, səmimi, mehriban dost mənasındakı «can-ciyər»; çox sevimli övlad mənasındakı «ciyərguşəm»; qorxaq, cəsarətsiz, aciz adam mənasındakı «ağciyər»; çox sevilən kimsə mənasındakı «ciyərparəm» və s. — haradan qaynaqlanır?</p><p>Qədim insanlar qaraciyərin ilıq və qanlı görünüşündən təsirləndikləri üçün ilıq qanı həyat, onun yoxluğunu isə ölüm sayırdılar. Bu səbəbdən qaraciyər uzun müddət həyatın mərkəzi kimi qəbul edilib.</p><p>Məsələn, babillilər insan ruhunun qaraciyərdə yerləşdiyinə inanırdılar. Bəzi mədəniyyətlərdə qaraciyərin ilk növbədə duyğuları təmsil etdiyi düşünüldüyü üçün deyimlərdə və yazılarda qaraciyər ürəkdən əvvəl gəlir.</p><p>Qədim Yunanıstanda fəzilət və onunla bağlı cəsarət, qətiyyət kimi keyfiyyətlər ciyərə aid edilirdi. Bir insanın qaraciyəri sağlam idisə, o, fəzilət sahibi sayılırdı — bütün maneələri dəf edərək öz prinsiplərinin ardınca gedən biri kimi qəbul olunurdu.</p><p>Dil təsadüfən yaranmır; hər sözün arxasında bir tarix, bir inanc dayanır. Kəlmələrimiz keçmişimizin yaddaşıdır.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>«Ciyər» sözünün işləndiyi ifadələr — bir-birinə çox yaxın, səmimi, mehriban dost mənasındakı «can-ciyər»; çox sevimli övlad mənasındakı «ciyərguşəm»; qorxaq, cəsarətsiz, aciz adam mənasındakı «ağciyər»; çox sevilən kimsə mənasındakı «ciyərparəm» və s. — haradan qaynaqlanır?</p><p>Qədim insanlar qaraciyərin ilıq və qanlı görünüşündən təsirləndikləri üçün ilıq qanı həyat, onun yoxluğunu isə ölüm sayırdılar. Bu səbəbdən qaraciyər uzun müddət həyatın mərkəzi kimi qəbul edilib.</p><p>Məsələn, babillilər insan ruhunun qaraciyərdə yerləşdiyinə inanırdılar. Bəzi mədəniyyətlərdə qaraciyərin ilk növbədə duyğuları təmsil etdiyi düşünüldüyü üçün deyimlərdə və yazılarda qaraciyər ürəkdən əvvəl gəlir.</p><p>Qədim Yunanıstanda fəzilət və onunla bağlı cəsarət, qətiyyət kimi keyfiyyətlər ciyərə aid edilirdi. Bir insanın qaraciyəri sağlam idisə, o, fəzilət sahibi sayılırdı — bütün maneələri dəf edərək öz prinsiplərinin ardınca gedən biri kimi qəbul olunurdu.</p><p>Dil təsadüfən yaranmır; hər sözün arxasında bir tarix, bir inanc dayanır. Kəlmələrimiz keçmişimizin yaddaşıdır.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/liver.webp" alt="Ciyər illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -254,8 +356,21 @@
     <h2 class="card-title story__title">Daha effektiv yol</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Meşədən keçən bir ovçu qəribə bir mənzərəyə rast gəlir: bir odunçu belini bükərək yerə sərdiyi ağacı böyük əziyyətlə, uzun müddət baltalayırdı. Üzü qan-tər içində idi, bədəni də çox gərgin idi. Ovçu ona yaxınlaşıb işinin niyə belə yavaş və ağır getdiyini öyrənmək istəyir:</p><p>— Sizin baltanız tamam kütləşib, — deyə odunçuya müraciət etdi. — Bəlkə onu bir az itiləyəsiniz?</p><p>— Siz nə danışırsınız? — deyə odunçu adamı təəccüblə başdan-ayağa süzdü. — Buna haradan vaxtım olsun? Hələ bundan sonra 20 ağacın da çarəsinə baxmalıyam.</p><p>Zəhmət gözəldir, amma kor-koranə zəhmət yox. Bəzən baltanı itiləməyə sərf olunan vaxt bütün işi asanlaşdırır.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Meşədən keçən bir ovçu qəribə bir mənzərəyə rast gəlir: bir odunçu belini bükərək yerə sərdiyi ağacı böyük əziyyətlə, uzun müddət baltalayırdı. Üzü qan-tər içində idi, bədəni də çox gərgin idi. Ovçu ona yaxınlaşıb işinin niyə belə yavaş və ağır getdiyini öyrənmək istəyir:</p><p>— Sizin baltanız tamam kütləşib, — deyə odunçuya müraciət etdi. — Bəlkə onu bir az itiləyəsiniz?</p><p>— Siz nə danışırsınız? — deyə odunçu adamı təəccüblə başdan-ayağa süzdü. — Buna haradan vaxtım olsun? Hələ bundan sonra 20 ağacın da çarəsinə baxmalıyam.</p><p>Zəhmət gözəldir, amma kor-koranə zəhmət yox. Bəzən baltanı itiləməyə sərf olunan vaxt bütün işi asanlaşdırır.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/a-more-effective-way.webp" alt="Daha effektiv yol illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -266,8 +381,21 @@
     <h2 class="card-title story__title">Dibinə darı əkmək</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Bir gün padşah əyanları ilə gəzintiyə çıxır. Yol üstündəki bir kənddə yaşlı bir adamın öz tarlasında fidan əkdiyini görür. Uzaqdan ixtiyara səslənir:</p><p>— Baba, sən niyə bu fidanları əkməklə məşğulsan? Maşallah, ömrünü yaşamısan; yəqin ki, bu fidanların meyvəsini yemək sənə nəsib olmayacaq.</p><p>İxtiyar hökmdara belə cavab verir:</p><p>— Bu fidanların meyvəsini bizim yeməyimiz şərt deyil, övladım. Bizdən əvvəlkilərin əkdiyi fidanların meyvəsini biz necə yediksə, bizim əkdiyimiz fidanların meyvəsini də bizdən sonrakılar yeyəcək.</p><p>Bu cavab hökmdarın xoşuna gəlir və ixtiyara bir kisə qızıl verilməsini əmr edir.</p><p>İxtiyar qızılla dolu kisəyə işarə edib deyir:</p><p>— Gördünmü, övladım? Bizim əkdiyimiz fidanlar indidən meyvə verdi.</p><p>Bu cavab da hökmdarın xoşuna gəlir və ixtiyara daha bir kisə qızıl verilməsini əmr edir. Yaşlı kəndli sıradan biri deyildi — dünyagörmüş, fərasətli kişilərdən idi:</p><p>— Övladım, hər kəsin əkdiyi fidan ildə bir dəfə meyvə verir, bizim əkdiyimiz fidan isə artıq iki dəfə meyvə verdi.</p><p>Bu cavabı da bəyənən hökmdar ixtiyara yenə bir kisə qızıl verilməsini əmr edir. Amma bu dəfə vəzir araya girib hökmdarı fikrindən daşındırmağa çalışır:</p><p>— Aman, sultanım! Bir an öncə buradan uzaqlaşmalıyıq. Bu ixtiyar belə getsə, tarlasına fidan əkmək əvəzinə dövlətin xəzinəsinə darı əkəcək.</p><p>İnsan yalnız özü üçün yaşamaz. Bizdən əvvəlkilərin əkdiyini biz yedik; biz də sonrakılar üçün əkməliyik.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Bir gün padşah əyanları ilə gəzintiyə çıxır. Yol üstündəki bir kənddə yaşlı bir adamın öz tarlasında fidan əkdiyini görür. Uzaqdan ixtiyara səslənir:</p><p>— Baba, sən niyə bu fidanları əkməklə məşğulsan? Maşallah, ömrünü yaşamısan; yəqin ki, bu fidanların meyvəsini yemək sənə nəsib olmayacaq.</p><p>İxtiyar hökmdara belə cavab verir:</p><p>— Bu fidanların meyvəsini bizim yeməyimiz şərt deyil, övladım. Bizdən əvvəlkilərin əkdiyi fidanların meyvəsini biz necə yediksə, bizim əkdiyimiz fidanların meyvəsini də bizdən sonrakılar yeyəcək.</p><p>Bu cavab hökmdarın xoşuna gəlir və ixtiyara bir kisə qızıl verilməsini əmr edir.</p><p>İxtiyar qızılla dolu kisəyə işarə edib deyir:</p><p>— Gördünmü, övladım? Bizim əkdiyimiz fidanlar indidən meyvə verdi.</p><p>Bu cavab da hökmdarın xoşuna gəlir və ixtiyara daha bir kisə qızıl verilməsini əmr edir. Yaşlı kəndli sıradan biri deyildi — dünyagörmüş, fərasətli kişilərdən idi:</p><p>— Övladım, hər kəsin əkdiyi fidan ildə bir dəfə meyvə verir, bizim əkdiyimiz fidan isə artıq iki dəfə meyvə verdi.</p><p>Bu cavabı da bəyənən hökmdar ixtiyara yenə bir kisə qızıl verilməsini əmr edir. Amma bu dəfə vəzir araya girib hökmdarı fikrindən daşındırmağa çalışır:</p><p>— Aman, sultanım! Bir an öncə buradan uzaqlaşmalıyıq. Bu ixtiyar belə getsə, tarlasına fidan əkmək əvəzinə dövlətin xəzinəsinə darı əkəcək.</p><p>İnsan yalnız özü üçün yaşamaz. Bizdən əvvəlkilərin əkdiyini biz yedik; biz də sonrakılar üçün əkməliyik.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/sowing-millet-at-the-bottom.webp" alt="Dibinə darı əkmək illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -278,8 +406,21 @@
     <h2 class="card-title story__title">Didro effekti</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Fransanın XVIII əsr yazıçılarından biri, maarifçi Deni Didro böyük borc bataqlığına düşür. Onun acınacaqlı vəziyyəti rus çariçası Yekaterinanın qulağına çatır.</p><p>Çariça bu bataqlıqdan qurtulması üçün Didroya xeyirxah bir təklif edir: onun kitabxanasını pulla alıb yenidən ona hədiyyə edir. Üstəlik, həmin kitabxanada işləməsi üçün Didroya 25 illik maaşını da əvvəlcədən ödəyir. Əlbəttə, bu avansın belə gözlənilməz anda ödənilməsi Didro üçün var-dövlət qazanmaq demək idi. İndi Didro bütün borclardan qurtulmuş və rahatlamışdı.</p><p>Bir gün bir dostu ona məxmər qırmızı xalat (dəbdəbəli üst geyimi) hədiyyə edir. Hər şey elə bundan sonra başlayır...</p><p>Deni xalatı geyinir. İş masasının arxasında həvəslə işləyərkən birdən bu gözəl məxmər xalatla masanın bir-birinə uyğun gəlmədiyini düşünür.</p><p>Kassasındakı yüklü nağd pulun verdiyi sərxoşluqla dərhal masanı dəyişməyə gedir və əla görkəmli bir masa alır. Paltarla masa artıq bir-birinə uyğun gəlir...</p><p>Ancaq bir də görür ki, döşəmədəki köhnə xalça nə xalata, nə də masaya yaraşır. Qaçıb puluna və özünə uyğun bir xalça alır.</p><p>Yenə də içində bir narahatlıq var idi. Evin kresloları, şkafları, stulları, divardakı şəkilləri, otağın bəzəkləri indi bir-birinə uyğun gəlmir, sanki köhnə görünürdü...</p><p>Artıq hər şey gözünə batmağa başladı...</p><p>Gəl zaman, get zaman... Didro evin bütün əşyalarını iynədən sapa qədər dəyişdi.</p><p>Vəziyyəti dərk etməsi Didro üçün çox çəkmədi. Başladığı nöqtəyə qayıtmasının səbəbinin öz tükənməz acgözlüyü olduğunu başa düşdü.</p><p>Nəticədə müəllif bu mövzuda məşhur «Köhnə xalatımdan ayrıldığıma peşmanam» adlı əsərini qələmə aldı. Ardınca tarixə düşəcək qısa bir cümlə yazdı:</p><p>«Köhnə paltarımın ağası ikən yenisinin köləsi oldum.»</p><p>İnsan bir yeni şey əldə edəndən sonra ardınca qalanlarını da dəyişmək ehtiyacı hiss edir — buna «Didro effekti» deyilir. Acgözlüyün sonu yoxdur; köhnənin ağası olmaq təzənin köləsi olmaqdan yaxşıdır.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Fransanın XVIII əsr yazıçılarından biri, maarifçi Deni Didro böyük borc bataqlığına düşür. Onun acınacaqlı vəziyyəti rus çariçası Yekaterinanın qulağına çatır.</p><p>Çariça bu bataqlıqdan qurtulması üçün Didroya xeyirxah bir təklif edir: onun kitabxanasını pulla alıb yenidən ona hədiyyə edir. Üstəlik, həmin kitabxanada işləməsi üçün Didroya 25 illik maaşını da əvvəlcədən ödəyir. Əlbəttə, bu avansın belə gözlənilməz anda ödənilməsi Didro üçün var-dövlət qazanmaq demək idi. İndi Didro bütün borclardan qurtulmuş və rahatlamışdı.</p><p>Bir gün bir dostu ona məxmər qırmızı xalat (dəbdəbəli üst geyimi) hədiyyə edir. Hər şey elə bundan sonra başlayır...</p><p>Deni xalatı geyinir. İş masasının arxasında həvəslə işləyərkən birdən bu gözəl məxmər xalatla masanın bir-birinə uyğun gəlmədiyini düşünür.</p><p>Kassasındakı yüklü nağd pulun verdiyi sərxoşluqla dərhal masanı dəyişməyə gedir və əla görkəmli bir masa alır. Paltarla masa artıq bir-birinə uyğun gəlir...</p><p>Ancaq bir də görür ki, döşəmədəki köhnə xalça nə xalata, nə də masaya yaraşır. Qaçıb puluna və özünə uyğun bir xalça alır.</p><p>Yenə də içində bir narahatlıq var idi. Evin kresloları, şkafları, stulları, divardakı şəkilləri, otağın bəzəkləri indi bir-birinə uyğun gəlmir, sanki köhnə görünürdü...</p><p>Artıq hər şey gözünə batmağa başladı...</p><p>Gəl zaman, get zaman... Didro evin bütün əşyalarını iynədən sapa qədər dəyişdi.</p><p>Vəziyyəti dərk etməsi Didro üçün çox çəkmədi. Başladığı nöqtəyə qayıtmasının səbəbinin öz tükənməz acgözlüyü olduğunu başa düşdü.</p><p>Nəticədə müəllif bu mövzuda məşhur «Köhnə xalatımdan ayrıldığıma peşmanam» adlı əsərini qələmə aldı. Ardınca tarixə düşəcək qısa bir cümlə yazdı:</p><p>«Köhnə paltarımın ağası ikən yenisinin köləsi oldum.»</p><p>İnsan bir yeni şey əldə edəndən sonra ardınca qalanlarını da dəyişmək ehtiyacı hiss edir — buna «Didro effekti» deyilir. Acgözlüyün sonu yoxdur; köhnənin ağası olmaq təzənin köləsi olmaqdan yaxşıdır.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/the-diderot-effect.webp" alt="Didro effekti illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -290,8 +431,21 @@
     <h2 class="card-title story__title">Dünyada ən gözəl yerlər</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Dünyada ola biləcəyiniz ən gözəl yerlər sevdiklərinizin düşüncələrində, dualarında və qəlblərindədir.</p><p>İnsanın ola biləcəyi ən gözəl yer sevdiklərinin qəlbi və dualarıdır. Əsl məkan ünvan yox, sevgidir.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Dünyada ola biləcəyiniz ən gözəl yerlər sevdiklərinizin düşüncələrində, dualarında və qəlblərindədir.</p><p>İnsanın ola biləcəyi ən gözəl yer sevdiklərinin qəlbi və dualarıdır. Əsl məkan ünvan yox, sevgidir.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/the-most-beautiful-places-in-the-world.webp" alt="Dünyada ən gözəl yerlər illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -302,8 +456,21 @@
     <h2 class="card-title story__title">Fərqli yol</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Bir gün bir inək öz tövləsinə qayıtmaq üçün bakir bir meşədən keçməli olur. Məntiqi düşünmə qabiliyyəti olmayan bu heyvan gah yoxuşla, gah da enişlə hərəkət edərək çətin bir yol gedir.</p><p>Ertəsi gün eyni yerə gələn bir it meşənin o biri tərəfinə keçmək üçün inəyin açdığı cığırla gedir.</p><p>Növbə qoyun sürüsünə çatır. Çoban cığırın artıq açıldığını görüb sürüsünü bu cığıra salır.</p><p>Sonra insanlar bu cığırdan istifadə etməyə başlayır: deyinə-deyinə, söyə-söyə, gah sağa, gah sola dönə-dönə, ağac budaqlarından və kollardan qorunmaq üçün gah əyilib, gah burulub bu cığırla gedib-gəlirlər. Amma heç kim daha yaxşı yol tapmağa çalışmır. Daimi istifadə nəticəsində cığır zamanla kiçik bir yola çevrilir. Meşənin o biri tərəfinə cəmi yarım saata çatmağın mümkünlüyündən xəbərsiz insanlar və ağır yük daşıyan yazıq heyvanlar bir inəyin açdığı yolla gedərək mənzil başına çatmaq üçün üç saat vaxt sərf etməli olurlar.</p><p>İllər keçir və bu kiçik yol əvvəlcə bir şəhərin əsas yoluna, sonra isə şəhərin ən mühüm küçəsinə çevrilir. Mövcud yolların ən uğursuzu olduğu üçün hamı nəqliyyatın sıxlığından şikayətlənir.</p><p>Bütün bunları müşahidə edən qoca, müdrik meşənin isə getdikləri yolun düzgün seçim olub-olmadığını şübhə altına almadan, kor-koranə həmin yolla gedib-gələn insanlara yanır.</p><p>Hamının getdiyi yol həmişə doğru yol deyil. Bəzən vərdişdən çıxıb yeni yol axtaran daha tez mənzilə çatır.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Bir gün bir inək öz tövləsinə qayıtmaq üçün bakir bir meşədən keçməli olur. Məntiqi düşünmə qabiliyyəti olmayan bu heyvan gah yoxuşla, gah da enişlə hərəkət edərək çətin bir yol gedir.</p><p>Ertəsi gün eyni yerə gələn bir it meşənin o biri tərəfinə keçmək üçün inəyin açdığı cığırla gedir.</p><p>Növbə qoyun sürüsünə çatır. Çoban cığırın artıq açıldığını görüb sürüsünü bu cığıra salır.</p><p>Sonra insanlar bu cığırdan istifadə etməyə başlayır: deyinə-deyinə, söyə-söyə, gah sağa, gah sola dönə-dönə, ağac budaqlarından və kollardan qorunmaq üçün gah əyilib, gah burulub bu cığırla gedib-gəlirlər. Amma heç kim daha yaxşı yol tapmağa çalışmır. Daimi istifadə nəticəsində cığır zamanla kiçik bir yola çevrilir. Meşənin o biri tərəfinə cəmi yarım saata çatmağın mümkünlüyündən xəbərsiz insanlar və ağır yük daşıyan yazıq heyvanlar bir inəyin açdığı yolla gedərək mənzil başına çatmaq üçün üç saat vaxt sərf etməli olurlar.</p><p>İllər keçir və bu kiçik yol əvvəlcə bir şəhərin əsas yoluna, sonra isə şəhərin ən mühüm küçəsinə çevrilir. Mövcud yolların ən uğursuzu olduğu üçün hamı nəqliyyatın sıxlığından şikayətlənir.</p><p>Bütün bunları müşahidə edən qoca, müdrik meşənin isə getdikləri yolun düzgün seçim olub-olmadığını şübhə altına almadan, kor-koranə həmin yolla gedib-gələn insanlara yanır.</p><p>Hamının getdiyi yol həmişə doğru yol deyil. Bəzən vərdişdən çıxıb yeni yol axtaran daha tez mənzilə çatır.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/a-different-path.webp" alt="Fərqli yol illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -314,8 +481,21 @@
     <h2 class="card-title story__title">Gecikmək nə deməkdir</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Gecikmək nə deməkdir?</p><p>Gecikmək — bir işi, bir əməli vaxtında edə bilməmək deməkdir. Xüsusilə ətrafımızdakı insanlarla münasibətdə, davranışda.</p><p>Kiməsə sevgimizi bildirmək, kimdənsə sevgi payımızı almaq, qəlbimizi qıranları bağışlamaq, xətrinə dəydiklərimizdən üzr diləmək zamanında olanda dəyərli və gözəldir.</p><p>İnsan övladıyıq. Hər birimiz hər an səhv və ya yanlış bir hərəkət edə bilərik. Mühüm olan odur ki, etdiyimiz səhvi etiraf edib düzəltməkdə, üzr diləməkdə, könül almaqda gecikməyək. Həyat qısadır.</p><p>Gecikməyək ki, «kaş ki»lərin olmadığı, «nə yaxşı ki»lərin çox olduğu, ədalətli və səadətlə dolu bir ömür yaşaya bilək.</p><p>Sevgini bildirmək, bağışlamaq və üzr diləmək vaxtında gözəldir. Həyat qısadır — könül işlərini təxirə salmayaq.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Gecikmək nə deməkdir?</p><p>Gecikmək — bir işi, bir əməli vaxtında edə bilməmək deməkdir. Xüsusilə ətrafımızdakı insanlarla münasibətdə, davranışda.</p><p>Kiməsə sevgimizi bildirmək, kimdənsə sevgi payımızı almaq, qəlbimizi qıranları bağışlamaq, xətrinə dəydiklərimizdən üzr diləmək zamanında olanda dəyərli və gözəldir.</p><p>İnsan övladıyıq. Hər birimiz hər an səhv və ya yanlış bir hərəkət edə bilərik. Mühüm olan odur ki, etdiyimiz səhvi etiraf edib düzəltməkdə, üzr diləməkdə, könül almaqda gecikməyək. Həyat qısadır.</p><p>Gecikməyək ki, «kaş ki»lərin olmadığı, «nə yaxşı ki»lərin çox olduğu, ədalətli və səadətlə dolu bir ömür yaşaya bilək.</p><p>Sevgini bildirmək, bağışlamaq və üzr diləmək vaxtında gözəldir. Həyat qısadır — könül işlərini təxirə salmayaq.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/what-it-means-to-be-late.webp" alt="Gecikmək nə deməkdir illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -326,8 +506,21 @@
     <h2 class="card-title story__title">Gözləri olan korlar</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Gözləri var deyə gördüklərini zənn edən korlarla doludur yer üzü.</p><p>Görmək gözlə yox, dərketmə ilə olur. Baxıb da görməyən, eşidib də anlamayan insan əsl kordur.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Gözləri var deyə gördüklərini zənn edən korlarla doludur yer üzü.</p><p>Görmək gözlə yox, dərketmə ilə olur. Baxıb da görməyən, eşidib də anlamayan insan əsl kordur.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/the-blind-who-have-eyes.webp" alt="Gözləri olan korlar illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -338,8 +531,21 @@
     <h2 class="card-title story__title">Hamı dəli olanda ağıllı olmağa gərək yoxdur</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Bir gün nurani bir kişiyə yuxarılardan xəbər gəlir: «Ey insan, sabahdan suların dadı dəyişəcək, içənlər dəli olacaq.» Kişi tez evə qaçır, əlinə keçən küplərə, qablara su doldurub oturur. Səhəri gün görür ki, həqiqətən hamı dəli olmağa başlayır, özü isə ancaq topladığı sudan içir. Bu minvalla bir-iki həftə keçir. Kişi dözməyib bayıra çıxır. Qarşısına çıxanlarla bir-iki kəlmə kəsən kimi hamısı ona lağ edir: «A kişi, dəli olmusan? Get dəlixanaya!» Yazıq kişi də evinə qayıdır, qabları, küpləri sındırıb adi çeşmədən, hamının içdiyi sudan içib yatır.</p><p>Doğrunu bildiyinə görə kütlə səni qınaya bilər. Ağlını qoru, amma dəyərini hər an camaata sübut etməyə çalışıb özünü yorma.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Bir gün nurani bir kişiyə yuxarılardan xəbər gəlir: «Ey insan, sabahdan suların dadı dəyişəcək, içənlər dəli olacaq.» Kişi tez evə qaçır, əlinə keçən küplərə, qablara su doldurub oturur. Səhəri gün görür ki, həqiqətən hamı dəli olmağa başlayır, özü isə ancaq topladığı sudan içir. Bu minvalla bir-iki həftə keçir. Kişi dözməyib bayıra çıxır. Qarşısına çıxanlarla bir-iki kəlmə kəsən kimi hamısı ona lağ edir: «A kişi, dəli olmusan? Get dəlixanaya!» Yazıq kişi də evinə qayıdır, qabları, küpləri sındırıb adi çeşmədən, hamının içdiyi sudan içib yatır.</p><p>Doğrunu bildiyinə görə kütlə səni qınaya bilər. Ağlını qoru, amma dəyərini hər an camaata sübut etməyə çalışıb özünü yorma.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/no-need-to-be-sane-when-everyone-is-mad.webp" alt="Hamı dəli olanda ağıllı olmağa gərək yoxdur illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -350,8 +556,21 @@
     <h2 class="card-title story__title">Həkim qəbulunda</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Həkim qəbuluna gəlmişdim. Növbəmi gözləyə-gözləyə bufetdən bir sendviç və alma suyu alıb, evdə çatdıra bilmədiyim səhər yeməyimi yemək istədim. Elə təzəcə yeməyə başlamışdım ki, kiminsə baxışlarını üzərimdə hiss etdim. Dönüb baxanda pəncərənin yanında oturmuş bir oğlan uşağının məni diqqətlə süzdüyünü gördüm.</p><p>Gözlərindəki ifadə sanki &quot;mən də acam, yemək istəyirəm&quot; deyirdi. Ürəyim yandı. Bufetə qayıdıb bir sendviç, bir də alma suyu alıb ona verdim. Uşaq iştahla yeməyə başladı. Sevindim, öz-özümə dedim: &quot;Nə yaxşı, bir adama xeyir verdim, savab qazandım.&quot;</p><p>Elə bu vaxt uşağın anası qeydiyyat otağından çıxdı. Mənzərəni görən kimi sürətlə mənə yaxınlaşdı:</p><p>— Siz nə etdiniz? Axı niyə?! Həkim demişdi ki, uşağı müayinəyə ac gətirin. İşdən icazə alıb bu qədər uzaq yoldan gəlmişik ki, qəbula düşək. İndi sabah hər şeyi yenidən başlamalıyıq.</p><p>Sonra göz yaşlarını saxlaya bilmədi.</p><p>Donub qaldım, nə deyəcəyimi bilmədim. Yaxşılıq etdiyimi düşündüyüm yerdə, demə, birilərinin zəhmətini puça çıxarmışam. Atalarımız demişkən, qaş düzəltdiyim yerdə vurub göz çıxarmışdım.</p><p>Hisslərimizə və təxminlərə əsaslanan fikirlərimiz bizi çaşdıra və yanlış qərarlar almamıza yol aça bilər.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Həkim qəbuluna gəlmişdim. Növbəmi gözləyə-gözləyə bufetdən bir sendviç və alma suyu alıb, evdə çatdıra bilmədiyim səhər yeməyimi yemək istədim. Elə təzəcə yeməyə başlamışdım ki, kiminsə baxışlarını üzərimdə hiss etdim. Dönüb baxanda pəncərənin yanında oturmuş bir oğlan uşağının məni diqqətlə süzdüyünü gördüm.</p><p>Gözlərindəki ifadə sanki &quot;mən də acam, yemək istəyirəm&quot; deyirdi. Ürəyim yandı. Bufetə qayıdıb bir sendviç, bir də alma suyu alıb ona verdim. Uşaq iştahla yeməyə başladı. Sevindim, öz-özümə dedim: &quot;Nə yaxşı, bir adama xeyir verdim, savab qazandım.&quot;</p><p>Elə bu vaxt uşağın anası qeydiyyat otağından çıxdı. Mənzərəni görən kimi sürətlə mənə yaxınlaşdı:</p><p>— Siz nə etdiniz? Axı niyə?! Həkim demişdi ki, uşağı müayinəyə ac gətirin. İşdən icazə alıb bu qədər uzaq yoldan gəlmişik ki, qəbula düşək. İndi sabah hər şeyi yenidən başlamalıyıq.</p><p>Sonra göz yaşlarını saxlaya bilmədi.</p><p>Donub qaldım, nə deyəcəyimi bilmədim. Yaxşılıq etdiyimi düşündüyüm yerdə, demə, birilərinin zəhmətini puça çıxarmışam. Atalarımız demişkən, qaş düzəltdiyim yerdə vurub göz çıxarmışdım.</p><p>Hisslərimizə və təxminlərə əsaslanan fikirlərimiz bizi çaşdıra və yanlış qərarlar almamıza yol aça bilər.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/at-the-doctors-appointment.webp" alt="Həkim qəbulunda illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -362,8 +581,21 @@
     <h2 class="card-title story__title">Həyat dərsi</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Bir qurd balasına həyatı öyrədərkən qoyunları göstərib deyir: «Bax, bunun əti ləzzətli olur.» Ardından çobanı göstərir: «Bunun dəyənəyi isə acı olur, ehtiyatlı ol.»</p><p>Bala qurd çobanın yanındakı iti görüb sevincək deyir: «Ata, bu bizə oxşayır.»</p><p>Ata qurd deyir: «Bunu görəndə dərhal qaç; biz nə çəkdiksə, bizə oxşayıb bizdən olmayanlardan çəkdik, balam.»</p><p>Ən çox zərəri bizə oxşayıb bizdən olmayanlardan görürük. İkiüzlü insanı tanımaq özünü qorumağın başlanğıcıdır.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Bir qurd balasına həyatı öyrədərkən qoyunları göstərib deyir: «Bax, bunun əti ləzzətli olur.» Ardından çobanı göstərir: «Bunun dəyənəyi isə acı olur, ehtiyatlı ol.»</p><p>Bala qurd çobanın yanındakı iti görüb sevincək deyir: «Ata, bu bizə oxşayır.»</p><p>Ata qurd deyir: «Bunu görəndə dərhal qaç; biz nə çəkdiksə, bizə oxşayıb bizdən olmayanlardan çəkdik, balam.»</p><p>Ən çox zərəri bizə oxşayıb bizdən olmayanlardan görürük. İkiüzlü insanı tanımaq özünü qorumağın başlanğıcıdır.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/a-life-lesson.webp" alt="Həyat dərsi illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -374,8 +606,21 @@
     <h2 class="card-title story__title">Həyatda önəmli olan nədir</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Həyatda önəmli olan nədir?</p><p>Müəllim sinfə girir, şagirdləri salamlayır və çantasından şüşə bir banka çıxarıb masanın üstünə qoyur:</p><p>— Hamımızın yalnız bir həyatı var və biz bu həyatda istədiyimiz hər şeyə nail ola bilərik — vaxtımızdan düzgün istifadə etsək. — Sonra bankanı qolf topları ilə doldurub şagirdlərdən soruşur: — Sizcə, banka doludurmu?</p><p>— Doludur, — deyə hamı bir ağızdan cavab verir.</p><p>Müəllim çantasından bir miqdar iri çınqıl çıxarıb bankaya əlavə edir və yenə soruşur:</p><p>— İndi necə, banka doludurmu?</p><p>— Hə, — deyə şagirdlər cavab verir.</p><p>Müəllim bankaya bir qədər də qum tökür və bir daha soruşur:</p><p>— Banka doludurmu?</p><p>Şagirdlər bu dəfə də bankanın dolu olduğunu təsdiqləyir.</p><p>Nümayişini bitirən müəllim gördüklərinin mənasını şagirdlərə belə izah edir:</p><p>— Təsəvvür edin ki, bu banka həyatın rəmzidir:</p><p>qolf topları həyatda ən çox dəyər verdiyiniz şeylərin — ailənizin, dostlarınızın, sevdiklərinizin;</p><p>iri çınqıl daşları digər vacib amillərin — malınızın, mülkünüzün, məşğuliyyətinizin;</p><p>qum isə sizə lazım ola bilən, amma o qədər də əhəmiyyətli olmayan digər şeylərin rəmzidir.</p><p>Əgər mən bankanı əvvəl qumla doldursaydım, onda nə qolf toplarına, nə də çınqıla yer qalardı. Həyat da belədir. Əgər onu kiçik, əhəmiyyətsiz şeylərlə doldurub bütün vaxtımızı, enerjimizi onlara sərf etsək, ən vacib şeylərə vaxtımız qalmaz.</p><p>Həyat bankasını əvvəl ən dəyərlilərlə — ailə, sevgi, sağlamlıqla — doldur. Xırda şeylərə qapılsan, əsas olana yer qalmaz.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Həyatda önəmli olan nədir?</p><p>Müəllim sinfə girir, şagirdləri salamlayır və çantasından şüşə bir banka çıxarıb masanın üstünə qoyur:</p><p>— Hamımızın yalnız bir həyatı var və biz bu həyatda istədiyimiz hər şeyə nail ola bilərik — vaxtımızdan düzgün istifadə etsək. — Sonra bankanı qolf topları ilə doldurub şagirdlərdən soruşur: — Sizcə, banka doludurmu?</p><p>— Doludur, — deyə hamı bir ağızdan cavab verir.</p><p>Müəllim çantasından bir miqdar iri çınqıl çıxarıb bankaya əlavə edir və yenə soruşur:</p><p>— İndi necə, banka doludurmu?</p><p>— Hə, — deyə şagirdlər cavab verir.</p><p>Müəllim bankaya bir qədər də qum tökür və bir daha soruşur:</p><p>— Banka doludurmu?</p><p>Şagirdlər bu dəfə də bankanın dolu olduğunu təsdiqləyir.</p><p>Nümayişini bitirən müəllim gördüklərinin mənasını şagirdlərə belə izah edir:</p><p>— Təsəvvür edin ki, bu banka həyatın rəmzidir:</p><p>qolf topları həyatda ən çox dəyər verdiyiniz şeylərin — ailənizin, dostlarınızın, sevdiklərinizin;</p><p>iri çınqıl daşları digər vacib amillərin — malınızın, mülkünüzün, məşğuliyyətinizin;</p><p>qum isə sizə lazım ola bilən, amma o qədər də əhəmiyyətli olmayan digər şeylərin rəmzidir.</p><p>Əgər mən bankanı əvvəl qumla doldursaydım, onda nə qolf toplarına, nə də çınqıla yer qalardı. Həyat da belədir. Əgər onu kiçik, əhəmiyyətsiz şeylərlə doldurub bütün vaxtımızı, enerjimizi onlara sərf etsək, ən vacib şeylərə vaxtımız qalmaz.</p><p>Həyat bankasını əvvəl ən dəyərlilərlə — ailə, sevgi, sağlamlıqla — doldur. Xırda şeylərə qapılsan, əsas olana yer qalmaz.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/what-matters-in-life.webp" alt="Həyatda önəmli olan nədir illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -386,8 +631,21 @@
     <h2 class="card-title story__title">Həyatda öyrəndiklərimiz</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Bu həyatda daim öyrənirsən:</p><p>kimindən səbir etməyi, kimindən sevməyi, kimindən sədaqətli, vəfalı, əxlaqlı olmağı; kimindən də ikiüzlülüyün, saxtakarlığın, xəbisliyin, xəyanətin nə olduğunu.</p><p>Həyat bizə hər insandan bir şey öyrədir: kimindən vəfanı, kimindən də xəyanətin nə olduğunu. Hər ikisi dərsdir.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Bu həyatda daim öyrənirsən:</p><p>kimindən səbir etməyi, kimindən sevməyi, kimindən sədaqətli, vəfalı, əxlaqlı olmağı; kimindən də ikiüzlülüyün, saxtakarlığın, xəbisliyin, xəyanətin nə olduğunu.</p><p>Həyat bizə hər insandan bir şey öyrədir: kimindən vəfanı, kimindən də xəyanətin nə olduğunu. Hər ikisi dərsdir.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/what-we-learn-in-life.webp" alt="Həyatda öyrəndiklərimiz illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -398,8 +656,21 @@
     <h2 class="card-title story__title">Həyatın həyat hekayəsi</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Anam evimizi, atamı və bizi tərk edəndə mən altı, qardaşım isə səkkiz yaşında idi. Anamın atamı tərk etməsini o yaşda belə anlamışdım, amma bizi tərk etməsini anlaya bilməmişdim. Ana da uşaqlarını atıb gedərmi?</p><p>Atam anamı döyərdi. Məni də, qardaşımı da döyərdi. Məndə elə fikir yaranmışdı ki, bütün kişilər arvadlarını, övladlarını döyür...</p><p>Anasız evlərin yalnız dörd divardan ibarət olduğunu anam gedəndən sonra öyrəndim. Səhərlər «əlinizi, üzünüzü yuyub gəlin, səhər yeməyiniz hazırdır» deyən olmadığı kimi, günlərlə ac qalsan da «acsanmı?» deyə soruşanın da olmadığını öyrəndim. Öyrəndiklərimin içində canımı ən çox yandıran isə bu idi: ana qoxusu olmayanda uşaqlar neçə yaşında olursa olsun, bir andaca böyüyürlər. Mən də altı yaşımda böyüdüm.</p><p>Anam evi tərk edəndən təxminən on gün sonra evimizə polislər gəldi. Dediklərinə görə, anam intihar etmişdi. Əlində bərk-bərk tutduğu bir zərf var imiş. Zərfin üzərində «qızım və oğluma verilsin» yazılıbmış.</p><p>Mən o vaxt oxumağı bilmirdim, necə oxuyacaqdım? Qardaşım oxudu. Məktubu dinləyərkən ağladım. Qardaşım da ağladı.</p><p>Anam bizi tərk edəndə ata evinə gedibmiş. Atası çox əsəbiləşibmiş. Sən demə, qadın öz evində oturmalıymış; ağzı qanla dolu olsa belə «qırmızı şərbət içdim» deməliymiş. Anam babama yalvarıbmış: «Bir aya qədər sizdə qalım, sonra bir çarə taparam, uşaqlarımı yanıma alıb yeni bir həyata başlaram.»</p><p>Vay, vay, vay! Qadın tək başına yaşayacaqmış. Babamın namusunu beş qəpiklik edəcəkmiş, adam içinə çıxa bilməyəcəkmiş; qızı ölsə, daha yaxşı olacaqmış. Anam o axşam paltar ipini heç düşünmədən boynuna keçiribmiş. Bunları mənə illər sonra nənəm ölüm yatağında, mən on doqquz yaşında olanda danışdı.</p><p>Atam anamın ölüm xəbərini alanda heç üzülmədi. Bizi yetimlər evinə verəcəyini dedi. Biz artıq orada yaşayacaqmışıq, orası bizim evimiz olacaqmış. Bacı-qardaş bir-birindən ayrılıb bir-birini unuda, illər sonra tanımaya bilər deyə ikimiz də anamın məktubunu saxlamalıymışıq.</p><p>Amma bir məktubu ikimiz necə saxlayacağıq deyə soruşmağıma ehtiyac qalmadan qardaşım qayçı ilə məktubu ortadan kəsdi. Cümlələrin baş tərəfini mənə verdi. Cümlələrin əvvəli məndə olduğu üçün mən oxumağı öyrənəndə davamını təxmin etməliymişəm. Qardaşım isə məktubu onsuz da əzbərləmişdi.</p><p>Xalam bizim yetimxanaya göndəriləcəyimizi eşidəndə gəldi. Atama: «Qız uşağı yetimxanaya verilməz. Mən Həyatı götürüb özüm böyüdərəm» dedi. Qız uşağının niyə yetimxanaya verilmədiyini də xalamla yaşamağa başlayanda anladım: qız uşağı evdə iş buyurulan pulsuz xidmətçi demək imiş. Xalam bir gün də olsun məni adımla çağırmadı. Adım «Astagəl» olmuşdu: «Astagəl, su gətir... Astagəl, bu qabları yu...»</p><p>Qardaşım ayda bir dəfə məni xalamgildə ziyarətə gəlirdi. Yetimxanada rahat olduğunu deyirdi. Mən də rahat olduğumu deyirdim — qardaşımı üzmək istəmirdim. Görəsən, qardaşım da mən üzülməyim deyə «rahatam» deyirdimi? Bunu soruşmağa heç cür cəsarət etmədim.</p><p>Məktəbə başlamışdım. Sinifdə oxumağı ilk öyrənən mən oldum. Axı necə öyrənməyim — anamın məktubunu oxuyacaqdım. Məktubun məndə qalan hissəsi «Həyat, gözəl qızım, mən səni...» sözləri ilə başlayırdı. Hər gecə yatağımda o cümləni tamamlamağa çalışırdım:</p><p>«Həyat, gözəl qızım, mən səni çox sevirəm.»</p><p>«Həyat, gözəl qızım, sənin üçün çox darıxmışam.»</p><p>«Həyat, gözəl qızım, mən səni gözləyirəm.»</p><p>Cümləyə əlavə etdiyim sözə görə xəyal qururdum. Xəyallarımda çox məsud idim. İnsan acı xəyal qurarmı heç?</p><p>Orta məktəbi bitirdim. Xalam daha məktəbə getməyəcəyimi dedi. Amma mən oxumaq istəyirdim — oxuyub öz ayağım üstündə durmaq və qardaşımla bir evdə yaşamaq arzusundaydım.</p><p>O yay məhəllə baqqalı, üç uşaqlı Həsən əminin arvadı xərçəngdən öldü. Çox üzüldüm. Üç uşaq nə edəcəkdi, ana qoxusunu necə alacaqdı? Analar niyə ölürdü? O üç uşaq da mənim kimi adını unudub «Astagəl» olacaqdımı?</p><p>Mən Həsən əminin uşaqlarının halına yanarkən onun sözlüsü olduğum bəlli oldu. Sən demə, səkkiz bilərziyə, üç min lirəyə satılmışam. Yaşım rəsmi nikah üçün az olduğundan qırx gün sonra Həsən əmi ilə kəbinimiz kəsildi.</p><p>On beş yaşım var idi. Həsən əminin arvadı idim. İki, beş, altı yaşında üç uşağım var idi. Bir də bizim ortaq bir uşağımızın olmasında israrlı olan xalam... Mənim də uşağım olmalıymış ki, yerim möhkəm olsun və Həsən əmi başqa qadınlara meyl etməsin.</p><p>Həsən əmidən ilk şilləni ona «Həsən əmi» dediyim üçün yedim. Bir qadın da ərinə «əmi» deyərmi? Mən altı yaşında anamı itirəndə susmağı öyrənmişdim. Yəni «Bir kişi on beş yaşında bir qıza arvadım deyərmi?» sualını verməyib susmuşdum.</p><p>Həsən əmi mənə şillə vuranda uşaqların üçü də atalarının ayağına sarıldı: «Həyat ablamızı döymə, o bizimlə oyun oynayır, bizə nağıl danışır» deyə yalvardılar. Mən o uşaqların ablası idim. Nağıl deyə danışdıqlarım isə xəyallarım idi.</p><p>Həsən əmi evdən gedəndə aynanın qarşısına keçdim — «Həsən» deməyi öyrənəcəkdim. Hər dəfə «Həsən» deyəndə aynada onun saçları tökülmüş başı, burnunun üstünə düşmüş eynəyi, şişmiş qarnı gözümün önünə gəlirdi. Hər «Həsən» dediyimdə sanki günah işləmiş kimi utanırdım və ona «Həsən» deyə bilmirdim. Aynanın qarşısında məşq edərkən Həsən əminin altı yaşlı oğlu yanıma gəldi: «Həyat abla, anam atama “bəy” deyirdi, sən də “bəy” de» deyə mənə ürək-dirək verdi.</p><p>«Bəy» — əlbəttə, «bəy» yaxşı olardı. Əyilib qaragöz, xəyallarımı nağıl deyə dinləyən Samini öpdüm. Beş yaşlı Elifi, iki yaşlı Zəhranı da çağırıb onlara nağıl danışmağa başladım. O gün nağılıma belə başladım: «Biri varmış, biri yoxmuş. Altı yaşında, adı Nağıl olan bir qız varmış. Nağıl anasını itirmişdi. Hər yerdə anasını axtarmış, tapmayanda isə xəyallar ölkəsinə getmişdi. Nağıl orada o qədər xoşbəxt imiş ki, bir daha gerçək dünyaya dönməmişdi.»</p><p>Nağıl mənim nağılımda həmişə xoşbəxt idi, həmişə gülümsəyirdi. Hər gün uşaqlara bu nağılı danışırdım. Çox xoşbəxt idik.</p><p>Həsən əmi də yaxşı idi. Artıq ona «Bəy» deyirdim. Zaman-zaman əsəbiləşirdi, amma mən səbəbini başa düşürdüm: o, bir qadın əvəzinə səkkiz bilərzik və üç min lirəyə bir nağıl abla satın almışdı.</p><p>Qardaşım ziyarətimə gəlirdi. Hər dəfə anamın məktubunun ondakı yarısını mənə vermək istəyirdi. Qəbul etmirdim. Çünki məktubun o biri yarısını oxusaydım, sanki xəyallar ölkəsindən qəddar, gerçək bir dünyaya dönəcək, bədbəxt olacaqdım deyə qorxurdum. Bütün xəyallarım məktubun o biri yarısı üzərində qurulmuşdu.</p><p>Qırx yaşıma çatanda nağılımı dinləyən uşaqlarım böyümüşdü. Sami həkim olmuş, təyinatını başqa şəhərə alıb evimizdən köçmüşdü. Kefi olmayanda mənə zəng vurub «Həyat abla, mənə bir nağıl danış» deyirdi.</p><p>Elif müəllim olmuş, evlənmişdi. Bir qız nəvəm oldu. Adını Həyat qoymaq çox istədilər, icazə vermədim. Elif: «Onda nəvənin adı Nağıl olsun» dedi. Beləcə nəvəmin adı Nağıl oldu.</p><p>Kiçik qızım Zəhra baytar oldu. «Həyat abla, hansı heyvan narahat olsa, nağıl danışıram, sakitləşir» deyirdi. Zəhra da evləndi, bir oğlan nəvəm oldu.</p><p>Qırx beş yaşıma çatanda Həsən əmi, yəni Bəyim rəhmətə getdi. Çox üzüldüm. Son sözü «Haqqını halal et» oldu. Ürəkdən, tam səmimi halalladım. O, yaxşı bir insan idi.</p><p>Amma haqqımı —</p><p>on beş yaşında qız uşaqlarının evlənməsində bir qəbahət görməyənlərə və bunu dəstəkləyənlərə;</p><p>hər gün şiddətə məruz qaldığını bildikləri qızlarının boşanmasını namussuzluq sayan kor düşüncə sahiblərinə və bunu dəstəkləyənlərə;</p><p>yaralı bir quş kimi çarəsiz, ümidsiz hala düşmüş uşaqlarına qarşı mərhəmətsiz davrananlara və bunu dəstəkləyənlərə —</p><p>halal etmirəm!</p><p>Kor adət və yanlış «namus» anlayışı bir qadının, bir uşağın həyatını məhv edə bilər. Erkən evliliyə, zorakılığa və laqeydliyə göz yumanlar bu zülmün ortağıdır.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Anam evimizi, atamı və bizi tərk edəndə mən altı, qardaşım isə səkkiz yaşında idi. Anamın atamı tərk etməsini o yaşda belə anlamışdım, amma bizi tərk etməsini anlaya bilməmişdim. Ana da uşaqlarını atıb gedərmi?</p><p>Atam anamı döyərdi. Məni də, qardaşımı da döyərdi. Məndə elə fikir yaranmışdı ki, bütün kişilər arvadlarını, övladlarını döyür...</p><p>Anasız evlərin yalnız dörd divardan ibarət olduğunu anam gedəndən sonra öyrəndim. Səhərlər «əlinizi, üzünüzü yuyub gəlin, səhər yeməyiniz hazırdır» deyən olmadığı kimi, günlərlə ac qalsan da «acsanmı?» deyə soruşanın da olmadığını öyrəndim. Öyrəndiklərimin içində canımı ən çox yandıran isə bu idi: ana qoxusu olmayanda uşaqlar neçə yaşında olursa olsun, bir andaca böyüyürlər. Mən də altı yaşımda böyüdüm.</p><p>Anam evi tərk edəndən təxminən on gün sonra evimizə polislər gəldi. Dediklərinə görə, anam intihar etmişdi. Əlində bərk-bərk tutduğu bir zərf var imiş. Zərfin üzərində «qızım və oğluma verilsin» yazılıbmış.</p><p>Mən o vaxt oxumağı bilmirdim, necə oxuyacaqdım? Qardaşım oxudu. Məktubu dinləyərkən ağladım. Qardaşım da ağladı.</p><p>Anam bizi tərk edəndə ata evinə gedibmiş. Atası çox əsəbiləşibmiş. Sən demə, qadın öz evində oturmalıymış; ağzı qanla dolu olsa belə «qırmızı şərbət içdim» deməliymiş. Anam babama yalvarıbmış: «Bir aya qədər sizdə qalım, sonra bir çarə taparam, uşaqlarımı yanıma alıb yeni bir həyata başlaram.»</p><p>Vay, vay, vay! Qadın tək başına yaşayacaqmış. Babamın namusunu beş qəpiklik edəcəkmiş, adam içinə çıxa bilməyəcəkmiş; qızı ölsə, daha yaxşı olacaqmış. Anam o axşam paltar ipini heç düşünmədən boynuna keçiribmiş. Bunları mənə illər sonra nənəm ölüm yatağında, mən on doqquz yaşında olanda danışdı.</p><p>Atam anamın ölüm xəbərini alanda heç üzülmədi. Bizi yetimlər evinə verəcəyini dedi. Biz artıq orada yaşayacaqmışıq, orası bizim evimiz olacaqmış. Bacı-qardaş bir-birindən ayrılıb bir-birini unuda, illər sonra tanımaya bilər deyə ikimiz də anamın məktubunu saxlamalıymışıq.</p><p>Amma bir məktubu ikimiz necə saxlayacağıq deyə soruşmağıma ehtiyac qalmadan qardaşım qayçı ilə məktubu ortadan kəsdi. Cümlələrin baş tərəfini mənə verdi. Cümlələrin əvvəli məndə olduğu üçün mən oxumağı öyrənəndə davamını təxmin etməliymişəm. Qardaşım isə məktubu onsuz da əzbərləmişdi.</p><p>Xalam bizim yetimxanaya göndəriləcəyimizi eşidəndə gəldi. Atama: «Qız uşağı yetimxanaya verilməz. Mən Həyatı götürüb özüm böyüdərəm» dedi. Qız uşağının niyə yetimxanaya verilmədiyini də xalamla yaşamağa başlayanda anladım: qız uşağı evdə iş buyurulan pulsuz xidmətçi demək imiş. Xalam bir gün də olsun məni adımla çağırmadı. Adım «Astagəl» olmuşdu: «Astagəl, su gətir... Astagəl, bu qabları yu...»</p><p>Qardaşım ayda bir dəfə məni xalamgildə ziyarətə gəlirdi. Yetimxanada rahat olduğunu deyirdi. Mən də rahat olduğumu deyirdim — qardaşımı üzmək istəmirdim. Görəsən, qardaşım da mən üzülməyim deyə «rahatam» deyirdimi? Bunu soruşmağa heç cür cəsarət etmədim.</p><p>Məktəbə başlamışdım. Sinifdə oxumağı ilk öyrənən mən oldum. Axı necə öyrənməyim — anamın məktubunu oxuyacaqdım. Məktubun məndə qalan hissəsi «Həyat, gözəl qızım, mən səni...» sözləri ilə başlayırdı. Hər gecə yatağımda o cümləni tamamlamağa çalışırdım:</p><p>«Həyat, gözəl qızım, mən səni çox sevirəm.»</p><p>«Həyat, gözəl qızım, sənin üçün çox darıxmışam.»</p><p>«Həyat, gözəl qızım, mən səni gözləyirəm.»</p><p>Cümləyə əlavə etdiyim sözə görə xəyal qururdum. Xəyallarımda çox məsud idim. İnsan acı xəyal qurarmı heç?</p><p>Orta məktəbi bitirdim. Xalam daha məktəbə getməyəcəyimi dedi. Amma mən oxumaq istəyirdim — oxuyub öz ayağım üstündə durmaq və qardaşımla bir evdə yaşamaq arzusundaydım.</p><p>O yay məhəllə baqqalı, üç uşaqlı Həsən əminin arvadı xərçəngdən öldü. Çox üzüldüm. Üç uşaq nə edəcəkdi, ana qoxusunu necə alacaqdı? Analar niyə ölürdü? O üç uşaq da mənim kimi adını unudub «Astagəl» olacaqdımı?</p><p>Mən Həsən əminin uşaqlarının halına yanarkən onun sözlüsü olduğum bəlli oldu. Sən demə, səkkiz bilərziyə, üç min lirəyə satılmışam. Yaşım rəsmi nikah üçün az olduğundan qırx gün sonra Həsən əmi ilə kəbinimiz kəsildi.</p><p>On beş yaşım var idi. Həsən əminin arvadı idim. İki, beş, altı yaşında üç uşağım var idi. Bir də bizim ortaq bir uşağımızın olmasında israrlı olan xalam... Mənim də uşağım olmalıymış ki, yerim möhkəm olsun və Həsən əmi başqa qadınlara meyl etməsin.</p><p>Həsən əmidən ilk şilləni ona «Həsən əmi» dediyim üçün yedim. Bir qadın da ərinə «əmi» deyərmi? Mən altı yaşında anamı itirəndə susmağı öyrənmişdim. Yəni «Bir kişi on beş yaşında bir qıza arvadım deyərmi?» sualını verməyib susmuşdum.</p><p>Həsən əmi mənə şillə vuranda uşaqların üçü də atalarının ayağına sarıldı: «Həyat ablamızı döymə, o bizimlə oyun oynayır, bizə nağıl danışır» deyə yalvardılar. Mən o uşaqların ablası idim. Nağıl deyə danışdıqlarım isə xəyallarım idi.</p><p>Həsən əmi evdən gedəndə aynanın qarşısına keçdim — «Həsən» deməyi öyrənəcəkdim. Hər dəfə «Həsən» deyəndə aynada onun saçları tökülmüş başı, burnunun üstünə düşmüş eynəyi, şişmiş qarnı gözümün önünə gəlirdi. Hər «Həsən» dediyimdə sanki günah işləmiş kimi utanırdım və ona «Həsən» deyə bilmirdim. Aynanın qarşısında məşq edərkən Həsən əminin altı yaşlı oğlu yanıma gəldi: «Həyat abla, anam atama “bəy” deyirdi, sən də “bəy” de» deyə mənə ürək-dirək verdi.</p><p>«Bəy» — əlbəttə, «bəy» yaxşı olardı. Əyilib qaragöz, xəyallarımı nağıl deyə dinləyən Samini öpdüm. Beş yaşlı Elifi, iki yaşlı Zəhranı da çağırıb onlara nağıl danışmağa başladım. O gün nağılıma belə başladım: «Biri varmış, biri yoxmuş. Altı yaşında, adı Nağıl olan bir qız varmış. Nağıl anasını itirmişdi. Hər yerdə anasını axtarmış, tapmayanda isə xəyallar ölkəsinə getmişdi. Nağıl orada o qədər xoşbəxt imiş ki, bir daha gerçək dünyaya dönməmişdi.»</p><p>Nağıl mənim nağılımda həmişə xoşbəxt idi, həmişə gülümsəyirdi. Hər gün uşaqlara bu nağılı danışırdım. Çox xoşbəxt idik.</p><p>Həsən əmi də yaxşı idi. Artıq ona «Bəy» deyirdim. Zaman-zaman əsəbiləşirdi, amma mən səbəbini başa düşürdüm: o, bir qadın əvəzinə səkkiz bilərzik və üç min lirəyə bir nağıl abla satın almışdı.</p><p>Qardaşım ziyarətimə gəlirdi. Hər dəfə anamın məktubunun ondakı yarısını mənə vermək istəyirdi. Qəbul etmirdim. Çünki məktubun o biri yarısını oxusaydım, sanki xəyallar ölkəsindən qəddar, gerçək bir dünyaya dönəcək, bədbəxt olacaqdım deyə qorxurdum. Bütün xəyallarım məktubun o biri yarısı üzərində qurulmuşdu.</p><p>Qırx yaşıma çatanda nağılımı dinləyən uşaqlarım böyümüşdü. Sami həkim olmuş, təyinatını başqa şəhərə alıb evimizdən köçmüşdü. Kefi olmayanda mənə zəng vurub «Həyat abla, mənə bir nağıl danış» deyirdi.</p><p>Elif müəllim olmuş, evlənmişdi. Bir qız nəvəm oldu. Adını Həyat qoymaq çox istədilər, icazə vermədim. Elif: «Onda nəvənin adı Nağıl olsun» dedi. Beləcə nəvəmin adı Nağıl oldu.</p><p>Kiçik qızım Zəhra baytar oldu. «Həyat abla, hansı heyvan narahat olsa, nağıl danışıram, sakitləşir» deyirdi. Zəhra da evləndi, bir oğlan nəvəm oldu.</p><p>Qırx beş yaşıma çatanda Həsən əmi, yəni Bəyim rəhmətə getdi. Çox üzüldüm. Son sözü «Haqqını halal et» oldu. Ürəkdən, tam səmimi halalladım. O, yaxşı bir insan idi.</p><p>Amma haqqımı —</p><p>on beş yaşında qız uşaqlarının evlənməsində bir qəbahət görməyənlərə və bunu dəstəkləyənlərə;</p><p>hər gün şiddətə məruz qaldığını bildikləri qızlarının boşanmasını namussuzluq sayan kor düşüncə sahiblərinə və bunu dəstəkləyənlərə;</p><p>yaralı bir quş kimi çarəsiz, ümidsiz hala düşmüş uşaqlarına qarşı mərhəmətsiz davrananlara və bunu dəstəkləyənlərə —</p><p>halal etmirəm!</p><p>Kor adət və yanlış «namus» anlayışı bir qadının, bir uşağın həyatını məhv edə bilər. Erkən evliliyə, zorakılığa və laqeydliyə göz yumanlar bu zülmün ortağıdır.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/hayats-life-story.webp" alt="Həyatın həyat hekayəsi illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -410,8 +681,21 @@
     <h2 class="card-title story__title">İki qab su</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Qədim zamanlarda öz var-dövləti ilə məşhur bir hökmdar varmış. Bu hökmdar getdiyi hər yerə sərvətinin bir hissəsini aparar və onu nümayiş etdirməklə öyünərmiş. Hökmdarın ən çox güvəndiyi müdrik bir müəllimi varmış. Bir gün hökmdar ondan soruşur: «Sən dünyagörmüş adamsan. De görüm, mənim hökmdarlığım və sərvətim haqqında nə düşünürsən?»</p><p>Müdrik adam hökmdarın gözlərinə baxıb belə deyir: «Tutaq ki, hökmdarım, çox isti, ucu-bucağı görünməyən bir səhradasınız. Ölməməyiniz üçün sizə bir qab su verənə sərvətinizin yarısını verərsinizmi?» «Verərəm, təbii» deyə hökmdar cavab verir. Müdrik adam: «Tutaq ki, bir müddət sonra susuzluğunuz bir az da artdı. Növbəti qab su üçün sərvətinizin o biri yarısını da verərdinizmi?» Hökmdar bir az düşünüb: «Ölməmək üçün, əlbəttə, verərdim» deyir.</p><p>Müdrik adam gülümsəyib belə deyir: «Hökmdarım, elə isə çox öyünməyin, çünki sərvətinizin dəyəri cəmi iki qab sudur.»</p><p>Var-dövlətin dəyəri şəraitdən asılıdır: səhrada bütün sərvətin cəmi iki qab su edər. Sərvətinlə öyünmə — onun qiyməti keçicidir.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Qədim zamanlarda öz var-dövləti ilə məşhur bir hökmdar varmış. Bu hökmdar getdiyi hər yerə sərvətinin bir hissəsini aparar və onu nümayiş etdirməklə öyünərmiş. Hökmdarın ən çox güvəndiyi müdrik bir müəllimi varmış. Bir gün hökmdar ondan soruşur: «Sən dünyagörmüş adamsan. De görüm, mənim hökmdarlığım və sərvətim haqqında nə düşünürsən?»</p><p>Müdrik adam hökmdarın gözlərinə baxıb belə deyir: «Tutaq ki, hökmdarım, çox isti, ucu-bucağı görünməyən bir səhradasınız. Ölməməyiniz üçün sizə bir qab su verənə sərvətinizin yarısını verərsinizmi?» «Verərəm, təbii» deyə hökmdar cavab verir. Müdrik adam: «Tutaq ki, bir müddət sonra susuzluğunuz bir az da artdı. Növbəti qab su üçün sərvətinizin o biri yarısını da verərdinizmi?» Hökmdar bir az düşünüb: «Ölməmək üçün, əlbəttə, verərdim» deyir.</p><p>Müdrik adam gülümsəyib belə deyir: «Hökmdarım, elə isə çox öyünməyin, çünki sərvətinizin dəyəri cəmi iki qab sudur.»</p><p>Var-dövlətin dəyəri şəraitdən asılıdır: səhrada bütün sərvətin cəmi iki qab su edər. Sərvətinlə öyünmə — onun qiyməti keçicidir.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/two-bowls-of-water.webp" alt="İki qab su illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -422,8 +706,21 @@
     <h2 class="card-title story__title">İnsan çıxdı</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Düşüncəni qəlblə vurdum — sevgi çıxdı.</p><p>Sevgini əməklə topladım — vəfa çıxdı.</p><p>Çörəyi vicdanla böldüm — ədalət çıxdı.</p><p>Sevgini, əməyi, vicdanı, vəfanı, ədaləti topladım — insan çıxdı.</p><p>Yaşar Kemal</p><p>Sevgi, əmək, vicdan, vəfa və ədalət bir yerə gələndə əsl insan yaranır. İnsanlıq bu dəyərlərin cəmidir.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Düşüncəni qəlblə vurdum — sevgi çıxdı.</p><p>Sevgini əməklə topladım — vəfa çıxdı.</p><p>Çörəyi vicdanla böldüm — ədalət çıxdı.</p><p>Sevgini, əməyi, vicdanı, vəfanı, ədaləti topladım — insan çıxdı.</p><p>Yaşar Kemal</p><p>Sevgi, əmək, vicdan, vəfa və ədalət bir yerə gələndə əsl insan yaranır. İnsanlıq bu dəyərlərin cəmidir.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/a-human-emerged.webp" alt="İnsan çıxdı illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -434,8 +731,21 @@
     <h2 class="card-title story__title">İstanbullu bir xanımın xatirələrindən</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>1919-cu il idi. İstanbul bütünlüklə ingilis işğalı altında idi. Orta məktəbi təzəcə bitirmişdim.</p><p>Gözəl bir qız idim, evimizə elçilər gəlirdi. Bir gün özünü vəkil kimi təqdim edən bir gənc elçiləri ilə birlikdə evimizə gəldi. Bu yaraşıqlı, ucaboylu oğlanı görüb bəyəndim. Nişanlandıq. Nişanlımı sevirdim... Xoşbəxt bir yuva qurmaq istəyi ilə səhərə qədər lampa işığında kiçik dəsmallar toxuyur, cehizimi hazırlayırdım.</p><p>Bir gün məhəllədə bir dedi-qodu yayıldı.</p><p>Dedilər ki, «Ayişənin nişanlısı heç də vəkil deyilmiş, məscidin önündə tabut daşımaqla özünə gün ağlayırmış.»</p><p>Alt-üst oldum. Atamla birlikdə məscidə getdik, uzaqdan izlədik və onun həqiqətən tabut daşıdığını gördük.</p><p>Sarsıldım. Nişanı qaytardıq, ayrıldıq.</p><p>Beş il keçdi. Evli idim, bir övladım var idi. Ölkəmiz artıq azad idi.</p><p>Bir gün şəhərdə onunla qarşılaşdım. Oğlum da yanımda idi.</p><p>Məni görüb dayandı. Çəkinə-çəkinə: «Vaxtınız varsa, sizə bir fincan çay təklif etmək istərdim» dedi. Razılaşdım. Bir ofisə girdik.</p><p>Bura bir hüquq firması idi; qapıdakı lövhədə onun adı yazılmışdı. Köməkçiləri içəridə işləyirdi.</p><p>— Doğrudanmı vəkilsən? — deyə soruşdum.</p><p>— Hə, — dedi.</p><p>— Amma əgər vəkilsənsə, o zaman niyə məscidin önündə tabut daşıyırdın?</p><p>Başını aşağı əydi: «Məni bağışla» dedi.</p><p>«İstanbul işğal altında idi. Hər tərəfimiz ingilis əsgərləri ilə dolu idi, hər şeyi, hər kəsi ciddi şəkildə yoxlayırdılar. Biz isə Anadoluya, Milli Qüvvələrə yardım etmək üçün cənazə adı altında içi silahla dolu tabutlar göndərirdik. Bu, ölkə üçün həyati bir vəzifə idi. Bunu sənə belə deyə bilməzdim...»</p><p>Görünüşə baxıb tələsik hökm vermə; hər davranışın arxasında bilmədiyin bir həqiqət ola bilər. Azadlığımız fədakarların qurbanına borcludur.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>1919-cu il idi. İstanbul bütünlüklə ingilis işğalı altında idi. Orta məktəbi təzəcə bitirmişdim.</p><p>Gözəl bir qız idim, evimizə elçilər gəlirdi. Bir gün özünü vəkil kimi təqdim edən bir gənc elçiləri ilə birlikdə evimizə gəldi. Bu yaraşıqlı, ucaboylu oğlanı görüb bəyəndim. Nişanlandıq. Nişanlımı sevirdim... Xoşbəxt bir yuva qurmaq istəyi ilə səhərə qədər lampa işığında kiçik dəsmallar toxuyur, cehizimi hazırlayırdım.</p><p>Bir gün məhəllədə bir dedi-qodu yayıldı.</p><p>Dedilər ki, «Ayişənin nişanlısı heç də vəkil deyilmiş, məscidin önündə tabut daşımaqla özünə gün ağlayırmış.»</p><p>Alt-üst oldum. Atamla birlikdə məscidə getdik, uzaqdan izlədik və onun həqiqətən tabut daşıdığını gördük.</p><p>Sarsıldım. Nişanı qaytardıq, ayrıldıq.</p><p>Beş il keçdi. Evli idim, bir övladım var idi. Ölkəmiz artıq azad idi.</p><p>Bir gün şəhərdə onunla qarşılaşdım. Oğlum da yanımda idi.</p><p>Məni görüb dayandı. Çəkinə-çəkinə: «Vaxtınız varsa, sizə bir fincan çay təklif etmək istərdim» dedi. Razılaşdım. Bir ofisə girdik.</p><p>Bura bir hüquq firması idi; qapıdakı lövhədə onun adı yazılmışdı. Köməkçiləri içəridə işləyirdi.</p><p>— Doğrudanmı vəkilsən? — deyə soruşdum.</p><p>— Hə, — dedi.</p><p>— Amma əgər vəkilsənsə, o zaman niyə məscidin önündə tabut daşıyırdın?</p><p>Başını aşağı əydi: «Məni bağışla» dedi.</p><p>«İstanbul işğal altında idi. Hər tərəfimiz ingilis əsgərləri ilə dolu idi, hər şeyi, hər kəsi ciddi şəkildə yoxlayırdılar. Biz isə Anadoluya, Milli Qüvvələrə yardım etmək üçün cənazə adı altında içi silahla dolu tabutlar göndərirdik. Bu, ölkə üçün həyati bir vəzifə idi. Bunu sənə belə deyə bilməzdim...»</p><p>Görünüşə baxıb tələsik hökm vermə; hər davranışın arxasında bilmədiyin bir həqiqət ola bilər. Azadlığımız fədakarların qurbanına borcludur.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/from-the-memoirs-of-a-lady-from-istanbul.webp" alt="İstanbullu bir xanımın xatirələrindən illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -446,8 +756,21 @@
     <h2 class="card-title story__title">İtib batmaz</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Ürəkdən edilən yaxşılıq,</p><p>sevgi ilə yoğrulmuş davranış,</p><p>səmimiyyətlə söylənmiş söz,</p><p>ədəb-ərkanla bürünmüş rəftar,</p><p>eşqlə boyanmış təbəssüm,</p><p>haqq-ədalət uğrunda atılan addım,</p><p>mənəvi dəyərlərə göstərilən ehtiram —</p><p>heç vaxt itib batmaz; ətrafınızdakı insanların yoluna işıq saçmaqla yanaşı, sizin də həyatınızın nurlu, sağlam, gözəl olmasına vəsilə olar.</p><p>Ürəkdən edilən yaxşılıq, söz və əməl heç vaxt itmir; həm başqalarının yoluna işıq salır, həm də sənin ömrünü nurlandırır.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Ürəkdən edilən yaxşılıq,</p><p>sevgi ilə yoğrulmuş davranış,</p><p>səmimiyyətlə söylənmiş söz,</p><p>ədəb-ərkanla bürünmüş rəftar,</p><p>eşqlə boyanmış təbəssüm,</p><p>haqq-ədalət uğrunda atılan addım,</p><p>mənəvi dəyərlərə göstərilən ehtiram —</p><p>heç vaxt itib batmaz; ətrafınızdakı insanların yoluna işıq saçmaqla yanaşı, sizin də həyatınızın nurlu, sağlam, gözəl olmasına vəsilə olar.</p><p>Ürəkdən edilən yaxşılıq, söz və əməl heç vaxt itmir; həm başqalarının yoluna işıq salır, həm də sənin ömrünü nurlandırır.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/it-wont-go-to-waste.webp" alt="İtib batmaz illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -458,8 +781,21 @@
     <h2 class="card-title story__title">İtirdim deyə bir şey yoxdur</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>«İtirdim» deyə bir şey yoxdur. Yalnız qazandığınız uğurlar və həyatdan öyrəndiyiniz dərslər var.</p><p>«İtirmək» yoxdur — ya qazanırsan, ya öyrənirsən. Hər uğursuzluq əslində bir dərsdir.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>«İtirdim» deyə bir şey yoxdur. Yalnız qazandığınız uğurlar və həyatdan öyrəndiyiniz dərslər var.</p><p>«İtirmək» yoxdur — ya qazanırsan, ya öyrənirsən. Hər uğursuzluq əslində bir dərsdir.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/nothing-is-ever-truly-lost.webp" alt="İtirdim deyə bir şey yoxdur illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -470,8 +806,21 @@
     <h2 class="card-title story__title">Keçmişdə yaşamaq</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Keçmişdə yaşamaq arxaya baxa-baxa yerimək kimidir. Önünə baxmadığın üçün daim büdrəyib yıxılacaq, nə arxada qalanı dəyişə, nə də önündəki qapıları aça biləcəksən.</p><p>Keçmişə baxa-baxa yerimək büdrəməkdir. Keçəni geri qaytara bilməzsən — üzünü qarşıya çevir, irəli bax.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Keçmişdə yaşamaq arxaya baxa-baxa yerimək kimidir. Önünə baxmadığın üçün daim büdrəyib yıxılacaq, nə arxada qalanı dəyişə, nə də önündəki qapıları aça biləcəksən.</p><p>Keçmişə baxa-baxa yerimək büdrəməkdir. Keçəni geri qaytara bilməzsən — üzünü qarşıya çevir, irəli bax.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/living-in-the-past.webp" alt="Keçmişdə yaşamaq illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -482,8 +831,21 @@
     <h2 class="card-title story__title">Kitab dükanında</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Həkimlik oxuyan bir tələbə Bursadakı «Bilge» kitab evinin rəflərini ələk-vələk edib nəhayət axtardığı kitabı tapdığına çox sevindi. Kitabın arxasını çevirəndə gördüyü qiymət üzündəki təbəssümü dondurdu. Büruzə vermədən səhifələri sürətlə vərəqlədi, axtardığı bölməni tapdı. Kitab evinin sahiblərinə gizlicə baxdı — ikisinin də başı müştərilərlə qarışıq idi. Müəlliminin tapşırdığı yeri bir nəfəsə oxudu, sonra dükanı tərk etdi.</p><p>Ertəsi gün yenə gəldi, kitabın yerləşdiyi rəfə yaxınlaşdı. Rəflər sanki onu kənar gözlərdən gizlədirdi. Tez ona lazım olan səhifəni açıb oxumağa başladı.</p><p>Tələbə təxminən bir ay boyu iki gündən bir kitab evinə gedib dərsini oxudu. Məkanın hər iki sahibi bunu heç fərqinə də varmadı. Buraxılış imtahanlarına bir həftə qalmış yenə kitab evinə baş çəkdi. Kitabın olduğu rəfə yaxınlaşdı, amma onu tapa bilmədi. Alt rəfə, üst rəfə baxdı, yenə tapmadı. Gəncin rəngi qaçdı. Büruzə vermədən bütün rəfləri axtardı — kitab satılmışdı. Üzü ağappaq, oranı tərk edərkən bir ay ərzində ilk dəfə kitab evinin iki sahibi ilə üz-üzə gəldi.</p><p>— Xoş gördük, — dedilər.</p><p>— Xoş gününüz olsun...</p><p>— Buyurun, əyləşin. Sizə bir sözümüz var.</p><p>Tələbə səssizcə göstərilən stulda oturdu.</p><p>Kitabçı əlini masasının altına uzatdı və gəncin qorxu dolu baxışları altında kitabı çıxardı:</p><p>— Bu yaxınlarda biri gəlib kitabın qiymətini soruşdu, almağa niyyətli görünürdü. Mən də kitabı rəfdən götürüb sənin üçün saxladım. Buradan alıb oxuya bilərsən, — dedi.</p><p>Gənc tələbə təhsilini bitirib həkim olandan sonra da Vural və Mustafa bəyi heç vaxt unutmadı. İmkansız xəstələrindən heç vaxt pul almadı.</p><p>Bir kiçik xeyirxahlıq bir insanın qəlbində ömürlük iz qoyur. Yaxşılıq gördüyü insan sonra onu başqalarına ötürür.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Həkimlik oxuyan bir tələbə Bursadakı «Bilge» kitab evinin rəflərini ələk-vələk edib nəhayət axtardığı kitabı tapdığına çox sevindi. Kitabın arxasını çevirəndə gördüyü qiymət üzündəki təbəssümü dondurdu. Büruzə vermədən səhifələri sürətlə vərəqlədi, axtardığı bölməni tapdı. Kitab evinin sahiblərinə gizlicə baxdı — ikisinin də başı müştərilərlə qarışıq idi. Müəlliminin tapşırdığı yeri bir nəfəsə oxudu, sonra dükanı tərk etdi.</p><p>Ertəsi gün yenə gəldi, kitabın yerləşdiyi rəfə yaxınlaşdı. Rəflər sanki onu kənar gözlərdən gizlədirdi. Tez ona lazım olan səhifəni açıb oxumağa başladı.</p><p>Tələbə təxminən bir ay boyu iki gündən bir kitab evinə gedib dərsini oxudu. Məkanın hər iki sahibi bunu heç fərqinə də varmadı. Buraxılış imtahanlarına bir həftə qalmış yenə kitab evinə baş çəkdi. Kitabın olduğu rəfə yaxınlaşdı, amma onu tapa bilmədi. Alt rəfə, üst rəfə baxdı, yenə tapmadı. Gəncin rəngi qaçdı. Büruzə vermədən bütün rəfləri axtardı — kitab satılmışdı. Üzü ağappaq, oranı tərk edərkən bir ay ərzində ilk dəfə kitab evinin iki sahibi ilə üz-üzə gəldi.</p><p>— Xoş gördük, — dedilər.</p><p>— Xoş gününüz olsun...</p><p>— Buyurun, əyləşin. Sizə bir sözümüz var.</p><p>Tələbə səssizcə göstərilən stulda oturdu.</p><p>Kitabçı əlini masasının altına uzatdı və gəncin qorxu dolu baxışları altında kitabı çıxardı:</p><p>— Bu yaxınlarda biri gəlib kitabın qiymətini soruşdu, almağa niyyətli görünürdü. Mən də kitabı rəfdən götürüb sənin üçün saxladım. Buradan alıb oxuya bilərsən, — dedi.</p><p>Gənc tələbə təhsilini bitirib həkim olandan sonra da Vural və Mustafa bəyi heç vaxt unutmadı. İmkansız xəstələrindən heç vaxt pul almadı.</p><p>Bir kiçik xeyirxahlıq bir insanın qəlbində ömürlük iz qoyur. Yaxşılıq gördüyü insan sonra onu başqalarına ötürür.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/at-the-bookstore.webp" alt="Kitab dükanında illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -494,8 +856,21 @@
     <h2 class="card-title story__title">Kor quyu</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Günlərin bir günü bir kəndlinin uzunqulağı bir kor quyuya (suyu qurumuş quyuya) düşür. Saatlar keçir; nəhayət, uzunqulağın ağrılı-acılı bağırtısını eşidən sahibi və qonum-qonşu tökülüb gəlir, onu quyudan xilas etməyin yollarını axtarır. O deyir, bu deyir — sonda onu quyudan çıxarmağın mümkün olmayacağı qənaətinə gəlir, tək çarəni quyunu torpaqla doldurmaqda görürlər. Hərə əlinə bir kürək alıb ətrafdan torpaq daşıyaraq quyuya tökməyə başlayır. Zavallı heyvan üstünə tökülən torpağı silkələyib ayaqlarının altına atır və bu torpaq sayəsində get-gedə yüksəlir, sonunda quyunun ağzına qədər qalxmağı bacarır. Uzunqulağı quyudan sağ-salamat çıxmış görəndə camaat çox təəccüblənir.</p><p>Üstünə tökülən torpağı silkələyib ayağının altına at, yüksəl. Çarəsizlikdən qurtuluş sızlamaqda yox, silkələnib mübarizə aparmaqdadır.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Günlərin bir günü bir kəndlinin uzunqulağı bir kor quyuya (suyu qurumuş quyuya) düşür. Saatlar keçir; nəhayət, uzunqulağın ağrılı-acılı bağırtısını eşidən sahibi və qonum-qonşu tökülüb gəlir, onu quyudan xilas etməyin yollarını axtarır. O deyir, bu deyir — sonda onu quyudan çıxarmağın mümkün olmayacağı qənaətinə gəlir, tək çarəni quyunu torpaqla doldurmaqda görürlər. Hərə əlinə bir kürək alıb ətrafdan torpaq daşıyaraq quyuya tökməyə başlayır. Zavallı heyvan üstünə tökülən torpağı silkələyib ayaqlarının altına atır və bu torpaq sayəsində get-gedə yüksəlir, sonunda quyunun ağzına qədər qalxmağı bacarır. Uzunqulağı quyudan sağ-salamat çıxmış görəndə camaat çox təəccüblənir.</p><p>Üstünə tökülən torpağı silkələyib ayağının altına at, yüksəl. Çarəsizlikdən qurtuluş sızlamaqda yox, silkələnib mübarizə aparmaqdadır.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/the-blind-well.webp" alt="Kor quyu illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -506,8 +881,21 @@
     <h2 class="card-title story__title">Küləksiz havada fırlanan yel dəyirmanı</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Küləksiz havada fırlanan yel dəyirmanının hökmən bir üfləyəni var.</p><p>* * *</p><p>Eskimos atalar sözü</p><p>Səbəbsiz nəticə olmaz. Gözlə görünməyən bir «üfləyən» hər hadisənin arxasında dayanır.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Küləksiz havada fırlanan yel dəyirmanının hökmən bir üfləyəni var.</p><p>* * *</p><p>Eskimos atalar sözü</p><p>Səbəbsiz nəticə olmaz. Gözlə görünməyən bir «üfləyən» hər hadisənin arxasında dayanır.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/a-windmill-turning-in-still-air.webp" alt="Küləksiz havada fırlanan yel dəyirmanı illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -518,8 +906,21 @@
     <h2 class="card-title story__title">Möhtəşəm dərs</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Osmanlı padşahı II Muradın oğlu Fateh Sultan Mehmet (Konstantinopolun fatehi) uşaq ikən sinifdə dərs zamanı heç sakit durmaz, dəcəllik edərdi. Müəllimi Ağşəmsəddin onu tənbeh edəndə «sən mənə bir söz deyə bilməzsən, mən padşah oğluyam» deyə müəllimini hədələyərdi.</p><p>Ağşəmsəddin bu vəziyyətdən narahat olur, özünü çarəsiz hiss edirdi. Şikayət etmək üçün padşahın hüzuruna çıxmağa da həya edirdi. Bir gün hər şeyi gözə alıb padşah II Muradın hüzuruna çıxır və baş verənləri sıxıla-sıxıla ona danışır. Padşah II Murad bir az düşünüb müdhiş planını Ağşəmsəddinin qulağına pıçıldayır.</p><p>Müəllim bu planın icrasının mümkünsüz olduğunu izah etməyə çalışsa da, padşah II Murad onu dinləmədi və «bu iş olacaq» dedi.</p><p>Ertəsi gün dərs zamanı Fateh Sultan Mehmet yenə həmişəki kimi dəcəllik edirdi. Ağşəmsəddinin tənbehinə yenə eyni hədə ilə cavab verdiyi anda padşah qapını açıb içəri girdi.</p><p>Bunu görən Ağşəmsəddin hiddətlənib padşaha bağırdı, ona bir şillə vurdu, bu şəkildə sinfə girməyin olmazlığını, icazə istəməyin lazım olduğunu deyib dərhal çölə çıxmasını tələb etdi.</p><p>Padşah məhcub halda boynunu büküb üzr istədi və çölə çıxdı. Bunu görən Fateh Sultan Mehmetin nitqi tutuldu, nə edəcəyini bilməyib sarsıldı. Sən bir işə bax — güvəndiyi atası şillə yemişdi.</p><p>Az sonra qapı döyüldü və padşah məhcub halda üzr istəyib içəri girdi.</p><p>Plan möhtəşəm işləmişdi...</p><p>O gündən sonra Fateh Sultan Mehmet əsla dəcəllik etmədi. Çünki güvəndiyi dağlara qar yağmışdı...</p><p>Heyrətamizdir: o böyüklükdə padşah II Murad sırf övladının tərbiyəsi üçün gözünü qırpmadan şillə yeməyi gözə almışdı...</p><p>Əsl tərbiyə üçün nümunə hər sözdən güclüdür. Bir ata övladının düzəlməsi naminə öz qürurunu belə qurban verə bilir.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Osmanlı padşahı II Muradın oğlu Fateh Sultan Mehmet (Konstantinopolun fatehi) uşaq ikən sinifdə dərs zamanı heç sakit durmaz, dəcəllik edərdi. Müəllimi Ağşəmsəddin onu tənbeh edəndə «sən mənə bir söz deyə bilməzsən, mən padşah oğluyam» deyə müəllimini hədələyərdi.</p><p>Ağşəmsəddin bu vəziyyətdən narahat olur, özünü çarəsiz hiss edirdi. Şikayət etmək üçün padşahın hüzuruna çıxmağa da həya edirdi. Bir gün hər şeyi gözə alıb padşah II Muradın hüzuruna çıxır və baş verənləri sıxıla-sıxıla ona danışır. Padşah II Murad bir az düşünüb müdhiş planını Ağşəmsəddinin qulağına pıçıldayır.</p><p>Müəllim bu planın icrasının mümkünsüz olduğunu izah etməyə çalışsa da, padşah II Murad onu dinləmədi və «bu iş olacaq» dedi.</p><p>Ertəsi gün dərs zamanı Fateh Sultan Mehmet yenə həmişəki kimi dəcəllik edirdi. Ağşəmsəddinin tənbehinə yenə eyni hədə ilə cavab verdiyi anda padşah qapını açıb içəri girdi.</p><p>Bunu görən Ağşəmsəddin hiddətlənib padşaha bağırdı, ona bir şillə vurdu, bu şəkildə sinfə girməyin olmazlığını, icazə istəməyin lazım olduğunu deyib dərhal çölə çıxmasını tələb etdi.</p><p>Padşah məhcub halda boynunu büküb üzr istədi və çölə çıxdı. Bunu görən Fateh Sultan Mehmetin nitqi tutuldu, nə edəcəyini bilməyib sarsıldı. Sən bir işə bax — güvəndiyi atası şillə yemişdi.</p><p>Az sonra qapı döyüldü və padşah məhcub halda üzr istəyib içəri girdi.</p><p>Plan möhtəşəm işləmişdi...</p><p>O gündən sonra Fateh Sultan Mehmet əsla dəcəllik etmədi. Çünki güvəndiyi dağlara qar yağmışdı...</p><p>Heyrətamizdir: o böyüklükdə padşah II Murad sırf övladının tərbiyəsi üçün gözünü qırpmadan şillə yeməyi gözə almışdı...</p><p>Əsl tərbiyə üçün nümunə hər sözdən güclüdür. Bir ata övladının düzəlməsi naminə öz qürurunu belə qurban verə bilir.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/a-magnificent-lesson.webp" alt="Möhtəşəm dərs illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -530,8 +931,21 @@
     <h2 class="card-title story__title">Mühazirəçi və mehtər</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Bir kəndə əhalini maarifləndirmək üçün bir mühazirəçi dəvət edirlər. Adam salona daxil olur və görür ki, içəridə cəmi bir nəfər əyləşib. Salam verəndən sonra bu adama müraciət edir: «Sizdən başqa kimsə gəlməyib. Nə deyirsiniz, mühazirəni keçək, ya yox?»</p><p>Yeganə «dinləyici» belə deyir:</p><p>— Müəllim, mən mehtər babayam, iyirmi atım var. Atların hamısı qaçıb getsə, təkcə biri qalsa, mən yenə onu bəslər, suyunu, yemini verərəm.</p><p>Mühazirəçi çıxışına başlayır və uzun-uzadı danışır. Bitirəndən sonra mehtərdən soruşur:</p><p>— Necədir, mühazirəmi bəyəndinizmi?</p><p>Mehtər cavab verir: «Mən at baxıcısıyam, sizin dediklərinizdən bir şey anlamadım. Amma bircə onu deyə bilərəm ki, mən iyirmi atın suyunu, yemini bir ata yedizdirib onu çatlatmaram.»</p><p>Yaxşı danışmaq çox danışmaq deyil; sözü / fikri  dinləyicinin anlayıb mənimsəyə biləcəyi qədər deməkdir.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Bir kəndə əhalini maarifləndirmək üçün bir mühazirəçi dəvət edirlər. Adam salona daxil olur və görür ki, içəridə cəmi bir nəfər əyləşib. Salam verəndən sonra bu adama müraciət edir: «Sizdən başqa kimsə gəlməyib. Nə deyirsiniz, mühazirəni keçək, ya yox?»</p><p>Yeganə «dinləyici» belə deyir:</p><p>— Müəllim, mən mehtər babayam, iyirmi atım var. Atların hamısı qaçıb getsə, təkcə biri qalsa, mən yenə onu bəslər, suyunu, yemini verərəm.</p><p>Mühazirəçi çıxışına başlayır və uzun-uzadı danışır. Bitirəndən sonra mehtərdən soruşur:</p><p>— Necədir, mühazirəmi bəyəndinizmi?</p><p>Mehtər cavab verir: «Mən at baxıcısıyam, sizin dediklərinizdən bir şey anlamadım. Amma bircə onu deyə bilərəm ki, mən iyirmi atın suyunu, yemini bir ata yedizdirib onu çatlatmaram.»</p><p>Yaxşı danışmaq çox danışmaq deyil; sözü / fikri  dinləyicinin anlayıb mənimsəyə biləcəyi qədər deməkdir.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/the-lecturer-and-the-groom.webp" alt="Mühazirəçi və mehtər illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -542,8 +956,21 @@
     <h2 class="card-title story__title">Müəllim, salam, xatırladınız məni</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Müəllim, salam, xatırladınız məni?</p><p>— Müəllim, salam! Xatırladınız məni? Vaxtilə məktəbdə mənim müəllimim olmusunuz.</p><p>— Bəli, xatırladım. İbtidai sinifdə mənim şagirdim olmusan. Uzun illər sonra səni yenidən gördüyümə şad oldum. Nə işlə məşğulsan?</p><p>— Mən də sizi gördüyümə çox şadam. Sizin kimi müəllim olmuşam.</p><p>— Çox gözəl. Bəs niyə müəllim olmaq qərarına gəldin?</p><p>— Çünki vaxtilə siz müəllim kimi məni ilhamlandırdınız, həyatda nümunə oldunuz. Ona görə qərara gəldim ki, mən də müəllim olub uşaqların yetişməsinə töhfə verim, onları həyatda uğurlu olmaq üçün ilhamlandırım.</p><p>— Bu cür düşünməyinə və müəllim olmaq qərarına sevindim. Amma dedin ki, mən vaxtilə səni ilhamlandırmışam, nümunə olmuşam. Tam olaraq nəyi nəzərdə tutursan?</p><p>— Siz bizə dərs deyəndə sinifdəki oğlanlardan birinə valideynləri qəşəng bir saat almışdılar. Mənim valideynlərimin imkanı olmadığından mənə saat ala bilmirdilər. Saatdan isə çox xoşum gəlmişdi və bir gün böyük tənəffüsdə həmin saatı o oğlanın cibindən oğurladım. Tənəffüsdən sonra oğlan sizə saatının oğurlandığını dedi. Siz sinifdəki şagirdlərə müraciət etdiniz ki, saatı kim götürübsə, geri qaytarsın. Heç kəsdən səs çıxmayanda otağın qapısını bağladınız və dediniz ki, bütün oğlanların ciblərini yoxlayacaqsınız. Öz-özümə düşündüm ki, bu, həyatımın ən utancverici anı olacaq. Oğlanlar divar boyu düzüldü, siz tapşırdınız ki, hər kəs gözünü əlləri ilə örtsün. Bir-bir bütün oğlanların ciblərini yoxladınız. Amma saatı mənim cibimdən çıxarandan sonra da digər şagirdlərin ciblərini yoxlamağa davam etdiniz və axırda saatı kimin oğurladığını heç kimə demədiniz. Hətta il boyu bu hadisə barədə nə mənə, nə də valideynlərimə bir kəlmə demədiniz. Sadəcə saatı sahibinə qaytardınız. O gün siz mənim ləyaqətimin alçaldılmasına yol vermədiniz, uşaqcasına düşüncəsiz hərəkətimə görə adımın «oğru», «yalançı» çıxmasının qarşısını aldınız və məni bağışladınız. O hadisə mənim üçün böyük bir dərs oldu. Anladım ki, əsl müəllim şagirdinə yalnız bilik verən deyil, ona düzgün dəyərləri aşılayan, səhvinə görə cəzalandıran yox, səhvindən dərs çıxarmağı öyrədən, şagirdini həyata bağlayan insandır. Elə həmin an gələcəkdə mənim də sizin kimi müəllim olacağıma qərar verdim.</p><p>Müəllim bu hekayəni dinləyir və təəccüblənir. Gənc soruşur:</p><p>— Bu hadisəni xatırlamadınız? Həmin saatı mənim cibimdən çıxardığınızı unutmusunuz?</p><p>— Hadisəni xatırladım, sadəcə saatın sənin cibindən çıxdığını bilmirdim.</p><p>— Necə yəni, saatın mənim cibimdən çıxdığını bilmirdiniz? Axı onu özünüz mənim cibimdə tapdınız!</p><p>— Çünki şagirdlərin ciblərini yoxlayanda mən də gözlərimi yummuşdum...</p><p>Bir insanın ayıbını üzünə vurmadan, gözünü yumaraq onu qorumaq əsl müəllimlikdir. Ləyaqəti qorunan insan səhvindən dərs alıb ucalır.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Müəllim, salam, xatırladınız məni?</p><p>— Müəllim, salam! Xatırladınız məni? Vaxtilə məktəbdə mənim müəllimim olmusunuz.</p><p>— Bəli, xatırladım. İbtidai sinifdə mənim şagirdim olmusan. Uzun illər sonra səni yenidən gördüyümə şad oldum. Nə işlə məşğulsan?</p><p>— Mən də sizi gördüyümə çox şadam. Sizin kimi müəllim olmuşam.</p><p>— Çox gözəl. Bəs niyə müəllim olmaq qərarına gəldin?</p><p>— Çünki vaxtilə siz müəllim kimi məni ilhamlandırdınız, həyatda nümunə oldunuz. Ona görə qərara gəldim ki, mən də müəllim olub uşaqların yetişməsinə töhfə verim, onları həyatda uğurlu olmaq üçün ilhamlandırım.</p><p>— Bu cür düşünməyinə və müəllim olmaq qərarına sevindim. Amma dedin ki, mən vaxtilə səni ilhamlandırmışam, nümunə olmuşam. Tam olaraq nəyi nəzərdə tutursan?</p><p>— Siz bizə dərs deyəndə sinifdəki oğlanlardan birinə valideynləri qəşəng bir saat almışdılar. Mənim valideynlərimin imkanı olmadığından mənə saat ala bilmirdilər. Saatdan isə çox xoşum gəlmişdi və bir gün böyük tənəffüsdə həmin saatı o oğlanın cibindən oğurladım. Tənəffüsdən sonra oğlan sizə saatının oğurlandığını dedi. Siz sinifdəki şagirdlərə müraciət etdiniz ki, saatı kim götürübsə, geri qaytarsın. Heç kəsdən səs çıxmayanda otağın qapısını bağladınız və dediniz ki, bütün oğlanların ciblərini yoxlayacaqsınız. Öz-özümə düşündüm ki, bu, həyatımın ən utancverici anı olacaq. Oğlanlar divar boyu düzüldü, siz tapşırdınız ki, hər kəs gözünü əlləri ilə örtsün. Bir-bir bütün oğlanların ciblərini yoxladınız. Amma saatı mənim cibimdən çıxarandan sonra da digər şagirdlərin ciblərini yoxlamağa davam etdiniz və axırda saatı kimin oğurladığını heç kimə demədiniz. Hətta il boyu bu hadisə barədə nə mənə, nə də valideynlərimə bir kəlmə demədiniz. Sadəcə saatı sahibinə qaytardınız. O gün siz mənim ləyaqətimin alçaldılmasına yol vermədiniz, uşaqcasına düşüncəsiz hərəkətimə görə adımın «oğru», «yalançı» çıxmasının qarşısını aldınız və məni bağışladınız. O hadisə mənim üçün böyük bir dərs oldu. Anladım ki, əsl müəllim şagirdinə yalnız bilik verən deyil, ona düzgün dəyərləri aşılayan, səhvinə görə cəzalandıran yox, səhvindən dərs çıxarmağı öyrədən, şagirdini həyata bağlayan insandır. Elə həmin an gələcəkdə mənim də sizin kimi müəllim olacağıma qərar verdim.</p><p>Müəllim bu hekayəni dinləyir və təəccüblənir. Gənc soruşur:</p><p>— Bu hadisəni xatırlamadınız? Həmin saatı mənim cibimdən çıxardığınızı unutmusunuz?</p><p>— Hadisəni xatırladım, sadəcə saatın sənin cibindən çıxdığını bilmirdim.</p><p>— Necə yəni, saatın mənim cibimdən çıxdığını bilmirdiniz? Axı onu özünüz mənim cibimdə tapdınız!</p><p>— Çünki şagirdlərin ciblərini yoxlayanda mən də gözlərimi yummuşdum...</p><p>Bir insanın ayıbını üzünə vurmadan, gözünü yumaraq onu qorumaq əsl müəllimlikdir. Ləyaqəti qorunan insan səhvindən dərs alıb ucalır.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/teacher-hello-do-you-remember-me.webp" alt="Müəllim, salam, xatırladınız məni illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -554,8 +981,21 @@
     <h2 class="card-title story__title">Nyutonun 2-ci qanunu</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Fizika müəllimi dərsdən çıxıb müəllimlər otağına girir və həmkarlarına şikayətlənir: «Bu tələbələr necə də ağılsız imişlər! Nyutonun 2-ci qanununu onlara üç dəfə izah etdim, sonda hətta özüm də başa düşdüm, amma onlar yenə başa düşmədilər.»</p><p>Başqasına öyrətmək istəyən əvvəlcə özü tam anlamalıdır. Anlamadan izah etmək nə öyrədəni, nə öyrənəni bir yerə çatdırır.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Fizika müəllimi dərsdən çıxıb müəllimlər otağına girir və həmkarlarına şikayətlənir: «Bu tələbələr necə də ağılsız imişlər! Nyutonun 2-ci qanununu onlara üç dəfə izah etdim, sonda hətta özüm də başa düşdüm, amma onlar yenə başa düşmədilər.»</p><p>Başqasına öyrətmək istəyən əvvəlcə özü tam anlamalıdır. Anlamadan izah etmək nə öyrədəni, nə öyrənəni bir yerə çatdırır.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/newtons-second-law.webp" alt="Nyutonun 2-ci qanunu illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -566,8 +1006,21 @@
     <h2 class="card-title story__title">Nəyimə lazımdır</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Qanuni Sultan Süleyman (1494–1566; 1520-ci ildə taxta çıxmış və ömrünün sonunadək hökmdar olmuşdur) Osmanlı dövlətini zamanının mümkün ən yüksək səviyyəsinə qədər yüksəldir, amma zaman-zaman düşünürmüş: «Görəsən, günlərin birində Osman oğulları da enişə üz tutar, çökərmi?»</p><p>Bir çox məsələdə olduğu kimi, bu narahat düşüncəsini də süd qardaşı, məşhur alim Yəhya Əfəndiyə açmaq qərarına gəlir. Kəşfinə, kəramətinə inandığı Yəhya Əfəndiyə belə bir məktub yazıb göndərir: «Sən ilahi sirlərə vaqifsən. Lütf et, bunları bizə aydınlaşdır. Bir dövlət hansı halda çökər? Osman oğullarının aqibəti necə olar? Elə bir gün gələ bilərmi ki, bu dövlət iflasa uğrasın?»</p><p>Dövrün qüdrətli sultanı Möhtəşəm Süleymandan gələn bu məktubu oxuyan Yəhya Əfəndinin cavabı isə çox qısa olur: «Nəyimə lazımdır, Sultanım!»</p><p>Topqapı sarayında bu cavabı heyrətlə oxuyan sultan ona məna verə bilmir, narahatlığı daha da artır. Çünki Yəhya Əfəndi kimi bir şəxs ciddi məsələyə belə bəsit cavab verməzdi. «Görəsən, bu cavabda bilmədiyimiz bir məna varmı?» deyə sultan düşünür və durub Yəhya Əfəndinin Beşiktaşdakı dərgahına yollanır. Bu dəfə sultan töhmət dolu bir tərzdə: «Ağabəy, nə olar, məktubuma cavab ver. Məsələni ciddiyə al» deyərək sorğusunu təkrarlayır.</p><p>Yəhya Əfəndi:</p><p>«Sultanım, sizin sorğunuzu ciddiyə almamaq mümkündürmü? Mən sorğunuz üzərində yaxşıca düşünüb qənaətimi də açıqca ərz etmişdim.»</p><p>«Yaxşı, amma cavabından bir şey anlamadım. Sadəcə nəyimə lazımdır demisən. Bu, sanki məni bu işlərə qarışdırma mənasına gəlir.»</p><p>Yəhya Əfəndi ibrət dolu bu sözləri tarixin səhifələrinə həkk edir:</p><p>«Sultanım! Bir dövlətdə zülm yayılarsa, haqsızlıq ərşə qalxarsa və bunu eşidənlər də ‘nəyimə lazımdır’ deyib uzaqlaşarsa, sonra qoyunları qurdlar deyil, çobanlar yeyərsə, bilənlər həqiqəti söyləməyib susarsa, gizlədərsə, fəqirlərin, möhtacların, yoxsulların, kimsəsizlərin fəryadı göylərə çıxarsa və bunu daşlardan başqa kimsə eşitməzsə, onda dövlətin sonu görünər. Belə hallarda dövlətin xəzinəsi boşalar, xalqın etimad və hörməti sarsılar. Asayişə vəsilə olan itaət hissi gedər, xalqa hörmət duyğusu yox olar. Çöküş və iflas da beləcə qaçılmaz olar...»</p><p>Söylənənləri dinləyərkən ağlamağa başlayan qoca sultan başını aşağı salıb bunları təsdiq edir. Sonra da məmləkətində ona belə nəsihətlər verə biləcək bir alimin olmasına görə Allaha şükür edərək oradan ayrılır.</p><p>Zülmü görüb «nəyimə lazımdır» deyən cəmiyyət tənəzzülə uğrayır. Haqsızlığa göz yummaq da haqsızlığa şərik olmaqdır.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Qanuni Sultan Süleyman (1494–1566; 1520-ci ildə taxta çıxmış və ömrünün sonunadək hökmdar olmuşdur) Osmanlı dövlətini zamanının mümkün ən yüksək səviyyəsinə qədər yüksəldir, amma zaman-zaman düşünürmüş: «Görəsən, günlərin birində Osman oğulları da enişə üz tutar, çökərmi?»</p><p>Bir çox məsələdə olduğu kimi, bu narahat düşüncəsini də süd qardaşı, məşhur alim Yəhya Əfəndiyə açmaq qərarına gəlir. Kəşfinə, kəramətinə inandığı Yəhya Əfəndiyə belə bir məktub yazıb göndərir: «Sən ilahi sirlərə vaqifsən. Lütf et, bunları bizə aydınlaşdır. Bir dövlət hansı halda çökər? Osman oğullarının aqibəti necə olar? Elə bir gün gələ bilərmi ki, bu dövlət iflasa uğrasın?»</p><p>Dövrün qüdrətli sultanı Möhtəşəm Süleymandan gələn bu məktubu oxuyan Yəhya Əfəndinin cavabı isə çox qısa olur: «Nəyimə lazımdır, Sultanım!»</p><p>Topqapı sarayında bu cavabı heyrətlə oxuyan sultan ona məna verə bilmir, narahatlığı daha da artır. Çünki Yəhya Əfəndi kimi bir şəxs ciddi məsələyə belə bəsit cavab verməzdi. «Görəsən, bu cavabda bilmədiyimiz bir məna varmı?» deyə sultan düşünür və durub Yəhya Əfəndinin Beşiktaşdakı dərgahına yollanır. Bu dəfə sultan töhmət dolu bir tərzdə: «Ağabəy, nə olar, məktubuma cavab ver. Məsələni ciddiyə al» deyərək sorğusunu təkrarlayır.</p><p>Yəhya Əfəndi:</p><p>«Sultanım, sizin sorğunuzu ciddiyə almamaq mümkündürmü? Mən sorğunuz üzərində yaxşıca düşünüb qənaətimi də açıqca ərz etmişdim.»</p><p>«Yaxşı, amma cavabından bir şey anlamadım. Sadəcə nəyimə lazımdır demisən. Bu, sanki məni bu işlərə qarışdırma mənasına gəlir.»</p><p>Yəhya Əfəndi ibrət dolu bu sözləri tarixin səhifələrinə həkk edir:</p><p>«Sultanım! Bir dövlətdə zülm yayılarsa, haqsızlıq ərşə qalxarsa və bunu eşidənlər də ‘nəyimə lazımdır’ deyib uzaqlaşarsa, sonra qoyunları qurdlar deyil, çobanlar yeyərsə, bilənlər həqiqəti söyləməyib susarsa, gizlədərsə, fəqirlərin, möhtacların, yoxsulların, kimsəsizlərin fəryadı göylərə çıxarsa və bunu daşlardan başqa kimsə eşitməzsə, onda dövlətin sonu görünər. Belə hallarda dövlətin xəzinəsi boşalar, xalqın etimad və hörməti sarsılar. Asayişə vəsilə olan itaət hissi gedər, xalqa hörmət duyğusu yox olar. Çöküş və iflas da beləcə qaçılmaz olar...»</p><p>Söylənənləri dinləyərkən ağlamağa başlayan qoca sultan başını aşağı salıb bunları təsdiq edir. Sonra da məmləkətində ona belə nəsihətlər verə biləcək bir alimin olmasına görə Allaha şükür edərək oradan ayrılır.</p><p>Zülmü görüb «nəyimə lazımdır» deyən cəmiyyət tənəzzülə uğrayır. Haqsızlığa göz yummaq da haqsızlığa şərik olmaqdır.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/what-do-i-need-it-for.webp" alt="Nəyimə lazımdır illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -578,8 +1031,21 @@
     <h2 class="card-title story__title">Pambıq tarlasına gedən yol</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Oxumağı, yazmağı düz-əməlli bilmədiyimiz zamanlar idi. Kəndimizə bir müəllim gəldi. Sadəcə müəllim yox, bizə qardaş, ata olacaq biri gəlmiş imiş demə. Məktəbimizin və biz şagirdlərin acınacaqlı vəziyyətini, məktəbi bitirdikdən sonra pambıq tarlasında işləmək məcburiyyətində olduğumuzu öyrənincə gözləri doldu.</p><p>Kəndimizdə bir yol var idi. Aydın müəllim bizdən onun haraya getdiyini soruşdu. O yolun pambıq tarlasına getdiyini dedik. Kənddən uzanan daha bir yol da vardı. Onun haraya getdiyini də soruşdu. Ömrümüzdə kəndimizdən çıxmadığımızdan, dünyanın yalnız bizim kənddən ibarət olduğunu zənn etdiyimizdən bu suala cavab verə bilmədik.</p><p>Həmin gün bizdən böyüyəndə nə olmaq istədiyimizi də soruşdu. Hamımız susub qaldıq, çünki nə cavab verəcəyimizi bilmirdik...</p><p>Müəllimimiz bizə qısa zamanda yazıb-oxumağı öyrətdi. Günlər keçdi, artıq rahat yazıb-oxuyurduq. Bir gün Aydın müəllim bizə çoxlu məktub gətirdi. Bu məktubların həkimlərdən, mühəndislərdən, alimlərdən və müxtəlif peşə sahiblərindən gəldiyini söylədi. Onun dediyinə görə, o adamlar bizim məktub dostlarımız olacaqdı. İllər boyu heç tanımadığımız o insanlar bizə məktublar yazdı. Məktublarında peşələrindən, həyatın mənasından, elmin və təhsilin vacibliyindən danışdılar. O məktubları alana qədər elm öyrənmək, pambıqçılıqdan başqa bir peşəyə sahib olmaq haqqında xəyal belə qurmamışdıq. Çünki düşünürdük ki, qarşımızda hər zaman yalnız bircə yol — pambıq tarlasına aparan yol var.</p><p>Məktub dostlarımızın sayəsində həyatımız dəyişdi. O biri yolun haraya apardığını öyrəndik. Aydın müəllimin böyük zəhməti sayəsində məzun olduqdan illər sonra böyük uğurlara çatdıq. İndi bəzilərimiz həkim, bəzilərimiz mühəndis, bəzilərimiz də müəllim olmağa hazırlaşırıq.</p><p>İllər sonra bir gün bizə daha bir məktub gəldi:</p><p>«Övladlarım... Həmişə xəyallar qurun. Onlar sizi istədiyiniz yerə aparar. Yetər ki, səy göstərin, çalışın, niyyətinizə yetişmək üçün əzmli olun. Hamınızı ürəkdən təbrik edirəm. Mən bilirdim ki, bacaracaqsınız və uğur qazanacaqsınız.»</p><p>«Sizin məktub dostunuz Aydın müəllim.»</p><p>Hamımız şokda idik. Demə, illər boyu taleyimizi dəyişən məktubları yazan bizim doğmaca Aydın müəllimimiz imiş.</p><p>Bir müəllim uşaqlara yalnız yol göstərmədi, onların qarşısında yeni yollar yaratdı. Xəyal qurmağı bacaran insan üçün dünya artıq bircə yoldan ibarət olmur.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Oxumağı, yazmağı düz-əməlli bilmədiyimiz zamanlar idi. Kəndimizə bir müəllim gəldi. Sadəcə müəllim yox, bizə qardaş, ata olacaq biri gəlmiş imiş demə. Məktəbimizin və biz şagirdlərin acınacaqlı vəziyyətini, məktəbi bitirdikdən sonra pambıq tarlasında işləmək məcburiyyətində olduğumuzu öyrənincə gözləri doldu.</p><p>Kəndimizdə bir yol var idi. Aydın müəllim bizdən onun haraya getdiyini soruşdu. O yolun pambıq tarlasına getdiyini dedik. Kənddən uzanan daha bir yol da vardı. Onun haraya getdiyini də soruşdu. Ömrümüzdə kəndimizdən çıxmadığımızdan, dünyanın yalnız bizim kənddən ibarət olduğunu zənn etdiyimizdən bu suala cavab verə bilmədik.</p><p>Həmin gün bizdən böyüyəndə nə olmaq istədiyimizi də soruşdu. Hamımız susub qaldıq, çünki nə cavab verəcəyimizi bilmirdik...</p><p>Müəllimimiz bizə qısa zamanda yazıb-oxumağı öyrətdi. Günlər keçdi, artıq rahat yazıb-oxuyurduq. Bir gün Aydın müəllim bizə çoxlu məktub gətirdi. Bu məktubların həkimlərdən, mühəndislərdən, alimlərdən və müxtəlif peşə sahiblərindən gəldiyini söylədi. Onun dediyinə görə, o adamlar bizim məktub dostlarımız olacaqdı. İllər boyu heç tanımadığımız o insanlar bizə məktublar yazdı. Məktublarında peşələrindən, həyatın mənasından, elmin və təhsilin vacibliyindən danışdılar. O məktubları alana qədər elm öyrənmək, pambıqçılıqdan başqa bir peşəyə sahib olmaq haqqında xəyal belə qurmamışdıq. Çünki düşünürdük ki, qarşımızda hər zaman yalnız bircə yol — pambıq tarlasına aparan yol var.</p><p>Məktub dostlarımızın sayəsində həyatımız dəyişdi. O biri yolun haraya apardığını öyrəndik. Aydın müəllimin böyük zəhməti sayəsində məzun olduqdan illər sonra böyük uğurlara çatdıq. İndi bəzilərimiz həkim, bəzilərimiz mühəndis, bəzilərimiz də müəllim olmağa hazırlaşırıq.</p><p>İllər sonra bir gün bizə daha bir məktub gəldi:</p><p>«Övladlarım... Həmişə xəyallar qurun. Onlar sizi istədiyiniz yerə aparar. Yetər ki, səy göstərin, çalışın, niyyətinizə yetişmək üçün əzmli olun. Hamınızı ürəkdən təbrik edirəm. Mən bilirdim ki, bacaracaqsınız və uğur qazanacaqsınız.»</p><p>«Sizin məktub dostunuz Aydın müəllim.»</p><p>Hamımız şokda idik. Demə, illər boyu taleyimizi dəyişən məktubları yazan bizim doğmaca Aydın müəllimimiz imiş.</p><p>Bir müəllim uşaqlara yalnız yol göstərmədi, onların qarşısında yeni yollar yaratdı. Xəyal qurmağı bacaran insan üçün dünya artıq bircə yoldan ibarət olmur.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/the-road-to-the-cotton-field.webp" alt="Pambıq tarlasına gedən yol illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -590,8 +1056,21 @@
     <h2 class="card-title story__title">Piyada və şah</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Piyadadır deyə kiçik görmə!</p><p>Gün gələr, ŞAH olar.</p><p>Şahdır deyə güvənmə!</p><p>Gün gələr, MAT olar.</p><p>Kiçik görüb heç kimi alçaltma, mövqeyinə arxalanıb lovğalanma. Piyada şah, şah isə mat ola bilər.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Piyadadır deyə kiçik görmə!</p><p>Gün gələr, ŞAH olar.</p><p>Şahdır deyə güvənmə!</p><p>Gün gələr, MAT olar.</p><p>Kiçik görüb heç kimi alçaltma, mövqeyinə arxalanıb lovğalanma. Piyada şah, şah isə mat ola bilər.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/the-pawn-and-the-king.webp" alt="Piyada və şah illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -602,8 +1081,21 @@
     <h2 class="card-title story__title">Suyun xassələri</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Suyun xassələrinə baxın:</p><p>— ağacla dostluq edərsə, onu diri saxlayar;</p><p>— odla təmas edərsə, onu söndürər;</p><p>— natəmizliklə qarşılaşarsa, onu təmizləyər;</p><p>— unla qarışarsa, onu xəmirə çevirər, bişməyə hazır hala salar;</p><p>— günəşlə birləşərsə, göy qurşağı yaranar;</p><p>— axarsa, həyat gətirər;</p><p>— durğun qalarsa, bataqlığa çevrilib qoxumağa başlar.</p><p>İnsan qəlbi də suya bənzəyir: ünsiyyətdə olduqca canlı, tənhalıqda isə cansız olar.</p><p>İnsan qəlbi su kimidir: ünsiyyətdə canlanır, tənhalıqda durğunlaşıb solur. İnsanı diri saxlayan başqa insanlardır.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Suyun xassələrinə baxın:</p><p>— ağacla dostluq edərsə, onu diri saxlayar;</p><p>— odla təmas edərsə, onu söndürər;</p><p>— natəmizliklə qarşılaşarsa, onu təmizləyər;</p><p>— unla qarışarsa, onu xəmirə çevirər, bişməyə hazır hala salar;</p><p>— günəşlə birləşərsə, göy qurşağı yaranar;</p><p>— axarsa, həyat gətirər;</p><p>— durğun qalarsa, bataqlığa çevrilib qoxumağa başlar.</p><p>İnsan qəlbi də suya bənzəyir: ünsiyyətdə olduqca canlı, tənhalıqda isə cansız olar.</p><p>İnsan qəlbi su kimidir: ünsiyyətdə canlanır, tənhalıqda durğunlaşıb solur. İnsanı diri saxlayan başqa insanlardır.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/the-properties-of-water.webp" alt="Suyun xassələri illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -614,8 +1106,21 @@
     <h2 class="card-title story__title">Tox və ya yox olmaq</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Tox, ya yox olmaq</p><p>Bölüşərək tox olarıq,</p><p>bölünərsək yox olarıq.</p><p>Yunus Əmrə</p><p>Bölüşəndə güclənir, bölünəndə yox oluruq. Birliyi qorumaq üçün elmimizi, mənəviyyatımızı sağlam saxlamalıyıq.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Tox, ya yox olmaq</p><p>Bölüşərək tox olarıq,</p><p>bölünərsək yox olarıq.</p><p>Yunus Əmrə</p><p>Bölüşəndə güclənir, bölünəndə yox oluruq. Birliyi qorumaq üçün elmimizi, mənəviyyatımızı sağlam saxlamalıyıq.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/to-be-full-or-to-be-gone.webp" alt="Tox və ya yox olmaq illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -626,8 +1131,21 @@
     <h2 class="card-title story__title">Xəyal etmək</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Allah nəsib etməyəcəyi şeyi xəyal etdirməz.</p><p>Ürəyə düşən hər xəyalın bir hikməti var. Allah nəsib etməyəcəyi arzunu ürəyə salmaz — ümidini itirmə.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Allah nəsib etməyəcəyi şeyi xəyal etdirməz.</p><p>Ürəyə düşən hər xəyalın bir hikməti var. Allah nəsib etməyəcəyi arzunu ürəyə salmaz — ümidini itirmə.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/to-dream.webp" alt="Xəyal etmək illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -638,8 +1156,21 @@
     <h2 class="card-title story__title">Yaxşı yaşamağın və uzunömürlülüyün sirri</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Yeməyinizi yarıbayarı azaldın, gəzintilərinizi ikiqat, gülüşlərinizi üçqat artırın, sevginizə isə heç bir hədd qoymayın.</p><p>Tibet məsəli.</p><p>Az ye, çox gəz, çox gül, sonsuz sev. Uzun və xoşbəxt ömrün sirri sadəlikdə və sevgidədir.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Yeməyinizi yarıbayarı azaldın, gəzintilərinizi ikiqat, gülüşlərinizi üçqat artırın, sevginizə isə heç bir hədd qoymayın.</p><p>Tibet məsəli.</p><p>Az ye, çox gəz, çox gül, sonsuz sev. Uzun və xoşbəxt ömrün sirri sadəlikdə və sevgidədir.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/the-secret-of-living-well-and-longevity.webp" alt="Yaxşı yaşamağın və uzunömürlülüyün sirri illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -650,8 +1181,21 @@
     <h2 class="card-title story__title">Ölən həyatda qalandır</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Bir-birini ürəkdən sevən iki insandan biri ölərsə, əsl ölən həyatda qalandır.</p><p>Bir-birini ürəkdən sevən iki insandan biri gedəndə, əsl «ölən» geridə qalıb həsrət çəkəndir. Sevgi ayrılıqda daha da dərindir.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Bir-birini ürəkdən sevən iki insandan biri ölərsə, əsl ölən həyatda qalandır.</p><p>Bir-birini ürəkdən sevən iki insandan biri gedəndə, əsl «ölən» geridə qalıb həsrət çəkəndir. Sevgi ayrılıqda daha da dərindir.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/the-dead-remain-in-life.webp" alt="Ölən həyatda qalandır illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -662,8 +1206,21 @@
     <h2 class="card-title story__title">Ömür qısadır</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Ömür qısadır. Onu səni sevindirən və sevildiyini hiss etdirən insanlarla keçir.</p><p>Ömür qısadır; onu səni sevindirən və sevildiyini hiss etdirən insanlarla keçir. Yanlış adamlara vaxt itirmə.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Ömür qısadır. Onu səni sevindirən və sevildiyini hiss etdirən insanlarla keçir.</p><p>Ömür qısadır; onu səni sevindirən və sevildiyini hiss etdirən insanlarla keçir. Yanlış adamlara vaxt itirmə.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/life-is-short.webp" alt="Ömür qısadır illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -674,8 +1231,21 @@
     <h2 class="card-title story__title">Önünüzdə olan qapı açılmırsa deməli o sizin qapınız deyil</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Önünüzdə olan qapı açılmırsa, deməli, o sizin qapınız deyil</p><p>Bu əhvalat bir şirkət müdiri ilə onun işçisi arasında baş verir. Bir gün Camal müdiri Səlim bəyin yanına gəlib işdə irəliləyiş olacağını eşitdiyini, özünün də gözləntiləri olduğunu bildirir. Səlim bəy Camalın işindən razı olduğunu söyləsə də, ona «sən bizə tam uyğun deyilsən» deyərək işdən azad edildiyini bəyan edir. Camal məyus halda şirkəti tərk etməli olur.</p><p>İki il keçəndən sonra onlar yenidən rastlaşırlar. Mehribancasına salamlaşıb hal-əhval tutandan sonra Camal özünə yeni bir şirkət qurduğunu və işlərinin uğurla getdiyini keçmiş müdirinə deyir. Səlim bəy çox şad olduğunu bildirir.</p><p>Camal Səlim bəyə minnətdarlığını belə ifadə edir: «Əslində, mən sizə təşəkkür edirəm ki, uyğun olmadığım o şirkətdə qalmağımı istəmədiniz, məni azad etdiniz. Bu, mənim üçün yeni imkan demək oldu, çox bəyəndiyim bir işlə məşğul olmağa sövq etdi və mən indi vəziyyətimdən çox razıyam.»</p><p>Bağlanan hər qapı əslində daha xeyirli bir yola işarə ola bilər. «Yaxşı»dan məhrum olmaq bəzən «daha yaxşı»ya aparır.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Önünüzdə olan qapı açılmırsa, deməli, o sizin qapınız deyil</p><p>Bu əhvalat bir şirkət müdiri ilə onun işçisi arasında baş verir. Bir gün Camal müdiri Səlim bəyin yanına gəlib işdə irəliləyiş olacağını eşitdiyini, özünün də gözləntiləri olduğunu bildirir. Səlim bəy Camalın işindən razı olduğunu söyləsə də, ona «sən bizə tam uyğun deyilsən» deyərək işdən azad edildiyini bəyan edir. Camal məyus halda şirkəti tərk etməli olur.</p><p>İki il keçəndən sonra onlar yenidən rastlaşırlar. Mehribancasına salamlaşıb hal-əhval tutandan sonra Camal özünə yeni bir şirkət qurduğunu və işlərinin uğurla getdiyini keçmiş müdirinə deyir. Səlim bəy çox şad olduğunu bildirir.</p><p>Camal Səlim bəyə minnətdarlığını belə ifadə edir: «Əslində, mən sizə təşəkkür edirəm ki, uyğun olmadığım o şirkətdə qalmağımı istəmədiniz, məni azad etdiniz. Bu, mənim üçün yeni imkan demək oldu, çox bəyəndiyim bir işlə məşğul olmağa sövq etdi və mən indi vəziyyətimdən çox razıyam.»</p><p>Bağlanan hər qapı əslində daha xeyirli bir yola işarə ola bilər. «Yaxşı»dan məhrum olmaq bəzən «daha yaxşı»ya aparır.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/if-the-door-before-you-wont-open-it-is-not-your-door.webp" alt="Önünüzdə olan qapı açılmırsa deməli o sizin qapınız deyil illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -686,8 +1256,21 @@
     <h2 class="card-title story__title">Üç heykəl</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>İki qonşu ölkənin hökmdarları arasında yaxşı dostluq münasibətləri var idi. Bir gün hökmdarlardan biri digərinə doğum günü münasibətilə hədiyyə göndərmək qərarına gəlir. Ölkəsinin ən yaxşı heykəltəraşını hüzuruna dəvət edib ona qızıldan bir qarış hündürlükdə, bir-birinə tam bənzəyən üç heykəl düzəltməyi tapşırır. Amma bu heykəllər arasında yalnız hökmdarla heykəltəraşın bildiyi bir fərq olacaqdı.</p><p>Heykəllər hazır olur və doğum günündə qonşu hökmdara göndərilir. Hədiyyəni müşayiət edən məktubda deyilirdi: «Doğum gününüzü bu üç qızıl heykəllə təbrik edirəm. İlk baxışda heykəllər bir-birinin tam eynisi kimi görünə bilər. Amma içlərindən biri o biri ikisindən daha dəyərlidir. O heykəli tapanda mənə xəbər verin.»</p><p>Hədiyyəni alan hökmdar əvvəlcə heykəlləri tərəzidə çəkdirir. Onların qramına qədər eyni çəkidə olduğu bəlli olur. Başqa araşdırmalar da aparılır, amma nəticə çıxmır.</p><p>Hökmdar ölkəsində sənətdən anlayan bütün insanları sarayına çağırtdırır. Hər kəs heykəlləri diqqətlə tədqiq edir, amma aralarında fərq tapa bilmir. Günlər keçir, çarə tapılmır ki, tapılmır.</p><p>Nəhayət, bir gün hökmdara xəbər verirlər ki, bu məsələni həll edə biləcək biri var. Onu dərhal tapıb saraya gətirirlər. Adam heykəlləri diqqətlə gözdən keçirir və nazik bir tel gətirilməsini istəyir. Teli birinci heykəlin qulağına salır — tel o biri qulağından çıxır. Sonra teli ikinci heykəlin qulağına salır — tel ağzından çıxır. Nəhayət, teli üçüncü heykəlin qulağına salır, amma tel içəridə ilişib qalır. Beləcə heykəllər arasındakı fərq üzə çıxır.</p><p>Hökmdar heykəlləri göndərən qonşusuna belə cavab yazdırıb göndərir:</p><p>«Bu üç heykəl üç fərqli insan tipinin rəmzidir. Eşitdiyini:</p><p>— bir qulağından alıb o birindən verən;</p><p>— dərhal ağzından qaçıran;</p><p>— ürəyində saxlamağı bacaran.</p><p>Ən dəyərli insan eşitdiyini ürəyində bir sirr kimi saxlaya bilən və yalnız yeri gələndə, zamanında söyləyən insandır. Bu dəyərli hədiyyəniz üçün çox təşəkkür edirəm.»</p><p>Ən dəyərli insan eşitdiyini ürəyində sirr kimi saxlaya bilən və sözü yalnız yerində deyəndir. Söz tutmaq da bir hikmətdir.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>İki qonşu ölkənin hökmdarları arasında yaxşı dostluq münasibətləri var idi. Bir gün hökmdarlardan biri digərinə doğum günü münasibətilə hədiyyə göndərmək qərarına gəlir. Ölkəsinin ən yaxşı heykəltəraşını hüzuruna dəvət edib ona qızıldan bir qarış hündürlükdə, bir-birinə tam bənzəyən üç heykəl düzəltməyi tapşırır. Amma bu heykəllər arasında yalnız hökmdarla heykəltəraşın bildiyi bir fərq olacaqdı.</p><p>Heykəllər hazır olur və doğum günündə qonşu hökmdara göndərilir. Hədiyyəni müşayiət edən məktubda deyilirdi: «Doğum gününüzü bu üç qızıl heykəllə təbrik edirəm. İlk baxışda heykəllər bir-birinin tam eynisi kimi görünə bilər. Amma içlərindən biri o biri ikisindən daha dəyərlidir. O heykəli tapanda mənə xəbər verin.»</p><p>Hədiyyəni alan hökmdar əvvəlcə heykəlləri tərəzidə çəkdirir. Onların qramına qədər eyni çəkidə olduğu bəlli olur. Başqa araşdırmalar da aparılır, amma nəticə çıxmır.</p><p>Hökmdar ölkəsində sənətdən anlayan bütün insanları sarayına çağırtdırır. Hər kəs heykəlləri diqqətlə tədqiq edir, amma aralarında fərq tapa bilmir. Günlər keçir, çarə tapılmır ki, tapılmır.</p><p>Nəhayət, bir gün hökmdara xəbər verirlər ki, bu məsələni həll edə biləcək biri var. Onu dərhal tapıb saraya gətirirlər. Adam heykəlləri diqqətlə gözdən keçirir və nazik bir tel gətirilməsini istəyir. Teli birinci heykəlin qulağına salır — tel o biri qulağından çıxır. Sonra teli ikinci heykəlin qulağına salır — tel ağzından çıxır. Nəhayət, teli üçüncü heykəlin qulağına salır, amma tel içəridə ilişib qalır. Beləcə heykəllər arasındakı fərq üzə çıxır.</p><p>Hökmdar heykəlləri göndərən qonşusuna belə cavab yazdırıb göndərir:</p><p>«Bu üç heykəl üç fərqli insan tipinin rəmzidir. Eşitdiyini:</p><p>— bir qulağından alıb o birindən verən;</p><p>— dərhal ağzından qaçıran;</p><p>— ürəyində saxlamağı bacaran.</p><p>Ən dəyərli insan eşitdiyini ürəyində bir sirr kimi saxlaya bilən və yalnız yeri gələndə, zamanında söyləyən insandır. Bu dəyərli hədiyyəniz üçün çox təşəkkür edirəm.»</p><p>Ən dəyərli insan eşitdiyini ürəyində sirr kimi saxlaya bilən və sözü yalnız yerində deyəndir. Söz tutmaq da bir hikmətdir.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/three-statues.webp" alt="Üç heykəl illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -698,8 +1281,21 @@
     <h2 class="card-title story__title">Üç mənzərə</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Səfərə çıxan bir gənc yolda üç qəribə mənzərə ilə üzləşir.</p><p>Qarşısına çıxan ilk qəribə mənzərə belə olur: bir neçə adam tarlaya buğda səpirdi. Buğda dənləri torpağa düşən kimi boy verib qalxır, elə o andaca məhsul verir, amma əkinçilər məhsulu toplamaq əvəzinə tarlanı yandırırlar.</p><p>İkinci qəribə mənzərə belə idi: bir adam böyük bir daşı yerdən qaldırmağa çalışır, amma bacarmır. O böyük daşın üstünə bir başqasını da qoyandan sonra qaldıra bilir. Üçüncü daşı qoyanda daha asan qaldırır. Gənc nə qədər baxsa da, bir şey anlaya bilmir və yoluna davam edir.</p><p>Yolda rast gəldiyi üçüncü qəribə mənzərə də belə olur: bir adam qoyunun belinə minib, bir neçə adam da onun çiyninə dırmaşıb. Qoyun sürətlə qaçır; bir neçə adam da onların dalınca nə qədər yüyürsə də, çata bilmir.</p><p>Gənc bu gördüklərini nə qədər götür-qoy etsə də, bir məna anlaya bilmir və gəlib bir şəhərə çatır. Giriş qapısının yanında nurani bir qoca görüb salam verir. Qoca salamı alır, onu saxlayıb söhbətə tutur. Oğlan yol boyu gördüklərini danışır, qoca da onları belə izah edir:</p><p>— Gördüyün o əkinçilər, buğda tarlası və onu yandıran adamlar bilirsənmi kimlərdir? Əvvəlcə yaxşılıq edən, sonra da etdiyi yaxşılığı ora-bura danışıb dəyərini heçə endirənlər.</p><p>— Daş qaldıran adamın mənzərəsinin mənası budur: ilk dəfə günah işləmək insan üçün çox ağırdır. Amma insan günah işləyəndən sonra tövbə etməsə, sonrakı günahlar ona çox yüngül gəlir. Tövbəsi olmayan bir günah başqa bir günah üçün açılmış qapıdır.</p><p>— Qoyun və belindəki adamlara gəlincə, unutma ki, qoyun cənnət heyvanıdır və belinə minənləri cənnətə daşıyır. Qoyuna ilk minənlər alimlərdir. Alimlərin çiynindən asılanlar hər təbəqədən olan möminlərdir. Onların dalınca qaçanlar isə inancsızlar, dinsizlərdir.</p><p>Danışıb dəyəri heçə endirilən yaxşılıq, tövbəsiz günah və doğru rəhbərin ardınca getmək — hər biri həyatın gizli bir dərsidir.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Səfərə çıxan bir gənc yolda üç qəribə mənzərə ilə üzləşir.</p><p>Qarşısına çıxan ilk qəribə mənzərə belə olur: bir neçə adam tarlaya buğda səpirdi. Buğda dənləri torpağa düşən kimi boy verib qalxır, elə o andaca məhsul verir, amma əkinçilər məhsulu toplamaq əvəzinə tarlanı yandırırlar.</p><p>İkinci qəribə mənzərə belə idi: bir adam böyük bir daşı yerdən qaldırmağa çalışır, amma bacarmır. O böyük daşın üstünə bir başqasını da qoyandan sonra qaldıra bilir. Üçüncü daşı qoyanda daha asan qaldırır. Gənc nə qədər baxsa da, bir şey anlaya bilmir və yoluna davam edir.</p><p>Yolda rast gəldiyi üçüncü qəribə mənzərə də belə olur: bir adam qoyunun belinə minib, bir neçə adam da onun çiyninə dırmaşıb. Qoyun sürətlə qaçır; bir neçə adam da onların dalınca nə qədər yüyürsə də, çata bilmir.</p><p>Gənc bu gördüklərini nə qədər götür-qoy etsə də, bir məna anlaya bilmir və gəlib bir şəhərə çatır. Giriş qapısının yanında nurani bir qoca görüb salam verir. Qoca salamı alır, onu saxlayıb söhbətə tutur. Oğlan yol boyu gördüklərini danışır, qoca da onları belə izah edir:</p><p>— Gördüyün o əkinçilər, buğda tarlası və onu yandıran adamlar bilirsənmi kimlərdir? Əvvəlcə yaxşılıq edən, sonra da etdiyi yaxşılığı ora-bura danışıb dəyərini heçə endirənlər.</p><p>— Daş qaldıran adamın mənzərəsinin mənası budur: ilk dəfə günah işləmək insan üçün çox ağırdır. Amma insan günah işləyəndən sonra tövbə etməsə, sonrakı günahlar ona çox yüngül gəlir. Tövbəsi olmayan bir günah başqa bir günah üçün açılmış qapıdır.</p><p>— Qoyun və belindəki adamlara gəlincə, unutma ki, qoyun cənnət heyvanıdır və belinə minənləri cənnətə daşıyır. Qoyuna ilk minənlər alimlərdir. Alimlərin çiynindən asılanlar hər təbəqədən olan möminlərdir. Onların dalınca qaçanlar isə inancsızlar, dinsizlərdir.</p><p>Danışıb dəyəri heçə endirilən yaxşılıq, tövbəsiz günah və doğru rəhbərin ardınca getmək — hər biri həyatın gizli bir dərsidir.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/three-landscapes.webp" alt="Üç mənzərə illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -710,8 +1306,21 @@
     <h2 class="card-title story__title">Üç sual</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Padşah vəziri hüzuruna çağırıb deyir:</p><p>— Sənə üç sual verirəm. Sabaha kimi cavabını tapmasan, saraydan qovulacaqsan. Birincisi: Allah nə yeyir? İkincisi: Allah nə örtür? Üçüncüsü: Allah nə iş görür?</p><p>Vəzir nə qədər baş sındırsa da, suallara cavab tapa bilmir. Axşam pərişan halda evinə qayıdır. Onun ağıllı və zirək bir nökəri varmış. Nökər ağasının qanıqara olduğunu görüb səbəbini soruşur, vəzir də başına gələnləri danışır.</p><p>Nökər deyir:</p><p>— Hər üç sualın cavabını bilirəm. Amma ikisini indi deyəcəyəm, birini sabah. Bil ki, Allahın yediyi bəndələrin qəm-qüssəsidir. Allahın örtdüyü isə bəndələrin eyibləridir.</p><p>Ertəsi gün vəzir padşahın yanına gedib bu iki cavabı söyləyir. Padşah deyir:</p><p>— Doğrudur. Bəs bu cavabları özün tapdın, yoxsa kimsə sənə öyrətdi?</p><p>Vəzir düzünü deyir:</p><p>— Ağıllı və zirək nökərim öyrətdi.</p><p>Bunu eşidən padşah əmr edir ki, vəzir xələtini çıxarıb nökərinə versin. Beləcə vəzir vəzirlik xələtini soyunub nökərinin əyninə geydirir, özü isə onun köhnə paltarını geyinir.</p><p>Mat-məəttəl qalmış vəzir nökərdən soruşur:</p><p>— Bəs üçüncü cavab nədir? Allah nə iş görür?</p><p>Nökər gülümsəyib deyir:</p><p>— Hələ də bilmirsən? Allah bir anın içində vəziri nökər, nökəri isə vəzir edir!</p><p>Bu gün vəzir olan sabah nökər ola bilər, buna görə heç kəs öz kürsüsünə arxayın olmasın!</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Padşah vəziri hüzuruna çağırıb deyir:</p><p>— Sənə üç sual verirəm. Sabaha kimi cavabını tapmasan, saraydan qovulacaqsan. Birincisi: Allah nə yeyir? İkincisi: Allah nə örtür? Üçüncüsü: Allah nə iş görür?</p><p>Vəzir nə qədər baş sındırsa da, suallara cavab tapa bilmir. Axşam pərişan halda evinə qayıdır. Onun ağıllı və zirək bir nökəri varmış. Nökər ağasının qanıqara olduğunu görüb səbəbini soruşur, vəzir də başına gələnləri danışır.</p><p>Nökər deyir:</p><p>— Hər üç sualın cavabını bilirəm. Amma ikisini indi deyəcəyəm, birini sabah. Bil ki, Allahın yediyi bəndələrin qəm-qüssəsidir. Allahın örtdüyü isə bəndələrin eyibləridir.</p><p>Ertəsi gün vəzir padşahın yanına gedib bu iki cavabı söyləyir. Padşah deyir:</p><p>— Doğrudur. Bəs bu cavabları özün tapdın, yoxsa kimsə sənə öyrətdi?</p><p>Vəzir düzünü deyir:</p><p>— Ağıllı və zirək nökərim öyrətdi.</p><p>Bunu eşidən padşah əmr edir ki, vəzir xələtini çıxarıb nökərinə versin. Beləcə vəzir vəzirlik xələtini soyunub nökərinin əyninə geydirir, özü isə onun köhnə paltarını geyinir.</p><p>Mat-məəttəl qalmış vəzir nökərdən soruşur:</p><p>— Bəs üçüncü cavab nədir? Allah nə iş görür?</p><p>Nökər gülümsəyib deyir:</p><p>— Hələ də bilmirsən? Allah bir anın içində vəziri nökər, nökəri isə vəzir edir!</p><p>Bu gün vəzir olan sabah nökər ola bilər, buna görə heç kəs öz kürsüsünə arxayın olmasın!</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/three-questions.webp" alt="Üç sual illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -722,8 +1331,21 @@
     <h2 class="card-title story__title">Şəhər üçün üç vacib şey</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Hər şəhər üçün üç vacib şey var: kanalizasiya, hamam və kitabxana. Çünki kanalizasiya şəhərin, hamam bədənin, kitabxana isə ruhun kirini təmizləyir.</p><p>Fateh Sultan Mehmet</p><p>Şəhər həm bədəni, həm ruhu təmiz saxlamalıdır. Kitabxana ruhun, hamam bədənin, kanalizasiya şəhərin kirini alır.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Hər şəhər üçün üç vacib şey var: kanalizasiya, hamam və kitabxana. Çünki kanalizasiya şəhərin, hamam bədənin, kitabxana isə ruhun kirini təmizləyir.</p><p>Fateh Sultan Mehmet</p><p>Şəhər həm bədəni, həm ruhu təmiz saxlamalıdır. Kitabxana ruhun, hamam bədənin, kanalizasiya şəhərin kirini alır.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/three-essential-things-for-a-city.webp" alt="Şəhər üçün üç vacib şey illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -746,6 +1368,6 @@
       <p>İbrətamiz deyimlər və hekayələr</p>
     </div>
   </footer>
-  <script src="../assets/site.js" defer></script>
+  <script src="../assets/site.js?v=20260811q" defer></script>
 </body>
 </html>

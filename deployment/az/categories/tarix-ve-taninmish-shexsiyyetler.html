@@ -7,25 +7,33 @@
   <meta name="color-scheme" content="light" />
   <title>Tarix və tanınmış şəxsiyyətlər · Bir inci</title>
   <meta name="description" content="Tarixdən və tanınmış adlardan ibrət." />
-  <link rel="icon" href="../assets/pearl.webp" type="image/webp" />
+  <link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="../assets/favicon-48.png" type="image/png" sizes="48x48" />
+  <link rel="icon" href="../assets/favicon.png" type="image/png" sizes="192x192" />
   <link rel="icon" href="../assets/favicon.ico" sizes="any" />
-  <link rel="apple-touch-icon" href="../assets/pearl.webp" />
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" sizes="180x180" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/site.css" />
+  <link rel="stylesheet" href="../assets/site.css?v=20260811q" />
 </head>
 <body class="page-category" id="top">
   <a class="skip-link" href="#main">Məzmuna keç</a>
   <header class="site-header">
   <div class="site-header__inner">
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Menyunu aç">
+      <span></span><span></span><span></span>
+    </button>
     <a class="brand" href="../index.html">
       <img class="brand__logo" src="../assets/pearl.webp" alt="" width="36" height="36" />
       <span class="brand__name">Bir inci</span>
     </a>
-    <nav class="primary-nav" aria-label="Əsas menyu">
+    <nav class="primary-nav" id="primaryNav" aria-label="Əsas menyu">
       <details class="nav-dropdown">
-        <summary>İbrətamiz hekayələr</summary>
+        <summary>
+          <span class="menu-icon menu-icon--book" aria-hidden="true" style="--icon-from:#10b981;--icon-to:#059669;--icon-glow:#34d399"><svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg></span>
+          <span>İbrətamiz hekayələr</span>
+        </summary>
         <ul class="nav-dropdown__list">
           <li><a href="../categories/iman-ve-meneviyyat.html"><span class="menu-icon menu-icon--sparkles" aria-hidden="true" style="--icon-from:#7c5cff;--icon-to:#b44dff;--icon-glow:#a78bfa"><svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg></span><span>İman və mənəviyyat</span></a></li>
 <li><a href="../categories/aile-ve-terbiye.html"><span class="menu-icon menu-icon--home" aria-hidden="true" style="--icon-from:#0ea5e9;--icon-to:#2563eb;--icon-glow:#38bdf8"><svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span><span>Ailə və tərbiyə</span></a></li>
@@ -42,16 +50,19 @@
         </ul>
       </details>
     </nav>
-    <button type="button" class="global-search-toggle" id="global-search-toggle" aria-expanded="false" aria-controls="global-search" title="Axtar" aria-label="Qlobal axtarış">
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <circle cx="11" cy="11" r="7"></circle>
-        <path d="m20 20-3.5-3.5"></path>
-      </svg>
-      <span>Axtar</span>
-    </button>
+    <div class="site-header__actions">
+      <button type="button" class="global-search-toggle" id="global-search-toggle" aria-expanded="false" aria-controls="global-search" title="Axtar (Ctrl+K)" aria-label="Qlobal axtarış, Ctrl+K">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle>
+          <path d="m20 20-3.5-3.5"></path>
+        </svg>
+        <span class="global-search-toggle__label">Axtar…</span>
+        <kbd class="global-search-toggle__kbd">Ctrl+K</kbd>
+      </button>
+    </div>
   </div>
 </header>
-<div class="global-search" id="global-search" hidden data-search-index="../assets/search-index.js">
+<div class="global-search" id="global-search" hidden data-search-index="../assets/search-index.js?v=20260811q">
   <button type="button" class="global-search__backdrop" data-global-search-close tabindex="-1" aria-label="Axtarışı bağla"></button>
   <div class="global-search__panel" role="dialog" aria-modal="true" aria-labelledby="global-search-title">
     <div class="global-search__head">
@@ -125,8 +136,21 @@
     <h2 class="card-title story__title">Albrecht Dürer</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Nürnberq yaxınlığındakı balaca bir kənddə on uşaqlı bir ailə yaşayırdı. Ailəni dolandırmaq üçün ata gündə on səkkiz saat işləməli olurdu. Bu çarəsiz vəziyyətə baxmayaraq, ailənin ən böyük iki oğlu — Albrecht və Albert — tanınmış rəssam olmaq xəyalı ilə yaşayırdı. Lakin onlar dərk edirdilər ki, atalarının hər ikisini eyni vaxtda oxutmağa imkanı yoxdur.</p><p>Şam işığı altında apardıqları uzun müzakirələrdən sonra qardaşlar püşk atmağa qərar verdilər. Şərt sadə idi: püşkü udan Nürnberqdəki akademiyaya gedəcək, uduzan isə yaxınlıqdakı mədəndə işləyib ona maddi dayaq olacaqdı. Dörd ildən sonra yerlərini dəyişəcəkdilər.</p><p>Püşkü Albrecht Dürer qazandı. Qərara uyğun olaraq o, akademiyaya yollandı, Albert isə mədəndə işə başladı.</p><p>Növbəti dörd il ərzində qardaşlardan biri rəsm çəkməklə məşğul oldu, digəri mədənin dərinliklərində çalışdı. Albrechtin əsərləri tezliklə böyük maraq doğurdu; onun işlərinin, hətta müəllimlərinin əksəriyyətinin yaradıcılığından daha güclü olduğu deyilirdi.</p><p>Təhsilini tamamlayanda Albrecht artıq kifayət qədər gəlir əldə edirdi. Dörd il başa çatandan sonra o, sevinclə evinə qayıtdı və qardaşına üzünü tutub dedi:</p><p>— Əziz qardaşım, indi növbə sənindir. Get, xəyallarını gerçəkləşdir; bu dəfə mən sənə dayaq olaram.</p><p>Lakin Albertin arzusu gerçəkləşmədi. O, əllərini qardaşına uzadaraq astaca dedi:</p><p>— Yox, qardaşım. Mən artıq Nürnberqə gedə bilmərəm, çox gecdir. Bax, bu dörd ildə mədən əllərimi, hər barmağımı necə əzdi. Mən artıq rəsm çəkə bilmərəm.</p><p>Albrecht sevimli qardaşının əllərini ovuclarının arasına aldı və göz yaşlarına boğuldu.</p><p>Əsrlər ötsə də, Albrecht Dürerin (21.05.1471 – 06.04.1528) əsərləri bu gün də dünyanın ən nüfuzlu rəsm qalereyalarında nümayiş olunur. Onun qardaşına həsr etdiyi məşhur əsər dünyada «Dua edən əllər» adı ilə tanınır və hazırda Vyanadakı «Albertina» qalereyasında saxlanılır.</p><p>Hər uğurun arxasında görünməyən bir fədakarlıq dayanır. O fədakarlığı görüb qiymətləndirmək insanlığın ən gözəl əlamətidir.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Nürnberq yaxınlığındakı balaca bir kənddə on uşaqlı bir ailə yaşayırdı. Ailəni dolandırmaq üçün ata gündə on səkkiz saat işləməli olurdu. Bu çarəsiz vəziyyətə baxmayaraq, ailənin ən böyük iki oğlu — Albrecht və Albert — tanınmış rəssam olmaq xəyalı ilə yaşayırdı. Lakin onlar dərk edirdilər ki, atalarının hər ikisini eyni vaxtda oxutmağa imkanı yoxdur.</p><p>Şam işığı altında apardıqları uzun müzakirələrdən sonra qardaşlar püşk atmağa qərar verdilər. Şərt sadə idi: püşkü udan Nürnberqdəki akademiyaya gedəcək, uduzan isə yaxınlıqdakı mədəndə işləyib ona maddi dayaq olacaqdı. Dörd ildən sonra yerlərini dəyişəcəkdilər.</p><p>Püşkü Albrecht Dürer qazandı. Qərara uyğun olaraq o, akademiyaya yollandı, Albert isə mədəndə işə başladı.</p><p>Növbəti dörd il ərzində qardaşlardan biri rəsm çəkməklə məşğul oldu, digəri mədənin dərinliklərində çalışdı. Albrechtin əsərləri tezliklə böyük maraq doğurdu; onun işlərinin, hətta müəllimlərinin əksəriyyətinin yaradıcılığından daha güclü olduğu deyilirdi.</p><p>Təhsilini tamamlayanda Albrecht artıq kifayət qədər gəlir əldə edirdi. Dörd il başa çatandan sonra o, sevinclə evinə qayıtdı və qardaşına üzünü tutub dedi:</p><p>— Əziz qardaşım, indi növbə sənindir. Get, xəyallarını gerçəkləşdir; bu dəfə mən sənə dayaq olaram.</p><p>Lakin Albertin arzusu gerçəkləşmədi. O, əllərini qardaşına uzadaraq astaca dedi:</p><p>— Yox, qardaşım. Mən artıq Nürnberqə gedə bilmərəm, çox gecdir. Bax, bu dörd ildə mədən əllərimi, hər barmağımı necə əzdi. Mən artıq rəsm çəkə bilmərəm.</p><p>Albrecht sevimli qardaşının əllərini ovuclarının arasına aldı və göz yaşlarına boğuldu.</p><p>Əsrlər ötsə də, Albrecht Dürerin (21.05.1471 – 06.04.1528) əsərləri bu gün də dünyanın ən nüfuzlu rəsm qalereyalarında nümayiş olunur. Onun qardaşına həsr etdiyi məşhur əsər dünyada «Dua edən əllər» adı ilə tanınır və hazırda Vyanadakı «Albertina» qalereyasında saxlanılır.</p><p>Hər uğurun arxasında görünməyən bir fədakarlıq dayanır. O fədakarlığı görüb qiymətləndirmək insanlığın ən gözəl əlamətidir.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/albrecht-durer.webp" alt="Albrecht Dürer illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -137,8 +161,21 @@
     <h2 class="card-title story__title">Memar Sinan susuz evdə vəfat edir</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>İstanbulu suya qovuşduran Memar Sinan susuz evdə vəfat edir</p><p>Qanuni Sultan Süleymanın padşahlığı dövrüdür. Əhalisi günü-gündən artan İstanbul su qıtlığı yaşayır. Bu qıtlığın aradan qaldırılması o dövrün görkəmli şəxsiyyətlərindən biri Qoca Memar Sinan Ağanın (1489-1588; 99 il ömür sürüb) adı ilə bağlanır.</p><p>Bir gün Sultan Süleyman Memar Sinanı yanına çağırıb belə deyir: «Memarbaşı, əhalinin suya ehtiyacı var. İnsanlar bir at yükü suya çoxlu axça ödəyir. Görəsən, su ehtiyacını ödəmək üçün bir çarə düşünə bilərsənmi?» Memarbaşı deyir: «Sultanım, icazə verin, İstanbulun ətrafını bir gəzim, mövcud suları İstanbula gətirməyin mümkün olub-olmadığını araşdırım, sonra cavabımı verim.»</p><p>Sinan Ağa köməkçilərini də götürüb Çəkməcədən başlayaraq quyuları dolaşır, Beşiktaşa qədər dərələri, axan suları müəyyən edir. Bu suların üzərində bəndlər hörülsə, sular hara qədər yüksələr, haradan-haraya kəmərlər çəkilib İstanbula gətirilə bilər — bu kimi məsələləri araşdırıb hesablamalar apardıqdan sonra yenidən Sultanın hüzuruna çıxır.</p><p>Sultan soruşur: «Memarbaşı, İstanbula su gətirmək mümkündürmü?» «Bəli, sultanım, mümkündür. Ancaq çox ağır şərti var.» «Nədir o, memarbaşı?» «Sultanım, İstanbula su ancaq qızılla dolu kisələri uc-uca düzmək şərti ilə gələ bilər.» «Memarbaşı, sən İstanbula su gətirməyin mümkün olduğunu de! Bu iş olacaqsa, mən kisələri uc-uca deyil, lap yan-yana da düzməyə hazıram.»</p><p>Memar Sinan qollarını çırmayıb işə başlayır və İstanbulun bəlli meydanlarına qırx çeşmə çəkilməsi ilə nəticələnən bu möhtəşəm layihəni tamamlayır. İstanbul bu qırx çeşmə sayəsində suya qovuşur. Suyun boşuna axmaması üçün çeşmələrə muslıqlar (kranlar) qoyulur.</p><p>Su baha başa gəldiyindən və qiymətə mindiyindən Sultan belə bir fərman verir: «İstanbul meydanlarındakı ümumi çeşmələr xalqın malıdır; heç kəs gizli yolla yeraltından evinə su çəkdirə bilməz.» Bununla belə, Sultan Süleyman memar Sinan üçün bu fərmana bir istisna əlavə edir: «Sən gözəl bir iş görüb İstanbula qırx çeşmə çəkdirdin. İndi sən özün üçün evinə su çəkdirə bilərsən.» Süleymaniyyə ətrafındakı meydan çeşməsindən Sinanın evinə xüsusi su kəməri çəkilir. Beləcə Memar Sinan bütün şəhərdə evində xüsusi suyu olan yeganə adam olur.</p><p>Memar Sinan Şahzadəbaşı, Süleymaniyyə və Ədirnədəki Səlimiyyə məscidlərini tikəndən sonra yaşlanır. Vaxtilə etibarının yüksək olduğu dövrdə onun qədir-qiymətini bilənlər artıq bir-bir dünyadan köçmüşdü. Sultan Süleyman vəfat etmiş, yerinə başqa padşahlar gəlmişdi. Sinan da 99 yaşına çatmış, dostları köçdüyü üçün İstanbulda tək-tənha qalmışdı.</p><p>Bir gün biri gəlib Sinanın qapısını döyür: «Mən Topqapı Sarayındanam, sizi divana çağırırlar» deyir. Sinan Ağa bu ixtiyar yaşında «görəsən, məni Topqapı Sarayına niyə çağırırlar?» deyə təəccüblənərək saraya yola düşür.</p><p>Saraya gələndə orada bir sorğu heyətinin — qazıların, üləmaların, müftilərin, vəzirlərin — toplandığını görür. Sinana deyirlər: «Sinan Ağa, haqqında şikayət var. Evə su çəkdirmək yasaq olduğu, heç kəs evinə xüsusi su çəkməsin deyə padşah fərmanı olduğu halda, sənin evində xüsusi su varmış.»</p><p>Sinan: «O zaman Cahan Padşahı İstanbula etdiyim su xidmətlərinə görə yalnız mənə evimdə su olmasına icazə vermişdi» deyə cavab verir.</p><p>«Elə isə bu icazəni, fərmanı göstərin ki, biz də səsimizi çıxarmayaq və başqalarına verilməməsinə baxmayaraq, sizin suyunuz axmaqda davam etsin.»</p><p>Sinan belə deyir: «Mən o zaman Cahan Padşahından fərman almağa utanmışdım. Fərmanım-filanım yoxdur, amma evimdə suyum var.»</p><p>Divan çətin vəziyyətdə qalır, cürbəcür fikirlər səslənir: «Sinan böyük xidmətlər göstərib, evində suyu olsun.» Başqaları cavab verir: «Bu dövlətə xidmət edən yalnız Sinanmı olub? Sinan kimi neçə-neçə xidmət edən var. Ya onların da evinə xüsusi su verilsin, ya da Sinana verilən bu imtiyaz tanınmasın.»</p><p>Uzun mübahisələrdən sonra divan belə qərar çıxarır: «Sinan kimi böyük xidmətləri olan digərlərinin də evinə su çəkilməyəcəyi üçün Sinana verilən su kəsilməli, ancaq indiyədək əlində fərman olmadan istifadə etdiyi suya görə heç bir cəzaya məruz qalmamalıdır.»</p><p>Sinanın suyunu kəsirlər.</p><p>Memar 100 yaşına çatanda xəstələnib yatağa düşür. Vəfat etməkdə ikən ətrafındakılar dodaqlarını islatmaq üçün su istəyəndə görürlər ki, evindəki krandan su gəlmir. Bunu görən Sinan onlara belə deyir: «Biz xidmətimizi mənfəət üçün etmədik. Biz onu Tanrı üçün etdik və mükafatını da axirətdə gözləyəcəyik. Bu dünyada evimizə su verilmədiyi üçün kədərlənmirik.»</p><p>Dünyaya, şöhrətə və insanların vəfasına həddindən artıq bel bağlama. Əsl xidmət mənfəət üçün yox, Haqq üçün ediləndir.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>İstanbulu suya qovuşduran Memar Sinan susuz evdə vəfat edir</p><p>Qanuni Sultan Süleymanın padşahlığı dövrüdür. Əhalisi günü-gündən artan İstanbul su qıtlığı yaşayır. Bu qıtlığın aradan qaldırılması o dövrün görkəmli şəxsiyyətlərindən biri Qoca Memar Sinan Ağanın (1489-1588; 99 il ömür sürüb) adı ilə bağlanır.</p><p>Bir gün Sultan Süleyman Memar Sinanı yanına çağırıb belə deyir: «Memarbaşı, əhalinin suya ehtiyacı var. İnsanlar bir at yükü suya çoxlu axça ödəyir. Görəsən, su ehtiyacını ödəmək üçün bir çarə düşünə bilərsənmi?» Memarbaşı deyir: «Sultanım, icazə verin, İstanbulun ətrafını bir gəzim, mövcud suları İstanbula gətirməyin mümkün olub-olmadığını araşdırım, sonra cavabımı verim.»</p><p>Sinan Ağa köməkçilərini də götürüb Çəkməcədən başlayaraq quyuları dolaşır, Beşiktaşa qədər dərələri, axan suları müəyyən edir. Bu suların üzərində bəndlər hörülsə, sular hara qədər yüksələr, haradan-haraya kəmərlər çəkilib İstanbula gətirilə bilər — bu kimi məsələləri araşdırıb hesablamalar apardıqdan sonra yenidən Sultanın hüzuruna çıxır.</p><p>Sultan soruşur: «Memarbaşı, İstanbula su gətirmək mümkündürmü?» «Bəli, sultanım, mümkündür. Ancaq çox ağır şərti var.» «Nədir o, memarbaşı?» «Sultanım, İstanbula su ancaq qızılla dolu kisələri uc-uca düzmək şərti ilə gələ bilər.» «Memarbaşı, sən İstanbula su gətirməyin mümkün olduğunu de! Bu iş olacaqsa, mən kisələri uc-uca deyil, lap yan-yana da düzməyə hazıram.»</p><p>Memar Sinan qollarını çırmayıb işə başlayır və İstanbulun bəlli meydanlarına qırx çeşmə çəkilməsi ilə nəticələnən bu möhtəşəm layihəni tamamlayır. İstanbul bu qırx çeşmə sayəsində suya qovuşur. Suyun boşuna axmaması üçün çeşmələrə muslıqlar (kranlar) qoyulur.</p><p>Su baha başa gəldiyindən və qiymətə mindiyindən Sultan belə bir fərman verir: «İstanbul meydanlarındakı ümumi çeşmələr xalqın malıdır; heç kəs gizli yolla yeraltından evinə su çəkdirə bilməz.» Bununla belə, Sultan Süleyman memar Sinan üçün bu fərmana bir istisna əlavə edir: «Sən gözəl bir iş görüb İstanbula qırx çeşmə çəkdirdin. İndi sən özün üçün evinə su çəkdirə bilərsən.» Süleymaniyyə ətrafındakı meydan çeşməsindən Sinanın evinə xüsusi su kəməri çəkilir. Beləcə Memar Sinan bütün şəhərdə evində xüsusi suyu olan yeganə adam olur.</p><p>Memar Sinan Şahzadəbaşı, Süleymaniyyə və Ədirnədəki Səlimiyyə məscidlərini tikəndən sonra yaşlanır. Vaxtilə etibarının yüksək olduğu dövrdə onun qədir-qiymətini bilənlər artıq bir-bir dünyadan köçmüşdü. Sultan Süleyman vəfat etmiş, yerinə başqa padşahlar gəlmişdi. Sinan da 99 yaşına çatmış, dostları köçdüyü üçün İstanbulda tək-tənha qalmışdı.</p><p>Bir gün biri gəlib Sinanın qapısını döyür: «Mən Topqapı Sarayındanam, sizi divana çağırırlar» deyir. Sinan Ağa bu ixtiyar yaşında «görəsən, məni Topqapı Sarayına niyə çağırırlar?» deyə təəccüblənərək saraya yola düşür.</p><p>Saraya gələndə orada bir sorğu heyətinin — qazıların, üləmaların, müftilərin, vəzirlərin — toplandığını görür. Sinana deyirlər: «Sinan Ağa, haqqında şikayət var. Evə su çəkdirmək yasaq olduğu, heç kəs evinə xüsusi su çəkməsin deyə padşah fərmanı olduğu halda, sənin evində xüsusi su varmış.»</p><p>Sinan: «O zaman Cahan Padşahı İstanbula etdiyim su xidmətlərinə görə yalnız mənə evimdə su olmasına icazə vermişdi» deyə cavab verir.</p><p>«Elə isə bu icazəni, fərmanı göstərin ki, biz də səsimizi çıxarmayaq və başqalarına verilməməsinə baxmayaraq, sizin suyunuz axmaqda davam etsin.»</p><p>Sinan belə deyir: «Mən o zaman Cahan Padşahından fərman almağa utanmışdım. Fərmanım-filanım yoxdur, amma evimdə suyum var.»</p><p>Divan çətin vəziyyətdə qalır, cürbəcür fikirlər səslənir: «Sinan böyük xidmətlər göstərib, evində suyu olsun.» Başqaları cavab verir: «Bu dövlətə xidmət edən yalnız Sinanmı olub? Sinan kimi neçə-neçə xidmət edən var. Ya onların da evinə xüsusi su verilsin, ya da Sinana verilən bu imtiyaz tanınmasın.»</p><p>Uzun mübahisələrdən sonra divan belə qərar çıxarır: «Sinan kimi böyük xidmətləri olan digərlərinin də evinə su çəkilməyəcəyi üçün Sinana verilən su kəsilməli, ancaq indiyədək əlində fərman olmadan istifadə etdiyi suya görə heç bir cəzaya məruz qalmamalıdır.»</p><p>Sinanın suyunu kəsirlər.</p><p>Memar 100 yaşına çatanda xəstələnib yatağa düşür. Vəfat etməkdə ikən ətrafındakılar dodaqlarını islatmaq üçün su istəyəndə görürlər ki, evindəki krandan su gəlmir. Bunu görən Sinan onlara belə deyir: «Biz xidmətimizi mənfəət üçün etmədik. Biz onu Tanrı üçün etdik və mükafatını da axirətdə gözləyəcəyik. Bu dünyada evimizə su verilmədiyi üçün kədərlənmirik.»</p><p>Dünyaya, şöhrətə və insanların vəfasına həddindən artıq bel bağlama. Əsl xidmət mənfəət üçün yox, Haqq üçün ediləndir.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/architect-sinan-dies-in-a-house-without-water.webp" alt="Memar Sinan susuz evdə vəfat edir illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -161,6 +198,6 @@
       <p>İbrətamiz deyimlər və hekayələr</p>
     </div>
   </footer>
-  <script src="../assets/site.js" defer></script>
+  <script src="../assets/site.js?v=20260811q" defer></script>
 </body>
 </html>

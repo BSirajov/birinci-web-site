@@ -7,25 +7,33 @@
   <meta name="color-scheme" content="light" />
   <title>Təmsillər və məsəllər · Bir inci</title>
   <meta name="description" content="Heyvanlar və obrazlarla öyrədən məsəllər." />
-  <link rel="icon" href="../assets/pearl.webp" type="image/webp" />
+  <link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="../assets/favicon-48.png" type="image/png" sizes="48x48" />
+  <link rel="icon" href="../assets/favicon.png" type="image/png" sizes="192x192" />
   <link rel="icon" href="../assets/favicon.ico" sizes="any" />
-  <link rel="apple-touch-icon" href="../assets/pearl.webp" />
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" sizes="180x180" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/site.css" />
+  <link rel="stylesheet" href="../assets/site.css?v=20260811q" />
 </head>
 <body class="page-category" id="top">
   <a class="skip-link" href="#main">Məzmuna keç</a>
   <header class="site-header">
   <div class="site-header__inner">
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Menyunu aç">
+      <span></span><span></span><span></span>
+    </button>
     <a class="brand" href="../index.html">
       <img class="brand__logo" src="../assets/pearl.webp" alt="" width="36" height="36" />
       <span class="brand__name">Bir inci</span>
     </a>
-    <nav class="primary-nav" aria-label="Əsas menyu">
+    <nav class="primary-nav" id="primaryNav" aria-label="Əsas menyu">
       <details class="nav-dropdown">
-        <summary>İbrətamiz hekayələr</summary>
+        <summary>
+          <span class="menu-icon menu-icon--book" aria-hidden="true" style="--icon-from:#10b981;--icon-to:#059669;--icon-glow:#34d399"><svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg></span>
+          <span>İbrətamiz hekayələr</span>
+        </summary>
         <ul class="nav-dropdown__list">
           <li><a href="../categories/iman-ve-meneviyyat.html"><span class="menu-icon menu-icon--sparkles" aria-hidden="true" style="--icon-from:#7c5cff;--icon-to:#b44dff;--icon-glow:#a78bfa"><svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg></span><span>İman və mənəviyyat</span></a></li>
 <li><a href="../categories/aile-ve-terbiye.html"><span class="menu-icon menu-icon--home" aria-hidden="true" style="--icon-from:#0ea5e9;--icon-to:#2563eb;--icon-glow:#38bdf8"><svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span><span>Ailə və tərbiyə</span></a></li>
@@ -42,16 +50,19 @@
         </ul>
       </details>
     </nav>
-    <button type="button" class="global-search-toggle" id="global-search-toggle" aria-expanded="false" aria-controls="global-search" title="Axtar" aria-label="Qlobal axtarış">
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <circle cx="11" cy="11" r="7"></circle>
-        <path d="m20 20-3.5-3.5"></path>
-      </svg>
-      <span>Axtar</span>
-    </button>
+    <div class="site-header__actions">
+      <button type="button" class="global-search-toggle" id="global-search-toggle" aria-expanded="false" aria-controls="global-search" title="Axtar (Ctrl+K)" aria-label="Qlobal axtarış, Ctrl+K">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle>
+          <path d="m20 20-3.5-3.5"></path>
+        </svg>
+        <span class="global-search-toggle__label">Axtar…</span>
+        <kbd class="global-search-toggle__kbd">Ctrl+K</kbd>
+      </button>
+    </div>
   </div>
 </header>
-<div class="global-search" id="global-search" hidden data-search-index="../assets/search-index.js">
+<div class="global-search" id="global-search" hidden data-search-index="../assets/search-index.js?v=20260811q">
   <button type="button" class="global-search__backdrop" data-global-search-close tabindex="-1" aria-label="Axtarışı bağla"></button>
   <div class="global-search__panel" role="dialog" aria-modal="true" aria-labelledby="global-search-title">
     <div class="global-search__head">
@@ -131,8 +142,21 @@
     <h2 class="card-title story__title">Aslanın izi</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Qorxaq, eyni zamanda lovğa bir ovçu bir aslanın ardınca düşüb gəlib bir meşəyə çatır və qarşısına çıxan odunçudan soruşur:</p><p>— Qardaş, buralarda bir aslana, yaxud onun izinə rast gəldinmi?</p><p>Odunçu:</p><p>— Aslanın özünü gördüm; istəsən, gəl səni onun olduğu yerə aparım.</p><p>Rəngi ağarmış ovçu:</p><p>— Yox, canım, sağ ol. Mən əslində aslanın özünü yox, izini axtarırdım.</p><p>İnsanı iddiası yox, sınaq anındakı davranışı tanıdır. Uzaqdan «aslan axtaran» çox olar, üz-üzə gələndə isə çoxu geri çəkilər.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Qorxaq, eyni zamanda lovğa bir ovçu bir aslanın ardınca düşüb gəlib bir meşəyə çatır və qarşısına çıxan odunçudan soruşur:</p><p>— Qardaş, buralarda bir aslana, yaxud onun izinə rast gəldinmi?</p><p>Odunçu:</p><p>— Aslanın özünü gördüm; istəsən, gəl səni onun olduğu yerə aparım.</p><p>Rəngi ağarmış ovçu:</p><p>— Yox, canım, sağ ol. Mən əslində aslanın özünü yox, izini axtarırdım.</p><p>İnsanı iddiası yox, sınaq anındakı davranışı tanıdır. Uzaqdan «aslan axtaran» çox olar, üz-üzə gələndə isə çoxu geri çəkilər.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/the-lions-footprint.webp" alt="Aslanın izi illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -143,8 +167,21 @@
     <h2 class="card-title story__title">Eşşəyin qanunu</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Bir gün eşşək meşənin şahı olur. Bir neçə gün keçmiş qanun verir: hamı axşam saat altıda yatmalı, sübh saat altıda oyanmalıdır. On iki saat ərzində meşədə tam sakitlik hökm sürməli, qanunu pozan isə cəzalandırılmalıdır.</p><p>Bu minvalla bir müddət meşədə səs-səmir kəsilir.</p><p>Bir gün xoruz səhər saat beşdə oyanıb banlamağa başlayır. Meşədə aləm bir-birinə dəyir. Dərhal məhkəmə qurulur və eşşəyin hökmü ilə xoruz edam olunur. O gündən sonra heç kəs şahın qorxusundan qanuna toxunmur.</p><p>İllər ötür, eşşək qocalıb taqətdən düşür. Meşənin bir küncünə çəkilib ölümünü gözləyir. Şir onun yanına gəlib hal-əhval tutur, sonra soruşur:</p><p>— Sən artıq axır günlərini yaşayırsan. Bilmək istəyirik: axşam altıda yatmağı, səhər altıda durmağı əmr edən o qanunun hikməti nə idi? Biz neçə dəfə qiyam qaldırıb onu ləğv etmək istədik, amma meşədə asayiş pozular deyə əl saxladıq. Öz-özümüzə dedik ki, yəqin bu qanunda bizim anlamadığımız bir hikmət var.</p><p>Eşşək gülümsəyib cavab verir:</p><p>— Doğrusu, elə mən özüm də illərdir buna təəccüb edirəm: eşşəkliyimdən çıxardığım bu qanuna meşənin vəhşi heyvanları niyə qoyun kimi boyun əydilər?</p><p>İbrət: Mənasız bir qanunu ayaqda saxlayan onu verənin gücü yox, ona tabe olanların susqunluğudur. İnsan çox vaxt əmrin arxasında görünməyən bir hikmət olduğunu güman edir, halbuki bəzən arxasında yalnız əmr verənin öz eşşəkliyi durur. Ona görə də soruşmaqdan çəkinmə: cavabsız qalan sual ən uzunömürlü cəfəngiyatı qanuna çevirir.</p><p>Mənasız bir qanunu ayaqda saxlayan onu verənin gücü yox, ona tabe olanların susqunluğudur.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Bir gün eşşək meşənin şahı olur. Bir neçə gün keçmiş qanun verir: hamı axşam saat altıda yatmalı, sübh saat altıda oyanmalıdır. On iki saat ərzində meşədə tam sakitlik hökm sürməli, qanunu pozan isə cəzalandırılmalıdır.</p><p>Bu minvalla bir müddət meşədə səs-səmir kəsilir.</p><p>Bir gün xoruz səhər saat beşdə oyanıb banlamağa başlayır. Meşədə aləm bir-birinə dəyir. Dərhal məhkəmə qurulur və eşşəyin hökmü ilə xoruz edam olunur. O gündən sonra heç kəs şahın qorxusundan qanuna toxunmur.</p><p>İllər ötür, eşşək qocalıb taqətdən düşür. Meşənin bir küncünə çəkilib ölümünü gözləyir. Şir onun yanına gəlib hal-əhval tutur, sonra soruşur:</p><p>— Sən artıq axır günlərini yaşayırsan. Bilmək istəyirik: axşam altıda yatmağı, səhər altıda durmağı əmr edən o qanunun hikməti nə idi? Biz neçə dəfə qiyam qaldırıb onu ləğv etmək istədik, amma meşədə asayiş pozular deyə əl saxladıq. Öz-özümüzə dedik ki, yəqin bu qanunda bizim anlamadığımız bir hikmət var.</p><p>Eşşək gülümsəyib cavab verir:</p><p>— Doğrusu, elə mən özüm də illərdir buna təəccüb edirəm: eşşəkliyimdən çıxardığım bu qanuna meşənin vəhşi heyvanları niyə qoyun kimi boyun əydilər?</p><p>İbrət: Mənasız bir qanunu ayaqda saxlayan onu verənin gücü yox, ona tabe olanların susqunluğudur. İnsan çox vaxt əmrin arxasında görünməyən bir hikmət olduğunu güman edir, halbuki bəzən arxasında yalnız əmr verənin öz eşşəkliyi durur. Ona görə də soruşmaqdan çəkinmə: cavabsız qalan sual ən uzunömürlü cəfəngiyatı qanuna çevirir.</p><p>Mənasız bir qanunu ayaqda saxlayan onu verənin gücü yox, ona tabe olanların susqunluğudur.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/the-donkeys-law.webp" alt="Eşşəyin qanunu illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -155,8 +192,21 @@
     <h2 class="card-title story__title">Fil və ip</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Bir səyahətçi fillər saxlanılan yerin yanından keçərkən birdən dayanır: bu nəhəng heyvanların sadəcə qısa bir iplə ön ayağından qazığa bağlandığını görüb çox təəccüblənir. Nə zəncir, nə də qəfəs var. Belə şəraitdə fillərin hər an ipi qırıb asanlıqla qaça biləcəyi təbii görünsə də, onlar heç qaçmağa cəhd edən kimi görünmürdülər. Adam yaxınlıqdakı təlimçiyə yaxınlaşıb bu möhtəşəm heyvanların niyə itaətlə yerlərində durub qaçmaq istəmədiyini soruşur.</p><p>Təlimçi belə izah edir:</p><p>— Fillər körpə yaşlarında, kiçik olanda qısa bir ip onları bağlayıb saxlamağa bəs edir. Böyüdükcə bu heyvanlar tədricən ipi qırıb qaça bilməyəcəklərinə inanmağa başlayırlar. Düşünürlər ki, bu ip onları hələ də saxlayacaq və azad olmağa qoymayacaq.</p><p>Adam bunları eşidəndə heyrətə gəlir. Təsəvvür edin: bu heyvanlar hər an azad ola biləcəkləri halda bunun mümkün olmadığına inanaraq durduqları yerə bağlanıb qalmışdılar.</p><p>Bizi çox vaxt ip yox, keçmiş uğursuzluqların doğurduğu inamsızlıq bağlayır. «El nə deyər» qorxusunu qırmadan azad olmaq mümkün deyil.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Bir səyahətçi fillər saxlanılan yerin yanından keçərkən birdən dayanır: bu nəhəng heyvanların sadəcə qısa bir iplə ön ayağından qazığa bağlandığını görüb çox təəccüblənir. Nə zəncir, nə də qəfəs var. Belə şəraitdə fillərin hər an ipi qırıb asanlıqla qaça biləcəyi təbii görünsə də, onlar heç qaçmağa cəhd edən kimi görünmürdülər. Adam yaxınlıqdakı təlimçiyə yaxınlaşıb bu möhtəşəm heyvanların niyə itaətlə yerlərində durub qaçmaq istəmədiyini soruşur.</p><p>Təlimçi belə izah edir:</p><p>— Fillər körpə yaşlarında, kiçik olanda qısa bir ip onları bağlayıb saxlamağa bəs edir. Böyüdükcə bu heyvanlar tədricən ipi qırıb qaça bilməyəcəklərinə inanmağa başlayırlar. Düşünürlər ki, bu ip onları hələ də saxlayacaq və azad olmağa qoymayacaq.</p><p>Adam bunları eşidəndə heyrətə gəlir. Təsəvvür edin: bu heyvanlar hər an azad ola biləcəkləri halda bunun mümkün olmadığına inanaraq durduqları yerə bağlanıb qalmışdılar.</p><p>Bizi çox vaxt ip yox, keçmiş uğursuzluqların doğurduğu inamsızlıq bağlayır. «El nə deyər» qorxusunu qırmadan azad olmaq mümkün deyil.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/the-elephant-and-the-rope.webp" alt="Fil və ip illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -167,8 +217,21 @@
     <h2 class="card-title story__title">İki uzunqulaq</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>İki uzunqulaq yolla gedir. Görürlər ki, ağacda bir meymun oturub. Deyirlər, gəl bu meymuna sataşaq: soruşaq ki, sənin dostun var, ya yox? «Var» desə, deyərik «hansı axmaq səninlə dostluq edir?»; «yoxdur» desə, deyərik «hansı axmaq səninlə dost olar?» Ağaca yaxınlaşıb soruşurlar: «Meymun, sənin dostun var?» Meymun yuxarıdan ona sataşmaq istəyən uzunqulaqlara baxıb deyir:</p><p>— Hara baxıram, hamısı eşşəkdir; kimlə dostluq edim?</p><p>Başqasını alçaltmaq üçün qurulan tələ çox vaxt tələ quranın öz başında partlayır. Sataşmaq istəyən özü gülünc olar.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>İki uzunqulaq yolla gedir. Görürlər ki, ağacda bir meymun oturub. Deyirlər, gəl bu meymuna sataşaq: soruşaq ki, sənin dostun var, ya yox? «Var» desə, deyərik «hansı axmaq səninlə dostluq edir?»; «yoxdur» desə, deyərik «hansı axmaq səninlə dost olar?» Ağaca yaxınlaşıb soruşurlar: «Meymun, sənin dostun var?» Meymun yuxarıdan ona sataşmaq istəyən uzunqulaqlara baxıb deyir:</p><p>— Hara baxıram, hamısı eşşəkdir; kimlə dostluq edim?</p><p>Başqasını alçaltmaq üçün qurulan tələ çox vaxt tələ quranın öz başında partlayır. Sataşmaq istəyən özü gülünc olar.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/two-donkeys.webp" alt="İki uzunqulaq illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -179,8 +242,21 @@
     <h2 class="card-title story__title">Milçək çini qablar dükanında</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Bir milçək çini qablar dükanını dağıtmaq istəsə, gücü çatmaz; amma bir öküzün qulağına girsə, o öküz panika içində dükanı dağıdar.</p><p>O milçək mövhumatdan, yalandan və ya qərəzdən başqa bir şey deyil. O öküz isə başıboş, cahil insanın özüdür.</p><p>Kiçik bir yalan cahilin qulağına girəndə böyük dağıntıya çevrilir. Ondan qorunmağın yolu elm və mənəvi dəyərlərdir.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Bir milçək çini qablar dükanını dağıtmaq istəsə, gücü çatmaz; amma bir öküzün qulağına girsə, o öküz panika içində dükanı dağıdar.</p><p>O milçək mövhumatdan, yalandan və ya qərəzdən başqa bir şey deyil. O öküz isə başıboş, cahil insanın özüdür.</p><p>Kiçik bir yalan cahilin qulağına girəndə böyük dağıntıya çevrilir. Ondan qorunmağın yolu elm və mənəvi dəyərlərdir.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/a-fly-in-the-china-shop.webp" alt="Milçək çini qablar dükanında illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -191,8 +267,21 @@
     <h2 class="card-title story__title">Ovçunun vəsfi</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Aslan yazmağı öyrənənə qədər hər bir hekayə yazan ovçunu vəsf edəcək.</p><p>Afrika atalar sözü</p><p>Hekayəni kim danışırsa, qəhrəman da o olur. Öz həqiqətini yazmağı öyrənməsən, səni həmişə başqaları danışacaq.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Aslan yazmağı öyrənənə qədər hər bir hekayə yazan ovçunu vəsf edəcək.</p><p>Afrika atalar sözü</p><p>Hekayəni kim danışırsa, qəhrəman da o olur. Öz həqiqətini yazmağı öyrənməsən, səni həmişə başqaları danışacaq.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/the-hunters-description.webp" alt="Ovçunun vəsfi illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -203,8 +292,21 @@
     <h2 class="card-title story__title">Su daşıyan qarışqa</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Əfsanəyə görə, Nəmrud (Bibliya personajı, Şinar ölkəsinin hökmdarı) qəddarlığına əngəl bildiyi İbrahim peyğəmbəri oda ataraq cəzalandırmaq istəyir. Meydanın ortasında nəhəng bir tonqal qalatdırır. Tonqalı görən bütün canlılar qaçmağa üz tutur.</p><p>Bu arada bir qarışqa ağzında bir damla su ilə təlaşla tonqala doğru qaçmağa başlayır.</p><p>Onu görən başqa bir qarışqa soruşur:</p><p>— Belə təlaşla hara qaçırsan?</p><p>— Eşitmədinmi, Nəmrud İbrahim peyğəmbəri oda atacaq? — deyə su daşıyan qarışqa narahatlığını gizlətmir.</p><p>— Yəqin, sən o tonqalı görməmisən. Nəhəng bir tonqaldır, qaçmaqdan başqa çarə yoxdur. Ağzındakı bu bir damla su iləmi o tonqalı söndürəcəksən? — deyə ikinci qarışqa istehza ilə soruşur.</p><p>Su daşıyan qarışqa cavab verir:</p><p>— Söndürə bilməsəm də, heç olmasa, kimin tərəfində olduğum bəlli olar.</p><p>Bacarmasan da, heç olmasa haqqın yanında ol. Sevdiyin dara düşəndə yanında olmaq özü bir dəyərdir.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Əfsanəyə görə, Nəmrud (Bibliya personajı, Şinar ölkəsinin hökmdarı) qəddarlığına əngəl bildiyi İbrahim peyğəmbəri oda ataraq cəzalandırmaq istəyir. Meydanın ortasında nəhəng bir tonqal qalatdırır. Tonqalı görən bütün canlılar qaçmağa üz tutur.</p><p>Bu arada bir qarışqa ağzında bir damla su ilə təlaşla tonqala doğru qaçmağa başlayır.</p><p>Onu görən başqa bir qarışqa soruşur:</p><p>— Belə təlaşla hara qaçırsan?</p><p>— Eşitmədinmi, Nəmrud İbrahim peyğəmbəri oda atacaq? — deyə su daşıyan qarışqa narahatlığını gizlətmir.</p><p>— Yəqin, sən o tonqalı görməmisən. Nəhəng bir tonqaldır, qaçmaqdan başqa çarə yoxdur. Ağzındakı bu bir damla su iləmi o tonqalı söndürəcəksən? — deyə ikinci qarışqa istehza ilə soruşur.</p><p>Su daşıyan qarışqa cavab verir:</p><p>— Söndürə bilməsəm də, heç olmasa, kimin tərəfində olduğum bəlli olar.</p><p>Bacarmasan da, heç olmasa haqqın yanında ol. Sevdiyin dara düşəndə yanında olmaq özü bir dəyərdir.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/the-ant-that-carries-water.webp" alt="Su daşıyan qarışqa illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -215,8 +317,21 @@
     <h2 class="card-title story__title">Tısbağanın yanlış hesabı</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Tısbağadan soruşurlar:</p><p>— Bu yaxınlıqdakı kəndə nə qədər vaxta gedib çatarsan?</p><p>— Yağışı, palçığı, küləyi, eniş-yoxuşları nəzərə alsaq, üç günlük yoldur, amma mən altı günə çataram... — deyə tısbağa cavab verir.</p><p>Altı gündən sonra baxıb görürlər ki, tısbağa hələ kəndə çatmayıb. Axtarıb nəhayət onu yolun yarısında tapırlar: — Xeyir ola, üç günlük yolu altı günə də gələ bilməmisən? — deyə təəccüblə soruşurlar.</p><p>Tısbağa məyus halda cavab verir: — Heç deməyin, dostlar. Yağışı, palçığı, küləyi, eniş-yoxuşları hesabladım, amma əfsus ki, pis adamları hesablamaq ağlıma gəlmədi. Nə vaxt yeyin hərəkət etməyə başladımsa, tutub məni tərsinə çevirdilər.</p><p>Həyatda hər çətinliyi hesablamaq olar, amma pis niyyətli insanları yox. Allah səni irəli getməyə qoymayanlarla yox, dəstək olanlarla qarşılaşdırsın.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Tısbağadan soruşurlar:</p><p>— Bu yaxınlıqdakı kəndə nə qədər vaxta gedib çatarsan?</p><p>— Yağışı, palçığı, küləyi, eniş-yoxuşları nəzərə alsaq, üç günlük yoldur, amma mən altı günə çataram... — deyə tısbağa cavab verir.</p><p>Altı gündən sonra baxıb görürlər ki, tısbağa hələ kəndə çatmayıb. Axtarıb nəhayət onu yolun yarısında tapırlar: — Xeyir ola, üç günlük yolu altı günə də gələ bilməmisən? — deyə təəccüblə soruşurlar.</p><p>Tısbağa məyus halda cavab verir: — Heç deməyin, dostlar. Yağışı, palçığı, küləyi, eniş-yoxuşları hesabladım, amma əfsus ki, pis adamları hesablamaq ağlıma gəlmədi. Nə vaxt yeyin hərəkət etməyə başladımsa, tutub məni tərsinə çevirdilər.</p><p>Həyatda hər çətinliyi hesablamaq olar, amma pis niyyətli insanları yox. Allah səni irəli getməyə qoymayanlarla yox, dəstək olanlarla qarşılaşdırsın.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/the-turtles-wrong-calculation.webp" alt="Tısbağanın yanlış hesabı illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -239,6 +354,6 @@
       <p>İbrətamiz deyimlər və hekayələr</p>
     </div>
   </footer>
-  <script src="../assets/site.js" defer></script>
+  <script src="../assets/site.js?v=20260811q" defer></script>
 </body>
 </html>

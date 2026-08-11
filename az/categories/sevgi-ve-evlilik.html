@@ -7,25 +7,33 @@
   <meta name="color-scheme" content="light" />
   <title>Sevgi və evlilik · Bir inci</title>
   <meta name="description" content="Eşq, vəfa və birgə ömrün sınaqları." />
-  <link rel="icon" href="../assets/pearl.webp" type="image/webp" />
+  <link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="../assets/favicon-48.png" type="image/png" sizes="48x48" />
+  <link rel="icon" href="../assets/favicon.png" type="image/png" sizes="192x192" />
   <link rel="icon" href="../assets/favicon.ico" sizes="any" />
-  <link rel="apple-touch-icon" href="../assets/pearl.webp" />
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" sizes="180x180" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/site.css" />
+  <link rel="stylesheet" href="../assets/site.css?v=20260811q" />
 </head>
 <body class="page-category" id="top">
   <a class="skip-link" href="#main">Məzmuna keç</a>
   <header class="site-header">
   <div class="site-header__inner">
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Menyunu aç">
+      <span></span><span></span><span></span>
+    </button>
     <a class="brand" href="../index.html">
       <img class="brand__logo" src="../assets/pearl.webp" alt="" width="36" height="36" />
       <span class="brand__name">Bir inci</span>
     </a>
-    <nav class="primary-nav" aria-label="Əsas menyu">
+    <nav class="primary-nav" id="primaryNav" aria-label="Əsas menyu">
       <details class="nav-dropdown">
-        <summary>İbrətamiz hekayələr</summary>
+        <summary>
+          <span class="menu-icon menu-icon--book" aria-hidden="true" style="--icon-from:#10b981;--icon-to:#059669;--icon-glow:#34d399"><svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg></span>
+          <span>İbrətamiz hekayələr</span>
+        </summary>
         <ul class="nav-dropdown__list">
           <li><a href="../categories/iman-ve-meneviyyat.html"><span class="menu-icon menu-icon--sparkles" aria-hidden="true" style="--icon-from:#7c5cff;--icon-to:#b44dff;--icon-glow:#a78bfa"><svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg></span><span>İman və mənəviyyat</span></a></li>
 <li><a href="../categories/aile-ve-terbiye.html"><span class="menu-icon menu-icon--home" aria-hidden="true" style="--icon-from:#0ea5e9;--icon-to:#2563eb;--icon-glow:#38bdf8"><svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span><span>Ailə və tərbiyə</span></a></li>
@@ -42,16 +50,19 @@
         </ul>
       </details>
     </nav>
-    <button type="button" class="global-search-toggle" id="global-search-toggle" aria-expanded="false" aria-controls="global-search" title="Axtar" aria-label="Qlobal axtarış">
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <circle cx="11" cy="11" r="7"></circle>
-        <path d="m20 20-3.5-3.5"></path>
-      </svg>
-      <span>Axtar</span>
-    </button>
+    <div class="site-header__actions">
+      <button type="button" class="global-search-toggle" id="global-search-toggle" aria-expanded="false" aria-controls="global-search" title="Axtar (Ctrl+K)" aria-label="Qlobal axtarış, Ctrl+K">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle>
+          <path d="m20 20-3.5-3.5"></path>
+        </svg>
+        <span class="global-search-toggle__label">Axtar…</span>
+        <kbd class="global-search-toggle__kbd">Ctrl+K</kbd>
+      </button>
+    </div>
   </div>
 </header>
-<div class="global-search" id="global-search" hidden data-search-index="../assets/search-index.js">
+<div class="global-search" id="global-search" hidden data-search-index="../assets/search-index.js?v=20260811q">
   <button type="button" class="global-search__backdrop" data-global-search-close tabindex="-1" aria-label="Axtarışı bağla"></button>
   <div class="global-search__panel" role="dialog" aria-modal="true" aria-labelledby="global-search-title">
     <div class="global-search__head">
@@ -143,8 +154,21 @@
     <h2 class="card-title story__title">Bənövşəyi çəpkən</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Qədim zamanlarda türk obalarında belə bir adət varmış: ərə gedən qızların cehizinə digər əşyalarla birlikdə bənövşəyi rəngli çəpkən də əlavə olunarmış. Çəpkən cehiz sandığının lap dibinə qoyular və qadının onu heç vaxt geyməməsi arzulanarmış.</p><p>Bənövşəyi çəpkən kişilərə qənim ola biləcək bir libas imiş. Çünki qadın o çəpkəni geyib evin damına, bacasına, kənd meydanına — hər kəsin görə biləcəyi bir yerə çıxsaydı, bu, «ərimi sevmirəm, ərim mənə əziyyət verir, könülsüz evləndim, boşanmaq istəyirəm, ağır vəziyyətdəyəm, mənə kömək edin» mənasına gələrmiş. Belə olanda kənd camaatı o qadına yardım edər, ərini isə qınayarmış. Bu, kişi üçün böyük ayıb sayılarmış.</p><p>Bu səbəbdən kişilər həyat yoldaşları ilə problemlərini şiddətə yol vermədən, sevgi və hörmətlə, üstəlik xanıma mühüm güzəştlər edərək həll etməyə çalışarmışlar. Əks halda qadının bənövşəyi çəpkən geyəcəyini bilirdilər.</p><p>Arvadı bənövşəyi çəpkən geymiş kişi nəinki boşanmağa məcbur olar, hətta bir daha asanlıqla evlənə bilməzmiş. Çünki hamı bilirmiş ki, arvadına bənövşəyi çəpkən geydirən adamdan ər olmaz. Qadına hörmət etməyən, şiddət göstərən adama bir daha kimsə qız verməz, onun yenidən evlənməsi çox çətin olarmış. Deyilənə görə, məhz buna görə şiddətə məruz qalan qadınların sayı az qala yox səviyyəsində imiş.</p><p>Əgər bir qadın bənövşəyi çəpkənini geysəydi, o zaman axan sular durar, inək sağan, yun əyirən, kilim toxuyan əllər dayanar; yaşlı analar, nənələr işini-gücünü buraxıb bənövşəyi çəpkən geyməyə məcbur olmuş qadının müdafiəsinə qalxarmış.</p><p>Bu vaxt ətrafda nə toy-düyün, nə zurna-qaval, nə də başqa bir əyləncə varmışsa, hamısı susarmış. Çünki evli qadının bənövşəyi çəpkən geyməsi, ağır vəziyyətə düşməsi ölüm kimi qəbul edilərmiş.</p><p>Bənövşəyi çəpkən geymiş qadının əri evdən bayıra çıxa bilməz, çayxanaya gedə bilməz, kimsə də onun üzünə baxmazmış.</p><p>Qadına qarşı zorakılıq qəbuledilməzdir. Cəmiyyət qadını qorumağı vicdan borcu bildikdə zülmə yer qalmır.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Qədim zamanlarda türk obalarında belə bir adət varmış: ərə gedən qızların cehizinə digər əşyalarla birlikdə bənövşəyi rəngli çəpkən də əlavə olunarmış. Çəpkən cehiz sandığının lap dibinə qoyular və qadının onu heç vaxt geyməməsi arzulanarmış.</p><p>Bənövşəyi çəpkən kişilərə qənim ola biləcək bir libas imiş. Çünki qadın o çəpkəni geyib evin damına, bacasına, kənd meydanına — hər kəsin görə biləcəyi bir yerə çıxsaydı, bu, «ərimi sevmirəm, ərim mənə əziyyət verir, könülsüz evləndim, boşanmaq istəyirəm, ağır vəziyyətdəyəm, mənə kömək edin» mənasına gələrmiş. Belə olanda kənd camaatı o qadına yardım edər, ərini isə qınayarmış. Bu, kişi üçün böyük ayıb sayılarmış.</p><p>Bu səbəbdən kişilər həyat yoldaşları ilə problemlərini şiddətə yol vermədən, sevgi və hörmətlə, üstəlik xanıma mühüm güzəştlər edərək həll etməyə çalışarmışlar. Əks halda qadının bənövşəyi çəpkən geyəcəyini bilirdilər.</p><p>Arvadı bənövşəyi çəpkən geymiş kişi nəinki boşanmağa məcbur olar, hətta bir daha asanlıqla evlənə bilməzmiş. Çünki hamı bilirmiş ki, arvadına bənövşəyi çəpkən geydirən adamdan ər olmaz. Qadına hörmət etməyən, şiddət göstərən adama bir daha kimsə qız verməz, onun yenidən evlənməsi çox çətin olarmış. Deyilənə görə, məhz buna görə şiddətə məruz qalan qadınların sayı az qala yox səviyyəsində imiş.</p><p>Əgər bir qadın bənövşəyi çəpkənini geysəydi, o zaman axan sular durar, inək sağan, yun əyirən, kilim toxuyan əllər dayanar; yaşlı analar, nənələr işini-gücünü buraxıb bənövşəyi çəpkən geyməyə məcbur olmuş qadının müdafiəsinə qalxarmış.</p><p>Bu vaxt ətrafda nə toy-düyün, nə zurna-qaval, nə də başqa bir əyləncə varmışsa, hamısı susarmış. Çünki evli qadının bənövşəyi çəpkən geyməsi, ağır vəziyyətə düşməsi ölüm kimi qəbul edilərmiş.</p><p>Bənövşəyi çəpkən geymiş qadının əri evdən bayıra çıxa bilməz, çayxanaya gedə bilməz, kimsə də onun üzünə baxmazmış.</p><p>Qadına qarşı zorakılıq qəbuledilməzdir. Cəmiyyət qadını qorumağı vicdan borcu bildikdə zülmə yer qalmır.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/the-purple-jacket.webp" alt="Bənövşəyi çəpkən illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -155,8 +179,21 @@
     <h2 class="card-title story__title">Dostluq və sevgi</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>— Dava-dalaşı ağacın yarpağına yaz ki, payız gələndə yarpaqlar quruyub tökülsün, dava-dalaş yox olsun.</p><p>— Qəzəbi buludun üstünə yaz ki, yağış yağsın, buludlar dağılsın, qəzəb yox olsun.</p><p>— Nifrəti qarın üstünə yaz ki, günəş çıxsın, qarlar ərisin, nifrət yox olsun.</p><p>— Dostluğu və sevgini yeni doğulmuş körpələrin qəlbinə yaz ki, onlar böyüsün, dostluq və sevgi bütün dünyaya yayılsın.</p><p>Dava, qəzəb və nifrəti keçici şeylərə yaz ki, itsin; dostluğu və sevgini isə qəlblərə yaz ki, əbədi qalıb dünyaya yayılsın.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>— Dava-dalaşı ağacın yarpağına yaz ki, payız gələndə yarpaqlar quruyub tökülsün, dava-dalaş yox olsun.</p><p>— Qəzəbi buludun üstünə yaz ki, yağış yağsın, buludlar dağılsın, qəzəb yox olsun.</p><p>— Nifrəti qarın üstünə yaz ki, günəş çıxsın, qarlar ərisin, nifrət yox olsun.</p><p>— Dostluğu və sevgini yeni doğulmuş körpələrin qəlbinə yaz ki, onlar böyüsün, dostluq və sevgi bütün dünyaya yayılsın.</p><p>Dava, qəzəb və nifrəti keçici şeylərə yaz ki, itsin; dostluğu və sevgini isə qəlblərə yaz ki, əbədi qalıb dünyaya yayılsın.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/friendship-and-love.webp" alt="Dostluq və sevgi illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -167,8 +204,21 @@
     <h2 class="card-title story__title">Erkən evlilik</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Universiteti təzəcə bitirib məktəbdə müəllim işləməyə başlamışdım. Bir gün müəllimlər otağında oturub şagirdlərin imtahan vərəqlərini gözdən keçirirdim. Qız şagirdlərin səhv cavablarını silib düzəldirdim ki, yuxarı sinfə keçmək üçün yaxşı qiymət alsınlar.</p><p>Bu an müəllimlər otağına bir nəfər girib maraqla qız şagirdlərin imtahan vərəqlərini niyə dəyişdirdiyimi soruşdu. Dedim: «Əgər bu qızlar imtahandan kəsilsələr, ataları onları məktəbdən çıxarıb 12-13 yaşında ərə verəcək. Amma yuxarı sinfə keçsələr, evlilik yaşları heç olmasa 15-16 olacaq. Bu müddətdə isə ən tənbəl şagird belə dərsdə mütləq nəsə öyrənəcək.»</p><p>Təxminən yarım saat sonra direktorumuz məni çağırıb müəllimlər otağında nə işlə məşğul olduğumu soruşdu. İmtahan vərəqlərini nəzərdən keçirdiyimi dedim.</p><p>— Müəllimlər otağında bir nəfərlə rastlaşmısan. Ona nə demisən? — deyə soruşdu.</p><p>— O adam məndən sizə şikayət etdi? — deyə soruşdum.</p><p>— Əsla yox! Adam yanıma gəlib məktəbə təftiş üçün gəldiyini, amma buna heç bir ehtiyac olmadığını dedi.</p><p>— Nədən? — deyə təəccübləndim.</p><p>— Ona görə ki, sizin müdrik bir gənc müəlliminiz var. Lütfən, ona mənim təşəkkürümü çatdırın, — dedi.</p><p>Bir müəllimin kiçik qayğısı bir qızın taleyini dəyişə bilər. Erkən evlilik uşaqları elmdən məhrum edir; buna göz yummayaq.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Universiteti təzəcə bitirib məktəbdə müəllim işləməyə başlamışdım. Bir gün müəllimlər otağında oturub şagirdlərin imtahan vərəqlərini gözdən keçirirdim. Qız şagirdlərin səhv cavablarını silib düzəldirdim ki, yuxarı sinfə keçmək üçün yaxşı qiymət alsınlar.</p><p>Bu an müəllimlər otağına bir nəfər girib maraqla qız şagirdlərin imtahan vərəqlərini niyə dəyişdirdiyimi soruşdu. Dedim: «Əgər bu qızlar imtahandan kəsilsələr, ataları onları məktəbdən çıxarıb 12-13 yaşında ərə verəcək. Amma yuxarı sinfə keçsələr, evlilik yaşları heç olmasa 15-16 olacaq. Bu müddətdə isə ən tənbəl şagird belə dərsdə mütləq nəsə öyrənəcək.»</p><p>Təxminən yarım saat sonra direktorumuz məni çağırıb müəllimlər otağında nə işlə məşğul olduğumu soruşdu. İmtahan vərəqlərini nəzərdən keçirdiyimi dedim.</p><p>— Müəllimlər otağında bir nəfərlə rastlaşmısan. Ona nə demisən? — deyə soruşdu.</p><p>— O adam məndən sizə şikayət etdi? — deyə soruşdum.</p><p>— Əsla yox! Adam yanıma gəlib məktəbə təftiş üçün gəldiyini, amma buna heç bir ehtiyac olmadığını dedi.</p><p>— Nədən? — deyə təəccübləndim.</p><p>— Ona görə ki, sizin müdrik bir gənc müəlliminiz var. Lütfən, ona mənim təşəkkürümü çatdırın, — dedi.</p><p>Bir müəllimin kiçik qayğısı bir qızın taleyini dəyişə bilər. Erkən evlilik uşaqları elmdən məhrum edir; buna göz yummayaq.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/early-marriage.webp" alt="Erkən evlilik illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -179,8 +229,21 @@
     <h2 class="card-title story__title">Evlilikdə pozan</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Ata ilə yeni evlənən gənc oğlunun arasında belə bir əhvalat baş verir.</p><p>Ata oğlundan ağ kağız, qələm və pozan gətirməsini xahiş edir.</p><p>— Niyə? — deyə soruşur oğul.</p><p>— Sən gətir, — deyir ata.</p><p>Oğul qələm və kağız gətirir, amma pozan tapa bilmir.</p><p>— Get pozan da al gətir, — deyir ata.</p><p>Oğul çox təəccüblənir, amma gedib pozan alır, gətirib atasının yanında oturur.</p><p>— Yaz, — deyir ata.</p><p>— Nə yazım?</p><p>— Nə istəyirsən, yaz.</p><p>Oğul bir cümlə yazır.</p><p>— İndi sil, — deyir ata.</p><p>Oğul silir.</p><p>— Başqa bir cümlə yaz.</p><p>— Allah xatirinə, ata, nə istəyirsən?</p><p>— Yenə bir şey yaz.</p><p>Oğul yazır. Atası yenə yazdığını sildirir.</p><p>Bu yazıb-pozma bir neçə dəfə təkrar olunandan sonra ata soruşur:</p><p>— Kağız hələ də ağdır?</p><p>— Hə, ağdır, ata. Axı bütün bunlar nə deməkdir?</p><p>Ata əlini oğlunun çiyninə qoyub deyir:</p><p>— Hə, oğlum, evlilik elə bir şeydir ki, pozansız olmur... Xanımından görəcəyin və bəyənməyəcəyin bəzi şeyləri silmək üçün özünlə pozan daşımalısan. Sənin edəcəyin xoşagəlməz şeyləri silmək üçün isə xanımının da belə bir pozanı olmalıdır. Çünki belə etməsəniz, bir neçə gündən sonra evlilik səhifəniz qap-qara olacaq...</p><p>Əgər həyatınızda qarşılıqlı sevgi və hörmət gözləyirsinizsə, hər ikiniz bunu bir-birinizə göstərəcəksiniz. Pozanı isə əsla unutmayacaqsınız!</p><p>Evlilik bağışlaya bilmək sənətidir. Sevgi və hörmətin davam etməsi üçün hər iki tərəf bir-birinin qüsurlarını «silməyi» bacarmalıdır.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Ata ilə yeni evlənən gənc oğlunun arasında belə bir əhvalat baş verir.</p><p>Ata oğlundan ağ kağız, qələm və pozan gətirməsini xahiş edir.</p><p>— Niyə? — deyə soruşur oğul.</p><p>— Sən gətir, — deyir ata.</p><p>Oğul qələm və kağız gətirir, amma pozan tapa bilmir.</p><p>— Get pozan da al gətir, — deyir ata.</p><p>Oğul çox təəccüblənir, amma gedib pozan alır, gətirib atasının yanında oturur.</p><p>— Yaz, — deyir ata.</p><p>— Nə yazım?</p><p>— Nə istəyirsən, yaz.</p><p>Oğul bir cümlə yazır.</p><p>— İndi sil, — deyir ata.</p><p>Oğul silir.</p><p>— Başqa bir cümlə yaz.</p><p>— Allah xatirinə, ata, nə istəyirsən?</p><p>— Yenə bir şey yaz.</p><p>Oğul yazır. Atası yenə yazdığını sildirir.</p><p>Bu yazıb-pozma bir neçə dəfə təkrar olunandan sonra ata soruşur:</p><p>— Kağız hələ də ağdır?</p><p>— Hə, ağdır, ata. Axı bütün bunlar nə deməkdir?</p><p>Ata əlini oğlunun çiyninə qoyub deyir:</p><p>— Hə, oğlum, evlilik elə bir şeydir ki, pozansız olmur... Xanımından görəcəyin və bəyənməyəcəyin bəzi şeyləri silmək üçün özünlə pozan daşımalısan. Sənin edəcəyin xoşagəlməz şeyləri silmək üçün isə xanımının da belə bir pozanı olmalıdır. Çünki belə etməsəniz, bir neçə gündən sonra evlilik səhifəniz qap-qara olacaq...</p><p>Əgər həyatınızda qarşılıqlı sevgi və hörmət gözləyirsinizsə, hər ikiniz bunu bir-birinizə göstərəcəksiniz. Pozanı isə əsla unutmayacaqsınız!</p><p>Evlilik bağışlaya bilmək sənətidir. Sevgi və hörmətin davam etməsi üçün hər iki tərəf bir-birinin qüsurlarını «silməyi» bacarmalıdır.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/what-breaks-a-marriage.webp" alt="Evlilikdə pozan illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -191,8 +254,21 @@
     <h2 class="card-title story__title">Evlənənlərə tövsiyə</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Evlənən gənc bir cütlüyə dünyagörmüş böyüklərin tövsiyələrindən:</p><p>«...Evliliyinizi başqalarının evliliyi ilə müqayisə etməyin, deməyin ki, bax gör filankəsin əri və ya arvadı belədir, elədir... Qətiyyən!</p><p>Mükəmməllik axtarmayın. Heç birimiz mükəmməl deyilik. Bir-birinizin keçmişini araşdırmayın; onsuz da adı üstündə — «keçmiş».</p><p>Yarınızdan fikrinizi oxumasını gözləməyin. Təəssüf ki, bunu heç kim bacarmır. İstədiyiniz və ya istəmədiyiniz hər şeyi açıq-açıq söyləyin, danışaraq hər şeyi həll edə biləcəyinizə inanın.</p><p>Birgə yaşayışla yanaşı, hər birinizin özəl bir dünyanızın olmasını da qəbul edin. Məlumdur ki, kirpilər yarına tikanlarının boyu qədər yaxınlaşır; bilirlər ki, çox yaxınlaşsa, tikan batacaq və yarının canı yanacaq. Siz də canınızı yandırmamaq üçün bir-birinizin özəl dünyasına qarışmaqdan çəkinin.</p><p>Evliliyinizdə bir-birinizin sahibi yaxud köləsi yox, yoldaşı olmağa çalışın.</p><p>«Hər şey gözəl olacaq» kimi vəd verməyin — təəssüf ki, olmur. Əvəzində «dara düşsən, mən həmişə yanındayam» deyin.</p><p>Gün ərzində küsülü olsanız belə, yatmazdan əvvəl bir-birinizə «Gecən xeyrə qalsın!» deyin, nə qədər çətin olsa da. Mütləq deyin ki, sabahınız barışıqla açılsın...»</p><p>Xoşbəxt evlilik müqayisə və mükəmməllik axtarışında yox, açıq danışıqda, hörmətdə və bir-birinin şəxsi dünyasına ehtiramdadır.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Evlənən gənc bir cütlüyə dünyagörmüş böyüklərin tövsiyələrindən:</p><p>«...Evliliyinizi başqalarının evliliyi ilə müqayisə etməyin, deməyin ki, bax gör filankəsin əri və ya arvadı belədir, elədir... Qətiyyən!</p><p>Mükəmməllik axtarmayın. Heç birimiz mükəmməl deyilik. Bir-birinizin keçmişini araşdırmayın; onsuz da adı üstündə — «keçmiş».</p><p>Yarınızdan fikrinizi oxumasını gözləməyin. Təəssüf ki, bunu heç kim bacarmır. İstədiyiniz və ya istəmədiyiniz hər şeyi açıq-açıq söyləyin, danışaraq hər şeyi həll edə biləcəyinizə inanın.</p><p>Birgə yaşayışla yanaşı, hər birinizin özəl bir dünyanızın olmasını da qəbul edin. Məlumdur ki, kirpilər yarına tikanlarının boyu qədər yaxınlaşır; bilirlər ki, çox yaxınlaşsa, tikan batacaq və yarının canı yanacaq. Siz də canınızı yandırmamaq üçün bir-birinizin özəl dünyasına qarışmaqdan çəkinin.</p><p>Evliliyinizdə bir-birinizin sahibi yaxud köləsi yox, yoldaşı olmağa çalışın.</p><p>«Hər şey gözəl olacaq» kimi vəd verməyin — təəssüf ki, olmur. Əvəzində «dara düşsən, mən həmişə yanındayam» deyin.</p><p>Gün ərzində küsülü olsanız belə, yatmazdan əvvəl bir-birinizə «Gecən xeyrə qalsın!» deyin, nə qədər çətin olsa da. Mütləq deyin ki, sabahınız barışıqla açılsın...»</p><p>Xoşbəxt evlilik müqayisə və mükəmməllik axtarışında yox, açıq danışıqda, hörmətdə və bir-birinin şəxsi dünyasına ehtiramdadır.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/advice-for-those-who-marry.webp" alt="Evlənənlərə tövsiyə illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -203,8 +279,21 @@
     <h2 class="card-title story__title">Gözlərindən öpərəm</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Bilirsinizmi, nədən «gözlərindən öpərəm» deyilir?</p><p>Həsrətin acısını ən çox çəkən gözlərdir; bu səbəbdən vüsalı ən çox haqq edən də onlardır.</p><p>Ən çox həsrət çəkən vüsala ən çox layiqdir. Sevgi zəhmətini çəkənin haqqını qaytarır.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Bilirsinizmi, nədən «gözlərindən öpərəm» deyilir?</p><p>Həsrətin acısını ən çox çəkən gözlərdir; bu səbəbdən vüsalı ən çox haqq edən də onlardır.</p><p>Ən çox həsrət çəkən vüsala ən çox layiqdir. Sevgi zəhmətini çəkənin haqqını qaytarır.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/i-kiss-your-eyes.webp" alt="Gözlərindən öpərəm illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -215,8 +304,21 @@
     <h2 class="card-title story__title">Gül</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Gülü çox sulasan, çürüyər; az sulasan, quruyar; düz sulasan, yaşayar.</p><p>Sevgidə də, tərbiyədə də ölçü əsasdır. Nə həddindən artıq təzyiq, nə də laqeydlik — ölçülü qayğı canlı saxlayır.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Gülü çox sulasan, çürüyər; az sulasan, quruyar; düz sulasan, yaşayar.</p><p>Sevgidə də, tərbiyədə də ölçü əsasdır. Nə həddindən artıq təzyiq, nə də laqeydlik — ölçülü qayğı canlı saxlayır.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/the-rose.webp" alt="Gül illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -227,8 +329,21 @@
     <h2 class="card-title story__title">Həqiqi eşq</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Bütün duyğuların yaşadığı bir ada varmış.</p><p>Bir gün bu adanın batmaqda olduğu xəbəri yayılır. Duyğular adanı tərk etmək üçün təlaşla hazırlaşmağa başlayır.</p><p>Eşq adanı tərk etməyə tələsmir. Çünki bir möcüzənin onu qurtaracağına əmin kimi ən son ana qədər gözləyir. Ada tamam batmaqda ikən Eşq nəhayət yardım istəməyə qərar verir.</p><p>Bu anda Zənginlik çox böyük bir qayıqda adadan uzaqlaşırmış.</p><p>Eşq soruşur: «Zənginlik, məni də özünlə apara bilərsənmi?» Zənginlik: «Xeyr, apara bilmərəm. Qayığımda küllü miqdarda qızıl və gümüşüm var, sənə yer yoxdur» deyir.</p><p>Eşq bu dəfə çox gözəl bir yelkənli qayıqda yol alan Təkəbbürə üz tutub kömək istəyir: «Təkəbbür, lütfən, mənə yardım et.»</p><p>Təkəbbür: «Sənə yardım edə bilmərəm, Eşq. Çox islanmısan, yelkənimi məhv edərsən» deyə cavab verir.</p><p>Kədər yaxınlıqda imiş. Eşq ondan da yardım istəyir: «Kədər, səninlə gələ bilərəmmi?»</p><p>Kədər: «Aman, Eşq, o qədər kədərliyəm ki, tək qalmağa ehtiyacım var» deyir.</p><p>Xoşbəxtlik Eşqdən uzaqda olmasa da, o qədər həyəcanlı imiş ki, Eşqin çağırışını eşitmir.</p><p>Birdən bir səs gəlir: «Eşq, gəl mənimlə gedək.» Eşq özünü o qədər şanslı və xoşbəxt hiss edir ki, ona əl uzadanın kim olduğunu soruşmağı belə ağlına gətirmir. Sahilə çatanda Eşqə kömək edən onu oradaca qoyub yoluna davam edir.</p><p>Sahilə çıxınca ona nə qədər borclu olduğunu anlayan Eşq qarşısına çıxan bir müdrikə başına gələnləri danışır və soruşur: «Görəsən, mənə kömək edən kim idi?»</p><p>Müdrik: «O, Zaman idi» deyə cavab verir.</p><p>«Zaman? Axı niyə mənə kömək etdi?» deyə Eşq soruşur.</p><p>Müdrik gülümsəyir: «Çünki yalnız Zaman Eşqin nə qədər önəmli və dəyərli olduğunu bilir.»</p><p>Yalnız zaman əsl eşqin dəyərini bilir. Səmimi sevgini zaman yaşadar, saxtasını isə söndürüb unutdurar.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Bütün duyğuların yaşadığı bir ada varmış.</p><p>Bir gün bu adanın batmaqda olduğu xəbəri yayılır. Duyğular adanı tərk etmək üçün təlaşla hazırlaşmağa başlayır.</p><p>Eşq adanı tərk etməyə tələsmir. Çünki bir möcüzənin onu qurtaracağına əmin kimi ən son ana qədər gözləyir. Ada tamam batmaqda ikən Eşq nəhayət yardım istəməyə qərar verir.</p><p>Bu anda Zənginlik çox böyük bir qayıqda adadan uzaqlaşırmış.</p><p>Eşq soruşur: «Zənginlik, məni də özünlə apara bilərsənmi?» Zənginlik: «Xeyr, apara bilmərəm. Qayığımda küllü miqdarda qızıl və gümüşüm var, sənə yer yoxdur» deyir.</p><p>Eşq bu dəfə çox gözəl bir yelkənli qayıqda yol alan Təkəbbürə üz tutub kömək istəyir: «Təkəbbür, lütfən, mənə yardım et.»</p><p>Təkəbbür: «Sənə yardım edə bilmərəm, Eşq. Çox islanmısan, yelkənimi məhv edərsən» deyə cavab verir.</p><p>Kədər yaxınlıqda imiş. Eşq ondan da yardım istəyir: «Kədər, səninlə gələ bilərəmmi?»</p><p>Kədər: «Aman, Eşq, o qədər kədərliyəm ki, tək qalmağa ehtiyacım var» deyir.</p><p>Xoşbəxtlik Eşqdən uzaqda olmasa da, o qədər həyəcanlı imiş ki, Eşqin çağırışını eşitmir.</p><p>Birdən bir səs gəlir: «Eşq, gəl mənimlə gedək.» Eşq özünü o qədər şanslı və xoşbəxt hiss edir ki, ona əl uzadanın kim olduğunu soruşmağı belə ağlına gətirmir. Sahilə çatanda Eşqə kömək edən onu oradaca qoyub yoluna davam edir.</p><p>Sahilə çıxınca ona nə qədər borclu olduğunu anlayan Eşq qarşısına çıxan bir müdrikə başına gələnləri danışır və soruşur: «Görəsən, mənə kömək edən kim idi?»</p><p>Müdrik: «O, Zaman idi» deyə cavab verir.</p><p>«Zaman? Axı niyə mənə kömək etdi?» deyə Eşq soruşur.</p><p>Müdrik gülümsəyir: «Çünki yalnız Zaman Eşqin nə qədər önəmli və dəyərli olduğunu bilir.»</p><p>Yalnız zaman əsl eşqin dəyərini bilir. Səmimi sevgini zaman yaşadar, saxtasını isə söndürüb unutdurar.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/true-love.webp" alt="Həqiqi eşq illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -239,8 +354,21 @@
     <h2 class="card-title story__title">Nələr çəkdi qadın bu dünyada</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Nələr çəkdi qadın bu dünyada...</p><p>Nələr çəkdi qadın bu dünyada...</p><p>Nağıllarda belə ona ya cadugər, ya ögey ana olmağı yaraşdırdılar...</p><p>Hekayələrdə qadın haqqında nələr söylənmədi.</p><p>O, heç cür özü ola bilmədi; halbuki bu dünyada adı həyat verən, tərbiyə edən, təmənnasız sevən biri olmalı idi.</p><p>Qadın...</p><p>Saçı uzun, ağlı qısadır dedilər ona.</p><p>Əllərin unludur, otur yerində, kimsəyə qarışma dedilər ona.</p><p>Ah qadın, nələr çəkdin bu dünyada.</p><p>Qədrini bilən az oldu.</p><p>Az adam sevgini, qəlbini, yaxşılığını görə bildi.</p><p>Haqqını istəyəndə pis oldun, susanda saf.</p><p>Sevgini büruzə verəndə bəziləri sənin ağan olduğunu zənn etdilər.</p><p>Bəzən məhəbbətinlə göylərə qaldırdığın kəslər elə orada qalmağı üstün tutdu və səni unutdu.</p><p>Soruşmadılar ki, nə var, nə yox, necəsən.</p><p>Varmısan, yoxmusan demədilər.</p><p>Bir ruhunun olduğunu unutdular.</p><p>İnsan olduğunu unutdular.</p><p>Xəstə etdilər, əzdilər, görməzdən gəldilər...</p><p>Sənin isə sadəcə gözəlləşdirmək, kömək etmək, yaxşılaşdırmaqdan başqa niyyətin yox idi.</p><p>Ruhun bu dünyada sevgiyə möhtac gəzdi.</p><p>Cənnətdən danışıb cəhənnəmi yaşatdılar.</p><p>Gözünün içinə baxa-baxa hətta orada gördüklərini də inkar etdilər. İçindən gələn fəryadını eşitmədilər.</p><p>O, ən çox ana olmağı sevdi, övladının gözlərinə sevgi ilə baxmağı sevdi. Bu dünyada ancaq övladının qucaqlaması ona səmimi gəldi.</p><p>Qadına dəyər verilməyən yerdə nə dinclik, nə sevgi olar. Onun əməyini və qəlbini görmək cəmiyyətin borcudur.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Nələr çəkdi qadın bu dünyada...</p><p>Nələr çəkdi qadın bu dünyada...</p><p>Nağıllarda belə ona ya cadugər, ya ögey ana olmağı yaraşdırdılar...</p><p>Hekayələrdə qadın haqqında nələr söylənmədi.</p><p>O, heç cür özü ola bilmədi; halbuki bu dünyada adı həyat verən, tərbiyə edən, təmənnasız sevən biri olmalı idi.</p><p>Qadın...</p><p>Saçı uzun, ağlı qısadır dedilər ona.</p><p>Əllərin unludur, otur yerində, kimsəyə qarışma dedilər ona.</p><p>Ah qadın, nələr çəkdin bu dünyada.</p><p>Qədrini bilən az oldu.</p><p>Az adam sevgini, qəlbini, yaxşılığını görə bildi.</p><p>Haqqını istəyəndə pis oldun, susanda saf.</p><p>Sevgini büruzə verəndə bəziləri sənin ağan olduğunu zənn etdilər.</p><p>Bəzən məhəbbətinlə göylərə qaldırdığın kəslər elə orada qalmağı üstün tutdu və səni unutdu.</p><p>Soruşmadılar ki, nə var, nə yox, necəsən.</p><p>Varmısan, yoxmusan demədilər.</p><p>Bir ruhunun olduğunu unutdular.</p><p>İnsan olduğunu unutdular.</p><p>Xəstə etdilər, əzdilər, görməzdən gəldilər...</p><p>Sənin isə sadəcə gözəlləşdirmək, kömək etmək, yaxşılaşdırmaqdan başqa niyyətin yox idi.</p><p>Ruhun bu dünyada sevgiyə möhtac gəzdi.</p><p>Cənnətdən danışıb cəhənnəmi yaşatdılar.</p><p>Gözünün içinə baxa-baxa hətta orada gördüklərini də inkar etdilər. İçindən gələn fəryadını eşitmədilər.</p><p>O, ən çox ana olmağı sevdi, övladının gözlərinə sevgi ilə baxmağı sevdi. Bu dünyada ancaq övladının qucaqlaması ona səmimi gəldi.</p><p>Qadına dəyər verilməyən yerdə nə dinclik, nə sevgi olar. Onun əməyini və qəlbini görmək cəmiyyətin borcudur.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/what-women-have-endured-in-this-world.webp" alt="Nələr çəkdi qadın bu dünyada illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -251,8 +379,21 @@
     <h2 class="card-title story__title">Qadın və güzgü</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Qadın səhər-səhər oyanıb güzgüyə baxır. Görür ki, başında üç tel saç qalıb.</p><p>«Hımm... — deyir. — Bu gün saçımı hörərəm...» Saçını hörür, günü də əla keçir...</p><p>Ertəsi gün oyanıb yenə güzgüyə baxır... Başında iki tel saç qaldığını görür.</p><p>«Hımm... — deyir. — Bu gün saçımı ikiyə ayıraram...» Dediyini edir və yenə gözəl bir gün keçirir...</p><p>Sonrakı gün oyananda güzgüdə başında bircə tel saç olduğunu görür.</p><p>«Eybi yox, olsun... — deyir. — Bu gün də at quyruğu edərəm...» Elə də edir və çox möhtəşəm bir gün keçirir...</p><p>Daha bir gün güzgüyə baxanda başında heç saç qalmadığını görür.</p><p>«Ay daaa!.. — deyə sevinclə çığırır. — Nə yaxşı, bu gün heç saç dərdim yoxdur!»</p><p>Hər şey baxış bucağından asılıdır. Xoşbəxtliyi öz içində yarada bilməyən onu başqasından da ala bilməz — yağış altında da yeriməyi bacar.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Qadın səhər-səhər oyanıb güzgüyə baxır. Görür ki, başında üç tel saç qalıb.</p><p>«Hımm... — deyir. — Bu gün saçımı hörərəm...» Saçını hörür, günü də əla keçir...</p><p>Ertəsi gün oyanıb yenə güzgüyə baxır... Başında iki tel saç qaldığını görür.</p><p>«Hımm... — deyir. — Bu gün saçımı ikiyə ayıraram...» Dediyini edir və yenə gözəl bir gün keçirir...</p><p>Sonrakı gün oyananda güzgüdə başında bircə tel saç olduğunu görür.</p><p>«Eybi yox, olsun... — deyir. — Bu gün də at quyruğu edərəm...» Elə də edir və çox möhtəşəm bir gün keçirir...</p><p>Daha bir gün güzgüyə baxanda başında heç saç qalmadığını görür.</p><p>«Ay daaa!.. — deyə sevinclə çığırır. — Nə yaxşı, bu gün heç saç dərdim yoxdur!»</p><p>Hər şey baxış bucağından asılıdır. Xoşbəxtliyi öz içində yarada bilməyən onu başqasından da ala bilməz — yağış altında da yeriməyi bacar.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/the-woman-and-the-mirror.webp" alt="Qadın və güzgü illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -263,8 +404,21 @@
     <h2 class="card-title story__title">Qırmızı don</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Qırmızı don anamın qarderobunda asılıb qalmışdı. Bütün ömrü boyu geydiyi köhnəlmiş, rəngi solmuş paltarların yanında bu qırmızı don sanki işıq saçırdı.</p><p>Anama dəyməyə gəldim və onu gördüyüm anda ömrünün son anlarını yaşadığını anladım.</p><p>Qırmızı donu görüb ona:</p><p>— Ana, nə gözəl dondur! Heç əynində görməmişdim, — dedim.</p><p>— Heç geymədim ki, — dedi astadan. — Otur yanıma, gözəl qızım, bu dünyadan köçmədən sənə bir dərs vermək istəyirəm.</p><p>Yatağın kənarına oturdum. Anam dərindən nəfəs aldı. «Çox vaxtım qalmadı» dedi və davam etdi:</p><p>— Sizə həmişə yaxşı şeylər öyrətdiyimi zənn etdiyim halda, çox yanlış şeylər öyrətdiyimi indi anladım.</p><p>— O nə sözdür, ana?</p><p>— Dinlə məni. Həmişə inandım ki, yaxşı qadın əvvəlcə özünü düşünməməlidir. Elə hey başqalarını düşünməliydim özümdən qabaq. Onun, bunun — hər zaman hər kəsin istəyini yerinə yetirməliydim. Mənim istəklərim isə başqalarının istəkləri altında əzilib qaldı. Kim bilir, bəlkə günlərin birində mənim də istəklərim gerçəkləşəcəkdi. Amma o gün heç gəlmədi. Bütün ömrüm fədakarlıqlarla keçdi — atan üçün, bacı-qardaşların üçün, sənin üçün etdiyim fədakarlıqlarla.</p><p>— Elədir, ana, bir ananın edə biləcəyi hər şeyi etdin.</p><p>— Ah, qızım, nə sənin üçün, nə də onlar üçün etdiklərimin mənə bir xeyri olmadı. Başa düşürsən? Özüm üçün heç vaxt heç nə istəmədim! Atan indi yan otaqda əsəbi halda divarlara baxır. Doktor ona son günlərimi yaşadığımı deyəndə yanıma gəldi və:</p><p>— Sən ölməməlisən, məni eşidirsənmi? Səndən sonra mən nə edəcəm? — dedi.</p><p>— Qızım, mən həmişə sizin üçün özümü oda-közə vurdum. Həftənin yeddi günü... Evdə ilk oyanan, son yatan həmişə mən oldum. Yanmış çörəkləri, ən kiçik tikələri həmişə mən yedim. Yığdığım hər qəpiyi geyiminizə, kitablarınıza xərclədim — çox vaxt lazımsız olsa belə. Ömrümdə bir dəfə də alış-verişə çıxıb özümə gözəl bir şey almadım. Sadəcə keçən il gördüyün o qırmızı donu aldım. Paltaryuyan maşının təmiri üçün saxladığım bir az pulum var idi. Donu alıb evə dönəndə atan məni çox pərişan etdi:</p><p>— Bu paltarı hara geyəcəksən ki? Operaya gedəcəksən yoxsa? — dedi.</p><p>Əslində, o haqlı idi. O paltarı, mağazada yoxlamaq üçün geydiyimdən başqa, heç geymədim.</p><p>— Ah, qızım, düşünürdüm ki, insan bu dünyada özünü düşünməzsə, o biri dünyada xoşbəxt olar. Amma artıq buna inanmıram. Məncə, Tanrı istəklərimizi elə bu dünyada və indi gerçəkləşdirməyimizi istəyir. İndi bir möcüzə baş versə və bu yataqdan qalxa bilsəydim, mən çox fərqli bir insan olardım.</p><p>Anamın mənə son sözləri bunlar oldu:</p><p>— Qızım, — dedi, — mənim yolumla getmə. Söz ver mənə.</p><p>Anama söz verdim və o, son nəfəsini verdi.</p><p>Həmişə özünü unudan insan bir gün heç nəyini yaşaya bilmədiyini görər. Başqalarını sev, amma özünə də yaşamaq haqqı ver.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Qırmızı don anamın qarderobunda asılıb qalmışdı. Bütün ömrü boyu geydiyi köhnəlmiş, rəngi solmuş paltarların yanında bu qırmızı don sanki işıq saçırdı.</p><p>Anama dəyməyə gəldim və onu gördüyüm anda ömrünün son anlarını yaşadığını anladım.</p><p>Qırmızı donu görüb ona:</p><p>— Ana, nə gözəl dondur! Heç əynində görməmişdim, — dedim.</p><p>— Heç geymədim ki, — dedi astadan. — Otur yanıma, gözəl qızım, bu dünyadan köçmədən sənə bir dərs vermək istəyirəm.</p><p>Yatağın kənarına oturdum. Anam dərindən nəfəs aldı. «Çox vaxtım qalmadı» dedi və davam etdi:</p><p>— Sizə həmişə yaxşı şeylər öyrətdiyimi zənn etdiyim halda, çox yanlış şeylər öyrətdiyimi indi anladım.</p><p>— O nə sözdür, ana?</p><p>— Dinlə məni. Həmişə inandım ki, yaxşı qadın əvvəlcə özünü düşünməməlidir. Elə hey başqalarını düşünməliydim özümdən qabaq. Onun, bunun — hər zaman hər kəsin istəyini yerinə yetirməliydim. Mənim istəklərim isə başqalarının istəkləri altında əzilib qaldı. Kim bilir, bəlkə günlərin birində mənim də istəklərim gerçəkləşəcəkdi. Amma o gün heç gəlmədi. Bütün ömrüm fədakarlıqlarla keçdi — atan üçün, bacı-qardaşların üçün, sənin üçün etdiyim fədakarlıqlarla.</p><p>— Elədir, ana, bir ananın edə biləcəyi hər şeyi etdin.</p><p>— Ah, qızım, nə sənin üçün, nə də onlar üçün etdiklərimin mənə bir xeyri olmadı. Başa düşürsən? Özüm üçün heç vaxt heç nə istəmədim! Atan indi yan otaqda əsəbi halda divarlara baxır. Doktor ona son günlərimi yaşadığımı deyəndə yanıma gəldi və:</p><p>— Sən ölməməlisən, məni eşidirsənmi? Səndən sonra mən nə edəcəm? — dedi.</p><p>— Qızım, mən həmişə sizin üçün özümü oda-közə vurdum. Həftənin yeddi günü... Evdə ilk oyanan, son yatan həmişə mən oldum. Yanmış çörəkləri, ən kiçik tikələri həmişə mən yedim. Yığdığım hər qəpiyi geyiminizə, kitablarınıza xərclədim — çox vaxt lazımsız olsa belə. Ömrümdə bir dəfə də alış-verişə çıxıb özümə gözəl bir şey almadım. Sadəcə keçən il gördüyün o qırmızı donu aldım. Paltaryuyan maşının təmiri üçün saxladığım bir az pulum var idi. Donu alıb evə dönəndə atan məni çox pərişan etdi:</p><p>— Bu paltarı hara geyəcəksən ki? Operaya gedəcəksən yoxsa? — dedi.</p><p>Əslində, o haqlı idi. O paltarı, mağazada yoxlamaq üçün geydiyimdən başqa, heç geymədim.</p><p>— Ah, qızım, düşünürdüm ki, insan bu dünyada özünü düşünməzsə, o biri dünyada xoşbəxt olar. Amma artıq buna inanmıram. Məncə, Tanrı istəklərimizi elə bu dünyada və indi gerçəkləşdirməyimizi istəyir. İndi bir möcüzə baş versə və bu yataqdan qalxa bilsəydim, mən çox fərqli bir insan olardım.</p><p>Anamın mənə son sözləri bunlar oldu:</p><p>— Qızım, — dedi, — mənim yolumla getmə. Söz ver mənə.</p><p>Anama söz verdim və o, son nəfəsini verdi.</p><p>Həmişə özünü unudan insan bir gün heç nəyini yaşaya bilmədiyini görər. Başqalarını sev, amma özünə də yaşamaq haqqı ver.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/the-red-dress.webp" alt="Qırmızı don illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -275,8 +429,21 @@
     <h2 class="card-title story__title">Qəlblərinizin ayrılmasına imkan verməyin</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>İnsanlar mübahisə edəndə niyə qışqırırlar? Adam sənin yanındadırsa, qışqırmaq nəyə lazımdır? Onunla sakit danışmaq olmazmı? Əsəbiləşəndə niyə qışqırırsan?</p><p>İnsanlar bir-birindən narazı olanda və mübahisə edəndə qəlbləri uzaqlaşır. Bu məsafəni qət etmək və bir-birini eşitmək üçün qışqırmalı olurlar. Nə qədər əsəbi olsalar, bir o qədər ucadan qışqırırlar.</p><p>Bəs insanlar aşiq olanda nə baş verir?</p><p>Onlar qışqırmır, əksinə, yumşaq danışırlar. Çünki qəlbləri çox yaxındır, aralarındakı məsafə isə çox azdır.</p><p>Sevgiləri daha da güclənəndə nə olur?</p><p>Onlar susur, ancaq pıçıldaşırlar və bu sevgi onları daha da yaxınlaşdırır. Sonda pıçıltı belə onlar üçün lazımsız olur — sadəcə bir-birinə baxıb hər şeyi sözsüz başa düşürlər. Bu, yalnız bir-birini sevən iki insan arasında baş verir.</p><p>Odur ki, mübahisə edəndə qəlblərinizin ayrılmasına imkan verməyin, aranızdakı məsafəni artıra biləcək sözlər deməyin. Çünki bir gün bu məsafə o qədər böyüyə bilər ki, geri dönə bilməzsiniz.</p><p>Qışqırıq qəlblər arasındakı məsafənin səsidir. Mübahisədə o məsafəni böyüdəcək sözlər demə, yoxsa geri dönüş çətinləşər.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>İnsanlar mübahisə edəndə niyə qışqırırlar? Adam sənin yanındadırsa, qışqırmaq nəyə lazımdır? Onunla sakit danışmaq olmazmı? Əsəbiləşəndə niyə qışqırırsan?</p><p>İnsanlar bir-birindən narazı olanda və mübahisə edəndə qəlbləri uzaqlaşır. Bu məsafəni qət etmək və bir-birini eşitmək üçün qışqırmalı olurlar. Nə qədər əsəbi olsalar, bir o qədər ucadan qışqırırlar.</p><p>Bəs insanlar aşiq olanda nə baş verir?</p><p>Onlar qışqırmır, əksinə, yumşaq danışırlar. Çünki qəlbləri çox yaxındır, aralarındakı məsafə isə çox azdır.</p><p>Sevgiləri daha da güclənəndə nə olur?</p><p>Onlar susur, ancaq pıçıldaşırlar və bu sevgi onları daha da yaxınlaşdırır. Sonda pıçıltı belə onlar üçün lazımsız olur — sadəcə bir-birinə baxıb hər şeyi sözsüz başa düşürlər. Bu, yalnız bir-birini sevən iki insan arasında baş verir.</p><p>Odur ki, mübahisə edəndə qəlblərinizin ayrılmasına imkan verməyin, aranızdakı məsafəni artıra biləcək sözlər deməyin. Çünki bir gün bu məsafə o qədər böyüyə bilər ki, geri dönə bilməzsiniz.</p><p>Qışqırıq qəlblər arasındakı məsafənin səsidir. Mübahisədə o məsafəni böyüdəcək sözlər demə, yoxsa geri dönüş çətinləşər.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/do-not-let-your-hearts-part.webp" alt="Qəlblərinizin ayrılmasına imkan verməyin illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -287,8 +454,21 @@
     <h2 class="card-title story__title">Sarı və qırmızı çiçəklər</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Bir evin pəncərəsinə qoyulmuş sarı çiçəklər «bu evdə xəstə var, keçəndə səs-küy salmayın», qırmızı çiçəklər isə «bu evdə həddi-büluğa çatmış bir qız var, keçəndə danışığınıza diqqət edin» mənasını verərmiş.</p><p>İncə işarələrlə qurulan həssas ünsiyyət mədəniyyəti insanlara sözsüz hörmət öyrədir. Xəbərdarlıq bəzən qışqırmadan da verilir.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Bir evin pəncərəsinə qoyulmuş sarı çiçəklər «bu evdə xəstə var, keçəndə səs-küy salmayın», qırmızı çiçəklər isə «bu evdə həddi-büluğa çatmış bir qız var, keçəndə danışığınıza diqqət edin» mənasını verərmiş.</p><p>İncə işarələrlə qurulan həssas ünsiyyət mədəniyyəti insanlara sözsüz hörmət öyrədir. Xəbərdarlıq bəzən qışqırmadan da verilir.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/yellow-and-red-flowers.webp" alt="Sarı və qırmızı çiçəklər illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -299,8 +479,21 @@
     <h2 class="card-title story__title">Sevdiklərinizdən muğayat olun</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Günəşli bir gün idi. Qadın parkda yanında oturan adama:</p><p>— Baxın, yelləncəkdə yellənən o qırmızı köynəkli uşaq mənim oğlumdur, — dedi.</p><p>Adam gülümsədi:</p><p>— Maşallah, gözəl oğlunuz var, — dedi.</p><p>— O biri yelləncəkdəki mavi köynəkli uşaq da mənim oğlumdur.</p><p>Sonra saatına baxıb oğluna səsləndi:</p><p>— Ay Cəmil, artıq evə getmək vaxtıdır, gəl gedək.</p><p>Uşaq yellənə-yellənə:</p><p>— Daha beş dəqiqə, ata, lütfən, yalnız beş dəqiqə, — deyə xahiş etdi.</p><p>Adam «olsun» mənasında başını tərpədincə uşaq sevinclə yellənməyinə davam etdi.</p><p>Bir müddət sonra adam ayağa qalxıb yenidən oğluna səsləndi:</p><p>— Cəmil, oğlum, gedək artıq, gec oldu.</p><p>Uşaq yenə getmək istəmədi:</p><p>— Nə olar, ata, daha beş dəqiqə, lütfən, beşcə dəqiqə, — deyə atasına üz tutdu.</p><p>Adam «yaxşı» deyincə uşaq üzündə xoşbəxt təbəssümlə yenə yellənməyə başladı.</p><p>Sonda qadın dözməyib səsində gizli bir heyranlıqla:</p><p>— Nə qədər səbirli atasınız, — dedi.</p><p>Adam gülümsədi:</p><p>— Bu, səbir deyil, xanım, — dedi. — Böyük oğlum Kamalı keçən il burada, yaxın yolda velosiped sürərkən sərxoş bir sürücünün vurması ucbatından itirdim. Kamala heç vaxt yetərincə vaxt ayıra bilməmişdim. İndi isə onunla beş dəqiqə də artıq birlikdə ola bilmək üçün hər şeyi edərdim. Cəmillə eyni səhvi etməyəcəyimə söz verdim öz-özümə.</p><p>— O, hər dəfə ‹daha beş dəqiqə, ata› deyəndə oyun üçün əlavə beş dəqiqə qazandığını düşünür. Halbuki əsl qazanan mənəm, çünki mən onu oyun oynayarkən beş dəqiqə də artıq izləyib bundan böyük zövq ala bilirəm.</p><p>Sevdiklərinlə keçirdiyin hər əlavə an bir nemətdir. Gec olmadan, onlara bu gün beş dəqiqə də çox vaxt ayır.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Günəşli bir gün idi. Qadın parkda yanında oturan adama:</p><p>— Baxın, yelləncəkdə yellənən o qırmızı köynəkli uşaq mənim oğlumdur, — dedi.</p><p>Adam gülümsədi:</p><p>— Maşallah, gözəl oğlunuz var, — dedi.</p><p>— O biri yelləncəkdəki mavi köynəkli uşaq da mənim oğlumdur.</p><p>Sonra saatına baxıb oğluna səsləndi:</p><p>— Ay Cəmil, artıq evə getmək vaxtıdır, gəl gedək.</p><p>Uşaq yellənə-yellənə:</p><p>— Daha beş dəqiqə, ata, lütfən, yalnız beş dəqiqə, — deyə xahiş etdi.</p><p>Adam «olsun» mənasında başını tərpədincə uşaq sevinclə yellənməyinə davam etdi.</p><p>Bir müddət sonra adam ayağa qalxıb yenidən oğluna səsləndi:</p><p>— Cəmil, oğlum, gedək artıq, gec oldu.</p><p>Uşaq yenə getmək istəmədi:</p><p>— Nə olar, ata, daha beş dəqiqə, lütfən, beşcə dəqiqə, — deyə atasına üz tutdu.</p><p>Adam «yaxşı» deyincə uşaq üzündə xoşbəxt təbəssümlə yenə yellənməyə başladı.</p><p>Sonda qadın dözməyib səsində gizli bir heyranlıqla:</p><p>— Nə qədər səbirli atasınız, — dedi.</p><p>Adam gülümsədi:</p><p>— Bu, səbir deyil, xanım, — dedi. — Böyük oğlum Kamalı keçən il burada, yaxın yolda velosiped sürərkən sərxoş bir sürücünün vurması ucbatından itirdim. Kamala heç vaxt yetərincə vaxt ayıra bilməmişdim. İndi isə onunla beş dəqiqə də artıq birlikdə ola bilmək üçün hər şeyi edərdim. Cəmillə eyni səhvi etməyəcəyimə söz verdim öz-özümə.</p><p>— O, hər dəfə ‹daha beş dəqiqə, ata› deyəndə oyun üçün əlavə beş dəqiqə qazandığını düşünür. Halbuki əsl qazanan mənəm, çünki mən onu oyun oynayarkən beş dəqiqə də artıq izləyib bundan böyük zövq ala bilirəm.</p><p>Sevdiklərinlə keçirdiyin hər əlavə an bir nemətdir. Gec olmadan, onlara bu gün beş dəqiqə də çox vaxt ayır.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/beware-of-those-you-love.webp" alt="Sevdiklərinizdən muğayat olun illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -311,8 +504,21 @@
     <h2 class="card-title story__title">Sevilən insan sevgisini insanlara verən insandır</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Uzun illər əvvəl Çində Li-Li adlı bir qız evlənir və eyni evdə əri, qaynanası ilə birlikdə yaşamağa başlayır. Lakin qısa müddət sonra qaynanası ilə dolanmağın çox çətin olduğunu anlayır. İkisinin şəxsiyyəti tamamilə fərqlidir, bu da onların tez-tez mübahisə etməsinə səbəb olur. Çin ənənələrinə görə bu, xoş bir hal deyil və ətrafın narazılığına yol açır.</p><p>Bir neçə ay sonra bitib-tükənməyən gəlin-qaynana çəkişmələri həm gənc qadın, həm də arada qalan əri üçün cəhənnəm əzabına çevrilir. Artıq bir şey etmək lazım olduğuna inanan gənc qadın atasının köhnə dostu olan ədviyyatçının yanına qaçıb dərdini danışır. Yaşlı adam ona bitkilərdən bir dərman hazırlayır və üç ay boyu hər gün az-az qaynanası üçün bişirdiyi yeməklərin içinə qatmasını tapşırır. Zəhər az-az veriləcək ki, qaynananı gəlinin öldürdüyü bilinməsin.</p><p>Yaşlı adam gənc qadına heç kimin, xüsusən ərinin şübhələnməməsi üçün qaynanasına çox gözəl davranmağı, ona ən dadlı yeməkləri bişirməyi tapşırır. Sevinclə evə qayıdan Li-Li yaşlı adamın dediklərini eynilə tətbiq edir.</p><p>Hər gün ən gözəl yeməkləri bişirib qaynanasının qabına damla-damla «zəhər» damladırdı. Heç kim şübhələnməsin deyə ona çox yaxşı davranırdı. Bir müddət sonra qaynanası çox dəyişmişdi, ona öz qızı kimi baxırdı. Gənc qadın özünü ağır bir yük altında hiss etdiyindən peşman halda ədviyyatçının dükanına gedir və yaşlı adama indiyədək qaynanasına verdiyi zəhəri onun qanından təmizləyəcək bir dərman üçün yalvarır. Yaşlı qadının ölməsini artıq istəmirdi.</p><p>Yaşlı adam qarşısında dayanan Li-Liyə baxıb qəhqəhə ilə gülməyə başladı və dedi: «Sevgili Li-Li, sənə verdiyim ancaq vitamin idi. Əsl zəhər isə sənin öz beynindəydi. Sən ona yaxşı davrandıqca o zəhər də əridi və yerini sevgiyə verdi; beləcə siz əsl ana-bala oldunuz.»</p><p>Əsl zəhər çox vaxt öz beynimizdədir. Qarşındakına sevgi ilə davrandıqca nifrət əriyir, düşmən dosta çevrilir.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Uzun illər əvvəl Çində Li-Li adlı bir qız evlənir və eyni evdə əri, qaynanası ilə birlikdə yaşamağa başlayır. Lakin qısa müddət sonra qaynanası ilə dolanmağın çox çətin olduğunu anlayır. İkisinin şəxsiyyəti tamamilə fərqlidir, bu da onların tez-tez mübahisə etməsinə səbəb olur. Çin ənənələrinə görə bu, xoş bir hal deyil və ətrafın narazılığına yol açır.</p><p>Bir neçə ay sonra bitib-tükənməyən gəlin-qaynana çəkişmələri həm gənc qadın, həm də arada qalan əri üçün cəhənnəm əzabına çevrilir. Artıq bir şey etmək lazım olduğuna inanan gənc qadın atasının köhnə dostu olan ədviyyatçının yanına qaçıb dərdini danışır. Yaşlı adam ona bitkilərdən bir dərman hazırlayır və üç ay boyu hər gün az-az qaynanası üçün bişirdiyi yeməklərin içinə qatmasını tapşırır. Zəhər az-az veriləcək ki, qaynananı gəlinin öldürdüyü bilinməsin.</p><p>Yaşlı adam gənc qadına heç kimin, xüsusən ərinin şübhələnməməsi üçün qaynanasına çox gözəl davranmağı, ona ən dadlı yeməkləri bişirməyi tapşırır. Sevinclə evə qayıdan Li-Li yaşlı adamın dediklərini eynilə tətbiq edir.</p><p>Hər gün ən gözəl yeməkləri bişirib qaynanasının qabına damla-damla «zəhər» damladırdı. Heç kim şübhələnməsin deyə ona çox yaxşı davranırdı. Bir müddət sonra qaynanası çox dəyişmişdi, ona öz qızı kimi baxırdı. Gənc qadın özünü ağır bir yük altında hiss etdiyindən peşman halda ədviyyatçının dükanına gedir və yaşlı adama indiyədək qaynanasına verdiyi zəhəri onun qanından təmizləyəcək bir dərman üçün yalvarır. Yaşlı qadının ölməsini artıq istəmirdi.</p><p>Yaşlı adam qarşısında dayanan Li-Liyə baxıb qəhqəhə ilə gülməyə başladı və dedi: «Sevgili Li-Li, sənə verdiyim ancaq vitamin idi. Əsl zəhər isə sənin öz beynindəydi. Sən ona yaxşı davrandıqca o zəhər də əridi və yerini sevgiyə verdi; beləcə siz əsl ana-bala oldunuz.»</p><p>Əsl zəhər çox vaxt öz beynimizdədir. Qarşındakına sevgi ilə davrandıqca nifrət əriyir, düşmən dosta çevrilir.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/the-beloved-is-one-who-gives-love-to-people.webp" alt="Sevilən insan sevgisini insanlara verən insandır illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -323,8 +529,21 @@
     <h2 class="card-title story__title">Sınan qəlb yenə sevərmi</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Sınan qəlb yenə sevərmi?</p><p>Biri dərvişdən soruşdu:</p><p>— Sınan qəlb yenə sevərmi?</p><p>— Hə, sevər, — dedi dərviş.</p><p>Adam dərvişə: — Siz heç sınmış qabdan su içmisinizmi?</p><p>Dərviş: — Siz deyin, heç qab sındı deyə su içməkdən vaz keçmisinizmi?</p><p>Qəlb sınsa da sevməkdən əl çəkmir. Bir qab sındı deyə sudan əl çəkilmədiyi kimi, insan da sevməyə davam edir.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Sınan qəlb yenə sevərmi?</p><p>Biri dərvişdən soruşdu:</p><p>— Sınan qəlb yenə sevərmi?</p><p>— Hə, sevər, — dedi dərviş.</p><p>Adam dərvişə: — Siz heç sınmış qabdan su içmisinizmi?</p><p>Dərviş: — Siz deyin, heç qab sındı deyə su içməkdən vaz keçmisinizmi?</p><p>Qəlb sınsa da sevməkdən əl çəkmir. Bir qab sındı deyə sudan əl çəkilmədiyi kimi, insan da sevməyə davam edir.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/can-a-broken-heart-love-again.webp" alt="Sınan qəlb yenə sevərmi illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -335,8 +554,21 @@
     <h2 class="card-title story__title">Sədəf çiçəyi</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Məhkəmə salonunda boşanma iddiasına baxılan səksən yaşlı bir cütlüyün vəziyyəti hər kəsə acı yaşadırdı... İnadcıl baxışlı, susqun nənənin ağlamaqdan çuxurlanmış gözlərini süzən hakim tox səslə yaşlı qadına müraciət etdi:</p><p>— Söylə görək, xala, niyə boşanmaq istəyirsən? — deyə soruşdu.</p><p>Yaşlı qadın dərindən nəfəs aldıqdan sonra qısılmış səslə sözə başladı:</p><p>— Bu adam yordu məni, düz əlli ildir bezdirdi məni həyatdan..., — dedi və susdu.</p><p>Salona uzun bir səssizlik çökdü. Sükutu bir jurnalistin foto-flaşı pozdu. Kim bilir, əlli illik bir həyatın ardından bu hadisə qəzetlərdə hansı başlıqla veriləcəkdi. Məhkəməni çoxlu jurnalist izləyirdi. Qadın nə deyəcəkdi? Hər kəs onu dinləyirdi. Yaşlı qadının gözləri doldu və o, davam etdi: — Bir sədəf çiçəyim var idi, çox sevdiyim... O bilməz... Əlli il əvvəl idi. O çiçəyi mənə verdiyi güllərin arasından qopardığım bir yarpağı cücərdib əkmişdim. Övladımız olmadı, bu çiçəyi övladım bildim. Bir müddət sonra çiçəyin solmağa başladığını gördüm. O zaman söz verdim ki, hər gecə günəş doğmadan oyanıb bu gülü sulayacağam. Əlli il oldu, bu kişi bir dəfə də olsun gecə qalxıb ‹bu çiçəyi mən sulayım› demədi. Ta keçən gecəyə qədər... Bu gecə taqətim kəsilib yatmışdım, oyana bilməmişdim... Mən belə bir adamla əlli il keçirdim. Həyatımı, ümidimi, hər şeyimi verdim. Ondan heç nə görmədim. Sizi əmin edirəm, onsuz həyatımı daha yaxşı yaşaya bilərəm.</p><p>Hakim ağsaqqala müraciət etdi:</p><p>— Deyəcəyin bir şey varmı, baba? — deyə soruşdu.</p><p>Yaşlı adam əsasına söykənə-söykənə, üzündə suçlu bir ifadə ilə hakimə tərəf yönəldi və sözə başladı:</p><p>— Əsgərliyimi bağban kimi keçirdim. O bağçanın gözəl, sağlam böyüməsi üçün zəhmət çəkdim. Fatiməni də orada tanıdım. Ona ən gözəl çiçəklərdən buketlər verdim. Təzə evlənəndə boyun ağrısından şikayət etdiyi üçün onu həkimə apardım. Həkim: ‹Çox uzun müddət oyanmadan yatsa, boynundakı əzələlər sərtləşər, vəziyyəti pisləşər. Hər gecə yuxusuna ara verib oyansın, bir az gəzişsin› dedi. Xanım həkimin sözünü dinləmədi... Mənim də sözüm keçmədi... O günlərdə təsadüfən çiçəyimiz solmağa başladı. Mən ona: ‹Çiçəyi gecələr durub sulasan, cana gələr› dedim. Söz verməsini istədim, o da söz verdi... Hər gecə onu oyatdım və seyr etdim. O sevdiyim qadını, övladı bildiyi çiçəyi sularkən seyr etdim. Hər gecə sanki o çiçək mən oldum...</p><p>Baba bir az susub yenidən sözünə davam etdi:</p><p>— Hər gecə o yatandan sonra oyanırdım — dibçəkdəki suyu boşaltmaq üçün. Sədəf gecə sulanmağı sevməz, hakim bəy... Keçən gecə isə... nə deyim, bu qocalıq... mən də oyana bilmədim... Çiçək susuz qala bilərdi, amma xanımım səhhətində fəsadlarla üzləşərdi... Onu oyatmadığım üçün məni günahkar bildi... Səsimi çıxarmadım, susdum...</p><p>O an jurnalistlər də daxil, salondakı hər kəs göz yaşları içində idi...</p><p>Sevgi bəzən sözdə yox, illərlə səssizcə çəkilən qayğıda gizlənir. Sevdiyimizi qoruyaq, qəlb qırmaqdan uzaq duraq.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Məhkəmə salonunda boşanma iddiasına baxılan səksən yaşlı bir cütlüyün vəziyyəti hər kəsə acı yaşadırdı... İnadcıl baxışlı, susqun nənənin ağlamaqdan çuxurlanmış gözlərini süzən hakim tox səslə yaşlı qadına müraciət etdi:</p><p>— Söylə görək, xala, niyə boşanmaq istəyirsən? — deyə soruşdu.</p><p>Yaşlı qadın dərindən nəfəs aldıqdan sonra qısılmış səslə sözə başladı:</p><p>— Bu adam yordu məni, düz əlli ildir bezdirdi məni həyatdan..., — dedi və susdu.</p><p>Salona uzun bir səssizlik çökdü. Sükutu bir jurnalistin foto-flaşı pozdu. Kim bilir, əlli illik bir həyatın ardından bu hadisə qəzetlərdə hansı başlıqla veriləcəkdi. Məhkəməni çoxlu jurnalist izləyirdi. Qadın nə deyəcəkdi? Hər kəs onu dinləyirdi. Yaşlı qadının gözləri doldu və o, davam etdi: — Bir sədəf çiçəyim var idi, çox sevdiyim... O bilməz... Əlli il əvvəl idi. O çiçəyi mənə verdiyi güllərin arasından qopardığım bir yarpağı cücərdib əkmişdim. Övladımız olmadı, bu çiçəyi övladım bildim. Bir müddət sonra çiçəyin solmağa başladığını gördüm. O zaman söz verdim ki, hər gecə günəş doğmadan oyanıb bu gülü sulayacağam. Əlli il oldu, bu kişi bir dəfə də olsun gecə qalxıb ‹bu çiçəyi mən sulayım› demədi. Ta keçən gecəyə qədər... Bu gecə taqətim kəsilib yatmışdım, oyana bilməmişdim... Mən belə bir adamla əlli il keçirdim. Həyatımı, ümidimi, hər şeyimi verdim. Ondan heç nə görmədim. Sizi əmin edirəm, onsuz həyatımı daha yaxşı yaşaya bilərəm.</p><p>Hakim ağsaqqala müraciət etdi:</p><p>— Deyəcəyin bir şey varmı, baba? — deyə soruşdu.</p><p>Yaşlı adam əsasına söykənə-söykənə, üzündə suçlu bir ifadə ilə hakimə tərəf yönəldi və sözə başladı:</p><p>— Əsgərliyimi bağban kimi keçirdim. O bağçanın gözəl, sağlam böyüməsi üçün zəhmət çəkdim. Fatiməni də orada tanıdım. Ona ən gözəl çiçəklərdən buketlər verdim. Təzə evlənəndə boyun ağrısından şikayət etdiyi üçün onu həkimə apardım. Həkim: ‹Çox uzun müddət oyanmadan yatsa, boynundakı əzələlər sərtləşər, vəziyyəti pisləşər. Hər gecə yuxusuna ara verib oyansın, bir az gəzişsin› dedi. Xanım həkimin sözünü dinləmədi... Mənim də sözüm keçmədi... O günlərdə təsadüfən çiçəyimiz solmağa başladı. Mən ona: ‹Çiçəyi gecələr durub sulasan, cana gələr› dedim. Söz verməsini istədim, o da söz verdi... Hər gecə onu oyatdım və seyr etdim. O sevdiyim qadını, övladı bildiyi çiçəyi sularkən seyr etdim. Hər gecə sanki o çiçək mən oldum...</p><p>Baba bir az susub yenidən sözünə davam etdi:</p><p>— Hər gecə o yatandan sonra oyanırdım — dibçəkdəki suyu boşaltmaq üçün. Sədəf gecə sulanmağı sevməz, hakim bəy... Keçən gecə isə... nə deyim, bu qocalıq... mən də oyana bilmədim... Çiçək susuz qala bilərdi, amma xanımım səhhətində fəsadlarla üzləşərdi... Onu oyatmadığım üçün məni günahkar bildi... Səsimi çıxarmadım, susdum...</p><p>O an jurnalistlər də daxil, salondakı hər kəs göz yaşları içində idi...</p><p>Sevgi bəzən sözdə yox, illərlə səssizcə çəkilən qayğıda gizlənir. Sevdiyimizi qoruyaq, qəlb qırmaqdan uzaq duraq.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/the-mother-of-pearl-flower.webp" alt="Sədəf çiçəyi illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -347,8 +579,21 @@
     <h2 class="card-title story__title">Səni sevirəm</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Belə deyirlər ki, bir bülbül bir ağ gülə aşiq olar... Hər gecə gedib onun yanına qonar, ona olan eşqini izhar edərmiş. Ağ gül isə bülbülün hisslərinə etinasızlıq göstərər, sevgisinə məhəl qoymazmış.</p><p>Bir gün bülbül yenə bütün cəsarətini toplayıb ağ gülün yanına qonar və onu dəlicəsinə sevdiyini bildirər. Amma gül: «Yaxamdan əl çək, mən səni sevmirəm!» deyə bülbülü acılayar. Bülbül nə qədər israr etsə də, gül onu rədd edər.</p><p>Bu sevgi o qədər güclü olar ki, bülbül çarəsizlikdən sarsılar, güldən əfv diləyib ondan bir tikan qoparar, var gücü ilə qəlbinə sancar və bəmbəyaz gülü qanı ilə qırmızıya boyayar!</p><p>Gül, gec də olsa, bülbülün onu həqiqətən çox sevdiyini anlayar. Amma nə fayda! Artıq çox gec idi. Bülbül qırmızıya boyanmış gülün budaqları altında əbədi olaraq gözlərini yumar.</p><p>O gündən bəri qırmızı güllər «SƏNİ SEVİRƏM» mənasını daşıyır.</p><p>Əsl sevgi bəzən çox gec anlaşılır. Sevəni sevdiyin an qiymətləndir — «çox gec» deməkdən qorx.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Belə deyirlər ki, bir bülbül bir ağ gülə aşiq olar... Hər gecə gedib onun yanına qonar, ona olan eşqini izhar edərmiş. Ağ gül isə bülbülün hisslərinə etinasızlıq göstərər, sevgisinə məhəl qoymazmış.</p><p>Bir gün bülbül yenə bütün cəsarətini toplayıb ağ gülün yanına qonar və onu dəlicəsinə sevdiyini bildirər. Amma gül: «Yaxamdan əl çək, mən səni sevmirəm!» deyə bülbülü acılayar. Bülbül nə qədər israr etsə də, gül onu rədd edər.</p><p>Bu sevgi o qədər güclü olar ki, bülbül çarəsizlikdən sarsılar, güldən əfv diləyib ondan bir tikan qoparar, var gücü ilə qəlbinə sancar və bəmbəyaz gülü qanı ilə qırmızıya boyayar!</p><p>Gül, gec də olsa, bülbülün onu həqiqətən çox sevdiyini anlayar. Amma nə fayda! Artıq çox gec idi. Bülbül qırmızıya boyanmış gülün budaqları altında əbədi olaraq gözlərini yumar.</p><p>O gündən bəri qırmızı güllər «SƏNİ SEVİRƏM» mənasını daşıyır.</p><p>Əsl sevgi bəzən çox gec anlaşılır. Sevəni sevdiyin an qiymətləndir — «çox gec» deməkdən qorx.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/i-love-you.webp" alt="Səni sevirəm illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -359,8 +604,21 @@
     <h2 class="card-title story__title">Uzaqdan sevmək</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>İki dost görüşür. Aralarında belə söhbət olur:</p><p>— Deyəsən, mən bir qıza vurulmuşam.</p><p>— Nə gözəl! Onun xəbəri var?</p><p>— Yoxdur.</p><p>— Bəs niyə yaxınlaşıb etiraf etmirsən?</p><p>— Edərdim, amma düzənimin pozulmasından qorxuram. Birdən-birə, durduğum yerdə başıma iş açıb eşqə-filana düşərəm. Kinoya, teatra getməyə, əl-ələ tutub gəzməyə başlarıq. Bu işin küsməsi var, barışması var, «ona niyə baxdın», «bunu niyə süzdün» kimi əda çıxarması var. Sonunda da ayrılıq olacaqsa, bu qədər həngaməyə nə ehtiyac var?</p><p>Yaxşısı budur, elə uzaqdan sevim mən o qızı.</p><p>Bəzən insan itirmək qorxusundan sevgisini dilə gətirməkdən çəkinir. Amma yaşanmamış sevgi də bir itkidir.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>İki dost görüşür. Aralarında belə söhbət olur:</p><p>— Deyəsən, mən bir qıza vurulmuşam.</p><p>— Nə gözəl! Onun xəbəri var?</p><p>— Yoxdur.</p><p>— Bəs niyə yaxınlaşıb etiraf etmirsən?</p><p>— Edərdim, amma düzənimin pozulmasından qorxuram. Birdən-birə, durduğum yerdə başıma iş açıb eşqə-filana düşərəm. Kinoya, teatra getməyə, əl-ələ tutub gəzməyə başlarıq. Bu işin küsməsi var, barışması var, «ona niyə baxdın», «bunu niyə süzdün» kimi əda çıxarması var. Sonunda da ayrılıq olacaqsa, bu qədər həngaməyə nə ehtiyac var?</p><p>Yaxşısı budur, elə uzaqdan sevim mən o qızı.</p><p>Bəzən insan itirmək qorxusundan sevgisini dilə gətirməkdən çəkinir. Amma yaşanmamış sevgi də bir itkidir.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/loving-from-afar.webp" alt="Uzaqdan sevmək illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -371,8 +629,21 @@
     <h2 class="card-title story__title">Vəfa nədir</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      <p>Vəfa nədir?</p><p>Unutmamaqdır,</p><p>çətin gündə arxa çevirməmək,</p><p>qapıları bağlamamaqdır...</p><p>Dostun ağlayarkən gülməmək,</p><p>hər acıya onunla bərabər köks ötürməkdir vəfa...</p><p>Sadəcə bir söz deyil...</p><p>Vəfa dostunla həmhal olmaq deməkdir,</p><p>yaralıya məlhəm,</p><p>susuza su,</p><p>və nəhayət, vəfa «anlamaq»dır, tikanına görə bir gülü atmamaqdır.</p><p>Vəfa çətin gündə tərk etməmək, tikanına görə gülü atmamaqdır. O, söz yox, əməldir.</p>
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        <p>Vəfa nədir?</p><p>Unutmamaqdır,</p><p>çətin gündə arxa çevirməmək,</p><p>qapıları bağlamamaqdır...</p><p>Dostun ağlayarkən gülməmək,</p><p>hər acıya onunla bərabər köks ötürməkdir vəfa...</p><p>Sadəcə bir söz deyil...</p><p>Vəfa dostunla həmhal olmaq deməkdir,</p><p>yaralıya məlhəm,</p><p>susuza su,</p><p>və nəhayət, vəfa «anlamaq»dır, tikanına görə bir gülü atmamaqdır.</p><p>Vəfa çətin gündə tərk etməmək, tikanına görə gülü atmamaqdır. O, söz yox, əməldir.</p>
+      </div>
     </div>
     <figure class="story__figure">
       <img src="../illustrations/what-is-loyalty.webp" alt="Vəfa nədir illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -395,6 +666,6 @@
       <p>İbrətamiz deyimlər və hekayələr</p>
     </div>
   </footer>
-  <script src="../assets/site.js" defer></script>
+  <script src="../assets/site.js?v=20260811q" defer></script>
 </body>
 </html>

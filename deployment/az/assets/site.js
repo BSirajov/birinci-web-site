@@ -1,18 +1,63 @@
 
 (() => {
+  const header = document.querySelector(".site-header");
   const dropdown = document.querySelector(".nav-dropdown");
+  const navToggle = document.getElementById("nav-toggle");
+  const primaryNav = document.getElementById("primaryNav");
+  const mobileNavQuery = window.matchMedia("(max-width: 860px)");
+
+  const closeMobileNav = () => {
+    if (!header || !navToggle) return;
+    header.classList.remove("is-nav-open");
+    document.body.classList.remove("nav-open");
+    navToggle.setAttribute("aria-expanded", "false");
+    navToggle.setAttribute("aria-label", "Menyunu aç");
+  };
+
+  const openMobileNav = () => {
+    if (!header || !navToggle || !dropdown) return;
+    header.classList.add("is-nav-open");
+    document.body.classList.add("nav-open");
+    navToggle.setAttribute("aria-expanded", "true");
+    navToggle.setAttribute("aria-label", "Menyunu bağla");
+    dropdown.open = true;
+  };
+
+  if (navToggle && header && dropdown) {
+    navToggle.addEventListener("click", (event) => {
+      event.stopPropagation();
+      if (header.classList.contains("is-nav-open")) closeMobileNav();
+      else openMobileNav();
+    });
+    mobileNavQuery.addEventListener("change", (event) => {
+      if (!event.matches) {
+        closeMobileNav();
+        dropdown.open = false;
+      }
+    });
+  }
+
   if (dropdown) {
     document.addEventListener("click", (event) => {
+      if (mobileNavQuery.matches) {
+        if (!header || !header.classList.contains("is-nav-open")) return;
+        if (header.contains(event.target)) return;
+        closeMobileNav();
+        return;
+      }
       if (!dropdown.open) return;
       if (!dropdown.contains(event.target)) dropdown.open = false;
     });
     dropdown.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         dropdown.open = false;
+        closeMobileNav();
       });
     });
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") dropdown.open = false;
+      if (event.key !== "Escape") return;
+      dropdown.open = false;
+      closeMobileNav();
     });
   }
 
@@ -133,6 +178,13 @@
         results.appendChild(a);
       });
     };
+
+    const kbdHint = toggle.querySelector(".global-search-toggle__kbd");
+    if (kbdHint && /Mac|iPhone|iPad|iPod/.test(navigator.platform || navigator.userAgent || "")) {
+      kbdHint.textContent = "⌘K";
+      toggle.title = "Axtar (⌘K)";
+      toggle.setAttribute("aria-label", "Qlobal axtarış, Command+K");
+    }
 
     toggle.addEventListener("click", () => {
       if (root.hidden) openSearch();
@@ -269,6 +321,180 @@
   };
 
   initTools();
+
+  const initStoryTts = () => {
+    const buttons = Array.from(document.querySelectorAll("[data-story-tts]"));
+    if (!buttons.length) return;
+
+    const unsupportedMessage =
+      "Hörmətli oxucu, təəssüf ki, bu cihazda və ya brauzerdə səsə çevirmə (TTS) xidməti mövcud deyil. Zəhmət olmasa hekayəni oxuyaraq davam edin.";
+    const noVoiceMessage =
+      "Hörmətli oxucu, bu cihazda Azərbaycan nitq səsi tapılmadı.";
+    const failedMessage =
+      "Hörmətli oxucu, hazırda səsə çevirməni başlatmaq mümkün olmadı. Zəhmət olmasa bir az sonra yenidən cəhd edin və ya hekayəni oxuyun.";
+
+    let activeBtn = null;
+    let utterance = null;
+    let suppressError = false;
+
+    const setLabel = (btn, text) => {
+      const label = btn.querySelector("[data-story-tts-label]");
+      if (label) label.textContent = text;
+    };
+
+    const showNote = (btn, message) => {
+      const note = btn.parentElement && btn.parentElement.querySelector("[data-story-tts-note]");
+      if (!note) return;
+      note.hidden = !message;
+      note.textContent = message || "";
+    };
+
+    const clearActive = () => {
+      if (!activeBtn) return;
+      activeBtn.setAttribute("aria-pressed", "false");
+      setLabel(activeBtn, "Dinlə");
+      activeBtn = null;
+      utterance = null;
+    };
+
+    const stopSpeech = () => {
+      suppressError = true;
+      if (window.speechSynthesis) window.speechSynthesis.cancel();
+      clearActive();
+      window.setTimeout(() => {
+        suppressError = false;
+      }, 80);
+    };
+
+    const loadVoices = () =>
+      new Promise((resolve) => {
+        if (!window.speechSynthesis) {
+          resolve([]);
+          return;
+        }
+        const current = () => window.speechSynthesis.getVoices() || [];
+        const now = current();
+        if (now.length) {
+          resolve(now);
+          return;
+        }
+        let done = false;
+        const finish = () => {
+          if (done) return;
+          done = true;
+          window.speechSynthesis.onvoiceschanged = null;
+          resolve(current());
+        };
+        window.speechSynthesis.onvoiceschanged = finish;
+        window.setTimeout(finish, 800);
+      });
+
+    const pickVoice = (voices) =>
+      voices.find((v) => (v.lang || "").toLowerCase().startsWith("az")) ||
+      voices.find((v) => /azərbaycan|azerbaijani/i.test(v.name || "")) ||
+      voices.find((v) => (v.lang || "").toLowerCase().startsWith("tr")) ||
+      voices.find((v) => /turkish|türk/i.test(v.name || "")) ||
+      null;
+
+    const textForSpeech = (story) => {
+      const textEl = story && story.querySelector(".story__text");
+      const title = ((story && story.dataset.title) || "").trim();
+      const paras = textEl
+        ? Array.from(textEl.querySelectorAll("p"))
+            .map((p) => p.textContent.replace(/\s+/g, " ").trim())
+            .filter(Boolean)
+        : [];
+      let body = paras.join(" ");
+      body = body
+        .replace(/[\u00AD\u200B-\u200D\uFEFF]/g, "")
+        .replace(/[«»„“”]/g, "")
+        .replace(/[‘’]/g, "")
+        .replace(/[—–-]+\s*/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+      if (!body) return title;
+      if (title && body.toLocaleLowerCase("az").startsWith(title.toLocaleLowerCase("az"))) {
+        return body;
+      }
+      return title ? `${title}. ${body}` : body;
+    };
+
+    const speakStory = async (btn) => {
+      if (!("speechSynthesis" in window) || typeof window.SpeechSynthesisUtterance !== "function") {
+        showNote(btn, unsupportedMessage);
+        return;
+      }
+
+      const story = btn.closest(".story");
+      const text = textForSpeech(story);
+      if (!text) {
+        showNote(btn, failedMessage);
+        return;
+      }
+
+      const voices = await loadVoices();
+      const voice = pickVoice(voices);
+      if (!voice) {
+        stopSpeech();
+        showNote(btn, noVoiceMessage);
+        return;
+      }
+
+      stopSpeech();
+      showNote(btn, "");
+
+      utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = (voice.lang || "az-AZ").startsWith("tr") ? "tr-TR" : "az-AZ";
+      utterance.voice = voice;
+      utterance.rate = 1;
+      utterance.pitch = 1;
+
+      utterance.onstart = () => {
+        activeBtn = btn;
+        btn.setAttribute("aria-pressed", "true");
+        setLabel(btn, "Dayandır");
+      };
+      utterance.onend = () => clearActive();
+      utterance.onerror = () => {
+        if (suppressError) {
+          clearActive();
+          return;
+        }
+        clearActive();
+        showNote(btn, failedMessage);
+      };
+
+      try {
+        window.speechSynthesis.speak(utterance);
+      } catch (err) {
+        clearActive();
+        showNote(btn, unsupportedMessage);
+      }
+    };
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        if (activeBtn === btn && window.speechSynthesis && window.speechSynthesis.speaking) {
+          stopSpeech();
+          showNote(btn, "");
+          return;
+        }
+        speakStory(btn);
+      });
+
+      const actions = btn.closest(".story__actions") || btn.parentElement;
+      if (actions) {
+        actions.addEventListener("mouseleave", () => showNote(btn, ""));
+        actions.addEventListener("focusout", (event) => {
+          if (!actions.contains(event.relatedTarget)) showNote(btn, "");
+        });
+      }
+    });
+
+    window.addEventListener("beforeunload", stopSpeech);
+  };
+
+  initStoryTts();
 
   const nav = document.querySelector(".story-nav");
   if (!nav) return;

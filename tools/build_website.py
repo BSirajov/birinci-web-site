@@ -27,6 +27,7 @@ SITE_NAME = "Bir inci"
 SITE_TITLE = "İbrətamiz deyimlər və hekayələr"
 NAV_LABEL = "İbrətamiz hekayələr"
 HOME_CRUMB = "Ana səhifə"
+ASSET_VERSION = "20260811q"
 
 # Inline Lucide-style stroke icons (24x24 viewBox) for menu items.
 CATEGORY_ICONS: dict[str, str] = {
@@ -249,29 +250,38 @@ def nav_html(active_slug: str | None, prefix: str) -> str:
         )
     menu = "\n".join(items)
     home = f"{prefix}index.html"
-    data_url = f"{prefix}assets/search-index.js"
+    data_url = f"{prefix}assets/search-index.js?v={ASSET_VERSION}"
     return f"""
 <header class="site-header">
   <div class="site-header__inner">
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Menyunu aç">
+      <span></span><span></span><span></span>
+    </button>
     <a class="brand" href="{home}">
       <img class="brand__logo" src="{prefix}assets/pearl.webp" alt="" width="36" height="36" />
       <span class="brand__name">{esc(SITE_NAME)}</span>
     </a>
-    <nav class="primary-nav" aria-label="Əsas menyu">
+    <nav class="primary-nav" id="primaryNav" aria-label="Əsas menyu">
       <details class="nav-dropdown">
-        <summary>{esc(NAV_LABEL)}</summary>
+        <summary>
+          {menu_icon("book")}
+          <span>{esc(NAV_LABEL)}</span>
+        </summary>
         <ul class="nav-dropdown__list">
           {menu}
         </ul>
       </details>
     </nav>
-    <button type="button" class="global-search-toggle" id="global-search-toggle" aria-expanded="false" aria-controls="global-search" title="Axtar" aria-label="Qlobal axtarış">
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <circle cx="11" cy="11" r="7"></circle>
-        <path d="m20 20-3.5-3.5"></path>
-      </svg>
-      <span>Axtar</span>
-    </button>
+    <div class="site-header__actions">
+      <button type="button" class="global-search-toggle" id="global-search-toggle" aria-expanded="false" aria-controls="global-search" title="Axtar (Ctrl+K)" aria-label="Qlobal axtarış, Ctrl+K">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle>
+          <path d="m20 20-3.5-3.5"></path>
+        </svg>
+        <span class="global-search-toggle__label">Axtar…</span>
+        <kbd class="global-search-toggle__kbd">Ctrl+K</kbd>
+      </button>
+    </div>
   </div>
 </header>
 <div class="global-search" id="global-search" hidden data-search-index="{esc(data_url)}">
@@ -312,13 +322,15 @@ def page_shell(
   <meta name="color-scheme" content="light" />
   <title>{esc(page_title)}</title>
   <meta name="description" content="{esc(description)}" />
-  <link rel="icon" href="{prefix}assets/pearl.webp" type="image/webp" />
+  <link rel="icon" href="{prefix}assets/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="{prefix}assets/favicon-48.png" type="image/png" sizes="48x48" />
+  <link rel="icon" href="{prefix}assets/favicon.png" type="image/png" sizes="192x192" />
   <link rel="icon" href="{prefix}assets/favicon.ico" sizes="any" />
-  <link rel="apple-touch-icon" href="{prefix}assets/pearl.webp" />
+  <link rel="apple-touch-icon" href="{prefix}assets/apple-touch-icon.png" sizes="180x180" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="{prefix}assets/site.css" />
+  <link rel="stylesheet" href="{prefix}assets/site.css?v={ASSET_VERSION}" />
 </head>
 <body class="{extra_body_class}" id="top">
   <a class="skip-link" href="#main">Məzmuna keç</a>
@@ -337,7 +349,7 @@ def page_shell(
       <p>{esc(SITE_TITLE)}</p>
     </div>
   </footer>
-  <script src="{prefix}assets/site.js" defer></script>
+  <script src="{prefix}assets/site.js?v={ASSET_VERSION}" defer></script>
 </body>
 </html>
 """
@@ -450,8 +462,21 @@ def build_category_page(cat: dict) -> str:
     <h2 class="card-title story__title">{esc(s['title'])}</h2>
   </div>
   <div class="card-body">
-    <div class="story__text card-text">
-      {paras}
+    <div class="story__content">
+      <div class="story__actions">
+        <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span data-story-tts-label>Dinlə</span>
+        </button>
+        <p class="story-tts__note" data-story-tts-note hidden></p>
+      </div>
+      <div class="story__text card-text">
+        {paras}
+      </div>
     </div>
     <figure class="story__figure">
       <img src="{img}" alt="{esc(s['title'])} illüstrasiyası" loading="lazy" width="1536" height="1024" />
@@ -636,6 +661,7 @@ a:hover { color: var(--accent-hover); }
   color: #fff;
 }
 .site-header__inner {
+  position: relative;
   max-width: var(--max-wide);
   margin: 0 auto;
   padding: 0.8rem 1.25rem;
@@ -644,29 +670,104 @@ a:hover { color: var(--accent-hover); }
   justify-content: flex-start;
   gap: 1rem;
 }
-.global-search-toggle {
+.site-header__actions {
   margin-left: auto;
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  min-height: 2.5rem;
-  padding: 0.45rem 0.95rem;
+  gap: 0.55rem;
+  flex: 0 0 auto;
+}
+.nav-toggle {
+  display: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
   border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 999px;
+  border-radius: 0.7rem;
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
-  font-family: var(--font-ui);
-  font-size: 0.92rem;
-  font-weight: 700;
   cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.28rem;
   transition: background 160ms ease, border-color 160ms ease;
 }
-.global-search-toggle:hover,
-.global-search-toggle[aria-expanded="true"] {
+.nav-toggle span {
+  display: block;
+  width: 1.15rem;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+.nav-toggle:hover,
+.nav-toggle[aria-expanded="true"] {
   background: rgba(255, 255, 255, 0.2);
   border-color: rgba(255, 255, 255, 0.8);
 }
-.global-search-toggle svg { display: block; }
+.site-header.is-nav-open .nav-toggle span:nth-child(1) {
+  transform: translateY(0.34rem) rotate(45deg);
+}
+.site-header.is-nav-open .nav-toggle span:nth-child(2) {
+  opacity: 0;
+}
+.site-header.is-nav-open .nav-toggle span:nth-child(3) {
+  transform: translateY(-0.34rem) rotate(-45deg);
+}
+.global-search-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.65rem;
+  min-width: min(17.6rem, 27.2vw);
+  min-height: 3.1rem;
+  padding: 0.65rem 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font-family: var(--font-ui);
+  font-size: 1.05rem;
+  font-weight: 650;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 45, 82, 0.16);
+  transition: background 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+.global-search-toggle:hover,
+.global-search-toggle[aria-expanded="true"] {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 6px 18px rgba(0, 45, 82, 0.2);
+}
+.global-search-toggle svg {
+  display: block;
+  flex: 0 0 auto;
+  width: 1.35rem;
+  height: 1.35rem;
+}
+.global-search-toggle__label {
+  opacity: 0.92;
+  white-space: nowrap;
+  margin-right: auto;
+}
+.global-search-toggle__kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.45rem;
+  padding: 0.12rem 0.45rem;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 0.4rem;
+  background: rgba(8, 38, 59, 0.22);
+  color: rgba(255, 255, 255, 0.92);
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  white-space: nowrap;
+}
 .global-search[hidden] { display: none !important; }
 .global-search {
   position: fixed;
@@ -688,8 +789,8 @@ a:hover { color: var(--accent-hover); }
 .global-search__panel {
   position: relative;
   z-index: 1;
-  width: min(40rem, 100%);
-  max-height: min(78vh, 40rem);
+  width: min(36rem, calc(100vw - 2rem));
+  max-height: min(72vh, 34rem);
   display: flex;
   flex-direction: column;
   background: rgba(255, 255, 255, 0.98);
@@ -704,7 +805,7 @@ a:hover { color: var(--accent-hover); }
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
-  padding: 0.95rem 1.1rem;
+  padding: 0.9rem 1.05rem;
   background: linear-gradient(135deg, var(--blue-900) 0%, var(--nav-blue) 58%, var(--blue-400) 100%);
   border-bottom: 2px solid #f0c75e;
   color: #fff;
@@ -728,18 +829,18 @@ a:hover { color: var(--accent-hover); }
 }
 .global-search__field {
   display: block;
-  padding: 0.9rem 1.1rem 0.35rem;
+  padding: 0.9rem 1.05rem 0.35rem;
 }
 .global-search__field input {
   width: 100%;
-  min-height: 2.7rem;
-  padding: 0.55rem 0.9rem;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.95rem;
   border: 1px solid rgba(0, 105, 180, 0.28);
   border-radius: 999px;
   background: var(--panel-blue);
   color: var(--ink);
   font: inherit;
-  font-size: 0.98rem;
+  font-size: 1rem;
 }
 .global-search__field input:focus {
   outline: 3px solid var(--ring);
@@ -747,7 +848,7 @@ a:hover { color: var(--accent-hover); }
 }
 .global-search__status {
   margin: 0;
-  padding: 0.25rem 1.2rem 0.55rem;
+  padding: 0.25rem 1.15rem 0.55rem;
   font-family: var(--font-ui);
   font-size: 0.85rem;
   font-weight: 600;
@@ -802,9 +903,6 @@ body.global-search-open { overflow: hidden; }
   height: 38px;
   object-fit: contain;
   flex: 0 0 auto;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.16);
-  border: 1px solid rgba(255, 255, 255, 0.22);
 }
 .brand__name { color: #fff; }
 .brand:hover { color: #fff; opacity: 0.95; }
@@ -863,14 +961,26 @@ body.global-search-open { overflow: hidden; }
 .nav-dropdown > summary {
   list-style: none;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
   font-weight: 600;
   font-size: 0.95rem;
-  padding: 0.6rem 1rem;
+  padding: 0.4rem 0.95rem 0.4rem 0.45rem;
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
   color: #fff;
   transition: background 160ms ease, border-color 160ms ease;
+}
+.nav-dropdown > summary .menu-icon {
+  width: 1.85rem;
+  height: 1.85rem;
+  border-radius: 0.6rem;
+}
+.nav-dropdown > summary .menu-icon__svg {
+  width: 15px;
+  height: 15px;
 }
 .nav-dropdown > summary:hover {
   background: rgba(255, 255, 255, 0.16);
@@ -882,7 +992,7 @@ body.global-search-open { overflow: hidden; }
   display: inline-block;
   width: 0.45rem;
   height: 0.45rem;
-  margin-left: 0.55rem;
+  margin-left: 0.15rem;
   border-right: 2px solid currentColor;
   border-bottom: 2px solid currentColor;
   transform: translateY(-0.1rem) rotate(45deg);
@@ -1276,7 +1386,87 @@ body.global-search-open { overflow: hidden; }
 }
 @media (max-width: 620px) {
   .cat-grid { grid-template-columns: 1fr; }
-  .site-header__inner { flex-wrap: wrap; }
+}
+@media (max-width: 860px) {
+  .site-header__inner {
+    display: grid;
+    grid-template-columns: 2.5rem minmax(0, 1fr) 2.5rem;
+    align-items: center;
+    column-gap: 0.65rem;
+  }
+  .nav-toggle {
+    display: inline-flex;
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+  }
+  .brand {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+    max-width: 100%;
+  }
+  .brand__name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .site-header__actions {
+    grid-column: 3;
+    grid-row: 1;
+    margin-left: 0;
+    justify-self: end;
+  }
+  .global-search-toggle__label,
+  .global-search-toggle__kbd { display: none; }
+  .global-search-toggle {
+    min-width: 2.5rem;
+    width: 2.5rem;
+    min-height: 2.5rem;
+    padding: 0.45rem;
+    justify-content: center;
+    box-shadow: none;
+  }
+  .global-search-toggle svg {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+  .primary-nav {
+    display: none;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: 45;
+    padding: 0.75rem 1.25rem 1rem;
+    background: linear-gradient(180deg, #f5fbff 0%, #e8f5fc 100%);
+    border-bottom: 1px solid rgba(0, 105, 180, 0.18);
+    box-shadow: 0 16px 28px rgba(0, 45, 82, 0.16);
+  }
+  .site-header.is-nav-open .primary-nav {
+    display: block;
+    animation: drop-in 180ms ease both;
+  }
+  .nav-dropdown { width: 100%; }
+  .nav-dropdown > summary {
+    display: none;
+  }
+  .nav-dropdown__list {
+    position: static;
+    min-width: 0;
+    width: 100%;
+    max-height: min(70vh, 28rem);
+    margin: 0;
+    padding: 0.35rem;
+    box-shadow: none;
+    border: 1px solid rgba(0, 105, 180, 0.14);
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+  body.nav-open { overflow: hidden; }
 }
 
 .cat-card.page-card {
@@ -1678,6 +1868,62 @@ body.global-search-open { overflow: hidden; }
 body.images-collapsed .story__figure {
   display: none;
 }
+.story__content {
+  display: flow-root;
+}
+.story__actions {
+  float: right;
+  clear: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.45rem;
+  max-width: min(100%, 18rem);
+  margin: 0 0 0.55rem 1rem;
+}
+.story-tts {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2.45rem;
+  padding: 0.45rem 1rem;
+  border: 1px solid rgba(0, 105, 180, 0.28);
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--nav-blue), var(--blue-400));
+  color: #fff;
+  font-family: var(--font-ui);
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(0, 78, 140, 0.16);
+  transition: transform 140ms ease, filter 140ms ease, box-shadow 140ms ease;
+}
+.story-tts:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+.story-tts[aria-pressed="true"] {
+  background: linear-gradient(135deg, #0b3f66, #1769a8);
+}
+.story-tts svg {
+  display: block;
+  flex: 0 0 auto;
+}
+.story-tts__note {
+  margin: 0;
+  width: 100%;
+  text-align: right;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  line-height: 1.35;
+  color: var(--ink-soft);
+}
+.story-tts__note[hidden] {
+  display: none !important;
+}
+.story__content .story__text {
+  display: block;
+}
 @media (max-width: 760px) {
   .story .card-header,
   .story .card-body {
@@ -1819,8 +2065,7 @@ body.images-collapsed .story__figure {
 .site-footer__brand img {
   width: 28px;
   height: 28px;
-  border-radius: 50%;
-  background: var(--nav-blue-soft);
+  object-fit: contain;
 }
 .site-footer p { margin: 0; font-size: 0.9rem; }
 
@@ -1835,19 +2080,64 @@ body.images-collapsed .story__figure {
 
 JS = r"""
 (() => {
+  const header = document.querySelector(".site-header");
   const dropdown = document.querySelector(".nav-dropdown");
+  const navToggle = document.getElementById("nav-toggle");
+  const primaryNav = document.getElementById("primaryNav");
+  const mobileNavQuery = window.matchMedia("(max-width: 860px)");
+
+  const closeMobileNav = () => {
+    if (!header || !navToggle) return;
+    header.classList.remove("is-nav-open");
+    document.body.classList.remove("nav-open");
+    navToggle.setAttribute("aria-expanded", "false");
+    navToggle.setAttribute("aria-label", "Menyunu aç");
+  };
+
+  const openMobileNav = () => {
+    if (!header || !navToggle || !dropdown) return;
+    header.classList.add("is-nav-open");
+    document.body.classList.add("nav-open");
+    navToggle.setAttribute("aria-expanded", "true");
+    navToggle.setAttribute("aria-label", "Menyunu bağla");
+    dropdown.open = true;
+  };
+
+  if (navToggle && header && dropdown) {
+    navToggle.addEventListener("click", (event) => {
+      event.stopPropagation();
+      if (header.classList.contains("is-nav-open")) closeMobileNav();
+      else openMobileNav();
+    });
+    mobileNavQuery.addEventListener("change", (event) => {
+      if (!event.matches) {
+        closeMobileNav();
+        dropdown.open = false;
+      }
+    });
+  }
+
   if (dropdown) {
     document.addEventListener("click", (event) => {
+      if (mobileNavQuery.matches) {
+        if (!header || !header.classList.contains("is-nav-open")) return;
+        if (header.contains(event.target)) return;
+        closeMobileNav();
+        return;
+      }
       if (!dropdown.open) return;
       if (!dropdown.contains(event.target)) dropdown.open = false;
     });
     dropdown.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         dropdown.open = false;
+        closeMobileNav();
       });
     });
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") dropdown.open = false;
+      if (event.key !== "Escape") return;
+      dropdown.open = false;
+      closeMobileNav();
     });
   }
 
@@ -1968,6 +2258,13 @@ JS = r"""
         results.appendChild(a);
       });
     };
+
+    const kbdHint = toggle.querySelector(".global-search-toggle__kbd");
+    if (kbdHint && /Mac|iPhone|iPad|iPod/.test(navigator.platform || navigator.userAgent || "")) {
+      kbdHint.textContent = "⌘K";
+      toggle.title = "Axtar (⌘K)";
+      toggle.setAttribute("aria-label", "Qlobal axtarış, Command+K");
+    }
 
     toggle.addEventListener("click", () => {
       if (root.hidden) openSearch();
@@ -2104,6 +2401,180 @@ JS = r"""
   };
 
   initTools();
+
+  const initStoryTts = () => {
+    const buttons = Array.from(document.querySelectorAll("[data-story-tts]"));
+    if (!buttons.length) return;
+
+    const unsupportedMessage =
+      "Hörmətli oxucu, təəssüf ki, bu cihazda və ya brauzerdə səsə çevirmə (TTS) xidməti mövcud deyil. Zəhmət olmasa hekayəni oxuyaraq davam edin.";
+    const noVoiceMessage =
+      "Hörmətli oxucu, bu cihazda Azərbaycan nitq səsi tapılmadı.";
+    const failedMessage =
+      "Hörmətli oxucu, hazırda səsə çevirməni başlatmaq mümkün olmadı. Zəhmət olmasa bir az sonra yenidən cəhd edin və ya hekayəni oxuyun.";
+
+    let activeBtn = null;
+    let utterance = null;
+    let suppressError = false;
+
+    const setLabel = (btn, text) => {
+      const label = btn.querySelector("[data-story-tts-label]");
+      if (label) label.textContent = text;
+    };
+
+    const showNote = (btn, message) => {
+      const note = btn.parentElement && btn.parentElement.querySelector("[data-story-tts-note]");
+      if (!note) return;
+      note.hidden = !message;
+      note.textContent = message || "";
+    };
+
+    const clearActive = () => {
+      if (!activeBtn) return;
+      activeBtn.setAttribute("aria-pressed", "false");
+      setLabel(activeBtn, "Dinlə");
+      activeBtn = null;
+      utterance = null;
+    };
+
+    const stopSpeech = () => {
+      suppressError = true;
+      if (window.speechSynthesis) window.speechSynthesis.cancel();
+      clearActive();
+      window.setTimeout(() => {
+        suppressError = false;
+      }, 80);
+    };
+
+    const loadVoices = () =>
+      new Promise((resolve) => {
+        if (!window.speechSynthesis) {
+          resolve([]);
+          return;
+        }
+        const current = () => window.speechSynthesis.getVoices() || [];
+        const now = current();
+        if (now.length) {
+          resolve(now);
+          return;
+        }
+        let done = false;
+        const finish = () => {
+          if (done) return;
+          done = true;
+          window.speechSynthesis.onvoiceschanged = null;
+          resolve(current());
+        };
+        window.speechSynthesis.onvoiceschanged = finish;
+        window.setTimeout(finish, 800);
+      });
+
+    const pickVoice = (voices) =>
+      voices.find((v) => (v.lang || "").toLowerCase().startsWith("az")) ||
+      voices.find((v) => /azərbaycan|azerbaijani/i.test(v.name || "")) ||
+      voices.find((v) => (v.lang || "").toLowerCase().startsWith("tr")) ||
+      voices.find((v) => /turkish|türk/i.test(v.name || "")) ||
+      null;
+
+    const textForSpeech = (story) => {
+      const textEl = story && story.querySelector(".story__text");
+      const title = ((story && story.dataset.title) || "").trim();
+      const paras = textEl
+        ? Array.from(textEl.querySelectorAll("p"))
+            .map((p) => p.textContent.replace(/\s+/g, " ").trim())
+            .filter(Boolean)
+        : [];
+      let body = paras.join(" ");
+      body = body
+        .replace(/[\u00AD\u200B-\u200D\uFEFF]/g, "")
+        .replace(/[«»„“”]/g, "")
+        .replace(/[‘’]/g, "")
+        .replace(/[—–-]+\s*/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+      if (!body) return title;
+      if (title && body.toLocaleLowerCase("az").startsWith(title.toLocaleLowerCase("az"))) {
+        return body;
+      }
+      return title ? `${title}. ${body}` : body;
+    };
+
+    const speakStory = async (btn) => {
+      if (!("speechSynthesis" in window) || typeof window.SpeechSynthesisUtterance !== "function") {
+        showNote(btn, unsupportedMessage);
+        return;
+      }
+
+      const story = btn.closest(".story");
+      const text = textForSpeech(story);
+      if (!text) {
+        showNote(btn, failedMessage);
+        return;
+      }
+
+      const voices = await loadVoices();
+      const voice = pickVoice(voices);
+      if (!voice) {
+        stopSpeech();
+        showNote(btn, noVoiceMessage);
+        return;
+      }
+
+      stopSpeech();
+      showNote(btn, "");
+
+      utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = (voice.lang || "az-AZ").startsWith("tr") ? "tr-TR" : "az-AZ";
+      utterance.voice = voice;
+      utterance.rate = 1;
+      utterance.pitch = 1;
+
+      utterance.onstart = () => {
+        activeBtn = btn;
+        btn.setAttribute("aria-pressed", "true");
+        setLabel(btn, "Dayandır");
+      };
+      utterance.onend = () => clearActive();
+      utterance.onerror = () => {
+        if (suppressError) {
+          clearActive();
+          return;
+        }
+        clearActive();
+        showNote(btn, failedMessage);
+      };
+
+      try {
+        window.speechSynthesis.speak(utterance);
+      } catch (err) {
+        clearActive();
+        showNote(btn, unsupportedMessage);
+      }
+    };
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        if (activeBtn === btn && window.speechSynthesis && window.speechSynthesis.speaking) {
+          stopSpeech();
+          showNote(btn, "");
+          return;
+        }
+        speakStory(btn);
+      });
+
+      const actions = btn.closest(".story__actions") || btn.parentElement;
+      if (actions) {
+        actions.addEventListener("mouseleave", () => showNote(btn, ""));
+        actions.addEventListener("focusout", (event) => {
+          if (!actions.contains(event.relatedTarget)) showNote(btn, "");
+        });
+      }
+    });
+
+    window.addEventListener("beforeunload", stopSpeech);
+  };
+
+  initStoryTts();
 
   const nav = document.querySelector(".story-nav");
   if (!nav) return;
