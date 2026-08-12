@@ -1,10 +1,10 @@
 
 (() => {
   const header = document.querySelector(".site-header");
-  const dropdown = document.querySelector(".nav-dropdown");
+  const dropdowns = Array.from(document.querySelectorAll(".nav-dropdown"));
+  const literatureDropdown = document.querySelector(".nav-dropdown--literature");
   const navToggle = document.getElementById("nav-toggle");
-  const primaryNav = document.getElementById("primaryNav");
-  const mobileNavQuery = window.matchMedia("(max-width: 860px)");
+  const mobileNavQuery = window.matchMedia("(max-width: 1180px)");
 
   const closeMobileNav = () => {
     if (!header || !navToggle) return;
@@ -15,15 +15,17 @@
   };
 
   const openMobileNav = () => {
-    if (!header || !navToggle || !dropdown) return;
+    if (!header || !navToggle || !dropdowns.length) return;
     header.classList.add("is-nav-open");
     document.body.classList.add("nav-open");
     navToggle.setAttribute("aria-expanded", "true");
     navToggle.setAttribute("aria-label", "Menyunu bağla");
-    dropdown.open = true;
+    dropdowns.forEach((dropdown) => {
+      dropdown.open = true;
+    });
   };
 
-  if (navToggle && header && dropdown) {
+  if (navToggle && header && dropdowns.length) {
     navToggle.addEventListener("click", (event) => {
       event.stopPropagation();
       if (header.classList.contains("is-nav-open")) closeMobileNav();
@@ -32,12 +34,90 @@
     mobileNavQuery.addEventListener("change", (event) => {
       if (!event.matches) {
         closeMobileNav();
-        dropdown.open = false;
+        dropdowns.forEach((dropdown) => {
+          dropdown.open = false;
+          dropdown.classList.remove("is-hover-open");
+        });
       }
     });
   }
 
-  if (dropdown) {
+  const nestedGroups = literatureDropdown
+    ? Array.from(
+        literatureDropdown.querySelectorAll(".nav-dropdown--nested.nav-dropdown--has-mega")
+      )
+    : [];
+
+  const setMegaOpen = (target, open) => {
+    nestedGroups.forEach((group) => {
+      const shouldOpen = !!open && group === target;
+      group.classList.toggle("is-mega-open", shouldOpen);
+      const btn = group.querySelector("[data-nav-mega-toggle]");
+      if (btn) btn.setAttribute("aria-expanded", shouldOpen ? "true" : "false");
+    });
+  };
+
+  const closeAllMegas = () => setMegaOpen(null, false);
+
+  const setDropdownOpen = (dropdown, open) => {
+    if (!dropdown) return;
+    dropdown.open = !!open;
+    dropdown.classList.toggle("is-hover-open", !!open);
+    if (!open && dropdown === literatureDropdown) closeAllMegas();
+  };
+
+  const closeAllDropdowns = () => {
+    dropdowns.forEach((dropdown) => setDropdownOpen(dropdown, false));
+  };
+
+  nestedGroups.forEach((group) => {
+    const megaToggle = group.querySelector("[data-nav-mega-toggle]");
+    if (megaToggle) {
+      megaToggle.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const next = !group.classList.contains("is-mega-open");
+        setMegaOpen(group, next);
+      });
+    }
+    group.addEventListener("mouseenter", () => {
+      if (!mobileNavQuery.matches) setMegaOpen(group, true);
+    });
+    group.addEventListener("mouseleave", () => {
+      if (!mobileNavQuery.matches) setMegaOpen(group, false);
+    });
+  });
+
+  dropdowns.forEach((dropdown) => {
+    dropdown.addEventListener("mouseenter", () => {
+      if (mobileNavQuery.matches) return;
+      dropdowns.forEach((other) => {
+        if (other !== dropdown) setDropdownOpen(other, false);
+      });
+      setDropdownOpen(dropdown, true);
+    });
+    dropdown.addEventListener("mouseleave", () => {
+      if (!mobileNavQuery.matches) setDropdownOpen(dropdown, false);
+    });
+    dropdown.addEventListener("toggle", () => {
+      if (!dropdown.open) {
+        dropdown.classList.remove("is-hover-open");
+        if (dropdown === literatureDropdown) closeAllMegas();
+      }
+    });
+    dropdown.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        if (link.getAttribute("aria-disabled") === "true") {
+          event.preventDefault();
+          return;
+        }
+        setDropdownOpen(dropdown, false);
+        closeMobileNav();
+      });
+    });
+  });
+
+  if (dropdowns.length) {
     document.addEventListener("click", (event) => {
       if (mobileNavQuery.matches) {
         if (!header || !header.classList.contains("is-nav-open")) return;
@@ -45,18 +125,20 @@
         closeMobileNav();
         return;
       }
-      if (!dropdown.open) return;
-      if (!dropdown.contains(event.target)) dropdown.open = false;
+      const inside = dropdowns.some((dropdown) => dropdown.contains(event.target));
+      if (!inside) closeAllDropdowns();
     });
-    dropdown.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        dropdown.open = false;
+    document.querySelectorAll(".primary-nav__link").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        if (link.getAttribute("aria-disabled") === "true") {
+          event.preventDefault();
+        }
         closeMobileNav();
       });
     });
     document.addEventListener("keydown", (event) => {
       if (event.key !== "Escape") return;
-      dropdown.open = false;
+      closeAllDropdowns();
       closeMobileNav();
     });
   }
@@ -163,12 +245,11 @@
           : "Uyğun hekayə tapılmadı.";
       }
       const inCategories = window.location.pathname.includes("/categories/");
+      const homeListBase = inCategories ? "../index.html" : "index.html";
       matches.forEach((row) => {
         const a = document.createElement("a");
         a.className = "global-search__item";
-        a.href = inCategories
-          ? `${encodeURIComponent(row.slug)}.html#${encodeURIComponent(row.stem)}`
-          : `categories/${encodeURIComponent(row.slug)}.html#${encodeURIComponent(row.stem)}`;
+        a.href = `${homeListBase}?view=list#${encodeURIComponent(row.stem)}`;
         a.innerHTML =
           `<span class="global-search__item-title"></span>` +
           `<span class="global-search__item-meta"></span>`;
@@ -215,13 +296,15 @@
     const bar = document.querySelector("[data-tools]");
     if (!bar) return;
     const mode = bar.getAttribute("data-tools");
+    if (mode === "home") return;
     const searchInput = bar.querySelector("[data-tools-search]");
     const sortSelect = bar.querySelector("[data-tools-sort]");
-    const status = bar.querySelector("[data-tools-status]");
     const empty = document.querySelector("[data-tools-empty]");
     const list = document.querySelector("[data-tools-list]");
     const imagesBtn = bar.querySelector("[data-tools-images]");
     const imagesLabel = bar.querySelector("[data-tools-images-label]");
+    const textsBtn = bar.querySelector("[data-tools-texts]");
+    const textsLabel = bar.querySelector("[data-tools-texts-label]");
     if (!searchInput || !sortSelect || !list) return;
 
     if (imagesBtn && mode === "stories") {
@@ -231,6 +314,18 @@
         imagesBtn.setAttribute("aria-pressed", collapsed ? "true" : "false");
         if (imagesLabel) {
           imagesLabel.textContent = collapsed ? "Şəkilləri göstər" : "Şəkilləri gizlət";
+        }
+        if (typeof window.__birinciSetAllStoryFigures === "function") {
+          window.__birinciSetAllStoryFigures(!collapsed);
+        } else {
+          document.querySelectorAll("article.story").forEach((story) => {
+            story.classList.toggle("story--figure-hidden", collapsed);
+            const btn = story.querySelector("[data-story-figure-toggle]");
+            if (!btn) return;
+            btn.setAttribute("aria-expanded", collapsed ? "false" : "true");
+            const label = btn.querySelector("[data-story-figure-label]");
+            if (label) label.textContent = collapsed ? "Şəkli göstər" : "Şəkli gizlət";
+          });
         }
         try {
           localStorage.setItem(storageKey, collapsed ? "1" : "0");
@@ -243,6 +338,40 @@
       applyImagesState(collapsed);
       imagesBtn.addEventListener("click", () => {
         applyImagesState(!document.body.classList.contains("images-collapsed"));
+      });
+    }
+
+    if (textsBtn && mode === "stories") {
+      const textsKey = "birinci-texts-collapsed";
+      const applyTextsState = (collapsed) => {
+        document.body.classList.toggle("texts-collapsed", collapsed);
+        textsBtn.setAttribute("aria-pressed", collapsed ? "true" : "false");
+        if (textsLabel) {
+          textsLabel.textContent = collapsed ? "Mətnləri göstər" : "Mətnləri gizlət";
+        }
+        if (typeof window.__birinciSetAllStoryTexts === "function") {
+          window.__birinciSetAllStoryTexts(!collapsed);
+        } else {
+          document.querySelectorAll("article.story").forEach((story) => {
+            story.classList.toggle("story--text-hidden", collapsed);
+            const btn = story.querySelector("[data-story-text-toggle]");
+            if (!btn) return;
+            btn.setAttribute("aria-expanded", collapsed ? "false" : "true");
+            const label = btn.querySelector("[data-story-text-label]");
+            if (label) label.textContent = collapsed ? "Mətni göstər" : "Mətni gizlət";
+          });
+        }
+        try {
+          localStorage.setItem(textsKey, collapsed ? "1" : "0");
+        } catch (_) {}
+      };
+      let textsCollapsed = false;
+      try {
+        textsCollapsed = localStorage.getItem(textsKey) === "1";
+      } catch (_) {}
+      applyTextsState(textsCollapsed);
+      textsBtn.addEventListener("click", () => {
+        applyTextsState(!document.body.classList.contains("texts-collapsed"));
       });
     }
 
@@ -268,7 +397,6 @@
         item.hidden = !show;
         if (show) visible += 1;
       });
-      if (status) status.textContent = `${visible} / ${items.length}`;
       if (empty) empty.hidden = visible !== 0;
     };
 
@@ -305,7 +433,6 @@
         if (navItem) navItem.hidden = !show;
       });
 
-      if (status) status.textContent = `${visible} / ${stories.length}`;
       if (countEl) countEl.textContent = String(visible);
       if (empty) empty.hidden = visible !== 0;
     };
@@ -322,10 +449,753 @@
 
   initTools();
 
-  const initStoryTts = () => {
-    const buttons = Array.from(document.querySelectorAll("[data-story-tts]"));
-    if (!buttons.length) return;
+  /**
+   * DAAB News-style sidebar: sticky TOC, scroll-spy, mobile accordion.
+   * (No dual-panel scroll sync — it fought page scroll.)
+   */
+  const bindStorySidebarLayout = (layout) => {
+    if (!layout) return null;
+    if (layout.__birinciSidebar) {
+      layout.__birinciSidebar.refresh();
+      return layout.__birinciSidebar;
+    }
 
+    const nav = layout.querySelector(".story-nav.sidebar");
+    if (!nav) return null;
+    const widget = nav.querySelector(".sidebar-widget");
+    const toggle = nav.querySelector(".events-menu-toggle");
+    const mobileQuery = window.matchMedia("(max-width: 1060px)");
+
+    let links = [];
+    let cards = [];
+
+    const closeMenu = () => {
+      if (!widget || !toggle) return;
+      widget.classList.remove("events-open");
+      toggle.setAttribute("aria-expanded", "false");
+    };
+    const toggleMenu = () => {
+      if (!widget || !toggle) return;
+      const open = widget.classList.toggle("events-open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    };
+
+    const setActive = (activeLink) => {
+      links.forEach((link) => {
+        const on = link === activeLink;
+        link.classList.toggle("is-active", on);
+        link.classList.toggle("tl-active", on);
+      });
+    };
+
+    const updateActive = () => {
+      if (!cards.length) {
+        setActive(null);
+        return;
+      }
+      const mid = window.scrollY + window.innerHeight * 0.35;
+      let active = null;
+      for (let i = cards.length - 1; i >= 0; i -= 1) {
+        const top = cards[i].el.getBoundingClientRect().top + window.scrollY;
+        if (top <= mid) {
+          active = cards[i].link;
+          break;
+        }
+      }
+      setActive(active);
+    };
+
+    const refresh = () => {
+      links = Array.from(nav.querySelectorAll('.timeline-list a[href^="#"]'));
+      cards = links
+        .map((link) => {
+          const raw = (link.getAttribute("href") || "").slice(1);
+          let id = raw;
+          try {
+            id = decodeURIComponent(raw);
+          } catch (_) {}
+          const el = document.getElementById(id);
+          return el ? { link, el, id } : null;
+        })
+        .filter(Boolean);
+      updateActive();
+    };
+
+    if (toggle) {
+      toggle.addEventListener("click", (event) => {
+        event.stopPropagation();
+        toggleMenu();
+      });
+    }
+    document.addEventListener("click", (event) => {
+      if (!mobileQuery.matches || !widget || !widget.classList.contains("events-open")) return;
+      if (widget.contains(event.target)) return;
+      closeMenu();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeMenu();
+    });
+    mobileQuery.addEventListener("change", () => {
+      if (!mobileQuery.matches) closeMenu();
+    });
+
+    nav.addEventListener("click", (event) => {
+      const link = event.target.closest('a[href^="#"]');
+      if (!link || !nav.contains(link)) return;
+      const raw = (link.getAttribute("href") || "").slice(1);
+      let id = raw;
+      try {
+        id = decodeURIComponent(raw);
+      } catch (_) {}
+      const target = document.getElementById(id);
+      if (!target) return;
+      event.preventDefault();
+      setActive(link);
+      const html = document.documentElement;
+      const prevBehavior = html.style.scrollBehavior;
+      html.style.scrollBehavior = "auto";
+      target.scrollIntoView({ block: "start", behavior: "auto" });
+      html.style.scrollBehavior = prevBehavior;
+      try {
+        history.pushState(null, "", `#${id}`);
+      } catch (_) {}
+      if (mobileQuery.matches) closeMenu();
+    });
+
+    window.addEventListener("scroll", updateActive, { passive: true });
+    window.addEventListener("resize", updateActive, { passive: true });
+
+    const api = { refresh, closeMenu, updateActive };
+    layout.__birinciSidebar = api;
+    refresh();
+    return api;
+  };
+
+  window.__birinciBindStorySidebar = bindStorySidebarLayout;
+
+  const initHomeViews = () => {
+    if (!document.body.classList.contains("page-home")) return;
+    const bar = document.querySelector('[data-tools="home"]');
+    const cardsPanel = document.querySelector('[data-view="cards"]');
+    const listPanel = document.querySelector('[data-view="list"]');
+    if (!bar || !cardsPanel || !listPanel) return;
+
+    const searchInput = bar.querySelector("[data-tools-search]");
+    const sortSelect = bar.querySelector("[data-tools-sort]");
+    if (!searchInput || !sortSelect) return;
+
+    const cardsList = cardsPanel.querySelector("[data-tools-list]");
+    const cardsEmpty = cardsPanel.querySelector("[data-tools-empty]");
+    const storiesList = listPanel.querySelector("[data-stories-list]");
+    const listEmpty = listPanel.querySelector("[data-home-list-empty]");
+    const navList = listPanel.querySelector("[data-home-nav]");
+    const imagesToggle = bar.querySelector("[data-tools-images]");
+    const imagesBtns = Array.from(bar.querySelectorAll("[data-images-mode]"));
+    const textsToggle = bar.querySelector("[data-tools-texts]");
+    const textsBtns = Array.from(bar.querySelectorAll("[data-texts-mode]"));
+    const pageSizeInput = bar.querySelector("[data-home-page-size]");
+    const pageAllBtn = bar.querySelector("[data-home-page-all]");
+    const viewBtns = Array.from(bar.querySelectorAll("[data-home-view]"));
+    const listOnly = Array.from(bar.querySelectorAll("[data-home-list-only]"));
+    const cardsOnlyOpts = Array.from(sortSelect.querySelectorAll("[data-home-cards-only]"));
+    const storiesUrl = listPanel.getAttribute("data-stories-url") || "data/stories.json";
+    const assetVersion = listPanel.getAttribute("data-asset-version") || "";
+    const viewStorageKey = "birinci-home-view";
+    const pageSizeStorageKey = "birinci-home-page-size";
+
+    let view = "cards";
+    let allStories = null;
+    let filtered = [];
+    let loading = null;
+    let pendingStem = null;
+    let pageSize = 10;
+    let pageSizeIsAll = false;
+
+    const pageSizeCap = () => {
+      const n =
+        (filtered && filtered.length) ||
+        (allStories && allStories.length) ||
+        0;
+      return Math.max(1, n);
+    };
+
+    const syncPageSizeUi = () => {
+      const cap = pageSizeCap();
+      if (pageSizeInput) {
+        pageSizeInput.min = "1";
+        pageSizeInput.max = String(cap);
+        if (pageSizeIsAll) pageSizeInput.value = String(cap);
+      }
+      if (pageAllBtn) {
+        pageAllBtn.setAttribute("aria-pressed", pageSizeIsAll ? "true" : "false");
+      }
+    };
+
+    const readPageSize = () => {
+      if (pageSizeIsAll) return "all";
+      if (!pageSizeInput) return 10;
+      const n = Number(pageSizeInput.value);
+      return Number.isFinite(n) && n > 0 ? Math.floor(n) : 10;
+    };
+
+    const persistPageSize = () => {
+      try {
+        localStorage.setItem(
+          pageSizeStorageKey,
+          pageSizeIsAll ? "all" : String(pageSize === "all" ? "10" : pageSize)
+        );
+      } catch (_) {}
+    };
+
+    const commitPageSize = ({ persist = true, render = false } = {}) => {
+      const cap = pageSizeCap();
+      if (pageSizeIsAll) {
+        pageSize = "all";
+      } else {
+        let n = Number(pageSizeInput && pageSizeInput.value);
+        if (!Number.isFinite(n) || n < 1) n = 1;
+        n = Math.min(Math.floor(n), cap);
+        if (n < 1) n = 1;
+        if (pageSizeInput) pageSizeInput.value = String(n);
+        pageSize = n;
+      }
+      syncPageSizeUi();
+      if (persist) persistPageSize();
+      if (render && view === "list") {
+        pendingStem = null;
+        renderList();
+      }
+    };
+
+    const applyStoredPageSize = () => {
+      let stored = "";
+      try {
+        stored = localStorage.getItem(pageSizeStorageKey) || "";
+      } catch (_) {}
+      if (stored === "all") {
+        pageSizeIsAll = true;
+        pageSize = "all";
+      } else {
+        const n = Number(stored);
+        pageSizeIsAll = false;
+        if (Number.isFinite(n) && n > 0) {
+          const value = String(Math.floor(n));
+          if (pageSizeInput) pageSizeInput.value = value;
+          pageSize = Math.floor(n);
+        } else {
+          pageSize = readPageSize();
+        }
+      }
+      syncPageSizeUi();
+    };
+
+    applyStoredPageSize();
+
+    const escapeHtml = (value) =>
+      String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+
+    const readUrlState = () => {
+      const params = new URLSearchParams(window.location.search);
+      const hash = decodeURIComponent((window.location.hash || "").replace(/^#/, ""));
+      return {
+        view: params.get("view"),
+        q: params.get("q"),
+        stem: hash || null,
+      };
+    };
+
+    const writeUrlState = () => {
+      try {
+        const params = new URLSearchParams();
+        if (view === "list") params.set("view", "list");
+        const q = searchInput.value.trim();
+        if (view === "list" && q) params.set("q", q);
+        const url = new URL(window.location.href);
+        url.search = params.toString();
+        url.hash = pendingStem ? pendingStem : "";
+        history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+      } catch (_) {
+        /* file:// or sandboxed histories must not block view switching */
+      }
+    };
+
+    const applyImagesState = (collapsed) => {
+      document.body.classList.toggle("images-collapsed", collapsed);
+      imagesBtns.forEach((btn) => {
+        const mode = btn.getAttribute("data-images-mode");
+        const pressed = collapsed ? mode === "hide" : mode === "show";
+        btn.setAttribute("aria-pressed", pressed ? "true" : "false");
+      });
+      if (typeof window.__birinciSetAllStoryFigures === "function") {
+        window.__birinciSetAllStoryFigures(!collapsed);
+      } else {
+        document.querySelectorAll("article.story").forEach((story) => {
+          story.classList.toggle("story--figure-hidden", collapsed);
+          const btn = story.querySelector("[data-story-figure-toggle]");
+          if (!btn) return;
+          btn.setAttribute("aria-expanded", collapsed ? "false" : "true");
+          const label = btn.querySelector("[data-story-figure-label]");
+          if (label) label.textContent = collapsed ? "Şəkli göstər" : "Şəkli gizlət";
+        });
+      }
+      try {
+        localStorage.setItem("birinci-images-collapsed", collapsed ? "1" : "0");
+      } catch (_) {}
+    };
+
+    if (imagesToggle && imagesBtns.length) {
+      let collapsed = false;
+      try {
+        collapsed = localStorage.getItem("birinci-images-collapsed") === "1";
+      } catch (_) {}
+      applyImagesState(collapsed);
+      imagesBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          applyImagesState(btn.getAttribute("data-images-mode") === "hide");
+        });
+      });
+    }
+
+    const applyTextsState = (collapsed) => {
+      document.body.classList.toggle("texts-collapsed", collapsed);
+      textsBtns.forEach((btn) => {
+        const mode = btn.getAttribute("data-texts-mode");
+        const pressed = collapsed ? mode === "hide" : mode === "show";
+        btn.setAttribute("aria-pressed", pressed ? "true" : "false");
+      });
+      if (typeof window.__birinciSetAllStoryTexts === "function") {
+        window.__birinciSetAllStoryTexts(!collapsed);
+      } else {
+        document.querySelectorAll("article.story").forEach((story) => {
+          story.classList.toggle("story--text-hidden", collapsed);
+          const btn = story.querySelector("[data-story-text-toggle]");
+          if (!btn) return;
+          btn.setAttribute("aria-expanded", collapsed ? "false" : "true");
+          const label = btn.querySelector("[data-story-text-label]");
+          if (label) label.textContent = collapsed ? "Mətni göstər" : "Mətni gizlət";
+        });
+      }
+      try {
+        localStorage.setItem("birinci-texts-collapsed", collapsed ? "1" : "0");
+      } catch (_) {}
+    };
+
+    if (textsToggle && textsBtns.length) {
+      let textsCollapsed = false;
+      try {
+        textsCollapsed = localStorage.getItem("birinci-texts-collapsed") === "1";
+      } catch (_) {}
+      applyTextsState(textsCollapsed);
+      textsBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          applyTextsState(btn.getAttribute("data-texts-mode") === "hide");
+        });
+      });
+    }
+
+    const applyCards = () => {
+      if (!cardsList) return;
+      const q = searchInput.value.trim().toLocaleLowerCase("az");
+      const sort = sortSelect.value;
+      const items = Array.from(cardsList.querySelectorAll(".cat-card"));
+      items.sort((a, b) => {
+        if (sort === "count-desc" || sort === "count-asc") {
+          const ca = Number(a.dataset.count || 0);
+          const cb = Number(b.dataset.count || 0);
+          return sort === "count-desc" ? cb - ca : ca - cb;
+        }
+        const cmp = localeCompareAz(a.dataset.title, b.dataset.title);
+        return sort === "za" ? -cmp : cmp;
+      });
+      items.forEach((item) => cardsList.appendChild(item));
+      let visible = 0;
+      items.forEach((item) => {
+        const hay = `${item.dataset.title || ""} ${item.dataset.blurb || ""}`.toLocaleLowerCase("az");
+        const show = !q || hay.includes(q);
+        item.hidden = !show;
+        if (show) visible += 1;
+      });
+      if (cardsEmpty) cardsEmpty.hidden = visible !== 0;
+    };
+
+    const flattenStories = (catalog) => {
+      const rows = [];
+      (catalog.categories || []).forEach((cat) => {
+        (cat.stories || []).forEach((story) => {
+          rows.push({
+            stem: story.stem,
+            title: story.title,
+            paragraphs: story.paragraphs || [],
+            categoryTitle: cat.title,
+            categorySlug: cat.slug,
+            hasAudio: !!story.hasAudio,
+            hay: `${story.title || ""} ${(story.paragraphs || []).join(" ")}`.toLocaleLowerCase("az"),
+          });
+        });
+      });
+      return rows;
+    };
+
+    const storiesScriptUrl =
+      listPanel.getAttribute("data-stories-script") || `assets/stories-data.js?v=${assetVersion}`;
+
+    const loadCatalogViaScript = () => {
+      if (window.__BIRINCI_STORIES__) return Promise.resolve(window.__BIRINCI_STORIES__);
+      return new Promise((resolve, reject) => {
+        const script = document.createElement("script");
+        script.src = storiesScriptUrl;
+        script.async = true;
+        script.onload = () => {
+          if (window.__BIRINCI_STORIES__) resolve(window.__BIRINCI_STORIES__);
+          else reject(new Error("empty-stories"));
+        };
+        script.onerror = () => reject(new Error("script-error"));
+        document.head.appendChild(script);
+      });
+    };
+
+    const ensureStories = () => {
+      if (allStories) return Promise.resolve(allStories);
+      if (loading) return loading;
+      loading = Promise.resolve()
+        .then(() => {
+          if (window.__BIRINCI_STORIES__) return window.__BIRINCI_STORIES__;
+          return loadCatalogViaScript().catch(() =>
+            fetch(storiesUrl).then((res) => {
+              if (!res.ok) throw new Error("fetch-failed");
+              return res.json();
+            })
+          );
+        })
+        .then((catalog) => {
+          window.__BIRINCI_STORIES__ = catalog;
+          allStories = flattenStories(catalog);
+          return allStories;
+        })
+        .catch(() => {
+          allStories = [];
+          return allStories;
+        })
+        .finally(() => {
+          loading = null;
+        });
+      return loading;
+    };
+
+    const paragraphsHtml = (paragraphs) => {
+      if (!paragraphs.length) return "";
+      return paragraphs
+        .map((p, i) => {
+          const cls = i === paragraphs.length - 1 ? ' class="story__moral"' : "";
+          return `<p${cls}>${escapeHtml(p)}</p>`;
+        })
+        .join("");
+    };
+
+    const storyArticleHtml = (story) => {
+      const audioAttr = story.hasAudio
+        ? ` data-audio="audio/${escapeHtml(story.stem)}.mp3?v=${escapeHtml(assetVersion)}"`
+        : "";
+      return `
+<article class="story news-card" id="${escapeHtml(story.stem)}" data-stem="${escapeHtml(story.stem)}" data-title="${escapeHtml(story.title)}"${audioAttr}>
+  <div class="card-header">
+    <h2 class="card-title story__title">${escapeHtml(story.title)}</h2>
+  </div>
+  <div class="card-body">
+    <div class="story__content">
+      <div class="story__panel">
+        <div class="story__actions">
+          <button type="button" class="story-tts" data-story-tts aria-pressed="false">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+            </svg>
+            <span data-story-tts-label>Mətni dinlə</span>
+          </button>
+          <button type="button" class="story-text-toggle" data-story-text-toggle aria-expanded="true" aria-controls="text-${escapeHtml(story.stem)}">
+            <span data-story-text-label>Mətni gizlət</span>
+          </button>
+          <button type="button" class="story-figure-toggle" data-story-figure-toggle aria-expanded="true" aria-controls="figure-${escapeHtml(story.stem)}">
+            <span data-story-figure-label>Şəkli gizlət</span>
+          </button>
+          <p class="story-tts__note" data-story-tts-note hidden></p>
+        </div>
+        <div class="story__text card-text" id="text-${escapeHtml(story.stem)}">
+          ${paragraphsHtml(story.paragraphs)}
+        </div>
+      </div>
+    </div>
+    <figure class="story__figure" id="figure-${escapeHtml(story.stem)}">
+      <button type="button" class="story__figure-open" aria-label="${escapeHtml(story.title)} şəklini böyüt">
+        <img src="illustrations/${escapeHtml(story.stem)}.webp" alt="${escapeHtml(story.title)} illüstrasiyası" loading="lazy" width="1536" height="1024" />
+      </button>
+    </figure>
+  </div>
+</article>`.trim();
+    };
+
+    const refreshSidebarNav = (items) => {
+      if (navList) {
+        navList.innerHTML = items
+          .map(
+            (s) =>
+              `<li data-stem="${escapeHtml(s.stem)}" data-title="${escapeHtml(s.title)}"><a href="#${escapeHtml(
+                s.stem
+              )}">${escapeHtml(s.title)}</a></li>`
+          )
+          .join("");
+      }
+      if (typeof window.__birinciBindStorySidebar === "function") {
+        const layout = listPanel.querySelector(".category-layout");
+        if (layout) window.__birinciBindStorySidebar(layout);
+      }
+    };
+
+    const bindHomeNav = () => {
+      const layout = listPanel.querySelector(".category-layout");
+      if (!layout) return;
+      if (typeof window.__birinciBindStorySidebar === "function") {
+        window.__birinciBindStorySidebar(layout);
+      }
+    };
+
+    const renderList = () => {
+      if (!storiesList) return;
+      if (typeof window.__birinciStopStoryTts === "function") window.__birinciStopStoryTts();
+      const q = searchInput.value.trim().toLocaleLowerCase("az");
+      const sort = sortSelect.value === "za" ? "za" : "az";
+      filtered = (allStories || []).filter((story) => !q || story.hay.includes(q));
+      filtered.sort((a, b) => {
+        const cmp = localeCompareAz(a.title, b.title);
+        return sort === "za" ? -cmp : cmp;
+      });
+
+      const total = filtered.length;
+      const cap = Math.max(1, total || 1);
+      if (pageSizeInput) {
+        pageSizeInput.min = "1";
+        pageSizeInput.max = String(cap);
+      }
+      if (pageSizeIsAll) {
+        pageSize = "all";
+        if (pageSizeInput) pageSizeInput.value = String(cap);
+      } else {
+        let n = readPageSize();
+        if (typeof n !== "number" || !Number.isFinite(n) || n < 1) n = 1;
+        if (n > cap) n = cap;
+        if (pageSizeInput && String(pageSizeInput.value) !== String(n)) {
+          pageSizeInput.value = String(n);
+          try {
+            localStorage.setItem(pageSizeStorageKey, String(n));
+          } catch (_) {}
+        }
+        pageSize = n;
+      }
+      if (pageAllBtn) {
+        pageAllBtn.setAttribute("aria-pressed", pageSizeIsAll ? "true" : "false");
+      }
+      let visibleStories =
+        pageSize === "all" ? filtered.slice() : filtered.slice(0, pageSize);
+      if (pendingStem) {
+        const idx = filtered.findIndex(
+          (story) => story.stem === pendingStem || story.stem === String(pendingStem)
+        );
+        if (idx >= 0 && (pageSize === "all" ? false : idx >= pageSize)) {
+          visibleStories = filtered.slice();
+        }
+      }
+      storiesList.innerHTML = visibleStories.map(storyArticleHtml).join("");
+      if (typeof window.__birinciSetAllStoryFigures === "function") {
+        window.__birinciSetAllStoryFigures(!document.body.classList.contains("images-collapsed"));
+      }
+      if (typeof window.__birinciSetAllStoryTexts === "function") {
+        window.__birinciSetAllStoryTexts(!document.body.classList.contains("texts-collapsed"));
+      }
+      refreshSidebarNav(visibleStories);
+      if (listEmpty) listEmpty.hidden = total !== 0;
+      writeUrlState();
+      if (pendingStem) {
+        const el = document.getElementById(pendingStem);
+        if (el) {
+          window.requestAnimationFrame(() => {
+            el.scrollIntoView({ block: "start", behavior: "auto" });
+          });
+        }
+        pendingStem = null;
+      }
+    };
+
+    const setHidden = (el, hide) => {
+      if (!el) return;
+      el.hidden = !!hide;
+      if (hide) el.setAttribute("hidden", "");
+      else el.removeAttribute("hidden");
+    };
+
+    const setView = (nextView, { persist = true } = {}) => {
+      const prevView = view;
+      view = nextView === "list" ? "list" : "cards";
+      window.__birinciHomeView = view;
+      // Panels first — never gated on fetch / history / TTS.
+      setHidden(cardsPanel, view !== "cards");
+      setHidden(listPanel, view !== "list");
+      viewBtns.forEach((btn) => {
+        btn.setAttribute("aria-pressed", btn.getAttribute("data-home-view") === view ? "true" : "false");
+      });
+      listOnly.forEach((el) => {
+        setHidden(el, view !== "list");
+      });
+      cardsOnlyOpts.forEach((opt) => {
+        setHidden(opt, view !== "cards");
+        opt.disabled = view !== "cards";
+      });
+      const syncHomeStickyOffset = () => {
+        if (!document.body) return;
+        if (view !== "list" || !bar) {
+          document.body.style.removeProperty("--sticky-stack-h");
+          return;
+        }
+        const h = Math.ceil(bar.getBoundingClientRect().height || 0);
+        if (h > 0) {
+          document.body.style.setProperty("--sticky-stack-h", `${h + 10}px`);
+        }
+      };
+      syncHomeStickyOffset();
+      window.requestAnimationFrame(syncHomeStickyOffset);
+      if (view === "list" && (sortSelect.value === "count-desc" || sortSelect.value === "count-asc")) {
+        sortSelect.value = "az";
+      }
+      if (persist) {
+        try {
+          localStorage.setItem(viewStorageKey, view);
+        } catch (_) {}
+      }
+      if (view === "cards") {
+        if (typeof window.__birinciStopStoryTts === "function") window.__birinciStopStoryTts();
+        applyCards();
+        writeUrlState();
+        return;
+      }
+      writeUrlState();
+      try {
+        bindHomeNav();
+      } catch (_) {}
+      const scrollToTools = () => {
+        if (typeof window.__birinciScrollHomeTools === "function") {
+          window.__birinciScrollHomeTools();
+          return;
+        }
+        window.scrollTo(0, 0);
+      };
+      ensureStories()
+        .then(() => {
+          renderList();
+          if (prevView !== "list") scrollToTools();
+        })
+        .catch(() => {
+          if (listEmpty) listEmpty.hidden = false;
+          if (prevView !== "list") scrollToTools();
+        });
+      if (prevView !== "list") scrollToTools();
+    };
+
+    const onViewButton = (event) => {
+      const btn = event.target.closest("[data-home-view]");
+      if (!btn || !bar.contains(btn)) return;
+      const next = btn.getAttribute("data-home-view");
+      if (next !== "list" && next !== "cards") return;
+      // Re-apply even if already selected so a stalled list can recover.
+      pendingStem = null;
+      setView(next);
+    };
+    viewBtns.forEach((btn) => {
+      btn.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        onViewButton(event);
+      });
+    });
+    bar.addEventListener("click", onViewButton);
+
+    searchInput.addEventListener("input", () => {
+      if (view === "cards") {
+        applyCards();
+        return;
+      }
+      pendingStem = null;
+      renderList();
+    });
+    sortSelect.addEventListener("change", () => {
+      if (view === "cards") {
+        applyCards();
+        return;
+      }
+      pendingStem = null;
+      renderList();
+    });
+    if (pageSizeInput) {
+      pageSizeInput.addEventListener("change", () => {
+        pageSizeIsAll = false;
+        commitPageSize({ persist: true, render: true });
+      });
+      pageSizeInput.addEventListener("blur", () => {
+        if (pageSizeIsAll) return;
+        commitPageSize({ persist: true, render: true });
+      });
+      pageSizeInput.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter") return;
+        event.preventDefault();
+        pageSizeIsAll = false;
+        commitPageSize({ persist: true, render: true });
+        pageSizeInput.blur();
+      });
+      pageSizeInput.addEventListener("input", () => {
+        if (!pageSizeIsAll) return;
+        pageSizeIsAll = false;
+        if (pageAllBtn) pageAllBtn.setAttribute("aria-pressed", "false");
+      });
+    }
+    if (pageAllBtn) {
+      pageAllBtn.addEventListener("click", () => {
+        pageSizeIsAll = !pageSizeIsAll;
+        commitPageSize({ persist: true, render: true });
+      });
+    }
+
+    const urlState = readUrlState();
+    let initialView = "cards";
+    // Prefer view already chosen by the inline bootstrap (avoids reset race).
+    if (window.__birinciHomeView === "list" || window.__birinciHomeView === "cards") {
+      initialView = window.__birinciHomeView;
+    } else if (urlState.view === "list" || urlState.view === "cards") {
+      initialView = urlState.view;
+    } else {
+      try {
+        const stored = localStorage.getItem(viewStorageKey);
+        if (stored === "list" || stored === "cards") initialView = stored;
+      } catch (_) {}
+    }
+    if (urlState.stem) {
+      initialView = "list";
+      pendingStem = urlState.stem;
+    }
+    if (urlState.q) searchInput.value = urlState.q;
+
+    try {
+      setView(initialView, { persist: false });
+    } catch (_) {
+      setHidden(cardsPanel, initialView !== "cards");
+      setHidden(listPanel, initialView !== "list");
+    }
+  };
+
+  const initStoryTts = () => {
     const unsupportedMessage =
       "Hörmətli oxucu, təəssüf ki, bu cihazda və ya brauzerdə səsə çevirmə (TTS) xidməti mövcud deyil. Zəhmət olmasa hekayəni oxuyaraq davam edin.";
     const noVoiceMessage =
@@ -335,10 +1205,28 @@
     const audioFailedMessage =
       "Hörmətli oxucu, səs faylını oxumaq mümkün olmadı. Zəhmət olmasa bir az sonra yenidən cəhd edin.";
 
+    const SPEED_STEPS = [0.75, 1, 1.25, 1.5, 1.75, 2];
+    const SPEED_KEY = "birinci-audio-rate";
+    const VOLUME_KEY = "birinci-audio-volume";
+    const MUTE_KEY = "birinci-audio-muted";
+
     let activeBtn = null;
+    let activeStem = "";
     let utterance = null;
     let audioPlayer = null;
     let suppressError = false;
+    let ignoreClicksUntil = 0;
+    let startGuardUntil = 0;
+    let playerShell = null;
+    let playerEls = null;
+    let seeking = false;
+    let playbackRate = 1;
+    let savedVolume = 1;
+    let savedMuted = false;
+    let objectUrl = "";
+    let activeSourceKey = "";
+    let loadToken = 0;
+    let fetchController = null;
 
     const setLabel = (btn, text) => {
       const label = btn.querySelector("[data-story-tts-label]");
@@ -346,43 +1234,259 @@
     };
 
     const showNote = (btn, message) => {
-      const note = btn.parentElement && btn.parentElement.querySelector("[data-story-tts-note]");
+      const root =
+        (btn && btn.closest(".story__actions, .text-lightbox__tts")) ||
+        (btn && btn.parentElement);
+      const note = root && root.querySelector("[data-story-tts-note]");
       if (!note) return;
       note.hidden = !message;
       note.textContent = message || "";
     };
 
+    const resolveStory = (btn) => {
+      if (!btn) return null;
+      const nested = btn.closest("article.story");
+      if (nested) return nested;
+      const stem = (btn.getAttribute("data-story-stem") || "").trim();
+      if (!stem) return null;
+      return (
+        document.getElementById(stem) ||
+        document.querySelector(`article.story[data-stem="${stem}"]`)
+      );
+    };
+
+    const stemFor = (btn) => {
+      if (!btn) return "";
+      const fromAttr = (btn.getAttribute("data-story-stem") || "").trim();
+      if (fromAttr) return fromAttr;
+      const story = resolveStory(btn);
+      return ((story && (story.dataset.stem || story.id)) || "").trim();
+    };
+
+    const titleFor = (btn, story) => {
+      const fromStory = ((story && story.dataset.title) || "").trim();
+      if (fromStory) return fromStory;
+      const titleNode =
+        story &&
+        (story.querySelector(".story__title, .card-title") || story.querySelector("h2"));
+      if (titleNode) return titleNode.textContent.trim();
+      return "Hekayə";
+    };
+
+    const escapeStem = (stem) =>
+      window.CSS && typeof window.CSS.escape === "function"
+        ? window.CSS.escape(stem)
+        : stem.replace(/\\/g, "\\\\").replace(/"/g, '\\"');
+
+    const buttonsForStem = (stem, btn) => {
+      const buttons = new Set();
+      if (btn) buttons.add(btn);
+      if (!stem) return buttons;
+      const esc = escapeStem(stem);
+      document
+        .querySelectorAll(
+          `[data-story-tts][data-story-stem="${esc}"], article.story[data-stem="${esc}"] [data-story-tts], article.story#${esc} [data-story-tts]`
+        )
+        .forEach((el) => buttons.add(el));
+      return buttons;
+    };
+
+    const syncPlayingUi = (btn, playing) => {
+      const stem = stemFor(btn) || activeStem;
+      buttonsForStem(stem, btn).forEach((el) => {
+        el.setAttribute("aria-pressed", playing ? "true" : "false");
+        setLabel(el, playing ? "Dayandır" : "Mətni dinlə");
+      });
+    };
+
+    const syncPausedUi = (btn) => {
+      const stem = stemFor(btn) || activeStem;
+      buttonsForStem(stem, btn).forEach((el) => {
+        el.setAttribute("aria-pressed", "false");
+        setLabel(el, "Davam et");
+      });
+    };
+
+    const formatTime = (seconds) => {
+      if (!Number.isFinite(seconds) || seconds < 0) return "0:00";
+      const total = Math.floor(seconds);
+      const m = Math.floor(total / 60);
+      const s = total % 60;
+      return `${m}:${String(s).padStart(2, "0")}`;
+    };
+
+    const readPrefs = () => {
+      try {
+        const rate = Number(localStorage.getItem(SPEED_KEY));
+        if (SPEED_STEPS.includes(rate)) playbackRate = rate;
+      } catch (_) {}
+      try {
+        const vol = Number(localStorage.getItem(VOLUME_KEY));
+        if (Number.isFinite(vol) && vol >= 0 && vol <= 1) savedVolume = vol;
+      } catch (_) {}
+      try {
+        savedMuted = localStorage.getItem(MUTE_KEY) === "1";
+      } catch (_) {}
+    };
+
+    const writePrefs = () => {
+      try {
+        localStorage.setItem(SPEED_KEY, String(playbackRate));
+        localStorage.setItem(VOLUME_KEY, String(savedVolume));
+        localStorage.setItem(MUTE_KEY, savedMuted ? "1" : "0");
+      } catch (_) {}
+    };
+
+    const updatePlayButton = (playing) => {
+      if (!playerEls || !playerEls.playBtn) return;
+      playerEls.playBtn.setAttribute("aria-label", playing ? "Fasilə" : "Oynat");
+      playerEls.playBtn.setAttribute("aria-pressed", playing ? "true" : "false");
+      playerEls.playBtn.innerHTML = playing
+        ? '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor"></rect><rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor"></rect></svg>'
+        : '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><polygon points="8 5 20 12 8 19" fill="currentColor"></polygon></svg>';
+    };
+
+    const updateSpeedLabel = () => {
+      if (!playerEls || !playerEls.speedBtns) return;
+      playerEls.speedBtns.forEach((btn) => {
+        const rate = Number(btn.getAttribute("data-speed"));
+        const active = rate === playbackRate;
+        btn.setAttribute("aria-pressed", active ? "true" : "false");
+      });
+    };
+
+    const updateMuteUi = () => {
+      if (!playerEls) return;
+      if (playerEls.muteBtn) {
+        playerEls.muteBtn.setAttribute("aria-pressed", savedMuted ? "true" : "false");
+        playerEls.muteBtn.setAttribute("aria-label", savedMuted ? "Səsi aç" : "Səssiz");
+        playerEls.muteBtn.innerHTML = savedMuted
+          ? '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>'
+          : '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>';
+      }
+      if (playerEls.volume) {
+        playerEls.volume.value = String(savedMuted ? 0 : savedVolume);
+      }
+    };
+
+    const updateProgressUi = () => {
+      if (!audioPlayer || !playerEls) return;
+      const duration = Number.isFinite(audioPlayer.duration) ? audioPlayer.duration : 0;
+      const current = Number.isFinite(audioPlayer.currentTime) ? audioPlayer.currentTime : 0;
+      if (playerEls.current) playerEls.current.textContent = formatTime(current);
+      if (playerEls.duration) playerEls.duration.textContent = formatTime(duration);
+      if (playerEls.seek && !seeking) {
+        playerEls.seek.max = String(duration || 0);
+        playerEls.seek.value = String(current || 0);
+      }
+    };
+
+    const applyAudioSettings = () => {
+      if (!audioPlayer) return;
+      audioPlayer.playbackRate = playbackRate;
+      audioPlayer.volume = savedVolume;
+      audioPlayer.muted = savedMuted;
+      updateSpeedLabel();
+      updateMuteUi();
+    };
+
+    const hidePlayerShell = () => {
+      if (!playerShell) return;
+      playerShell.hidden = true;
+      playerShell.setAttribute("hidden", "");
+      document.body.classList.remove("audio-player-open");
+    };
+
+    const showPlayerShell = () => {
+      if (!playerShell) return;
+      playerShell.hidden = false;
+      playerShell.removeAttribute("hidden");
+      document.body.classList.add("audio-player-open");
+    };
+
     const clearActive = () => {
-      if (!activeBtn) return;
-      activeBtn.setAttribute("aria-pressed", "false");
-      setLabel(activeBtn, "Dinlə");
+      if (activeBtn) syncPlayingUi(activeBtn, false);
       activeBtn = null;
+      activeStem = "";
       utterance = null;
     };
 
-    const stopAudio = () => {
+    const revokeObjectUrl = () => {
+      if (!objectUrl) return;
+      try {
+        URL.revokeObjectURL(objectUrl);
+      } catch (_) {}
+      objectUrl = "";
+    };
+
+    const stopAudioElement = ({ clearSrc = true } = {}) => {
+      if (fetchController) {
+        try {
+          fetchController.abort();
+        } catch (_) {}
+        fetchController = null;
+      }
       if (!audioPlayer) return;
-      audioPlayer.pause();
-      audioPlayer.removeAttribute("src");
-      audioPlayer.load();
-      audioPlayer = null;
+      try {
+        audioPlayer.pause();
+      } catch (_) {}
+      if (clearSrc) {
+        try {
+          audioPlayer.removeAttribute("src");
+          audioPlayer.load();
+        } catch (_) {}
+        revokeObjectUrl();
+        activeSourceKey = "";
+      }
+    };
+
+    const closePlayer = () => {
+      suppressError = true;
+      loadToken += 1;
+      stopAudioElement({ clearSrc: true });
+      if (window.speechSynthesis) window.speechSynthesis.cancel();
+      clearActive();
+      hidePlayerShell();
+      updatePlayButton(false);
+      updateProgressUi();
+      window.setTimeout(() => {
+        suppressError = false;
+      }, 120);
     };
 
     const stopSpeech = () => {
-      suppressError = true;
-      stopAudio();
-      if (window.speechSynthesis) window.speechSynthesis.cancel();
-      clearActive();
-      window.setTimeout(() => {
-        suppressError = false;
-      }, 80);
+      closePlayer();
     };
 
-    const isPlaying = (btn) => {
-      if (activeBtn !== btn) return false;
+    window.__birinciStopStoryTts = stopSpeech;
+    window.__birinciIgnoreStoryTtsClicks = (ms) => {
+      ignoreClicksUntil = Date.now() + Math.max(0, Number(ms) || 0);
+    };
+    window.__birinciSyncStoryTtsUi = (stem, playing) => {
+      if (!stem) return;
+      const probe = document.querySelector(
+        `[data-story-tts][data-story-stem="${escapeStem(stem)}"], article.story[data-stem="${escapeStem(stem)}"] [data-story-tts], article.story#${escapeStem(stem)} [data-story-tts]`
+      );
+      if (probe) {
+        if (playing) syncPlayingUi(probe, true);
+        else if (window.__birinciIsStoryAudioActive(stem)) syncPausedUi(probe);
+        else syncPlayingUi(probe, false);
+      }
+    };
+    window.__birinciIsStoryAudioActive = (stem) =>
+      !!(stem && activeStem === stem && playerShell && !playerShell.hidden);
+
+    const isActivelyPlaying = () => {
       if (audioPlayer && !audioPlayer.paused && !audioPlayer.ended) return true;
       if (window.speechSynthesis && window.speechSynthesis.speaking) return true;
       return false;
+    };
+
+    const isSameStoryActive = (btn) => {
+      if (!btn) return false;
+      const stem = stemFor(btn);
+      if (stem && activeStem) return stem === activeStem;
+      return activeBtn === btn;
     };
 
     const loadVoices = () =>
@@ -408,6 +1512,14 @@
         window.setTimeout(finish, 800);
       });
 
+    const warmVoices = () => {
+      if (!window.speechSynthesis) return;
+      try {
+        window.speechSynthesis.getVoices();
+      } catch (_) {}
+    };
+    document.addEventListener("pointerdown", warmVoices, { once: true, passive: true });
+
     const pickVoice = (voices) =>
       voices.find((v) => (v.lang || "").toLowerCase().startsWith("az")) ||
       voices.find((v) => /azərbaycan|azerbaijani/i.test(v.name || "")) ||
@@ -427,7 +1539,7 @@
       body = body
         .replace(/[\u00AD\u200B-\u200D\uFEFF]/g, "")
         .replace(/[«»„“”]/g, "")
-        .replace(/[‘’]/g, "")
+        .replace(/[‘’']/g, "")
         .replace(/[—–-]+\s*/g, "")
         .replace(/\s+/g, " ")
         .trim();
@@ -438,40 +1550,277 @@
       return title ? `${title}. ${body}` : body;
     };
 
-    const playAudioStory = (btn, src) => {
-      stopSpeech();
+    const resolveAudioUrl = (src) => {
+      try {
+        return new URL(src, document.baseURI).href;
+      } catch (_) {
+        return src;
+      }
+    };
+
+    const markPlaying = (btn, playing = true) => {
+      activeBtn = btn;
+      activeStem = stemFor(btn);
+      startGuardUntil = Date.now() + 450;
+      syncPlayingUi(btn, playing);
       showNote(btn, "");
+      updatePlayButton(playing);
+    };
 
-      const player = new Audio(src);
-      audioPlayer = player;
+    const ensurePlayer = () => {
+      if (playerShell && playerEls && audioPlayer) return playerEls;
+      readPrefs();
+      playerShell = document.createElement("div");
+      playerShell.className = "audio-player";
+      playerShell.hidden = true;
+      playerShell.setAttribute("hidden", "");
+      playerShell.setAttribute("role", "region");
+      playerShell.setAttribute("aria-label", "Səs pleyeri");
+      playerShell.innerHTML = `
+        <div class="audio-player__inner">
+          <div class="audio-player__meta">
+            <p class="audio-player__title" data-audio-title>Hekayə</p>
+          </div>
+          <div class="audio-player__progress">
+            <span class="audio-player__time" data-audio-current>0:00</span>
+            <input class="audio-player__seek" data-audio-seek type="range" min="0" max="0" value="0" step="0.1" aria-label="İrəliləmə" />
+            <span class="audio-player__time audio-player__time--duration" data-audio-duration>0:00</span>
+          </div>
+          <div class="audio-player__controls">
+            <button type="button" class="audio-player__btn" data-audio-skip-back aria-label="15 saniyə geriyə">−15</button>
+            <button type="button" class="audio-player__btn audio-player__btn--play" data-audio-play aria-label="Oynat" aria-pressed="false"></button>
+            <button type="button" class="audio-player__btn" data-audio-skip-fwd aria-label="15 saniyə irəli">+15</button>
+            <div class="audio-player__speed" data-audio-speed role="group" aria-label="Sürət">
+              <span class="audio-player__speed-label">Sürət</span>
+              <button type="button" class="audio-player__speed-btn" data-speed="0.75" aria-pressed="false">0.75×</button>
+              <button type="button" class="audio-player__speed-btn" data-speed="1" aria-pressed="true">1×</button>
+              <button type="button" class="audio-player__speed-btn" data-speed="1.25" aria-pressed="false">1.25×</button>
+              <button type="button" class="audio-player__speed-btn" data-speed="1.5" aria-pressed="false">1.5×</button>
+              <button type="button" class="audio-player__speed-btn" data-speed="1.75" aria-pressed="false">1.75×</button>
+              <button type="button" class="audio-player__speed-btn" data-speed="2" aria-pressed="false">2×</button>
+            </div>
+            <div class="audio-player__volume-wrap">
+              <button type="button" class="audio-player__btn" data-audio-mute aria-label="Səssiz" aria-pressed="false"></button>
+              <input class="audio-player__volume" data-audio-volume type="range" min="0" max="1" value="1" step="0.01" aria-label="Səs səviyyəsi" />
+            </div>
+            <button type="button" class="audio-player__btn audio-player__btn--close" data-audio-close aria-label="Pleyeri bağla">&times;</button>
+          </div>
+        </div>
+        <audio data-audio-el preload="auto" playsinline webkit-playsinline></audio>
+      `.trim();
+      document.body.appendChild(playerShell);
 
-      player.addEventListener("playing", () => {
-        activeBtn = btn;
-        btn.setAttribute("aria-pressed", "true");
-        setLabel(btn, "Dayandır");
+      audioPlayer = playerShell.querySelector("[data-audio-el]");
+      playerEls = {
+        title: playerShell.querySelector("[data-audio-title]"),
+        current: playerShell.querySelector("[data-audio-current]"),
+        duration: playerShell.querySelector("[data-audio-duration]"),
+        seek: playerShell.querySelector("[data-audio-seek]"),
+        playBtn: playerShell.querySelector("[data-audio-play]"),
+        skipBack: playerShell.querySelector("[data-audio-skip-back]"),
+        skipFwd: playerShell.querySelector("[data-audio-skip-fwd]"),
+        speedGroup: playerShell.querySelector("[data-audio-speed]"),
+        speedBtns: Array.from(playerShell.querySelectorAll("[data-speed]")),
+        muteBtn: playerShell.querySelector("[data-audio-mute]"),
+        volume: playerShell.querySelector("[data-audio-volume]"),
+        closeBtn: playerShell.querySelector("[data-audio-close]"),
+      };
+
+      updatePlayButton(false);
+      updateSpeedLabel();
+      updateMuteUi();
+      applyAudioSettings();
+
+      playerEls.playBtn.addEventListener("click", () => {
+        if (!audioPlayer || !audioPlayer.src) return;
+        if (audioPlayer.paused) {
+          const start = audioPlayer.play();
+          if (start && typeof start.catch === "function") {
+            start.catch(() => showNote(activeBtn, audioFailedMessage));
+          }
+        } else {
+          audioPlayer.pause();
+        }
       });
-      player.addEventListener("ended", () => {
-        if (audioPlayer === player) audioPlayer = null;
-        clearActive();
+
+      playerEls.skipBack.addEventListener("click", () => {
+        if (!audioPlayer) return;
+        audioPlayer.currentTime = Math.max(0, (audioPlayer.currentTime || 0) - 15);
+        updateProgressUi();
       });
-      player.addEventListener("error", () => {
-        if (suppressError) {
-          clearActive();
+
+      playerEls.skipFwd.addEventListener("click", () => {
+        if (!audioPlayer) return;
+        const duration = Number.isFinite(audioPlayer.duration) ? audioPlayer.duration : 0;
+        const next = (audioPlayer.currentTime || 0) + 15;
+        audioPlayer.currentTime = duration ? Math.min(duration, next) : next;
+        updateProgressUi();
+      });
+
+      playerEls.speedBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const rate = Number(btn.getAttribute("data-speed"));
+          if (!SPEED_STEPS.includes(rate)) return;
+          playbackRate = rate;
+          if (audioPlayer) audioPlayer.playbackRate = playbackRate;
+          updateSpeedLabel();
+          writePrefs();
+        });
+      });
+
+      playerEls.muteBtn.addEventListener("click", () => {
+        savedMuted = !savedMuted;
+        if (audioPlayer) audioPlayer.muted = savedMuted;
+        updateMuteUi();
+        writePrefs();
+      });
+
+      playerEls.volume.addEventListener("input", () => {
+        const next = Number(playerEls.volume.value);
+        savedVolume = Number.isFinite(next) ? Math.min(1, Math.max(0, next)) : 1;
+        savedMuted = savedVolume === 0;
+        if (audioPlayer) {
+          audioPlayer.volume = savedVolume;
+          audioPlayer.muted = savedMuted;
+        }
+        updateMuteUi();
+        writePrefs();
+      });
+
+      const onSeekInput = () => {
+        seeking = true;
+        if (playerEls.current) {
+          playerEls.current.textContent = formatTime(Number(playerEls.seek.value) || 0);
+        }
+      };
+      const onSeekCommit = () => {
+        if (!audioPlayer) {
+          seeking = false;
           return;
         }
-        if (audioPlayer === player) audioPlayer = null;
-        clearActive();
-        showNote(btn, audioFailedMessage);
+        audioPlayer.currentTime = Number(playerEls.seek.value) || 0;
+        seeking = false;
+        updateProgressUi();
+      };
+      playerEls.seek.addEventListener("input", onSeekInput);
+      playerEls.seek.addEventListener("change", onSeekCommit);
+      playerEls.seek.addEventListener("pointerup", onSeekCommit);
+      playerEls.seek.addEventListener("touchend", onSeekCommit);
+
+      playerEls.closeBtn.addEventListener("click", () => closePlayer());
+
+      audioPlayer.addEventListener("timeupdate", updateProgressUi);
+      audioPlayer.addEventListener("loadedmetadata", updateProgressUi);
+      audioPlayer.addEventListener("durationchange", updateProgressUi);
+      audioPlayer.addEventListener("play", () => {
+        if (activeBtn) markPlaying(activeBtn, true);
+        else updatePlayButton(true);
+      });
+      audioPlayer.addEventListener("pause", () => {
+        if (audioPlayer && !audioPlayer.ended && activeBtn) syncPausedUi(activeBtn);
+        updatePlayButton(false);
+      });
+      audioPlayer.addEventListener("ended", () => {
+        updatePlayButton(false);
+        updateProgressUi();
+        if (activeBtn) syncPausedUi(activeBtn);
+      });
+      audioPlayer.addEventListener("error", () => {
+        if (suppressError) return;
+        const btn = activeBtn;
+        closePlayer();
+        if (btn) showNote(btn, audioFailedMessage);
       });
 
-      const start = player.play();
+      return playerEls;
+    };
+
+    const startPlayback = (btn) => {
+      applyAudioSettings();
+      updateProgressUi();
+      markPlaying(btn, true);
+      const start = audioPlayer.play();
       if (start && typeof start.catch === "function") {
         start.catch(() => {
-          if (audioPlayer === player) audioPlayer = null;
-          clearActive();
+          closePlayer();
           showNote(btn, audioFailedMessage);
         });
       }
+    };
+
+    const openPlayer = ({ btn, src, title, stem }) => {
+      ensurePlayer();
+      if (window.speechSynthesis) window.speechSynthesis.cancel();
+      utterance = null;
+
+      const absolute = resolveAudioUrl(src);
+      const sameTrack = activeSourceKey === absolute && !!audioPlayer && !!audioPlayer.src;
+
+      activeBtn = btn;
+      activeStem = stem || stemFor(btn);
+      startGuardUntil = Date.now() + 450;
+      showNote(btn, "");
+      if (playerEls.title) playerEls.title.textContent = title || "Hekayə";
+      showPlayerShell();
+      applyAudioSettings();
+
+      if (sameTrack) {
+        if (audioPlayer.paused || audioPlayer.ended) {
+          if (audioPlayer.ended) audioPlayer.currentTime = 0;
+          startPlayback(btn);
+        } else {
+          markPlaying(btn, true);
+        }
+        return;
+      }
+
+      const token = ++loadToken;
+      suppressError = true;
+      stopAudioElement({ clearSrc: true });
+      window.setTimeout(() => {
+        suppressError = false;
+      }, 120);
+
+      activeSourceKey = absolute;
+      markPlaying(btn, true);
+      updatePlayButton(true);
+
+      // Load as a blob so seeking works even when the server lacks Range support.
+      fetchController = typeof AbortController === "function" ? new AbortController() : null;
+      const fetchOpts = fetchController ? { signal: fetchController.signal } : {};
+      fetch(absolute, fetchOpts)
+        .then((res) => {
+          if (!res.ok) throw new Error("audio fetch failed");
+          return res.blob();
+        })
+        .then((blob) => {
+          if (token !== loadToken) return;
+          revokeObjectUrl();
+          objectUrl = URL.createObjectURL(blob);
+          audioPlayer.src = objectUrl;
+          startPlayback(btn);
+        })
+        .catch((err) => {
+          if (fetchController && err && err.name === "AbortError") return;
+          if (token !== loadToken) return;
+          // Fallback: direct URL (may not seek on some local servers).
+          try {
+            audioPlayer.src = absolute;
+            startPlayback(btn);
+          } catch (_) {
+            closePlayer();
+            showNote(btn, audioFailedMessage);
+          }
+        });
+    };
+
+    const playAudioStory = (btn, src, story) => {
+      openPlayer({
+        btn,
+        src,
+        title: titleFor(btn, story),
+        stem: stemFor(btn),
+      });
     };
 
     const speakStory = async (btn) => {
@@ -480,7 +1829,7 @@
         return;
       }
 
-      const story = btn.closest(".story");
+      const story = resolveStory(btn);
       const text = textForSpeech(story);
       if (!text) {
         showNote(btn, failedMessage);
@@ -495,142 +1844,429 @@
         return;
       }
 
-      stopSpeech();
-      showNote(btn, "");
+      closePlayer();
+      markPlaying(btn, true);
 
-      utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = (voice.lang || "az-AZ").startsWith("tr") ? "tr-TR" : "az-AZ";
-      utterance.voice = voice;
-      utterance.rate = 1;
-      utterance.pitch = 1;
+      const startSpeak = () => {
+        utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = (voice.lang || "az-AZ").startsWith("tr") ? "tr-TR" : "az-AZ";
+        utterance.voice = voice;
+        utterance.rate = 1;
+        utterance.pitch = 1;
 
-      utterance.onstart = () => {
-        activeBtn = btn;
-        btn.setAttribute("aria-pressed", "true");
-        setLabel(btn, "Dayandır");
-      };
-      utterance.onend = () => clearActive();
-      utterance.onerror = () => {
-        if (suppressError) {
+        utterance.onstart = () => markPlaying(btn, true);
+        utterance.onend = () => clearActive();
+        utterance.onerror = () => {
+          if (suppressError) return;
           clearActive();
-          return;
+          showNote(btn, failedMessage);
+        };
+
+        try {
+          window.speechSynthesis.speak(utterance);
+        } catch (err) {
+          clearActive();
+          showNote(btn, unsupportedMessage);
         }
-        clearActive();
-        showNote(btn, failedMessage);
       };
 
-      try {
-        window.speechSynthesis.speak(utterance);
-      } catch (err) {
-        clearActive();
-        showNote(btn, unsupportedMessage);
-      }
+      window.setTimeout(startSpeak, 60);
     };
 
-    buttons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        if (isPlaying(btn)) {
-          stopSpeech();
-          showNote(btn, "");
-          return;
-        }
-        const story = btn.closest(".story");
-        const audioSrc = story && story.dataset.audio;
-        if (audioSrc) {
-          playAudioStory(btn, audioSrc);
-          return;
-        }
-        speakStory(btn);
-      });
+    document.addEventListener("click", (event) => {
+      const btn = event.target.closest("[data-story-tts]");
+      if (!btn) return;
+      event.preventDefault();
+      event.stopPropagation();
+      if (Date.now() < ignoreClicksUntil) return;
 
-      const actions = btn.closest(".story__actions") || btn.parentElement;
-      if (actions) {
-        actions.addEventListener("mouseleave", () => showNote(btn, ""));
-        actions.addEventListener("focusout", (event) => {
-          if (!actions.contains(event.relatedTarget)) showNote(btn, "");
-        });
+      const story = resolveStory(btn);
+      const audioSrc = story && story.dataset.audio;
+      const same = isSameStoryActive(btn);
+
+      if (audioSrc) {
+        ensurePlayer();
+        if (same && audioPlayer && !audioPlayer.paused && !audioPlayer.ended) {
+          audioPlayer.pause();
+          return;
+        }
+        playAudioStory(btn, audioSrc, story);
+        return;
       }
+
+      if (same && isActivelyPlaying()) {
+        stopSpeech();
+        showNote(btn, "");
+        return;
+      }
+      speakStory(btn);
     });
+
+    document.addEventListener(
+      "mouseleave",
+      (event) => {
+        const actions = event.target && event.target.closest && event.target.closest(".story__actions");
+        if (!actions) return;
+        const btn = actions.querySelector("[data-story-tts]");
+        if (btn) showNote(btn, "");
+      },
+      true
+    );
+
+    document.addEventListener(
+      "focusout",
+      (event) => {
+        const actions = event.target && event.target.closest && event.target.closest(".story__actions");
+        if (!actions) return;
+        if (!actions.contains(event.relatedTarget)) {
+          const btn = actions.querySelector("[data-story-tts]");
+          if (btn) showNote(btn, "");
+        }
+      },
+      true
+    );
 
     window.addEventListener("beforeunload", stopSpeech);
   };
 
-  initStoryTts();
+  const initIllustrationLightbox = () => {
+    let overlay = null;
+    let dialog = null;
+    let imageEl = null;
+    let captionEl = null;
+    let closeBtn = null;
+    let lastFocus = null;
 
-  const nav = document.querySelector(".story-nav");
-  if (!nav) return;
+    const ensureOverlay = () => {
+      if (overlay) return overlay;
+      overlay = document.createElement("div");
+      overlay.className = "illustration-lightbox";
+      overlay.hidden = true;
+      overlay.setAttribute("hidden", "");
+      overlay.innerHTML = `
+        <div class="illustration-lightbox__dialog" role="dialog" aria-modal="true" aria-label="Böyüdülmüş illüstrasiya">
+          <button type="button" class="illustration-lightbox__close" aria-label="Bağla">&times;</button>
+          <div class="illustration-lightbox__frame">
+            <img class="illustration-lightbox__image" alt="" />
+          </div>
+          <p class="illustration-lightbox__caption"></p>
+        </div>
+      `.trim();
+      document.body.appendChild(overlay);
+      dialog = overlay.querySelector(".illustration-lightbox__dialog");
+      imageEl = overlay.querySelector(".illustration-lightbox__image");
+      captionEl = overlay.querySelector(".illustration-lightbox__caption");
+      closeBtn = overlay.querySelector(".illustration-lightbox__close");
 
-  const widget = nav.querySelector(".sidebar-widget");
-  const toggle = nav.querySelector(".events-menu-toggle");
-  const mobileQuery = window.matchMedia("(max-width: 1060px)");
+      overlay.addEventListener("click", (event) => {
+        if (event.target === overlay) close();
+      });
+      if (closeBtn) closeBtn.addEventListener("click", close);
+      return overlay;
+    };
 
-  const closeMenu = () => {
-    if (!widget || !toggle) return;
-    widget.classList.remove("events-open");
-    toggle.setAttribute("aria-expanded", "false");
-  };
-  const toggleMenu = () => {
-    if (!widget || !toggle) return;
-    const open = widget.classList.toggle("events-open");
-    toggle.setAttribute("aria-expanded", open ? "true" : "false");
-  };
-  if (toggle) {
-    toggle.addEventListener("click", (event) => {
-      event.stopPropagation();
-      toggleMenu();
-    });
-  }
-  mobileQuery.addEventListener("change", () => {
-    if (!mobileQuery.matches) closeMenu();
-  });
+    const close = () => {
+      if (!overlay || overlay.hidden) return;
+      overlay.hidden = true;
+      overlay.setAttribute("hidden", "");
+      document.body.classList.remove("illustration-lightbox-open");
+      if (imageEl) {
+        imageEl.removeAttribute("src");
+        imageEl.alt = "";
+      }
+      if (captionEl) captionEl.textContent = "";
+      if (lastFocus && typeof lastFocus.focus === "function") {
+        try {
+          lastFocus.focus();
+        } catch (_) {}
+      }
+      lastFocus = null;
+    };
 
-  const refreshSpyTargets = () => {
-    const links = Array.from(nav.querySelectorAll('a[href^="#"]'));
-    return links
-      .map((link) => {
-        const id = decodeURIComponent(link.getAttribute("href").slice(1));
-        const el = document.getElementById(id);
-        return el ? { link, el } : null;
-      })
-      .filter(Boolean);
-  };
+    const open = (img) => {
+      if (!img || !img.getAttribute("src")) return;
+      ensureOverlay();
+      lastFocus = document.activeElement;
+      const src = img.currentSrc || img.getAttribute("src");
+      const alt = img.getAttribute("alt") || "";
+      imageEl.src = src;
+      imageEl.alt = alt;
+      captionEl.textContent = alt;
+      captionEl.hidden = !alt;
+      overlay.hidden = false;
+      overlay.removeAttribute("hidden");
+      document.body.classList.add("illustration-lightbox-open");
+      window.requestAnimationFrame(() => {
+        if (closeBtn) closeBtn.focus();
+      });
+    };
 
-  let storyPairs = refreshSpyTargets();
-  if (!storyPairs.length) return;
-
-  const setActive = (activeLink) => {
-    nav.querySelectorAll("a").forEach((link) => {
-      link.classList.toggle("is-active", link === activeLink);
-    });
-  };
-
-  nav.querySelectorAll('a[href^="#"]').forEach((link) => {
-    link.addEventListener("click", (event) => {
-      const id = decodeURIComponent((link.getAttribute("href") || "").slice(1));
-      const target = document.getElementById(id);
-      if (!target) return;
+    document.addEventListener("click", (event) => {
+      const openBtn = event.target.closest(".story__figure-open");
+      if (!openBtn) return;
+      const story = openBtn.closest(".story");
+      if (story && story.classList.contains("story--figure-hidden")) return;
+      const img = openBtn.querySelector("img");
+      if (!img) return;
       event.preventDefault();
-      setActive(link);
-      const html = document.documentElement;
-      const prevBehavior = html.style.scrollBehavior;
-      html.style.scrollBehavior = "auto";
-      target.scrollIntoView({ block: "start", behavior: "auto" });
-      html.style.scrollBehavior = prevBehavior;
-      history.pushState(null, "", `#${id}`);
-      if (mobileQuery.matches) closeMenu();
+      open(img);
     });
-  });
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      const visible = entries
-        .filter((e) => e.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (!visible) return;
-      const match = storyPairs.find((s) => s.el === visible.target);
-      if (match) setActive(match.link);
-    },
-    { rootMargin: "-20% 0px -55% 0px", threshold: [0.1, 0.25, 0.5] }
-  );
-  storyPairs.forEach(({ el }) => observer.observe(el));
+    document.addEventListener("keydown", (event) => {
+      if (!overlay || overlay.hidden) return;
+      if (event.key === "Escape") {
+        event.preventDefault();
+        close();
+      }
+    });
+  };
+
+  const initTextLightbox = () => {
+    let overlay = null;
+    let titleEl = null;
+    let bodyEl = null;
+    let closeBtn = null;
+    let ttsBtn = null;
+    let ttsNote = null;
+    let lastFocus = null;
+
+    const ensureOverlay = () => {
+      if (overlay) return overlay;
+      overlay = document.createElement("div");
+      overlay.className = "text-lightbox";
+      overlay.hidden = true;
+      overlay.setAttribute("hidden", "");
+      overlay.innerHTML = `
+        <div class="text-lightbox__dialog" role="dialog" aria-modal="true" aria-label="Böyüdülmüş hekayə mətni">
+          <button type="button" class="text-lightbox__close" aria-label="Bağla">&times;</button>
+          <div class="text-lightbox__header">
+            <h2 class="text-lightbox__title"></h2>
+          </div>
+          <div class="text-lightbox__tts">
+            <button type="button" class="story-tts" data-story-tts data-lightbox-tts aria-pressed="false">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+              </svg>
+              <span data-story-tts-label>Mətni dinlə</span>
+            </button>
+            <p class="story-tts__note" data-story-tts-note hidden></p>
+          </div>
+          <div class="text-lightbox__body"></div>
+        </div>
+      `.trim();
+      document.body.appendChild(overlay);
+      titleEl = overlay.querySelector(".text-lightbox__title");
+      bodyEl = overlay.querySelector(".text-lightbox__body");
+      closeBtn = overlay.querySelector(".text-lightbox__close");
+      ttsBtn = overlay.querySelector("[data-lightbox-tts]");
+      ttsNote = overlay.querySelector("[data-story-tts-note]");
+      overlay.addEventListener("click", (event) => {
+        if (event.target === overlay) close();
+      });
+      if (closeBtn) closeBtn.addEventListener("click", close);
+      return overlay;
+    };
+
+    const resetTtsUi = () => {
+      if (!ttsBtn) return;
+      ttsBtn.setAttribute("aria-pressed", "false");
+      ttsBtn.removeAttribute("data-story-stem");
+      const label = ttsBtn.querySelector("[data-story-tts-label]");
+      if (label) label.textContent = "Mətni dinlə";
+      if (ttsNote) {
+        ttsNote.hidden = true;
+        ttsNote.textContent = "";
+      }
+    };
+
+    const close = () => {
+      if (!overlay || overlay.hidden) return;
+      // Keep sticky audio player running while the text overlay closes.
+      overlay.hidden = true;
+      overlay.setAttribute("hidden", "");
+      document.body.classList.remove("text-lightbox-open");
+      if (titleEl) titleEl.textContent = "";
+      if (bodyEl) bodyEl.innerHTML = "";
+      resetTtsUi();
+      if (lastFocus && typeof lastFocus.focus === "function") {
+        try {
+          lastFocus.focus();
+        } catch (_) {}
+      }
+      lastFocus = null;
+    };
+
+    const open = (story, textEl) => {
+      if (!story || !textEl) return;
+      ensureOverlay();
+      lastFocus = document.activeElement;
+      const titleNode =
+        story.querySelector(".story__title, .card-title") ||
+        story.querySelector("h2");
+      titleEl.textContent = titleNode ? titleNode.textContent.trim() : "Hekayə";
+      bodyEl.innerHTML = textEl.innerHTML;
+      const stem = ((story.dataset.stem || story.id) || "").trim();
+      if (ttsBtn) {
+        if (stem) ttsBtn.setAttribute("data-story-stem", stem);
+        else ttsBtn.removeAttribute("data-story-stem");
+        ttsBtn.setAttribute("aria-pressed", "false");
+        const label = ttsBtn.querySelector("[data-story-tts-label]");
+        if (label) label.textContent = "Mətni dinlə";
+      }
+      if (ttsNote) {
+        ttsNote.hidden = true;
+        ttsNote.textContent = "";
+      }
+      // Same tap that opens the overlay can land on the listen button (esp. mobile).
+      if (typeof window.__birinciIgnoreStoryTtsClicks === "function") {
+        window.__birinciIgnoreStoryTtsClicks(500);
+      }
+      overlay.hidden = false;
+      overlay.removeAttribute("hidden");
+      document.body.classList.add("text-lightbox-open");
+      if (stem && typeof window.__birinciSyncStoryTtsUi === "function") {
+        const cardBtn = story.querySelector("[data-story-tts]");
+        const pressed = cardBtn && cardBtn.getAttribute("aria-pressed") === "true";
+        const pausedLabel =
+          cardBtn &&
+          (cardBtn.querySelector("[data-story-tts-label]") || {}).textContent === "Davam et";
+        const active =
+          typeof window.__birinciIsStoryAudioActive === "function" &&
+          window.__birinciIsStoryAudioActive(stem);
+        if (pressed) window.__birinciSyncStoryTtsUi(stem, true);
+        else if (active || pausedLabel) window.__birinciSyncStoryTtsUi(stem, false);
+      }
+      window.requestAnimationFrame(() => {
+        // Focus close — not the listen button — to avoid ghost-click start/stop.
+        if (closeBtn) closeBtn.focus();
+        else if (overlay) overlay.focus();
+      });
+    };
+
+    document.addEventListener("click", (event) => {
+      if (event.target.closest("button, a, input, select, textarea, label")) return;
+      const textEl = event.target.closest(".story__text, .story .card-text");
+      if (!textEl) return;
+      const story = textEl.closest("article.story");
+      if (!story || story.classList.contains("story--text-hidden")) return;
+      if (textEl.closest(".text-lightbox")) return;
+      event.preventDefault();
+      open(story, textEl);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (!overlay || overlay.hidden) return;
+      if (event.key === "Escape") {
+        event.preventDefault();
+        close();
+      }
+    });
+  };
+
+  const initStoryFigureToggle = () => {
+    const setFigureState = (story, visible) => {
+      if (!story) return;
+      story.classList.toggle("story--figure-hidden", !visible);
+      const btn = story.querySelector("[data-story-figure-toggle]");
+      if (!btn) return;
+      btn.setAttribute("aria-expanded", visible ? "true" : "false");
+      const label = btn.querySelector("[data-story-figure-label]");
+      if (label) label.textContent = visible ? "Şəkli gizlət" : "Şəkli göstər";
+    };
+
+    const setAllFigures = (visible) => {
+      document.querySelectorAll("article.story").forEach((story) => {
+        setFigureState(story, visible);
+      });
+    };
+
+    window.__birinciSetStoryFigure = setFigureState;
+    window.__birinciSetAllStoryFigures = setAllFigures;
+
+    document.addEventListener("click", (event) => {
+      const btn = event.target.closest("[data-story-figure-toggle]");
+      if (!btn) return;
+      event.preventDefault();
+      const story = btn.closest(".story");
+      if (!story) return;
+      const visible = btn.getAttribute("aria-expanded") !== "true";
+      setFigureState(story, visible);
+    });
+
+    setAllFigures(!document.body.classList.contains("images-collapsed"));
+  };
+
+  const initStoryTextToggle = () => {
+    const setTextState = (story, visible) => {
+      if (!story) return;
+      story.classList.toggle("story--text-hidden", !visible);
+      const btn = story.querySelector("[data-story-text-toggle]");
+      if (!btn) return;
+      btn.setAttribute("aria-expanded", visible ? "true" : "false");
+      const label = btn.querySelector("[data-story-text-label]");
+      if (label) label.textContent = visible ? "Mətni gizlət" : "Mətni göstər";
+    };
+
+    const setAllTexts = (visible) => {
+      document.querySelectorAll("article.story").forEach((story) => {
+        setTextState(story, visible);
+      });
+    };
+
+    window.__birinciSetStoryText = setTextState;
+    window.__birinciSetAllStoryTexts = setAllTexts;
+
+    document.addEventListener("click", (event) => {
+      const btn = event.target.closest("[data-story-text-toggle]");
+      if (!btn) return;
+      event.preventDefault();
+      const story = btn.closest(".story");
+      if (!story) return;
+      const visible = btn.getAttribute("aria-expanded") !== "true";
+      setTextState(story, visible);
+    });
+
+    setAllTexts(!document.body.classList.contains("texts-collapsed"));
+  };
+
+  try {
+    initIllustrationLightbox();
+  } catch (err) {
+    console.error("initIllustrationLightbox failed", err);
+  }
+  try {
+    initTextLightbox();
+  } catch (err) {
+    console.error("initTextLightbox failed", err);
+  }
+  try {
+    initStoryFigureToggle();
+  } catch (err) {
+    console.error("initStoryFigureToggle failed", err);
+  }
+  try {
+    initStoryTextToggle();
+  } catch (err) {
+    console.error("initStoryTextToggle failed", err);
+  }
+  try {
+    initHomeViews();
+  } catch (err) {
+    console.error("initHomeViews failed", err);
+  }
+  try {
+    initStoryTts();
+  } catch (err) {
+    console.error("initStoryTts failed", err);
+  }
+
+  document.querySelectorAll(".category-layout").forEach((layout) => {
+    try {
+      bindStorySidebarLayout(layout);
+    } catch (err) {
+      console.error("bindStorySidebarLayout failed", err);
+    }
+  });
 })();
