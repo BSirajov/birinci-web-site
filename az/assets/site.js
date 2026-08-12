@@ -2,7 +2,6 @@
 (() => {
   const header = document.querySelector(".site-header");
   const dropdowns = Array.from(document.querySelectorAll(".nav-dropdown"));
-  const literatureDropdown = document.querySelector(".nav-dropdown--literature");
   const navToggle = document.getElementById("nav-toggle");
   const mobileNavQuery = window.matchMedia("(max-width: 1180px)");
 
@@ -42,14 +41,14 @@
     });
   }
 
-  const nestedGroups = literatureDropdown
-    ? Array.from(
-        literatureDropdown.querySelectorAll(".nav-dropdown--nested.nav-dropdown--has-mega")
-      )
-    : [];
+  const nestedGroups = Array.from(
+    document.querySelectorAll(".nav-dropdown--nested.nav-dropdown--has-mega")
+  );
 
   const setMegaOpen = (target, open) => {
+    const scope = target ? target.closest(".nav-dropdown") : null;
     nestedGroups.forEach((group) => {
+      if (scope && !scope.contains(group)) return;
       const shouldOpen = !!open && group === target;
       group.classList.toggle("is-mega-open", shouldOpen);
       const btn = group.querySelector("[data-nav-mega-toggle]");
@@ -57,13 +56,21 @@
     });
   };
 
-  const closeAllMegas = () => setMegaOpen(null, false);
+  const closeMegasIn = (dropdown) => {
+    if (!dropdown) return;
+    nestedGroups.forEach((group) => {
+      if (!dropdown.contains(group)) return;
+      group.classList.remove("is-mega-open");
+      const btn = group.querySelector("[data-nav-mega-toggle]");
+      if (btn) btn.setAttribute("aria-expanded", "false");
+    });
+  };
 
   const setDropdownOpen = (dropdown, open) => {
     if (!dropdown) return;
     dropdown.open = !!open;
     dropdown.classList.toggle("is-hover-open", !!open);
-    if (!open && dropdown === literatureDropdown) closeAllMegas();
+    if (!open) closeMegasIn(dropdown);
   };
 
   const closeAllDropdowns = () => {
@@ -102,7 +109,7 @@
     dropdown.addEventListener("toggle", () => {
       if (!dropdown.open) {
         dropdown.classList.remove("is-hover-open");
-        if (dropdown === literatureDropdown) closeAllMegas();
+        closeMegasIn(dropdown);
       }
     });
     dropdown.querySelectorAll("a").forEach((link) => {
@@ -292,162 +299,447 @@
   const localeCompareAz = (a, b) =>
     String(a || "").localeCompare(String(b || ""), "az", { sensitivity: "base" });
 
-  const initTools = () => {
-    const bar = document.querySelector("[data-tools]");
-    if (!bar) return;
-    const mode = bar.getAttribute("data-tools");
-    if (mode === "home") return;
-    const searchInput = bar.querySelector("[data-tools-search]");
-    const sortSelect = bar.querySelector("[data-tools-sort]");
-    const empty = document.querySelector("[data-tools-empty]");
+  const initCategoryTools = () => {
+    if (!document.body.classList.contains("page-category")) return;
+    const bar = document.querySelector('[data-tools="category"]');
     const list = document.querySelector("[data-tools-list]");
-    const imagesBtn = bar.querySelector("[data-tools-images]");
-    const imagesLabel = bar.querySelector("[data-tools-images-label]");
-    const textsBtn = bar.querySelector("[data-tools-texts]");
-    const textsLabel = bar.querySelector("[data-tools-texts-label]");
-    if (!searchInput || !sortSelect || !list) return;
+    const empty = document.querySelector("[data-tools-empty]");
+    if (!bar || !list) return;
 
-    if (imagesBtn && mode === "stories") {
-      const storageKey = "birinci-images-collapsed";
-      const applyImagesState = (collapsed) => {
-        document.body.classList.toggle("images-collapsed", collapsed);
-        imagesBtn.setAttribute("aria-pressed", collapsed ? "true" : "false");
-        if (imagesLabel) {
-          imagesLabel.textContent = collapsed ? "Şəkilləri göstər" : "Şəkilləri gizlət";
-        }
-        if (typeof window.__birinciSetAllStoryFigures === "function") {
-          window.__birinciSetAllStoryFigures(!collapsed);
+    const searchInput = bar.querySelector("[data-tools-search]");
+    if (!searchInput) return;
+
+    const imagesToggle = bar.querySelector("[data-tools-images]");
+    const imagesBtns = Array.from(bar.querySelectorAll("[data-images-mode]"));
+    const textsToggle = bar.querySelector("[data-tools-texts]");
+    const textsBtns = Array.from(bar.querySelectorAll("[data-texts-mode]"));
+    const batchSizeInput = bar.querySelector("[data-home-batch-size]");
+    const batchPrevBtn = bar.querySelector('[data-home-batch="prev"]');
+    const batchNextBtn = bar.querySelector('[data-home-batch="next"]');
+    const batchRandomBtn = bar.querySelector('[data-home-batch="random"]');
+    const batchAllBtn = bar.querySelector('[data-home-batch="all"]');
+    const batchRangeEl = bar.querySelector("[data-home-batch-range]");
+    const navList = document.querySelector("[data-tools-nav]");
+    const countEl = document.querySelector("[data-tools-count]");
+    const batchSizeStorageKey = "birinci-home-batch-size";
+    const batchAllStorageKey = "birinci-home-batch-all";
+    const legacyPageSizeStorageKey = "birinci-home-page-size";
+
+    const allStories = Array.from(list.querySelectorAll(".story"));
+    allStories.sort((a, b) => localeCompareAz(a.dataset.title, b.dataset.title));
+    allStories.forEach((story) => list.appendChild(story));
+    if (navList) {
+      const navItems = Array.from(navList.querySelectorAll("li[data-stem]"));
+      navItems.sort((a, b) => localeCompareAz(a.dataset.title, b.dataset.title));
+      navItems.forEach((item) => navList.appendChild(item));
+    }
+
+    let filtered = [];
+    let batchSize = 10;
+    let windowStart = 0;
+    let randomStems = null;
+    let allMode = false;
+    let pendingStem = null;
+
+    const batchCap = () => {
+      const n =
+        (filtered && filtered.length) ||
+        (allStories && allStories.length) ||
+        0;
+      return Math.max(1, n);
+    };
+
+    const readBatchSize = () => {
+      if (!batchSizeInput) return batchSize || 10;
+      const n = Number(batchSizeInput.value);
+      return Number.isFinite(n) && n > 0 ? Math.floor(n) : batchSize || 10;
+    };
+
+    const persistBatchSize = () => {
+      try {
+        localStorage.setItem(batchSizeStorageKey, String(batchSize));
+        localStorage.removeItem(legacyPageSizeStorageKey);
+      } catch (_) {}
+    };
+
+    const persistAllMode = () => {
+      try {
+        if (allMode) localStorage.setItem(batchAllStorageKey, "1");
+        else localStorage.removeItem(batchAllStorageKey);
+      } catch (_) {}
+    };
+
+    const syncBatchUi = (visibleCount = 0) => {
+      const total = (filtered && filtered.length) || 0;
+      const cap = batchCap();
+      if (batchSizeInput) {
+        batchSizeInput.min = "1";
+        batchSizeInput.max = String(cap);
+        batchSizeInput.value = String(batchSize);
+      }
+      const showingAll =
+        total > 0 &&
+        !randomStems &&
+        (allMode || (windowStart <= 0 && visibleCount >= total && visibleCount > 0));
+      const atStart = !randomStems && !allMode && windowStart <= 0;
+      const atEnd =
+        !randomStems && (allMode || total === 0 || windowStart + batchSize >= total);
+      if (batchPrevBtn) batchPrevBtn.disabled = total === 0 || allMode || atStart;
+      if (batchNextBtn) batchNextBtn.disabled = total === 0 || allMode || atEnd;
+      if (batchRandomBtn) batchRandomBtn.disabled = total === 0;
+      if (batchAllBtn) batchAllBtn.disabled = total === 0 || showingAll;
+      if (batchRangeEl) {
+        if (total === 0) {
+          batchRangeEl.hidden = true;
+          batchRangeEl.textContent = "";
+        } else if (randomStems) {
+          batchRangeEl.hidden = false;
+          batchRangeEl.textContent = `Təsadüfi · ${visibleCount} / ${total}`;
+        } else if (allMode || showingAll) {
+          batchRangeEl.hidden = false;
+          batchRangeEl.textContent = `1–${total} / ${total}`;
         } else {
-          document.querySelectorAll("article.story").forEach((story) => {
-            story.classList.toggle("story--figure-hidden", collapsed);
-            const btn = story.querySelector("[data-story-figure-toggle]");
-            if (!btn) return;
-            btn.setAttribute("aria-expanded", collapsed ? "false" : "true");
-            const label = btn.querySelector("[data-story-figure-label]");
-            if (label) label.textContent = collapsed ? "Şəkli göstər" : "Şəkli gizlət";
-          });
+          const from = windowStart + 1;
+          const to = windowStart + visibleCount;
+          batchRangeEl.hidden = false;
+          batchRangeEl.textContent = `${from}–${to} / ${total}`;
         }
-        try {
-          localStorage.setItem(storageKey, collapsed ? "1" : "0");
-        } catch (_) {}
-      };
+      }
+    };
+
+    const commitBatchSize = ({ persist = true, render = false, resetWindow = false } = {}) => {
+      const cap = batchCap();
+      let n = Number(batchSizeInput && batchSizeInput.value);
+      if (!Number.isFinite(n) || n < 1) n = 1;
+      n = Math.min(Math.floor(n), cap);
+      if (n < 1) n = 1;
+      if (batchSizeInput) batchSizeInput.value = String(n);
+      batchSize = n;
+      if (resetWindow) {
+        windowStart = 0;
+        randomStems = null;
+      } else {
+        if (randomStems) randomStems = null;
+        if (allMode) allMode = false;
+      }
+      if (persist) {
+        persistBatchSize();
+        persistAllMode();
+      }
+      if (render) {
+        pendingStem = null;
+        renderList();
+      } else {
+        syncBatchUi(0);
+      }
+    };
+
+    const applyStoredBatchSize = () => {
+      let stored = "";
+      try {
+        allMode = localStorage.getItem(batchAllStorageKey) === "1";
+        stored = localStorage.getItem(batchSizeStorageKey) || "";
+        if (!stored) {
+          const legacy = localStorage.getItem(legacyPageSizeStorageKey) || "";
+          if (legacy && legacy !== "all") stored = legacy;
+          else if (legacy === "all") allMode = true;
+        }
+      } catch (_) {}
+      const n = Number(stored);
+      if (Number.isFinite(n) && n > 0) {
+        batchSize = Math.floor(n);
+        if (batchSizeInput) batchSizeInput.value = String(batchSize);
+      } else {
+        batchSize = readBatchSize();
+      }
+      syncBatchUi(0);
+    };
+
+    applyStoredBatchSize();
+
+    const pickRandomStems = (count) => {
+      const total = filtered.length;
+      if (!total) return [];
+      const n = Math.min(Math.max(1, count), total);
+      const idxs = Array.from({ length: total }, (_, i) => i);
+      for (let i = idxs.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const tmp = idxs[i];
+        idxs[i] = idxs[j];
+        idxs[j] = tmp;
+      }
+      return idxs.slice(0, n).map((i) => filtered[i].dataset.stem);
+    };
+
+    const applyImagesState = (collapsed) => {
+      document.body.classList.toggle("images-collapsed", collapsed);
+      imagesBtns.forEach((btn) => {
+        const mode = btn.getAttribute("data-images-mode");
+        const pressed = collapsed ? mode === "hide" : mode === "show";
+        btn.setAttribute("aria-pressed", pressed ? "true" : "false");
+      });
+      if (typeof window.__birinciSetAllStoryFigures === "function") {
+        window.__birinciSetAllStoryFigures(!collapsed);
+      } else {
+        document.querySelectorAll("article.story").forEach((story) => {
+          story.classList.toggle("story--figure-hidden", collapsed);
+          const btn = story.querySelector("[data-story-figure-toggle]");
+          if (!btn) return;
+          btn.setAttribute("aria-expanded", collapsed ? "false" : "true");
+          const label = btn.querySelector("[data-story-figure-label]");
+          if (label) label.textContent = collapsed ? "Şəkli göstər" : "Şəkli gizlət";
+        });
+      }
+      try {
+        localStorage.setItem("birinci-images-collapsed", collapsed ? "1" : "0");
+      } catch (_) {}
+    };
+
+    if (imagesToggle && imagesBtns.length) {
       let collapsed = false;
       try {
-        collapsed = localStorage.getItem(storageKey) === "1";
+        collapsed = localStorage.getItem("birinci-images-collapsed") === "1";
       } catch (_) {}
       applyImagesState(collapsed);
-      imagesBtn.addEventListener("click", () => {
-        applyImagesState(!document.body.classList.contains("images-collapsed"));
+      imagesBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          applyImagesState(btn.getAttribute("data-images-mode") === "hide");
+        });
       });
     }
 
-    if (textsBtn && mode === "stories") {
-      const textsKey = "birinci-texts-collapsed";
-      const applyTextsState = (collapsed) => {
-        document.body.classList.toggle("texts-collapsed", collapsed);
-        textsBtn.setAttribute("aria-pressed", collapsed ? "true" : "false");
-        if (textsLabel) {
-          textsLabel.textContent = collapsed ? "Mətnləri göstər" : "Mətnləri gizlət";
-        }
-        if (typeof window.__birinciSetAllStoryTexts === "function") {
-          window.__birinciSetAllStoryTexts(!collapsed);
-        } else {
-          document.querySelectorAll("article.story").forEach((story) => {
-            story.classList.toggle("story--text-hidden", collapsed);
-            const btn = story.querySelector("[data-story-text-toggle]");
-            if (!btn) return;
-            btn.setAttribute("aria-expanded", collapsed ? "false" : "true");
-            const label = btn.querySelector("[data-story-text-label]");
-            if (label) label.textContent = collapsed ? "Mətni göstər" : "Mətni gizlət";
-          });
-        }
-        try {
-          localStorage.setItem(textsKey, collapsed ? "1" : "0");
-        } catch (_) {}
-      };
+    const applyTextsState = (collapsed) => {
+      document.body.classList.toggle("texts-collapsed", collapsed);
+      textsBtns.forEach((btn) => {
+        const mode = btn.getAttribute("data-texts-mode");
+        const pressed = collapsed ? mode === "hide" : mode === "show";
+        btn.setAttribute("aria-pressed", pressed ? "true" : "false");
+      });
+      if (typeof window.__birinciSetAllStoryTexts === "function") {
+        window.__birinciSetAllStoryTexts(!collapsed);
+      } else {
+        document.querySelectorAll("article.story").forEach((story) => {
+          story.classList.toggle("story--text-hidden", collapsed);
+          const btn = story.querySelector("[data-story-text-toggle]");
+          if (!btn) return;
+          btn.setAttribute("aria-expanded", collapsed ? "false" : "true");
+          const label = btn.querySelector("[data-story-text-label]");
+          if (label) label.textContent = collapsed ? "Mətni göstər" : "Mətni gizlət";
+        });
+      }
+      try {
+        localStorage.setItem("birinci-texts-collapsed", collapsed ? "1" : "0");
+      } catch (_) {}
+    };
+
+    if (textsToggle && textsBtns.length) {
       let textsCollapsed = false;
       try {
-        textsCollapsed = localStorage.getItem(textsKey) === "1";
+        textsCollapsed = localStorage.getItem("birinci-texts-collapsed") === "1";
       } catch (_) {}
       applyTextsState(textsCollapsed);
-      textsBtn.addEventListener("click", () => {
-        applyTextsState(!document.body.classList.contains("texts-collapsed"));
+      textsBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          applyTextsState(btn.getAttribute("data-texts-mode") === "hide");
+        });
       });
     }
 
-    const applyCategories = () => {
-      const q = searchInput.value.trim().toLocaleLowerCase("az");
-      const sort = sortSelect.value;
-      const items = Array.from(list.querySelectorAll(".cat-card"));
-      items.sort((a, b) => {
-        if (sort === "count-desc" || sort === "count-asc") {
-          const ca = Number(a.dataset.count || 0);
-          const cb = Number(b.dataset.count || 0);
-          return sort === "count-desc" ? cb - ca : ca - cb;
-        }
-        const cmp = localeCompareAz(a.dataset.title, b.dataset.title);
-        return sort === "za" ? -cmp : cmp;
-      });
-      items.forEach((item) => list.appendChild(item));
+    const escapeHtml = (value) =>
+      String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
 
-      let visible = 0;
-      items.forEach((item) => {
-        const hay = `${item.dataset.title || ""} ${item.dataset.blurb || ""}`.toLocaleLowerCase("az");
-        const show = !q || hay.includes(q);
-        item.hidden = !show;
-        if (show) visible += 1;
-      });
-      if (empty) empty.hidden = visible !== 0;
+    const refreshSidebarNav = (visibleStories) => {
+      if (navList) {
+        navList.innerHTML = visibleStories
+          .map(
+            (s) =>
+              `<li data-stem="${escapeHtml(s.dataset.stem)}" data-title="${escapeHtml(s.dataset.title)}"><a href="#${escapeHtml(
+                s.dataset.stem
+              )}">${escapeHtml(s.dataset.title)}</a></li>`
+          )
+          .join("");
+      }
+      const layout = document.querySelector(".category-layout");
+      if (layout && typeof window.__birinciBindStorySidebar === "function") {
+        window.__birinciBindStorySidebar(layout);
+      } else if (layout && layout.__birinciSidebar) {
+        layout.__birinciSidebar.refresh();
+      }
     };
 
-    const applyStories = () => {
+    const scrollToolsIntoView = () => {
+      try {
+        bar.scrollIntoView({ block: "nearest", behavior: "auto" });
+      } catch (_) {}
+    };
+
+    const renderList = ({ resetWindow = false } = {}) => {
+      if (typeof window.__birinciStopStoryTts === "function") window.__birinciStopStoryTts();
       const q = searchInput.value.trim().toLocaleLowerCase("az");
-      const sort = sortSelect.value;
-      const stories = Array.from(list.querySelectorAll(".story"));
-      const navList = document.querySelector("[data-tools-nav]");
-      const navItems = navList ? Array.from(navList.querySelectorAll("li[data-stem]")) : [];
-      const countEl = document.querySelector("[data-tools-count]");
-
-      stories.sort((a, b) => {
-        const cmp = localeCompareAz(a.dataset.title, b.dataset.title);
-        return sort === "za" ? -cmp : cmp;
-      });
-      stories.forEach((story) => list.appendChild(story));
-
-      if (navList) {
-        navItems.sort((a, b) => {
-          const cmp = localeCompareAz(a.dataset.title, b.dataset.title);
-          return sort === "za" ? -cmp : cmp;
-        });
-        navItems.forEach((item) => navList.appendChild(item));
-      }
-
-      let visible = 0;
-      stories.forEach((story) => {
+      filtered = allStories.filter((story) => {
         const textEl = story.querySelector(".story__text");
         const hay = `${story.dataset.title || ""} ${textEl ? textEl.textContent : ""}`.toLocaleLowerCase("az");
-        const show = !q || hay.includes(q);
-        story.hidden = !show;
-        if (show) visible += 1;
-        const navItem = navItems.find((li) => li.dataset.stem === story.dataset.stem);
-        if (navItem) navItem.hidden = !show;
+        return !q || hay.includes(q);
       });
 
-      if (countEl) countEl.textContent = String(visible);
-      if (empty) empty.hidden = visible !== 0;
+      const total = filtered.length;
+      const cap = Math.max(1, total || 1);
+      let n = readBatchSize();
+      if (!Number.isFinite(n) || n < 1) n = 1;
+      if (n > cap) n = cap;
+      if (batchSizeInput && String(batchSizeInput.value) !== String(n)) {
+        batchSizeInput.value = String(n);
+        try {
+          localStorage.setItem(batchSizeStorageKey, String(n));
+        } catch (_) {}
+      }
+      batchSize = n;
+
+      if (resetWindow) {
+        windowStart = 0;
+        randomStems = null;
+      }
+
+      if (pendingStem) {
+        const idx = filtered.findIndex(
+          (story) => story.dataset.stem === pendingStem || story.dataset.stem === String(pendingStem)
+        );
+        if (idx >= 0) {
+          randomStems = null;
+          if (!allMode) {
+            windowStart = Math.floor(idx / batchSize) * batchSize;
+          }
+        }
+      }
+
+      let visibleStories = [];
+      if (total === 0) {
+        windowStart = 0;
+        randomStems = null;
+        visibleStories = [];
+      } else if (randomStems && randomStems.length) {
+        allMode = false;
+        const byStem = new Map(filtered.map((story) => [story.dataset.stem, story]));
+        visibleStories = randomStems.map((stem) => byStem.get(stem)).filter(Boolean);
+        if (!visibleStories.length) {
+          randomStems = null;
+          windowStart = 0;
+          visibleStories = filtered.slice(0, batchSize);
+        }
+      } else if (allMode) {
+        randomStems = null;
+        windowStart = 0;
+        visibleStories = filtered.slice();
+      } else {
+        randomStems = null;
+        const maxStart = Math.max(0, total - 1);
+        if (windowStart > maxStart) windowStart = Math.floor(maxStart / batchSize) * batchSize;
+        if (windowStart < 0) windowStart = 0;
+        visibleStories = filtered.slice(windowStart, windowStart + batchSize);
+      }
+
+      const visibleSet = new Set(visibleStories.map((s) => s.dataset.stem));
+      allStories.forEach((story) => {
+        story.hidden = !visibleSet.has(story.dataset.stem);
+      });
+      visibleStories.forEach((story) => list.appendChild(story));
+      allStories
+        .filter((story) => !visibleSet.has(story.dataset.stem))
+        .forEach((story) => list.appendChild(story));
+
+      if (typeof window.__birinciSetAllStoryFigures === "function") {
+        window.__birinciSetAllStoryFigures(!document.body.classList.contains("images-collapsed"));
+      }
+      if (typeof window.__birinciSetAllStoryTexts === "function") {
+        window.__birinciSetAllStoryTexts(!document.body.classList.contains("texts-collapsed"));
+      }
+      refreshSidebarNav(visibleStories);
+      if (countEl) countEl.textContent = String(total);
+      if (empty) empty.hidden = total !== 0;
+      syncBatchUi(visibleStories.length);
+      persistAllMode();
+      if (pendingStem) {
+        const el = document.getElementById(pendingStem);
+        if (el) {
+          window.requestAnimationFrame(() => {
+            el.scrollIntoView({ block: "start", behavior: "auto" });
+          });
+        }
+        pendingStem = null;
+      }
     };
 
-    const apply = () => {
-      if (mode === "categories") applyCategories();
-      else applyStories();
+    searchInput.addEventListener("input", () => {
+      pendingStem = null;
+      renderList({ resetWindow: true });
+    });
+    if (batchSizeInput) {
+      batchSizeInput.addEventListener("change", () => {
+        commitBatchSize({ persist: true, render: true });
+      });
+      batchSizeInput.addEventListener("blur", () => {
+        commitBatchSize({ persist: true, render: true });
+      });
+      batchSizeInput.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter") return;
+        event.preventDefault();
+        commitBatchSize({ persist: true, render: true });
+        batchSizeInput.blur();
+      });
+    }
+    const runBatchAction = (action) => {
+      commitBatchSize({ persist: true, render: false });
+      const total = filtered.length;
+      if (!total) {
+        allMode = false;
+        persistAllMode();
+        renderList();
+        return;
+      }
+      if (action === "prev") {
+        allMode = false;
+        randomStems = null;
+        windowStart = Math.max(0, windowStart - batchSize);
+      } else if (action === "next") {
+        allMode = false;
+        randomStems = null;
+        if (windowStart + batchSize < total) {
+          windowStart += batchSize;
+        }
+      } else if (action === "random") {
+        allMode = false;
+        randomStems = pickRandomStems(batchSize);
+      } else if (action === "all") {
+        allMode = true;
+        randomStems = null;
+        windowStart = 0;
+      } else {
+        return;
+      }
+      persistAllMode();
+      pendingStem = null;
+      renderList();
+      scrollToolsIntoView();
     };
+    if (batchPrevBtn) batchPrevBtn.addEventListener("click", () => runBatchAction("prev"));
+    if (batchNextBtn) batchNextBtn.addEventListener("click", () => runBatchAction("next"));
+    if (batchRandomBtn) batchRandomBtn.addEventListener("click", () => runBatchAction("random"));
+    if (batchAllBtn) batchAllBtn.addEventListener("click", () => runBatchAction("all"));
 
-    searchInput.addEventListener("input", apply);
-    sortSelect.addEventListener("change", apply);
-    apply();
+    try {
+      const hash = decodeURIComponent((window.location.hash || "").replace(/^#/, ""));
+      if (hash) pendingStem = hash;
+    } catch (_) {}
+
+    renderList();
   };
 
-  initTools();
+  initCategoryTools();
 
   /**
    * DAAB News-style sidebar: sticky TOC, scroll-spy, mobile accordion.
@@ -581,8 +873,7 @@
     if (!bar || !cardsPanel || !listPanel) return;
 
     const searchInput = bar.querySelector("[data-tools-search]");
-    const sortSelect = bar.querySelector("[data-tools-sort]");
-    if (!searchInput || !sortSelect) return;
+    if (!searchInput) return;
 
     const cardsList = cardsPanel.querySelector("[data-tools-list]");
     const cardsEmpty = cardsPanel.querySelector("[data-tools-empty]");
@@ -593,25 +884,32 @@
     const imagesBtns = Array.from(bar.querySelectorAll("[data-images-mode]"));
     const textsToggle = bar.querySelector("[data-tools-texts]");
     const textsBtns = Array.from(bar.querySelectorAll("[data-texts-mode]"));
-    const pageSizeInput = bar.querySelector("[data-home-page-size]");
-    const pageAllBtn = bar.querySelector("[data-home-page-all]");
+    const batchSizeInput = bar.querySelector("[data-home-batch-size]");
+    const batchPrevBtn = bar.querySelector('[data-home-batch="prev"]');
+    const batchNextBtn = bar.querySelector('[data-home-batch="next"]');
+    const batchRandomBtn = bar.querySelector('[data-home-batch="random"]');
+    const batchAllBtn = bar.querySelector('[data-home-batch="all"]');
+    const batchRangeEl = bar.querySelector("[data-home-batch-range]");
     const viewBtns = Array.from(bar.querySelectorAll("[data-home-view]"));
     const listOnly = Array.from(bar.querySelectorAll("[data-home-list-only]"));
-    const cardsOnlyOpts = Array.from(sortSelect.querySelectorAll("[data-home-cards-only]"));
     const storiesUrl = listPanel.getAttribute("data-stories-url") || "data/stories.json";
     const assetVersion = listPanel.getAttribute("data-asset-version") || "";
     const viewStorageKey = "birinci-home-view";
-    const pageSizeStorageKey = "birinci-home-page-size";
+    const batchSizeStorageKey = "birinci-home-batch-size";
+    const batchAllStorageKey = "birinci-home-batch-all";
+    const legacyPageSizeStorageKey = "birinci-home-page-size";
 
     let view = "cards";
     let allStories = null;
     let filtered = [];
     let loading = null;
     let pendingStem = null;
-    let pageSize = 10;
-    let pageSizeIsAll = false;
+    let batchSize = 10;
+    let windowStart = 0;
+    let randomStems = null;
+    let allMode = false;
 
-    const pageSizeCap = () => {
+    const batchCap = () => {
       const n =
         (filtered && filtered.length) ||
         (allStories && allStories.length) ||
@@ -619,77 +917,128 @@
       return Math.max(1, n);
     };
 
-    const syncPageSizeUi = () => {
-      const cap = pageSizeCap();
-      if (pageSizeInput) {
-        pageSizeInput.min = "1";
-        pageSizeInput.max = String(cap);
-        if (pageSizeIsAll) pageSizeInput.value = String(cap);
-      }
-      if (pageAllBtn) {
-        pageAllBtn.setAttribute("aria-pressed", pageSizeIsAll ? "true" : "false");
-      }
+    const readBatchSize = () => {
+      if (!batchSizeInput) return batchSize || 10;
+      const n = Number(batchSizeInput.value);
+      return Number.isFinite(n) && n > 0 ? Math.floor(n) : batchSize || 10;
     };
 
-    const readPageSize = () => {
-      if (pageSizeIsAll) return "all";
-      if (!pageSizeInput) return 10;
-      const n = Number(pageSizeInput.value);
-      return Number.isFinite(n) && n > 0 ? Math.floor(n) : 10;
-    };
-
-    const persistPageSize = () => {
+    const persistBatchSize = () => {
       try {
-        localStorage.setItem(
-          pageSizeStorageKey,
-          pageSizeIsAll ? "all" : String(pageSize === "all" ? "10" : pageSize)
-        );
+        localStorage.setItem(batchSizeStorageKey, String(batchSize));
+        localStorage.removeItem(legacyPageSizeStorageKey);
       } catch (_) {}
     };
 
-    const commitPageSize = ({ persist = true, render = false } = {}) => {
-      const cap = pageSizeCap();
-      if (pageSizeIsAll) {
-        pageSize = "all";
-      } else {
-        let n = Number(pageSizeInput && pageSizeInput.value);
-        if (!Number.isFinite(n) || n < 1) n = 1;
-        n = Math.min(Math.floor(n), cap);
-        if (n < 1) n = 1;
-        if (pageSizeInput) pageSizeInput.value = String(n);
-        pageSize = n;
+    const persistAllMode = () => {
+      try {
+        if (allMode) localStorage.setItem(batchAllStorageKey, "1");
+        else localStorage.removeItem(batchAllStorageKey);
+      } catch (_) {}
+    };
+
+    const syncBatchUi = (visibleCount = 0) => {
+      const total = (filtered && filtered.length) || 0;
+      const cap = batchCap();
+      if (batchSizeInput) {
+        batchSizeInput.min = "1";
+        batchSizeInput.max = String(cap);
+        batchSizeInput.value = String(batchSize);
       }
-      syncPageSizeUi();
-      if (persist) persistPageSize();
+      const showingAll =
+        total > 0 &&
+        !randomStems &&
+        (allMode || (windowStart <= 0 && visibleCount >= total && visibleCount > 0));
+      const atStart = !randomStems && !allMode && windowStart <= 0;
+      const atEnd =
+        !randomStems && (allMode || total === 0 || windowStart + batchSize >= total);
+      if (batchPrevBtn) batchPrevBtn.disabled = total === 0 || allMode || atStart;
+      if (batchNextBtn) batchNextBtn.disabled = total === 0 || allMode || atEnd;
+      if (batchRandomBtn) batchRandomBtn.disabled = total === 0;
+      if (batchAllBtn) batchAllBtn.disabled = total === 0 || showingAll;
+      if (batchRangeEl) {
+        if (total === 0) {
+          batchRangeEl.hidden = true;
+          batchRangeEl.textContent = "";
+        } else if (randomStems) {
+          batchRangeEl.hidden = false;
+          batchRangeEl.textContent = `Təsadüfi · ${visibleCount} / ${total}`;
+        } else if (allMode || showingAll) {
+          batchRangeEl.hidden = false;
+          batchRangeEl.textContent = `1–${total} / ${total}`;
+        } else {
+          const from = windowStart + 1;
+          const to = windowStart + visibleCount;
+          batchRangeEl.hidden = false;
+          batchRangeEl.textContent = `${from}–${to} / ${total}`;
+        }
+      }
+    };
+
+    const commitBatchSize = ({ persist = true, render = false, resetWindow = false } = {}) => {
+      const cap = batchCap();
+      let n = Number(batchSizeInput && batchSizeInput.value);
+      if (!Number.isFinite(n) || n < 1) n = 1;
+      n = Math.min(Math.floor(n), cap);
+      if (n < 1) n = 1;
+      if (batchSizeInput) batchSizeInput.value = String(n);
+      batchSize = n;
+      if (resetWindow) {
+        windowStart = 0;
+        randomStems = null;
+        /* keep allMode across search/filter resets */
+      } else {
+        if (randomStems) randomStems = null;
+        if (allMode) allMode = false;
+      }
+      if (persist) {
+        persistBatchSize();
+        persistAllMode();
+      }
       if (render && view === "list") {
         pendingStem = null;
         renderList();
+      } else {
+        syncBatchUi(0);
       }
     };
 
-    const applyStoredPageSize = () => {
+    const applyStoredBatchSize = () => {
       let stored = "";
       try {
-        stored = localStorage.getItem(pageSizeStorageKey) || "";
-      } catch (_) {}
-      if (stored === "all") {
-        pageSizeIsAll = true;
-        pageSize = "all";
-      } else {
-        const n = Number(stored);
-        pageSizeIsAll = false;
-        if (Number.isFinite(n) && n > 0) {
-          const value = String(Math.floor(n));
-          if (pageSizeInput) pageSizeInput.value = value;
-          pageSize = Math.floor(n);
-        } else {
-          pageSize = readPageSize();
+        allMode = localStorage.getItem(batchAllStorageKey) === "1";
+        stored = localStorage.getItem(batchSizeStorageKey) || "";
+        if (!stored) {
+          const legacy = localStorage.getItem(legacyPageSizeStorageKey) || "";
+          if (legacy && legacy !== "all") stored = legacy;
+          else if (legacy === "all") allMode = true;
         }
+      } catch (_) {}
+      const n = Number(stored);
+      if (Number.isFinite(n) && n > 0) {
+        batchSize = Math.floor(n);
+        if (batchSizeInput) batchSizeInput.value = String(batchSize);
+      } else {
+        batchSize = readBatchSize();
       }
-      syncPageSizeUi();
+      syncBatchUi(0);
     };
 
-    applyStoredPageSize();
+    applyStoredBatchSize();
+
+    const pickRandomStems = (count) => {
+      const total = filtered.length;
+      if (!total) return [];
+      const n = Math.min(Math.max(1, count), total);
+      const idxs = Array.from({ length: total }, (_, i) => i);
+      for (let i = idxs.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const tmp = idxs[i];
+        idxs[i] = idxs[j];
+        idxs[j] = tmp;
+      }
+      return idxs.slice(0, n).map((i) => filtered[i].stem);
+    };
 
     const escapeHtml = (value) =>
       String(value || "")
@@ -801,17 +1150,8 @@
     const applyCards = () => {
       if (!cardsList) return;
       const q = searchInput.value.trim().toLocaleLowerCase("az");
-      const sort = sortSelect.value;
       const items = Array.from(cardsList.querySelectorAll(".cat-card"));
-      items.sort((a, b) => {
-        if (sort === "count-desc" || sort === "count-asc") {
-          const ca = Number(a.dataset.count || 0);
-          const cb = Number(b.dataset.count || 0);
-          return sort === "count-desc" ? cb - ca : ca - cb;
-        }
-        const cmp = localeCompareAz(a.dataset.title, b.dataset.title);
-        return sort === "za" ? -cmp : cmp;
-      });
+      items.sort((a, b) => localeCompareAz(a.dataset.title, b.dataset.title));
       items.forEach((item) => cardsList.appendChild(item));
       let visible = 0;
       items.forEach((item) => {
@@ -965,51 +1305,70 @@
       }
     };
 
-    const renderList = () => {
+    const renderList = ({ resetWindow = false } = {}) => {
       if (!storiesList) return;
       if (typeof window.__birinciStopStoryTts === "function") window.__birinciStopStoryTts();
       const q = searchInput.value.trim().toLocaleLowerCase("az");
-      const sort = sortSelect.value === "za" ? "za" : "az";
       filtered = (allStories || []).filter((story) => !q || story.hay.includes(q));
-      filtered.sort((a, b) => {
-        const cmp = localeCompareAz(a.title, b.title);
-        return sort === "za" ? -cmp : cmp;
-      });
+      filtered.sort((a, b) => localeCompareAz(a.title, b.title));
 
       const total = filtered.length;
       const cap = Math.max(1, total || 1);
-      if (pageSizeInput) {
-        pageSizeInput.min = "1";
-        pageSizeInput.max = String(cap);
+      let n = readBatchSize();
+      if (!Number.isFinite(n) || n < 1) n = 1;
+      if (n > cap) n = cap;
+      if (batchSizeInput && String(batchSizeInput.value) !== String(n)) {
+        batchSizeInput.value = String(n);
+        try {
+          localStorage.setItem(batchSizeStorageKey, String(n));
+        } catch (_) {}
       }
-      if (pageSizeIsAll) {
-        pageSize = "all";
-        if (pageSizeInput) pageSizeInput.value = String(cap);
-      } else {
-        let n = readPageSize();
-        if (typeof n !== "number" || !Number.isFinite(n) || n < 1) n = 1;
-        if (n > cap) n = cap;
-        if (pageSizeInput && String(pageSizeInput.value) !== String(n)) {
-          pageSizeInput.value = String(n);
-          try {
-            localStorage.setItem(pageSizeStorageKey, String(n));
-          } catch (_) {}
-        }
-        pageSize = n;
+      batchSize = n;
+
+      if (resetWindow) {
+        windowStart = 0;
+        randomStems = null;
+        /* keep allMode across search/filter resets */
       }
-      if (pageAllBtn) {
-        pageAllBtn.setAttribute("aria-pressed", pageSizeIsAll ? "true" : "false");
-      }
-      let visibleStories =
-        pageSize === "all" ? filtered.slice() : filtered.slice(0, pageSize);
+
       if (pendingStem) {
         const idx = filtered.findIndex(
           (story) => story.stem === pendingStem || story.stem === String(pendingStem)
         );
-        if (idx >= 0 && (pageSize === "all" ? false : idx >= pageSize)) {
-          visibleStories = filtered.slice();
+        if (idx >= 0) {
+          randomStems = null;
+          if (!allMode) {
+            windowStart = Math.floor(idx / batchSize) * batchSize;
+          }
         }
       }
+
+      let visibleStories = [];
+      if (total === 0) {
+        windowStart = 0;
+        randomStems = null;
+        visibleStories = [];
+      } else if (randomStems && randomStems.length) {
+        allMode = false;
+        const byStem = new Map(filtered.map((story) => [story.stem, story]));
+        visibleStories = randomStems.map((stem) => byStem.get(stem)).filter(Boolean);
+        if (!visibleStories.length) {
+          randomStems = null;
+          windowStart = 0;
+          visibleStories = filtered.slice(0, batchSize);
+        }
+      } else if (allMode) {
+        randomStems = null;
+        windowStart = 0;
+        visibleStories = filtered.slice();
+      } else {
+        randomStems = null;
+        const maxStart = Math.max(0, total - 1);
+        if (windowStart > maxStart) windowStart = Math.floor(maxStart / batchSize) * batchSize;
+        if (windowStart < 0) windowStart = 0;
+        visibleStories = filtered.slice(windowStart, windowStart + batchSize);
+      }
+
       storiesList.innerHTML = visibleStories.map(storyArticleHtml).join("");
       if (typeof window.__birinciSetAllStoryFigures === "function") {
         window.__birinciSetAllStoryFigures(!document.body.classList.contains("images-collapsed"));
@@ -1019,6 +1378,8 @@
       }
       refreshSidebarNav(visibleStories);
       if (listEmpty) listEmpty.hidden = total !== 0;
+      syncBatchUi(visibleStories.length);
+      persistAllMode();
       writeUrlState();
       if (pendingStem) {
         const el = document.getElementById(pendingStem);
@@ -1051,25 +1412,8 @@
       listOnly.forEach((el) => {
         setHidden(el, view !== "list");
       });
-      cardsOnlyOpts.forEach((opt) => {
-        setHidden(opt, view !== "cards");
-        opt.disabled = view !== "cards";
-      });
-      const syncHomeStickyOffset = () => {
-        if (!document.body) return;
-        if (view !== "list" || !bar) {
-          document.body.style.removeProperty("--sticky-stack-h");
-          return;
-        }
-        const h = Math.ceil(bar.getBoundingClientRect().height || 0);
-        if (h > 0) {
-          document.body.style.setProperty("--sticky-stack-h", `${h + 10}px`);
-        }
-      };
-      syncHomeStickyOffset();
-      window.requestAnimationFrame(syncHomeStickyOffset);
-      if (view === "list" && (sortSelect.value === "count-desc" || sortSelect.value === "count-asc")) {
-        sortSelect.value = "az";
+      if (document.body) {
+        document.body.style.removeProperty("--sticky-stack-h");
       }
       if (persist) {
         try {
@@ -1129,43 +1473,70 @@
         return;
       }
       pendingStem = null;
-      renderList();
+      renderList({ resetWindow: true });
     });
-    sortSelect.addEventListener("change", () => {
-      if (view === "cards") {
-        applyCards();
-        return;
-      }
-      pendingStem = null;
-      renderList();
-    });
-    if (pageSizeInput) {
-      pageSizeInput.addEventListener("change", () => {
-        pageSizeIsAll = false;
-        commitPageSize({ persist: true, render: true });
+    if (batchSizeInput) {
+      batchSizeInput.addEventListener("change", () => {
+        commitBatchSize({ persist: true, render: true });
       });
-      pageSizeInput.addEventListener("blur", () => {
-        if (pageSizeIsAll) return;
-        commitPageSize({ persist: true, render: true });
+      batchSizeInput.addEventListener("blur", () => {
+        commitBatchSize({ persist: true, render: true });
       });
-      pageSizeInput.addEventListener("keydown", (event) => {
+      batchSizeInput.addEventListener("keydown", (event) => {
         if (event.key !== "Enter") return;
         event.preventDefault();
-        pageSizeIsAll = false;
-        commitPageSize({ persist: true, render: true });
-        pageSizeInput.blur();
-      });
-      pageSizeInput.addEventListener("input", () => {
-        if (!pageSizeIsAll) return;
-        pageSizeIsAll = false;
-        if (pageAllBtn) pageAllBtn.setAttribute("aria-pressed", "false");
+        commitBatchSize({ persist: true, render: true });
+        batchSizeInput.blur();
       });
     }
-    if (pageAllBtn) {
-      pageAllBtn.addEventListener("click", () => {
-        pageSizeIsAll = !pageSizeIsAll;
-        commitPageSize({ persist: true, render: true });
-      });
+    const runBatchAction = (action) => {
+      if (view !== "list") return;
+      commitBatchSize({ persist: true, render: false });
+      const total = filtered.length;
+      if (!total) {
+        allMode = false;
+        persistAllMode();
+        renderList();
+        return;
+      }
+      if (action === "prev") {
+        allMode = false;
+        randomStems = null;
+        windowStart = Math.max(0, windowStart - batchSize);
+      } else if (action === "next") {
+        allMode = false;
+        randomStems = null;
+        if (windowStart + batchSize < total) {
+          windowStart += batchSize;
+        }
+      } else if (action === "random") {
+        allMode = false;
+        randomStems = pickRandomStems(batchSize);
+      } else if (action === "all") {
+        allMode = true;
+        randomStems = null;
+        windowStart = 0;
+      } else {
+        return;
+      }
+      persistAllMode();
+      pendingStem = null;
+      renderList();
+      if (typeof window.__birinciScrollHomeTools === "function") {
+        window.__birinciScrollHomeTools();
+      }
+    };
+    if (batchPrevBtn) {
+      batchPrevBtn.addEventListener("click", () => runBatchAction("prev"));
+    }
+    if (batchNextBtn) {
+      batchNextBtn.addEventListener("click", () => runBatchAction("next"));
+    }
+    if (batchRandomBtn) {
+      batchRandomBtn.addEventListener("click", () => runBatchAction("random"));
+    }
+    if (batchAllBtn) {
+      batchAllBtn.addEventListener("click", () => runBatchAction("all"));
     }
 
     const urlState = readUrlState();
