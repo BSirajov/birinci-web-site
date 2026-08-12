@@ -360,7 +360,7 @@ TOP_NAV_LINKS: list[dict[str, str]] = [
     {"label": "Bizi dəstəkləyin", "icon": "hand-heart"},
 ]
 HOME_CRUMB = "Ana səhifə"
-ASSET_VERSION = "20260819b"
+ASSET_VERSION = "20260819c"
 
 # Immediate home view toggle (not deferred). Survives site.js load races / failures.
 HOME_VIEW_BOOTSTRAP = r"""
@@ -2257,7 +2257,7 @@ body.global-search-open { overflow: hidden; }
   color: rgba(255, 255, 255, 0.85);
 }
 
-@media (hover: hover) and (pointer: fine) and (min-width: 1181px) {
+@media (hover: hover) and (pointer: fine) and (min-width: 1401px) {
   .nav-dropdown--literature:hover > .nav-dropdown-panel,
   .nav-dropdown--literature:focus-within > .nav-dropdown-panel,
   .nav-dropdown--arts:hover > .nav-dropdown-panel,
@@ -2567,11 +2567,16 @@ body.global-search-open { overflow: hidden; }
   hyphens: auto;
   animation: intro-fade 820ms cubic-bezier(0.22, 1, 0.36, 1) both 180ms;
 }
-@media (max-width: 760px) {
+@media (max-width: 900px) {
   .intro__content {
     grid-template-columns: 1fr;
     padding: 0.85rem 1.2rem 0.75rem;
     gap: 0.45rem;
+  }
+  .intro__lead {
+    text-align: start;
+    text-justify: auto;
+    hyphens: manual;
   }
   .intro__visual {
     margin: 0;
@@ -2746,8 +2751,24 @@ body.global-search-open { overflow: hidden; }
     0 12px 32px rgba(0, 78, 140, 0.1);
   backdrop-filter: blur(14px) saturate(1.15);
 }
+/* Category tools sit in the right grid column — wrap before overflow. */
+.page-category .category-layout > .tools-bar {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
 :is(.page-home, .page-category) .tools-bar > * {
   flex: 0 0 auto;
+}
+.page-category .category-layout > .tools-bar > * {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.page-category .category-layout > .tools-bar > .tools-bar__search {
+  flex: 1 1 9rem;
+  max-width: 14rem;
+}
+.page-category .category-layout > .tools-bar > .tools-bar__batch {
+  flex: 1 1 100%;
 }
 :is(.page-home, .page-category) .tools-bar__search {
   flex: 1 1 9rem;
@@ -3062,6 +3083,8 @@ body.global-search-open { overflow: hidden; }
 }
 .home-browser .home-stories-layout {
   margin-top: 0.25rem;
+  /* Avoid double inset vs .section padding so list aligns with tools. */
+  padding-inline: 0;
 }
 .home-stories-main {
   min-width: 0;
@@ -3122,7 +3145,7 @@ body.global-search-open { overflow: hidden; }
     height: 1.05rem;
   }
 }
-@media (max-width: 1180px) {
+@media (max-width: 1400px) {
   .site-header__inner {
     display: grid;
     grid-template-columns: 2.5rem minmax(0, 1fr) 2.5rem;
@@ -3198,6 +3221,11 @@ body.global-search-open { overflow: hidden; }
   }
   .site-header.is-nav-open .primary-nav {
     display: flex;
+    max-height: calc(100dvh - var(--header-h));
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
     animation: drop-in 180ms ease both;
   }
   .primary-nav__link {
@@ -4010,6 +4038,29 @@ body.text-lightbox-open {
   max-width: min(100%, 36rem);
   margin: 0 0 0.55rem 1rem;
 }
+@media (max-width: 760px) {
+  .story__actions {
+    float: none;
+    clear: both;
+    width: 100%;
+    max-width: none;
+    margin: 0 0 0.75rem;
+    justify-content: stretch;
+  }
+  .story-tts,
+  .story-text-toggle,
+  .story-figure-toggle {
+    flex: 1 1 auto;
+    min-height: 2.75rem;
+  }
+  :is(.page-home, .page-category) .tools-bar__view-btn {
+    min-height: 2.75rem;
+    padding: 0.4rem 0.7rem;
+  }
+  :is(.page-home, .page-category) .tools-bar__batch-input {
+    min-height: 2.75rem;
+  }
+}
 .story__panel::after {
   content: "";
   display: table;
@@ -4295,6 +4346,9 @@ body.text-lightbox-open {
 body.audio-player-open {
   padding-bottom: 6.5rem;
 }
+body.audio-player-open .back-to-top {
+  bottom: calc(6.5rem + 0.85rem);
+}
 body.audio-player-open .text-lightbox {
   padding-bottom: calc(6.5rem + env(safe-area-inset-bottom));
 }
@@ -4315,6 +4369,9 @@ body.audio-player-open .text-lightbox {
   }
   body.audio-player-open {
     padding-bottom: 9.5rem;
+  }
+  body.audio-player-open .back-to-top {
+    bottom: calc(9.5rem + 0.85rem);
   }
   body.audio-player-open .text-lightbox {
     padding-bottom: calc(9.5rem + env(safe-area-inset-bottom));
@@ -4598,7 +4655,28 @@ JS = r"""
   const header = document.querySelector(".site-header");
   const dropdowns = Array.from(document.querySelectorAll(".nav-dropdown"));
   const navToggle = document.getElementById("nav-toggle");
-  const mobileNavQuery = window.matchMedia("(max-width: 1180px)");
+  const mobileNavQuery = window.matchMedia("(max-width: 1400px)");
+  const finePointerQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
+  const canHoverNav = () => finePointerQuery.matches && !mobileNavQuery.matches;
+
+  const syncStickyChrome = () => {
+    const root = document.documentElement;
+    if (header) {
+      root.style.setProperty("--header-h", `${Math.ceil(header.getBoundingClientRect().height)}px`);
+    }
+    const crumbs = document.querySelector(".breadcrumbs");
+    if (crumbs) {
+      root.style.setProperty("--breadcrumb-h", `${Math.ceil(crumbs.getBoundingClientRect().height)}px`);
+    }
+  };
+  if (typeof ResizeObserver !== "undefined") {
+    const stickyRo = new ResizeObserver(() => syncStickyChrome());
+    if (header) stickyRo.observe(header);
+    const crumbsEl = document.querySelector(".breadcrumbs");
+    if (crumbsEl) stickyRo.observe(crumbsEl);
+  }
+  window.addEventListener("resize", syncStickyChrome, { passive: true });
+  syncStickyChrome();
 
   const closeMobileNav = () => {
     if (!header || !navToggle) return;
@@ -4683,23 +4761,23 @@ JS = r"""
       });
     }
     group.addEventListener("mouseenter", () => {
-      if (!mobileNavQuery.matches) setMegaOpen(group, true);
+      if (canHoverNav()) setMegaOpen(group, true);
     });
     group.addEventListener("mouseleave", () => {
-      if (!mobileNavQuery.matches) setMegaOpen(group, false);
+      if (canHoverNav()) setMegaOpen(group, false);
     });
   });
 
   dropdowns.forEach((dropdown) => {
     dropdown.addEventListener("mouseenter", () => {
-      if (mobileNavQuery.matches) return;
+      if (!canHoverNav()) return;
       dropdowns.forEach((other) => {
         if (other !== dropdown) setDropdownOpen(other, false);
       });
       setDropdownOpen(dropdown, true);
     });
     dropdown.addEventListener("mouseleave", () => {
-      if (!mobileNavQuery.matches) setDropdownOpen(dropdown, false);
+      if (canHoverNav()) setDropdownOpen(dropdown, false);
     });
     dropdown.addEventListener("toggle", () => {
       if (!dropdown.open) {

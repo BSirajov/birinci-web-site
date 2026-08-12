@@ -3,7 +3,28 @@
   const header = document.querySelector(".site-header");
   const dropdowns = Array.from(document.querySelectorAll(".nav-dropdown"));
   const navToggle = document.getElementById("nav-toggle");
-  const mobileNavQuery = window.matchMedia("(max-width: 1180px)");
+  const mobileNavQuery = window.matchMedia("(max-width: 1400px)");
+  const finePointerQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
+  const canHoverNav = () => finePointerQuery.matches && !mobileNavQuery.matches;
+
+  const syncStickyChrome = () => {
+    const root = document.documentElement;
+    if (header) {
+      root.style.setProperty("--header-h", `${Math.ceil(header.getBoundingClientRect().height)}px`);
+    }
+    const crumbs = document.querySelector(".breadcrumbs");
+    if (crumbs) {
+      root.style.setProperty("--breadcrumb-h", `${Math.ceil(crumbs.getBoundingClientRect().height)}px`);
+    }
+  };
+  if (typeof ResizeObserver !== "undefined") {
+    const stickyRo = new ResizeObserver(() => syncStickyChrome());
+    if (header) stickyRo.observe(header);
+    const crumbsEl = document.querySelector(".breadcrumbs");
+    if (crumbsEl) stickyRo.observe(crumbsEl);
+  }
+  window.addEventListener("resize", syncStickyChrome, { passive: true });
+  syncStickyChrome();
 
   const closeMobileNav = () => {
     if (!header || !navToggle) return;
@@ -88,23 +109,23 @@
       });
     }
     group.addEventListener("mouseenter", () => {
-      if (!mobileNavQuery.matches) setMegaOpen(group, true);
+      if (canHoverNav()) setMegaOpen(group, true);
     });
     group.addEventListener("mouseleave", () => {
-      if (!mobileNavQuery.matches) setMegaOpen(group, false);
+      if (canHoverNav()) setMegaOpen(group, false);
     });
   });
 
   dropdowns.forEach((dropdown) => {
     dropdown.addEventListener("mouseenter", () => {
-      if (mobileNavQuery.matches) return;
+      if (!canHoverNav()) return;
       dropdowns.forEach((other) => {
         if (other !== dropdown) setDropdownOpen(other, false);
       });
       setDropdownOpen(dropdown, true);
     });
     dropdown.addEventListener("mouseleave", () => {
-      if (!mobileNavQuery.matches) setDropdownOpen(dropdown, false);
+      if (canHoverNav()) setDropdownOpen(dropdown, false);
     });
     dropdown.addEventListener("toggle", () => {
       if (!dropdown.open) {
