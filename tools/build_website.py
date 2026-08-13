@@ -360,7 +360,7 @@ TOP_NAV_LINKS: list[dict[str, str]] = [
     {"label": "Bizi dəstəkləyin", "icon": "hand-heart"},
 ]
 HOME_CRUMB = "Ana səhifə"
-ASSET_VERSION = "20260819c"
+ASSET_VERSION = "20260819n"
 
 # Immediate home view toggle (not deferred). Survives site.js load races / failures.
 HOME_VIEW_BOOTSTRAP = r"""
@@ -1135,14 +1135,15 @@ def tools_bar_html(*, mode: str = "home") -> str:
     """Shared tools bar for home and category pages.
 
     mode:
-      - "home": Axtar + Görüntü (Təsnifatlı/Ardıcıl) + list-only Şəkillər/Mətnlər/Yüklə
+      - "home": Axtar + Görüntü (Təsnifatlı/Ardıcıl) + list-only Şəkillər/Mətnlər/Göstər
       - "category": same chrome without Görüntü (page is already a single-category list);
-        Şəkillər/Mətnlər/Yüklə are always visible
+        Şəkillər/Mətnlər/Göstər are always visible
     """
     if mode not in ("home", "category"):
         raise ValueError(f"unsupported tools bar mode: {mode}")
     is_home = mode == "home"
     list_only_attr = " data-home-list-only hidden" if is_home else ""
+    batch_value_attr = 'value="10"' if is_home else 'value=""'
     view_block = ""
     if is_home:
         view_block = """
@@ -1176,24 +1177,30 @@ def tools_bar_html(*, mode: str = "home") -> str:
     </div>
   </div>
   <div class="tools-bar__field tools-bar__batch"{list_only_attr}>
-    <span class="tools-bar__label" id="tools-batch-label">Yüklə</span>
+    <span class="tools-bar__label" id="tools-batch-label">Göstər</span>
     <div class="tools-bar__batch-controls" role="group" aria-labelledby="tools-batch-label">
-      <input
-        type="number"
-        class="tools-bar__batch-input"
-        data-home-batch-size
-        min="1"
-        max="9999"
-        value="10"
-        step="1"
-        inputmode="numeric"
-        aria-label="Hekayə sayı"
-        title="Hekayə sayı"
-      />
-      <button type="button" class="tools-bar__view-btn" data-home-batch="prev" title="Əvvəlki partiyanı göstər" aria-label="Əvvəlki">Əvvəlki</button>
-      <button type="button" class="tools-bar__view-btn" data-home-batch="next" title="Sonrakı partiyanı göstər" aria-label="Növbəti">Növbəti</button>
-      <button type="button" class="tools-bar__view-btn" data-home-batch="random" title="Təsadüfi hekayələr" aria-label="Təsadüfi hekayələr">Təsadüfi</button>
-      <button type="button" class="tools-bar__view-btn" data-home-batch="all" title="Bütün hekayələri yüklə" aria-label="Bütün hekayələri yüklə">Tam</button>
+      <label class="tools-bar__batch-count">
+        <span class="visually-hidden">Hekayə sayı</span>
+        <input
+          type="number"
+          class="tools-bar__batch-input"
+          data-home-batch-size
+          min="1"
+          max="9999"
+          {batch_value_attr}
+          step="1"
+          inputmode="numeric"
+          aria-label="Hekayə sayı"
+          title="Hekayə sayı"
+          placeholder="—"
+        />
+      </label>
+      <div class="tools-bar__batch-actions">
+        <button type="button" class="tools-bar__view-btn" data-home-batch="prev" title="Əvvəlki hekayələri göstər" aria-label="Əvvəlki">Əvvəlki</button>
+        <button type="button" class="tools-bar__view-btn" data-home-batch="next" title="Növbəti hekayələri göstər" aria-label="Növbəti">Növbəti</button>
+        <button type="button" class="tools-bar__view-btn" data-home-batch="random" title="Təsadüfi hekayələr" aria-label="Təsadüfi hekayələr">Təsadüfi</button>
+        <button type="button" class="tools-bar__view-btn tools-bar__batch-all" data-home-batch="all" title="Bütün hekayələri göstər" aria-label="Bütün hekayələri göstər">Tam</button>
+      </div>
     </div>
     <span class="tools-bar__batch-range" data-home-batch-range hidden aria-live="polite"></span>
   </div>
@@ -2738,10 +2745,10 @@ body.global-search-open { overflow: hidden; }
 :is(.page-home, .page-category) .tools-bar {
   flex-wrap: nowrap;
   align-items: flex-start;
-  justify-content: space-between;
-  gap: 0.85rem;
+  justify-content: flex-start;
+  gap: 0.45rem;
   margin: 0 0 1.5rem;
-  padding: 0.7rem 0.85rem 0.75rem;
+  padding: 0.55rem 0.65rem 0.6rem;
   border: 1px solid rgba(0, 105, 180, 0.14);
   border-radius: 1.35rem;
   background:
@@ -2751,24 +2758,27 @@ body.global-search-open { overflow: hidden; }
     0 12px 32px rgba(0, 78, 140, 0.1);
   backdrop-filter: blur(14px) saturate(1.15);
 }
-/* Category tools sit in the right grid column — wrap before overflow. */
+/* Category tools stay one row on desktop; stack only on small screens. */
 .page-category .category-layout > .tools-bar {
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: flex-start;
+  gap: 0.4rem;
+  padding: 0.5rem 0.55rem 0.55rem;
 }
 :is(.page-home, .page-category) .tools-bar > * {
   flex: 0 0 auto;
 }
 .page-category .category-layout > .tools-bar > * {
-  flex: 1 1 auto;
+  flex: 0 0 auto;
   min-width: 0;
 }
 .page-category .category-layout > .tools-bar > .tools-bar__search {
-  flex: 1 1 9rem;
-  max-width: 14rem;
+  flex: 0 1 17rem;
+  max-width: 21rem;
+  min-width: 10rem;
 }
 .page-category .category-layout > .tools-bar > .tools-bar__batch {
-  flex: 1 1 100%;
+  flex: 0 1 auto;
 }
 :is(.page-home, .page-category) .tools-bar__search {
   flex: 1 1 9rem;
@@ -2778,6 +2788,9 @@ body.global-search-open { overflow: hidden; }
   /* Match sibling fields' label row so the input top-aligns with controls */
   margin-top: calc(0.72rem * 1.2 + 0.28rem);
   position: relative;
+}
+.page-category .category-layout > .tools-bar > .tools-bar__search {
+  margin-top: calc(0.65rem * 1.15 + 0.18rem);
 }
 :is(.page-home, .page-category) .tools-bar__search::before {
   content: "";
@@ -2810,11 +2823,24 @@ body.global-search-open { overflow: hidden; }
   background: #fff;
   box-shadow: 0 0 0 4px rgba(0, 105, 180, 0.14);
 }
+.page-category .category-layout > .tools-bar .tools-bar__search input {
+  min-height: 2.05rem;
+  padding: 0.32rem 0.6rem 0.32rem 1.85rem;
+  font-size: 0.82rem;
+}
+.page-category .category-layout > .tools-bar .tools-bar__search::before {
+  left: 0.65rem;
+  width: 0.7rem;
+  height: 0.7rem;
+}
 :is(.page-home, .page-category) .tools-bar__views {
   padding: 0.15rem;
   border: 1px solid rgba(0, 105, 180, 0.14);
   background: rgba(229, 244, 251, 0.7);
   box-shadow: 0 1px 2px rgba(0, 78, 140, 0.05) inset;
+}
+.page-category .category-layout > .tools-bar .tools-bar__views {
+  padding: 0.1rem;
 }
 :is(.page-home, .page-category) .tools-bar__view-btn {
   min-height: 1.95rem;
@@ -2822,6 +2848,11 @@ body.global-search-open { overflow: hidden; }
   font-size: 0.82rem;
   color: var(--ink-soft);
   transition: background 160ms ease, color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+.page-category .category-layout > .tools-bar .tools-bar__view-btn {
+  min-height: 1.85rem;
+  padding: 0.2rem 0.45rem;
+  font-size: 0.78rem;
 }
 :is(.page-home, .page-category) .tools-bar__view-btn:hover {
   color: var(--nav-blue-deep);
@@ -2834,33 +2865,94 @@ body.global-search-open { overflow: hidden; }
 :is(.page-home, .page-category) .tools-bar__batch {
   display: inline-flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 0.28rem;
   flex: 0 0 auto;
+  min-width: 0;
+}
+.page-category .category-layout > .tools-bar .tools-bar__batch {
+  gap: 0.2rem;
+}
+:is(.page-home, .page-category) .tools-bar__batch > .tools-bar__label {
+  text-align: center;
+  padding-inline: 0.35rem;
+  color: rgba(0, 78, 140, 0.72);
 }
 :is(.page-home, .page-category) .tools-bar__batch-controls {
   display: inline-flex;
   align-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.3rem;
-}
-:is(.page-home, .page-category) .tools-bar__batch-input {
-  width: 3.6rem;
-  min-width: 3.25rem;
-  min-height: 2.25rem;
-  padding: 0.4rem 0.35rem;
+  flex-wrap: nowrap;
+  gap: 0.35rem;
+  padding: 0.2rem;
   border: 1px solid rgba(0, 105, 180, 0.16);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.92);
-  color: var(--ink);
-  box-shadow: 0 1px 2px rgba(0, 78, 140, 0.04) inset;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(232, 245, 252, 0.92));
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.95) inset,
+    0 4px 14px rgba(0, 78, 140, 0.08);
+}
+.page-category .category-layout > .tools-bar .tools-bar__batch-controls {
+  gap: 0.28rem;
+  padding: 0.16rem;
+}
+:is(.page-home, .page-category) .tools-bar__batch-count {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  margin: 0;
+}
+:is(.page-home, .page-category) .tools-bar__batch-actions {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.18rem;
+  padding: 0.12rem;
+  border-radius: 999px;
+  background: rgba(229, 244, 251, 0.72);
+  border: 1px solid rgba(0, 105, 180, 0.1);
+}
+.page-category .category-layout > .tools-bar .tools-bar__batch-actions {
+  gap: 0.12rem;
+  padding: 0.08rem;
+}
+.page-category .category-layout > .tools-bar .tools-bar__batch-input {
+  width: 3.1rem;
+  min-width: 2.9rem;
+  min-height: 1.9rem;
+  padding: 0.28rem 0.2rem;
+  font-size: 0.8rem;
+}
+.page-category .category-layout > .tools-bar .tools-bar__label {
+  font-size: 0.68rem;
+  letter-spacing: 0.02em;
+}
+.page-category .category-layout > .tools-bar .tools-bar__batch [data-home-batch] {
+  white-space: nowrap;
+}
+:is(.page-home, .page-category) .tools-bar__batch-input {
+  width: 3.55rem;
+  min-width: 3.25rem;
+  min-height: 2.1rem;
+  padding: 0.35rem 0.3rem;
+  border: 1px solid rgba(0, 105, 180, 0.18);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--nav-blue-deep);
+  box-shadow:
+    0 1px 2px rgba(0, 78, 140, 0.05) inset,
+    0 0 0 1px rgba(255, 255, 255, 0.8);
   font-family: var(--font-ui);
-  font-size: 0.86rem;
-  font-weight: 700;
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
   text-align: center;
   -moz-appearance: textfield;
-  transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+  transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease, color 160ms ease;
+}
+:is(.page-home, .page-category) .tools-bar__batch-input::placeholder {
+  color: rgba(0, 78, 140, 0.35);
+  font-weight: 700;
 }
 :is(.page-home, .page-category) .tools-bar__batch-input::-webkit-outer-spin-button,
 :is(.page-home, .page-category) .tools-bar__batch-input::-webkit-inner-spin-button {
@@ -2868,43 +2960,88 @@ body.global-search-open { overflow: hidden; }
   margin: 0;
 }
 :is(.page-home, .page-category) .tools-bar__batch-input:hover {
-  border-color: rgba(0, 105, 180, 0.3);
+  border-color: rgba(0, 105, 180, 0.34);
 }
 :is(.page-home, .page-category) .tools-bar__batch-input:focus {
   outline: none;
-  border-color: rgba(0, 105, 180, 0.5);
-  box-shadow: 0 0 0 4px rgba(0, 105, 180, 0.14);
+  border-color: rgba(0, 105, 180, 0.55);
+  box-shadow: 0 0 0 3px rgba(0, 105, 180, 0.14);
+}
+:is(.page-home, .page-category) .tools-bar__batch-actions .tools-bar__view-btn {
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: transparent;
+  box-shadow: none;
+  font-weight: 600;
+}
+:is(.page-home, .page-category) .tools-bar__batch-actions .tools-bar__view-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(0, 105, 180, 0.16);
+  color: var(--nav-blue-deep);
+  box-shadow: 0 2px 8px rgba(0, 78, 140, 0.08);
+}
+:is(.page-home, .page-category) .tools-bar__batch-actions .tools-bar__view-btn:active:not(:disabled) {
+  transform: translateY(1px);
 }
 :is(.page-home, .page-category) .tools-bar__batch [data-home-batch] {
   white-space: nowrap;
 }
 :is(.page-home, .page-category) .tools-bar__batch [data-home-batch]:disabled {
-  opacity: 0.42;
+  opacity: 0.4;
   cursor: not-allowed;
+  box-shadow: none;
+}
+:is(.page-home, .page-category) .tools-bar__batch-all.is-active,
+:is(.page-home, .page-category) .tools-bar__batch-all[aria-pressed="true"] {
+  background: linear-gradient(135deg, var(--nav-blue) 0%, var(--blue-400) 100%);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 90, 154, 0.2);
+}
+:is(.page-home, .page-category) .tools-bar__batch-all.is-active:hover:not(:disabled),
+:is(.page-home, .page-category) .tools-bar__batch-all[aria-pressed="true"]:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--nav-blue-deep) 0%, var(--nav-blue) 100%);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(0, 78, 140, 0.24);
+}
+:is(.page-home, .page-category) .tools-bar__batch-all.is-active:disabled,
+:is(.page-home, .page-category) .tools-bar__batch-all[aria-pressed="true"]:disabled {
+  opacity: 1;
+  cursor: default;
 }
 :is(.page-home, .page-category) .tools-bar__batch-range {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  margin-top: 0.05rem;
+  padding: 0.12rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(0, 105, 180, 0.07);
+  border: 1px solid rgba(0, 105, 180, 0.1);
   font-family: var(--font-ui);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.02em;
-  color: rgba(0, 60, 110, 0.55);
+  color: rgba(0, 60, 110, 0.68);
   line-height: 1.2;
   min-height: 1em;
 }
+:is(.page-home, .page-category) .tools-bar__batch-range[hidden] {
+  display: none !important;
+}
 
-/* Tools bar responsive: tablet */
+/* Tools bar responsive: tablet (home only — category stays one row until phone). */
 @media (max-width: 1180px) {
-  .tools-bar,
-  .page-category .tools-bar {
+  .page-home .tools-bar {
     flex-wrap: wrap;
     align-items: flex-end;
   }
-  :is(.page-home, .page-category) .tools-bar {
+  .page-home .tools-bar {
     flex-wrap: wrap;
     align-items: flex-start;
   }
-  .tools-bar__search,
-  :is(.page-home, .page-category) .tools-bar__search {
+  .page-home .tools-bar__search {
     flex: 1 1 100%;
     max-width: none;
     min-width: 0;
@@ -2958,6 +3095,14 @@ body.global-search-open { overflow: hidden; }
   }
   :is(.page-home, .page-category) .tools-bar__batch-controls {
     width: 100%;
+    flex-wrap: wrap;
+    border-radius: 1.1rem;
+    justify-content: flex-start;
+  }
+  :is(.page-home, .page-category) .tools-bar__batch-actions {
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    justify-content: stretch;
   }
   :is(.page-home, .page-category) .tools-bar__batch-input {
     flex: 0 0 3.6rem;
@@ -3245,17 +3390,58 @@ body.global-search-open { overflow: hidden; }
   .nav-dropdown { width: 100%; }
   .nav-dropdown > summary,
   .nav-dropdown > .nav-dropdown__summary {
-    display: none;
+    display: inline-flex;
+    width: 100%;
+    box-sizing: border-box;
+    color: var(--ink);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.25;
+    padding: 0.55rem 0.7rem;
+    border: 1px solid rgba(0, 105, 180, 0.14);
+    border-radius: 0.65rem;
+    background: rgba(255, 255, 255, 0.72);
+    white-space: normal;
+    gap: 0.45rem;
+    justify-content: flex-start;
+    align-items: center;
   }
+  .nav-dropdown > summary:hover,
+  .nav-dropdown > .nav-dropdown__summary:hover,
+  .nav-dropdown[open] > summary,
+  .nav-dropdown[open] > .nav-dropdown__summary {
+    background: #fff;
+    border-color: rgba(0, 105, 180, 0.28);
+    color: var(--nav-blue-deep);
+  }
+  .nav-dropdown > summary::after,
+  .nav-dropdown > .nav-dropdown__summary::after {
+    content: "";
+    display: block;
+    margin-left: auto;
+    flex: 0 0 auto;
+    width: 0.45rem;
+    height: 0.45rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 160ms ease;
+  }
+  .nav-dropdown[open] > summary::after,
+  .nav-dropdown[open] > .nav-dropdown__summary::after {
+    transform: translateY(0.12rem) rotate(225deg);
+  }
+  /* Keep panels collapsed until the top-level item is opened. */
   .nav-dropdown--literature > .nav-dropdown-panel,
   .nav-dropdown--arts > .nav-dropdown-panel,
   .nav-dropdown--science > .nav-dropdown-panel {
     position: static;
-    display: flex;
+    left: auto;
+    top: auto;
     min-width: 0;
     max-width: none;
     width: 100%;
-    margin: 0;
+    margin: 0.35rem 0 0;
     box-shadow: none;
     border: 1px solid rgba(0, 105, 180, 0.14);
     animation: none;
@@ -4678,23 +4864,34 @@ JS = r"""
   window.addEventListener("resize", syncStickyChrome, { passive: true });
   syncStickyChrome();
 
+  const resetMobileNavSections = () => {
+    dropdowns.forEach((dropdown) => {
+      dropdown.open = false;
+      dropdown.classList.remove("is-hover-open");
+    });
+    document.querySelectorAll(".nav-dropdown--nested.is-mega-open").forEach((group) => {
+      group.classList.remove("is-mega-open");
+      const btn = group.querySelector("[data-nav-mega-toggle]");
+      if (btn) btn.setAttribute("aria-expanded", "false");
+    });
+  };
+
   const closeMobileNav = () => {
     if (!header || !navToggle) return;
     header.classList.remove("is-nav-open");
     document.body.classList.remove("nav-open");
     navToggle.setAttribute("aria-expanded", "false");
     navToggle.setAttribute("aria-label", "Menyunu aç");
+    resetMobileNavSections();
   };
 
   const openMobileNav = () => {
     if (!header || !navToggle || !dropdowns.length) return;
+    resetMobileNavSections();
     header.classList.add("is-nav-open");
     document.body.classList.add("nav-open");
     navToggle.setAttribute("aria-expanded", "true");
     navToggle.setAttribute("aria-label", "Menyunu bağla");
-    dropdowns.forEach((dropdown) => {
-      dropdown.open = true;
-    });
   };
 
   if (navToggle && header && dropdowns.length) {
@@ -4783,6 +4980,12 @@ JS = r"""
       if (!dropdown.open) {
         dropdown.classList.remove("is-hover-open");
         closeMegasIn(dropdown);
+        return;
+      }
+      if (mobileNavQuery.matches) {
+        dropdowns.forEach((other) => {
+          if (other !== dropdown) setDropdownOpen(other, false);
+        });
       }
     });
     dropdown.querySelectorAll("a").forEach((link) => {
@@ -4994,9 +5197,9 @@ JS = r"""
     const batchRangeEl = bar.querySelector("[data-home-batch-range]");
     const navList = document.querySelector("[data-tools-nav]");
     const countEl = document.querySelector("[data-tools-count]");
-    const batchSizeStorageKey = "birinci-home-batch-size";
-    const batchAllStorageKey = "birinci-home-batch-all";
-    const legacyPageSizeStorageKey = "birinci-home-page-size";
+    const batchSizeStorageKey = "birinci-category-batch-size";
+    const batchAllStorageKey = "birinci-category-batch-all";
+    const legacyPageSizeStorageKey = "birinci-category-page-size";
 
     const allStories = Array.from(list.querySelectorAll(".story"));
     allStories.sort((a, b) => localeCompareAz(a.dataset.title, b.dataset.title));
@@ -5011,7 +5214,7 @@ JS = r"""
     let batchSize = 10;
     let windowStart = 0;
     let randomStems = null;
-    let allMode = false;
+    let allMode = true;
     let pendingStem = null;
 
     const batchCap = () => {
@@ -5022,16 +5225,25 @@ JS = r"""
       return Math.max(1, n);
     };
 
+    const inputRaw = () =>
+      batchSizeInput ? String(batchSizeInput.value || "").trim() : "";
+
     const readBatchSize = () => {
-      if (!batchSizeInput) return batchSize || 10;
-      const n = Number(batchSizeInput.value);
+      const raw = inputRaw();
+      if (!raw) return batchSize || 10;
+      const n = Number(raw);
       return Number.isFinite(n) && n > 0 ? Math.floor(n) : batchSize || 10;
     };
 
     const persistBatchSize = () => {
       try {
-        localStorage.setItem(batchSizeStorageKey, String(batchSize));
-        localStorage.removeItem(legacyPageSizeStorageKey);
+        if (allMode || !inputRaw()) {
+          localStorage.removeItem(batchSizeStorageKey);
+          localStorage.removeItem(legacyPageSizeStorageKey);
+        } else {
+          localStorage.setItem(batchSizeStorageKey, String(batchSize));
+          localStorage.removeItem(legacyPageSizeStorageKey);
+        }
       } catch (_) {}
     };
 
@@ -5048,7 +5260,7 @@ JS = r"""
       if (batchSizeInput) {
         batchSizeInput.min = "1";
         batchSizeInput.max = String(cap);
-        batchSizeInput.value = String(batchSize);
+        batchSizeInput.value = allMode ? "" : String(batchSize);
       }
       const showingAll =
         total > 0 &&
@@ -5057,10 +5269,15 @@ JS = r"""
       const atStart = !randomStems && !allMode && windowStart <= 0;
       const atEnd =
         !randomStems && (allMode || total === 0 || windowStart + batchSize >= total);
-      if (batchPrevBtn) batchPrevBtn.disabled = total === 0 || allMode || atStart;
-      if (batchNextBtn) batchNextBtn.disabled = total === 0 || allMode || atEnd;
-      if (batchRandomBtn) batchRandomBtn.disabled = total === 0;
-      if (batchAllBtn) batchAllBtn.disabled = total === 0 || showingAll;
+      const needsSize = allMode || !inputRaw();
+      if (batchPrevBtn) batchPrevBtn.disabled = total === 0 || needsSize || atStart;
+      if (batchNextBtn) batchNextBtn.disabled = total === 0 || needsSize || atEnd;
+      if (batchRandomBtn) batchRandomBtn.disabled = total === 0 || needsSize;
+      if (batchAllBtn) {
+        batchAllBtn.disabled = total === 0 || showingAll;
+        batchAllBtn.classList.toggle("is-active", showingAll);
+        batchAllBtn.setAttribute("aria-pressed", showingAll ? "true" : "false");
+      }
       if (batchRangeEl) {
         if (total === 0) {
           batchRangeEl.hidden = true;
@@ -5082,18 +5299,36 @@ JS = r"""
 
     const commitBatchSize = ({ persist = true, render = false, resetWindow = false } = {}) => {
       const cap = batchCap();
-      let n = Number(batchSizeInput && batchSizeInput.value);
+      const raw = inputRaw();
+      if (!raw) {
+        allMode = true;
+        randomStems = null;
+        windowStart = 0;
+        if (batchSizeInput) batchSizeInput.value = "";
+        if (persist) {
+          persistBatchSize();
+          persistAllMode();
+        }
+        if (render) {
+          pendingStem = null;
+          renderList();
+        } else {
+          syncBatchUi(0);
+        }
+        return;
+      }
+      let n = Number(raw);
       if (!Number.isFinite(n) || n < 1) n = 1;
       n = Math.min(Math.floor(n), cap);
       if (n < 1) n = 1;
       if (batchSizeInput) batchSizeInput.value = String(n);
       batchSize = n;
+      allMode = false;
       if (resetWindow) {
         windowStart = 0;
         randomStems = null;
-      } else {
-        if (randomStems) randomStems = null;
-        if (allMode) allMode = false;
+      } else if (randomStems) {
+        randomStems = null;
       }
       if (persist) {
         persistBatchSize();
@@ -5109,21 +5344,27 @@ JS = r"""
 
     const applyStoredBatchSize = () => {
       let stored = "";
+      let storedAll = false;
       try {
-        allMode = localStorage.getItem(batchAllStorageKey) === "1";
+        storedAll = localStorage.getItem(batchAllStorageKey) === "1";
         stored = localStorage.getItem(batchSizeStorageKey) || "";
         if (!stored) {
           const legacy = localStorage.getItem(legacyPageSizeStorageKey) || "";
           if (legacy && legacy !== "all") stored = legacy;
-          else if (legacy === "all") allMode = true;
+          else if (legacy === "all") storedAll = true;
         }
       } catch (_) {}
       const n = Number(stored);
-      if (Number.isFinite(n) && n > 0) {
+      if (storedAll || !stored) {
+        allMode = true;
+        if (batchSizeInput) batchSizeInput.value = "";
+      } else if (Number.isFinite(n) && n > 0) {
+        allMode = false;
         batchSize = Math.floor(n);
         if (batchSizeInput) batchSizeInput.value = String(batchSize);
       } else {
-        batchSize = readBatchSize();
+        allMode = true;
+        if (batchSizeInput) batchSizeInput.value = "";
       }
       syncBatchUi(0);
     };
@@ -5262,16 +5503,20 @@ JS = r"""
 
       const total = filtered.length;
       const cap = Math.max(1, total || 1);
-      let n = readBatchSize();
-      if (!Number.isFinite(n) || n < 1) n = 1;
-      if (n > cap) n = cap;
-      if (batchSizeInput && String(batchSizeInput.value) !== String(n)) {
-        batchSizeInput.value = String(n);
+      if (allMode) {
+        if (batchSizeInput) batchSizeInput.value = "";
+      } else {
+        let n = readBatchSize();
+        if (!Number.isFinite(n) || n < 1) n = 1;
+        if (n > cap) n = cap;
+        if (batchSizeInput && String(batchSizeInput.value) !== String(n)) {
+          batchSizeInput.value = String(n);
+        }
+        batchSize = n;
         try {
           localStorage.setItem(batchSizeStorageKey, String(n));
         } catch (_) {}
       }
-      batchSize = n;
 
       if (resetWindow) {
         windowStart = 0;
@@ -5366,34 +5611,48 @@ JS = r"""
       });
     }
     const runBatchAction = (action) => {
-      commitBatchSize({ persist: true, render: false });
       const total = filtered.length;
       if (!total) {
-        allMode = false;
+        allMode = true;
+        if (batchSizeInput) batchSizeInput.value = "";
+        persistBatchSize();
         persistAllMode();
         renderList();
         return;
       }
+      if (action === "all") {
+        allMode = true;
+        randomStems = null;
+        windowStart = 0;
+        if (batchSizeInput) batchSizeInput.value = "";
+        persistBatchSize();
+        persistAllMode();
+        pendingStem = null;
+        renderList();
+        scrollToolsIntoView();
+        return;
+      }
+      if (!inputRaw()) {
+        // Require an explicit count — never invent a default like 10.
+        syncBatchUi((filtered && filtered.length) || 0);
+        return;
+      }
+      commitBatchSize({ persist: true, render: false });
+      allMode = false;
       if (action === "prev") {
-        allMode = false;
         randomStems = null;
         windowStart = Math.max(0, windowStart - batchSize);
       } else if (action === "next") {
-        allMode = false;
         randomStems = null;
         if (windowStart + batchSize < total) {
           windowStart += batchSize;
         }
       } else if (action === "random") {
-        allMode = false;
         randomStems = pickRandomStems(batchSize);
-      } else if (action === "all") {
-        allMode = true;
-        randomStems = null;
-        windowStart = 0;
       } else {
         return;
       }
+      persistBatchSize();
       persistAllMode();
       pendingStem = null;
       renderList();
@@ -5628,7 +5887,11 @@ JS = r"""
       if (batchPrevBtn) batchPrevBtn.disabled = total === 0 || allMode || atStart;
       if (batchNextBtn) batchNextBtn.disabled = total === 0 || allMode || atEnd;
       if (batchRandomBtn) batchRandomBtn.disabled = total === 0;
-      if (batchAllBtn) batchAllBtn.disabled = total === 0 || showingAll;
+      if (batchAllBtn) {
+        batchAllBtn.disabled = total === 0 || showingAll;
+        batchAllBtn.classList.toggle("is-active", showingAll);
+        batchAllBtn.setAttribute("aria-pressed", showingAll ? "true" : "false");
+      }
       if (batchRangeEl) {
         if (total === 0) {
           batchRangeEl.hidden = true;

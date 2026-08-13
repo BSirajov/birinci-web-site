@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/site.css?v=20260819c" />
+  <link rel="stylesheet" href="../assets/site.css?v=20260819n" />
 </head>
 <body class="page-category" id="top">
   <a class="skip-link" href="#main">Məzmuna keç</a>
@@ -90,7 +90,7 @@
     </div>
   </div>
 </header>
-<div class="global-search" id="global-search" hidden data-search-index="../assets/search-index.js?v=20260819c">
+<div class="global-search" id="global-search" hidden data-search-index="../assets/search-index.js?v=20260819n">
   <button type="button" class="global-search__backdrop" data-global-search-close tabindex="-1" aria-label="Axtarışı bağla"></button>
   <div class="global-search__panel" role="dialog" aria-modal="true" aria-labelledby="global-search-title">
     <div class="global-search__head">
@@ -140,24 +140,30 @@
     </div>
   </div>
   <div class="tools-bar__field tools-bar__batch">
-    <span class="tools-bar__label" id="tools-batch-label">Yüklə</span>
+    <span class="tools-bar__label" id="tools-batch-label">Göstər</span>
     <div class="tools-bar__batch-controls" role="group" aria-labelledby="tools-batch-label">
-      <input
-        type="number"
-        class="tools-bar__batch-input"
-        data-home-batch-size
-        min="1"
-        max="9999"
-        value="10"
-        step="1"
-        inputmode="numeric"
-        aria-label="Hekayə sayı"
-        title="Hekayə sayı"
-      />
-      <button type="button" class="tools-bar__view-btn" data-home-batch="prev" title="Əvvəlki partiyanı göstər" aria-label="Əvvəlki">Əvvəlki</button>
-      <button type="button" class="tools-bar__view-btn" data-home-batch="next" title="Sonrakı partiyanı göstər" aria-label="Növbəti">Növbəti</button>
-      <button type="button" class="tools-bar__view-btn" data-home-batch="random" title="Təsadüfi hekayələr" aria-label="Təsadüfi hekayələr">Təsadüfi</button>
-      <button type="button" class="tools-bar__view-btn" data-home-batch="all" title="Bütün hekayələri yüklə" aria-label="Bütün hekayələri yüklə">Tam</button>
+      <label class="tools-bar__batch-count">
+        <span class="visually-hidden">Hekayə sayı</span>
+        <input
+          type="number"
+          class="tools-bar__batch-input"
+          data-home-batch-size
+          min="1"
+          max="9999"
+          value=""
+          step="1"
+          inputmode="numeric"
+          aria-label="Hekayə sayı"
+          title="Hekayə sayı"
+          placeholder="—"
+        />
+      </label>
+      <div class="tools-bar__batch-actions">
+        <button type="button" class="tools-bar__view-btn" data-home-batch="prev" title="Əvvəlki hekayələri göstər" aria-label="Əvvəlki">Əvvəlki</button>
+        <button type="button" class="tools-bar__view-btn" data-home-batch="next" title="Növbəti hekayələri göstər" aria-label="Növbəti">Növbəti</button>
+        <button type="button" class="tools-bar__view-btn" data-home-batch="random" title="Təsadüfi hekayələr" aria-label="Təsadüfi hekayələr">Təsadüfi</button>
+        <button type="button" class="tools-bar__view-btn tools-bar__batch-all" data-home-batch="all" title="Bütün hekayələri göstər" aria-label="Bütün hekayələri göstər">Tam</button>
+      </div>
     </div>
     <span class="tools-bar__batch-range" data-home-batch-range hidden aria-live="polite"></span>
   </div>
@@ -200,7 +206,7 @@
       </div>
     </aside>
     <div class="story-list" data-tools-list>
-      <article class="story news-card" id="the-value-of-your-family" data-stem="the-value-of-your-family" data-title="Ailənizin dəyəri" data-audio="../audio/the-value-of-your-family.mp3?v=20260819c">
+      <article class="story news-card" id="the-value-of-your-family" data-stem="the-value-of-your-family" data-title="Ailənizin dəyəri" data-audio="../audio/the-value-of-your-family.mp3?v=20260819n">
   <div class="card-header">
     <h2 class="card-title story__title">Ailənizin dəyəri</h2>
   </div>
@@ -235,7 +241,7 @@
       </button>
     </figure>
   </div>
-</article><article class="story news-card" id="weeds-must-be-pulled-from-the-root" data-stem="weeds-must-be-pulled-from-the-root" data-title="Alaq otlarını kökündən qoparmaq lazımdır" data-audio="../audio/weeds-must-be-pulled-from-the-root.mp3?v=20260819c">
+</article><article class="story news-card" id="weeds-must-be-pulled-from-the-root" data-stem="weeds-must-be-pulled-from-the-root" data-title="Alaq otlarını kökündən qoparmaq lazımdır" data-audio="../audio/weeds-must-be-pulled-from-the-root.mp3?v=20260819n">
   <div class="card-header">
     <h2 class="card-title story__title">Alaq otlarını kökündən qoparmaq lazımdır</h2>
   </div>
@@ -270,7 +276,7 @@
       </button>
     </figure>
   </div>
-</article><article class="story news-card" id="a-mothers-love" data-stem="a-mothers-love" data-title="Ana sevgisi" data-audio="../audio/a-mothers-love.mp3?v=20260819c">
+</article><article class="story news-card" id="a-mothers-love" data-stem="a-mothers-love" data-title="Ana sevgisi" data-audio="../audio/a-mothers-love.mp3?v=20260819n">
   <div class="card-header">
     <h2 class="card-title story__title">Ana sevgisi</h2>
   </div>
@@ -305,7 +311,7 @@
       </button>
     </figure>
   </div>
-</article><article class="story news-card" id="mother-and-son" data-stem="mother-and-son" data-title="Ana və oğul" data-audio="../audio/mother-and-son.mp3?v=20260819c">
+</article><article class="story news-card" id="mother-and-son" data-stem="mother-and-son" data-title="Ana və oğul" data-audio="../audio/mother-and-son.mp3?v=20260819n">
   <div class="card-header">
     <h2 class="card-title story__title">Ana və oğul</h2>
   </div>
@@ -340,7 +346,7 @@
       </button>
     </figure>
   </div>
-</article><article class="story news-card" id="father-and-son" data-stem="father-and-son" data-title="Ata və oğul" data-audio="../audio/father-and-son.mp3?v=20260819c">
+</article><article class="story news-card" id="father-and-son" data-stem="father-and-son" data-title="Ata və oğul" data-audio="../audio/father-and-son.mp3?v=20260819n">
   <div class="card-header">
     <h2 class="card-title story__title">Ata və oğul</h2>
   </div>
@@ -375,7 +381,7 @@
       </button>
     </figure>
   </div>
-</article><article class="story news-card" id="a-fathers-footprints" data-stem="a-fathers-footprints" data-title="Atanın izləri" data-audio="../audio/a-fathers-footprints.mp3?v=20260819c">
+</article><article class="story news-card" id="a-fathers-footprints" data-stem="a-fathers-footprints" data-title="Atanın izləri" data-audio="../audio/a-fathers-footprints.mp3?v=20260819n">
   <div class="card-header">
     <h2 class="card-title story__title">Atanın izləri</h2>
   </div>
@@ -410,7 +416,7 @@
       </button>
     </figure>
   </div>
-</article><article class="story news-card" id="grandfather-and-grandson-at-the-market" data-stem="grandfather-and-grandson-at-the-market" data-title="Baba və nəvəsi bazarlıqda" data-audio="../audio/grandfather-and-grandson-at-the-market.mp3?v=20260819c">
+</article><article class="story news-card" id="grandfather-and-grandson-at-the-market" data-stem="grandfather-and-grandson-at-the-market" data-title="Baba və nəvəsi bazarlıqda" data-audio="../audio/grandfather-and-grandson-at-the-market.mp3?v=20260819n">
   <div class="card-header">
     <h2 class="card-title story__title">Baba və nəvəsi bazarlıqda</h2>
   </div>
@@ -445,7 +451,7 @@
       </button>
     </figure>
   </div>
-</article><article class="story news-card" id="a-festive-gift" data-stem="a-festive-gift" data-title="Bayrama hədiyyə" data-audio="../audio/a-festive-gift.mp3?v=20260819c">
+</article><article class="story news-card" id="a-festive-gift" data-stem="a-festive-gift" data-title="Bayrama hədiyyə" data-audio="../audio/a-festive-gift.mp3?v=20260819n">
   <div class="card-header">
     <h2 class="card-title story__title">Bayrama hədiyyə</h2>
   </div>
@@ -480,7 +486,7 @@
       </button>
     </figure>
   </div>
-</article><article class="story news-card" id="only-my-mother-would-weep" data-stem="only-my-mother-would-weep" data-title="Bir tək anam ağlar" data-audio="../audio/only-my-mother-would-weep.mp3?v=20260819c">
+</article><article class="story news-card" id="only-my-mother-would-weep" data-stem="only-my-mother-would-weep" data-title="Bir tək anam ağlar" data-audio="../audio/only-my-mother-would-weep.mp3?v=20260819n">
   <div class="card-header">
     <h2 class="card-title story__title">Bir tək anam ağlar</h2>
   </div>
@@ -515,7 +521,7 @@
       </button>
     </figure>
   </div>
-</article><article class="story news-card" id="i-am-waiting-for-the-teeth" data-stem="i-am-waiting-for-the-teeth" data-title="Dişləri gözləyirəm" data-audio="../audio/i-am-waiting-for-the-teeth.mp3?v=20260819c">
+</article><article class="story news-card" id="i-am-waiting-for-the-teeth" data-stem="i-am-waiting-for-the-teeth" data-title="Dişləri gözləyirəm" data-audio="../audio/i-am-waiting-for-the-teeth.mp3?v=20260819n">
   <div class="card-header">
     <h2 class="card-title story__title">Dişləri gözləyirəm</h2>
   </div>
@@ -550,7 +556,7 @@
       </button>
     </figure>
   </div>
-</article><article class="story news-card" id="the-mothers-advice-fakir-baykurt-never-forgot" data-stem="the-mothers-advice-fakir-baykurt-never-forgot" data-title="Fakir Baykurtun unutmadığı ana nəsihəti" data-audio="../audio/the-mothers-advice-fakir-baykurt-never-forgot.mp3?v=20260819c">
+</article><article class="story news-card" id="the-mothers-advice-fakir-baykurt-never-forgot" data-stem="the-mothers-advice-fakir-baykurt-never-forgot" data-title="Fakir Baykurtun unutmadığı ana nəsihəti" data-audio="../audio/the-mothers-advice-fakir-baykurt-never-forgot.mp3?v=20260819n">
   <div class="card-header">
     <h2 class="card-title story__title">Fakir Baykurtun unutmadığı ana nəsihəti</h2>
   </div>
@@ -585,7 +591,7 @@
       </button>
     </figure>
   </div>
-</article><article class="story news-card" id="spinach" data-stem="spinach" data-title="İspanaq" data-audio="../audio/spinach.mp3?v=20260819c">
+</article><article class="story news-card" id="spinach" data-stem="spinach" data-title="İspanaq" data-audio="../audio/spinach.mp3?v=20260819n">
   <div class="card-header">
     <h2 class="card-title story__title">İspanaq</h2>
   </div>
@@ -620,7 +626,7 @@
       </button>
     </figure>
   </div>
-</article><article class="story news-card" id="from-a-wise-fathers-advice-to-his-son" data-stem="from-a-wise-fathers-advice-to-his-son" data-title="Müdrik atanın oğluna öyüd-nəsihətlərindən" data-audio="../audio/from-a-wise-fathers-advice-to-his-son.mp3?v=20260819c">
+</article><article class="story news-card" id="from-a-wise-fathers-advice-to-his-son" data-stem="from-a-wise-fathers-advice-to-his-son" data-title="Müdrik atanın oğluna öyüd-nəsihətlərindən" data-audio="../audio/from-a-wise-fathers-advice-to-his-son.mp3?v=20260819n">
   <div class="card-header">
     <h2 class="card-title story__title">Müdrik atanın oğluna öyüd-nəsihətlərindən</h2>
   </div>
@@ -655,7 +661,7 @@
       </button>
     </figure>
   </div>
-</article><article class="story news-card" id="puppies-for-sale" data-stem="puppies-for-sale" data-title="Satılıq küçüklər" data-audio="../audio/puppies-for-sale.mp3?v=20260819c">
+</article><article class="story news-card" id="puppies-for-sale" data-stem="puppies-for-sale" data-title="Satılıq küçüklər" data-audio="../audio/puppies-for-sale.mp3?v=20260819n">
   <div class="card-header">
     <h2 class="card-title story__title">Satılıq küçüklər</h2>
   </div>
@@ -690,7 +696,7 @@
       </button>
     </figure>
   </div>
-</article><article class="story news-card" id="fallen-teeth" data-stem="fallen-teeth" data-title="Tökülən dişlər" data-audio="../audio/fallen-teeth.mp3?v=20260819c">
+</article><article class="story news-card" id="fallen-teeth" data-stem="fallen-teeth" data-title="Tökülən dişlər" data-audio="../audio/fallen-teeth.mp3?v=20260819n">
   <div class="card-header">
     <h2 class="card-title story__title">Tökülən dişlər</h2>
   </div>
@@ -725,7 +731,7 @@
       </button>
     </figure>
   </div>
-</article><article class="story news-card" id="i-am-tired-mother" data-stem="i-am-tired-mother" data-title="Yoruldum ana" data-audio="../audio/i-am-tired-mother.mp3?v=20260819c">
+</article><article class="story news-card" id="i-am-tired-mother" data-stem="i-am-tired-mother" data-title="Yoruldum ana" data-audio="../audio/i-am-tired-mother.mp3?v=20260819n">
   <div class="card-header">
     <h2 class="card-title story__title">Yoruldum ana</h2>
   </div>
@@ -760,7 +766,7 @@
       </button>
     </figure>
   </div>
-</article><article class="story news-card" id="the-builder-of-the-nest" data-stem="the-builder-of-the-nest" data-title="Yuvanın qurucusu" data-audio="../audio/the-builder-of-the-nest.mp3?v=20260819c">
+</article><article class="story news-card" id="the-builder-of-the-nest" data-stem="the-builder-of-the-nest" data-title="Yuvanın qurucusu" data-audio="../audio/the-builder-of-the-nest.mp3?v=20260819n">
   <div class="card-header">
     <h2 class="card-title story__title">Yuvanın qurucusu</h2>
   </div>
@@ -795,7 +801,7 @@
       </button>
     </figure>
   </div>
-</article><article class="story news-card" id="rotten-seed" data-stem="rotten-seed" data-title="Çürük toxum" data-audio="../audio/rotten-seed.mp3?v=20260819c">
+</article><article class="story news-card" id="rotten-seed" data-stem="rotten-seed" data-title="Çürük toxum" data-audio="../audio/rotten-seed.mp3?v=20260819n">
   <div class="card-header">
     <h2 class="card-title story__title">Çürük toxum</h2>
   </div>
@@ -830,7 +836,7 @@
       </button>
     </figure>
   </div>
-</article><article class="story news-card" id="raising-children" data-stem="raising-children" data-title="Övlad tərbiyəsi" data-audio="../audio/raising-children.mp3?v=20260819c">
+</article><article class="story news-card" id="raising-children" data-stem="raising-children" data-title="Övlad tərbiyəsi" data-audio="../audio/raising-children.mp3?v=20260819n">
   <div class="card-header">
     <h2 class="card-title story__title">Övlad tərbiyəsi</h2>
   </div>
@@ -865,7 +871,7 @@
       </button>
     </figure>
   </div>
-</article><article class="story news-card" id="hold-my-hand" data-stem="hold-my-hand" data-title="Əlimi tut" data-audio="../audio/hold-my-hand.mp3?v=20260819c">
+</article><article class="story news-card" id="hold-my-hand" data-stem="hold-my-hand" data-title="Əlimi tut" data-audio="../audio/hold-my-hand.mp3?v=20260819n">
   <div class="card-header">
     <h2 class="card-title story__title">Əlimi tut</h2>
   </div>
@@ -900,7 +906,7 @@
       </button>
     </figure>
   </div>
-</article><article class="story news-card" id="the-most-beautiful-gift" data-stem="the-most-beautiful-gift" data-title="Ən gözəl hədiyyə" data-audio="../audio/the-most-beautiful-gift.mp3?v=20260819c">
+</article><article class="story news-card" id="the-most-beautiful-gift" data-stem="the-most-beautiful-gift" data-title="Ən gözəl hədiyyə" data-audio="../audio/the-most-beautiful-gift.mp3?v=20260819n">
   <div class="card-header">
     <h2 class="card-title story__title">Ən gözəl hədiyyə</h2>
   </div>
@@ -958,6 +964,6 @@
       <div class="footer-copy">© 2026 Bir inci</div>
     </div>
   </footer>
-  <script src="../assets/site.js?v=20260819c" defer></script>
+  <script src="../assets/site.js?v=20260819n" defer></script>
 </body>
 </html>

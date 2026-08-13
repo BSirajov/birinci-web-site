@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/site.css?v=20260819c" />
+  <link rel="stylesheet" href="../assets/site.css?v=20260819n" />
 </head>
 <body class="page-category" id="top">
   <a class="skip-link" href="#main">Məzmuna keç</a>
@@ -90,7 +90,7 @@
     </div>
   </div>
 </header>
-<div class="global-search" id="global-search" hidden data-search-index="../assets/search-index.js?v=20260819c">
+<div class="global-search" id="global-search" hidden data-search-index="../assets/search-index.js?v=20260819n">
   <button type="button" class="global-search__backdrop" data-global-search-close tabindex="-1" aria-label="Axtarışı bağla"></button>
   <div class="global-search__panel" role="dialog" aria-modal="true" aria-labelledby="global-search-title">
     <div class="global-search__head">
@@ -140,24 +140,30 @@
     </div>
   </div>
   <div class="tools-bar__field tools-bar__batch">
-    <span class="tools-bar__label" id="tools-batch-label">Yüklə</span>
+    <span class="tools-bar__label" id="tools-batch-label">Göstər</span>
     <div class="tools-bar__batch-controls" role="group" aria-labelledby="tools-batch-label">
-      <input
-        type="number"
-        class="tools-bar__batch-input"
-        data-home-batch-size
-        min="1"
-        max="9999"
-        value="10"
-        step="1"
-        inputmode="numeric"
-        aria-label="Hekayə sayı"
-        title="Hekayə sayı"
-      />
-      <button type="button" class="tools-bar__view-btn" data-home-batch="prev" title="Əvvəlki partiyanı göstər" aria-label="Əvvəlki">Əvvəlki</button>
-      <button type="button" class="tools-bar__view-btn" data-home-batch="next" title="Sonrakı partiyanı göstər" aria-label="Növbəti">Növbəti</button>
-      <button type="button" class="tools-bar__view-btn" data-home-batch="random" title="Təsadüfi hekayələr" aria-label="Təsadüfi hekayələr">Təsadüfi</button>
-      <button type="button" class="tools-bar__view-btn" data-home-batch="all" title="Bütün hekayələri yüklə" aria-label="Bütün hekayələri yüklə">Tam</button>
+      <label class="tools-bar__batch-count">
+        <span class="visually-hidden">Hekayə sayı</span>
+        <input
+          type="number"
+          class="tools-bar__batch-input"
+          data-home-batch-size
+          min="1"
+          max="9999"
+          value=""
+          step="1"
+          inputmode="numeric"
+          aria-label="Hekayə sayı"
+          title="Hekayə sayı"
+          placeholder="—"
+        />
+      </label>
+      <div class="tools-bar__batch-actions">
+        <button type="button" class="tools-bar__view-btn" data-home-batch="prev" title="Əvvəlki hekayələri göstər" aria-label="Əvvəlki">Əvvəlki</button>
+        <button type="button" class="tools-bar__view-btn" data-home-batch="next" title="Növbəti hekayələri göstər" aria-label="Növbəti">Növbəti</button>
+        <button type="button" class="tools-bar__view-btn" data-home-batch="random" title="Təsadüfi hekayələr" aria-label="Təsadüfi hekayələr">Təsadüfi</button>
+        <button type="button" class="tools-bar__view-btn tools-bar__batch-all" data-home-batch="all" title="Bütün hekayələri göstər" aria-label="Bütün hekayələri göstər">Tam</button>
+      </div>
     </div>
     <span class="tools-bar__batch-range" data-home-batch-range hidden aria-live="polite"></span>
   </div>
@@ -181,7 +187,7 @@
       </div>
     </aside>
     <div class="story-list" data-tools-list>
-      <article class="story news-card" id="albrecht-durer" data-stem="albrecht-durer" data-title="Albrecht Dürer" data-audio="../audio/albrecht-durer.mp3?v=20260819c">
+      <article class="story news-card" id="albrecht-durer" data-stem="albrecht-durer" data-title="Albrecht Dürer" data-audio="../audio/albrecht-durer.mp3?v=20260819n">
   <div class="card-header">
     <h2 class="card-title story__title">Albrecht Dürer</h2>
   </div>
@@ -216,7 +222,7 @@
       </button>
     </figure>
   </div>
-</article><article class="story news-card" id="architect-sinan-dies-in-a-house-without-water" data-stem="architect-sinan-dies-in-a-house-without-water" data-title="Memar Sinan susuz evdə vəfat edir" data-audio="../audio/architect-sinan-dies-in-a-house-without-water.mp3?v=20260819c">
+</article><article class="story news-card" id="architect-sinan-dies-in-a-house-without-water" data-stem="architect-sinan-dies-in-a-house-without-water" data-title="Memar Sinan susuz evdə vəfat edir" data-audio="../audio/architect-sinan-dies-in-a-house-without-water.mp3?v=20260819n">
   <div class="card-header">
     <h2 class="card-title story__title">Memar Sinan susuz evdə vəfat edir</h2>
   </div>
@@ -274,6 +280,6 @@
       <div class="footer-copy">© 2026 Bir inci</div>
     </div>
   </footer>
-  <script src="../assets/site.js?v=20260819c" defer></script>
+  <script src="../assets/site.js?v=20260819n" defer></script>
 </body>
 </html>
