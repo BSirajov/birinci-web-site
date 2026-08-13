@@ -435,10 +435,18 @@
       if (batchPrevBtn) batchPrevBtn.disabled = total === 0 || needsSize || atStart;
       if (batchNextBtn) batchNextBtn.disabled = total === 0 || needsSize || atEnd;
       if (batchRandomBtn) batchRandomBtn.disabled = total === 0 || needsSize;
+      const hintEl = bar.querySelector("[data-batch-hint]");
+      if (hintEl) {
+        const showHint = total > 0 && needsSize;
+        hintEl.hidden = !showHint;
+        if (showHint) hintEl.removeAttribute("hidden");
+        else hintEl.setAttribute("hidden", "");
+      }
       if (batchAllBtn) {
-        batchAllBtn.disabled = total === 0 || showingAll;
+        batchAllBtn.disabled = total === 0;
         batchAllBtn.classList.toggle("is-active", showingAll);
         batchAllBtn.setAttribute("aria-pressed", showingAll ? "true" : "false");
+        batchAllBtn.setAttribute("aria-disabled", showingAll || total === 0 ? "true" : "false");
       }
       if (batchRangeEl) {
         if (total === 0) {
@@ -783,6 +791,10 @@
         return;
       }
       if (action === "all") {
+        if (allMode) {
+          syncBatchUi(filtered.length);
+          return;
+        }
         allMode = true;
         randomStems = null;
         windowStart = 0;
@@ -1001,7 +1013,7 @@
     let batchSize = 10;
     let windowStart = 0;
     let randomStems = null;
-    let allMode = false;
+    let allMode = true;
 
     const batchCap = () => {
       const n =
@@ -1011,16 +1023,25 @@
       return Math.max(1, n);
     };
 
+    const inputRaw = () =>
+      batchSizeInput ? String(batchSizeInput.value || "").trim() : "";
+
     const readBatchSize = () => {
-      if (!batchSizeInput) return batchSize || 10;
-      const n = Number(batchSizeInput.value);
+      const raw = inputRaw();
+      if (!raw) return batchSize || 10;
+      const n = Number(raw);
       return Number.isFinite(n) && n > 0 ? Math.floor(n) : batchSize || 10;
     };
 
     const persistBatchSize = () => {
       try {
-        localStorage.setItem(batchSizeStorageKey, String(batchSize));
-        localStorage.removeItem(legacyPageSizeStorageKey);
+        if (allMode || !inputRaw()) {
+          localStorage.removeItem(batchSizeStorageKey);
+          localStorage.removeItem(legacyPageSizeStorageKey);
+        } else {
+          localStorage.setItem(batchSizeStorageKey, String(batchSize));
+          localStorage.removeItem(legacyPageSizeStorageKey);
+        }
       } catch (_) {}
     };
 
@@ -1037,7 +1058,7 @@
       if (batchSizeInput) {
         batchSizeInput.min = "1";
         batchSizeInput.max = String(cap);
-        batchSizeInput.value = String(batchSize);
+        batchSizeInput.value = allMode ? "" : String(batchSize);
       }
       const showingAll =
         total > 0 &&
@@ -1046,13 +1067,22 @@
       const atStart = !randomStems && !allMode && windowStart <= 0;
       const atEnd =
         !randomStems && (allMode || total === 0 || windowStart + batchSize >= total);
-      if (batchPrevBtn) batchPrevBtn.disabled = total === 0 || allMode || atStart;
-      if (batchNextBtn) batchNextBtn.disabled = total === 0 || allMode || atEnd;
-      if (batchRandomBtn) batchRandomBtn.disabled = total === 0;
+      const needsSize = allMode || !inputRaw();
+      if (batchPrevBtn) batchPrevBtn.disabled = total === 0 || needsSize || atStart;
+      if (batchNextBtn) batchNextBtn.disabled = total === 0 || needsSize || atEnd;
+      if (batchRandomBtn) batchRandomBtn.disabled = total === 0 || needsSize;
+      const hintEl = bar.querySelector("[data-batch-hint]");
+      if (hintEl) {
+        const showHint = total > 0 && needsSize;
+        hintEl.hidden = !showHint;
+        if (showHint) hintEl.removeAttribute("hidden");
+        else hintEl.setAttribute("hidden", "");
+      }
       if (batchAllBtn) {
-        batchAllBtn.disabled = total === 0 || showingAll;
+        batchAllBtn.disabled = total === 0;
         batchAllBtn.classList.toggle("is-active", showingAll);
         batchAllBtn.setAttribute("aria-pressed", showingAll ? "true" : "false");
+        batchAllBtn.setAttribute("aria-disabled", showingAll || total === 0 ? "true" : "false");
       }
       if (batchRangeEl) {
         if (total === 0) {
@@ -1075,19 +1105,36 @@
 
     const commitBatchSize = ({ persist = true, render = false, resetWindow = false } = {}) => {
       const cap = batchCap();
-      let n = Number(batchSizeInput && batchSizeInput.value);
+      const raw = inputRaw();
+      if (!raw) {
+        allMode = true;
+        randomStems = null;
+        windowStart = 0;
+        if (batchSizeInput) batchSizeInput.value = "";
+        if (persist) {
+          persistBatchSize();
+          persistAllMode();
+        }
+        if (render && view === "list") {
+          pendingStem = null;
+          renderList();
+        } else {
+          syncBatchUi(0);
+        }
+        return;
+      }
+      let n = Number(raw);
       if (!Number.isFinite(n) || n < 1) n = 1;
       n = Math.min(Math.floor(n), cap);
       if (n < 1) n = 1;
       if (batchSizeInput) batchSizeInput.value = String(n);
       batchSize = n;
+      allMode = false;
       if (resetWindow) {
         windowStart = 0;
         randomStems = null;
-        /* keep allMode across search/filter resets */
-      } else {
-        if (randomStems) randomStems = null;
-        if (allMode) allMode = false;
+      } else if (randomStems) {
+        randomStems = null;
       }
       if (persist) {
         persistBatchSize();
@@ -1102,22 +1149,37 @@
     };
 
     const applyStoredBatchSize = () => {
-      let stored = "";
       try {
-        allMode = localStorage.getItem(batchAllStorageKey) === "1";
+        // One-time: older home builds always persisted a numeric size (often 10).
+        // Align with category empty→all default for returning visitors.
+        if (!localStorage.getItem("birinci-home-batch-empty-default")) {
+          localStorage.setItem("birinci-home-batch-empty-default", "1");
+          localStorage.removeItem(batchSizeStorageKey);
+          localStorage.removeItem(legacyPageSizeStorageKey);
+        }
+      } catch (_) {}
+      let stored = "";
+      let storedAll = false;
+      try {
+        storedAll = localStorage.getItem(batchAllStorageKey) === "1";
         stored = localStorage.getItem(batchSizeStorageKey) || "";
         if (!stored) {
           const legacy = localStorage.getItem(legacyPageSizeStorageKey) || "";
           if (legacy && legacy !== "all") stored = legacy;
-          else if (legacy === "all") allMode = true;
+          else if (legacy === "all") storedAll = true;
         }
       } catch (_) {}
       const n = Number(stored);
-      if (Number.isFinite(n) && n > 0) {
+      if (storedAll || !stored) {
+        allMode = true;
+        if (batchSizeInput) batchSizeInput.value = "";
+      } else if (Number.isFinite(n) && n > 0) {
+        allMode = false;
         batchSize = Math.floor(n);
         if (batchSizeInput) batchSizeInput.value = String(batchSize);
       } else {
-        batchSize = readBatchSize();
+        allMode = true;
+        if (batchSizeInput) batchSizeInput.value = "";
       }
       syncBatchUi(0);
     };
@@ -1412,21 +1474,24 @@
 
       const total = filtered.length;
       const cap = Math.max(1, total || 1);
-      let n = readBatchSize();
-      if (!Number.isFinite(n) || n < 1) n = 1;
-      if (n > cap) n = cap;
-      if (batchSizeInput && String(batchSizeInput.value) !== String(n)) {
-        batchSizeInput.value = String(n);
+      if (allMode) {
+        if (batchSizeInput) batchSizeInput.value = "";
+      } else {
+        let n = readBatchSize();
+        if (!Number.isFinite(n) || n < 1) n = 1;
+        if (n > cap) n = cap;
+        if (batchSizeInput && String(batchSizeInput.value) !== String(n)) {
+          batchSizeInput.value = String(n);
+        }
+        batchSize = n;
         try {
           localStorage.setItem(batchSizeStorageKey, String(n));
         } catch (_) {}
       }
-      batchSize = n;
 
       if (resetWindow) {
         windowStart = 0;
         randomStems = null;
-        /* keep allMode across search/filter resets */
       }
 
       if (pendingStem) {
@@ -1510,9 +1575,6 @@
       listOnly.forEach((el) => {
         setHidden(el, view !== "list");
       });
-      if (document.body) {
-        document.body.style.removeProperty("--sticky-stack-h");
-      }
       if (persist) {
         try {
           localStorage.setItem(viewStorageKey, view);
@@ -1589,34 +1651,54 @@
     }
     const runBatchAction = (action) => {
       if (view !== "list") return;
-      commitBatchSize({ persist: true, render: false });
       const total = filtered.length;
       if (!total) {
-        allMode = false;
+        allMode = true;
+        if (batchSizeInput) batchSizeInput.value = "";
+        persistBatchSize();
         persistAllMode();
         renderList();
         return;
       }
+      if (action === "all") {
+        if (allMode) {
+          syncBatchUi(filtered.length);
+          return;
+        }
+        allMode = true;
+        randomStems = null;
+        windowStart = 0;
+        if (batchSizeInput) batchSizeInput.value = "";
+        persistBatchSize();
+        persistAllMode();
+        pendingStem = null;
+        renderList();
+        if (typeof window.__birinciScrollHomeTools === "function") {
+          window.__birinciScrollHomeTools();
+        }
+        return;
+      }
+      if (!inputRaw()) {
+        // Require an explicit count — never invent a default like 10.
+        syncBatchUi((filtered && filtered.length) || 0);
+        return;
+      }
+      commitBatchSize({ persist: true, render: false });
+      allMode = false;
       if (action === "prev") {
-        allMode = false;
         randomStems = null;
         windowStart = Math.max(0, windowStart - batchSize);
       } else if (action === "next") {
-        allMode = false;
         randomStems = null;
         if (windowStart + batchSize < total) {
           windowStart += batchSize;
         }
       } else if (action === "random") {
-        allMode = false;
         randomStems = pickRandomStems(batchSize);
-      } else if (action === "all") {
-        allMode = true;
-        randomStems = null;
-        windowStart = 0;
       } else {
         return;
       }
+      persistBatchSize();
       persistAllMode();
       pendingStem = null;
       renderList();
