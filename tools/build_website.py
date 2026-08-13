@@ -360,7 +360,7 @@ TOP_NAV_LINKS: list[dict[str, str]] = [
     {"label": "Bizi dəstəkləyin", "icon": "hand-heart"},
 ]
 HOME_CRUMB = "Ana səhifə"
-ASSET_VERSION = "20260820b"
+ASSET_VERSION = "20260820c"
 
 # Immediate home view toggle (not deferred). Survives site.js load races / failures.
 HOME_VIEW_BOOTSTRAP = r"""

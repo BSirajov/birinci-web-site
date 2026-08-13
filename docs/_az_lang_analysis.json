@@ -1,0 +1,1049 @@
+{
+  "n": 250,
+  "total_paras": 2104,
+  "avg_paras": 8.42,
+  "median_paras": 6.0,
+  "avg_para_len": 119.8,
+  "median_para_len": 94.0,
+  "long_paras": [
+    {
+      "stem": "teacher-hello-do-you-remember-me",
+      "title": "Müəllim, salam, xatırladınız məni",
+      "cat": "Hikmət və həyat dərsləri",
+      "len": 1460,
+      "excerpt": "— Siz bizə dərs deyəndə sinifdəki oğlanlardan birinə valideynləri qəşəng bir saat almışdılar. Mənim valideynlərimin imkanı olmadığından mənə saat ala bilmirdilər. Saatdan isə çox xoşum gəlmişdi və bi…"
+    },
+    {
+      "stem": "the-mother-of-pearl-flower",
+      "title": "Sədəf çiçəyi",
+      "cat": "Sevgi və evlilik",
+      "len": 947,
+      "excerpt": "Salona uzun bir səssizlik çökdü. Sükutu bir jurnalistin foto-flaşı pozdu. Kim bilir, əlli illik bir həyatın ardından bu hadisə qəzetlərdə hansı başlıqla veriləcəkdi. Məhkəməni çoxlu jurnalist izləyir…"
+    },
+    {
+      "stem": "the-former-minister-at-the-seminar",
+      "title": "Keçmiş nazir seminarda",
+      "cat": "Əmək, ruzi və sərvət",
+      "len": 913,
+      "excerpt": "— Bilirsiniz, nə düşünürəm? Keçən il elə bu kürsüdə çıxış etmişdim. Tək fərq bu idi ki, onda nazir idim. Buraya gələndə mənə biznes-sinifdə bilet alınmışdı, hava limanında məni limuzin və müşayiət av…"
+    },
+    {
+      "stem": "the-mullah-and-the-scholar",
+      "title": "Molla və alim",
+      "cat": "İman və mənəviyyat",
+      "len": 837,
+      "excerpt": "Alim gedəndən sonra Teymur Mollanı çağırıb alimlə sual-cavabını soruşur. Molla deyir: «Eh, alim... Mən də elə bildim ki, doğrudan da dərin adamdır. O, lap sarsaq, qarınqulunun biriymiş ki... Əvvəl ye…"
+    },
+    {
+      "stem": "the-mother-of-pearl-flower",
+      "title": "Sədəf çiçəyi",
+      "cat": "Sevgi və evlilik",
+      "len": 724,
+      "excerpt": "— Əsgərliyimi bağban kimi keçirdim. O bağçanın gözəl, sağlam böyüməsi üçün zəhmət çəkdim. Fatiməni də orada tanıdım. Ona ən gözəl çiçəklərdən buketlər verdim. Təzə evlənəndə boyun ağrısından şikayət …"
+    },
+    {
+      "stem": "the-mullah-and-the-scholar",
+      "title": "Molla və alim",
+      "cat": "İman və mənəviyyat",
+      "len": 696,
+      "excerpt": "Teymur tərcüməçi vasitəsilə alimə soruşur: «Bu işarələrdən biz heç nə anlamadıq.» Alim deyir: «Dünya haqqında fikirlər müxtəlifdir. Mən yerdə o dairəni çəkməklə yer kürəsinin yumru olduğunu deyib siz…"
+    },
+    {
+      "stem": "the-blind-well",
+      "title": "Kor quyu",
+      "cat": "Hikmət və həyat dərsləri",
+      "len": 679,
+      "excerpt": "Günlərin bir günü bir kəndlinin uzunqulağı bir kor quyuya (suyu qurumuş quyuya) düşür. Saatlar keçir; nəhayət, uzunqulağın ağrılı-acılı bağırtısını eşidən sahibi və qonum-qonşu tökülüb gəlir, onu quy…"
+    },
+    {
+      "stem": "the-road-to-the-cotton-field",
+      "title": "Pambıq tarlasına gedən yol",
+      "cat": "Hikmət və həyat dərsləri",
+      "len": 678,
+      "excerpt": "Müəllimimiz bizə qısa zamanda yazıb-oxumağı öyrətdi. Günlər keçdi, artıq rahat yazıb-oxuyurduq. Bir gün Aydın müəllim bizə çoxlu məktub gətirdi. Bu məktubların həkimlərdən, mühəndislərdən, alimlərdən…"
+    },
+    {
+      "stem": "discussion-and-conflict",
+      "title": "Müzakirə və münaqişə",
+      "cat": "Dostluq və insan münasibətləri",
+      "len": 655,
+      "excerpt": "Növbə Kamala çatdı. O da başqaları kimi gördüyü işlər barədə hesabat verdi, amma sanki həmkarlarından kömək umurmuş kimi üzləşdiyi problem haqqında daha ətraflı danışdı. Sözünü bitirər-bitirməz Nadir…"
+    },
+    {
+      "stem": "the-mullah-and-the-scholar",
+      "title": "Molla və alim",
+      "cat": "İman və mənəviyyat",
+      "len": 645,
+      "excerpt": "Məclis qurulur. Əcnəbi alim yerdə bir dairə çəkib üzünü Mollaya tutur. Molla bir az fikirləşib dairəni iki yerə bölür. Görür ki, alim dinmir. Bir cızıq da çəkib dördə bölür, üç hissəsini özünə tərəf …"
+    },
+    {
+      "stem": "how-to-ward-off-insults",
+      "title": "Təhqirləri necə dəf etməli",
+      "cat": "Dostluq və insan münasibətləri",
+      "len": 645,
+      "excerpt": "Ahıl, müdrik bir samuray varmış. O, şagirdlərinə müdrikliyin və döyüş sənətinin sirlərini öyrədərmiş. Bir gün növbəti dərs zamanı ədəbsizliyi və qəddarlığı ilə tanınan bir döyüşçü sinfə daxil olur. B…"
+    },
+    {
+      "stem": "why-people-shout-when-they-argue",
+      "title": "Niyə insanlar mübahisə edəndə qışqırırlar",
+      "cat": "Dostluq və insan münasibətləri",
+      "len": 628,
+      "excerpt": "— Bəs insanlar bir-birini sevəndə nə olur? Onlar qışqırmır, əksinə, astadan danışır. Çünki ürəkləri bir-birinə çox yaxındır, aralarındakı məsafə azdır. Bəs daha güclü sevgi olanda nə baş verir? Onda …"
+    },
+    {
+      "stem": "not-leaving-the-right-path",
+      "title": "Doğru yoldan ayrılmamaq",
+      "cat": "İman və mənəviyyat",
+      "len": 622,
+      "excerpt": "Adam bütün gücünü toplayıb, zəkasını işə salıb bir damla belə tökmədən küpü şəhərin o biri başına çatdırır. Sonra geri dönüb yenə padşahın hüzuruna çıxır: «Padşah sağ olsun, əmrinizi qüsursuz yerinə …"
+    }
+  ],
+  "mixed": [
+    {
+      "stem": "not-leaving-the-right-path",
+      "title": "Doğru yoldan ayrılmamaq",
+      "cat": "İman və mənəviyyat",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Günlərin bir günü işsizlikdən, avaraçılıqdan, miras yeməklə vaxtını boşuna keçirən bir adam bu vəziyyətindən bezir və doğru yoldan ayrılmadan dürüst bir həyat …"
+    },
+    {
+      "stem": "the-dervishs-spoons",
+      "title": "Dərviş qaşıqları",
+      "cat": "İman və mənəviyyat",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Bir gün dərvişdən soruşdular: — Əsl sevənlərlə sevgidən yalnız söz edənlər arasında fərq nədir? — Gözləyin, indi sizə göstərəcəyəm, — dedi dərviş. Sözdə sevən …"
+    },
+    {
+      "stem": "the-dervishs-robe",
+      "title": "Dərviş əbası",
+      "cat": "İman və mənəviyyat",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Bir gün yaralı bir quş padşahşn hüzuruna gəlib bir dərvişin onun qanadını qırdığından şikayətləndi. Padşah dərvişi dərhal yanına çağırtdı. — Bu quş səndən şika…"
+    },
+    {
+      "stem": "forbidden-money",
+      "title": "Haram pul",
+      "cat": "İman və mənəviyyat",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Bir gün yolla gedərkən qarşımda gedən birinin əlindən yerə bir miqrdar pul düşdü. Adətən belə hallarda «pulunuzu saldınız» deyə xəbərdarlıq edərdim, amma bu də…"
+    },
+    {
+      "stem": "faith-is-half-of-success",
+      "title": "İnam uğurun yarısıdır",
+      "cat": "İman və mənəviyyat",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "İnam uğurun yarısıdır! Bir məktəb direktoru bir neçə müəllim həmkarını otağına dəvət edib onlara belə deyir: — Siz bizim ən yaxşı, ən bacarıqlı müəllimlərimiz …"
+    },
+    {
+      "stem": "the-light-of-the-universe",
+      "title": "Kainat işığı",
+      "cat": "İman və mənəviyyat",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Böyük britaniyalı rəssam Uilyam Holman Hantın «Kainat işığı» əsəri London Kral Akademiyasında nümayiş etdirilir. Rəsmdə gecə vaxtı bir əlində fənərlə qapı önün…"
+    },
+    {
+      "stem": "the-church-bell",
+      "title": "Kilsə zəngi",
+      "cat": "İman və mənəviyyat",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Qədim zamanlarda bir ölkədə belə bir qayda varmış: sadə bir insan öləndə kilsə zəngi bir dəfə, zadəgan öləndə iki dəfə, kralın yaxınlarından biri öləndə üç dəf…"
+    },
+    {
+      "stem": "the-mullah-and-the-scholar",
+      "title": "Molla və alim",
+      "cat": "İman və mənəviyyat",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Başqa məmləkətlərin birindən Teymurləngin yanına bir alim gəlir; tərcüməçi vasitəsilə çox söhbət etdikdən sonra bu məmləkətin alimləri ilə görüşmək istədiyini …"
+    },
+    {
+      "stem": "the-price-of-a-miracle",
+      "title": "Möcüzənin qiyməti",
+      "cat": "İman və mənəviyyat",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "(Olmuş əhvalat) Valideynlərinin kiçik qardaşı Oliver haqqında danışdıqlarını eşidəndə Lizanın səkkiz yaşı var idi. Qızcığazın bildiyi tək şey o idi ki, qardaşı…"
+    },
+    {
+      "stem": "if-fate-allows-we-will-meet",
+      "title": "Qismət olarsa görüşərik",
+      "cat": "İman və mənəviyyat",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Həmişə «görüşərik» deyən adam indi «qismət olsa, görüşərik» deyir. Burada bir qəriblik var. Mən dəyişməmişəm, ona münasibətim də əvvəlki kimi istidir. Onunla y…"
+    },
+    {
+      "stem": "sacrificial-meat",
+      "title": "Qurban əti",
+      "cat": "İman və mənəviyyat",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Məktəbin 5-ci sinfində oxuyurdum. Kimsəyə möhtac deyildik. Bənna olan atam tikilməkdə olan bir kooperativə üzv olmuşdu. «Altı-yeddi ay çəkməz, öz evimizə köçər…"
+    },
+    {
+      "stem": "your-hand-at-work-your-hope-in-god",
+      "title": "Əlin işdə, ümidin Allahda",
+      "cat": "İman və mənəviyyat",
+      "styles": [
+        "ASCII/curly \"…\"",
+        "em-dash —"
+      ],
+      "excerpt": "Keçmiş zamanlarda bir dərviş varmış. Günlərinin çox hissəsini tənhalığa çəkilib ibadətlə keçirərmiş. Ancaq camaata möhtac olmağı da xoşlamazmış, ona görə günün…"
+    },
+    {
+      "stem": "the-value-of-your-family",
+      "title": "Ailənizin dəyəri",
+      "cat": "Ailə və tərbiyə",
+      "styles": [
+        "ASCII/curly \"…\"",
+        "em-dash —"
+      ],
+      "excerpt": "Bir axşam oğul atasının yanına gəlib ona bir sual vermək istədiyini bildirdi. Ata razılaşdı. Oğul birbaşa mətləbə keçib atasından bir saat işləyərkən nə qədər …"
+    },
+    {
+      "stem": "weeds-must-be-pulled-from-the-root",
+      "title": "Alaq otlarını kökündən qoparmaq lazımdır",
+      "cat": "Ailə və tərbiyə",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Məktəbli olarkən yay tətillərini ailəmizlə birlikdə bağımızda keçirərdik. Rəhmətlik atam bizi zəhmətə alışdırmaq istəyirdi. Özü işdə olduğu günlərdə bağ işləri…"
+    },
+    {
+      "stem": "a-mothers-love",
+      "title": "Ana sevgisi",
+      "cat": "Ailə və tərbiyə",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Erix Fromm 1 yaşındayam — çox xoşbəxtəm, anam hər an mənimlədir! 2 yaşındayam — anam ara-sıra mənimlədir (görəsən, nələr olur?). 3 yaşındayam — anam işdədir, d…"
+    },
+    {
+      "stem": "mother-and-son",
+      "title": "Ana və oğul",
+      "cat": "Ailə və tərbiyə",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Adam əlindəki çamadanları divarın dibinə qoydu. Sonra dikəlib dərindən nəfəs aldı və anasına: «Ana, bura çox gözəl yer imiş», — dedi. «Əlbəttə, gözəldir, oğlum…"
+    },
+    {
+      "stem": "i-am-waiting-for-the-teeth",
+      "title": "Dişləri gözləyirəm",
+      "cat": "Ailə və tərbiyə",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Soyuq bir qış axşamı yaşlı bir cütlük McDonald's-ın qapısından içəri girib bir masaya oturur. Kişi kassaya gedib bir hamburger, bir böyük qutu kartof və bir də…"
+    },
+    {
+      "stem": "the-mothers-advice-fakir-baykurt-never-forgot",
+      "title": "Fakir Baykurtun unutmadığı ana nəsihəti",
+      "cat": "Ailə və tərbiyə",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Bir gün Fakir Baykurt (türk yazıçısı, 1929-1999) anasından çay istəyir: «Ana, ürəyim çay istəyir, gəl bir çay içək» deyir. Ana oğlunun sözünü yerə salmayıb onu…"
+    },
+    {
+      "stem": "spinach",
+      "title": "İspanaq",
+      "cat": "Ailə və tərbiyə",
+      "styles": [
+        "ASCII/curly \"…\"",
+        "guillemets «»"
+      ],
+      "excerpt": "Ucqar bir kənddə yaşayırdıq. Gediş-gəliş üçün düz-əməlli yolumuz da yox idi. Anam ispanaq aludəsi idi. Atamın ölümündən sonra uşaq vaxtı onun ağlını itirdiyind…"
+    },
+    {
+      "stem": "puppies-for-sale",
+      "title": "Satılıq küçüklər",
+      "cat": "Ailə və tərbiyə",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Dükanın pəncərəsinə «satılıq küçüklərimiz var» yazılmış bir kağız yapışdırıldığını görən balaca bir oğlan dükana girdi: — Küçükləri neçəyə satırsınız? — deyə s…"
+    },
+    {
+      "stem": "fallen-teeth",
+      "title": "Tökülən dişlər",
+      "cat": "Ailə və tərbiyə",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Bir şah yuxusunda bütün dişlərinin töküldüyünü görər, yuxuyozan birini çağırdıb bunun mənasını soruşar. Adam: «Şah sağ olsun, bu o deməkdir ki, bütün qohum-əqr…"
+    },
+    {
+      "stem": "i-am-tired-mother",
+      "title": "Yoruldum ana",
+      "cat": "Ailə və tərbiyə",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Yoruldum, ana — Yoruldum, ana... — Nədən, oğlum? — Hər şeydən: çalışmaqdan, dostlardan, gəzməkdən, daim kimisə məmnun edim deyə məsuliyyət daşımaqdan yoruldum,…"
+    },
+    {
+      "stem": "rotten-seed",
+      "title": "Çürük toxum",
+      "cat": "Ailə və tərbiyə",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Xanımı vəfat etdikdən sonra daim xəstəliklərdən əziyyət çəkən kiçik oğlunu «çürük toxum» adlandıran ata onu xor görür və yetimlər evinə verir. İllər keçir. Bir…"
+    },
+    {
+      "stem": "raising-children",
+      "title": "Övlad tərbiyəsi",
+      "cat": "Ailə və tərbiyə",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Bir ailədə valideynlərinin sözünə baxmayan bir oğlan uşağı var idi. Onlar nə deyirdisə, uşaq bunun əksini edirdi. Oğlanın məktəbdə də işləri pis gedirdi. Nə də…"
+    },
+    {
+      "stem": "the-purple-jacket",
+      "title": "Bənövşəyi çəpkən",
+      "cat": "Sevgi və evlilik",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Qədim zamanlarda türk obalarında belə bir adət varmış: ərə gedən qızların cehizinə digər əşyalarla birlikdə bənövşəyi rəngli çəpkən də əlavə olunarmış. Çəpkən …"
+    },
+    {
+      "stem": "early-marriage",
+      "title": "Erkən evlilik",
+      "cat": "Sevgi və evlilik",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Universiteti təzəcə bitirib məktəbdə müəllim işləməyə başlamışdım. Bir gün müəllimlər otağında oturub şagirdlərin imtahan vərəqlərini gözdən keçirirdim. Qız şa…"
+    },
+    {
+      "stem": "what-breaks-a-marriage",
+      "title": "Evlilikdə pozan",
+      "cat": "Sevgi və evlilik",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Ata ilə yeni evlənən gənc oğlunun arasında belə bir əhvalat baş verir. Ata oğlundan ağ kağız, qələm və pozan gətirməsini xahiş edir. — Niyə? — deyə soruşur oğu…"
+    },
+    {
+      "stem": "advice-for-those-who-marry",
+      "title": "Evlənənlərə tövsiyə",
+      "cat": "Sevgi və evlilik",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Evlənən gənc bir cütlüyə dünyagörmüş böyüklərin tövsiyələrindən: «...Evliliyinizi başqalarının evliliyi ilə müqayisə etməyin, deməyin ki, bax gör filankəsin ər…"
+    },
+    {
+      "stem": "the-woman-and-the-mirror",
+      "title": "Qadın və güzgü",
+      "cat": "Sevgi və evlilik",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Qadın səhər-səhər oyanıb güzgüyə baxır. Görür ki, başında üç tel saç qalıb. «Hımm... — deyir. — Bu gün saçımı hörərəm...» Saçını hörür, günü də əla keçir... Er…"
+    },
+    {
+      "stem": "the-red-dress",
+      "title": "Qırmızı don",
+      "cat": "Sevgi və evlilik",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Qırmızı don anamın qarderobunda asılıb qalmışdı. Bütün ömrü boyu geydiyi köhnəlmiş, rəngi solmuş paltarların yanında bu qırmızı don sanki işıq saçırdı. Anama d…"
+    },
+    {
+      "stem": "beware-of-those-you-love",
+      "title": "Sevdiklərinizdən muğayat olun",
+      "cat": "Sevgi və evlilik",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Günəşli bir gün idi. Qadın parkda yanında oturan adama: — Baxın, yelləncəkdə yellənən o qırmızı köynəkli uşaq mənim oğlumdur, — dedi. Adam gülümsədi: — Maşalla…"
+    },
+    {
+      "stem": "i-love-you",
+      "title": "Səni sevirəm",
+      "cat": "Sevgi və evlilik",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Belə deyirlər ki, bir bülbül bir ağ gülə aşiq olar... Hər gecə gedib onun yanına qonar, ona olan eşqini izhar edərmiş. Ağ gül isə bülbülün hisslərinə etinasızl…"
+    },
+    {
+      "stem": "loving-from-afar",
+      "title": "Uzaqdan sevmək",
+      "cat": "Sevgi və evlilik",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "İki dost görüşür. Aralarında belə söhbət olur: — Deyəsən, mən bir qıza vurulmuşam. — Nə gözəl! Onun xəbəri var? — Yoxdur. — Bəs niyə yaxınlaşıb etiraf etmirsən…"
+    },
+    {
+      "stem": "a-pair-of-boots",
+      "title": "Bir cüt çəkmə",
+      "cat": "Dostluq və insan münasibətləri",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Bir gün məktəblərin birində müəllimə şagirdlərinə istədikləri mövzuda hekayə yazmağı tapşırır və ən gözəl hekayəni yazana «bir cüt çəkmə» hədiyyə edəcəyini dey…"
+    },
+    {
+      "stem": "a-handful-of-roasted-chickpeas",
+      "title": "Bir ovuc ləbləbi",
+      "cat": "Dostluq və insan münasibətləri",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Bir uşaq anası ilə birlikdə çərəz satılan dükana girir. Uşaq durmadan «ləbləbi istəyirəm» deyib anasına israr edir. Ananın könlü olmadığını görən satıcının uşa…"
+    },
+    {
+      "stem": "a-glass-of-milk",
+      "title": "Bir stəkan süd",
+      "cat": "Dostluq və insan münasibətləri",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Qapı-qapı gəzib xırda şeylər satmaqla təhsil haqqını ödəməyə çalışan kasıb bir oğlan bir gün tamam pulsuz qaldığını və eyni zamanda bərk acdığını başa düşür. Q…"
+    },
+    {
+      "stem": "everyone-is-the-same-here",
+      "title": "Bizdə hamı eynidir",
+      "cat": "Dostluq və insan münasibətləri",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Rayon bələdiyyəsinə yeni təyin olunmuş gənc başçı oranı gəzib vəziyyətlə tanış olmaq qərarına gəlir. Ərazini tək-tənha gəzdikdən sonra ara küçələrin birindəki …"
+    },
+    {
+      "stem": "gossip",
+      "title": "Dedi-qodu",
+      "cat": "Dostluq və insan münasibətləri",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Acıdilli, nəzakətsiz bir adam dedi-qodu yaymaqda ittiham olunaraq kəndin ağsaqqalının hüzuruna çağırıldı. — Bu bir zarafat idi, sadəcə zarafat, — deyə o, ittih…"
+    },
+    {
+      "stem": "permission-or-apology",
+      "title": "İcazə, yoxsa üzr istəmək",
+      "cat": "Dostluq və insan münasibətləri",
+      "styles": [
+        "ASCII/curly \"…\"",
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Müəllifliyi kontr-admiral Qreys Hopperə aid edilən «üzr istəmək icazə istəməkdən yaxşıdır» deyə bir ifadə var. Bu ifadə «bir işi görmək üçün əvvəlcədən icazə i…"
+    },
+    {
+      "stem": "a-compliment",
+      "title": "İltifat",
+      "cat": "Dostluq və insan münasibətləri",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Mariya anası ilə birlikdə Nyu-Yorkda kiçik bir mənzildə yaşayırdı. Böyük bir şirkətdə katibə işləyirdi; həyatı olduqca darıxdırıcı və adi idi. İşdə heç kim ona…"
+    },
+    {
+      "stem": "humanity",
+      "title": "İnsanlıq",
+      "cat": "Dostluq və insan münasibətləri",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "İllərlə oxudu, zəhmət çəkdi və nəhayət taleyini müəyyən edə biləcək o imtahan günü gəldi... Atası Kazım kişi kifayət qədər tələbkar biri idi, daim oğlunun dərs…"
+    },
+    {
+      "stem": "people-who-need-something-from-you",
+      "title": "Sizə işi düşən adamlar",
+      "cat": "Dostluq və insan münasibətləri",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Sizi «yalnız işi düşəndə axtaran» adamlardan incimək əvəzinə, onların dara düşdüyünü, sizin yardımınıza ehtiyacları ola biləcəyini və elə buna görə sizi axtard…"
+    },
+    {
+      "stem": "your-friends",
+      "title": "Sənin dostların",
+      "cat": "Dostluq və insan münasibətləri",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Bir gün gənc bir oğlan evlənmək qərarına gəlir. Toy hazırlıqlarına bir həftə vaxt sərf edəndən sonra bir axşam atasına: «Ata, səndən bir xahişim var. Bütün işl…"
+    },
+    {
+      "stem": "i-was-so-embarrassed",
+      "title": "Utandım vallah",
+      "cat": "Dostluq və insan münasibətləri",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "COVID-19 pandemiyasının tüğyan etdiyi zamanlar idi. Qılıncının, necə deyərlər, dalı da kəsirdi, qabağı da. Uzun fasilədən sonra görüşən iki nəfərin arasında be…"
+    },
+    {
+      "stem": "spend-your-time-with-people",
+      "title": "Vaxtını insanlarla keçir",
+      "cat": "Dostluq və insan münasibətləri",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Atam pul köçürməli olduğu üçün onunla birlikdə bankda bir saat vaxt keçirməli oldum. Sonunda səbrim çatmadı və ona dedim: — Ata, gəl sənin bank işlərini intern…"
+    },
+    {
+      "stem": "welcome-my-bey",
+      "title": "Xoş gəldin bəyim",
+      "cat": "Dostluq və insan münasibətləri",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Xoş gəldin, bəyim Rəhmətlik atam Hafiz Əli Çanaqqalada olarkən mən hələ anamın bətnində, yeddi aylıq idim. Atamı heç görmədim, tanımadım. Onun heç bir fotoşəkl…"
+    },
+    {
+      "stem": "if-the-road-does-not-tire-you-it-is-because-of-your-companion",
+      "title": "Yol yormursa, yoldaşındandır",
+      "cat": "Dostluq və insan münasibətləri",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Anam danışırdı: «Çox gənc yaşımda atanla evləndim. Nə düz-əməlli yemək bişirə bilirdim, nə də iynə götürüb naxış-tikiş tikməyi. Bir gün qaynanam — sənin nənən …"
+    },
+    {
+      "stem": "being-human",
+      "title": "Adam olmaq",
+      "cat": "Əxlaq və xarakter",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "«Alim olmaq asandır, adam olmaq çətin» — tez-tez eşitdiyimiz və ya işlətdiyimiz bir ifadədir. Bəs «adam olmaq» nə deməkdir? Adamlığı ölçmək üçün hansı meyarlar…"
+    },
+    {
+      "stem": "he-would-not-have-given-so-little",
+      "title": "Bu qədər az verməzdi",
+      "cat": "Əxlaq və xarakter",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Bir padşah rastlaşdığı sevimli bir uşağa bir qızıl pul verir, amma uşaq pulu götürmür. Padşah nədən almadığını soruşduqda uşaq deyir: — Evə gedəndə anamla atam…"
+    },
+    {
+      "stem": "avoid-these-questions",
+      "title": "Bu suallardan çəkinin",
+      "cat": "Əxlaq və xarakter",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "İşsizə «hələ də işsizsən?», işləyənə «maaşın nə qədərdir?», övladsıza «hələ də uşağın yoxdur?», subaya «nə vaxt evlənirsən / ərə gedirsən?», hər kəsə «aaa, sən…"
+    },
+    {
+      "stem": "everything-is-in-our-own-hands",
+      "title": "Hər şey bizim öz əlimizdədir",
+      "cat": "Əxlaq və xarakter",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "(Hindistan folklorundan) Gənc bir oğlan yaşlı bir rahiblə «oyun oynamaq» fikrinə düşür. Bir quş tutur. Quşu əlinə alıb arxasında gizlədərək rahibdən soruşur: —…"
+    },
+    {
+      "stem": "you-cannot-descend-a-well-on-his-rope",
+      "title": "Onun ipi ilə quyuya enmək olmaz",
+      "cat": "Əxlaq və xarakter",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Bir zamanlar kətan liflərindən ip düzəltməklə məşğul olan usta Əli adında biri varmış. İşini keyfiyyətlə görmədiyindən düzəltdiyi iplər çox vaxt çürük çıxarmış…"
+    },
+    {
+      "stem": "expressions-you-should-stay-away-from",
+      "title": "Uzaq duracağınız ifadələr",
+      "cat": "Əxlaq və xarakter",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Bu ifadələrdən uzaq durun, xüsusən də ailədə həyat yoldaşınıza qarşı qətiyyən işlətməyin: «Boş-boş danışma!» Bu ifadə həyat yoldaşınıza düşüncə və hisslərinin …"
+    },
+    {
+      "stem": "telling-lies",
+      "title": "Yalan danışmaq",
+      "cat": "Əxlaq və xarakter",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "— Yalan danışırsan? — Hə. — Necə bir yalandır o? — O yalanı ancaq özümə deyirəm. Yəni hər gün özüm-özümə deyirəm ki, «sən hamıdan güclüsən, hamıdan savadlısan,…"
+    },
+    {
+      "stem": "the-goose-to-be-plucked",
+      "title": "Yolunacaq qaz",
+      "cat": "Əxlaq və xarakter",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Çox soyuq bir qış günü padşah təbdil-qiyafət olub saraydan çıxıb gəzməyə qərar verir, yanına baş vəzirini də alıb yola düşür. Bir müddət getdikdən sonra dərə k…"
+    },
+    {
+      "stem": "try-to-think-this-way",
+      "title": "Çalışın belə düşünün",
+      "cat": "Əxlaq və xarakter",
+      "styles": [
+        "ASCII/curly \"…\"",
+        "guillemets «»"
+      ],
+      "excerpt": "«Mən bu işi yaxşı bacarmıram» deməyin. «Bəlkə bilmədiyim bir şey var? Əminəm ki, biliyimi təzələsəm, üzərində işləsəm, bacararam» deyin. «Mən bu işdən vaz keçd…"
+    },
+    {
+      "stem": "the-silent-corridor",
+      "title": "Səssiz dəhliz",
+      "cat": "Söz, sükut və ünsiyyət",
+      "styles": [
+        "ASCII/curly \"…\"",
+        "em-dash —"
+      ],
+      "excerpt": "Birgə fəaliyyət göstərən iki təşkilat var idi — biri sponsor, digəri isə layihə hazırlayan qurum. Layihə komandası aylarla böyük zəhmətlə çalışır, sənədləri di…"
+    },
+    {
+      "stem": "liver",
+      "title": "Ciyər",
+      "cat": "Hikmət və həyat dərsləri",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "«Ciyər» sözünün işləndiyi ifadələr — bir-birinə çox yaxın, səmimi, mehriban dost mənasındakı «can-ciyər»; çox sevimli övlad mənasındakı «ciyərguşəm»; qorxaq, c…"
+    },
+    {
+      "stem": "the-diderot-effect",
+      "title": "Didro effekti",
+      "cat": "Hikmət və həyat dərsləri",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Fransanın XVIII əsr yazıçılarından biri, maarifçi Deni Didro böyük borc bataqlığına düşür. Onun acınacaqlı vəziyyəti rus çariçası Yekaterinanın qulağına çatır.…"
+    },
+    {
+      "stem": "what-it-means-to-be-late",
+      "title": "Gecikmək nə deməkdir",
+      "cat": "Hikmət və həyat dərsləri",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Gecikmək nə deməkdir? Gecikmək — bir işi, bir əməli vaxtında edə bilməmək deməkdir. Xüsusilə ətrafımızdakı insanlarla münasibətdə, davranışda. Kiməsə sevgimizi…"
+    },
+    {
+      "stem": "at-the-doctors-appointment",
+      "title": "Həkim qəbulunda",
+      "cat": "Hikmət və həyat dərsləri",
+      "styles": [
+        "ASCII/curly \"…\"",
+        "em-dash —"
+      ],
+      "excerpt": "Həkim qəbuluna gəlmişdim. Növbəmi gözləyə-gözləyə bufetdən bir sendviç və alma suyu alıb, evdə çatdıra bilmədiyim səhər yeməyimi yemək istədim. Elə təzəcə yemə…"
+    },
+    {
+      "stem": "hayats-life-story",
+      "title": "Həyatın həyat hekayəsi",
+      "cat": "Hikmət və həyat dərsləri",
+      "styles": [
+        "ASCII/curly \"…\"",
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Anam evimizi, atamı və bizi tərk edəndə mən altı, qardaşım isə səkkiz yaşında idi. Anamın atamı tərk etməsini o yaşda belə anlamışdım, amma bizi tərk etməsini …"
+    },
+    {
+      "stem": "two-bowls-of-water",
+      "title": "İki qab su",
+      "cat": "Hikmət və həyat dərsləri",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Qədim zamanlarda öz var-dövləti ilə məşhur bir hökmdar varmış. Bu hökmdar getdiyi hər yerə sərvətinin bir hissəsini aparar və onu nümayiş etdirməklə öyünərmiş.…"
+    },
+    {
+      "stem": "from-the-memoirs-of-a-lady-from-istanbul",
+      "title": "İstanbullu bir xanımın xatirələrindən",
+      "cat": "Hikmət və həyat dərsləri",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "1919-cu il idi. İstanbul bütünlüklə ingilis işğalı altında idi. Orta məktəbi təzəcə bitirmişdim. Gözəl bir qız idim, evimizə elçilər gəlirdi. Bir gün özünü vək…"
+    },
+    {
+      "stem": "nothing-is-ever-truly-lost",
+      "title": "İtirdim deyə bir şey yoxdur",
+      "cat": "Hikmət və həyat dərsləri",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "«İtirdim» deyə bir şey yoxdur. Yalnız qazandığınız uğurlar və həyatdan öyrəndiyiniz dərslər var. «İtirmək» yoxdur — ya qazanırsan, ya öyrənirsən. Hər uğursuzlu…"
+    },
+    {
+      "stem": "at-the-bookstore",
+      "title": "Kitab dükanında",
+      "cat": "Hikmət və həyat dərsləri",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Həkimlik oxuyan bir tələbə Bursadakı «Bilge» kitab evinin rəflərini ələk-vələk edib nəhayət axtardığı kitabı tapdığına çox sevindi. Kitabın arxasını çevirəndə …"
+    },
+    {
+      "stem": "a-magnificent-lesson",
+      "title": "Möhtəşəm dərs",
+      "cat": "Hikmət və həyat dərsləri",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Osmanlı padşahı II Muradın oğlu Fateh Sultan Mehmet (Konstantinopolun fatehi) uşaq ikən sinifdə dərs zamanı heç sakit durmaz, dəcəllik edərdi. Müəllimi Ağşəmsə…"
+    },
+    {
+      "stem": "the-lecturer-and-the-groom",
+      "title": "Mühazirəçi və mehtər",
+      "cat": "Hikmət və həyat dərsləri",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Bir kəndə əhalini maarifləndirmək üçün bir mühazirəçi dəvət edirlər. Adam salona daxil olur və görür ki, içəridə cəmi bir nəfər əyləşib. Salam verəndən sonra b…"
+    },
+    {
+      "stem": "teacher-hello-do-you-remember-me",
+      "title": "Müəllim, salam, xatırladınız məni",
+      "cat": "Hikmət və həyat dərsləri",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Müəllim, salam, xatırladınız məni? — Müəllim, salam! Xatırladınız məni? Vaxtilə məktəbdə mənim müəllimim olmusunuz. — Bəli, xatırladım. İbtidai sinifdə mənim ş…"
+    },
+    {
+      "stem": "the-road-to-the-cotton-field",
+      "title": "Pambıq tarlasına gedən yol",
+      "cat": "Hikmət və həyat dərsləri",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Oxumağı, yazmağı düz-əməlli bilmədiyimiz zamanlar idi. Kəndimizə bir müəllim gəldi. Sadəcə müəllim yox, bizə qardaş, ata olacaq biri gəlmiş imiş demə. Məktəbim…"
+    },
+    {
+      "stem": "three-statues",
+      "title": "Üç heykəl",
+      "cat": "Hikmət və həyat dərsləri",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "İki qonşu ölkənin hökmdarları arasında yaxşı dostluq münasibətləri var idi. Bir gün hökmdarlardan biri digərinə doğum günü münasibətilə hədiyyə göndərmək qərar…"
+    },
+    {
+      "stem": "at-the-fish-shop",
+      "title": "Balıq dükanında",
+      "cat": "Əmək, ruzi və sərvət",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Adamın iş günü bitmişdi, evə getmək vaxtı idi. O, ofisdən çıxıb avtobus dayanacağına doğru yönəldi. Yaxınlıqdakı balıq dükanının yanından keçərkən: — Həm qızım…"
+    },
+    {
+      "stem": "the-grocery-shop-and-the-supermarket",
+      "title": "Baqqal dükanı və supermarket",
+      "cat": "Əmək, ruzi və sərvət",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Məhəlləmizdə yaşlı bir qadının baqqal dükanı var idi. Günlərin bir günü onun dükanı ilə üzbəüz bir supermarket açıldı. Hər ikisi dükanının qabağındakı lövhədə …"
+    },
+    {
+      "stem": "henry-fords-choice",
+      "title": "Henri Fordun seçimi",
+      "cat": "Əmək, ruzi və sərvət",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Deyilənə görə bir gün «Ford Motor» avtomobil şirkətinin qurucusu Henri Ford onun şirkətində işləmək istəyən iki gənc dostu şam yeməyinə dəvət edir. Hər iki gən…"
+    },
+    {
+      "stem": "the-former-minister-at-the-seminar",
+      "title": "Keçmiş nazir seminarda",
+      "cat": "Əmək, ruzi və sərvət",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Keçmiş bir naziri seminara dəvət etmişdilər. Növbəsi çatanda əlindəki plastik stəkanla kürsüyə qalxıb çıxışına başlayır. Amma fikrinin başqa yerdə olduğu bilin…"
+    },
+    {
+      "stem": "the-credit-ledger",
+      "title": "Nisyə dəftəri",
+      "cat": "Əmək, ruzi və sərvət",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Sadə geyimli, yad bir adam məhəllə dükanına girir. Bir qədər satıcıya, piştaxtaya baxandan sonra deyir: — Qardaş, mən səndən nisyə çörək, çay, yumurta istəsəm,…"
+    },
+    {
+      "stem": "baklava",
+      "title": "Paxlava",
+      "cat": "Əmək, ruzi və sərvət",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Uşaq ikən maddi vəziyyətimiz heç də yaxşı deyildi... Atam evə bir az paxlava almışdı. O axşam çayla birlikdə paxlavaları ləzzətlə yedik. Ertəsi gün bayram idi.…"
+    },
+    {
+      "stem": "pay-rent-for-the-water",
+      "title": "Su üçün kirayə ödə",
+      "cat": "Əmək, ruzi və sərvət",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Bir adam bir kəndlidən bir su quyusu satın alır. Quyudan su çəkmək istəyəndə satıcı ona icazə vermir: «Mən sənə quyudakı suyu yox, quyunu satdım» deyir. Mübahi…"
+    },
+    {
+      "stem": "the-scarf-seller",
+      "title": "Yaylıq satıcısı",
+      "cat": "Əmək, ruzi və sərvət",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Gecənin dondurucu soyuğu bürümüşdü şəhəri. Yer buzlu, sürüşkən idi. Ağzımdan çıxan nəfəsim sanki buz bağlayacaqdı. Yıxılmamaq üçün çox diqqətlə addımlamağa çal…"
+    },
+    {
+      "stem": "nazim-hikmet-in-bursa-prison",
+      "title": "Nazim Hikmət Bursa həbsxanasında",
+      "cat": "Ədalət və cəmiyyət",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Türk şairi Nazim Hikmət Bursa həbsxanasında cəza çəkirmiş. Bir gün Ədliyyə Nazirliyindən bir müfəttiş həbsxananı yoxlamağa gəlir. Həbsxana rəisindən Nazim Hikm…"
+    },
+    {
+      "stem": "the-skins-of-the-lambs",
+      "title": "Quzuların dərisi",
+      "cat": "Ədalət və cəmiyyət",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "«Quzuların dərisini soymaqdansa, qoçların yununu qırxmaq daha yaxşıdır.» Bu deyimi Osmanlı dönəmində Dəməşq əyalətinin valisi olmuş Azmzadə Əsəd Paşanın adı il…"
+    },
+    {
+      "stem": "what-changed-after-sixty",
+      "title": "Altmışdan sonra nə dəyişdi",
+      "cat": "Yaşlanma və zaman",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "60-ını haqlayıb 70-inə yaxınlaşan dostlarımın birindən özündə hansı dəyişikliyi hiss etdiyini soruşdum. Belə cavab verdi: Yaşlılara «bu əhvalatı danışmısan» de…"
+    },
+    {
+      "stem": "the-lions-footprint",
+      "title": "Aslanın izi",
+      "cat": "Təmsillər və məsəllər",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Qorxaq, eyni zamanda lovğa bir ovçu bir aslanın ardınca düşüb gəlib bir meşəyə çatır və qarşısına çıxan odunçudan soruşur: — Qardaş, buralarda bir aslana, yaxu…"
+    },
+    {
+      "stem": "the-elephant-and-the-rope",
+      "title": "Fil və ip",
+      "cat": "Təmsillər və məsəllər",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Bir səyahətçi fillər saxlanılan yerin yanından keçərkən birdən dayanır: bu nəhəng heyvanların sadəcə qısa bir iplə ön ayağından qazığa bağlandığını görüb çox t…"
+    },
+    {
+      "stem": "two-donkeys",
+      "title": "İki uzunqulaq",
+      "cat": "Təmsillər və məsəllər",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "İki uzunqulaq yolla gedir. Görürlər ki, ağacda bir meymun oturub. Deyirlər, gəl bu meymuna sataşaq: soruşaq ki, sənin dostun var, ya yox? «Var» desə, deyərik «…"
+    },
+    {
+      "stem": "albrecht-durer",
+      "title": "Albrecht Dürer",
+      "cat": "Tarix və tanınmış şəxsiyyətlər",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "Nürnberq yaxınlığındakı balaca bir kənddə on uşaqlı bir ailə yaşayırdı. Ailəni dolandırmaq üçün ata gündə on səkkiz saat işləməli olurdu. Bu çarəsiz vəziyyətə …"
+    },
+    {
+      "stem": "architect-sinan-dies-in-a-house-without-water",
+      "title": "Memar Sinan susuz evdə vəfat edir",
+      "cat": "Tarix və tanınmış şəxsiyyətlər",
+      "styles": [
+        "em-dash —",
+        "guillemets «»"
+      ],
+      "excerpt": "İstanbulu suya qovuşduran Memar Sinan susuz evdə vəfat edir Qanuni Sultan Süleymanın padşahlığı dövrüdür. Əhalisi günü-gündən artan İstanbul su qıtlığı yaşayır…"
+    }
+  ],
+  "ascii_only": [
+    "Bu günlərdə etməsəm, dünya dağılmaz ki",
+    "Hamının işi-gücü var"
+  ],
+  "tr_hits": [],
+  "cyr": [],
+  "dash_stories": 164,
+  "guillemet_stories": 115,
+  "ascii_stories": 10,
+  "short_moral": 202,
+  "cat_avg": {
+    "Ailə və tərbiyə": 125.7,
+    "Dostluq və insan münasibətləri": 126.7,
+    "Hikmət və həyat dərsləri": 142.0,
+    "Sevgi və evlilik": 108.4,
+    "Söz, sükut və ünsiyyət": 90.2,
+    "Tarix və tanınmış şəxsiyyətlər": 222.1,
+    "Təmsillər və məsəllər": 128.2,
+    "Yaşlanma və zaman": 167.4,
+    "İman və mənəviyyat": 128.4,
+    "Ədalət və cəmiyyət": 119.0,
+    "Əmək, ruzi və sərvət": 116.3,
+    "Əxlaq və xarakter": 83.4
+  },
+  "cat_avg_sorted": [
+    [
+      "Tarix və tanınmış şəxsiyyətlər",
+      222.1
+    ],
+    [
+      "Yaşlanma və zaman",
+      167.4
+    ],
+    [
+      "Hikmət və həyat dərsləri",
+      142.0
+    ],
+    [
+      "İman və mənəviyyat",
+      128.4
+    ],
+    [
+      "Təmsillər və məsəllər",
+      128.2
+    ],
+    [
+      "Dostluq və insan münasibətləri",
+      126.7
+    ],
+    [
+      "Ailə və tərbiyə",
+      125.7
+    ],
+    [
+      "Ədalət və cəmiyyət",
+      119.0
+    ],
+    [
+      "Əmək, ruzi və sərvət",
+      116.3
+    ],
+    [
+      "Sevgi və evlilik",
+      108.4
+    ],
+    [
+      "Söz, sükut və ünsiyyət",
+      90.2
+    ],
+    [
+      "Əxlaq və xarakter",
+      83.4
+    ]
+  ]
+}

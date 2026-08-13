@@ -75,10 +75,11 @@
       "narrative",
       "narrative",
       "narrative",
+      "narrative",
       "moral"
     ],
     "file": "not-leaving-the-right-path.mp3",
-    "bytes": 590832
+    "bytes": 591408
   },
   "the-dervishs-clothes": {
     "title": "Dərvişin üst-başı",
@@ -367,10 +368,15 @@
       "narrative",
       "narrative",
       "narrative",
+      "narrative",
+      "dialogue",
+      "narrative",
+      "narrative",
+      "narrative",
       "moral"
     ],
     "file": "the-mullah-and-the-scholar.mp3",
-    "bytes": 1135152
+    "bytes": 1136592
   },
   "to-be-fasting": {
     "title": "Oruclu olmaq",
@@ -1562,16 +1568,18 @@
       "dialogue",
       "narrative",
       "narrative",
+      "narrative",
       "dialogue",
       "narrative",
       "dialogue",
+      "narrative",
       "narrative",
       "dialogue",
       "narrative",
       "moral"
     ],
     "file": "the-mother-of-pearl-flower.mp3",
-    "bytes": 1301760
+    "bytes": 1305504
   },
   "meddling-in-others-lives": {
     "title": "Başqalarının həyatına qarışmaq",
@@ -1833,10 +1841,11 @@
       "narrative",
       "narrative",
       "narrative",
+      "narrative",
       "moral"
     ],
     "file": "discussion-and-conflict.mp3",
-    "bytes": 800208
+    "bytes": 800784
   },
   "a-compliment": {
     "title": "İltifat",
@@ -1989,10 +1998,11 @@
       "dialogue",
       "narrative",
       "dialogue",
+      "narrative",
       "moral"
     ],
     "file": "why-people-shout-when-they-argue.mp3",
-    "bytes": 662400
+    "bytes": 664416
   },
   "your-friends": {
     "title": "Sənin dostların",
@@ -3746,6 +3756,8 @@
       "dialogue",
       "dialogue",
       "narrative",
+      "narrative",
+      "narrative",
       "dialogue",
       "dialogue",
       "dialogue",
@@ -3753,7 +3765,7 @@
       "moral"
     ],
     "file": "teacher-hello-do-you-remember-me.mp3",
-    "bytes": 1156608
+    "bytes": 1171152
   },
   "the-pawn-and-the-king": {
     "title": "Piyada və şah",
@@ -3825,13 +3837,14 @@
       "narrative",
       "narrative",
       "narrative",
+      "narrative",
       "dialogue",
       "dialogue",
       "narrative",
       "moral"
     ],
     "file": "the-road-to-the-cotton-field.mp3",
-    "bytes": 1011456
+    "bytes": 1012176
   },
   "to-dream": {
     "title": "Xəyal etmək",
@@ -4201,11 +4214,12 @@
       "narrative",
       "dialogue",
       "narrative",
+      "narrative",
       "dialogue",
       "moral"
     ],
     "file": "the-former-minister-at-the-seminar.mp3",
-    "bytes": 803520
+    "bytes": 810144
   },
   "why-am-i-poor": {
     "title": "Mən niyə kasıbam",
@@ -4992,6 +5006,7 @@
       "narrative",
       "narrative",
       "narrative",
+      "narrative",
       "dialogue",
       "narrative",
       "dialogue",
@@ -5000,7 +5015,7 @@
       "moral"
     ],
     "file": "how-to-ward-off-insults.mp3",
-    "bytes": 562032
+    "bytes": 562608
   },
   "the-blind-well": {
     "title": "Kor quyu",
@@ -5011,10 +5026,11 @@
     "roles": [
       "title",
       "narrative",
+      "narrative",
       "moral"
     ],
     "file": "the-blind-well.mp3",
-    "bytes": 336384
+    "bytes": 337104
   },
   "life-is-short": {
     "title": "Ömür qısadır",
