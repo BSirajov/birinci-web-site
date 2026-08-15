@@ -4,12 +4,13 @@
     "category": "iman-ve-meneviyyat",
     "index": 0,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "narrative",
-      "dialogue",
+      "question",
       "narrative",
       "dialogue",
       "narrative",
@@ -17,14 +18,16 @@
       "moral"
     ],
     "file": "friend-of-god.mp3",
-    "bytes": 269568
+    "bytes": 303120,
+    "join": "raw-concat (ffmpeg missing; loudnorm skipped)"
   },
   "gods-pleasure": {
     "title": "Allahın rizası",
     "category": "iman-ve-meneviyyat",
     "index": 1,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -33,28 +36,32 @@
       "moral"
     ],
     "file": "gods-pleasure.mp3",
-    "bytes": 158544
+    "bytes": 179948,
+    "join": "ffmpeg+loudnorm"
   },
   "eat-less-and-stay-on-the-right-path": {
     "title": "Az yeyən və düz gedən",
     "category": "iman-ve-meneviyyat",
     "index": 3,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "eat-less-and-stay-on-the-right-path.mp3",
-    "bytes": 102528
+    "bytes": 119900,
+    "join": "ffmpeg+loudnorm"
   },
   "let-prayer-come-and-find-you": {
     "title": "Dua gəlib tapsın səni",
     "category": "iman-ve-meneviyyat",
     "index": 5,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -62,14 +69,16 @@
       "moral"
     ],
     "file": "let-prayer-come-and-find-you.mp3",
-    "bytes": 160704
+    "bytes": 183980,
+    "join": "ffmpeg+loudnorm"
   },
   "not-leaving-the-right-path": {
     "title": "Doğru yoldan ayrılmamaq",
     "category": "iman-ve-meneviyyat",
     "index": 4,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -79,35 +88,37 @@
       "moral"
     ],
     "file": "not-leaving-the-right-path.mp3",
-    "bytes": 591408
+    "bytes": 648380,
+    "join": "ffmpeg+loudnorm"
   },
   "the-dervishs-clothes": {
     "title": "Dərvişin üst-başı",
     "category": "iman-ve-meneviyyat",
     "index": 8,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
-      "dialogue",
+      "question",
       "narrative",
       "dialogue",
       "moral"
     ],
     "file": "the-dervishs-clothes.mp3",
-    "bytes": 168480
+    "bytes": 191324,
+    "join": "ffmpeg+loudnorm"
   },
   "the-dervishs-robe": {
     "title": "Dərviş əbası",
     "category": "iman-ve-meneviyyat",
     "index": 7,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
-      "narrative",
-      "dialogue",
       "narrative",
       "dialogue",
       "narrative",
@@ -118,38 +129,44 @@
       "dialogue",
       "narrative",
       "exclaim",
+      "narrative",
+      "exclaim",
       "dialogue",
       "dialogue",
       "moral"
     ],
     "file": "the-dervishs-robe.mp3",
-    "bytes": 627120
+    "bytes": 657452,
+    "join": "ffmpeg+loudnorm"
   },
   "o-god-give-first-to-the-mountains-and-stones": {
     "title": "Ey Allahım, əvvəlcə dağa-daşa ver",
     "category": "iman-ve-meneviyyat",
     "index": 10,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
-      "dialogue",
+      "exclaim",
       "moral"
     ],
     "file": "o-god-give-first-to-the-mountains-and-stones.mp3",
-    "bytes": 173088
+    "bytes": 189740,
+    "join": "ffmpeg+loudnorm"
   },
   "the-dervishs-spoons": {
     "title": "Dərviş qaşıqları",
     "category": "iman-ve-meneviyyat",
     "index": 6,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
-      "dialogue",
+      "question",
       "dialogue",
       "narrative",
       "dialogue",
@@ -160,14 +177,16 @@
       "moral"
     ],
     "file": "the-dervishs-spoons.mp3",
-    "bytes": 599904
+    "bytes": 649100,
+    "join": "ffmpeg+loudnorm"
   },
   "o-god-heal-our-sorrows": {
     "title": "Ey Allahım, dərdlərimizə çarə et",
     "category": "iman-ve-meneviyyat",
     "index": 9,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -178,14 +197,16 @@
       "moral"
     ],
     "file": "o-god-heal-our-sorrows.mp3",
-    "bytes": 186624
+    "bytes": 218684,
+    "join": "ffmpeg+loudnorm"
   },
   "the-hajj-pilgrimage": {
     "title": "Hacc ziyarəti",
     "category": "iman-ve-meneviyyat",
     "index": 11,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -196,44 +217,50 @@
       "moral"
     ],
     "file": "the-hajj-pilgrimage.mp3",
-    "bytes": 294624
+    "bytes": 334028,
+    "join": "ffmpeg+loudnorm"
   },
   "a-lawful-morsel": {
     "title": "Halal tikə",
     "category": "iman-ve-meneviyyat",
     "index": 12,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "narrative",
-      "narrative",
+      "dialogue",
       "moral"
     ],
     "file": "a-lawful-morsel.mp3",
-    "bytes": 153936
+    "bytes": 182108,
+    "join": "ffmpeg+loudnorm"
   },
   "the-power-of-truth": {
     "title": "Haqqın qüdrəti",
     "category": "iman-ve-meneviyyat",
     "index": 13,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "the-power-of-truth.mp3",
-    "bytes": 84384
+    "bytes": 101468,
+    "join": "ffmpeg+loudnorm"
   },
   "forbidden-money": {
     "title": "Haram pul",
     "category": "iman-ve-meneviyyat",
     "index": 14,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -250,14 +277,16 @@
       "moral"
     ],
     "file": "forbidden-money.mp3",
-    "bytes": 1176624
+    "bytes": 1273484,
+    "join": "ffmpeg+loudnorm"
   },
   "the-idle-devil": {
     "title": "İşsiz şeytan",
     "category": "iman-ve-meneviyyat",
     "index": 16,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -265,14 +294,16 @@
       "moral"
     ],
     "file": "the-idle-devil.mp3",
-    "bytes": 191952
+    "bytes": 208604,
+    "join": "ffmpeg+loudnorm"
   },
   "the-light-of-the-universe": {
     "title": "Kainat işığı",
     "category": "iman-ve-meneviyyat",
     "index": 17,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -281,17 +312,18 @@
       "moral"
     ],
     "file": "the-light-of-the-universe.mp3",
-    "bytes": 363024
+    "bytes": 388172,
+    "join": "ffmpeg+loudnorm"
   },
   "faith-is-half-of-success": {
-    "title": "İnam uğurun yarısıdır",
+    "title": "İnam uğurun yarısıdır!",
     "category": "iman-ve-meneviyyat",
     "index": 15,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
-      "exclaim",
       "narrative",
       "dialogue",
       "narrative",
@@ -302,51 +334,57 @@
       "moral"
     ],
     "file": "faith-is-half-of-success.mp3",
-    "bytes": 525456
+    "bytes": 558668,
+    "join": "ffmpeg+loudnorm"
   },
   "the-church-bell": {
     "title": "Kilsə zəngi",
     "category": "iman-ve-meneviyyat",
     "index": 18,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "narrative",
       "question",
-      "dialogue",
+      "narrative",
       "moral"
     ],
     "file": "the-church-bell.mp3",
-    "bytes": 271872
+    "bytes": 302204,
+    "join": "ffmpeg+loudnorm"
   },
   "where-does-calamity-come-from": {
     "title": "Müsibət nədən gəlir",
     "category": "iman-ve-meneviyyat",
     "index": 21,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
-      "dialogue",
+      "question",
       "narrative",
-      "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
+      "question",
+      "question",
+      "question",
+      "question",
       "moral"
     ],
     "file": "where-does-calamity-come-from.mp3",
-    "bytes": 212832
+    "bytes": 241868,
+    "join": "ffmpeg+loudnorm"
   },
   "calamity-and-blessing": {
     "title": "Müsibət və nemət",
     "category": "iman-ve-meneviyyat",
     "index": 22,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -354,14 +392,16 @@
       "moral"
     ],
     "file": "calamity-and-blessing.mp3",
-    "bytes": 125280
+    "bytes": 146396,
+    "join": "ffmpeg+loudnorm"
   },
   "the-mullah-and-the-scholar": {
     "title": "Molla və alim",
     "category": "iman-ve-meneviyyat",
     "index": 19,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -376,41 +416,44 @@
       "moral"
     ],
     "file": "the-mullah-and-the-scholar.mp3",
-    "bytes": 1136592
+    "bytes": 1232732,
+    "join": "ffmpeg+loudnorm"
   },
   "to-be-fasting": {
     "title": "Oruclu olmaq",
     "category": "iman-ve-meneviyyat",
     "index": 24,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
-      "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
+      "question",
+      "narrative",
+      "question",
+      "narrative",
+      "question",
       "narrative",
       "moral"
     ],
     "file": "to-be-fasting.mp3",
-    "bytes": 367488
+    "bytes": 418124,
+    "join": "ffmpeg+loudnorm"
   },
   "why-are-you-waiting-for-the-last-day-of-the-world": {
-    "title": "Niyə dünyanın son gününü gözləyirsiniz",
+    "title": "Niyə dünyanın son gününü gözləyirsiniz?",
     "category": "iman-ve-meneviyyat",
     "index": 23,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
+      "narrative",
       "question",
       "narrative",
       "dialogue",
-      "narrative",
-      "dialogue",
       "dialogue",
       "dialogue",
       "dialogue",
@@ -423,18 +466,20 @@
       "dialogue",
       "dialogue",
       "narrative",
-      "dialogue",
+      "question",
       "moral"
     ],
     "file": "why-are-you-waiting-for-the-last-day-of-the-world.mp3",
-    "bytes": 563472
+    "bytes": 585308,
+    "join": "ffmpeg+loudnorm"
   },
   "the-price-of-a-miracle": {
     "title": "Möcüzənin qiyməti",
     "category": "iman-ve-meneviyyat",
     "index": 20,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -445,11 +490,11 @@
       "dialogue",
       "dialogue",
       "dialogue",
-      "dialogue",
+      "question",
       "dialogue",
       "dialogue",
       "narrative",
-      "dialogue",
+      "question",
       "dialogue",
       "dialogue",
       "dialogue",
@@ -462,14 +507,16 @@
       "moral"
     ],
     "file": "the-price-of-a-miracle.mp3",
-    "bytes": 1413360
+    "bytes": 1477388,
+    "join": "ffmpeg+loudnorm"
   },
   "pray-while-washing-your-dishes": {
     "title": "Qab-qacağınızı yuyarkən dua edin",
     "category": "iman-ve-meneviyyat",
     "index": 25,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -477,14 +524,16 @@
       "moral"
     ],
     "file": "pray-while-washing-your-dishes.mp3",
-    "bytes": 206352
+    "bytes": 232796,
+    "join": "ffmpeg+loudnorm"
   },
   "if-fate-allows-we-will-meet": {
     "title": "Qismət olarsa görüşərik",
     "category": "iman-ve-meneviyyat",
     "index": 26,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "question",
@@ -493,14 +542,16 @@
       "moral"
     ],
     "file": "if-fate-allows-we-will-meet.mp3",
-    "bytes": 313488
+    "bytes": 318044,
+    "join": "ffmpeg+loudnorm"
   },
   "ramadan-prayer": {
     "title": "Ramazan duası",
     "category": "iman-ve-meneviyyat",
     "index": 29,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "exclaim",
@@ -508,14 +559,16 @@
       "moral"
     ],
     "file": "ramadan-prayer.mp3",
-    "bytes": 156096
+    "bytes": 172604,
+    "join": "ffmpeg+loudnorm"
   },
   "the-fortieth-day-rite": {
     "title": "Qırx çıxarma",
     "category": "iman-ve-meneviyyat",
     "index": 28,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -523,17 +576,18 @@
       "moral"
     ],
     "file": "the-fortieth-day-rite.mp3",
-    "bytes": 306576
+    "bytes": 339644,
+    "join": "ffmpeg+loudnorm"
   },
   "help-yourself-o-exalted-god": {
-    "title": "Sən özün yardım et uca Allahım",
+    "title": "Sən özün yardım et, uca Allahım!",
     "category": "iman-ve-meneviyyat",
     "index": 30,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
-      "exclaim",
       "narrative",
       "narrative",
       "narrative",
@@ -543,53 +597,58 @@
       "narrative",
       "narrative",
       "narrative",
-      "exclaim",
       "moral"
     ],
     "file": "help-yourself-o-exalted-god.mp3",
-    "bytes": 277344
+    "bytes": 286652,
+    "join": "ffmpeg+loudnorm"
   },
   "stoning-the-devil": {
     "title": "Şeytanı daşlama",
     "category": "iman-ve-meneviyyat",
     "index": 31,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
-      "dialogue",
+      "question",
       "narrative",
       "dialogue",
       "moral"
     ],
     "file": "stoning-the-devil.mp3",
-    "bytes": 236592
+    "bytes": 260300,
+    "join": "ffmpeg+loudnorm"
   },
   "drinking-the-sherbet-of-martyrdom": {
     "title": "Şəhadət şərbəti içmək",
     "category": "iman-ve-meneviyyat",
     "index": 32,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "drinking-the-sherbet-of-martyrdom.mp3",
-    "bytes": 171648
+    "bytes": 193628,
+    "join": "ffmpeg+loudnorm"
   },
   "your-hand-at-work-your-hope-in-god": {
     "title": "Əlin işdə, ümidin Allahda",
     "category": "iman-ve-meneviyyat",
     "index": 34,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
-      "narrative",
+      "question",
       "narrative",
       "narrative",
       "narrative",
@@ -599,31 +658,35 @@
       "moral"
     ],
     "file": "your-hand-at-work-your-hope-in-god.mp3",
-    "bytes": 957600
+    "bytes": 1012988,
+    "join": "ffmpeg+loudnorm"
   },
   "the-most-beautiful-portion": {
     "title": "Ən gözəl nəsib",
     "category": "iman-ve-meneviyyat",
     "index": 35,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
-      "dialogue",
+      "question",
       "narrative",
       "dialogue",
       "moral"
     ],
     "file": "the-most-beautiful-portion.mp3",
-    "bytes": 145152
+    "bytes": 167852,
+    "join": "ffmpeg+loudnorm"
   },
   "weeds-must-be-pulled-from-the-root": {
     "title": "Alaq otlarını kökündən qoparmaq lazımdır",
     "category": "aile-ve-terbiye",
     "index": 1,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -631,14 +694,16 @@
       "moral"
     ],
     "file": "weeds-must-be-pulled-from-the-root.mp3",
-    "bytes": 342000
+    "bytes": 376704,
+    "join": "raw-concat (ffmpeg missing; loudnorm skipped)"
   },
   "sacrificial-meat": {
     "title": "Qurban əti",
     "category": "iman-ve-meneviyyat",
     "index": 27,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -657,21 +722,23 @@
       "narrative",
       "narrative",
       "narrative",
-      "dialogue",
+      "question",
       "question",
       "narrative",
       "dialogue",
       "moral"
     ],
     "file": "sacrificial-meat.mp3",
-    "bytes": 1714176
+    "bytes": 1851644,
+    "join": "ffmpeg+loudnorm"
   },
   "the-value-of-your-family": {
     "title": "Ailənizin dəyəri",
     "category": "aile-ve-terbiye",
     "index": 0,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -683,32 +750,21 @@
       "moral"
     ],
     "file": "the-value-of-your-family.mp3",
-    "bytes": 758880
+    "bytes": 828956,
+    "join": "ffmpeg+loudnorm"
   },
   "a-mothers-love": {
     "title": "Ana sevgisi",
     "category": "aile-ve-terbiye",
     "index": 2,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
-      "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
       "narrative",
-      "narrative",
-      "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
-      "exclaim",
+      "question",
       "narrative",
       "narrative",
       "narrative",
@@ -717,38 +773,46 @@
       "narrative",
       "narrative",
       "narrative",
-      "exclaim",
+      "narrative",
+      "narrative",
+      "narrative",
+      "narrative",
+      "narrative",
       "narrative",
       "narrative",
       "dialogue",
       "moral"
     ],
     "file": "a-mothers-love.mp3",
-    "bytes": 1037952
+    "bytes": 1039248,
+    "join": "raw-concat (ffmpeg missing; loudnorm skipped)"
   },
   "a-fathers-footprints": {
     "title": "Atanın izləri",
     "category": "aile-ve-terbiye",
     "index": 5,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
-      "dialogue",
+      "exclaim",
       "narrative",
       "dialogue",
       "moral"
     ],
     "file": "a-fathers-footprints.mp3",
-    "bytes": 138960
+    "bytes": 182828,
+    "join": "ffmpeg+loudnorm"
   },
   "mother-and-son": {
     "title": "Ana və oğul",
     "category": "aile-ve-terbiye",
     "index": 3,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -769,31 +833,34 @@
       "moral"
     ],
     "file": "mother-and-son.mp3",
-    "bytes": 1225008
+    "bytes": 1330508,
+    "join": "ffmpeg+loudnorm"
   },
   "a-festive-gift": {
     "title": "Bayrama hədiyyə",
     "category": "aile-ve-terbiye",
     "index": 7,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
-      "dialogue",
-      "dialogue",
+      "question",
       "narrative",
-      "narrative",
+      "dialogue",
       "moral"
     ],
     "file": "a-festive-gift.mp3",
-    "bytes": 148896
+    "bytes": 187004,
+    "join": "ffmpeg+loudnorm"
   },
   "grandfather-and-grandson-at-the-market": {
     "title": "Baba və nəvəsi bazarlıqda",
     "category": "aile-ve-terbiye",
     "index": 6,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -801,28 +868,32 @@
       "moral"
     ],
     "file": "grandfather-and-grandson-at-the-market.mp3",
-    "bytes": 432720
+    "bytes": 473420,
+    "join": "ffmpeg+loudnorm"
   },
   "only-my-mother-would-weep": {
     "title": "Bir tək anam ağlar",
     "category": "aile-ve-terbiye",
     "index": 8,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "exclaim",
       "moral"
     ],
     "file": "only-my-mother-would-weep.mp3",
-    "bytes": 79488
+    "bytes": 93548,
+    "join": "ffmpeg+loudnorm"
   },
   "the-mothers-advice-fakir-baykurt-never-forgot": {
     "title": "Fakir Baykurtun unutmadığı ana nəsihəti",
     "category": "aile-ve-terbiye",
     "index": 10,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -830,7 +901,7 @@
       "narrative",
       "narrative",
       "narrative",
-      "dialogue",
+      "question",
       "narrative",
       "dialogue",
       "exclaim",
@@ -838,14 +909,16 @@
       "moral"
     ],
     "file": "the-mothers-advice-fakir-baykurt-never-forgot.mp3",
-    "bytes": 790992
+    "bytes": 856316,
+    "join": "ffmpeg+loudnorm"
   },
   "father-and-son": {
     "title": "Ata və oğul",
     "category": "aile-ve-terbiye",
     "index": 4,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -866,7 +939,7 @@
       "dialogue",
       "narrative",
       "narrative",
-      "dialogue",
+      "question",
       "narrative",
       "dialogue",
       "dialogue",
@@ -876,14 +949,16 @@
       "moral"
     ],
     "file": "father-and-son.mp3",
-    "bytes": 1282752
+    "bytes": 1370108,
+    "join": "ffmpeg+loudnorm"
   },
   "from-a-wise-fathers-advice-to-his-son": {
     "title": "Müdrik atanın oğluna öyüd-nəsihətlərindən",
     "category": "aile-ve-terbiye",
     "index": 12,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "exclaim",
@@ -896,9 +971,9 @@
       "narrative",
       "narrative",
       "narrative",
-      "dialogue",
-      "dialogue",
-      "dialogue",
+      "narrative",
+      "narrative",
+      "narrative",
       "exclaim",
       "narrative",
       "narrative",
@@ -906,14 +981,16 @@
       "moral"
     ],
     "file": "from-a-wise-fathers-advice-to-his-son.mp3",
-    "bytes": 830016
+    "bytes": 936524,
+    "join": "ffmpeg+loudnorm"
   },
   "spinach": {
     "title": "İspanaq",
     "category": "aile-ve-terbiye",
     "index": 11,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -927,28 +1004,32 @@
       "moral"
     ],
     "file": "spinach.mp3",
-    "bytes": 946512
+    "bytes": 1025372,
+    "join": "ffmpeg+loudnorm"
   },
   "fallen-teeth": {
     "title": "Tökülən dişlər",
     "category": "aile-ve-terbiye",
     "index": 14,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "fallen-teeth.mp3",
-    "bytes": 235008
+    "bytes": 261164,
+    "join": "ffmpeg+loudnorm"
   },
   "puppies-for-sale": {
     "title": "Satılıq küçüklər",
     "category": "aile-ve-terbiye",
     "index": 13,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -972,19 +1053,20 @@
       "moral"
     ],
     "file": "puppies-for-sale.mp3",
-    "bytes": 922752
+    "bytes": 965036,
+    "join": "ffmpeg+loudnorm"
   },
   "i-am-tired-mother": {
-    "title": "Yoruldum ana",
+    "title": "Yoruldum, ana",
     "category": "aile-ve-terbiye",
     "index": 15,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
-      "narrative",
       "dialogue",
-      "dialogue",
+      "question",
       "dialogue",
       "dialogue",
       "dialogue",
@@ -994,28 +1076,32 @@
       "moral"
     ],
     "file": "i-am-tired-mother.mp3",
-    "bytes": 351216
+    "bytes": 355628,
+    "join": "ffmpeg+loudnorm"
   },
   "the-builder-of-the-nest": {
     "title": "Yuvanın qurucusu",
     "category": "aile-ve-terbiye",
     "index": 16,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "the-builder-of-the-nest.mp3",
-    "bytes": 83664
+    "bytes": 100028,
+    "join": "ffmpeg+loudnorm"
   },
   "rotten-seed": {
     "title": "Çürük toxum",
     "category": "aile-ve-terbiye",
     "index": 17,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -1027,14 +1113,16 @@
       "moral"
     ],
     "file": "rotten-seed.mp3",
-    "bytes": 428832
+    "bytes": 460748,
+    "join": "ffmpeg+loudnorm"
   },
   "i-am-waiting-for-the-teeth": {
     "title": "Dişləri gözləyirəm",
     "category": "aile-ve-terbiye",
     "index": 9,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -1045,42 +1133,46 @@
       "narrative",
       "dialogue",
       "narrative",
-      "dialogue",
+      "question",
       "narrative",
       "dialogue",
       "moral"
     ],
     "file": "i-am-waiting-for-the-teeth.mp3",
-    "bytes": 583056
+    "bytes": 634988,
+    "join": "ffmpeg+loudnorm"
   },
   "the-most-beautiful-gift": {
     "title": "Ən gözəl hədiyyə",
     "category": "aile-ve-terbiye",
     "index": 20,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
-      "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
+      "narrative",
+      "narrative",
+      "narrative",
+      "narrative",
+      "narrative",
+      "narrative",
+      "narrative",
+      "narrative",
+      "narrative",
       "moral"
     ],
     "file": "the-most-beautiful-gift.mp3",
-    "bytes": 189936
+    "bytes": 237548,
+    "join": "ffmpeg+loudnorm"
   },
   "hold-my-hand": {
     "title": "Əlimi tut",
     "category": "aile-ve-terbiye",
     "index": 19,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -1088,19 +1180,21 @@
       "narrative",
       "dialogue",
       "narrative",
-      "dialogue",
+      "question",
       "dialogue",
       "moral"
     ],
     "file": "hold-my-hand.mp3",
-    "bytes": 284544
+    "bytes": 312336,
+    "join": "raw-concat (ffmpeg missing; loudnorm skipped)"
   },
   "friendship-and-love": {
     "title": "Dostluq və sevgi",
     "category": "sevgi-ve-evlilik",
     "index": 1,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "dialogue",
@@ -1110,14 +1204,16 @@
       "moral"
     ],
     "file": "friendship-and-love.mp3",
-    "bytes": 209376
+    "bytes": 224012,
+    "join": "ffmpeg+loudnorm"
   },
   "early-marriage": {
     "title": "Erkən evlilik",
     "category": "sevgi-ve-evlilik",
     "index": 2,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -1131,14 +1227,16 @@
       "moral"
     ],
     "file": "early-marriage.mp3",
-    "bytes": 565632
+    "bytes": 605180,
+    "join": "ffmpeg+loudnorm"
   },
   "the-purple-jacket": {
     "title": "Bənövşəyi çəpkən",
     "category": "sevgi-ve-evlilik",
     "index": 0,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -1151,22 +1249,22 @@
       "moral"
     ],
     "file": "the-purple-jacket.mp3",
-    "bytes": 770688
+    "bytes": 845372,
+    "join": "ffmpeg+loudnorm"
   },
   "raising-children": {
     "title": "Övlad tərbiyəsi",
     "category": "aile-ve-terbiye",
     "index": 18,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "narrative",
       "exclaim",
       "question",
-      "dialogue",
-      "dialogue",
       "narrative",
       "narrative",
       "narrative",
@@ -1176,20 +1274,24 @@
       "narrative",
       "narrative",
       "narrative",
-      "dialogue",
+      "narrative",
+      "narrative",
+      "question",
       "narrative",
       "dialogue",
       "moral"
     ],
     "file": "raising-children.mp3",
-    "bytes": 1557504
+    "bytes": 1686620,
+    "join": "ffmpeg+loudnorm"
   },
   "i-kiss-your-eyes": {
     "title": "Gözlərindən öpərəm",
     "category": "sevgi-ve-evlilik",
     "index": 5,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "question",
@@ -1197,28 +1299,32 @@
       "moral"
     ],
     "file": "i-kiss-your-eyes.mp3",
-    "bytes": 123840
+    "bytes": 142076,
+    "join": "ffmpeg+loudnorm"
   },
   "the-rose": {
     "title": "Gül",
     "category": "sevgi-ve-evlilik",
     "index": 6,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "the-rose.mp3",
-    "bytes": 100656
+    "bytes": 118172,
+    "join": "ffmpeg+loudnorm"
   },
   "what-breaks-a-marriage": {
     "title": "Evlilikdə pozan",
     "category": "sevgi-ve-evlilik",
     "index": 3,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -1229,32 +1335,34 @@
       "dialogue",
       "narrative",
       "dialogue",
-      "dialogue",
-      "dialogue",
-      "narrative",
+      "question",
       "dialogue",
       "narrative",
       "dialogue",
+      "narrative",
       "dialogue",
+      "question",
       "dialogue",
       "narrative",
       "narrative",
-      "dialogue",
-      "dialogue",
+      "question",
+      "question",
       "narrative",
       "dialogue",
       "exclaim",
       "moral"
     ],
     "file": "what-breaks-a-marriage.mp3",
-    "bytes": 675504
+    "bytes": 740252,
+    "join": "ffmpeg+loudnorm"
   },
   "advice-for-those-who-marry": {
     "title": "Evlənənlərə tövsiyə",
     "category": "sevgi-ve-evlilik",
     "index": 4,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -1263,19 +1371,21 @@
       "narrative",
       "narrative",
       "narrative",
-      "dialogue",
+      "narrative",
       "narrative",
       "moral"
     ],
     "file": "advice-for-those-who-marry.mp3",
-    "bytes": 545328
+    "bytes": 557660,
+    "join": "ffmpeg+loudnorm"
   },
   "true-love": {
     "title": "Həqiqi eşq",
     "category": "sevgi-ve-evlilik",
     "index": 7,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -1296,14 +1406,16 @@
       "moral"
     ],
     "file": "true-love.mp3",
-    "bytes": 767808
+    "bytes": 842636,
+    "join": "ffmpeg+loudnorm"
   },
   "the-woman-and-the-mirror": {
     "title": "Qadın və güzgü",
     "category": "sevgi-ve-evlilik",
     "index": 9,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -1313,22 +1425,22 @@
       "narrative",
       "dialogue",
       "narrative",
-      "dialogue",
+      "exclaim",
       "moral"
     ],
     "file": "the-woman-and-the-mirror.mp3",
-    "bytes": 390960
+    "bytes": 417116,
+    "join": "ffmpeg+loudnorm"
   },
   "what-women-have-endured-in-this-world": {
-    "title": "Nələr çəkdi qadın bu dünyada",
+    "title": "Nələr çəkdi qadın bu dünyada...",
     "category": "sevgi-ve-evlilik",
     "index": 8,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
-      "narrative",
-      "narrative",
       "narrative",
       "narrative",
       "narrative",
@@ -1354,28 +1466,32 @@
       "moral"
     ],
     "file": "what-women-have-endured-in-this-world.mp3",
-    "bytes": 690480
+    "bytes": 756812,
+    "join": "ffmpeg+loudnorm"
   },
   "yellow-and-red-flowers": {
     "title": "Sarı və qırmızı çiçəklər",
     "category": "sevgi-ve-evlilik",
     "index": 12,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "yellow-and-red-flowers.mp3",
-    "bytes": 151344
+    "bytes": 186716,
+    "join": "ffmpeg+loudnorm"
   },
   "do-not-let-your-hearts-part": {
     "title": "Qəlblərinizin ayrılmasına imkan verməyin",
     "category": "sevgi-ve-evlilik",
     "index": 11,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "question",
@@ -1388,30 +1504,22 @@
       "moral"
     ],
     "file": "do-not-let-your-hearts-part.mp3",
-    "bytes": 512784
+    "bytes": 552476,
+    "join": "ffmpeg+loudnorm"
   },
   "beware-of-those-you-love": {
     "title": "Sevdiklərinizdən muğayat olun",
     "category": "sevgi-ve-evlilik",
     "index": 13,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
-      "dialogue",
       "narrative",
       "dialogue",
-      "dialogue",
-      "narrative",
-      "dialogue",
-      "narrative",
-      "dialogue",
-      "narrative",
-      "narrative",
-      "dialogue",
-      "narrative",
-      "dialogue",
+      "exclaim",
       "narrative",
       "narrative",
       "dialogue",
@@ -1421,33 +1529,35 @@
       "moral"
     ],
     "file": "beware-of-those-you-love.mp3",
-    "bytes": 716544
+    "bytes": 510140,
+    "join": "ffmpeg+loudnorm"
   },
   "can-a-broken-heart-love-again": {
-    "title": "Sınan qəlb yenə sevərmi",
+    "title": "Sınan qəlb yenə sevərmi?",
     "category": "sevgi-ve-evlilik",
     "index": 15,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
-      "question",
       "narrative",
       "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
+      "question",
+      "question",
       "moral"
     ],
     "file": "can-a-broken-heart-love-again.mp3",
-    "bytes": 189648
+    "bytes": 181100,
+    "join": "ffmpeg+loudnorm"
   },
   "the-beloved-is-one-who-gives-love-to-people": {
     "title": "Sevilən insan sevgisini insanlara verən insandır",
     "category": "sevgi-ve-evlilik",
     "index": 14,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -1458,14 +1568,16 @@
       "moral"
     ],
     "file": "the-beloved-is-one-who-gives-love-to-people.mp3",
-    "bytes": 761616
+    "bytes": 830540,
+    "join": "ffmpeg+loudnorm"
   },
   "the-red-dress": {
     "title": "Qırmızı don",
     "category": "sevgi-ve-evlilik",
     "index": 10,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -1475,7 +1587,7 @@
       "dialogue",
       "narrative",
       "dialogue",
-      "dialogue",
+      "question",
       "dialogue",
       "dialogue",
       "dialogue",
@@ -1490,14 +1602,16 @@
       "moral"
     ],
     "file": "the-red-dress.mp3",
-    "bytes": 1224576
+    "bytes": 1248572,
+    "join": "ffmpeg+loudnorm"
   },
   "i-love-you": {
     "title": "Səni sevirəm",
     "category": "sevgi-ve-evlilik",
     "index": 17,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -1508,37 +1622,40 @@
       "moral"
     ],
     "file": "i-love-you.mp3",
-    "bytes": 419184
+    "bytes": 462188,
+    "join": "ffmpeg+loudnorm"
   },
   "loving-from-afar": {
     "title": "Uzaqdan sevmək",
     "category": "sevgi-ve-evlilik",
     "index": 18,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "dialogue",
+      "question",
       "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
+      "question",
+      "question",
       "narrative",
       "moral"
     ],
     "file": "loving-from-afar.mp3",
-    "bytes": 317952
+    "bytes": 346988,
+    "join": "ffmpeg+loudnorm"
   },
   "what-is-loyalty": {
-    "title": "Vəfa nədir",
+    "title": "Vəfa nədir?",
     "category": "sevgi-ve-evlilik",
     "index": 19,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
-      "question",
       "narrative",
       "narrative",
       "narrative",
@@ -1552,14 +1669,16 @@
       "moral"
     ],
     "file": "what-is-loyalty.mp3",
-    "bytes": 249120
+    "bytes": 284636,
+    "join": "ffmpeg+loudnorm"
   },
   "the-mother-of-pearl-flower": {
     "title": "Sədəf çiçəyi",
     "category": "sevgi-ve-evlilik",
     "index": 16,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -1579,48 +1698,55 @@
       "moral"
     ],
     "file": "the-mother-of-pearl-flower.mp3",
-    "bytes": 1305504
+    "bytes": 1369964,
+    "join": "ffmpeg+loudnorm"
   },
   "meddling-in-others-lives": {
     "title": "Başqalarının həyatına qarışmaq",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 1,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "exclaim",
       "moral"
     ],
     "file": "meddling-in-others-lives.mp3",
-    "bytes": 106128
+    "bytes": 121628,
+    "join": "ffmpeg+loudnorm"
   },
   "a-handful-of-roasted-chickpeas": {
     "title": "Bir ovuc ləbləbi",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 3,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "dialogue",
       "dialogue",
       "narrative",
-      "dialogue",
+      "question",
+      "narrative",
       "dialogue",
       "dialogue",
       "moral"
     ],
     "file": "a-handful-of-roasted-chickpeas.mp3",
-    "bytes": 283392
+    "bytes": 338924,
+    "join": "ffmpeg+loudnorm"
   },
   "the-friendship-of-horses": {
     "title": "Atların dostluğu",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 0,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -1630,39 +1756,44 @@
       "moral"
     ],
     "file": "the-friendship-of-horses.mp3",
-    "bytes": 414864
+    "bytes": 458588,
+    "join": "ffmpeg+loudnorm"
   },
   "a-pair-of-boots": {
     "title": "Bir cüt çəkmə",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 2,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "narrative",
       "narrative",
+      "exclaim",
       "narrative",
       "narrative",
-      "dialogue",
+      "question",
       "narrative",
       "dialogue",
       "moral"
     ],
     "file": "a-pair-of-boots.mp3",
-    "bytes": 556416
+    "bytes": 579836,
+    "join": "ffmpeg+loudnorm"
   },
   "gossip": {
     "title": "Dedi-qodu",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 6,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
-      "dialogue",
+      "exclaim",
       "narrative",
       "dialogue",
       "narrative",
@@ -1677,17 +1808,22 @@
       "moral"
     ],
     "file": "gossip.mp3",
-    "bytes": 635472
+    "bytes": 688752,
+    "join": "raw-concat (ffmpeg missing; loudnorm skipped)"
   },
   "a-glass-of-milk": {
     "title": "Bir stəkan süd",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 4,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
+      "narrative",
+      "narrative",
+      "question",
       "dialogue",
       "narrative",
       "dialogue",
@@ -1697,19 +1833,21 @@
       "narrative",
       "narrative",
       "narrative",
-      "narrative",
       "dialogue",
+      "narrative",
       "moral"
     ],
     "file": "a-glass-of-milk.mp3",
-    "bytes": 943488
+    "bytes": 911952,
+    "join": "raw-concat (ffmpeg missing; loudnorm skipped)"
   },
   "i-want-a-friend": {
     "title": "Dost istərəm",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 7,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -1719,14 +1857,16 @@
       "moral"
     ],
     "file": "i-want-a-friend.mp3",
-    "bytes": 148032
+    "bytes": 172460,
+    "join": "ffmpeg+loudnorm"
   },
   "everyone-is-the-same-here": {
     "title": "Bizdə hamı eynidir",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 5,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -1738,7 +1878,7 @@
       "narrative",
       "dialogue",
       "narrative",
-      "dialogue",
+      "exclaim",
       "narrative",
       "narrative",
       "narrative",
@@ -1746,14 +1886,16 @@
       "moral"
     ],
     "file": "everyone-is-the-same-here.mp3",
-    "bytes": 642960
+    "bytes": 700652,
+    "join": "ffmpeg+loudnorm"
   },
   "those-you-should-not-befriend": {
     "title": "Dostluq etməyəcəklərin",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 8,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "dialogue",
@@ -1762,43 +1904,48 @@
       "moral"
     ],
     "file": "those-you-should-not-befriend.mp3",
-    "bytes": 197136
+    "bytes": 210332,
+    "join": "ffmpeg+loudnorm"
   },
   "know-your-friend": {
     "title": "Dostunu tanı",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 9,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "know-your-friend.mp3",
-    "bytes": 111744
+    "bytes": 130268,
+    "join": "ffmpeg+loudnorm"
   },
   "go-but-come-again": {
-    "title": "Gedin amma yenə gəlin",
+    "title": "Gedin, amma yenə gəlin",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 10,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
-      "narrative",
       "narrative",
       "moral"
     ],
     "file": "go-but-come-again.mp3",
-    "bytes": 182448
+    "bytes": 189020,
+    "join": "ffmpeg+loudnorm"
   },
   "how-we-treat-people": {
     "title": "İnsanlara olan münasibət",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 13,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -1808,14 +1955,16 @@
       "moral"
     ],
     "file": "how-we-treat-people.mp3",
-    "bytes": 140544
+    "bytes": 166988,
+    "join": "ffmpeg+loudnorm"
   },
   "permission-or-apology": {
     "title": "İcazə, yoxsa üzr istəmək",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 11,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -1826,14 +1975,16 @@
       "moral"
     ],
     "file": "permission-or-apology.mp3",
-    "bytes": 575424
+    "bytes": 630812,
+    "join": "ffmpeg+loudnorm"
   },
   "discussion-and-conflict": {
     "title": "Müzakirə və münaqişə",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 15,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -1845,53 +1996,50 @@
       "moral"
     ],
     "file": "discussion-and-conflict.mp3",
-    "bytes": 800784
+    "bytes": 874748,
+    "join": "ffmpeg+loudnorm"
   },
   "a-compliment": {
     "title": "İltifat",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 12,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "narrative",
       "narrative",
-      "narrative",
-      "narrative",
+      "exclaim",
       "narrative",
       "dialogue",
+      "narrative",
       "exclaim",
       "narrative",
       "narrative",
       "narrative",
       "narrative",
       "narrative",
-      "narrative",
-      "narrative",
-      "narrative",
-      "narrative",
-      "narrative",
-      "narrative",
-      "dialogue",
-      "dialogue",
-      "narrative",
       "exclaim",
+      "exclaim",
+      "dialogue",
       "narrative",
       "narrative",
       "narrative",
       "moral"
     ],
     "file": "a-compliment.mp3",
-    "bytes": 1289376
+    "bytes": 1345196,
+    "join": "ffmpeg+loudnorm"
   },
   "compassion": {
     "title": "Mərhəmət",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 16,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -1912,14 +2060,16 @@
       "moral"
     ],
     "file": "compassion.mp3",
-    "bytes": 997632
+    "bytes": 1077068,
+    "join": "ffmpeg+loudnorm"
   },
   "humanity": {
     "title": "İnsanlıq",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 14,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -1938,39 +2088,42 @@
       "moral"
     ],
     "file": "humanity.mp3",
-    "bytes": 1681920
+    "bytes": 1797788,
+    "join": "ffmpeg+loudnorm"
   },
   "mockery-is-unacceptable": {
     "title": "Məsxərə yolverilməzdir",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 17,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "mockery-is-unacceptable.mp3",
-    "bytes": 129456
+    "bytes": 148700,
+    "join": "ffmpeg+loudnorm"
   },
   "the-sound-of-the-doorbell": {
-    "title": "Qapı zənginin səsi",
+    "title": "Qapı zənginin səsi...",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 19,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
-      "narrative",
       "dialogue",
       "dialogue",
       "narrative",
       "dialogue",
       "dialogue",
       "dialogue",
-      "dialogue",
+      "question",
       "narrative",
       "dialogue",
       "dialogue",
@@ -1979,19 +2132,20 @@
       "moral"
     ],
     "file": "the-sound-of-the-doorbell.mp3",
-    "bytes": 587808
+    "bytes": 609788,
+    "join": "ffmpeg+loudnorm"
   },
   "why-people-shout-when-they-argue": {
-    "title": "Niyə insanlar mübahisə edəndə qışqırırlar",
+    "title": "Niyə insanlar mübahisə edəndə qışqırırlar?",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 18,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
-      "question",
       "narrative",
-      "dialogue",
+      "question",
       "dialogue",
       "dialogue",
       "narrative",
@@ -2002,32 +2156,36 @@
       "moral"
     ],
     "file": "why-people-shout-when-they-argue.mp3",
-    "bytes": 664416
+    "bytes": 660476,
+    "join": "ffmpeg+loudnorm"
   },
   "your-friends": {
     "title": "Sənin dostların",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 21,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "exclaim",
       "dialogue",
       "dialogue",
-      "dialogue",
+      "exclaim",
       "moral"
     ],
     "file": "your-friends.mp3",
-    "bytes": 434016
+    "bytes": 459740,
+    "join": "ffmpeg+loudnorm"
   },
   "to-be-alone": {
     "title": "Tənha olmaq",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 24,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -2035,38 +2193,42 @@
       "moral"
     ],
     "file": "to-be-alone.mp3",
-    "bytes": 193968
+    "bytes": 212636,
+    "join": "ffmpeg+loudnorm"
   },
   "to-meet-and-to-know": {
     "title": "Tanış olmaq və tanımaq",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 22,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
-      "dialogue",
+      "narrative",
       "moral"
     ],
     "file": "to-meet-and-to-know.mp3",
-    "bytes": 112752
+    "bytes": 134012,
+    "join": "ffmpeg+loudnorm"
   },
   "spend-your-time-with-people": {
     "title": "Vaxtını insanlarla keçir",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 26,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
-      "dialogue",
+      "question",
       "dialogue",
       "dialogue",
       "narrative",
       "narrative",
-      "dialogue",
+      "question",
       "dialogue",
       "narrative",
       "narrative",
@@ -2083,14 +2245,16 @@
       "moral"
     ],
     "file": "spend-your-time-with-people.mp3",
-    "bytes": 872640
+    "bytes": 945164,
+    "join": "ffmpeg+loudnorm"
   },
   "if-the-road-does-not-tire-you-it-is-because-of-your-companion": {
     "title": "Yol yormursa, yoldaşındandır",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 28,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -2099,23 +2263,24 @@
       "moral"
     ],
     "file": "if-the-road-does-not-tire-you-it-is-because-of-your-companion.mp3",
-    "bytes": 432864
+    "bytes": 475724,
+    "join": "ffmpeg+loudnorm"
   },
   "welcome-my-bey": {
-    "title": "Xoş gəldin bəyim",
+    "title": "Xoş gəldin, bəyim",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 27,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "narrative",
       "narrative",
       "narrative",
-      "narrative",
-      "dialogue",
-      "dialogue",
+      "exclaim",
+      "exclaim",
       "dialogue",
       "narrative",
       "narrative",
@@ -2130,83 +2295,93 @@
       "moral"
     ],
     "file": "welcome-my-bey.mp3",
-    "bytes": 925776
+    "bytes": 1003772,
+    "join": "ffmpeg+loudnorm"
   },
   "to-forgive": {
     "title": "Əfv etmək",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 29,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
-      "dialogue",
-      "dialogue",
+      "narrative",
+      "narrative",
       "narrative",
       "moral"
     ],
     "file": "to-forgive.mp3",
-    "bytes": 229392
+    "bytes": 264044,
+    "join": "ffmpeg+loudnorm"
   },
   "i-was-so-embarrassed": {
     "title": "Utandım vallah",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 25,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
+      "question",
       "dialogue",
+      "question",
+      "question",
       "dialogue",
+      "question",
       "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
+      "question",
+      "question",
+      "exclaim",
       "dialogue",
       "moral"
     ],
     "file": "i-was-so-embarrassed.mp3",
-    "bytes": 442800
+    "bytes": 477740,
+    "join": "ffmpeg+loudnorm"
   },
   "dont-open-your-mouth": {
     "title": "Ağzını açma",
     "category": "exlaq-ve-xarakter",
     "index": 2,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "dont-open-your-mouth.mp3",
-    "bytes": 97920
+    "bytes": 115436,
+    "join": "ffmpeg+loudnorm"
   },
   "dont-be-words-for-mouths-dust-for-feet": {
     "title": "Ağızlara söz, ayaqlara toz olma",
     "category": "exlaq-ve-xarakter",
     "index": 3,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "exclaim",
       "moral"
     ],
     "file": "dont-be-words-for-mouths-dust-for-feet.mp3",
-    "bytes": 85968
+    "bytes": 100604,
+    "join": "ffmpeg+loudnorm"
   },
   "i-am-aware-now": {
     "title": "Artıq fərqindəyəm",
     "category": "exlaq-ve-xarakter",
     "index": 1,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -2222,19 +2397,19 @@
       "moral"
     ],
     "file": "i-am-aware-now.mp3",
-    "bytes": 480672
+    "bytes": 543836,
+    "join": "ffmpeg+loudnorm"
   },
   "being-human": {
     "title": "Adam olmaq",
     "category": "exlaq-ve-xarakter",
     "index": 0,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
-      "dialogue",
       "question",
-      "narrative",
       "narrative",
       "narrative",
       "narrative",
@@ -2244,47 +2419,49 @@
       "moral"
     ],
     "file": "being-human.mp3",
-    "bytes": 409104
+    "bytes": 392924,
+    "join": "ffmpeg+loudnorm"
   },
   "honey-or-dry-bread": {
     "title": "Bal ya quru çörək",
     "category": "exlaq-ve-xarakter",
     "index": 5,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "honey-or-dry-bread.mp3",
-    "bytes": 99792
+    "bytes": 117020,
+    "join": "ffmpeg+loudnorm"
   },
   "avoid-these-questions": {
     "title": "Bu suallardan çəkinin",
     "category": "exlaq-ve-xarakter",
     "index": 7,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
-      "question",
-      "question",
-      "question",
-      "question",
-      "question",
+      "narrative",
       "narrative",
       "moral"
     ],
     "file": "avoid-these-questions.mp3",
-    "bytes": 185184
+    "bytes": 226604,
+    "join": "ffmpeg+loudnorm"
   },
   "he-would-not-have-given-so-little": {
     "title": "Bu qədər az verməzdi",
     "category": "exlaq-ve-xarakter",
     "index": 6,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -2295,48 +2472,54 @@
       "moral"
     ],
     "file": "he-would-not-have-given-so-little.mp3",
-    "bytes": 259344
+    "bytes": 283196,
+    "join": "ffmpeg+loudnorm"
   },
   "who-handles-honey-licks-his-finger": {
     "title": "Bal tutan barmağını yalayar",
     "category": "exlaq-ve-xarakter",
     "index": 4,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "narrative",
       "narrative",
       "narrative",
-      "dialogue",
+      "exclaim",
       "narrative",
       "dialogue",
       "moral"
     ],
     "file": "who-handles-honey-licks-his-finger.mp3",
-    "bytes": 421056
+    "bytes": 466364,
+    "join": "ffmpeg+loudnorm"
   },
   "do-not-do-these-things": {
     "title": "Bunları etməyin",
     "category": "exlaq-ve-xarakter",
     "index": 8,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "do-not-do-these-things.mp3",
-    "bytes": 147024
+    "bytes": 167708,
+    "join": "ffmpeg+loudnorm"
   },
   "no-one-listens-to-constant-complainers": {
     "title": "Durmadan şikayət edənə kimsə qulaq verməz",
     "category": "exlaq-ve-xarakter",
     "index": 9,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -2344,14 +2527,16 @@
       "moral"
     ],
     "file": "no-one-listens-to-constant-complainers.mp3",
-    "bytes": 268848
+    "bytes": 298604,
+    "join": "ffmpeg+loudnorm"
   },
   "the-flower-of-honesty": {
     "title": "Dürüstlük çiçəyi",
     "category": "exlaq-ve-xarakter",
     "index": 10,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -2366,14 +2551,16 @@
       "moral"
     ],
     "file": "the-flower-of-honesty.mp3",
-    "bytes": 774864
+    "bytes": 837452,
+    "join": "ffmpeg+loudnorm"
   },
   "strength-and-sorrow": {
     "title": "Güc və dərd",
     "category": "exlaq-ve-xarakter",
     "index": 13,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -2381,39 +2568,41 @@
       "moral"
     ],
     "file": "strength-and-sorrow.mp3",
-    "bytes": 120672
+    "bytes": 141788,
+    "join": "ffmpeg+loudnorm"
   },
   "how-can-i-escape-my-thoughts": {
-    "title": "Düşüncələrimdən necə qurtula bilərəm",
+    "title": "Düşüncələrimdən necə qurtula bilərəm?",
     "category": "exlaq-ve-xarakter",
     "index": 11,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
+      "narrative",
       "question",
       "narrative",
       "dialogue",
       "narrative",
-      "dialogue",
-      "narrative",
-      "dialogue",
+      "exclaim",
       "narrative",
       "dialogue",
       "moral"
     ],
     "file": "how-can-i-escape-my-thoughts.mp3",
-    "bytes": 427536
+    "bytes": 433244,
+    "join": "ffmpeg+loudnorm"
   },
   "i-would-not-trade-it-for-anything": {
-    "title": "Heç bir şeyə dəyişmərəm",
+    "title": "Heç bir şeyə dəyişməm",
     "category": "exlaq-ve-xarakter",
     "index": 14,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
-      "narrative",
       "narrative",
       "narrative",
       "narrative",
@@ -2430,14 +2619,16 @@
       "moral"
     ],
     "file": "i-would-not-trade-it-for-anything.mp3",
-    "bytes": 266832
+    "bytes": 307676,
+    "join": "ffmpeg+loudnorm"
   },
   "not-every-sorrow-is-told-to-people": {
     "title": "Hər dərd insanlara söylənməz",
     "category": "exlaq-ve-xarakter",
     "index": 15,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -2445,19 +2636,21 @@
       "moral"
     ],
     "file": "not-every-sorrow-is-told-to-people.mp3",
-    "bytes": 108288
+    "bytes": 128828,
+    "join": "ffmpeg+loudnorm"
   },
   "everything-is-in-our-own-hands": {
     "title": "Hər şey bizim öz əlimizdədir",
     "category": "exlaq-ve-xarakter",
     "index": 16,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "narrative",
-      "dialogue",
+      "question",
       "narrative",
       "narrative",
       "dialogue",
@@ -2467,46 +2660,52 @@
       "moral"
     ],
     "file": "everything-is-in-our-own-hands.mp3",
-    "bytes": 419904
+    "bytes": 457148,
+    "join": "ffmpeg+loudnorm"
   },
   "be-sure-of-your-purpose": {
     "title": "Məqsədinizdən əmin olun",
     "category": "exlaq-ve-xarakter",
     "index": 18,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "narrative",
       "dialogue",
       "narrative",
-      "dialogue",
+      "question",
       "moral"
     ],
     "file": "be-sure-of-your-purpose.mp3",
-    "bytes": 198000
+    "bytes": 236972,
+    "join": "ffmpeg+loudnorm"
   },
   "that-was-not-your-right": {
     "title": "O sənin haqqın deyildi",
     "category": "exlaq-ve-xarakter",
     "index": 19,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "that-was-not-your-right.mp3",
-    "bytes": 229824
+    "bytes": 255116,
+    "join": "ffmpeg+loudnorm"
   },
   "you-cannot-descend-a-well-on-his-rope": {
     "title": "Onun ipi ilə quyuya enmək olmaz",
     "category": "exlaq-ve-xarakter",
     "index": 20,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -2516,49 +2715,52 @@
       "moral"
     ],
     "file": "you-cannot-descend-a-well-on-his-rope.mp3",
-    "bytes": 386064
+    "bytes": 414236,
+    "join": "ffmpeg+loudnorm"
   },
   "attitude-toward-a-problem": {
     "title": "Problemə münasibət",
     "category": "exlaq-ve-xarakter",
     "index": 22,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
+      "question",
       "narrative",
-      "narrative",
-      "narrative",
-      "narrative",
-      "narrative",
-      "narrative",
+      "question",
       "narrative",
       "narrative",
       "moral"
     ],
     "file": "attitude-toward-a-problem.mp3",
-    "bytes": 266832
+    "bytes": 198956,
+    "join": "ffmpeg+loudnorm"
   },
   "to-be-cool-headed": {
     "title": "Soyuqqanlı olmaq",
     "category": "exlaq-ve-xarakter",
     "index": 23,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "to-be-cool-headed.mp3",
-    "bytes": 120528
+    "bytes": 139196,
+    "join": "ffmpeg+loudnorm"
   },
   "think-speak-and-act-positively": {
     "title": "Pozitiv düşünün, danışın, davranın",
     "category": "exlaq-ve-xarakter",
     "index": 21,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -2569,30 +2771,32 @@
       "moral"
     ],
     "file": "think-speak-and-act-positively.mp3",
-    "bytes": 218592
+    "bytes": 252956,
+    "join": "ffmpeg+loudnorm"
   },
   "a-meaningless-question": {
     "title": "Mənasız sual",
     "category": "exlaq-ve-xarakter",
     "index": 17,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
-      "dialogue",
+      "question",
       "narrative",
       "dialogue",
+      "question",
+      "exclaim",
       "dialogue",
+      "question",
+      "question",
+      "exclaim",
       "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
+      "question",
+      "question",
+      "exclaim",
       "dialogue",
       "narrative",
       "dialogue",
@@ -2601,46 +2805,49 @@
       "moral"
     ],
     "file": "a-meaningless-question.mp3",
-    "bytes": 1307808
+    "bytes": 1238924,
+    "join": "ffmpeg+loudnorm"
   },
   "education-or-character": {
-    "title": "Təhsil və ya xasiyyət",
+    "title": "Təhsil, ya xasiyyət",
     "category": "exlaq-ve-xarakter",
     "index": 24,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
+      "question",
       "narrative",
       "dialogue",
       "narrative",
+      "question",
       "dialogue",
       "narrative",
-      "dialogue",
-      "dialogue",
-      "narrative",
-      "dialogue",
+      "question",
       "dialogue",
       "narrative",
-      "dialogue",
+      "question",
       "narrative",
       "narrative",
       "dialogue",
       "moral"
     ],
     "file": "education-or-character.mp3",
-    "bytes": 523296
+    "bytes": 572060,
+    "join": "ffmpeg+loudnorm"
   },
   "to-give-up": {
     "title": "Vaz keçmək",
     "category": "exlaq-ve-xarakter",
     "index": 27,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
-      "dialogue",
+      "exclaim",
       "narrative",
       "narrative",
       "narrative",
@@ -2653,19 +2860,21 @@
       "narrative",
       "narrative",
       "narrative",
-      "dialogue",
+      "exclaim",
       "exclaim",
       "moral"
     ],
     "file": "to-give-up.mp3",
-    "bytes": 339984
+    "bytes": 404156,
+    "join": "ffmpeg+loudnorm"
   },
   "our-qualities-can-become-our-enemies": {
     "title": "Vəsflərimiz düşmənimiz ola bilər",
     "category": "exlaq-ve-xarakter",
     "index": 28,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -2675,35 +2884,39 @@
       "moral"
     ],
     "file": "our-qualities-can-become-our-enemies.mp3",
-    "bytes": 177552
+    "bytes": 206588,
+    "join": "ffmpeg+loudnorm"
   },
   "telling-lies": {
     "title": "Yalan danışmaq",
     "category": "exlaq-ve-xarakter",
     "index": 29,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
+      "question",
       "dialogue",
+      "question",
       "dialogue",
+      "question",
       "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
+      "question",
       "dialogue",
       "moral"
     ],
     "file": "telling-lies.mp3",
-    "bytes": 306576
+    "bytes": 326828,
+    "join": "ffmpeg+loudnorm"
   },
   "i-got-busy-with-cleaning": {
     "title": "Təmizliklə məşğul oldum",
     "category": "exlaq-ve-xarakter",
     "index": 25,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -2742,52 +2955,58 @@
       "moral"
     ],
     "file": "i-got-busy-with-cleaning.mp3",
-    "bytes": 927504
+    "bytes": 1073612,
+    "join": "ffmpeg+loudnorm"
   },
   "expressions-you-should-stay-away-from": {
     "title": "Uzaq duracağınız ifadələr",
     "category": "exlaq-ve-xarakter",
     "index": 26,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
-      "dialogue",
+      "exclaim",
       "narrative",
-      "dialogue",
+      "exclaim",
       "narrative",
-      "dialogue",
+      "question",
       "narrative",
-      "dialogue",
-      "dialogue",
-      "dialogue",
+      "exclaim",
+      "narrative",
+      "exclaim",
       "narrative",
       "moral"
     ],
     "file": "expressions-you-should-stay-away-from.mp3",
-    "bytes": 786528
+    "bytes": 865820,
+    "join": "ffmpeg+loudnorm"
   },
   "a-mature-person": {
     "title": "Yetkin insan",
     "category": "exlaq-ve-xarakter",
     "index": 31,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "a-mature-person.mp3",
-    "bytes": 163584
+    "bytes": 194636,
+    "join": "ffmpeg+loudnorm"
   },
   "do-not-complain-about-any-day-you-have-lived": {
     "title": "Yaşadığınız heç bir gündən şikayətçi olmayın",
     "category": "exlaq-ve-xarakter",
     "index": 30,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -2798,14 +3017,16 @@
       "moral"
     ],
     "file": "do-not-complain-about-any-day-you-have-lived.mp3",
-    "bytes": 174960
+    "bytes": 206012,
+    "join": "ffmpeg+loudnorm"
   },
   "try-to-think-this-way": {
     "title": "Çalışın belə düşünün",
     "category": "exlaq-ve-xarakter",
     "index": 33,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "dialogue",
@@ -2817,42 +3038,48 @@
       "moral"
     ],
     "file": "try-to-think-this-way.mp3",
-    "bytes": 419184
+    "bytes": 428636,
+    "join": "ffmpeg+loudnorm"
   },
   "dont-say-i-couldnt-deliver-or-i-couldnt-manage": {
     "title": "Çatdırmadım, bacarmadım deməyin",
     "category": "exlaq-ve-xarakter",
     "index": 34,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "dont-say-i-couldnt-deliver-or-i-couldnt-manage.mp3",
-    "bytes": 181584
+    "bytes": 203852,
+    "join": "ffmpeg+loudnorm"
   },
   "turning-hardship-into-opportunity": {
     "title": "Çətinliyi fürsətə çevirmək",
     "category": "exlaq-ve-xarakter",
     "index": 35,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "turning-hardship-into-opportunity.mp3",
-    "bytes": 141408
+    "bytes": 160940,
+    "join": "ffmpeg+loudnorm"
   },
   "to-be-self-confident": {
     "title": "Özgüvənli olmaq",
     "category": "exlaq-ve-xarakter",
     "index": 36,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "exclaim",
@@ -2867,45 +3094,51 @@
       "moral"
     ],
     "file": "to-be-self-confident.mp3",
-    "bytes": 171648
+    "bytes": 204140,
+    "join": "ffmpeg+loudnorm"
   },
   "may-your-face-always-smile": {
     "title": "Üzünüz daim gülsün",
     "category": "exlaq-ve-xarakter",
     "index": 38,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "may-your-face-always-smile.mp3",
-    "bytes": 96624
+    "bytes": 114140,
+    "join": "ffmpeg+loudnorm"
   },
   "a-generous-man": {
     "title": "Əliaçıq adam",
     "category": "exlaq-ve-xarakter",
     "index": 39,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
-      "dialogue",
+      "question",
       "narrative",
       "dialogue",
       "moral"
     ],
     "file": "a-generous-man.mp3",
-    "bytes": 173376
+    "bytes": 211052,
+    "join": "ffmpeg+loudnorm"
   },
   "other-peoples-opinions": {
     "title": "Özgələrin fikirləri",
     "category": "exlaq-ve-xarakter",
     "index": 37,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -2913,53 +3146,48 @@
       "moral"
     ],
     "file": "other-peoples-opinions.mp3",
-    "bytes": 338400
+    "bytes": 373340,
+    "join": "ffmpeg+loudnorm"
   },
   "the-strongest-shield": {
     "title": "Ən güclü qalxan",
     "category": "exlaq-ve-xarakter",
     "index": 40,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "the-strongest-shield.mp3",
-    "bytes": 100368
+    "bytes": 117884,
+    "join": "ffmpeg+loudnorm"
   },
   "the-goose-to-be-plucked": {
     "title": "Yolunacaq qaz",
     "category": "exlaq-ve-xarakter",
     "index": 32,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "narrative",
       "dialogue",
       "dialogue",
-      "dialogue",
-      "dialogue",
-      "narrative",
-      "dialogue",
+      "question",
       "dialogue",
       "narrative",
-      "dialogue",
-      "dialogue",
-      "narrative",
-      "dialogue",
+      "question",
       "dialogue",
       "narrative",
+      "question",
       "dialogue",
       "narrative",
-      "dialogue",
-      "narrative",
-      "dialogue",
-      "narrative",
-      "dialogue",
+      "question",
       "dialogue",
       "narrative",
       "dialogue",
@@ -2968,22 +3196,33 @@
       "narrative",
       "dialogue",
       "narrative",
+      "question",
       "dialogue",
       "narrative",
+      "question",
+      "narrative",
       "dialogue",
+      "narrative",
+      "question",
+      "narrative",
+      "dialogue",
+      "narrative",
+      "question",
       "narrative",
       "dialogue",
       "moral"
     ],
     "file": "the-goose-to-be-plucked.mp3",
-    "bytes": 1072368
+    "bytes": 1170092,
+    "join": "ffmpeg+loudnorm"
   },
   "the-one-who-knows-and-the-one-who-does-not": {
     "title": "Bilən və bilməyən",
     "category": "soz-sukut-ve-unsiyyet",
     "index": 1,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -2994,14 +3233,16 @@
       "moral"
     ],
     "file": "the-one-who-knows-and-the-one-who-does-not.mp3",
-    "bytes": 206640
+    "bytes": 230204,
+    "join": "ffmpeg+loudnorm"
   },
   "say-what-you-know": {
     "title": "Bildiklərini söylə",
     "category": "soz-sukut-ve-unsiyyet",
     "index": 0,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -3009,33 +3250,37 @@
       "moral"
     ],
     "file": "say-what-you-know.mp3",
-    "bytes": 183168
+    "bytes": 208460,
+    "join": "ffmpeg+loudnorm"
   },
   "the-three-best-things": {
     "title": "Ən yaxşı üç şey",
     "category": "exlaq-ve-xarakter",
     "index": 41,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "dialogue",
       "narrative",
-      "dialogue",
+      "question",
       "narrative",
       "dialogue",
       "moral"
     ],
     "file": "the-three-best-things.mp3",
-    "bytes": 261504
+    "bytes": 284060,
+    "join": "ffmpeg+loudnorm"
   },
   "the-tongue": {
     "title": "Dil",
     "category": "soz-sukut-ve-unsiyyet",
     "index": 2,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -3043,14 +3288,16 @@
       "moral"
     ],
     "file": "the-tongue.mp3",
-    "bytes": 103392
+    "bytes": 123068,
+    "join": "ffmpeg+loudnorm"
   },
   "what-is-a-word": {
     "title": "Söz nədir",
     "category": "soz-sukut-ve-unsiyyet",
     "index": 3,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -3058,14 +3305,16 @@
       "moral"
     ],
     "file": "what-is-a-word.mp3",
-    "bytes": 90432
+    "bytes": 109964,
+    "join": "ffmpeg+loudnorm"
   },
   "word-and-silence": {
     "title": "Söz və sükut",
     "category": "soz-sukut-ve-unsiyyet",
     "index": 4,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -3078,14 +3327,16 @@
       "moral"
     ],
     "file": "word-and-silence.mp3",
-    "bytes": 322848
+    "bytes": 369164,
+    "join": "ffmpeg+loudnorm"
   },
   "silence": {
     "title": "Sükut",
     "category": "soz-sukut-ve-unsiyyet",
     "index": 6,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -3095,34 +3346,38 @@
       "moral"
     ],
     "file": "silence.mp3",
-    "bytes": 118080
+    "bytes": 143372,
+    "join": "ffmpeg+loudnorm"
   },
   "saying-the-word-in-its-place": {
     "title": "Sözü yerində söyləmək",
     "category": "soz-sukut-ve-unsiyyet",
     "index": 5,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "saying-the-word-in-its-place.mp3",
-    "bytes": 98928
+    "bytes": 116156,
+    "join": "ffmpeg+loudnorm"
   },
   "the-silent-corridor": {
     "title": "Səssiz dəhliz",
     "category": "soz-sukut-ve-unsiyyet",
     "index": 7,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "narrative",
       "narrative",
-      "dialogue",
+      "question",
       "narrative",
       "narrative",
       "dialogue",
@@ -3134,35 +3389,39 @@
       "moral"
     ],
     "file": "the-silent-corridor.mp3",
-    "bytes": 682560
+    "bytes": 729072,
+    "join": "raw-concat (ffmpeg missing; loudnorm skipped)"
   },
   "shepherds-word": {
     "title": "Çobanın sözü",
     "category": "soz-sukut-ve-unsiyyet",
     "index": 9,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "dialogue",
       "narrative",
       "narrative",
-      "dialogue",
+      "question",
       "narrative",
       "dialogue",
       "narrative",
       "moral"
     ],
     "file": "shepherds-word.mp3",
-    "bytes": 557424
+    "bytes": 599132,
+    "join": "ffmpeg+loudnorm"
   },
   "the-candles-conversation": {
     "title": "Şamların söhbəti",
     "category": "soz-sukut-ve-unsiyyet",
     "index": 11,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -3178,75 +3437,86 @@
       "moral"
     ],
     "file": "the-candles-conversation.mp3",
-    "bytes": 583344
+    "bytes": 648812,
+    "join": "ffmpeg+loudnorm"
   },
   "searching": {
     "title": "Axtarmaq",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 0,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "searching.mp3",
-    "bytes": 125136
+    "bytes": 144380,
+    "join": "ffmpeg+loudnorm"
   },
   "spare-time": {
     "title": "Boş vaxt",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 1,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "spare-time.mp3",
-    "bytes": 103392
+    "bytes": 121340,
+    "join": "ffmpeg+loudnorm"
   },
   "communication": {
     "title": "Ünsiyyət",
     "category": "soz-sukut-ve-unsiyyet",
     "index": 10,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "communication.mp3",
-    "bytes": 97920
+    "bytes": 115724,
+    "join": "ffmpeg+loudnorm"
   },
   "it-is-in-vain": {
     "title": "Boşunadır",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 2,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "it-is-in-vain.mp3",
-    "bytes": 112176
+    "bytes": 129692,
+    "join": "ffmpeg+loudnorm"
   },
   "if-i-dont-do-it-these-days-the-world-wont-collapse": {
     "title": "Bu günlərdə etməsəm, dünya dağılmaz ki",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 3,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "dialogue",
       "question",
+      "narrative",
       "narrative",
       "narrative",
       "narrative",
@@ -3254,66 +3524,75 @@
       "moral"
     ],
     "file": "if-i-dont-do-it-these-days-the-world-wont-collapse.mp3",
-    "bytes": 716688
+    "bytes": 834428,
+    "join": "ffmpeg+loudnorm"
   },
   "where-does-this-road-go": {
-    "title": "Bu yol haraya gedir",
+    "title": "Bu yol haraya gedir?",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 5,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
-      "question",
       "narrative",
+      "question",
       "dialogue",
-      "dialogue",
-      "dialogue",
+      "question",
       "dialogue",
       "moral"
     ],
     "file": "where-does-this-road-go.mp3",
-    "bytes": 213552
+    "bytes": 220988,
+    "join": "ffmpeg+loudnorm"
   },
   "liver": {
     "title": "Ciyər",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 6,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
-      "dialogue",
+      "question",
       "narrative",
       "narrative",
       "narrative",
       "moral"
     ],
     "file": "liver.mp3",
-    "bytes": 415152
+    "bytes": 453836,
+    "join": "ffmpeg+loudnorm"
   },
   "a-more-effective-way": {
-    "title": "Daha effektiv yol",
+    "title": "Daha səmərəli yol",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 7,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
-      "dialogue",
-      "dialogue",
+      "narrative",
+      "question",
+      "narrative",
+      "exclaim",
       "moral"
     ],
     "file": "a-more-effective-way.mp3",
-    "bytes": 298368
+    "bytes": 327692,
+    "join": "ffmpeg+loudnorm"
   },
   "this-boat-is-empty-too": {
     "title": "Bu qayıq da boşdur",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 4,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -3325,14 +3604,16 @@
       "moral"
     ],
     "file": "this-boat-is-empty-too.mp3",
-    "bytes": 449712
+    "bytes": 498908,
+    "join": "ffmpeg+loudnorm"
   },
   "sowing-millet-at-the-bottom": {
     "title": "Dibinə darı əkmək",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 8,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -3349,14 +3630,16 @@
       "moral"
     ],
     "file": "sowing-millet-at-the-bottom.mp3",
-    "bytes": 603648
+    "bytes": 644636,
+    "join": "ffmpeg+loudnorm"
   },
   "the-diderot-effect": {
     "title": "Didro effekti",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 9,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -3374,32 +3657,35 @@
       "moral"
     ],
     "file": "the-diderot-effect.mp3",
-    "bytes": 807696
+    "bytes": 893180,
+    "join": "ffmpeg+loudnorm"
   },
   "what-it-means-to-be-late": {
-    "title": "Gecikmək nə deməkdir",
+    "title": "Gecikmək nə deməkdir?",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 12,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
-      "question",
-      "dialogue",
+      "narrative",
       "narrative",
       "narrative",
       "narrative",
       "moral"
     ],
     "file": "what-it-means-to-be-late.mp3",
-    "bytes": 336096
+    "bytes": 361388,
+    "join": "ffmpeg+loudnorm"
   },
   "a-different-path": {
     "title": "Fərqli yol",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 11,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -3411,91 +3697,108 @@
       "moral"
     ],
     "file": "a-different-path.mp3",
-    "bytes": 545472
+    "bytes": 606620,
+    "join": "ffmpeg+loudnorm"
   },
   "the-blind-who-have-eyes": {
     "title": "Gözləri olan korlar",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 13,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "the-blind-who-have-eyes.mp3",
-    "bytes": 94320
+    "bytes": 111692,
+    "join": "ffmpeg+loudnorm"
   },
   "the-most-beautiful-places-in-the-world": {
     "title": "Dünyada ən gözəl yerlər",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 10,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "the-most-beautiful-places-in-the-world.mp3",
-    "bytes": 109872
+    "bytes": 127676,
+    "join": "ffmpeg+loudnorm"
   },
   "no-need-to-be-sane-when-everyone-is-mad": {
     "title": "Hamı dəli olanda ağıllı olmağa gərək yoxdur",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 14,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "no-need-to-be-sane-when-everyone-is-mad.mp3",
-    "bytes": 313920
+    "bytes": 344252,
+    "join": "ffmpeg+loudnorm"
   },
   "a-life-lesson": {
     "title": "Həyat dərsi",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 16,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
+      "dialogue",
       "narrative",
+      "dialogue",
       "narrative",
+      "exclaim",
+      "narrative",
+      "dialogue",
       "moral"
     ],
     "file": "a-life-lesson.mp3",
-    "bytes": 210960
+    "bytes": 302204,
+    "join": "ffmpeg+loudnorm"
   },
   "at-the-doctors-appointment": {
     "title": "Həkim qəbulunda",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 15,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "narrative",
       "narrative",
-      "dialogue",
       "narrative",
+      "dialogue",
       "narrative",
       "moral"
     ],
     "file": "at-the-doctors-appointment.mp3",
-    "bytes": 537120
+    "bytes": 480908,
+    "join": "ffmpeg+loudnorm"
   },
   "what-we-learn-in-life": {
     "title": "Həyatda öyrəndiklərimiz",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 18,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -3503,25 +3806,26 @@
       "moral"
     ],
     "file": "what-we-learn-in-life.mp3",
-    "bytes": 152064
+    "bytes": 174332,
+    "join": "ffmpeg+loudnorm"
   },
   "what-matters-in-life": {
-    "title": "Həyatda önəmli olan nədir",
+    "title": "Həyatda önəmli olan nədir?",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 17,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
+      "narrative",
       "question",
-      "narrative",
-      "dialogue",
       "dialogue",
       "narrative",
-      "dialogue",
+      "question",
       "dialogue",
       "narrative",
-      "dialogue",
+      "question",
       "narrative",
       "narrative",
       "dialogue",
@@ -3532,32 +3836,36 @@
       "moral"
     ],
     "file": "what-matters-in-life.mp3",
-    "bytes": 640800
+    "bytes": 691004,
+    "join": "ffmpeg+loudnorm"
   },
   "a-human-emerged": {
     "title": "İnsan çıxdı",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 21,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "narrative",
+      "narrative",
+      "narrative",
       "dialogue",
-      "narrative",
-      "narrative",
       "moral"
     ],
     "file": "a-human-emerged.mp3",
-    "bytes": 172656
+    "bytes": 204284,
+    "join": "ffmpeg+loudnorm"
   },
   "two-bowls-of-water": {
     "title": "İki qab su",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 20,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "question",
@@ -3566,14 +3874,16 @@
       "moral"
     ],
     "file": "two-bowls-of-water.mp3",
-    "bytes": 449856
+    "bytes": 473132,
+    "join": "ffmpeg+loudnorm"
   },
   "it-wont-go-to-waste": {
     "title": "İtib batmaz",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 23,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -3587,14 +3897,16 @@
       "moral"
     ],
     "file": "it-wont-go-to-waste.mp3",
-    "bytes": 238464
+    "bytes": 281468,
+    "join": "ffmpeg+loudnorm"
   },
   "from-the-memoirs-of-a-lady-from-istanbul": {
     "title": "İstanbullu bir xanımın xatirələrindən",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 22,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -3609,71 +3921,77 @@
       "narrative",
       "dialogue",
       "dialogue",
-      "dialogue",
+      "question",
       "narrative",
       "dialogue",
       "moral"
     ],
     "file": "from-the-memoirs-of-a-lady-from-istanbul.mp3",
-    "bytes": 841680
+    "bytes": 915788,
+    "join": "ffmpeg+loudnorm"
   },
   "nothing-is-ever-truly-lost": {
     "title": "İtirdim deyə bir şey yoxdur",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 24,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "dialogue",
       "moral"
     ],
     "file": "nothing-is-ever-truly-lost.mp3",
-    "bytes": 108432
+    "bytes": 120908,
+    "join": "ffmpeg+loudnorm"
   },
   "living-in-the-past": {
     "title": "Keçmişdə yaşamaq",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 25,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "living-in-the-past.mp3",
-    "bytes": 133920
+    "bytes": 153884,
+    "join": "ffmpeg+loudnorm"
   },
   "at-the-bookstore": {
     "title": "Kitab dükanında",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 26,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "narrative",
       "narrative",
-      "dialogue",
-      "dialogue",
-      "dialogue",
       "narrative",
+      "dialogue",
       "narrative",
       "dialogue",
       "narrative",
       "moral"
     ],
     "file": "at-the-bookstore.mp3",
-    "bytes": 760320
+    "bytes": 553484,
+    "join": "ffmpeg+loudnorm"
   },
   "a-windmill-turning-in-still-air": {
     "title": "Küləksiz havada fırlanan yel dəyirmanı",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 28,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -3681,40 +3999,44 @@
       "moral"
     ],
     "file": "a-windmill-turning-in-still-air.mp3",
-    "bytes": 112896
+    "bytes": 144956,
+    "join": "ffmpeg+loudnorm"
   },
   "the-lecturer-and-the-groom": {
     "title": "Mühazirəçi və mehtər",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 30,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "question",
       "narrative",
       "dialogue",
       "narrative",
-      "dialogue",
+      "question",
       "narrative",
       "moral"
     ],
     "file": "the-lecturer-and-the-groom.mp3",
-    "bytes": 376128
+    "bytes": 396956,
+    "join": "ffmpeg+loudnorm"
   },
   "a-magnificent-lesson": {
     "title": "Möhtəşəm dərs",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 29,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
+      "exclaim",
       "narrative",
       "narrative",
-      "narrative",
-      "narrative",
+      "dialogue",
       "narrative",
       "narrative",
       "narrative",
@@ -3723,56 +4045,61 @@
       "moral"
     ],
     "file": "a-magnificent-lesson.mp3",
-    "bytes": 700704
+    "bytes": 704828,
+    "join": "ffmpeg+loudnorm"
   },
   "newtons-second-law": {
     "title": "Nyutonun 2-ci qanunu",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 32,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "newtons-second-law.mp3",
-    "bytes": 169200
+    "bytes": 190748,
+    "join": "ffmpeg+loudnorm"
   },
   "teacher-hello-do-you-remember-me": {
-    "title": "Müəllim, salam, xatırladınız məni",
+    "title": "Müəllim, salam, xatırladınız məni?",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 31,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
+      "dialogue",
       "question",
       "dialogue",
+      "question",
       "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
+      "question",
       "dialogue",
       "narrative",
       "narrative",
       "narrative",
+      "question",
       "dialogue",
-      "dialogue",
-      "dialogue",
+      "exclaim",
       "dialogue",
       "moral"
     ],
     "file": "teacher-hello-do-you-remember-me.mp3",
-    "bytes": 1171152
+    "bytes": 1189964,
+    "join": "ffmpeg+loudnorm"
   },
   "the-pawn-and-the-king": {
     "title": "Piyada və şah",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 35,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "exclaim",
@@ -3782,14 +4109,16 @@
       "moral"
     ],
     "file": "the-pawn-and-the-king.mp3",
-    "bytes": 126288
+    "bytes": 150716,
+    "join": "ffmpeg+loudnorm"
   },
   "the-properties-of-water": {
     "title": "Suyun xassələri",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 36,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -3804,31 +4133,34 @@
       "moral"
     ],
     "file": "the-properties-of-water.mp3",
-    "bytes": 276768
+    "bytes": 306668,
+    "join": "ffmpeg+loudnorm"
   },
   "to-be-full-or-to-be-gone": {
-    "title": "Tox və ya yox olmaq",
+    "title": "Tox, ya yox olmaq",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 37,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
-      "narrative",
       "narrative",
       "narrative",
       "narrative",
       "moral"
     ],
     "file": "to-be-full-or-to-be-gone.mp3",
-    "bytes": 125856
+    "bytes": 134876,
+    "join": "ffmpeg+loudnorm"
   },
   "the-road-to-the-cotton-field": {
     "title": "Pambıq tarlasına gedən yol",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 34,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -3844,42 +4176,48 @@
       "moral"
     ],
     "file": "the-road-to-the-cotton-field.mp3",
-    "bytes": 1012176
+    "bytes": 1092764,
+    "join": "ffmpeg+loudnorm"
   },
   "to-dream": {
     "title": "Xəyal etmək",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 38,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "to-dream.mp3",
-    "bytes": 80496
+    "bytes": 96572,
+    "join": "ffmpeg+loudnorm"
   },
   "the-dead-remain-in-life": {
     "title": "Ölən həyatda qalandır",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 40,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "the-dead-remain-in-life.mp3",
-    "bytes": 109296
+    "bytes": 126956,
+    "join": "ffmpeg+loudnorm"
   },
   "what-do-i-need-it-for": {
     "title": "Nəyimə lazımdır",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 33,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "question",
@@ -3895,14 +4233,16 @@
       "moral"
     ],
     "file": "what-do-i-need-it-for.mp3",
-    "bytes": 1033632
+    "bytes": 1049564,
+    "join": "ffmpeg+loudnorm"
   },
   "the-secret-of-living-well-and-longevity": {
     "title": "Yaxşı yaşamağın və uzunömürlülüyün sirri",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 39,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -3910,14 +4250,16 @@
       "moral"
     ],
     "file": "the-secret-of-living-well-and-longevity.mp3",
-    "bytes": 132048
+    "bytes": 153452,
+    "join": "ffmpeg+loudnorm"
   },
   "three-statues": {
     "title": "Üç heykəl",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 43,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -3934,14 +4276,16 @@
       "moral"
     ],
     "file": "three-statues.mp3",
-    "bytes": 871200
+    "bytes": 951212,
+    "join": "ffmpeg+loudnorm"
   },
   "three-landscapes": {
     "title": "Üç mənzərə",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 44,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -3955,14 +4299,16 @@
       "moral"
     ],
     "file": "three-landscapes.mp3",
-    "bytes": 755856
+    "bytes": 800444,
+    "join": "ffmpeg+loudnorm"
   },
   "three-essential-things-for-a-city": {
     "title": "Şəhər üçün üç vacib şey",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 46,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -3970,31 +4316,34 @@
       "moral"
     ],
     "file": "three-essential-things-for-a-city.mp3",
-    "bytes": 154080
+    "bytes": 177356,
+    "join": "ffmpeg+loudnorm"
   },
   "if-the-door-before-you-wont-open-it-is-not-your-door": {
-    "title": "Önünüzdə olan qapı açılmırsa deməli o sizin qapınız deyil",
+    "title": "Önünüzdə olan qapı açılmırsa, deməli, o sizin qapınız deyil",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 42,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
-      "narrative",
       "narrative",
       "narrative",
       "narrative",
       "moral"
     ],
     "file": "if-the-door-before-you-wont-open-it-is-not-your-door.mp3",
-    "bytes": 446256
+    "bytes": 461324,
+    "join": "ffmpeg+loudnorm"
   },
   "the-grocery-shop-and-the-supermarket": {
     "title": "Baqqal dükanı və supermarket",
     "category": "emek-ruzi-ve-servet",
     "index": 1,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -4005,119 +4354,112 @@
       "moral"
     ],
     "file": "the-grocery-shop-and-the-supermarket.mp3",
-    "bytes": 410832
+    "bytes": 447212,
+    "join": "ffmpeg+loudnorm"
   },
   "the-garden-and-the-gardener": {
     "title": "Bağ və bağban",
     "category": "emek-ruzi-ve-servet",
     "index": 2,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
-      "dialogue",
+      "question",
       "dialogue",
       "narrative",
       "dialogue",
       "moral"
     ],
     "file": "the-garden-and-the-gardener.mp3",
-    "bytes": 218160
+    "bytes": 240860,
+    "join": "ffmpeg+loudnorm"
   },
   "the-chief-accountant-and-the-ceo": {
     "title": "Baş mühasib və baş direktor",
     "category": "emek-ruzi-ve-servet",
     "index": 3,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
-      "dialogue",
+      "question",
       "narrative",
-      "dialogue",
+      "question",
       "moral"
     ],
     "file": "the-chief-accountant-and-the-ceo.mp3",
-    "bytes": 223776
+    "bytes": 248924,
+    "join": "ffmpeg+loudnorm"
   },
   "three-questions": {
     "title": "Üç sual",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 45,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
-      "dialogue",
+      "question",
       "narrative",
       "narrative",
       "dialogue",
       "narrative",
-      "dialogue",
+      "question",
       "narrative",
       "dialogue",
       "narrative",
       "narrative",
-      "dialogue",
+      "question",
       "narrative",
-      "dialogue",
+      "exclaim",
       "moral"
     ],
     "file": "three-questions.mp3",
-    "bytes": 627696
+    "bytes": 681788,
+    "join": "ffmpeg+loudnorm"
   },
   "at-the-fish-shop": {
     "title": "Balıq dükanında",
     "category": "emek-ruzi-ve-servet",
     "index": 0,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
-      "dialogue",
       "narrative",
-      "dialogue",
-      "dialogue",
-      "narrative",
-      "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
+      "question",
       "narrative",
       "dialogue",
       "narrative",
-      "dialogue",
+      "question",
       "narrative",
-      "dialogue",
       "narrative",
-      "dialogue",
       "narrative",
-      "dialogue",
-      "narrative",
-      "dialogue",
-      "narrative",
-      "dialogue",
-      "narrative",
-      "dialogue",
-      "dialogue",
       "narrative",
       "dialogue",
       "narrative",
       "moral"
     ],
     "file": "at-the-fish-shop.mp3",
-    "bytes": 1344384
+    "bytes": 773228,
+    "join": "ffmpeg+loudnorm"
   },
   "everyone-has-work-to-do": {
     "title": "Hamının işi-gücü var",
     "category": "emek-ruzi-ve-servet",
     "index": 6,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -4125,14 +4467,16 @@
       "moral"
     ],
     "file": "everyone-has-work-to-do.mp3",
-    "bytes": 468000
+    "bytes": 490320,
+    "join": "raw-concat (ffmpeg missing; loudnorm skipped)"
   },
   "we-are-rich": {
     "title": "Biz zənginik",
     "category": "emek-ruzi-ve-servet",
     "index": 4,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -4146,49 +4490,54 @@
       "moral"
     ],
     "file": "we-are-rich.mp3",
-    "bytes": 447552
+    "bytes": 493868,
+    "join": "ffmpeg+loudnorm"
   },
   "henry-fords-choice": {
     "title": "Henri Fordun seçimi",
     "category": "emek-ruzi-ve-servet",
     "index": 7,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "narrative",
-      "dialogue",
+      "question",
       "narrative",
       "dialogue",
       "dialogue",
       "moral"
     ],
     "file": "henry-fords-choice.mp3",
-    "bytes": 553536
+    "bytes": 583148,
+    "join": "ffmpeg+loudnorm"
   },
   "an-organization-without-an-action-plan": {
     "title": "Fəaliyyət planı olmayan təşkilat",
     "category": "emek-ruzi-ve-servet",
     "index": 5,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
-      "narrative",
       "narrative",
       "narrative",
       "moral"
     ],
     "file": "an-organization-without-an-action-plan.mp3",
-    "bytes": 360144
+    "bytes": 429068,
+    "join": "ffmpeg+loudnorm"
   },
   "mercedes": {
     "title": "Mercedes",
     "category": "emek-ruzi-ve-servet",
     "index": 10,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -4201,14 +4550,16 @@
       "moral"
     ],
     "file": "mercedes.mp3",
-    "bytes": 352080
+    "bytes": 395660,
+    "join": "ffmpeg+loudnorm"
   },
   "the-former-minister-at-the-seminar": {
     "title": "Keçmiş nazir seminarda",
     "category": "emek-ruzi-ve-servet",
     "index": 9,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -4219,21 +4570,22 @@
       "moral"
     ],
     "file": "the-former-minister-at-the-seminar.mp3",
-    "bytes": 810144
+    "bytes": 838748,
+    "join": "ffmpeg+loudnorm"
   },
   "why-am-i-poor": {
-    "title": "Mən niyə kasıbam",
+    "title": "Mən niyə kasıbam?",
     "category": "emek-ruzi-ve-servet",
     "index": 11,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
-      "question",
       "narrative",
+      "question",
       "dialogue",
-      "dialogue",
-      "dialogue",
+      "exclaim",
       "dialogue",
       "dialogue",
       "dialogue",
@@ -4245,44 +4597,48 @@
       "moral"
     ],
     "file": "why-am-i-poor.mp3",
-    "bytes": 411120
+    "bytes": 442028,
+    "join": "ffmpeg+loudnorm"
   },
   "baklava": {
     "title": "Paxlava",
     "category": "emek-ruzi-ve-servet",
     "index": 13,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "narrative",
       "narrative",
+      "question",
+      "narrative",
+      "exclaim",
       "narrative",
       "dialogue",
-      "exclaim",
-      "narrative",
-      "exclaim",
       "narrative",
       "moral"
     ],
     "file": "baklava.mp3",
-    "bytes": 616608
+    "bytes": 524160,
+    "join": "raw-concat (ffmpeg missing; loudnorm skipped)"
   },
   "the-credit-ledger": {
     "title": "Nisyə dəftəri",
     "category": "emek-ruzi-ve-servet",
     "index": 12,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
+      "question",
       "dialogue",
-      "dialogue",
-      "dialogue",
+      "question",
       "narrative",
-      "dialogue",
+      "question",
       "narrative",
       "dialogue",
       "narrative",
@@ -4293,14 +4649,16 @@
       "moral"
     ],
     "file": "the-credit-ledger.mp3",
-    "bytes": 1065600
+    "bytes": 1101260,
+    "join": "ffmpeg+loudnorm"
   },
   "pay-rent-for-the-water": {
     "title": "Su üçün kirayə ödə",
     "category": "emek-ruzi-ve-servet",
     "index": 14,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -4308,29 +4666,32 @@
       "moral"
     ],
     "file": "pay-rent-for-the-water.mp3",
-    "bytes": 237456
+    "bytes": 266204,
+    "join": "ffmpeg+loudnorm"
   },
   "do-you-have-spending-money": {
-    "title": "Xərcliyiniz varmı",
+    "title": "Xərcliyiniz varmı?",
     "category": "emek-ruzi-ve-servet",
     "index": 15,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
-      "question",
       "narrative",
       "moral"
     ],
     "file": "do-you-have-spending-money.mp3",
-    "bytes": 176832
+    "bytes": 183692,
+    "join": "ffmpeg+loudnorm"
   },
   "hot-bread": {
     "title": "İsti çörək",
     "category": "emek-ruzi-ve-servet",
     "index": 8,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -4347,32 +4708,32 @@
       "narrative",
       "dialogue",
       "dialogue",
+      "exclaim",
+      "narrative",
+      "exclaim",
+      "narrative",
+      "dialogue",
+      "dialogue",
+      "narrative",
       "dialogue",
       "narrative",
       "dialogue",
       "narrative",
       "dialogue",
       "dialogue",
+      "exclaim",
       "narrative",
       "dialogue",
-      "narrative",
-      "dialogue",
-      "narrative",
-      "dialogue",
-      "dialogue",
-      "dialogue",
-      "narrative",
+      "question",
       "dialogue",
       "dialogue",
       "dialogue",
       "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
+      "exclaim",
       "dialogue",
       "dialogue",
       "narrative",
-      "dialogue",
+      "question",
       "dialogue",
       "narrative",
       "narrative",
@@ -4386,19 +4747,21 @@
       "dialogue",
       "narrative",
       "narrative",
-      "dialogue",
-      "dialogue",
+      "question",
+      "exclaim",
       "moral"
     ],
     "file": "hot-bread.mp3",
-    "bytes": 1615536
+    "bytes": 1754156,
+    "join": "ffmpeg+loudnorm"
   },
   "his-hand-is-at-work": {
     "title": "Əli işdədir",
     "category": "emek-ruzi-ve-servet",
     "index": 18,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -4406,14 +4769,16 @@
       "moral"
     ],
     "file": "his-hand-is-at-work.mp3",
-    "bytes": 167184
+    "bytes": 186284,
+    "join": "ffmpeg+loudnorm"
   },
   "the-weight-of-the-oil": {
     "title": "Yağın çəkisi",
     "category": "emek-ruzi-ve-servet",
     "index": 17,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -4421,14 +4786,16 @@
       "moral"
     ],
     "file": "the-weight-of-the-oil.mp3",
-    "bytes": 239616
+    "bytes": 268508,
+    "join": "ffmpeg+loudnorm"
   },
   "with-this-nation-the-world-can-be-conquered": {
     "title": "Bu millət ilə dünya fəth edilə bilər",
     "category": "edalet-ve-cemiyyet",
     "index": 0,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -4443,14 +4810,16 @@
       "moral"
     ],
     "file": "with-this-nation-the-world-can-be-conquered.mp3",
-    "bytes": 603360
+    "bytes": 643772,
+    "join": "ffmpeg+loudnorm"
   },
   "the-bedouin-whose-camel-was-stolen": {
     "title": "Dəvəsi oğurlanmış bədəvinin hekayəsi",
     "category": "edalet-ve-cemiyyet",
     "index": 1,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -4461,21 +4830,23 @@
       "moral"
     ],
     "file": "the-bedouin-whose-camel-was-stolen.mp3",
-    "bytes": 364320
+    "bytes": 397244,
+    "join": "ffmpeg+loudnorm"
   },
   "the-scarf-seller": {
     "title": "Yaylıq satıcısı",
     "category": "emek-ruzi-ve-servet",
     "index": 16,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
-      "dialogue",
+      "narrative",
       "narrative",
       "question",
-      "dialogue",
+      "narrative",
       "dialogue",
       "dialogue",
       "narrative",
@@ -4492,28 +4863,32 @@
       "moral"
     ],
     "file": "the-scarf-seller.mp3",
-    "bytes": 1479600
+    "bytes": 1557452,
+    "join": "ffmpeg+loudnorm"
   },
   "the-woman-whose-house-was-robbed": {
     "title": "Evi qarət olunan qadın",
     "category": "edalet-ve-cemiyyet",
     "index": 2,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "the-woman-whose-house-was-robbed.mp3",
-    "bytes": 213696
+    "bytes": 238412,
+    "join": "ffmpeg+loudnorm"
   },
   "the-just-verdict-of-the-frankfurt-judge": {
     "title": "Frankfurt hakiminin ədalətli hökmü",
     "category": "edalet-ve-cemiyyet",
     "index": 3,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -4526,21 +4901,23 @@
       "moral"
     ],
     "file": "the-just-verdict-of-the-frankfurt-judge.mp3",
-    "bytes": 831600
+    "bytes": 897356,
+    "join": "ffmpeg+loudnorm"
   },
   "nazim-hikmet-in-bursa-prison": {
     "title": "Nazim Hikmət Bursa həbsxanasında",
     "category": "edalet-ve-cemiyyet",
     "index": 4,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "narrative",
-      "dialogue",
-      "dialogue",
-      "dialogue",
+      "question",
+      "question",
+      "question",
       "narrative",
       "narrative",
       "dialogue",
@@ -4548,32 +4925,36 @@
       "moral"
     ],
     "file": "nazim-hikmet-in-bursa-prison.mp3",
-    "bytes": 519984
+    "bytes": 568604,
+    "join": "ffmpeg+loudnorm"
   },
   "the-bell-to-hang-on-the-cats-neck": {
     "title": "Pişiyin boynundan asılacaq zınqırov",
     "category": "edalet-ve-cemiyyet",
     "index": 5,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "narrative",
       "narrative",
       "narrative",
-      "dialogue",
+      "question",
       "moral"
     ],
     "file": "the-bell-to-hang-on-the-cats-neck.mp3",
-    "bytes": 335376
+    "bytes": 372908,
+    "join": "ffmpeg+loudnorm"
   },
   "why-injustice-when-there-is-justice": {
     "title": "Ədalət var ikən haqsızlıq niyə",
     "category": "edalet-ve-cemiyyet",
     "index": 8,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -4587,28 +4968,32 @@
       "moral"
     ],
     "file": "why-injustice-when-there-is-justice.mp3",
-    "bytes": 207936
+    "bytes": 245756,
+    "join": "ffmpeg+loudnorm"
   },
   "homeland-and-land": {
     "title": "Vətən və torpaq",
     "category": "edalet-ve-cemiyyet",
     "index": 7,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "homeland-and-land.mp3",
-    "bytes": 97920
+    "bytes": 115148,
+    "join": "ffmpeg+loudnorm"
   },
   "sharing-justice": {
     "title": "Ədaləti paylaşmaq",
     "category": "edalet-ve-cemiyyet",
     "index": 9,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -4622,14 +5007,16 @@
       "moral"
     ],
     "file": "sharing-justice.mp3",
-    "bytes": 229968
+    "bytes": 272540,
+    "join": "ffmpeg+loudnorm"
   },
   "the-skins-of-the-lambs": {
     "title": "Quzuların dərisi",
     "category": "edalet-ve-cemiyyet",
     "index": 6,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "dialogue",
@@ -4647,37 +5034,41 @@
       "narrative",
       "narrative",
       "narrative",
-      "dialogue",
+      "question",
       "narrative",
       "moral"
     ],
     "file": "the-skins-of-the-lambs.mp3",
-    "bytes": 1036800
+    "bytes": 1118252,
+    "join": "ffmpeg+loudnorm"
   },
   "aging": {
     "title": "Yaşlanma",
     "category": "yaslanma-ve-zaman",
     "index": 2,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "aging.mp3",
-    "bytes": 122256
+    "bytes": 124796,
+    "join": "ffmpeg+loudnorm"
   },
   "the-lions-footprint": {
     "title": "Aslanın izi",
     "category": "temsiller-ve-meseller",
     "index": 0,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
-      "dialogue",
+      "question",
       "narrative",
       "dialogue",
       "narrative",
@@ -4685,14 +5076,16 @@
       "moral"
     ],
     "file": "the-lions-footprint.mp3",
-    "bytes": 243360
+    "bytes": 271244,
+    "join": "ffmpeg+loudnorm"
   },
   "what-changed-after-sixty": {
     "title": "Altmışdan sonra nə dəyişdi",
     "category": "yaslanma-ve-zaman",
     "index": 0,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -4713,14 +5106,16 @@
       "moral"
     ],
     "file": "what-changed-after-sixty.mp3",
-    "bytes": 1015632
+    "bytes": 1124444,
+    "join": "ffmpeg+loudnorm"
   },
   "the-elephant-and-the-rope": {
     "title": "Fil və ip",
     "category": "temsiller-ve-meseller",
     "index": 2,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -4730,32 +5125,35 @@
       "moral"
     ],
     "file": "the-elephant-and-the-rope.mp3",
-    "bytes": 420048
+    "bytes": 453456,
+    "join": "raw-concat (ffmpeg missing; loudnorm skipped)"
   },
   "two-donkeys": {
     "title": "İki uzunqulaq",
     "category": "temsiller-ve-meseller",
     "index": 3,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
-      "dialogue",
+      "question",
       "moral"
     ],
     "file": "two-donkeys.mp3",
-    "bytes": 255600
+    "bytes": 283628,
+    "join": "ffmpeg+loudnorm"
   },
   "for-those-who-have-reached-sixty": {
-    "title": "Altmışı haqlamış olanlar üçün",
+    "title": "Altmışı haqlamış olanlar üçün...",
     "category": "yaslanma-ve-zaman",
     "index": 1,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
-      "narrative",
       "narrative",
       "narrative",
       "narrative",
@@ -4775,14 +5173,16 @@
       "moral"
     ],
     "file": "for-those-who-have-reached-sixty.mp3",
-    "bytes": 1504944
+    "bytes": 1624844,
+    "join": "ffmpeg+loudnorm"
   },
   "the-hunters-description": {
     "title": "Ovçunun vəsfi",
     "category": "temsiller-ve-meseller",
     "index": 5,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -4790,20 +5190,22 @@
       "moral"
     ],
     "file": "the-hunters-description.mp3",
-    "bytes": 116784
+    "bytes": 137756,
+    "join": "ffmpeg+loudnorm"
   },
   "the-ant-that-carries-water": {
     "title": "Su daşıyan qarışqa",
     "category": "temsiller-ve-meseller",
     "index": 6,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "narrative",
       "narrative",
-      "dialogue",
+      "question",
       "dialogue",
       "dialogue",
       "narrative",
@@ -4811,14 +5213,16 @@
       "moral"
     ],
     "file": "the-ant-that-carries-water.mp3",
-    "bytes": 415872
+    "bytes": 448364,
+    "join": "ffmpeg+loudnorm"
   },
   "the-donkeys-law": {
     "title": "Eşşəyin qanunu",
     "category": "temsiller-ve-meseller",
     "index": 1,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -4827,37 +5231,40 @@
       "narrative",
       "dialogue",
       "narrative",
-      "dialogue",
-      "narrative",
+      "question",
       "moral"
     ],
     "file": "the-donkeys-law.mp3",
-    "bytes": 656064
+    "bytes": 629228,
+    "join": "ffmpeg+loudnorm"
   },
   "the-turtles-wrong-calculation": {
     "title": "Tısbağanın yanlış hesabı",
     "category": "temsiller-ve-meseller",
     "index": 7,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
-      "dialogue",
+      "question",
       "dialogue",
       "narrative",
       "narrative",
       "moral"
     ],
     "file": "the-turtles-wrong-calculation.mp3",
-    "bytes": 355680
+    "bytes": 390620,
+    "join": "ffmpeg+loudnorm"
   },
   "albrecht-durer": {
     "title": "Albrecht Dürer",
     "category": "tarix-ve-taninmish-shexsiyyetler",
     "index": 0,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -4873,23 +5280,26 @@
       "moral"
     ],
     "file": "albrecht-durer.mp3",
-    "bytes": 859392
+    "bytes": 807932,
+    "join": "ffmpeg+loudnorm"
   },
   "architect-sinan-dies-in-a-house-without-water": {
-    "title": "Memar Sinan susuz evdə vəfat edir",
+    "title": "İstanbulu suya qovuşduran Memar Sinan susuz evdə vəfat etdi",
     "category": "tarix-ve-taninmish-shexsiyyetler",
     "index": 1,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "narrative",
+      "question",
       "narrative",
       "narrative",
+      "dialogue",
       "narrative",
-      "narrative",
-      "narrative",
+      "dialogue",
       "narrative",
       "narrative",
       "narrative",
@@ -4897,20 +5307,20 @@
       "dialogue",
       "narrative",
       "narrative",
-      "narrative",
-      "narrative",
-      "narrative",
+      "dialogue",
       "moral"
     ],
     "file": "architect-sinan-dies-in-a-house-without-water.mp3",
-    "bytes": 1811520
+    "bytes": 1033580,
+    "join": "ffmpeg+loudnorm"
   },
   "my-alif-has-been-dotted": {
     "title": "Əlifim nöqtələndi",
     "category": "iman-ve-meneviyyat",
     "index": 33,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -4918,62 +5328,70 @@
       "moral"
     ],
     "file": "my-alif-has-been-dotted.mp3",
-    "bytes": 257328
+    "bytes": 286652,
+    "join": "ffmpeg+loudnorm"
   },
   "blessings-god-has-given": {
     "title": "Allahın verdiyi nemətlər",
     "category": "iman-ve-meneviyyat",
     "index": 2,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
-      "dialogue",
-      "dialogue",
-      "dialogue",
-      "dialogue",
       "narrative",
-      "dialogue",
+      "narrative",
+      "narrative",
+      "narrative",
+      "narrative",
+      "narrative",
       "moral"
     ],
     "file": "blessings-god-has-given.mp3",
-    "bytes": 209664
+    "bytes": 251516,
+    "join": "ffmpeg+loudnorm"
   },
   "people-who-need-something-from-you": {
     "title": "Sizə işi düşən adamlar",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 20,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "people-who-need-something-from-you.mp3",
-    "bytes": 135216
+    "bytes": 154604,
+    "join": "ffmpeg+loudnorm"
   },
   "explaining-ones-sorrow": {
     "title": "Dərdi izah etmək",
     "category": "exlaq-ve-xarakter",
     "index": 12,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "explaining-ones-sorrow.mp3",
-    "bytes": 127152
+    "bytes": 145820,
+    "join": "ffmpeg+loudnorm"
   },
   "the-shepherd-must-be-called": {
     "title": "Çobanı səsləmək lazımdır",
     "category": "soz-sukut-ve-unsiyyet",
     "index": 8,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -4982,47 +5400,51 @@
       "narrative",
       "dialogue",
       "narrative",
+      "question",
       "dialogue",
       "dialogue",
       "dialogue",
-      "dialogue",
-      "dialogue",
+      "question",
       "narrative",
       "narrative",
       "dialogue",
       "moral"
     ],
     "file": "the-shepherd-must-be-called.mp3",
-    "bytes": 561888
+    "bytes": 603020,
+    "join": "ffmpeg+loudnorm"
   },
   "how-to-ward-off-insults": {
     "title": "Təhqirləri necə dəf etməli",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 23,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "narrative",
       "narrative",
       "narrative",
-      "dialogue",
+      "question",
       "narrative",
-      "dialogue",
+      "question",
       "dialogue",
       "dialogue",
       "moral"
     ],
     "file": "how-to-ward-off-insults.mp3",
-    "bytes": 562608
+    "bytes": 611948,
+    "join": "ffmpeg+loudnorm"
   },
   "the-blind-well": {
     "title": "Kor quyu",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 27,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -5030,28 +5452,32 @@
       "moral"
     ],
     "file": "the-blind-well.mp3",
-    "bytes": 337104
+    "bytes": 371900,
+    "join": "ffmpeg+loudnorm"
   },
   "life-is-short": {
     "title": "Ömür qısadır",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 41,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
       "moral"
     ],
     "file": "life-is-short.mp3",
-    "bytes": 108432
+    "bytes": 126524,
+    "join": "ffmpeg+loudnorm"
   },
   "a-fly-in-the-china-shop": {
     "title": "Milçək çini qablar dükanında",
     "category": "temsiller-ve-meseller",
     "index": 4,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "narrative",
@@ -5059,14 +5485,16 @@
       "moral"
     ],
     "file": "a-fly-in-the-china-shop.mp3",
-    "bytes": 178560
+    "bytes": 228620,
+    "join": "ffmpeg+loudnorm"
   },
   "hayats-life-story": {
     "title": "Həyatın həyat hekayəsi",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 19,
     "voice": "az-AZ-BabekNeural",
-    "prosody": "v1",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
     "roles": [
       "title",
       "question",
@@ -5100,7 +5528,7 @@
       "narrative",
       "narrative",
       "narrative",
-      "dialogue",
+      "narrative",
       "narrative",
       "narrative",
       "narrative",
@@ -5108,6 +5536,7 @@
       "moral"
     ],
     "file": "hayats-life-story.mp3",
-    "bytes": 3342096
+    "bytes": 3579212,
+    "join": "ffmpeg+loudnorm"
   }
 }

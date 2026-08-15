@@ -1,0 +1,455 @@
+{
+  "html_lang": "en",
+  "site_name": "Bir inci",
+  "site_title": "Edifying sayings and stories",
+  "nav_label": "Literature",
+  "nav_stories_label": "Edifying stories",
+  "nav_stories_desc": "Moral stories by category",
+  "nav_arts_label": "Arts",
+  "nav_arts_desc": "Painting, architecture, music, and film",
+  "nav_science_label": "Science",
+  "nav_natural_science_label": "Natural sciences",
+  "nav_natural_science_desc": "Physics, chemistry, and biology",
+  "nav_social_science_label": "Social sciences",
+  "nav_social_science_desc": "Society, economics, and human behavior",
+  "nav_humanities_label": "Humanities",
+  "nav_humanities_desc": "History, philosophy, language, and culture",
+  "nav_medical_science_label": "Medical sciences",
+  "nav_medical_science_desc": "The human body, diagnosis, and treatment",
+  "nav_informatics_label": "Informatics",
+  "nav_informatics_desc": "Algorithms, data, and software systems",
+  "nav_math_label": "Mathematics",
+  "nav_math_desc": "Numbers, formulas, and logic",
+  "home_crumb": "Home",
+  "ui": {
+    "open_menu": "Open menu",
+    "close_menu": "Close menu",
+    "main_menu": "Main menu",
+    "coming_soon": "Coming soon",
+    "stories_coming_soon": "Stories coming soon",
+    "stories_coming_soon_lead": "English stories are being prepared. The pages are ready; the texts will appear here as soon as they are added.",
+    "intro_source": "The stories are drawn from open Internet sources",
+    "story_source": "Source: Internet",
+    "site_description": "Bir inci — a collection of edifying sayings and stories.",
+    "stories_nav": "Stories",
+    "stories_nav_open": "Open stories menu",
+    "no_matching_category": "No matching category.",
+    "no_matching_story": "No matching story.",
+    "categories_heading": "Categories",
+    "skip_to_content": "Skip to content",
+    "back_to_top": "Back to top",
+    "search": "Search…",
+    "search_aria": "Search",
+    "global_search": "Global search",
+    "global_search_toggle": "Global search, Ctrl+K",
+    "global_search_title_attr": "Search (Ctrl+K)",
+    "close_search": "Close search",
+    "close": "Close",
+    "search_stories_label": "Search stories",
+    "search_stories_placeholder": "Search all stories…",
+    "search_filter_label": "Search",
+    "search_results_count": "{n} results",
+    "clear_search_filter": "Clear filter",
+    "view": "View",
+    "view_cards": "By category",
+    "view_list": "List",
+    "images": "Images",
+    "texts": "Text",
+    "show": "Show",
+    "hide": "Hide",
+    "batch": "Number of stories",
+    "batch_all": "All",
+    "batch_count": "Story count",
+    "batch_prev": "Previous",
+    "batch_next": "Next",
+    "batch_random": "Shuffle",
+    "batch_dec": "Decrease",
+    "batch_inc": "Increase",
+    "batch_pager": "Page",
+    "listen": "Listen",
+    "listen_page": "Listen to this page",
+    "story_audio_label": "Audio",
+    "story_image_label": "Image",
+    "story_text_label": "Text",
+    "queue_prev": "Previous story",
+    "queue_next": "Next story",
+    "hide_text": "Hide text",
+    "hide_image": "Hide image",
+    "show_text": "Show text",
+    "show_image": "Show image",
+    "stories_count_suffix": "stories",
+    "stop": "Stop",
+    "resume": "Resume",
+    "play": "Play",
+    "mute": "Mute",
+    "speed": "Speed",
+    "close_player": "Close player",
+    "lang_switcher_label": "Language",
+    "hero_lead": "Edifying stories — to read and to listen.",
+    "intro_lead": "Our site presents rich information about humanity’s magnificent achievements throughout history in science and technology, the natural sciences, the social and human sciences, as well as literature and the arts; about universal moral values, outstanding figures, and important historical discoveries and inventions. Our aim is to preserve this valuable heritage gathered over the centuries, to systematize it, and to pass it on to future generations as a source of knowledge, moral lesson, and inspiration.",
+    "footer_contact": "Contact",
+    "footer_phone": "Telephone",
+    "footer_address": "Address",
+    "footer_website": "Website",
+    "footer_phone_placeholder": "+994 XX XXX XX XX",
+    "footer_address_placeholder": "Address to be added",
+    "footer_website_placeholder": "https://birinci.cloud",
+    "footer_website_url": "https://birinci.cloud"
+  },
+  "js": {
+    "index_loading": "Loading index…",
+    "results_n": "{n} results",
+    "no_match": "No matching stories.",
+    "index_failed": "Search index failed to load. Open the site from http://localhost:8765/{lang}/",
+    "tts_unsupported": "Speech synthesis is not available in this browser. Please continue by reading the story.",
+    "tts_no_voice": "No suitable speech voice was found on this device.",
+    "tts_failed": "Could not start speech playback. Please try again later or read the story.",
+    "audio_failed": "Could not play the audio file. Please try again later."
+  },
+  "categories": {
+    "iman-ve-meneviyyat": {
+      "title": "Faith and spirituality",
+      "blurb": "Stories of belief, worship, and the inner path."
+    },
+    "aile-ve-terbiye": {
+      "title": "Family and upbringing",
+      "blurb": "Parental love, raising children, and building a home."
+    },
+    "sevgi-ve-evlilik": {
+      "title": "Love and marriage",
+      "blurb": "Love, loyalty, and the trials of a shared life."
+    },
+    "dostluq-ve-insan-munasibetleri": {
+      "title": "Friendship and human relations",
+      "blurb": "Choosing friends, compassion, and how we treat people."
+    },
+    "exlaq-ve-xarakter": {
+      "title": "Morals and character",
+      "blurb": "Honesty, generosity, and personal integrity."
+    },
+    "soz-sukut-ve-unsiyyet": {
+      "title": "Word, silence, and communication",
+      "blurb": "The power of speech, the wisdom of silence, and right conversation."
+    },
+    "hikmet-ve-heyat-dersleri": {
+      "title": "Wisdom and life lessons",
+      "blurb": "Meaning, choices, and ways of thinking."
+    },
+    "emek-ruzi-ve-servet": {
+      "title": "Work, livelihood, and wealth",
+      "blurb": "Labor, provision, and our view of wealth."
+    },
+    "edalet-ve-cemiyyet": {
+      "title": "Justice and society",
+      "blurb": "Right, community, and shared responsibility."
+    },
+    "yaslanma-ve-zaman": {
+      "title": "Aging and time",
+      "blurb": "The seasons of life and what time changes."
+    },
+    "temsiller-ve-meseller": {
+      "title": "Parables and fables",
+      "blurb": "Lessons told through animals and images."
+    },
+    "tarix-ve-taninmish-shexsiyyetler": {
+      "title": "History and notable figures",
+      "blurb": "Lessons from history and well-known names."
+    }
+  },
+  "top_nav": [
+    {
+      "label": "Notable figures",
+      "icon": "landmark"
+    },
+    {
+      "label": "Discoveries and inventions",
+      "icon": "lightbulb"
+    },
+    {
+      "label": "General knowledge",
+      "icon": "globe"
+    },
+    {
+      "label": "About us",
+      "icon": "info"
+    },
+    {
+      "label": "Support us",
+      "icon": "hand-heart"
+    }
+  ],
+  "arts_items": [
+    {
+      "label": "Painting",
+      "icon": "palette",
+      "desc": "Color, form, and visual art"
+    },
+    {
+      "label": "Architecture",
+      "icon": "building",
+      "desc": "Buildings, space, and design"
+    },
+    {
+      "label": "Music",
+      "icon": "music",
+      "desc": "Sound, rhythm, and melody"
+    },
+    {
+      "label": "Film",
+      "icon": "film",
+      "desc": "Cinema and screen arts"
+    }
+  ],
+  "natural_items": [
+    {
+      "label": "Physics",
+      "icon": "atom",
+      "desc": "Matter, energy, motion, and the laws of forces"
+    },
+    {
+      "label": "Chemistry",
+      "icon": "flask",
+      "desc": "Composition, properties, and transformations of substances"
+    },
+    {
+      "label": "Biology",
+      "icon": "dna",
+      "desc": "Living organisms and life processes"
+    },
+    {
+      "label": "Astronomy",
+      "icon": "telescope",
+      "desc": "The universe, stars, and planets"
+    },
+    {
+      "label": "Geology (Earth sciences)",
+      "icon": "mountain",
+      "desc": "Earth’s structure, rocks, and geological processes"
+    },
+    {
+      "label": "Ecology",
+      "icon": "leaf",
+      "desc": "How living things interact with their environment"
+    }
+  ],
+  "social_items": [
+    {
+      "label": "Economics",
+      "icon": "chart",
+      "desc": "Production, distribution, and finance"
+    },
+    {
+      "label": "Sociology",
+      "icon": "users",
+      "desc": "Society, groups, and social relations"
+    },
+    {
+      "label": "Political science",
+      "icon": "scale",
+      "desc": "Power, the state, and political processes"
+    },
+    {
+      "label": "Psychology",
+      "icon": "brain",
+      "desc": "Mental processes and human behavior"
+    },
+    {
+      "label": "Demography",
+      "icon": "globe",
+      "desc": "Population, birth, death, and migration"
+    }
+  ],
+  "humanities_items": [
+    {
+      "label": "History",
+      "icon": "landmark",
+      "desc": "Past events and civilizations"
+    },
+    {
+      "label": "Philosophy",
+      "icon": "lightbulb",
+      "desc": "Thought about being, knowledge, and values"
+    },
+    {
+      "label": "Linguistics (philology)",
+      "icon": "message",
+      "desc": "Structure, development, and use of language"
+    },
+    {
+      "label": "Literary studies",
+      "icon": "book",
+      "desc": "Analysis and study of literary works"
+    },
+    {
+      "label": "Art history",
+      "icon": "palette",
+      "desc": "History and theory of the arts"
+    },
+    {
+      "label": "Religious studies (theology)",
+      "icon": "sparkles",
+      "desc": "Religions, beliefs, and theological research"
+    },
+    {
+      "label": "Anthropology and ethnography",
+      "icon": "users",
+      "desc": "Human cultures and ethnic groups"
+    },
+    {
+      "label": "Archaeology",
+      "icon": "mountain",
+      "desc": "Material remains of ancient cultures"
+    }
+  ],
+  "medical_items": [
+    {
+      "label": "Anatomy",
+      "icon": "activity",
+      "desc": "Structure of the body and its organs"
+    },
+    {
+      "label": "Physiology",
+      "icon": "heart",
+      "desc": "Functions of organs and systems"
+    },
+    {
+      "label": "Pathology",
+      "icon": "microscope",
+      "desc": "Causes and mechanisms of disease"
+    },
+    {
+      "label": "Pharmacology",
+      "icon": "pill",
+      "desc": "Medicines and their effects"
+    },
+    {
+      "label": "Surgery",
+      "icon": "scissors",
+      "desc": "Surgical treatment and operations"
+    },
+    {
+      "label": "Internal medicine (therapy)",
+      "icon": "stethoscope",
+      "desc": "Treatment of internal organ diseases"
+    },
+    {
+      "label": "Pediatrics",
+      "icon": "baby",
+      "desc": "Children’s health and diseases"
+    },
+    {
+      "label": "Cardiology",
+      "icon": "heart",
+      "desc": "The heart and circulatory system"
+    },
+    {
+      "label": "Neurology",
+      "icon": "brain",
+      "desc": "The nervous system and the brain"
+    },
+    {
+      "label": "Oncology",
+      "icon": "microscope",
+      "desc": "Tumors and their treatment"
+    },
+    {
+      "label": "Psychiatry",
+      "icon": "brain",
+      "desc": "Mental health and disorders"
+    },
+    {
+      "label": "Genetics (medical)",
+      "icon": "dna",
+      "desc": "Hereditary diseases and genes"
+    },
+    {
+      "label": "Epidemiology",
+      "icon": "globe",
+      "desc": "Spread and prevention of disease"
+    }
+  ],
+  "informatics_items": [
+    {
+      "label": "Algorithms and data structures",
+      "icon": "layers",
+      "desc": "Methods for solving computational problems and organizing data efficiently"
+    },
+    {
+      "label": "Databases",
+      "icon": "database",
+      "desc": "Storing, organizing, searching, and managing data"
+    },
+    {
+      "label": "Data science",
+      "icon": "chart",
+      "desc": "Collecting, processing, and analyzing large datasets to extract knowledge"
+    },
+    {
+      "label": "Cybersecurity",
+      "icon": "shield",
+      "desc": "Protecting data, networks, and computer systems"
+    },
+    {
+      "label": "Computer graphics and visualization",
+      "icon": "palette",
+      "desc": "Creating, processing, depicting, and presenting visual information"
+    },
+    {
+      "label": "Software engineering",
+      "icon": "cpu",
+      "desc": "Requirements, design, development, testing, and management of software"
+    },
+    {
+      "label": "Artificial intelligence",
+      "icon": "brain",
+      "desc": "Machine learning, neural networks, natural language processing, and intelligent systems"
+    },
+    {
+      "label": "Network technologies",
+      "icon": "network",
+      "desc": "The Internet, computer networks, communication protocols, and distributed systems"
+    }
+  ],
+  "math_items": [
+    {
+      "label": "Algebra",
+      "icon": "calculator",
+      "desc": "Equations and algebraic structures"
+    },
+    {
+      "label": "Differential equations and mathematical modeling",
+      "icon": "activity",
+      "desc": "Mathematical description of real processes"
+    },
+    {
+      "label": "Discrete mathematics and mathematical logic",
+      "icon": "layers",
+      "desc": "Combinatorics, graphs, and formal reasoning"
+    },
+    {
+      "label": "Probability theory and statistics",
+      "icon": "chart",
+      "desc": "Randomness and data analysis"
+    },
+    {
+      "label": "Number theory",
+      "icon": "lightbulb",
+      "desc": "Patterns of integers"
+    },
+    {
+      "label": "Geometry and topology",
+      "icon": "mountain",
+      "desc": "Shape, space, and their properties"
+    },
+    {
+      "label": "Mathematical analysis",
+      "icon": "atom",
+      "desc": "Functions and changing processes"
+    },
+    {
+      "label": "Applied and computational mathematics",
+      "icon": "cpu",
+      "desc": "Solving practical problems with mathematical and computer methods"
+    }
+  ]
+}

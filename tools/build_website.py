@@ -4,18 +4,32 @@ from __future__ import annotations
 
 import html
 import json
+import re
+import shutil
 import sys
 from collections import defaultdict
 from pathlib import Path
+from urllib.parse import quote
 
 from docx import Document
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _az_story_categories import CATEGORY_ORDER, STORY_CATEGORY  # noqa: E402
+from i18n_config import (  # noqa: E402
+    SUPPORTED_LANGS,
+    is_implemented,
+    language_by_code,
+    load_locale,
+    locale_root,
+    stories_ready,
+    switcher_languages,
+)
 
 TOOLS = Path(__file__).resolve().parent
 SITE_ROOT = TOOLS.parent
 AZ_ROOT = SITE_ROOT / "az"
+LANG = "az"
+LANG_ROOT = AZ_ROOT
 STORIES = AZ_ROOT / "stories"
 ILLUSTRATIONS = AZ_ROOT / "illustrations"
 AUDIO_DIR = AZ_ROOT / "audio"
@@ -23,10 +37,14 @@ MAP_JSON = Path(__file__).resolve().parent / "story-mapping.json"
 DATA_JSON = AZ_ROOT / "data" / "stories.json"
 PAGES_DIR = AZ_ROOT / "categories"
 ASSETS = AZ_ROOT / "assets"
+SHARED_ASSETS = SITE_ROOT / "assets"
+LOCALE_ASSET_FILES = frozenset({"search-index.js", "stories-data.js", "site.js"})
+LOCALE: dict = {}
+UI: dict = {}
 
 SITE_NAME = "Bir inci"
 SITE_TITLE = "İbrətamiz deyimlər və hekayələr"
-NAV_LABEL = "Bədii əsərlər"
+NAV_LABEL = "Ədəbiyyat"
 NAV_STORIES_LABEL = "İbrətamiz hekayələr"
 NAV_STORIES_DESC = "Kateqoriyalar üzrə ibrətamiz hekayələr"
 NAV_ARTS_LABEL = "İncəsənət"
@@ -313,6 +331,18 @@ NAV_SCIENCE_BRANCHES: dict[str, list[dict[str, str]]] = {
     "informatics": NAV_INFORMATICS_ITEMS,
     "math": NAV_MATH_ITEMS,
 }
+_AZ_SCIENCE_BRANCHES: dict[str, list[dict[str, str]]] = {
+    key: [dict(item) for item in items]
+    for key, items in NAV_SCIENCE_BRANCHES.items()
+}
+_SCIENCE_BRANCH_LOCALE_KEYS = {
+    "natural": "natural_items",
+    "social": "social_items",
+    "humanities": "humanities_items",
+    "medical": "medical_items",
+    "informatics": "informatics_items",
+    "math": "math_items",
+}
 # Azerbaijani alphabetical: H, İ (c before n), R, T (ə before i)
 NAV_SCIENCE_ITEMS: list[dict[str, str]] = [
     {
@@ -360,7 +390,150 @@ TOP_NAV_LINKS: list[dict[str, str]] = [
     {"label": "Bizi dəstəkləyin", "icon": "hand-heart"},
 ]
 HOME_CRUMB = "Ana səhifə"
-ASSET_VERSION = "20260820c"
+ASSET_VERSION = "20260815e"
+
+
+def shared_asset_href(prefix: str, filename: str) -> str:
+    """Href from a locale page ({lang}/ or {lang}/categories/) to /assets/."""
+    return f"../{prefix}assets/{quote(filename)}"
+
+
+def sync_shared_assets() -> None:
+    """Collect identical chrome files once at the project-root assets folder."""
+    SHARED_ASSETS.mkdir(parents=True, exist_ok=True)
+    az_assets = SITE_ROOT / "az" / "assets"
+    if az_assets.is_dir():
+        for path in az_assets.iterdir():
+            if not path.is_file() or path.name in LOCALE_ASSET_FILES:
+                continue
+            dest = SHARED_ASSETS / path.name
+            if not dest.exists():
+                shutil.copy2(path, dest)
+    (SHARED_ASSETS / "site.css").write_text(CSS, encoding="utf-8")
+
+
+def prune_locale_assets() -> None:
+    """Keep only per-locale generated JS under {lang}/assets/."""
+    if not ASSETS.is_dir():
+        return
+    for path in list(ASSETS.iterdir()):
+        if path.is_file() and path.name not in LOCALE_ASSET_FILES:
+            path.unlink()
+
+
+def apply_locale(lang: str) -> None:
+    """Point path globals and chrome strings at a locale."""
+    global LANG, LANG_ROOT, STORIES, ILLUSTRATIONS, AUDIO_DIR, DATA_JSON, PAGES_DIR, ASSETS
+    global LOCALE, UI, SITE_NAME, SITE_TITLE, NAV_LABEL, NAV_STORIES_LABEL, NAV_STORIES_DESC
+    global NAV_ARTS_LABEL, NAV_ARTS_DESC, NAV_SCIENCE_LABEL
+    global NAV_NATURAL_SCIENCE_LABEL, NAV_NATURAL_SCIENCE_DESC
+    global NAV_SOCIAL_SCIENCE_LABEL, NAV_SOCIAL_SCIENCE_DESC
+    global NAV_HUMANITIES_LABEL, NAV_HUMANITIES_DESC
+    global NAV_MEDICAL_SCIENCE_LABEL, NAV_MEDICAL_SCIENCE_DESC
+    global NAV_INFORMATICS_LABEL, NAV_INFORMATICS_DESC
+    global NAV_MATH_LABEL, NAV_MATH_DESC
+    global NAV_ARTS_ITEMS, TOP_NAV_LINKS, HOME_CRUMB, CATEGORY_META
+    global NAV_SCIENCE_ITEMS, NAV_SCIENCE_BRANCHES
+
+    loc = load_locale(lang)
+    LANG = lang
+    LANG_ROOT = locale_root(lang)
+    STORIES = LANG_ROOT / "stories"
+    ILLUSTRATIONS = LANG_ROOT / "illustrations"
+    AUDIO_DIR = LANG_ROOT / "audio"
+    DATA_JSON = LANG_ROOT / "data" / "stories.json"
+    PAGES_DIR = LANG_ROOT / "categories"
+    ASSETS = LANG_ROOT / "assets"
+    LOCALE = loc
+    UI = dict(loc.get("ui") or {})
+
+    SITE_NAME = loc.get("site_name") or SITE_NAME
+    SITE_TITLE = loc.get("site_title") or SITE_TITLE
+    NAV_LABEL = loc.get("nav_label") or NAV_LABEL
+    NAV_STORIES_LABEL = loc.get("nav_stories_label") or NAV_STORIES_LABEL
+    NAV_STORIES_DESC = loc.get("nav_stories_desc") or NAV_STORIES_DESC
+    NAV_ARTS_LABEL = loc.get("nav_arts_label") or NAV_ARTS_LABEL
+    NAV_ARTS_DESC = loc.get("nav_arts_desc") or NAV_ARTS_DESC
+    NAV_SCIENCE_LABEL = loc.get("nav_science_label") or NAV_SCIENCE_LABEL
+    NAV_NATURAL_SCIENCE_LABEL = loc.get("nav_natural_science_label") or NAV_NATURAL_SCIENCE_LABEL
+    NAV_NATURAL_SCIENCE_DESC = loc.get("nav_natural_science_desc") or NAV_NATURAL_SCIENCE_DESC
+    NAV_SOCIAL_SCIENCE_LABEL = loc.get("nav_social_science_label") or NAV_SOCIAL_SCIENCE_LABEL
+    NAV_SOCIAL_SCIENCE_DESC = loc.get("nav_social_science_desc") or NAV_SOCIAL_SCIENCE_DESC
+    NAV_HUMANITIES_LABEL = loc.get("nav_humanities_label") or NAV_HUMANITIES_LABEL
+    NAV_HUMANITIES_DESC = loc.get("nav_humanities_desc") or NAV_HUMANITIES_DESC
+    NAV_MEDICAL_SCIENCE_LABEL = loc.get("nav_medical_science_label") or NAV_MEDICAL_SCIENCE_LABEL
+    NAV_MEDICAL_SCIENCE_DESC = loc.get("nav_medical_science_desc") or NAV_MEDICAL_SCIENCE_DESC
+    NAV_INFORMATICS_LABEL = loc.get("nav_informatics_label") or NAV_INFORMATICS_LABEL
+    NAV_INFORMATICS_DESC = loc.get("nav_informatics_desc") or NAV_INFORMATICS_DESC
+    NAV_MATH_LABEL = loc.get("nav_math_label") or NAV_MATH_LABEL
+    NAV_MATH_DESC = loc.get("nav_math_desc") or NAV_MATH_DESC
+    HOME_CRUMB = loc.get("home_crumb") or HOME_CRUMB
+
+    cats = loc.get("categories") or {}
+    for meta in CATEGORY_META:
+        slug = meta["slug"]
+        if slug in cats:
+            meta["title"] = cats[slug].get("title") or meta["title"]
+            meta["blurb"] = cats[slug].get("blurb") or meta["blurb"]
+
+    if loc.get("arts_items"):
+        NAV_ARTS_ITEMS = list(loc["arts_items"])
+    if loc.get("top_nav"):
+        TOP_NAV_LINKS = list(loc["top_nav"])
+
+    # Rebuild science top-level labels from locale (branch lists keep AZ structure/icons).
+    NAV_SCIENCE_ITEMS = [
+        {
+            "label": NAV_HUMANITIES_LABEL,
+            "icon": "scroll",
+            "desc": NAV_HUMANITIES_DESC,
+            "branch": "humanities",
+        },
+        {
+            "label": NAV_SOCIAL_SCIENCE_LABEL,
+            "icon": "users",
+            "desc": NAV_SOCIAL_SCIENCE_DESC,
+            "branch": "social",
+        },
+        {
+            "label": NAV_INFORMATICS_LABEL,
+            "icon": "cpu",
+            "desc": NAV_INFORMATICS_DESC,
+            "branch": "informatics",
+        },
+        {
+            "label": NAV_MATH_LABEL,
+            "icon": "calculator",
+            "desc": NAV_MATH_DESC,
+            "branch": "math",
+        },
+        {
+            "label": NAV_NATURAL_SCIENCE_LABEL,
+            "icon": "flask",
+            "desc": NAV_NATURAL_SCIENCE_DESC,
+            "branch": "natural",
+        },
+        {
+            "label": NAV_MEDICAL_SCIENCE_LABEL,
+            "icon": "stethoscope",
+            "desc": NAV_MEDICAL_SCIENCE_DESC,
+            "branch": "medical",
+        },
+    ]
+
+    branches: dict[str, list[dict[str, str]]] = {}
+    for branch, key in _SCIENCE_BRANCH_LOCALE_KEYS.items():
+        items = loc.get(key)
+        if isinstance(items, list) and items:
+            branches[branch] = list(items)
+        else:
+            branches[branch] = [dict(item) for item in _AZ_SCIENCE_BRANCHES[branch]]
+    NAV_SCIENCE_BRANCHES = branches
+
+
+def t_ui(key: str, default: str = "") -> str:
+    return str(UI.get(key) or default or key)
+
 
 # Immediate home view toggle (not deferred). Survives site.js load races / failures.
 HOME_VIEW_BOOTSTRAP = r"""
@@ -435,20 +608,16 @@ HOME_VIEW_BOOTSTRAP = r"""
       });
     });
     rows.sort(function (a, b) {
-      return String(a.title || "").localeCompare(String(b.title || ""), "az", {
+      return String(a.title || "").localeCompare(String(b.title || ""), document.documentElement.lang || "az", {
         sensitivity: "base",
       });
     });
     var page = rows;
     var sizeEl = document.querySelector('[data-tools="home"] [data-home-batch-size]');
     var raw = "";
-    var allMode = true;
+    var allMode = false;
+    var pageSize = 12;
     try {
-      if (!localStorage.getItem("birinci-home-batch-empty-default")) {
-        localStorage.setItem("birinci-home-batch-empty-default", "1");
-        localStorage.removeItem("birinci-home-batch-size");
-        localStorage.removeItem("birinci-home-page-size");
-      }
       allMode = localStorage.getItem("birinci-home-batch-all") === "1";
       raw = localStorage.getItem("birinci-home-batch-size") || "";
       if (!raw) {
@@ -457,28 +626,36 @@ HOME_VIEW_BOOTSTRAP = r"""
         else if (legacy === "all") allMode = true;
       }
     } catch (_) {}
-    if (sizeEl) sizeEl.max = String(Math.max(1, rows.length || 1));
-    if (allMode || !raw) {
-      allMode = true;
-      if (sizeEl) sizeEl.value = "";
-      page = rows;
-    } else {
-      var n = Number(raw);
-      if (!Number.isFinite(n) || n < 1) {
-        if (sizeEl) sizeEl.value = "";
-        page = rows;
-      } else {
-        n = Math.min(Math.floor(n), Math.max(1, rows.length || 1));
-        if (sizeEl) sizeEl.value = String(n);
-        page = rows.slice(0, n);
-      }
+    var cap = Math.max(1, rows.length || 1);
+    var n = Number(raw);
+    if (Number.isFinite(n) && n > 0) pageSize = Math.min(Math.floor(n), cap);
+    if (sizeEl) {
+      sizeEl.max = String(cap);
+      sizeEl.value = String(pageSize);
     }
+    page = allMode ? rows : rows.slice(0, pageSize);
     host.innerHTML = page
       .map(function (story) {
-        var paras = (story.paragraphs || [])
+        var list = story.paragraphs || [];
+        var last = list.length - 1;
+        var foldAzI = function (s) { return String(s || "").replace(/[İIı]/g, "i"); };
+        var srcRe = /(internet\s+sources|internet\s+mənb|internet\s+kaynak|открыт\w*\s+источник|интернет|(?:source|mənbə|kaynak|источник|булак|булагы)\s*:)/i;
+        var moralRe = /^(ibrət|ibret|moral|мораль|үлгү)\s*:/i;
+        var authorSrcStems = { "everyone-has-work-to-do": 1, "weeds-must-be-pulled-from-the-root": 1, "the-silent-corridor": 1 };
+        var authorSrc = !!(story.stem && authorSrcStems[story.stem]);
+        var lastIsSrc = last >= 0 && (authorSrc || srcRe.test(foldAzI(list[last] || "")));
+        var srcLabel = (window.__BIRINCI_I18N__ && window.__BIRINCI_I18N__.ui && window.__BIRINCI_I18N__.ui.story_source) || "";
+        var moralI = -1;
+        for (var j = lastIsSrc ? last - 1 : last; j >= 0; j--) {
+          if (moralRe.test(foldAzI(String(list[j] || "").trim()))) { moralI = j; break; }
+        }
+        if (moralI < 0) moralI = lastIsSrc && last >= 1 ? last - 1 : last;
+        var paras = list
           .map(function (p, i) {
-            var cls = i === (story.paragraphs || []).length - 1 ? ' class="story__moral"' : "";
-            return "<p" + cls + ">" + esc(p) + "</p>";
+            var isSrc = lastIsSrc && i === last;
+            var cls = isSrc ? "story__source" : i === moralI ? "story__moral" : "";
+            var text = isSrc && srcLabel && !authorSrc ? srcLabel : p;
+            return "<p" + (cls ? ' class="' + cls + '"' : "") + ">" + esc(text) + "</p>";
           })
           .join("");
         return (
@@ -616,6 +793,9 @@ CATEGORY_ICONS: dict[str, str] = {
     "chart": '<path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/>',
     # General knowledge
     "globe": '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>',
+    "website": '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>',
+    "phone": '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>',
+    "map-pin": '<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>',
     # About
     "info": '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>',
     # Support
@@ -664,6 +844,9 @@ ICON_COLORS: dict[str, dict[str, str]] = {
     "network": {"from": "#14b8a6", "to": "#0f766e", "glow": "#5eead4"},
     "chart": {"from": "#10b981", "to": "#047857", "glow": "#6ee7b7"},
     "globe": {"from": "#14b8a6", "to": "#0f766e", "glow": "#5eead4"},
+    "website": {"from": "#3b82f6", "to": "#1d4ed8", "glow": "#93c5fd"},
+    "phone": {"from": "#22c55e", "to": "#15803d", "glow": "#86efac"},
+    "map-pin": {"from": "#f43f5e", "to": "#be123c", "glow": "#fda4af"},
     "info": {"from": "#3b82f6", "to": "#1d4ed8", "glow": "#93c5fd"},
     "hand-heart": {"from": "#f43f5e", "to": "#be123c", "glow": "#fda4af"},
     "palette": {"from": "#f97316", "to": "#c2410c", "glow": "#fdba74"},
@@ -757,6 +940,9 @@ CATEGORY_META: list[dict[str, str]] = [
         "icon": "landmark",
     },
 ]
+# Preserve AZ category titles for STORY_CATEGORY grouping after locale swap.
+for _meta in CATEGORY_META:
+    _meta.setdefault("_az_title", _meta["title"])
 
 
 def menu_icon(name: str) -> str:
@@ -785,30 +971,57 @@ def extract_paragraphs(docx_path: Path, title: str) -> list[str]:
 
 
 def load_catalog() -> dict:
+    if not stories_ready(LANG):
+        return {
+            "site_title": SITE_TITLE,
+            "nav_label": NAV_STORIES_LABEL,
+            "categories": [{**meta, "count": 0, "stories": []} for meta in CATEGORY_META],
+        }
+
     data = json.loads(MAP_JSON.read_text(encoding="utf-8"))
     by_stem = {r["en_stem"]: r for r in data["rows"]}
-    title_by_cat = {c["title"]: c for c in CATEGORY_META}
-    assert [c["title"] for c in CATEGORY_META] == CATEGORY_ORDER
+    assert [c["_az_title"] for c in CATEGORY_META] == CATEGORY_ORDER
 
     grouped: dict[str, list[dict]] = defaultdict(list)
     for stem, row in by_stem.items():
         cat = STORY_CATEGORY[stem]
         story_path = STORIES / f"{stem}.docx"
+        if not story_path.is_file():
+            continue
+        raw_paras = [
+            (p.text or "").strip()
+            for p in Document(str(story_path)).paragraphs
+            if (p.text or "").strip()
+        ]
+        if not raw_paras:
+            continue
+        title = raw_paras[0]
+        paras = raw_paras[1:]
+        override = story_source_override(stem)
+        if override:
+            if paras:
+                paras[-1] = override
+            else:
+                paras.append(override)
+        elif paras and is_source_paragraph(paras[-1]):
+            paras[-1] = normalize_source_paragraph(paras[-1])
         ill_rel = f"../illustrations/{stem}.webp"
-        text = extract_paragraphs(story_path, row["az_stem"]) if story_path.exists() else []
         grouped[cat].append(
             {
                 "stem": stem,
-                "title": row["az_stem"],
-                "paragraphs": text,
+                "title": title,
+                "paragraphs": paras,
                 "image": ill_rel,
                 "image_from_root": f"illustrations/{stem}.webp",
+                "has_image": (ILLUSTRATIONS / f"{stem}.webp").is_file(),
             }
         )
 
     categories = []
     for meta in CATEGORY_META:
-        stories = sorted(grouped[meta["title"]], key=lambda s: s["title"].casefold())
+        stories = sorted(
+            grouped.get(meta["_az_title"], []), key=lambda s: s["title"].casefold()
+        )
         categories.append({**meta, "count": len(stories), "stories": stories})
 
     return {
@@ -822,19 +1035,105 @@ def esc(s: str) -> str:
     return html.escape(s, quote=True)
 
 
-def story_paragraphs_html(paragraphs: list[str]) -> str:
-    """Render story body; mark the final paragraph as the moral callout.
+_SOURCE_RE = re.compile(
+    r"(internet\s+sources|internet\s+mənb|internet\s+kaynak|"
+    r"открыт\w*\s+источник|интернет|"
+    r"(?:source|mənbə|kaynak|источник|булак|булагы)\s*:)",
+    re.I,
+)
+_MORAL_RE = re.compile(r"^(ibrət|ibret|moral|мораль|үлгү)\s*:", re.I)
 
-    Stories have no dedicated moral field — the last paragraph is the takeaway
-    (short aphoristic closing) in the source DOCX / stories.json content.
-    """
+
+def _fold_az_i(text: str) -> str:
+    """Map dotted/dotless I so AZ/TR İ matches ASCII i in role regexes."""
+    return (text or "").replace("İ", "i").replace("I", "i").replace("ı", "i")
+
+
+_SOURCE_QUOTE_PAIRS = (("«", "»"), ("„", "“"), ("“", "”"), ('"', '"'), ("'", "'"))
+
+# Last-line author credit instead of the generic "Source: Internet" label.
+_AUTHOR_SOURCE_BY_LANG = {
+    "en": "Bakhtiyar Sirajov",
+    "ru": "Бахтияр Сираджов",
+    "az": "Bəxtiyar Siracov",
+    "ky": "Бахтияр Сиражов",
+}
+_STORY_SOURCE_BY_STEM = {
+    "everyone-has-work-to-do": _AUTHOR_SOURCE_BY_LANG,
+    "weeds-must-be-pulled-from-the-root": _AUTHOR_SOURCE_BY_LANG,
+    "the-silent-corridor": _AUTHOR_SOURCE_BY_LANG,
+}
+
+
+def story_source_override(stem: str, lang: str | None = None) -> str:
+    """Return a per-stem author credit for the current (or given) locale."""
+    by_lang = _STORY_SOURCE_BY_STEM.get(stem or "") or {}
+    code = (lang or LANG or "").strip().lower()
+    return str(by_lang.get(code) or "").strip()
+
+
+def is_source_paragraph(text: str) -> bool:
+    return bool(_SOURCE_RE.search(_fold_az_i((text or "").strip().strip("«»\"“”"))))
+
+
+def normalize_source_paragraph(text: str, stem: str = "") -> str:
+    """Replace a detected source line with the locale story_source label."""
+    override = story_source_override(stem)
+    if override:
+        return override
+    label = str(UI.get("story_source") or "").strip()
+    if label:
+        return label
+    s = (text or "").strip()
+    changed = True
+    while changed and s:
+        changed = False
+        for left, right in _SOURCE_QUOTE_PAIRS:
+            if len(s) >= len(left) + len(right) and s.startswith(left) and s.endswith(right):
+                s = s[len(left) : -len(right)].strip()
+                changed = True
+                break
+    s = s.strip("«»\"“”„''")
+    s = s.rstrip(".。").rstrip()
+    s = s.replace("История взята", "Рассказ взят")
+    return s
+
+
+def story_paragraph_roles(paragraphs: list[str], stem: str = "") -> list[str]:
+    """Return a role per paragraph: '', 'moral', or 'source'."""
+    if not paragraphs:
+        return []
+    last = len(paragraphs) - 1
+    roles = [""] * len(paragraphs)
+    last_is_source = bool(story_source_override(stem)) or is_source_paragraph(
+        paragraphs[last]
+    )
+    moral_i = None
+    search_from = last - 1 if last_is_source else last
+    for i in range(search_from, -1, -1):
+        if _MORAL_RE.match(_fold_az_i((paragraphs[i] or "").strip())):
+            moral_i = i
+            break
+    if moral_i is None:
+        moral_i = last - 1 if last_is_source and last >= 1 else last
+    if last_is_source:
+        roles[last] = "source"
+    if moral_i is not None and 0 <= moral_i < len(paragraphs) and roles[moral_i] != "source":
+        roles[moral_i] = "moral"
+    return roles
+
+
+def story_paragraphs_html(paragraphs: list[str], stem: str = "") -> str:
+    """Render story body; highlight the moral and de-emphasize the source line."""
     if not paragraphs:
         return ""
+    roles = story_paragraph_roles(paragraphs, stem)
     parts: list[str] = []
-    last_i = len(paragraphs) - 1
-    for i, p in enumerate(paragraphs):
-        if i == last_i:
-            parts.append(f'<p class="story__moral">{esc(p)}</p>')
+    for p, role in zip(paragraphs, roles):
+        if role == "source":
+            p = normalize_source_paragraph(p, stem)
+        if role:
+            parts.append(f'<p class="story__{role}">{esc(p)}</p>')
         else:
             parts.append(f"<p>{esc(p)}</p>")
     return "".join(parts)
@@ -872,6 +1171,7 @@ def breadcrumbs_html(crumbs: list[tuple[str, str | None]], prefix: str) -> str:
 
 
 def nav_html(active_slug: str | None, prefix: str) -> str:
+    coming_soon = esc(t_ui("coming_soon", "Tezliklə"))
     # Mega panel: 3 columns (Forumlar-style), contiguous chunks.
     n_cols = 3
     cats = list(CATEGORY_META)
@@ -901,7 +1201,7 @@ def nav_html(active_slug: str | None, prefix: str) -> str:
         )
     mega_grid = '<div class="nav-mega-grid">' + "".join(mega_cols) + "</div>"
     arts_links = "".join(
-        f'<a class="nav-dropdown-link" href="#" aria-disabled="true" tabindex="-1" title="Tezliklə">'
+        f'<a class="nav-dropdown-link" href="#" aria-disabled="true" tabindex="-1" title="{coming_soon}">'
         f'{menu_icon(item["icon"])}'
         f'<span class="nav-dropdown-link-copy">'
         f'<span class="nav-dropdown-link-title">{esc(item["label"])}</span>'
@@ -912,7 +1212,7 @@ def nav_html(active_slug: str | None, prefix: str) -> str:
     )
     def science_child_links(items: list[dict[str, str]]) -> str:
         return "".join(
-            f'<a class="nav-dropdown-link" href="#" aria-disabled="true" tabindex="-1" title="Tezliklə">'
+            f'<a class="nav-dropdown-link" href="#" aria-disabled="true" tabindex="-1" title="{coming_soon}">'
             f'{menu_icon(child["icon"])}'
             f'<span class="nav-dropdown-link-copy">'
             f'<span class="nav-dropdown-link-title">{esc(child["label"])}</span>'
@@ -977,7 +1277,7 @@ def nav_html(active_slug: str | None, prefix: str) -> str:
             )
         else:
             science_parts.append(
-                f'<a class="nav-dropdown-link" href="#" aria-disabled="true" tabindex="-1" title="Tezliklə">'
+                f'<a class="nav-dropdown-link" href="#" aria-disabled="true" tabindex="-1" title="{coming_soon}">'
                 f'{menu_icon(item["icon"])}'
                 f'<span class="nav-dropdown-link-copy">'
                 f'<span class="nav-dropdown-link-title">{esc(item["label"])}</span>'
@@ -991,23 +1291,72 @@ def nav_html(active_slug: str | None, prefix: str) -> str:
     home = f"{prefix}index.html"
     data_url = f"{prefix}assets/search-index.js?v={ASSET_VERSION}"
     top_links = "\n".join(
-        f'<a class="primary-nav__link" href="#" aria-disabled="true" tabindex="-1" title="Tezliklə">'
+        f'<a class="primary-nav__link" href="#" aria-disabled="true" tabindex="-1" title="{esc(t_ui("coming_soon", "Tezliklə"))}">'
         f'{menu_icon(item["icon"])}'
         f'<span>{esc(item["label"])}</span>'
         f"</a>"
         for item in TOP_NAV_LINKS
     )
+    # Language dropdown is built from languages.json and opened via the top-layer popover API
+    # so the sticky header cannot clip it.
+    current_lang = language_by_code(LANG) or {"code": LANG, "name": LANG, "flag": ""}
+    flag_root = "../../" if prefix == "../" else "../"
+
+    def lang_flag_html(meta: dict) -> str:
+        rel = str(meta.get("flag") or "")
+        if not rel:
+            return '<span class="lang-switcher__flag-slot" aria-hidden="true"></span>'
+        return (
+            f'<img class="lang-switcher__flag" src="{esc(flag_root + rel)}" alt="" '
+            f'width="20" height="14" decoding="async" />'
+        )
+
+    option_html = []
+    for meta in switcher_languages():
+        code = str(meta["code"])
+        label = esc(meta.get("name") or meta.get("label") or code)
+        if not is_implemented(meta):
+            option_html.append(
+                f'<span class="lang-switcher__option" role="option" aria-disabled="true" '
+                f'title="{coming_soon}">'
+                f"{lang_flag_html(meta)}<span>{label}</span></span>"
+            )
+            continue
+        href = (
+            f"../../{code}/categories/{active_slug}.html"
+            if active_slug
+            else f"../{code}/index.html"
+        )
+        selected = "true" if code == LANG else "false"
+        option_html.append(
+            f'<a class="lang-switcher__option" role="option" href="{esc(href)}" '
+            f'hreflang="{esc(code)}" data-lang="{esc(code)}" aria-selected="{selected}">'
+            f"{lang_flag_html(meta)}<span>{label}</span></a>"
+        )
+    lang_switcher = (
+        f'<nav class="lang-switcher" aria-label="{esc(t_ui("lang_switcher_label", "Dil"))}">'
+        f'<button type="button" class="lang-switcher__toggle" aria-expanded="false" '
+        f'aria-haspopup="listbox" aria-controls="lang-switcher-menu">'
+        f"{lang_flag_html(current_lang)}"
+        f'<span class="lang-switcher__name">{esc(str(current_lang.get("name") or LANG))}</span>'
+        f'<span class="lang-switcher__caret" aria-hidden="true"></span>'
+        f"</button>"
+        f'<div class="lang-switcher__menu" id="lang-switcher-menu" role="listbox" hidden>'
+        f"{''.join(option_html)}"
+        f"</div>"
+        f"</nav>"
+    )
     return f"""
 <header class="site-header">
   <div class="site-header__inner">
-    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Menyunu aç">
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primaryNav" aria-label="{esc(t_ui("open_menu", "Menyunu aç"))}">
       <span></span><span></span><span></span>
     </button>
     <a class="brand" href="{home}">
-      <img class="brand__logo" src="{prefix}assets/pearl.webp" alt="" width="40" height="40" />
+      <img class="brand__logo" src="{shared_asset_href(prefix, "pearl.webp")}" alt="" width="40" height="40" />
       <span class="brand__name">{esc(SITE_NAME)}</span>
     </a>
-    <nav class="primary-nav" id="primaryNav" aria-label="Əsas menyu">
+    <nav class="primary-nav" id="primaryNav" aria-label="{esc(t_ui("main_menu", "Əsas menyu"))}">
       <details class="nav-dropdown nav-dropdown--literature">
         <summary class="nav-dropdown__summary">
           {menu_icon("book")}
@@ -1054,33 +1403,38 @@ def nav_html(active_slug: str | None, prefix: str) -> str:
       {top_links}
     </nav>
     <div class="site-header__actions">
-      <button type="button" class="global-search-toggle" id="global-search-toggle" aria-expanded="false" aria-controls="global-search" title="Axtar (Ctrl+K)" aria-label="Qlobal axtarış, Ctrl+K">
+      {lang_switcher}
+      <button type="button" class="global-search-toggle" id="global-search-toggle" aria-expanded="false" aria-controls="global-search" title="{esc(t_ui("global_search_title_attr", "Axtar (Ctrl+K)"))}" aria-label="{esc(t_ui("global_search_toggle", "Qlobal axtarış, Ctrl+K"))}">
         <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <circle cx="11" cy="11" r="7"></circle>
           <path d="m20 20-3.5-3.5"></path>
         </svg>
-        <span class="global-search-toggle__label">Axtar…</span>
+        <span class="global-search-toggle__label">{esc(t_ui("search", "Axtar…"))}</span>
         <kbd class="global-search-toggle__kbd">Ctrl+K</kbd>
       </button>
     </div>
   </div>
 </header>
 <div class="global-search" id="global-search" hidden data-search-index="{esc(data_url)}">
-  <button type="button" class="global-search__backdrop" data-global-search-close tabindex="-1" aria-label="Axtarışı bağla"></button>
+  <button type="button" class="global-search__backdrop" data-global-search-close tabindex="-1" aria-label="{esc(t_ui("close_search", "Axtarışı bağla"))}"></button>
   <div class="global-search__panel" role="dialog" aria-modal="true" aria-labelledby="global-search-title">
     <div class="global-search__head">
-      <p id="global-search-title" class="global-search__title">Qlobal axtarış</p>
-      <button type="button" class="global-search__close" data-global-search-close aria-label="Bağla">×</button>
+      <p id="global-search-title" class="global-search__title">{esc(t_ui("global_search", "Qlobal axtarış"))}</p>
+      <button type="button" class="global-search__close" data-global-search-close aria-label="{esc(t_ui("close", "Bağla"))}">×</button>
     </div>
     <label class="global-search__field">
-      <span class="visually-hidden">Hekayə axtar</span>
-      <input type="search" id="global-search-input" placeholder="Bütün hekayələrdə axtar…" autocomplete="off" />
+      <span class="visually-hidden">{esc(t_ui("search_stories_label", "Hekayə axtar"))}</span>
+      <input type="search" id="global-search-input" placeholder="{esc(t_ui("search_stories_placeholder", "Bütün hekayələrdə axtar…"))}" autocomplete="off" />
     </label>
     <p class="global-search__status" id="global-search-status" aria-live="polite"></p>
     <div class="global-search__results" id="global-search-results"></div>
   </div>
 </div>
 """.strip()
+
+
+def _footer_contact_icon(name: str) -> str:
+    return menu_icon(name)
 
 
 def page_shell(
@@ -1094,42 +1448,66 @@ def page_shell(
     extra_body_class: str = "",
 ) -> str:
     page_title = title if SITE_NAME in title else f"{title} · {SITE_NAME}"
+    html_lang = (LOCALE.get("html_lang") if LOCALE else None) or LANG or "az"
     return f"""<!DOCTYPE html>
-<html lang="az">
+<html lang="{esc(html_lang)}">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#0069b4" />
   <meta name="color-scheme" content="light" />
   <title>{esc(page_title)}</title>
   <meta name="description" content="{esc(description)}" />
-  <link rel="icon" href="{prefix}assets/favicon-32.png" type="image/png" sizes="32x32" />
-  <link rel="icon" href="{prefix}assets/favicon-48.png" type="image/png" sizes="48x48" />
-  <link rel="icon" href="{prefix}assets/favicon.png" type="image/png" sizes="192x192" />
-  <link rel="icon" href="{prefix}assets/favicon.ico" sizes="any" />
-  <link rel="apple-touch-icon" href="{prefix}assets/apple-touch-icon.png" sizes="180x180" />
+  <link rel="icon" href="{shared_asset_href(prefix, "favicon-32.png")}" type="image/png" sizes="32x32" />
+  <link rel="icon" href="{shared_asset_href(prefix, "favicon-48.png")}" type="image/png" sizes="48x48" />
+  <link rel="icon" href="{shared_asset_href(prefix, "favicon.png")}" type="image/png" sizes="192x192" />
+  <link rel="icon" href="{shared_asset_href(prefix, "favicon.ico")}" sizes="any" />
+  <link rel="apple-touch-icon" href="{shared_asset_href(prefix, "apple-touch-icon.png")}" sizes="180x180" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="{prefix}assets/site.css?v={ASSET_VERSION}" />
+  <link rel="stylesheet" href="{shared_asset_href(prefix, "site.css")}?v={ASSET_VERSION}" />
 </head>
-<body class="{extra_body_class}" id="top">
-  <a class="skip-link" href="#main">Məzmuna keç</a>
+<body class="{extra_body_class}" id="top" data-lang="{esc(LANG)}">
+  <a class="skip-link" href="#main">{esc(t_ui("skip_to_content", "Məzmuna keç"))}</a>
   {nav_html(active_slug, prefix)}
   {breadcrumbs_html(crumbs, prefix)}
   <main id="main">
   {body}
   </main>
-  <a class="back-to-top" href="#top" id="back-to-top" title="Səhifənin yuxarısına qayıt" aria-label="Səhifənin yuxarısına qayıt"></a>
+  <a class="back-to-top" href="#top" id="back-to-top" title="{esc(t_ui("back_to_top", "Səhifənin yuxarısına qayıt"))}" aria-label="{esc(t_ui("back_to_top", "Səhifənin yuxarısına qayıt"))}"></a>
   <footer class="footer-pro">
     <div class="footer-inner">
-      <div class="footer-brand">
-        <h3>{esc(SITE_NAME)}</h3>
-      </div>
       <div class="footer-grid">
-        <div class="footer-col" aria-label="Panel 1"></div>
-        <div class="footer-col" aria-label="Panel 2"></div>
-        <div class="footer-col" aria-label="Panel 3"></div>
+        <div class="footer-col footer-col--about">
+          <p class="footer-about">{esc(t_ui("intro_lead", "Saytımızda bəşəriyyətin tarix boyu elm və texnologiya, təbiət elmləri, ictimai və humanitar elmlər, eləcə də ədəbiyyat və incəsənətin müxtəlif sahələrində qazandığı möhtəşəm nailiyyətlər, ümumbəşəri mənəvi dəyərlər, görkəmli şəxsiyyətlər, mühüm tarixi kəşf və ixtiralar haqqında zəngin məlumatlar təqdim olunur. Niyyətimiz əsrlər boyu toplanmış bu dəyərli irsi qorumaq, sistemləşdirmək və gələcək nəsillərə bilik, ibrət və ilham mənbəyi kimi çatdırmaqdır."))}</p>
+        </div>
+        <div class="footer-col footer-col--brand">
+          <a class="footer-logo" href="{prefix}index.html">
+            <img class="footer-logo__img" src="{shared_asset_href(prefix, "pearl.webp")}" alt="" width="72" height="72" decoding="async" />
+            <span class="footer-logo__name">{esc(SITE_NAME)}</span>
+          </a>
+        </div>
+        <div class="footer-col footer-col--contact">
+          <h2 class="footer-contact__title">{esc(t_ui("footer_contact", "Əlaqə vasitələri"))}</h2>
+          <ul class="footer-contact">
+            <li>
+              {_footer_contact_icon("phone")}
+              <span class="footer-contact__label">{esc(t_ui("footer_phone", "Telefon"))}</span>
+            </li>
+            <li>
+              {_footer_contact_icon("map-pin")}
+              <span class="footer-contact__label">{esc(t_ui("footer_address", "Ünvan"))}</span>
+            </li>
+            <li>
+              <a class="footer-contact__link" href="{esc(t_ui("footer_website_url", "https://birinci.cloud"))}" rel="noopener noreferrer">
+                {_footer_contact_icon("website")}
+                <span class="footer-contact__label">{esc(t_ui("footer_website", "Veb sayt"))}</span>
+              </a>
+            </li>
+          </ul>
+          <a class="footer-contact__url" href="{esc(t_ui("footer_website_url", "https://birinci.cloud"))}" rel="noopener noreferrer">birinci.cloud</a>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -1142,79 +1520,179 @@ def page_shell(
 """
 
 
+def _tools_bar_glyph(name: str, extra_class: str = "") -> str:
+    paths = {
+        "eye": '<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/>',
+        "eye-off": '<path d="M3 3l18 18"/><path d="M10.6 10.6a3 3 0 0 0 4.2 4.2"/><path d="M9.9 5.1A11 11 0 0 1 12 5c6.5 0 10 7 10 7a19 19 0 0 1-3.2 4.1"/><path d="M6.1 6.1C3.6 7.8 2 12 2 12s3.5 7 10 7c1.6 0 3.1-.3 4.4-.9"/>',
+        "text": '<path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M9 13h6"/><path d="M9 17h6"/>',
+        "text-off": '<path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M9 13h6"/><path d="M9 17h6"/><path d="M5 5l14 14"/>',
+        "chevron-left": '<path d="M15 6l-6 6 6 6"/>',
+        "chevron-right": '<path d="M9 6l6 6-6 6"/>',
+        "shuffle": '<path d="M16 3h5v5"/><path d="m21 3-7 7"/><path d="M4 20l7-7"/><path d="M16 16h5v5"/><path d="m21 21-6-6"/><path d="M4 4l5 5"/>',
+        "grid": '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',
+        "list": '<path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/>',
+        "all": '<rect x="3" y="3" width="5" height="5" rx="1"/><rect x="9.5" y="3" width="5" height="5" rx="1"/><rect x="16" y="3" width="5" height="5" rx="1"/><rect x="3" y="9.5" width="5" height="5" rx="1"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><rect x="16" y="9.5" width="5" height="5" rx="1"/><rect x="3" y="16" width="5" height="5" rx="1"/><rect x="9.5" y="16" width="5" height="5" rx="1"/><rect x="16" y="16" width="5" height="5" rx="1"/>',
+        "play-visible": '<polygon points="5 4 15 12 5 20 5 4"/><path d="M18 6v12"/><path d="M21 8v8"/>',
+        "listen": '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>',
+        "stop": '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M3 3l18 18"/>',
+    }
+    cls = "tools-bar__glyph"
+    if extra_class:
+        cls = f"{cls} {extra_class}"
+    return (
+        f'<svg class="{cls}" viewBox="0 0 24 24" width="16" height="16" '
+        f'aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" '
+        f'stroke-linecap="round" stroke-linejoin="round">{paths[name]}</svg>'
+    )
+
+
+_STORY_ACTION_BTN = "tools-bar__view-btn tools-bar__view-btn--icon"
+
+
+def _story_mode_pair(*, kind: str, controls_id: str = "") -> str:
+    """Two-button story group: Show|Hide, or Listen|Stop. First button is the reveal/play mode."""
+    if kind == "figure":
+        mode_attr = "data-images-mode"
+        first_label = esc(t_ui("show_image", "Şəkli göstər"))
+        second_label = esc(t_ui("hide_image", "Şəkli gizlət"))
+        group_label = esc(t_ui("story_image_label", "Şəkil"))
+        first_glyph, second_glyph = "eye", "eye-off"
+        first_mode, second_mode = "show", "hide"
+        first_pressed, second_pressed = "true", "false"
+        extra_class = ""
+        extra_attrs = f' aria-controls="{controls_id}"' if controls_id else ""
+    elif kind == "text":
+        mode_attr = "data-texts-mode"
+        first_label = esc(t_ui("show_text", "Mətni göstər"))
+        second_label = esc(t_ui("hide_text", "Mətni gizlət"))
+        group_label = esc(t_ui("story_text_label", "Mətn"))
+        first_glyph, second_glyph = "text", "text-off"
+        first_mode, second_mode = "show", "hide"
+        first_pressed, second_pressed = "true", "false"
+        extra_class = ""
+        extra_attrs = f' aria-controls="{controls_id}"' if controls_id else ""
+    elif kind == "tts":
+        mode_attr = "data-tts-mode"
+        first_label = esc(t_ui("listen", "Mətni dinlə"))
+        second_label = esc(t_ui("stop", "Dayandır"))
+        group_label = esc(t_ui("story_audio_label", "Səs"))
+        first_glyph, second_glyph = "listen", "stop"
+        first_mode, second_mode = "listen", "stop"
+        first_pressed, second_pressed = "false", "true"
+        extra_class = " story-tts"
+        extra_attrs = " data-story-tts"
+    else:
+        raise ValueError(f"unsupported story mode pair: {kind}")
+    return f"""
+          <div class="story__action-group">
+            <span class="tools-bar__label">{group_label}</span>
+            <div class="tools-bar__views" role="group" aria-label="{group_label}">
+              <button type="button" class="{_STORY_ACTION_BTN}{extra_class}" {mode_attr}="{first_mode}" aria-pressed="{first_pressed}"{extra_attrs} title="{first_label}" aria-label="{first_label}">{_tools_bar_glyph(first_glyph)}</button>
+              <button type="button" class="{_STORY_ACTION_BTN}{extra_class}" {mode_attr}="{second_mode}" aria-pressed="{second_pressed}"{extra_attrs} title="{second_label}" aria-label="{second_label}">{_tools_bar_glyph(second_glyph)}</button>
+            </div>
+          </div>"""
+
+
 def tools_bar_html(*, mode: str = "home") -> str:
     """Shared tools bar for home and category pages.
 
     mode:
-      - "home": Axtar + Görüntü (Təsnifatlı/Ardıcıl) + list-only Şəkillər/Mətnlər/Göstər
+      - "home": Axtar + Görüntü (Təsnifatlı/Ardıcıl) + list-only Şəkillər/Mətnlər/Sayı
       - "category": same chrome without Görüntü (page is already a single-category list);
-        Şəkillər/Mətnlər/Göstər are always visible
+        Şəkillər/Mətnlər/Sayı are always visible
     """
     if mode not in ("home", "category"):
         raise ValueError(f"unsupported tools bar mode: {mode}")
     is_home = mode == "home"
     list_only_attr = " data-home-list-only hidden" if is_home else ""
-    batch_value_attr = 'value=""'
     view_block = ""
+    cards_label = esc(t_ui("view_cards", "Təsnifatlı"))
+    list_label = esc(t_ui("view_list", "Ardıcıl"))
     if is_home:
-        view_block = """
+        view_block = f"""
   <div class="tools-bar__field">
-    <span class="tools-bar__label" id="home-view-label">Görüntü</span>
+    <span class="tools-bar__label" id="home-view-label">{esc(t_ui("view", "Görüntü"))}</span>
     <div class="tools-bar__views" role="group" aria-labelledby="home-view-label">
-      <button type="button" class="tools-bar__view-btn" data-home-view="cards" aria-pressed="true" onclick="return window.__birinciSetHomeView ? window.__birinciSetHomeView('cards') : false">Təsnifatlı</button>
-      <button type="button" class="tools-bar__view-btn" data-home-view="list" aria-pressed="false" onclick="return window.__birinciSetHomeView ? window.__birinciSetHomeView('list') : false">Ardıcıl</button>
+      <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-home-view="cards" aria-pressed="true" title="{cards_label}" aria-label="{cards_label}" onclick="return window.__birinciSetHomeView ? window.__birinciSetHomeView('cards') : false">{_tools_bar_glyph("grid")}</button>
+      <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-home-view="list" aria-pressed="false" title="{list_label}" aria-label="{list_label}" onclick="return window.__birinciSetHomeView ? window.__birinciSetHomeView('list') : false">{_tools_bar_glyph("list")}</button>
     </div>
   </div>
 """.rstrip()
     view_block_html = f"\n  {view_block}" if view_block else ""
+    show_label = esc(t_ui("show", "Göstər"))
+    hide_label = esc(t_ui("hide", "Gizlət"))
+    count_label = esc(t_ui("batch_count", "Hekayə sayı"))
+    prev_label = esc(t_ui("batch_prev", "Əvvəlki"))
+    next_label = esc(t_ui("batch_next", "Növbəti"))
+    random_label = esc(t_ui("batch_random", "Təsadüfi"))
+    all_label = esc(t_ui("batch_all", "Hamısı"))
+    listen_page_label = esc(t_ui("listen_page", "Səhifəni dinlə"))
+    stop_label = esc(t_ui("stop", "Dayandır"))
+    clear_filter_label = esc(t_ui("clear_search_filter", "Filtri təmizlə"))
     return f"""
 <div class="tools-bar{" tools-bar--dense" if not is_home else ""}" data-tools="{esc(mode)}">
-  <label class="tools-bar__search">
-    <span class="visually-hidden">Axtar</span>
-    <input type="search" data-tools-search placeholder="Axtar…" autocomplete="off" />
-  </label>{view_block_html}
+  <div class="tools-bar__search">
+    <label class="tools-bar__search-field">
+      <span class="visually-hidden">{esc(t_ui("search_aria", "Axtar"))}</span>
+      <input type="search" data-tools-search placeholder="{esc(t_ui("search", "Axtar…"))}" autocomplete="off" />
+    </label>
+    <div class="tools-bar__search-chip" data-search-filter hidden>
+      <span class="tools-bar__search-chip-dot" aria-hidden="true"></span>
+      <span class="tools-bar__search-chip-text" data-search-filter-text aria-live="polite"></span>
+      <button type="button" class="tools-bar__view-btn tools-bar__search-clear" data-search-filter-clear title="{clear_filter_label}" aria-label="{clear_filter_label}">×</button>
+    </div>
+  </div>{view_block_html}
   <div class="tools-bar__field"{list_only_attr}>
-    <span class="tools-bar__label" id="tools-images-label">Şəkillər</span>
+    <span class="tools-bar__label" id="tools-images-label">{esc(t_ui("images", "Şəkillər"))}</span>
     <div class="tools-bar__views tools-bar__images-toggle" role="group" aria-labelledby="tools-images-label" data-tools-images>
-      <button type="button" class="tools-bar__view-btn" data-images-mode="show" aria-pressed="true">Göstər</button>
-      <button type="button" class="tools-bar__view-btn" data-images-mode="hide" aria-pressed="false">Gizlət</button>
+      <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-images-mode="show" aria-pressed="true" title="{show_label}" aria-label="{show_label}">{_tools_bar_glyph("eye")}</button>
+      <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-images-mode="hide" aria-pressed="false" title="{hide_label}" aria-label="{hide_label}">{_tools_bar_glyph("eye-off")}</button>
     </div>
   </div>
   <div class="tools-bar__field"{list_only_attr}>
-    <span class="tools-bar__label" id="tools-texts-label">Mətnlər</span>
+    <span class="tools-bar__label" id="tools-texts-label">{esc(t_ui("texts", "Mətnlər"))}</span>
     <div class="tools-bar__views tools-bar__texts-toggle" role="group" aria-labelledby="tools-texts-label" data-tools-texts>
-      <button type="button" class="tools-bar__view-btn" data-texts-mode="show" aria-pressed="true">Göstər</button>
-      <button type="button" class="tools-bar__view-btn" data-texts-mode="hide" aria-pressed="false">Gizlət</button>
+      <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-texts-mode="show" aria-pressed="true" title="{show_label}" aria-label="{show_label}">{_tools_bar_glyph("text")}</button>
+      <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-texts-mode="hide" aria-pressed="false" title="{hide_label}" aria-label="{hide_label}">{_tools_bar_glyph("text-off")}</button>
     </div>
   </div>
   <div class="tools-bar__field tools-bar__batch"{list_only_attr}>
-    <span class="tools-bar__label" id="tools-batch-label">Göstər</span>
+    <span class="tools-bar__label" id="tools-batch-label">{esc(t_ui("batch", "Hekayələrin sayı"))}</span>
     <div class="tools-bar__batch-controls" role="group" aria-labelledby="tools-batch-label">
-      <label class="tools-bar__batch-count">
-        <span class="visually-hidden">Hekayə sayı</span>
-        <input
-          type="number"
-          class="tools-bar__batch-input"
-          data-home-batch-size
-          min="1"
-          max="9999"
-          {batch_value_attr}
-          step="1"
-          inputmode="numeric"
-          aria-label="Hekayə sayı"
-          title="Hekayə sayı"
-          placeholder="—"
-        />
-      </label>
-      <div class="tools-bar__batch-actions">
-        <button type="button" class="tools-bar__view-btn" data-home-batch="prev" title="Əvvəlki hekayələri göstər" aria-label="Əvvəlki">Əvvəlki</button>
-        <button type="button" class="tools-bar__view-btn" data-home-batch="next" title="Növbəti hekayələri göstər" aria-label="Növbəti">Növbəti</button>
-        <button type="button" class="tools-bar__view-btn" data-home-batch="random" title="Təsadüfi hekayələr" aria-label="Təsadüfi hekayələr">Təsadüfi</button>
-        <button type="button" class="tools-bar__view-btn tools-bar__batch-all" data-home-batch="all" title="Bütün hekayələri göstər" aria-label="Bütün hekayələri göstər" aria-pressed="false">Tam</button>
+      <div class="tools-bar__stepper">
+        <button type="button" class="tools-bar__stepper-btn" data-home-batch="dec" title="{esc(t_ui("batch_dec", "Azalt"))}" aria-label="{esc(t_ui("batch_dec", "Azalt"))}">−</button>
+        <label class="tools-bar__batch-count">
+          <span class="visually-hidden">{count_label}</span>
+          <input
+            type="number"
+            class="tools-bar__batch-input"
+            data-home-batch-size
+            min="1"
+            max="9999"
+            value="12"
+            step="1"
+            inputmode="numeric"
+            aria-label="{count_label}"
+            title="{count_label}"
+          />
+        </label>
+        <button type="button" class="tools-bar__stepper-btn" data-home-batch="inc" title="{esc(t_ui("batch_inc", "Artır"))}" aria-label="{esc(t_ui("batch_inc", "Artır"))}">+</button>
       </div>
+      <div class="tools-bar__pager" role="navigation" aria-label="{esc(t_ui("batch_pager", "Səhifə"))}">
+        <button type="button" class="tools-bar__pager-btn" data-home-batch="prev" title="{prev_label}" aria-label="{prev_label}">{_tools_bar_glyph("chevron-left")}</button>
+        <span class="tools-bar__batch-range" data-home-batch-range aria-live="polite"></span>
+        <button type="button" class="tools-bar__pager-btn" data-home-batch="next" title="{next_label}" aria-label="{next_label}">{_tools_bar_glyph("chevron-right")}</button>
+      </div>
+      <button type="button" class="tools-bar__icon-btn" data-home-batch="random" title="{random_label}" aria-label="{random_label}">{_tools_bar_glyph("shuffle")}</button>
+      <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon tools-bar__batch-all" data-home-batch="all" title="{all_label}" aria-label="{all_label}" aria-pressed="false">{_tools_bar_glyph("all")}</button>
     </div>
-    <span class="tools-bar__batch-hint" data-batch-hint hidden>Əvvəl say daxil edin</span>
-    <span class="tools-bar__batch-range" data-home-batch-range hidden aria-live="polite"></span>
+  </div>
+  <div class="tools-bar__field"{list_only_attr}>
+    <span class="tools-bar__label" id="tools-listen-page-label">{listen_page_label}</span>
+    <div class="tools-bar__views" role="group" aria-labelledby="tools-listen-page-label">
+      <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-tools-play-visible data-tts-mode="listen" aria-pressed="false" title="{listen_page_label}" aria-label="{listen_page_label}">{_tools_bar_glyph("listen")}</button>
+      <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-tools-play-visible data-tts-mode="stop" aria-pressed="true" title="{stop_label}" aria-label="{stop_label}">{_tools_bar_glyph("stop")}</button>
+    </div>
   </div>
 </div>
 """.strip()
@@ -1224,10 +1702,25 @@ def home_tools_bar_html() -> str:
     return tools_bar_html(mode="home")
 
 
+def content_placeholder_html() -> str:
+    return f"""
+<div class="content-placeholder" role="status">
+  <p class="content-placeholder__kicker">{esc(t_ui("coming_soon", "Tezliklə"))}</p>
+  <p class="content-placeholder__title">{esc(t_ui("stories_coming_soon", "Hekayələr tezliklə"))}</p>
+  <p class="content-placeholder__lead">{esc(t_ui("stories_coming_soon_lead", "Bu dil üçün hekayələr hazırlanır. Səhifə quruluşu artıq hazırdır; mətnlər əlavə olunanda burada görünəcək."))}</p>
+</div>
+""".strip()
+
+
 def build_landing(catalog: dict) -> str:
+    ready = stories_ready(LANG)
+    count_suffix = t_ui("stories_count_suffix", "hekayə")
+    coming_soon = t_ui("coming_soon", "Tezliklə")
     cards = []
     for c in catalog["categories"]:
         icon = menu_icon(c["icon"])
+        meta = coming_soon if not ready else f"{c['count']} {count_suffix}"
+        meta_class = " cat-card__meta--soon" if not ready else ""
         cards.append(
             f"""
 <a class="cat-card page-card" href="categories/{esc(c['slug'])}.html" data-title="{esc(c['title'])}" data-blurb="{esc(c['blurb'])}" data-count="{c['count']}">
@@ -1235,49 +1728,29 @@ def build_landing(catalog: dict) -> str:
   <div class="card-body">
     <h2 class="card-title">{esc(c['title'])}</h2>
     <div class="card-desc">{esc(c['blurb'])}</div>
-    <span class="cat-card__meta">{c['count']} hekayə</span>
+    <span class="cat-card__meta{meta_class}">{esc(meta)}</span>
   </div>
 </a>
 """.strip()
         )
 
-    tools = home_tools_bar_html()
-
-    body = f"""
-<div class="page-home__content">
-  <section class="intro">
-    <div class="intro__atmosphere" aria-hidden="true"></div>
-    <div class="intro__content">
-      <div class="intro__copy">
-        <h1 class="intro__brand">Bir <span>inci</span></h1>
-        <p class="intro__lead">Saytımızda bəşəriyyətin tarix boyu elm, ədəbiyyat və incəsənətin müxtəlif sahələrində qazandığı möhtəşəm nailiyyətlər, milli-mənəvi dəyərlər, görkəmli şəxsiyyətlər, mühüm tarixi kəşf və ixtiralar haqqında zəngin məlumatlar təqdim olunur. Niyyətimiz əsrlər boyu toplanmış bu dəyərli irsi qorumaq, sistemləşdirmək və gələcək nəsillərə bilik, ibrət və ilham mənbəyi kimi çatdırmaqdır.</p>
-      </div>
-      <div class="intro__visual">
-        <img src="assets/pearl-knowledge-wide.webp" alt="" width="2000" height="1600" decoding="async" />
-      </div>
-    </div>
-  </section>
-
-  <section id="kateqoriyalar" class="section categories home-browser" aria-labelledby="home-categories-title">
-    <h2 id="home-categories-title" class="section__title visually-hidden">Kateqoriyalar</h2>
-    {tools}
-    {HOME_VIEW_BOOTSTRAP}
-    <div data-view="cards">
-      <div class="cat-grid" data-tools-list>
-        {"".join(cards)}
-      </div>
-      <p class="tools-empty" data-tools-empty hidden>Uyğun kateqoriya tapılmadı.</p>
-    </div>
+    stories_nav = t_ui("stories_nav", "Hekayələr")
+    tools = home_tools_bar_html() if ready else ""
+    view_bootstrap = HOME_VIEW_BOOTSTRAP if ready else ""
+    placeholder = content_placeholder_html() if not ready else ""
+    list_view = ""
+    if ready:
+        list_view = f"""
     <div data-view="list" hidden
          data-stories-url="data/stories.json"
          data-stories-script="assets/stories-data.js?v={esc(ASSET_VERSION)}"
          data-asset-version="{esc(ASSET_VERSION)}">
       <div class="category-layout home-stories-layout">
-        <aside class="story-nav sidebar" aria-label="Hekayələr">
+        <aside class="story-nav sidebar" aria-label="{esc(stories_nav)}">
           <div class="sidebar-widget">
             <div class="widget-head">
-              <span><span aria-hidden="true">📖</span> Hekayələr</span>
-              <button type="button" class="events-menu-toggle" aria-controls="homeStoryNavMenu" aria-expanded="false" aria-label="Hekayələr menyusunu aç">
+              <span><span aria-hidden="true">📖</span> {esc(stories_nav)}</span>
+              <button type="button" class="events-menu-toggle" aria-controls="homeStoryNavMenu" aria-expanded="false" aria-label="{esc(t_ui("stories_nav_open", "Hekayələr menyusunu aç"))}">
                 <span></span><span></span><span></span>
               </button>
             </div>
@@ -1292,14 +1765,44 @@ def build_landing(catalog: dict) -> str:
           <div class="story-list" data-stories-list></div>
         </div>
       </div>
-      <p class="tools-empty" data-home-list-empty hidden>Uyğun hekayə tapılmadı.</p>
+      <p class="tools-empty" data-home-list-empty hidden>{esc(t_ui("no_matching_story", "Uyğun hekayə tapılmadı."))}</p>
     </div>
+"""
+
+    body = f"""
+<div class="page-home__content">
+  <section class="intro">
+    <div class="intro__atmosphere" aria-hidden="true"></div>
+    <div class="intro__content">
+      <div class="intro__copy">
+        <h1 class="intro__brand">Bir <span>inci</span></h1>
+        <p class="intro__lead">{esc(t_ui("intro_lead", "Saytımızda bəşəriyyətin tarix boyu elm və texnologiya, təbiət elmləri, ictimai və humanitar elmlər, eləcə də ədəbiyyat və incəsənətin müxtəlif sahələrində qazandığı möhtəşəm nailiyyətlər, ümumbəşəri mənəvi dəyərlər, görkəmli şəxsiyyətlər, mühüm tarixi kəşf və ixtiralar haqqında zəngin məlumatlar təqdim olunur. Niyyətimiz əsrlər boyu toplanmış bu dəyərli irsi qorumaq, sistemləşdirmək və gələcək nəsillərə bilik, ibrət və ilham mənbəyi kimi çatdırmaqdır."))}</p>
+        <p class="intro__source"><span class="intro__source-ornament" aria-hidden="true"></span><strong>{esc(t_ui("intro_source", "Hekayələr açıq İnternet mənbələrindən əldə olunub."))}</strong></p>
+      </div>
+      <div class="intro__visual">
+        <img src="{shared_asset_href("", "Pearl with Background 3.png")}?v={ASSET_VERSION}" alt="" width="1536" height="1024" decoding="async" />
+      </div>
+    </div>
+  </section>
+
+  <section id="kateqoriyalar" class="section categories home-browser" aria-labelledby="home-categories-title">
+    <h2 id="home-categories-title" class="section__title visually-hidden">{esc(t_ui("categories_heading", "Kateqoriyalar"))}</h2>
+    {placeholder}
+    {tools}
+    {view_bootstrap}
+    <div data-view="cards">
+      <div class="cat-grid" data-tools-list>
+        {"".join(cards)}
+      </div>
+      <p class="tools-empty" data-tools-empty hidden>{esc(t_ui("no_matching_category", "Uyğun kateqoriya tapılmadı."))}</p>
+    </div>
+    {list_view}
   </section>
 </div>
 """
     return page_shell(
         title=SITE_NAME,
-        description="Bir inci — ibrətamiz deyimlər və hekayələr toplusu.",
+        description=t_ui("site_description", "Bir inci — ibrətamiz deyimlər və hekayələr toplusu."),
         active_slug=None,
         prefix="",
         body=body,
@@ -1311,7 +1814,7 @@ def build_landing(catalog: dict) -> str:
 def build_category_page(cat: dict) -> str:
     stories_html = []
     for s in cat["stories"]:
-        paras = story_paragraphs_html(s["paragraphs"])
+        paras = story_paragraphs_html(s["paragraphs"], s.get("stem") or "")
         img = f"../illustrations/{esc(s['stem'])}.webp"
         audio_file = AUDIO_DIR / f"{s['stem']}.mp3"
         audio_attr = (
@@ -1319,6 +1822,16 @@ def build_category_page(cat: dict) -> str:
             if audio_file.is_file()
             else ""
         )
+        figure_toggle = ""
+        figure_html = ""
+        if s.get("has_image"):
+            figure_toggle = _story_mode_pair(kind="figure", controls_id=f"figure-{esc(s['stem'])}")
+            figure_html = f"""
+    <figure class="story__figure" id="figure-{esc(s['stem'])}">
+      <button type="button" class="story__figure-open" aria-label="{esc(s['title'])} şəklini böyüt">
+        <img src="{img}" alt="{esc(s['title'])} illüstrasiyası" loading="lazy" width="1536" height="1024" />
+      </button>
+    </figure>"""
         stories_html.append(
             f"""
 <article class="story news-card" id="{esc(s['stem'])}" data-stem="{esc(s['stem'])}" data-title="{esc(s['title'])}"{audio_attr}>
@@ -1329,20 +1842,9 @@ def build_category_page(cat: dict) -> str:
     <div class="story__content">
       <div class="story__panel">
         <div class="story__actions">
-          <button type="button" class="story-tts" data-story-tts aria-pressed="false">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-              <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
-            </svg>
-            <span data-story-tts-label>Mətni dinlə</span>
-          </button>
-          <button type="button" class="story-text-toggle" data-story-text-toggle aria-expanded="true" aria-controls="text-{esc(s['stem'])}">
-            <span data-story-text-label>Mətni gizlət</span>
-          </button>
-          <button type="button" class="story-figure-toggle" data-story-figure-toggle aria-expanded="true" aria-controls="figure-{esc(s['stem'])}">
-            <span data-story-figure-label>Şəkli gizlət</span>
-          </button>
+          {_story_mode_pair(kind="tts")}
+          {figure_toggle}
+          {_story_mode_pair(kind="text", controls_id="text-" + esc(s["stem"]))}
           <p class="story-tts__note" data-story-tts-note hidden></p>
         </div>
         <div class="story__text card-text" id="text-{esc(s['stem'])}">
@@ -1350,11 +1852,7 @@ def build_category_page(cat: dict) -> str:
         </div>
       </div>
     </div>
-    <figure class="story__figure" id="figure-{esc(s['stem'])}">
-      <button type="button" class="story__figure-open" aria-label="{esc(s['title'])} şəklini böyüt">
-        <img src="{img}" alt="{esc(s['title'])} illüstrasiyası" loading="lazy" width="1536" height="1024" />
-      </button>
-    </figure>
+    {figure_html}
   </div>
 </article>
 """.strip()
@@ -1365,20 +1863,26 @@ def build_category_page(cat: dict) -> str:
         f'<a href="#{esc(s["stem"])}">{esc(s["title"])}</a></li>'
         for s in cat["stories"]
     )
-    tools = tools_bar_html(mode="category")
-    body = f"""
+    stories_nav = t_ui("stories_nav", "Hekayələr")
+    count_suffix = t_ui("stories_count_suffix", "hekayə")
+    coming_soon = t_ui("coming_soon", "Tezliklə")
+    ready = bool(cat["stories"]) and stories_ready(LANG)
+    hero_meta = coming_soon if not ready else f'<span data-tools-count>{cat["count"]}</span> {esc(count_suffix)}'
+    if ready:
+        tools = tools_bar_html(mode="category")
+        body = f"""
 <div class="category-page">
   <div class="category-layout">
     <header class="category-hero">
       <h1>{esc(cat['title'])}</h1>
-      <p class="category-hero__lead">{esc(cat['blurb'])} · <span data-tools-count>{cat['count']}</span> hekayə</p>
+      <p class="category-hero__lead">{esc(cat['blurb'])} · {hero_meta}</p>
     </header>
     {tools}
-    <aside class="story-nav sidebar" aria-label="Hekayələr">
+    <aside class="story-nav sidebar" aria-label="{esc(stories_nav)}">
       <div class="sidebar-widget">
         <div class="widget-head">
-          <span><span aria-hidden="true">📖</span> Hekayələr</span>
-          <button type="button" class="events-menu-toggle" aria-controls="storyNavMenu" aria-expanded="false" aria-label="Hekayələr menyusunu aç">
+          <span><span aria-hidden="true">📖</span> {esc(stories_nav)}</span>
+          <button type="button" class="events-menu-toggle" aria-controls="storyNavMenu" aria-expanded="false" aria-label="{esc(t_ui("stories_nav_open", "Hekayələr menyusunu aç"))}">
             <span></span><span></span><span></span>
           </button>
         </div>
@@ -1395,7 +1899,19 @@ def build_category_page(cat: dict) -> str:
       {"".join(stories_html)}
     </div>
   </div>
-  <p class="tools-empty" data-tools-empty hidden>Uyğun hekayə tapılmadı.</p>
+  <p class="tools-empty" data-tools-empty hidden>{esc(t_ui("no_matching_story", "Uyğun hekayə tapılmadı."))}</p>
+</div>
+"""
+    else:
+        body = f"""
+<div class="category-page">
+  <div class="category-layout category-layout--placeholder">
+    <header class="category-hero">
+      <h1>{esc(cat['title'])}</h1>
+      <p class="category-hero__lead">{esc(cat['blurb'])} · {esc(coming_soon)}</p>
+    </header>
+    {content_placeholder_html()}
+  </div>
 </div>
 """
     return page_shell(
@@ -1462,6 +1978,7 @@ CSS = r"""
   --radius-pill: 999px;
   --header-h: 4.25rem;
   --breadcrumb-h: 2.7rem;
+  /* Reserved for a future third sticky layer; syncStickyChrome sets header/breadcrumb only. */
   --sticky-stack-h: 0rem;
   --sticky-stack-bottom: calc(var(--header-h) + var(--breadcrumb-h) + var(--sticky-stack-h));
   --space-1: 0.25rem;
@@ -1582,8 +2099,6 @@ a,
 summary,
 .tools-bar__view-btn,
 .story-tts,
-.story-text-toggle,
-.story-figure-toggle,
 .nav-toggle,
 .events-menu-toggle {
   touch-action: manipulation;
@@ -1609,6 +2124,7 @@ summary,
   top: 0;
   z-index: 40;
   min-height: var(--header-h);
+  overflow: visible;
   background: linear-gradient(180deg, var(--blue-600) 0%, var(--nav-blue) 55%, var(--nav-blue-deep) 100%);
   border-bottom: 3px solid var(--blue-900);
   color: #fff;
@@ -1625,15 +2141,139 @@ summary,
   justify-content: flex-start;
   flex-wrap: nowrap;
   gap: 0.25rem;
+  overflow: visible;
 }
 .site-header__actions {
   position: relative;
-  z-index: 2;
+  z-index: 50;
   margin-left: auto;
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
   flex: 0 0 auto;
+  overflow: visible;
+}
+.lang-switcher {
+  position: relative;
+  z-index: 50;
+  font-family: var(--font-ui, "Source Sans 3", sans-serif);
+}
+.lang-switcher__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 2.15rem;
+  padding: 0.22rem 0.55rem 0.22rem 0.38rem;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+}
+.lang-switcher__toggle:hover,
+.lang-switcher__toggle[aria-expanded="true"] {
+  background: rgba(255, 255, 255, 0.26);
+}
+.lang-switcher__flag,
+.lang-switcher__flag-slot {
+  display: block;
+  width: 1.25rem;
+  height: 0.86rem;
+  border-radius: 2px;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px rgba(8, 38, 59, 0.18);
+  background: rgba(255, 255, 255, 0.35);
+  flex: 0 0 auto;
+}
+.lang-switcher__name {
+  max-width: 7.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.lang-switcher__caret {
+  width: 0.42rem;
+  height: 0.42rem;
+  margin-left: 0.05rem;
+  border-right: 1.7px solid currentColor;
+  border-bottom: 1.7px solid currentColor;
+  transform: rotate(45deg) translateY(-1px);
+  opacity: 0.85;
+}
+.lang-switcher.is-open .lang-switcher__caret {
+  transform: rotate(225deg) translateY(-1px);
+}
+.lang-switcher__menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  left: auto;
+  right: 0;
+  transform: none;
+  z-index: 80;
+  width: max-content;
+  min-width: 12.5rem;
+  max-width: min(18rem, calc(100vw - 1rem));
+  margin: 0;
+  padding: 0.3rem;
+  border: 1px solid var(--line-16);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 16px 36px rgba(0, 78, 140, 0.18);
+}
+.lang-switcher.is-open .lang-switcher__menu {
+  display: block;
+}
+.lang-switcher__menu::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  height: 0.45rem;
+}
+.lang-switcher__option {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  width: 100%;
+  padding: 0.42rem 0.55rem;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 650;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+.lang-switcher__option:hover,
+.lang-switcher__option:focus-visible {
+  background: var(--nav-blue-soft);
+  color: var(--nav-blue-deep);
+}
+.lang-switcher__option[aria-selected="true"] {
+  background: linear-gradient(180deg, rgba(255, 240, 191, 0.55), rgba(223, 242, 255, 0.7));
+  color: var(--blue-900);
+}
+.lang-switcher__option[aria-disabled="true"] {
+  opacity: 0.42;
+  cursor: not-allowed;
+  color: var(--ink-soft);
+}
+.lang-switcher__option[aria-disabled="true"]:hover,
+.lang-switcher__option[aria-disabled="true"]:focus-visible {
+  background: transparent;
+  color: var(--ink-soft);
+}
+.lang-switcher__option .lang-switcher__flag {
+  box-shadow: 0 0 0 1px rgba(0, 105, 180, 0.16);
 }
 .primary-nav {
   position: absolute;
@@ -1667,7 +2307,9 @@ summary,
   flex: 0 0 auto;
   transition: background 160ms ease, border-color 160ms ease, opacity 160ms ease;
 }
-.primary-nav__link .menu-icon {
+.primary-nav__link .menu-icon,
+.nav-dropdown > summary .menu-icon,
+.nav-dropdown > .nav-dropdown__summary .menu-icon {
   width: 1.15rem;
   height: 1.15rem;
   border-radius: 0.35rem;
@@ -1680,10 +2322,12 @@ summary,
     0 2px 6px color-mix(in srgb, var(--icon-glow) 50%, transparent);
   transform: none;
 }
-.primary-nav__link .menu-icon__svg {
+.primary-nav__link .menu-icon__svg,
+.nav-dropdown > summary .menu-icon__svg,
+.nav-dropdown > .nav-dropdown__summary .menu-icon__svg {
   width: 9px;
   height: 9px;
-  stroke: #fff;
+  stroke: var(--surface);
   filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.3)) drop-shadow(0 1px 1px rgba(0, 0, 0, 0.2));
 }
 .primary-nav__link:hover {
@@ -2009,27 +2653,6 @@ body.global-search-open { overflow: hidden; }
   flex: 0 0 auto;
   transition: background 160ms ease, border-color 160ms ease;
 }
-.nav-dropdown > summary .menu-icon,
-.nav-dropdown > .nav-dropdown__summary .menu-icon {
-  width: 1.15rem;
-  height: 1.15rem;
-  border-radius: 0.35rem;
-  background:
-    linear-gradient(160deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.35) 42%, transparent 43%),
-    linear-gradient(145deg, var(--icon-from), var(--icon-to));
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.55) inset,
-    0 -1px 2px rgba(0, 0, 0, 0.14) inset,
-    0 2px 6px color-mix(in srgb, var(--icon-glow) 50%, transparent);
-  transform: none;
-}
-.nav-dropdown > summary .menu-icon__svg,
-.nav-dropdown > .nav-dropdown__summary .menu-icon__svg {
-  width: 9px;
-  height: 9px;
-  stroke: #fff;
-  filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.3)) drop-shadow(0 1px 1px rgba(0, 0, 0, 0.2));
-}
 .nav-dropdown > summary:hover,
 .nav-dropdown > .nav-dropdown__summary:hover,
 .nav-dropdown[open] > summary,
@@ -2266,7 +2889,7 @@ body.global-search-open { overflow: hidden; }
 .nav-dropdown-link .menu-icon__svg {
   width: 9px;
   height: 9px;
-  stroke: #fff;
+  stroke: var(--surface);
   filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.3)) drop-shadow(0 1px 1px rgba(0, 0, 0, 0.2));
 }
 .nav-dropdown-link:hover,
@@ -2396,9 +3019,9 @@ body.global-search-open { overflow: hidden; }
 }
 
 .nav-dropdown .menu-icon {
-  --icon-from: #0069b4;
-  --icon-to: #4eb4ee;
-  --icon-glow: #9ed6f5;
+  --icon-from: var(--nav-blue);
+  --icon-to: var(--blue-400);
+  --icon-glow: var(--blue-soft);
   flex: 0 0 auto;
   width: 1.2rem;
   height: 1.2rem;
@@ -2419,7 +3042,7 @@ body.global-search-open { overflow: hidden; }
   width: 9px;
   height: 9px;
   filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.3)) drop-shadow(0 1px 1px rgba(0, 0, 0, 0.2));
-  stroke: #fff;
+  stroke: var(--surface);
 }
 .nav-dropdown-toggle .menu-icon {
   width: 1.2rem;
@@ -2428,12 +3051,12 @@ body.global-search-open { overflow: hidden; }
 .nav-dropdown-toggle .menu-icon__svg {
   width: 9px;
   height: 9px;
-  stroke: #fff;
+  stroke: var(--surface);
 }
 .menu-icon {
-  --icon-from: #0069b4;
-  --icon-to: #4eb4ee;
-  --icon-glow: #9ed6f5;
+  --icon-from: var(--nav-blue);
+  --icon-to: var(--blue-400);
+  --icon-glow: var(--blue-soft);
   flex: 0 0 auto;
   width: 2.15rem;
   height: 2.15rem;
@@ -2454,7 +3077,7 @@ body.global-search-open { overflow: hidden; }
 .menu-icon__svg {
   display: block;
   filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.35)) drop-shadow(0 2px 2px rgba(0, 0, 0, 0.25));
-  stroke: #fff;
+  stroke: var(--surface);
 }
 
 @keyframes drop-in {
@@ -2515,7 +3138,7 @@ body.global-search-open { overflow: hidden; }
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(14rem, 0.95fr);
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 1.15fr);
   align-items: center;
   gap: clamp(0.75rem, 2.5vw, 1.75rem);
   width: 100%;
@@ -2544,8 +3167,8 @@ body.global-search-open { overflow: hidden; }
   justify-self: center;
   align-self: center;
   margin: 0 auto;
-  width: min(100%, 18.5rem);
-  aspect-ratio: 5 / 4;
+  width: min(100%, 26rem);
+  aspect-ratio: 3 / 2;
   overflow: hidden;
   border-radius: 50%;
   background: #f5fbff;
@@ -2567,6 +3190,7 @@ body.global-search-open { overflow: hidden; }
   height: 100%;
   display: block;
   object-fit: cover;
+  object-position: center;
   background: transparent;
 }
 .intro__brand {
@@ -2598,6 +3222,43 @@ body.global-search-open { overflow: hidden; }
   hyphens: auto;
   animation: intro-fade 820ms var(--ease-outro) both 180ms;
 }
+.intro__source {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0.7rem 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(0.9rem, 1.3vw, 1.04rem);
+  line-height: 1.35;
+  text-align: center;
+  color: var(--blue-900);
+  animation: intro-fade 900ms var(--ease-outro) both 240ms;
+}
+.intro__source-ornament {
+  display: block;
+  width: min(11.5rem, 56%);
+  height: 0.72rem;
+  background:
+    radial-gradient(circle at 50% 50%, var(--gold-bright) 0 0.17rem, var(--gold) 0.18rem 0.22rem, transparent 0.24rem),
+    linear-gradient(90deg, transparent, rgba(201, 155, 59, 0.15), var(--gold) 42%, var(--gold) 58%, rgba(201, 155, 59, 0.15), transparent);
+  background-size: 100% 100%, 100% 1px;
+  background-position: center, center;
+  background-repeat: no-repeat;
+}
+.intro__source strong {
+  display: inline-block;
+  font-weight: 700;
+  letter-spacing: 0.012em;
+  padding: 0.34rem 0.95rem;
+  border-radius: var(--radius-pill);
+  color: var(--blue-900);
+  background: linear-gradient(180deg, rgba(255, 240, 191, 0.58), rgba(223, 242, 255, 0.42));
+  border: 1px solid rgba(201, 155, 59, 0.4);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.78) inset,
+    0 6px 16px rgba(0, 78, 140, 0.08);
+}
 @media (max-width: 900px) {
   .intro__content {
     grid-template-columns: 1fr;
@@ -2612,7 +3273,7 @@ body.global-search-open { overflow: hidden; }
   .intro__visual {
     margin: 0;
     justify-self: center;
-    width: min(78%, 15.5rem);
+    width: min(92%, 22rem);
   }
   .intro__atmosphere {
     top: 1.1rem;
@@ -2768,18 +3429,26 @@ body.global-search-open { overflow: hidden; }
   flex: 0 1 auto;
 }
 :is(.page-home, .page-category) .tools-bar__search {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.4rem;
   flex: 1 1 9rem;
   min-width: 7.5rem;
   max-width: 14rem;
   align-self: flex-start;
   /* Match sibling fields' label row so the input top-aligns with controls */
   margin-top: calc(0.72rem * 1.2 + 0.28rem);
-  position: relative;
 }
 .tools-bar.tools-bar--dense > .tools-bar__search {
   margin-top: calc(0.65rem * 1.15 + 0.18rem);
 }
-:is(.page-home, .page-category) .tools-bar__search::before {
+:is(.page-home, .page-category) .tools-bar__search-field {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+:is(.page-home, .page-category) .tools-bar__search-field::before {
   content: "";
   position: absolute;
   left: 0.8rem;
@@ -2791,6 +3460,51 @@ body.global-search-open { overflow: hidden; }
   transform: translateY(-55%);
   pointer-events: none;
   box-shadow: 0.24rem 0.24rem 0 -0.11rem rgba(0, 105, 180, 0.45);
+}
+:is(.page-home, .page-category) .tools-bar__search--active input {
+  border-color: rgba(0, 105, 180, 0.5);
+  background: var(--panel-blue);
+  box-shadow: 0 0 0 4px var(--line-14);
+}
+.tools-bar__search-chip {
+  display: none;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 1.7rem;
+  padding: 0.12rem 0.18rem 0.12rem 0.55rem;
+  border: 1px solid var(--nav-blue);
+  border-radius: var(--radius-pill);
+  background: var(--panel-blue);
+  color: var(--nav-blue-deep);
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.tools-bar__search-chip:not([hidden]) {
+  display: inline-flex;
+}
+.tools-bar__search-chip-dot {
+  flex: 0 0 auto;
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 50%;
+  background: var(--nav-blue);
+}
+.tools-bar__search-chip-text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tools-bar__search-clear {
+  flex: 0 0 auto;
+  min-width: 1.7rem;
+  min-height: 1.7rem;
+  padding: 0.12rem;
+  line-height: 1;
 }
 :is(.page-home, .page-category) .tools-bar__search input {
   min-height: 2.25rem;
@@ -2815,7 +3529,7 @@ body.global-search-open { overflow: hidden; }
   padding: 0.32rem 0.6rem 0.32rem 1.85rem;
   font-size: 0.82rem;
 }
-.tools-bar.tools-bar--dense .tools-bar__search::before {
+.tools-bar.tools-bar--dense .tools-bar__search-field::before {
   left: 0.65rem;
   width: 0.7rem;
   height: 0.7rem;
@@ -2848,6 +3562,14 @@ body.global-search-open { overflow: hidden; }
   background: linear-gradient(135deg, var(--nav-blue), var(--blue-400));
   color: #fff;
   box-shadow: 0 4px 12px rgba(0, 90, 154, 0.22);
+}
+:is(.page-home, .page-category) .tools-bar__view-btn--icon {
+  min-width: 2.1rem;
+  padding-inline: 0.42rem;
+}
+:is(.page-home, .page-category) .tools-bar__glyph {
+  display: block;
+  flex: 0 0 auto;
 }
 :is(.page-home, .page-category) .tools-bar__batch {
   display: inline-flex;
@@ -2883,31 +3605,28 @@ body.global-search-open { overflow: hidden; }
   gap: 0.28rem;
   padding: 0.16rem;
 }
+:is(.page-home, .page-category) .tools-bar__stepper,
+:is(.page-home, .page-category) .tools-bar__pager {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 0.12rem;
+  padding: 0.1rem;
+  border-radius: var(--radius-pill);
+  background: rgba(229, 244, 251, 0.72);
+  border: 1px solid rgba(0, 105, 180, 0.1);
+}
 :is(.page-home, .page-category) .tools-bar__batch-count {
   display: inline-flex;
   align-items: center;
   flex: 0 0 auto;
   margin: 0;
 }
-:is(.page-home, .page-category) .tools-bar__batch-actions {
-  display: inline-flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  gap: 0.18rem;
-  padding: 0.12rem;
-  border-radius: var(--radius-pill);
-  background: rgba(229, 244, 251, 0.72);
-  border: 1px solid rgba(0, 105, 180, 0.1);
-}
-.tools-bar.tools-bar--dense .tools-bar__batch-actions {
-  gap: 0.12rem;
-  padding: 0.08rem;
-}
 .tools-bar.tools-bar--dense .tools-bar__batch-input {
-  width: 3.1rem;
-  min-width: 2.9rem;
+  width: 2.7rem;
+  min-width: 2.5rem;
   min-height: 1.9rem;
-  padding: 0.28rem 0.2rem;
+  padding: 0.28rem 0.15rem;
   font-size: 0.8rem;
 }
 .tools-bar.tools-bar--dense .tools-bar__label {
@@ -2918,10 +3637,10 @@ body.global-search-open { overflow: hidden; }
   white-space: nowrap;
 }
 :is(.page-home, .page-category) .tools-bar__batch-input {
-  width: 3.55rem;
-  min-width: 3.25rem;
+  width: 2.85rem;
+  min-width: 2.65rem;
   min-height: 2.1rem;
-  padding: 0.35rem 0.3rem;
+  padding: 0.35rem 0.2rem;
   border: 1px solid rgba(0, 105, 180, 0.18);
   border-radius: var(--radius-pill);
   background: #fff;
@@ -2937,10 +3656,6 @@ body.global-search-open { overflow: hidden; }
   -moz-appearance: textfield;
   transition: border-color var(--duration) var(--ease-standard), box-shadow var(--duration) var(--ease-standard), background var(--duration) var(--ease-standard), color var(--duration) var(--ease-standard);
 }
-:is(.page-home, .page-category) .tools-bar__batch-input::placeholder {
-  color: rgba(0, 78, 140, 0.35);
-  font-weight: 700;
-}
 :is(.page-home, .page-category) .tools-bar__batch-input::-webkit-outer-spin-button,
 :is(.page-home, .page-category) .tools-bar__batch-input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -2954,29 +3669,57 @@ body.global-search-open { overflow: hidden; }
   border-color: rgba(0, 105, 180, 0.55);
   box-shadow: 0 0 0 3px var(--line-14);
 }
-:is(.page-home, .page-category) .tools-bar__batch-actions .tools-bar__view-btn {
-  border-radius: var(--radius-pill);
+:is(.page-home, .page-category) .tools-bar__stepper-btn,
+:is(.page-home, .page-category) .tools-bar__pager-btn,
+:is(.page-home, .page-category) .tools-bar__icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.95rem;
+  min-height: 1.95rem;
+  padding: 0;
   border: 1px solid transparent;
+  border-radius: var(--radius-pill);
   background: transparent;
+  color: var(--nav-blue-deep);
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
   box-shadow: none;
-  font-weight: 600;
 }
-:is(.page-home, .page-category) .tools-bar__batch-actions .tools-bar__view-btn:hover:not(:disabled) {
+.tools-bar.tools-bar--dense .tools-bar__stepper-btn,
+.tools-bar.tools-bar--dense .tools-bar__pager-btn,
+.tools-bar.tools-bar--dense .tools-bar__icon-btn {
+  min-width: 1.85rem;
+  min-height: 1.85rem;
+}
+:is(.page-home, .page-category) .tools-bar__stepper-btn:hover:not(:disabled),
+:is(.page-home, .page-category) .tools-bar__pager-btn:hover:not(:disabled),
+:is(.page-home, .page-category) .tools-bar__icon-btn:hover:not(:disabled) {
   background: rgba(255, 255, 255, 0.92);
   border-color: rgba(0, 105, 180, 0.16);
-  color: var(--nav-blue-deep);
   box-shadow: 0 2px 8px rgba(0, 78, 140, 0.08);
 }
-:is(.page-home, .page-category) .tools-bar__batch-actions .tools-bar__view-btn:active:not(:disabled) {
+:is(.page-home, .page-category) .tools-bar__stepper-btn:active:not(:disabled),
+:is(.page-home, .page-category) .tools-bar__pager-btn:active:not(:disabled),
+:is(.page-home, .page-category) .tools-bar__icon-btn:active:not(:disabled) {
   transform: translateY(1px);
 }
 :is(.page-home, .page-category) .tools-bar__batch [data-home-batch] {
   white-space: nowrap;
 }
-:is(.page-home, .page-category) .tools-bar__batch [data-home-batch]:disabled {
+:is(.page-home, .page-category) .tools-bar__batch [data-home-batch]:disabled,
+:is(.page-home, .page-category) [data-tools-play-visible]:disabled {
   opacity: 0.4;
   cursor: not-allowed;
   box-shadow: none;
+}
+:is(.page-home, .page-category) .tools-bar__batch-all {
+  min-width: 2.1rem;
+  min-height: 1.95rem;
+  padding: 0.25rem 0.42rem;
 }
 :is(.page-home, .page-category) .tools-bar__batch-all.is-active,
 :is(.page-home, .page-category) .tools-bar__batch-all[aria-pressed="true"] {
@@ -2985,52 +3728,26 @@ body.global-search-open { overflow: hidden; }
   color: #fff;
   box-shadow: 0 4px 12px rgba(0, 90, 154, 0.2);
 }
-:is(.page-home, .page-category) .tools-bar__batch-all.is-active:hover:not(:disabled):not([aria-disabled="true"]),
-:is(.page-home, .page-category) .tools-bar__batch-all[aria-pressed="true"]:hover:not(:disabled):not([aria-disabled="true"]) {
+:is(.page-home, .page-category) .tools-bar__batch-all.is-active:hover:not(:disabled),
+:is(.page-home, .page-category) .tools-bar__batch-all[aria-pressed="true"]:hover:not(:disabled) {
   background: linear-gradient(135deg, var(--nav-blue-deep) 0%, var(--nav-blue) 100%);
   border-color: transparent;
   color: #fff;
   box-shadow: 0 6px 16px rgba(0, 78, 140, 0.24);
 }
-:is(.page-home, .page-category) .tools-bar__batch-all.is-active:disabled,
-:is(.page-home, .page-category) .tools-bar__batch-all[aria-pressed="true"]:disabled,
-:is(.page-home, .page-category) .tools-bar__batch-all.is-active[aria-disabled="true"],
-:is(.page-home, .page-category) .tools-bar__batch-all[aria-pressed="true"][aria-disabled="true"] {
-  opacity: 1;
-  cursor: default;
-}
 :is(.page-home, .page-category) .tools-bar__batch-range {
   display: inline-flex;
   align-items: center;
-  align-self: flex-start;
-  margin-top: 0.05rem;
-  padding: 0.12rem 0.55rem;
-  border-radius: var(--radius-pill);
-  background: rgba(0, 105, 180, 0.07);
-  border: 1px solid rgba(0, 105, 180, 0.1);
+  justify-content: center;
+  min-width: 6.4rem;
+  padding: 0.15rem 0.45rem;
   font-family: var(--font-ui);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: rgba(0, 60, 110, 0.68);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: rgba(0, 60, 110, 0.78);
   line-height: 1.2;
-  min-height: 1em;
-}
-
-:is(.page-home, .page-category) .tools-bar__batch-hint {
-  display: inline-flex;
-  align-self: flex-start;
-  margin: 0;
-  padding: 0.1rem 0.45rem;
-  border-radius: var(--radius-pill);
-  font-family: var(--font-ui);
-  font-size: 0.68rem;
-  font-weight: 600;
-  color: rgba(0, 60, 110, 0.62);
-  background: rgba(0, 105, 180, 0.06);
-}
-:is(.page-home, .page-category) .tools-bar__batch-hint[hidden] {
-  display: none !important;
+  white-space: nowrap;
 }
 :is(.page-home, .page-category) .tools-bar__batch-range[hidden] {
   display: none !important;
@@ -3051,7 +3768,8 @@ body.global-search-open { overflow: hidden; }
     width: 100%;
   }
   .tools-bar.tools-bar--dense .tools-bar__batch-controls,
-  .tools-bar.tools-bar--dense .tools-bar__batch-actions {
+  .tools-bar.tools-bar--dense .tools-bar__pager,
+  .tools-bar.tools-bar--dense .tools-bar__stepper {
     flex-wrap: wrap;
   }
 }
@@ -3079,9 +3797,15 @@ body.global-search-open { overflow: hidden; }
   }
   .tools-bar__search,
   :is(.page-home, .page-category) .tools-bar__search {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
     grid-column: 1 / -1;
     max-width: none;
     margin-top: 0;
+  }
+  .tools-bar__search-chip {
+    grid-column: 1 / -1;
+    width: 100%;
   }
   .tools-bar__field,
   :is(.page-home, .page-category) .tools-bar__field {
@@ -3101,16 +3825,15 @@ body.global-search-open { overflow: hidden; }
     border-radius: 1.1rem;
     justify-content: flex-start;
   }
-  :is(.page-home, .page-category) .tools-bar__batch-actions {
+  :is(.page-home, .page-category) .tools-bar__stepper,
+  :is(.page-home, .page-category) .tools-bar__pager {
     flex: 1 1 auto;
-    flex-wrap: wrap;
-    justify-content: stretch;
   }
   :is(.page-home, .page-category) .tools-bar__batch-input {
-    flex: 0 0 3.6rem;
+    flex: 0 0 3.2rem;
   }
-  :is(.page-home, .page-category) .tools-bar__batch [data-home-batch] {
-    flex: 1 1 auto;
+  :is(.page-home, .page-category) .tools-bar__batch-range {
+    min-width: 5.5rem;
   }
   .tools-bar__views,
   :is(.page-home, .page-category) .tools-bar__views {
@@ -3121,13 +3844,6 @@ body.global-search-open { overflow: hidden; }
   :is(.page-home, .page-category) .tools-bar__view-btn {
     flex: 1 1 0;
     min-height: 2.75rem;
-  }
-  .tools-bar__images,
-  .tools-bar__texts {
-    flex: 1 1 auto;
-    min-height: 2.75rem;
-    padding: 0.4rem 0.7rem;
-    font-size: 0.82rem;
   }
   :is(.page-home, .page-category) .tools-bar__batch [data-home-batch],
   :is(.page-home, .page-category) .tools-bar__batch-input {
@@ -3151,40 +3867,13 @@ body.global-search-open { overflow: hidden; }
   :is(.page-home, .page-category) .tools-bar {
     grid-template-columns: 1fr;
   }
-  .tools-bar__images,
-  .tools-bar__texts {
+  .tools-bar__images-toggle,
+  .tools-bar__texts-toggle,
+  .tools-bar__pager,
+  .tools-bar__stepper {
     width: 100%;
+    min-width: 0;
   }
-}
-.tools-bar__images,
-.tools-bar__texts {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 2.6rem;
-  padding: 0.45rem 1rem;
-  border: 1px solid rgba(0, 105, 180, 0.22);
-  border-radius: var(--radius-pill);
-  background: linear-gradient(135deg, var(--nav-blue), var(--blue-400));
-  color: #fff;
-  font: inherit;
-  font-size: 0.9rem;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 8px 18px rgba(0, 45, 82, 0.14);
-  transition: transform 160ms ease, filter 160ms ease, background 160ms ease;
-}
-.tools-bar__images:hover,
-.tools-bar__texts:hover {
-  transform: translateY(-1px);
-  filter: brightness(1.05);
-}
-.tools-bar__images[aria-pressed="true"],
-.tools-bar__texts[aria-pressed="true"] {
-  background: linear-gradient(135deg, var(--nav-blue), var(--blue-400));
-  color: #fff;
-  border-color: transparent;
-  box-shadow: 0 6px 14px rgba(0, 90, 154, 0.22);
 }
 .story.story--text-hidden .story__text {
   display: none;
@@ -3304,7 +3993,7 @@ body.global-search-open { overflow: hidden; }
 @media (max-width: 1400px) {
   .site-header__inner {
     display: grid;
-    grid-template-columns: 2.5rem minmax(0, 1fr) 2.5rem;
+    grid-template-columns: 2.5rem minmax(0, 1fr) auto;
     align-items: center;
     column-gap: 0.65rem;
     flex-wrap: unset;
@@ -3341,6 +4030,9 @@ body.global-search-open { overflow: hidden; }
     grid-row: 1;
     margin-left: 0;
     justify-self: end;
+  }
+  .lang-switcher__name {
+    max-width: 5.25rem;
   }
   .global-search-toggle__label,
   .global-search-toggle__kbd { display: none; }
@@ -3394,7 +4086,7 @@ body.global-search-open { overflow: hidden; }
     gap: 0.45rem;
   }
   .primary-nav__link:hover {
-    background: #fff;
+    background: var(--surface);
     border-color: rgba(0, 105, 180, 0.28);
     color: var(--nav-blue-deep);
   }
@@ -3473,7 +4165,10 @@ body.global-search-open { overflow: hidden; }
   .nav-dropdown--nested.is-mega-open > .nav-dropdown-toggle .nav-dropdown-caret {
     transform: translateY(-40%) rotate(225deg);
   }
-  body.nav-open { overflow: hidden; }
+  body.nav-open {
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
 }
 
 .cat-card.page-card {
@@ -3598,6 +4293,56 @@ body.global-search-open { overflow: hidden; }
   font-weight: 700;
   color: var(--nav-blue);
   white-space: nowrap;
+}
+.cat-card__meta--soon {
+  color: var(--ink-soft);
+  border-color: rgba(8, 38, 59, 0.14);
+  background: rgba(255, 255, 255, 0.72);
+}
+.content-placeholder {
+  margin: 0.35rem 0 1.5rem;
+  padding: 2.1rem 1.6rem 2rem;
+  border-radius: 18px;
+  border: 1px dashed rgba(0, 105, 180, 0.28);
+  background: linear-gradient(165deg, rgba(229, 244, 251, 0.94), rgba(255, 255, 255, 0.96));
+  text-align: center;
+  box-shadow: 0 10px 28px rgba(8, 38, 59, 0.06);
+}
+.content-placeholder__kicker {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 0 0.7rem;
+  padding: 0.15rem 0.7rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(0, 105, 180, 0.18);
+  background: rgba(255, 255, 255, 0.88);
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--nav-blue);
+}
+.content-placeholder__title {
+  margin: 0 0 0.55rem;
+  font-size: clamp(1.25rem, 2.4vw, 1.7rem);
+  font-weight: 700;
+  color: var(--ink);
+}
+.content-placeholder__lead {
+  margin: 0 auto;
+  max-width: 40rem;
+  color: var(--ink-soft);
+  font-family: var(--font-ui);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+.page-category .category-layout--placeholder {
+  grid-template-columns: minmax(0, 1fr);
+}
+.page-category .category-layout--placeholder > .category-hero,
+.page-category .category-layout--placeholder > .content-placeholder {
+  grid-column: 1;
 }
 
 .category-page { padding: 1.25rem 0 3rem; }
@@ -3783,8 +4528,9 @@ body.global-search-open { overflow: hidden; }
   flex: 1 1 auto;
   min-width: 0;
   display: block;
+  position: relative;
   margin: -2px -6px;
-  padding: 2px 6px;
+  padding: 2px 6px 2px 1.15em;
   color: inherit;
   background: transparent;
   border-radius: 10px;
@@ -3795,6 +4541,18 @@ body.global-search-open { overflow: hidden; }
   text-decoration: none !important;
   border: 0;
   transition: background-color 0.15s ease, color 0.15s ease;
+}
+.story-nav .timeline-list a::before {
+  content: "";
+  position: absolute;
+  left: 0.22em;
+  top: calc(2px + 0.52em);
+  width: 0.26em;
+  height: 0.26em;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.5;
+  pointer-events: none;
 }
 .story-nav .timeline-list a:hover,
 .story-nav .timeline-list a:focus-visible,
@@ -3830,6 +4588,12 @@ body.global-search-open { overflow: hidden; }
   transform: translateY(-5px);
   box-shadow: 0 20px 45px rgba(0, 78, 140, 0.2);
   border-color: rgba(78, 180, 238, 0.42);
+}
+.story.news-card.story--playing {
+  border-color: rgba(212, 160, 23, 0.72);
+  box-shadow:
+    0 0 0 2px rgba(240, 199, 94, 0.45),
+    0 16px 36px rgba(0, 78, 140, 0.16);
 }
 .story .card-header {
   padding: 20px 28px 14px;
@@ -3907,6 +4671,16 @@ body.global-search-open { overflow: hidden; }
 .story__text p:last-child,
 .story .card-text p:last-child {
   margin-bottom: 0;
+}
+.story__text .story__source,
+.story .card-text .story__source {
+  margin: 0.75rem 0 0;
+  color: var(--ink-soft);
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.45;
 }
 .story__text .story__moral,
 .story .card-text .story__moral {
@@ -4184,6 +4958,14 @@ body.text-lightbox-open {
 .text-lightbox__body p:last-child {
   margin-bottom: 0;
 }
+.text-lightbox__body .story__source {
+  margin: 0.75rem 0 0;
+  color: var(--ink-soft);
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  font-style: italic;
+  font-weight: 500;
+}
 .text-lightbox__body .story__moral {
   clear: both;
   margin: 1.65rem 0 0;
@@ -4218,12 +5000,24 @@ body.text-lightbox-open {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-end;
   justify-content: flex-end;
   gap: 0.45rem;
   width: max-content;
   max-width: min(100%, 36rem);
   margin: 0 0 0.55rem 1rem;
+}
+.story__action-group,
+.text-lightbox__tts .story__action-group {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.28rem;
+  flex: 0 0 auto;
+}
+.story__actions .tools-bar__label,
+.text-lightbox__tts .tools-bar__label {
+  text-align: center;
 }
 @media (max-width: 760px) {
   .story__actions {
@@ -4234,11 +5028,13 @@ body.text-lightbox-open {
     margin: 0 0 0.75rem;
     justify-content: stretch;
   }
-  .story-tts,
-  .story-text-toggle,
-  .story-figure-toggle {
-    flex: 1 1 auto;
-    min-height: 2.75rem;
+  .story__actions .tools-bar__views,
+  .text-lightbox__tts .tools-bar__views {
+    width: auto;
+  }
+  :is(.page-home, .page-category) .story__actions .tools-bar__view-btn,
+  :is(.page-home, .page-category) .text-lightbox__tts .tools-bar__view-btn {
+    flex: 0 0 auto;
   }
   :is(.page-home, .page-category) .tools-bar__view-btn {
     min-height: 2.75rem;
@@ -4260,71 +5056,28 @@ body.text-lightbox-open {
   max-width: none;
   margin: 0;
 }
-.story-tts,
-.story-text-toggle,
-.story-figure-toggle {
+.story__actions .tools-bar__views,
+.text-lightbox__tts .tools-bar__views {
+  flex: 0 0 auto;
+  width: auto;
+  gap: 0.45rem;
+}
+:is(.page-home, .page-category) .story__actions .tools-bar__view-btn,
+:is(.page-home, .page-category) .text-lightbox__tts .tools-bar__view-btn {
+  flex: 0 0 auto;
+}
+.story-tts {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.45rem;
+  gap: 0;
   width: auto;
   flex: 0 0 auto;
   white-space: nowrap;
-  min-height: 2.45rem;
-  padding: 0.45rem 1rem;
-  border-radius: var(--radius-pill);
-  font-family: var(--font-ui);
-  font-size: 0.92rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: transform 140ms ease, filter 140ms ease, box-shadow 140ms ease, background 140ms ease, color 140ms ease, border-color 140ms ease;
 }
-.story-tts {
-  border: 1px solid rgba(201, 155, 59, 0.5);
-  background: linear-gradient(135deg, var(--gold-grad-from) 0%, var(--gold-grad-mid) 48%, var(--gold-bright) 100%);
-  color: #fff;
-  text-shadow: 0 1px 0 rgba(120, 70, 10, 0.22);
-  box-shadow: 0 8px 18px rgba(201, 155, 59, 0.28);
-}
-.story-tts:hover {
-  filter: brightness(1.06);
-  transform: translateY(-1px);
-}
-.story-tts[aria-pressed="true"] {
-  background: linear-gradient(135deg, #a8731c 0%, #c99b3b 55%, #d4a84a 100%);
-  border-color: rgba(166, 115, 28, 0.55);
-  box-shadow: 0 6px 14px rgba(166, 115, 28, 0.3);
-}
-.story-tts svg {
+.story-tts .tools-bar__glyph {
   display: block;
   flex: 0 0 auto;
-}
-.story-text-toggle,
-.story-figure-toggle {
-  border: 1px solid rgba(0, 105, 180, 0.28);
-  background: linear-gradient(135deg, #e8f5fc, #dff2ff);
-  color: var(--nav-blue-deep);
-  box-shadow: 0 4px 12px rgba(0, 78, 140, 0.1);
-}
-.story-text-toggle:hover,
-.story-figure-toggle:hover {
-  background: linear-gradient(135deg, var(--nav-blue), var(--blue-400));
-  border-color: transparent;
-  color: #fff;
-  transform: translateY(-1px);
-  box-shadow: 0 8px 18px rgba(0, 78, 140, 0.16);
-}
-.story-text-toggle[aria-expanded="false"],
-.story-figure-toggle[aria-expanded="false"] {
-  background: rgba(255, 255, 255, 0.96);
-  color: var(--nav-blue);
-  border-color: rgba(0, 105, 180, 0.35);
-}
-.story-text-toggle:focus-visible,
-.story-figure-toggle:focus-visible,
-.story-tts:focus-visible {
-  outline: 3px solid var(--ring);
-  outline-offset: 2px;
 }
 .story-tts__note {
   margin: 0;
@@ -4469,6 +5222,14 @@ body.text-lightbox-open {
   filter: brightness(1.05);
   background: linear-gradient(135deg, var(--gold-grad-from) 0%, var(--gold-grad-mid) 48%, var(--gold-bright) 100%);
 }
+.audio-player__btn--story[hidden] {
+  display: none !important;
+}
+.audio-player__btn--story:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
 .audio-player__btn--close {
   min-width: 2.2rem;
   background: rgba(0, 0, 0, 0.22);
@@ -4531,13 +5292,13 @@ body.text-lightbox-open {
   display: none;
 }
 body.audio-player-open {
-  padding-bottom: 6.5rem;
+  padding-bottom: calc(var(--audio-player-h, 6.5rem) + 0.5rem);
 }
 body.audio-player-open .back-to-top {
-  bottom: calc(6.5rem + 0.85rem);
+  bottom: calc(var(--audio-player-h, 6.5rem) + 0.85rem);
 }
 body.audio-player-open .text-lightbox {
-  padding-bottom: calc(6.5rem + env(safe-area-inset-bottom));
+  padding-bottom: calc(var(--audio-player-h, 6.5rem) + env(safe-area-inset-bottom));
 }
 @media (max-width: 1100px) {
   .audio-player__inner {
@@ -4555,13 +5316,13 @@ body.audio-player-open .text-lightbox {
     -webkit-box-orient: vertical;
   }
   body.audio-player-open {
-    padding-bottom: 9.5rem;
+    padding-bottom: calc(var(--audio-player-h, 9.5rem) + 0.5rem);
   }
   body.audio-player-open .back-to-top {
-    bottom: calc(9.5rem + 0.85rem);
+    bottom: calc(var(--audio-player-h, 9.5rem) + 0.85rem);
   }
   body.audio-player-open .text-lightbox {
-    padding-bottom: calc(9.5rem + env(safe-area-inset-bottom));
+    padding-bottom: calc(var(--audio-player-h, 9.5rem) + env(safe-area-inset-bottom));
   }
 }
 @media (max-width: 520px) {
@@ -4672,12 +5433,18 @@ body.audio-player-open .text-lightbox {
     max-height: min(62vh, 520px);
     padding: 12px 16px;
     overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
   }
   .story-nav .timeline-list a {
     min-height: 44px;
-    padding: 10px 12px;
+    padding: 10px 12px 10px calc(12px + 0.85em);
     margin: -6px -8px;
     line-height: 1.35;
+  }
+  .story-nav .timeline-list a::before {
+    left: 12px;
+    top: calc(10px + 0.545em);
   }
 }
 @media (max-width: 720px) {
@@ -4751,21 +5518,11 @@ body.audio-player-open .text-lightbox {
   margin: 0 auto;
   padding: 28px 24px;
 }
-.footer-brand {
-  margin-bottom: 18px;
-  text-align: center;
-}
-.footer-brand h3 {
-  margin: 0;
-  color: #fff;
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 800;
-}
 .footer-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
+  align-items: stretch;
 }
 .footer-col {
   min-height: 7.5rem;
@@ -4777,6 +5534,125 @@ body.audio-player-open .text-lightbox {
   box-shadow: none;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+}
+.footer-col--about {
+  display: flex;
+  align-items: center;
+  text-align: justify;
+}
+.footer-about {
+  margin: 0;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.78rem;
+  font-weight: 500;
+  line-height: 1.55;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+.footer-col--brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  text-decoration: none;
+  color: #fff;
+}
+.footer-logo:hover {
+  color: #fff;
+  opacity: 0.94;
+}
+.footer-logo__img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+}
+.footer-logo__name {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.footer-col--contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.7rem;
+}
+.footer-contact__title {
+  margin: 0;
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+.footer-contact {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.1rem;
+  width: 100%;
+}
+.footer-contact li,
+.footer-contact__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 3.6rem;
+}
+.footer-contact__link {
+  color: inherit;
+  text-decoration: none;
+}
+.footer-contact__link:hover {
+  color: inherit;
+  opacity: 1;
+}
+.footer-contact__link:hover .menu-icon {
+  transform: perspective(120px) rotateX(12deg) translateY(-2px);
+}
+.footer-col--contact .menu-icon {
+  width: 2.15rem;
+  height: 2.15rem;
+  border-radius: 0.7rem;
+}
+.footer-col--contact .menu-icon__svg {
+  width: 16px;
+  height: 16px;
+}
+.footer-contact__label {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.footer-contact__url {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.footer-contact__url:hover {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
 }
 .footer-bottom {
   display: flex;
@@ -4806,6 +5682,9 @@ body.audio-player-open .text-lightbox {
   .footer-col {
     min-height: 5.5rem;
   }
+  .footer-col:empty {
+    display: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -4819,6 +5698,125 @@ body.audio-player-open .text-lightbox {
 
 JS = r"""
 (() => {
+  const I18N = window.__BIRINCI_I18N__ || { lang: "az", ui: {}, js: {} };
+  const LOCALE_TAG = I18N.lang || document.documentElement.lang || "az";
+  const tUi = (key, fallback) =>
+    (I18N.ui && I18N.ui[key]) || fallback || key;
+  const tJs = (key, fallback) =>
+    (I18N.js && I18N.js[key]) || fallback || key;
+
+  const syncSearchFilterUi = (q, total) => {
+    const wrap = document.querySelector(".tools-bar__search");
+    if (!wrap) return;
+    const chip = wrap.querySelector("[data-search-filter]");
+    const textEl = wrap.querySelector("[data-search-filter-text]");
+    const raw = String(q || "").trim();
+    const active = raw.length > 0;
+    wrap.classList.toggle("tools-bar__search--active", active);
+    if (!chip) return;
+    if (!active) {
+      chip.hidden = true;
+      if (textEl) textEl.textContent = "";
+      return;
+    }
+    chip.hidden = false;
+    if (textEl) {
+      const label = tUi("search_filter_label", "Axtarış");
+      const count = tUi("search_results_count", "{n} nəticə").replace(/\{n\}/g, String(total));
+      textEl.textContent = `${label}: ${raw} · ${count}`;
+    }
+  };
+
+  const bindSearchFilterClear = (searchInput) => {
+    const wrap = searchInput && searchInput.closest(".tools-bar__search");
+    const btn = wrap && wrap.querySelector("[data-search-filter-clear]");
+    if (!btn || !searchInput || btn.dataset.bound === "1") return;
+    btn.dataset.bound = "1";
+    btn.addEventListener("click", () => {
+      searchInput.value = "";
+      searchInput.dispatchEvent(new Event("input", { bubbles: true }));
+      searchInput.focus();
+    });
+  };
+  const STORY_ICONS = window.__BIRINCI_STORY_ICONS__ || {
+    text: "",
+    "text-off": "",
+    eye: "",
+    "eye-off": "",
+    listen: "",
+    stop: "",
+  };
+  const setStoryModePressed = (root, attr, visible) => {
+    if (!root) return;
+    root.querySelectorAll("[" + attr + "]").forEach((btn) => {
+      const mode = btn.getAttribute(attr);
+      const pressed = visible ? mode === "show" : mode === "hide";
+      btn.setAttribute("aria-pressed", pressed ? "true" : "false");
+    });
+  };
+
+  const initLangSwitcher = () => {
+    const root = document.querySelector(".lang-switcher");
+    const toggle = root && root.querySelector(".lang-switcher__toggle");
+    const menu = root && root.querySelector(".lang-switcher__menu");
+    if (!root || !toggle || !menu) return;
+
+    const finePointerQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const canHoverLang = () => finePointerQuery.matches;
+    let hideTimer = 0;
+
+    const isOpen = () => root.classList.contains("is-open");
+
+    const openMenu = () => {
+      window.clearTimeout(hideTimer);
+      root.classList.add("is-open");
+      menu.hidden = false;
+      toggle.setAttribute("aria-expanded", "true");
+    };
+
+    const closeMenu = () => {
+      window.clearTimeout(hideTimer);
+      root.classList.remove("is-open");
+      menu.hidden = true;
+      toggle.setAttribute("aria-expanded", "false");
+    };
+
+    const scheduleClose = () => {
+      window.clearTimeout(hideTimer);
+      hideTimer = window.setTimeout(closeMenu, 160);
+    };
+
+    toggle.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      if (isOpen()) closeMenu();
+      else openMenu();
+    });
+
+    root.addEventListener("mouseenter", () => {
+      if (canHoverLang()) openMenu();
+    });
+    root.addEventListener("mouseleave", () => {
+      if (canHoverLang()) scheduleClose();
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!isOpen() || root.contains(event.target)) return;
+      closeMenu();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && isOpen()) closeMenu();
+    });
+
+    root.addEventListener("click", (event) => {
+      const link = event.target.closest("[data-lang]");
+      if (!link) return;
+      try {
+        localStorage.setItem("birinci-lang", link.getAttribute("data-lang") || "");
+      } catch (_) {}
+    });
+  };
+  initLangSwitcher();
   const header = document.querySelector(".site-header");
   const dropdowns = Array.from(document.querySelectorAll(".nav-dropdown"));
   const navToggle = document.getElementById("nav-toggle");
@@ -4862,7 +5860,7 @@ JS = r"""
     header.classList.remove("is-nav-open");
     document.body.classList.remove("nav-open");
     navToggle.setAttribute("aria-expanded", "false");
-    navToggle.setAttribute("aria-label", "Menyunu aç");
+    navToggle.setAttribute("aria-label", tUi("open_menu", "Menyunu aç"));
     resetMobileNavSections();
   };
 
@@ -4872,7 +5870,7 @@ JS = r"""
     header.classList.add("is-nav-open");
     document.body.classList.add("nav-open");
     navToggle.setAttribute("aria-expanded", "true");
-    navToggle.setAttribute("aria-label", "Menyunu bağla");
+    navToggle.setAttribute("aria-label", tUi("close_menu", "Menyunu bağla"));
   };
 
   if (navToggle && header && dropdowns.length) {
@@ -5092,7 +6090,7 @@ JS = r"""
 
     const render = (query) => {
       lastQuery = query;
-      const q = query.trim().toLocaleLowerCase("az");
+      const q = query.trim().toLocaleLowerCase(LOCALE_TAG);
       results.innerHTML = "";
       if (!q) {
         if (status) status.textContent = index ? `${index.length} hekayə` : "";
@@ -5154,7 +6152,7 @@ JS = r"""
   initGlobalSearch();
 
   const localeCompareAz = (a, b) =>
-    String(a || "").localeCompare(String(b || ""), "az", { sensitivity: "base" });
+    String(a || "").localeCompare(String(b || ""), LOCALE_TAG, { sensitivity: "base" });
 
   const initCategoryTools = () => {
     if (!document.body.classList.contains("page-category")) return;
@@ -5165,12 +6163,15 @@ JS = r"""
 
     const searchInput = bar.querySelector("[data-tools-search]");
     if (!searchInput) return;
+    bindSearchFilterClear(searchInput);
 
     const imagesToggle = bar.querySelector("[data-tools-images]");
     const imagesBtns = Array.from(bar.querySelectorAll("[data-images-mode]"));
     const textsToggle = bar.querySelector("[data-tools-texts]");
     const textsBtns = Array.from(bar.querySelectorAll("[data-texts-mode]"));
     const batchSizeInput = bar.querySelector("[data-home-batch-size]");
+    const batchDecBtn = bar.querySelector('[data-home-batch="dec"]');
+    const batchIncBtn = bar.querySelector('[data-home-batch="inc"]');
     const batchPrevBtn = bar.querySelector('[data-home-batch="prev"]');
     const batchNextBtn = bar.querySelector('[data-home-batch="next"]');
     const batchRandomBtn = bar.querySelector('[data-home-batch="random"]');
@@ -5180,6 +6181,7 @@ JS = r"""
     const countEl = document.querySelector("[data-tools-count]");
     const batchSizeStorageKey = "birinci-category-batch-size";
     const batchAllStorageKey = "birinci-category-batch-all";
+    // One-shot migration from the pre-pager page-size key; removed after read/persist.
     const legacyPageSizeStorageKey = "birinci-category-page-size";
 
     const allStories = Array.from(list.querySelectorAll(".story"));
@@ -5192,10 +6194,10 @@ JS = r"""
     }
 
     let filtered = [];
-    let batchSize = 10;
+    let batchSize = 12;
     let windowStart = 0;
     let randomStems = null;
-    let allMode = true;
+    let allMode = false;
     let pendingStem = null;
 
     const batchCap = () => {
@@ -5211,20 +6213,15 @@ JS = r"""
 
     const readBatchSize = () => {
       const raw = inputRaw();
-      if (!raw) return batchSize || 10;
+      if (!raw) return batchSize || 12;
       const n = Number(raw);
-      return Number.isFinite(n) && n > 0 ? Math.floor(n) : batchSize || 10;
+      return Number.isFinite(n) && n > 0 ? Math.floor(n) : batchSize || 12;
     };
 
     const persistBatchSize = () => {
       try {
-        if (allMode || !inputRaw()) {
-          localStorage.removeItem(batchSizeStorageKey);
-          localStorage.removeItem(legacyPageSizeStorageKey);
-        } else {
-          localStorage.setItem(batchSizeStorageKey, String(batchSize));
-          localStorage.removeItem(legacyPageSizeStorageKey);
-        }
+        localStorage.setItem(batchSizeStorageKey, String(batchSize));
+        localStorage.removeItem(legacyPageSizeStorageKey);
       } catch (_) {}
     };
 
@@ -5241,84 +6238,60 @@ JS = r"""
       if (batchSizeInput) {
         batchSizeInput.min = "1";
         batchSizeInput.max = String(cap);
-        batchSizeInput.value = allMode ? "" : String(batchSize);
+        batchSizeInput.value = String(batchSize);
       }
-      const showingAll =
-        total > 0 &&
-        !randomStems &&
-        (allMode || (windowStart <= 0 && visibleCount >= total && visibleCount > 0));
-      const atStart = !randomStems && !allMode && windowStart <= 0;
-      const atEnd =
-        !randomStems && (allMode || total === 0 || windowStart + batchSize >= total);
-      const needsSize = allMode || !inputRaw();
-      if (batchPrevBtn) batchPrevBtn.disabled = total === 0 || needsSize || atStart;
-      if (batchNextBtn) batchNextBtn.disabled = total === 0 || needsSize || atEnd;
-      if (batchRandomBtn) batchRandomBtn.disabled = total === 0 || needsSize;
-      const hintEl = bar.querySelector("[data-batch-hint]");
-      if (hintEl) {
-        const showHint = total > 0 && needsSize;
-        hintEl.hidden = !showHint;
-        if (showHint) hintEl.removeAttribute("hidden");
-        else hintEl.setAttribute("hidden", "");
+      const inRandom = !!(randomStems && randomStems.length);
+      const atStart = !inRandom && windowStart <= 0;
+      const atEnd = allMode || total === 0 || inRandom || windowStart + batchSize >= total;
+      if (batchDecBtn) batchDecBtn.disabled = total === 0 || batchSize <= 1;
+      if (batchIncBtn) batchIncBtn.disabled = total === 0 || batchSize >= cap;
+      if (batchPrevBtn) batchPrevBtn.disabled = total === 0 || allMode || (!inRandom && atStart);
+      if (batchNextBtn) batchNextBtn.disabled = total === 0 || allMode || inRandom || atEnd;
+      if (batchRandomBtn) batchRandomBtn.disabled = total === 0;
+      bar.querySelectorAll("[data-tools-play-visible]").forEach((btn) => {
+        btn.disabled = total === 0;
+      });
+      if (typeof window.__birinciSyncPlayVisibleUi === "function") {
+        window.__birinciSyncPlayVisibleUi();
       }
       if (batchAllBtn) {
+        const showingAll = allMode && !inRandom && total > 0;
         batchAllBtn.disabled = total === 0;
         batchAllBtn.classList.toggle("is-active", showingAll);
         batchAllBtn.setAttribute("aria-pressed", showingAll ? "true" : "false");
-        batchAllBtn.setAttribute("aria-disabled", showingAll || total === 0 ? "true" : "false");
+        batchAllBtn.removeAttribute("aria-disabled");
       }
       if (batchRangeEl) {
         if (total === 0) {
           batchRangeEl.hidden = true;
           batchRangeEl.textContent = "";
-        } else if (randomStems) {
-          batchRangeEl.hidden = false;
-          batchRangeEl.textContent = `Təsadüfi · ${visibleCount} / ${total}`;
-        } else if (allMode || showingAll) {
-          batchRangeEl.hidden = false;
-          batchRangeEl.textContent = `1–${total} / ${total}`;
         } else {
-          const from = windowStart + 1;
-          const to = windowStart + visibleCount;
           batchRangeEl.hidden = false;
-          batchRangeEl.textContent = `${from}–${to} / ${total}`;
+          batchRangeEl.removeAttribute("hidden");
+          if (inRandom) {
+            batchRangeEl.textContent = `${tUi("batch_random", "Təsadüfi")} · ${visibleCount} / ${total}`;
+          } else if (allMode) {
+            batchRangeEl.textContent = `1–${total} / ${total}`;
+          } else {
+            const from = windowStart + 1;
+            const to = Math.max(from, windowStart + visibleCount);
+            batchRangeEl.textContent = `${from}–${to} / ${total}`;
+          }
         }
       }
     };
 
-    const commitBatchSize = ({ persist = true, render = false, resetWindow = false } = {}) => {
+    const applyPageSize = (n, { persist = true, render = false } = {}) => {
       const cap = batchCap();
-      const raw = inputRaw();
-      if (!raw) {
-        allMode = true;
-        randomStems = null;
-        windowStart = 0;
-        if (batchSizeInput) batchSizeInput.value = "";
-        if (persist) {
-          persistBatchSize();
-          persistAllMode();
-        }
-        if (render) {
-          pendingStem = null;
-          renderList();
-        } else {
-          syncBatchUi(0);
-        }
-        return;
-      }
-      let n = Number(raw);
-      if (!Number.isFinite(n) || n < 1) n = 1;
-      n = Math.min(Math.floor(n), cap);
-      if (n < 1) n = 1;
-      if (batchSizeInput) batchSizeInput.value = String(n);
-      batchSize = n;
+      let size = Number(n);
+      if (!Number.isFinite(size) || size < 1) size = batchSize || 12;
+      size = Math.min(Math.floor(size), cap);
+      if (size < 1) size = 1;
+      batchSize = size;
       allMode = false;
-      if (resetWindow) {
-        windowStart = 0;
-        randomStems = null;
-      } else if (randomStems) {
-        randomStems = null;
-      }
+      randomStems = null;
+      windowStart = 0;
+      if (batchSizeInput) batchSizeInput.value = String(batchSize);
       if (persist) {
         persistBatchSize();
         persistAllMode();
@@ -5329,6 +6302,10 @@ JS = r"""
       } else {
         syncBatchUi(0);
       }
+    };
+
+    const commitBatchSize = ({ persist = true, render = false } = {}) => {
+      applyPageSize(readBatchSize(), { persist, render });
     };
 
     const applyStoredBatchSize = () => {
@@ -5344,17 +6321,9 @@ JS = r"""
         }
       } catch (_) {}
       const n = Number(stored);
-      if (storedAll || !stored) {
-        allMode = true;
-        if (batchSizeInput) batchSizeInput.value = "";
-      } else if (Number.isFinite(n) && n > 0) {
-        allMode = false;
-        batchSize = Math.floor(n);
-        if (batchSizeInput) batchSizeInput.value = String(batchSize);
-      } else {
-        allMode = true;
-        if (batchSizeInput) batchSizeInput.value = "";
-      }
+      batchSize = Number.isFinite(n) && n > 0 ? Math.floor(n) : 12;
+      allMode = !!storedAll;
+      if (batchSizeInput) batchSizeInput.value = String(batchSize);
       syncBatchUi(0);
     };
 
@@ -5386,11 +6355,7 @@ JS = r"""
       } else {
         document.querySelectorAll("article.story").forEach((story) => {
           story.classList.toggle("story--figure-hidden", collapsed);
-          const btn = story.querySelector("[data-story-figure-toggle]");
-          if (!btn) return;
-          btn.setAttribute("aria-expanded", collapsed ? "false" : "true");
-          const label = btn.querySelector("[data-story-figure-label]");
-          if (label) label.textContent = collapsed ? "Şəkli göstər" : "Şəkli gizlət";
+          setStoryModePressed(story, "data-images-mode", !collapsed);
         });
       }
       try {
@@ -5423,11 +6388,7 @@ JS = r"""
       } else {
         document.querySelectorAll("article.story").forEach((story) => {
           story.classList.toggle("story--text-hidden", collapsed);
-          const btn = story.querySelector("[data-story-text-toggle]");
-          if (!btn) return;
-          btn.setAttribute("aria-expanded", collapsed ? "false" : "true");
-          const label = btn.querySelector("[data-story-text-label]");
-          if (label) label.textContent = collapsed ? "Mətni göstər" : "Mətni gizlət";
+          setStoryModePressed(story, "data-texts-mode", !collapsed);
         });
       }
       try {
@@ -5483,25 +6444,24 @@ JS = r"""
 
     const renderList = ({ resetWindow = false } = {}) => {
       if (typeof window.__birinciStopStoryTts === "function") window.__birinciStopStoryTts();
-      const q = searchInput.value.trim().toLocaleLowerCase("az");
+      const q = searchInput.value.trim().toLocaleLowerCase(LOCALE_TAG);
       filtered = allStories.filter((story) => {
         const textEl = story.querySelector(".story__text");
-        const hay = `${story.dataset.title || ""} ${textEl ? textEl.textContent : ""}`.toLocaleLowerCase("az");
+        const hay = `${story.dataset.title || ""} ${textEl ? textEl.textContent : ""}`.toLocaleLowerCase(LOCALE_TAG);
         return !q || hay.includes(q);
       });
 
       const total = filtered.length;
+      syncSearchFilterUi(searchInput.value.trim(), total);
       const cap = Math.max(1, total || 1);
-      if (allMode) {
-        if (batchSizeInput) batchSizeInput.value = "";
-      } else {
-        let n = readBatchSize();
-        if (!Number.isFinite(n) || n < 1) n = 1;
-        if (n > cap) n = cap;
-        if (batchSizeInput && String(batchSizeInput.value) !== String(n)) {
-          batchSizeInput.value = String(n);
-        }
-        batchSize = n;
+      let n = readBatchSize();
+      if (!Number.isFinite(n) || n < 1) n = batchSize || 12;
+      if (n > cap) n = cap;
+      batchSize = n;
+      if (batchSizeInput && String(batchSizeInput.value) !== String(n)) {
+        batchSizeInput.value = String(n);
+      }
+      if (!allMode) {
         try {
           localStorage.setItem(batchSizeStorageKey, String(n));
         } catch (_) {}
@@ -5568,6 +6528,9 @@ JS = r"""
       refreshSidebarNav(visibleStories);
       if (countEl) countEl.textContent = String(total);
       if (empty) empty.hidden = total !== 0;
+      if (typeof window.__birinciClearListenQueue === "function") {
+        window.__birinciClearListenQueue({ keepTrack: true });
+      }
       syncBatchUi(visibleStories.length);
       persistAllMode();
       if (pendingStem) {
@@ -5602,22 +6565,21 @@ JS = r"""
     const runBatchAction = (action) => {
       const total = filtered.length;
       if (!total) {
-        allMode = true;
-        if (batchSizeInput) batchSizeInput.value = "";
+        randomStems = null;
+        windowStart = 0;
         persistBatchSize();
         persistAllMode();
         renderList();
         return;
       }
       if (action === "all") {
-        if (allMode) {
-          syncBatchUi(filtered.length);
-          return;
+        if (allMode && !randomStems) {
+          allMode = false;
+        } else {
+          allMode = true;
+          randomStems = null;
         }
-        allMode = true;
-        randomStems = null;
         windowStart = 0;
-        if (batchSizeInput) batchSizeInput.value = "";
         persistBatchSize();
         persistAllMode();
         pendingStem = null;
@@ -5625,22 +6587,32 @@ JS = r"""
         scrollToolsIntoView();
         return;
       }
-      if (!inputRaw()) {
-        // Require an explicit count — never invent a default like 10.
-        syncBatchUi((filtered && filtered.length) || 0);
+      if (action === "dec") {
+        applyPageSize(batchSize - 1, { persist: true, render: true });
+        scrollToolsIntoView();
         return;
       }
-      commitBatchSize({ persist: true, render: false });
-      allMode = false;
+      if (action === "inc") {
+        applyPageSize(batchSize + 1, { persist: true, render: true });
+        scrollToolsIntoView();
+        return;
+      }
       if (action === "prev") {
-        randomStems = null;
-        windowStart = Math.max(0, windowStart - batchSize);
+        allMode = false;
+        if (randomStems) {
+          randomStems = null;
+          windowStart = 0;
+        } else {
+          windowStart = Math.max(0, windowStart - batchSize);
+        }
       } else if (action === "next") {
+        allMode = false;
         randomStems = null;
         if (windowStart + batchSize < total) {
           windowStart += batchSize;
         }
       } else if (action === "random") {
+        allMode = false;
         randomStems = pickRandomStems(batchSize);
       } else {
         return;
@@ -5651,6 +6623,8 @@ JS = r"""
       renderList();
       scrollToolsIntoView();
     };
+    if (batchDecBtn) batchDecBtn.addEventListener("click", () => runBatchAction("dec"));
+    if (batchIncBtn) batchIncBtn.addEventListener("click", () => runBatchAction("inc"));
     if (batchPrevBtn) batchPrevBtn.addEventListener("click", () => runBatchAction("prev"));
     if (batchNextBtn) batchNextBtn.addEventListener("click", () => runBatchAction("next"));
     if (batchRandomBtn) batchRandomBtn.addEventListener("click", () => runBatchAction("random"));
@@ -5799,6 +6773,7 @@ JS = r"""
 
     const searchInput = bar.querySelector("[data-tools-search]");
     if (!searchInput) return;
+    bindSearchFilterClear(searchInput);
 
     const cardsList = cardsPanel.querySelector("[data-tools-list]");
     const cardsEmpty = cardsPanel.querySelector("[data-tools-empty]");
@@ -5810,6 +6785,8 @@ JS = r"""
     const textsToggle = bar.querySelector("[data-tools-texts]");
     const textsBtns = Array.from(bar.querySelectorAll("[data-texts-mode]"));
     const batchSizeInput = bar.querySelector("[data-home-batch-size]");
+    const batchDecBtn = bar.querySelector('[data-home-batch="dec"]');
+    const batchIncBtn = bar.querySelector('[data-home-batch="inc"]');
     const batchPrevBtn = bar.querySelector('[data-home-batch="prev"]');
     const batchNextBtn = bar.querySelector('[data-home-batch="next"]');
     const batchRandomBtn = bar.querySelector('[data-home-batch="random"]');
@@ -5823,16 +6800,17 @@ JS = r"""
     const batchSizeStorageKey = "birinci-home-batch-size";
     const batchAllStorageKey = "birinci-home-batch-all";
     const legacyPageSizeStorageKey = "birinci-home-page-size";
+    // One-shot migration from the pre-pager page-size key; removed after read/persist.
 
     let view = "cards";
     let allStories = null;
     let filtered = [];
     let loading = null;
     let pendingStem = null;
-    let batchSize = 10;
+    let batchSize = 12;
     let windowStart = 0;
     let randomStems = null;
-    let allMode = true;
+    let allMode = false;
 
     const batchCap = () => {
       const n =
@@ -5847,20 +6825,15 @@ JS = r"""
 
     const readBatchSize = () => {
       const raw = inputRaw();
-      if (!raw) return batchSize || 10;
+      if (!raw) return batchSize || 12;
       const n = Number(raw);
-      return Number.isFinite(n) && n > 0 ? Math.floor(n) : batchSize || 10;
+      return Number.isFinite(n) && n > 0 ? Math.floor(n) : batchSize || 12;
     };
 
     const persistBatchSize = () => {
       try {
-        if (allMode || !inputRaw()) {
-          localStorage.removeItem(batchSizeStorageKey);
-          localStorage.removeItem(legacyPageSizeStorageKey);
-        } else {
-          localStorage.setItem(batchSizeStorageKey, String(batchSize));
-          localStorage.removeItem(legacyPageSizeStorageKey);
-        }
+        localStorage.setItem(batchSizeStorageKey, String(batchSize));
+        localStorage.removeItem(legacyPageSizeStorageKey);
       } catch (_) {}
     };
 
@@ -5877,84 +6850,60 @@ JS = r"""
       if (batchSizeInput) {
         batchSizeInput.min = "1";
         batchSizeInput.max = String(cap);
-        batchSizeInput.value = allMode ? "" : String(batchSize);
+        batchSizeInput.value = String(batchSize);
       }
-      const showingAll =
-        total > 0 &&
-        !randomStems &&
-        (allMode || (windowStart <= 0 && visibleCount >= total && visibleCount > 0));
-      const atStart = !randomStems && !allMode && windowStart <= 0;
-      const atEnd =
-        !randomStems && (allMode || total === 0 || windowStart + batchSize >= total);
-      const needsSize = allMode || !inputRaw();
-      if (batchPrevBtn) batchPrevBtn.disabled = total === 0 || needsSize || atStart;
-      if (batchNextBtn) batchNextBtn.disabled = total === 0 || needsSize || atEnd;
-      if (batchRandomBtn) batchRandomBtn.disabled = total === 0 || needsSize;
-      const hintEl = bar.querySelector("[data-batch-hint]");
-      if (hintEl) {
-        const showHint = total > 0 && needsSize;
-        hintEl.hidden = !showHint;
-        if (showHint) hintEl.removeAttribute("hidden");
-        else hintEl.setAttribute("hidden", "");
+      const inRandom = !!(randomStems && randomStems.length);
+      const atStart = !inRandom && windowStart <= 0;
+      const atEnd = allMode || total === 0 || inRandom || windowStart + batchSize >= total;
+      if (batchDecBtn) batchDecBtn.disabled = total === 0 || batchSize <= 1;
+      if (batchIncBtn) batchIncBtn.disabled = total === 0 || batchSize >= cap;
+      if (batchPrevBtn) batchPrevBtn.disabled = total === 0 || allMode || (!inRandom && atStart);
+      if (batchNextBtn) batchNextBtn.disabled = total === 0 || allMode || inRandom || atEnd;
+      if (batchRandomBtn) batchRandomBtn.disabled = total === 0;
+      bar.querySelectorAll("[data-tools-play-visible]").forEach((btn) => {
+        btn.disabled = total === 0;
+      });
+      if (typeof window.__birinciSyncPlayVisibleUi === "function") {
+        window.__birinciSyncPlayVisibleUi();
       }
       if (batchAllBtn) {
+        const showingAll = allMode && !inRandom && total > 0;
         batchAllBtn.disabled = total === 0;
         batchAllBtn.classList.toggle("is-active", showingAll);
         batchAllBtn.setAttribute("aria-pressed", showingAll ? "true" : "false");
-        batchAllBtn.setAttribute("aria-disabled", showingAll || total === 0 ? "true" : "false");
+        batchAllBtn.removeAttribute("aria-disabled");
       }
       if (batchRangeEl) {
         if (total === 0) {
           batchRangeEl.hidden = true;
           batchRangeEl.textContent = "";
-        } else if (randomStems) {
-          batchRangeEl.hidden = false;
-          batchRangeEl.textContent = `Təsadüfi · ${visibleCount} / ${total}`;
-        } else if (allMode || showingAll) {
-          batchRangeEl.hidden = false;
-          batchRangeEl.textContent = `1–${total} / ${total}`;
         } else {
-          const from = windowStart + 1;
-          const to = windowStart + visibleCount;
           batchRangeEl.hidden = false;
-          batchRangeEl.textContent = `${from}–${to} / ${total}`;
+          batchRangeEl.removeAttribute("hidden");
+          if (inRandom) {
+            batchRangeEl.textContent = `${tUi("batch_random", "Təsadüfi")} · ${visibleCount} / ${total}`;
+          } else if (allMode) {
+            batchRangeEl.textContent = `1–${total} / ${total}`;
+          } else {
+            const from = windowStart + 1;
+            const to = Math.max(from, windowStart + visibleCount);
+            batchRangeEl.textContent = `${from}–${to} / ${total}`;
+          }
         }
       }
     };
 
-    const commitBatchSize = ({ persist = true, render = false, resetWindow = false } = {}) => {
+    const applyPageSize = (n, { persist = true, render = false } = {}) => {
       const cap = batchCap();
-      const raw = inputRaw();
-      if (!raw) {
-        allMode = true;
-        randomStems = null;
-        windowStart = 0;
-        if (batchSizeInput) batchSizeInput.value = "";
-        if (persist) {
-          persistBatchSize();
-          persistAllMode();
-        }
-        if (render && view === "list") {
-          pendingStem = null;
-          renderList();
-        } else {
-          syncBatchUi(0);
-        }
-        return;
-      }
-      let n = Number(raw);
-      if (!Number.isFinite(n) || n < 1) n = 1;
-      n = Math.min(Math.floor(n), cap);
-      if (n < 1) n = 1;
-      if (batchSizeInput) batchSizeInput.value = String(n);
-      batchSize = n;
+      let size = Number(n);
+      if (!Number.isFinite(size) || size < 1) size = batchSize || 12;
+      size = Math.min(Math.floor(size), cap);
+      if (size < 1) size = 1;
+      batchSize = size;
       allMode = false;
-      if (resetWindow) {
-        windowStart = 0;
-        randomStems = null;
-      } else if (randomStems) {
-        randomStems = null;
-      }
+      randomStems = null;
+      windowStart = 0;
+      if (batchSizeInput) batchSizeInput.value = String(batchSize);
       if (persist) {
         persistBatchSize();
         persistAllMode();
@@ -5967,16 +6916,11 @@ JS = r"""
       }
     };
 
+    const commitBatchSize = ({ persist = true, render = false } = {}) => {
+      applyPageSize(readBatchSize(), { persist, render });
+    };
+
     const applyStoredBatchSize = () => {
-      try {
-        // One-time: older home builds always persisted a numeric size (often 10).
-        // Align with category empty→all default for returning visitors.
-        if (!localStorage.getItem("birinci-home-batch-empty-default")) {
-          localStorage.setItem("birinci-home-batch-empty-default", "1");
-          localStorage.removeItem(batchSizeStorageKey);
-          localStorage.removeItem(legacyPageSizeStorageKey);
-        }
-      } catch (_) {}
       let stored = "";
       let storedAll = false;
       try {
@@ -5989,17 +6933,9 @@ JS = r"""
         }
       } catch (_) {}
       const n = Number(stored);
-      if (storedAll || !stored) {
-        allMode = true;
-        if (batchSizeInput) batchSizeInput.value = "";
-      } else if (Number.isFinite(n) && n > 0) {
-        allMode = false;
-        batchSize = Math.floor(n);
-        if (batchSizeInput) batchSizeInput.value = String(batchSize);
-      } else {
-        allMode = true;
-        if (batchSizeInput) batchSizeInput.value = "";
-      }
+      batchSize = Number.isFinite(n) && n > 0 ? Math.floor(n) : 12;
+      allMode = !!storedAll;
+      if (batchSizeInput) batchSizeInput.value = String(batchSize);
       syncBatchUi(0);
     };
 
@@ -6064,11 +7000,7 @@ JS = r"""
       } else {
         document.querySelectorAll("article.story").forEach((story) => {
           story.classList.toggle("story--figure-hidden", collapsed);
-          const btn = story.querySelector("[data-story-figure-toggle]");
-          if (!btn) return;
-          btn.setAttribute("aria-expanded", collapsed ? "false" : "true");
-          const label = btn.querySelector("[data-story-figure-label]");
-          if (label) label.textContent = collapsed ? "Şəkli göstər" : "Şəkli gizlət";
+          setStoryModePressed(story, "data-images-mode", !collapsed);
         });
       }
       try {
@@ -6101,11 +7033,7 @@ JS = r"""
       } else {
         document.querySelectorAll("article.story").forEach((story) => {
           story.classList.toggle("story--text-hidden", collapsed);
-          const btn = story.querySelector("[data-story-text-toggle]");
-          if (!btn) return;
-          btn.setAttribute("aria-expanded", collapsed ? "false" : "true");
-          const label = btn.querySelector("[data-story-text-label]");
-          if (label) label.textContent = collapsed ? "Mətni göstər" : "Mətni gizlət";
+          setStoryModePressed(story, "data-texts-mode", !collapsed);
         });
       }
       try {
@@ -6128,18 +7056,19 @@ JS = r"""
 
     const applyCards = () => {
       if (!cardsList) return;
-      const q = searchInput.value.trim().toLocaleLowerCase("az");
+      const q = searchInput.value.trim().toLocaleLowerCase(LOCALE_TAG);
       const items = Array.from(cardsList.querySelectorAll(".cat-card"));
       items.sort((a, b) => localeCompareAz(a.dataset.title, b.dataset.title));
       items.forEach((item) => cardsList.appendChild(item));
       let visible = 0;
       items.forEach((item) => {
-        const hay = `${item.dataset.title || ""} ${item.dataset.blurb || ""}`.toLocaleLowerCase("az");
+        const hay = `${item.dataset.title || ""} ${item.dataset.blurb || ""}`.toLocaleLowerCase(LOCALE_TAG);
         const show = !q || hay.includes(q);
         item.hidden = !show;
         if (show) visible += 1;
       });
       if (cardsEmpty) cardsEmpty.hidden = visible !== 0;
+      syncSearchFilterUi(searchInput.value.trim(), visible);
     };
 
     const flattenStories = (catalog) => {
@@ -6153,7 +7082,8 @@ JS = r"""
             categoryTitle: cat.title,
             categorySlug: cat.slug,
             hasAudio: !!story.hasAudio,
-            hay: `${story.title || ""} ${(story.paragraphs || []).join(" ")}`.toLocaleLowerCase("az"),
+            hasImage: !!story.hasImage,
+            hay: `${story.title || ""} ${(story.paragraphs || []).join(" ")}`.toLocaleLowerCase(LOCALE_TAG),
           });
         });
       });
@@ -6206,12 +7136,30 @@ JS = r"""
       return loading;
     };
 
-    const paragraphsHtml = (paragraphs) => {
+    const paragraphsHtml = (paragraphs, stem) => {
       if (!paragraphs.length) return "";
+      const last = paragraphs.length - 1;
+      const foldAzI = (s) => String(s || "").replace(/[İIı]/g, "i");
+      const srcRe = /(internet\s+sources|internet\s+mənb|internet\s+kaynak|открыт\w*\s+источник|интернет|(?:source|mənbə|kaynak|источник|булак|булагы)\s*:)/i;
+      const moralRe = /^(ibrət|ibret|moral|мораль|үлгү)\s*:/i;
+      const authorSrcStems = { "everyone-has-work-to-do": 1, "weeds-must-be-pulled-from-the-root": 1, "the-silent-corridor": 1 };
+      const authorSrc = !!(stem && authorSrcStems[stem]);
+      const lastIsSrc = last >= 0 && (authorSrc || srcRe.test(foldAzI(paragraphs[last] || "")));
+      const srcLabel = (I18N.ui && I18N.ui.story_source) || "";
+      let moralI = -1;
+      for (let j = lastIsSrc ? last - 1 : last; j >= 0; j--) {
+        if (moralRe.test(foldAzI(String(paragraphs[j] || "").trim()))) {
+          moralI = j;
+          break;
+        }
+      }
+      if (moralI < 0) moralI = lastIsSrc && last >= 1 ? last - 1 : last;
       return paragraphs
         .map((p, i) => {
-          const cls = i === paragraphs.length - 1 ? ' class="story__moral"' : "";
-          return `<p${cls}>${escapeHtml(p)}</p>`;
+          const isSrc = lastIsSrc && i === last;
+          const cls = isSrc ? "story__source" : i === moralI ? "story__moral" : "";
+          const text = isSrc && srcLabel && !authorSrc ? srcLabel : p;
+          return `<p${cls ? ` class="${cls}"` : ""}>${escapeHtml(text)}</p>`;
         })
         .join("");
     };
@@ -6219,6 +7167,31 @@ JS = r"""
     const storyArticleHtml = (story) => {
       const audioAttr = story.hasAudio
         ? ` data-audio="audio/${escapeHtml(story.stem)}.mp3?v=${escapeHtml(assetVersion)}"`
+        : "";
+      const audioLabel = escapeHtml(tUi("story_audio_label", "Səs"));
+      const imageLabel = escapeHtml(tUi("story_image_label", "Şəkil"));
+      const textLabel = escapeHtml(tUi("story_text_label", "Mətn"));
+      const figureToggle = story.hasImage
+        ? `
+          <div class="story__action-group">
+            <span class="tools-bar__label">${imageLabel}</span>
+            <div class="tools-bar__views" role="group" aria-label="${imageLabel}">
+            <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-images-mode="show" aria-pressed="true" aria-controls="figure-${escapeHtml(story.stem)}" title="${escapeHtml(tUi("show_image", "Şəkli göstər"))}" aria-label="${escapeHtml(tUi("show_image", "Şəkli göstər"))}">
+              ${STORY_ICONS.eye}
+            </button>
+            <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-images-mode="hide" aria-pressed="false" aria-controls="figure-${escapeHtml(story.stem)}" title="${escapeHtml(tUi("hide_image", "Şəkli gizlət"))}" aria-label="${escapeHtml(tUi("hide_image", "Şəkli gizlət"))}">
+              ${STORY_ICONS["eye-off"]}
+            </button>
+            </div>
+          </div>`
+        : "";
+      const figureHtml = story.hasImage
+        ? `
+    <figure class="story__figure" id="figure-${escapeHtml(story.stem)}">
+      <button type="button" class="story__figure-open" aria-label="${escapeHtml(story.title)} şəklini böyüt">
+        <img src="illustrations/${escapeHtml(story.stem)}.webp" alt="${escapeHtml(story.title)} illüstrasiyası" loading="lazy" width="1536" height="1024" />
+      </button>
+    </figure>`
         : "";
       return `
 <article class="story news-card" id="${escapeHtml(story.stem)}" data-stem="${escapeHtml(story.stem)}" data-title="${escapeHtml(story.title)}"${audioAttr}>
@@ -6229,32 +7202,37 @@ JS = r"""
     <div class="story__content">
       <div class="story__panel">
         <div class="story__actions">
-          <button type="button" class="story-tts" data-story-tts aria-pressed="false">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-              <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
-            </svg>
-            <span data-story-tts-label>Mətni dinlə</span>
-          </button>
-          <button type="button" class="story-text-toggle" data-story-text-toggle aria-expanded="true" aria-controls="text-${escapeHtml(story.stem)}">
-            <span data-story-text-label>Mətni gizlət</span>
-          </button>
-          <button type="button" class="story-figure-toggle" data-story-figure-toggle aria-expanded="true" aria-controls="figure-${escapeHtml(story.stem)}">
-            <span data-story-figure-label>Şəkli gizlət</span>
-          </button>
+          <div class="story__action-group">
+            <span class="tools-bar__label">${audioLabel}</span>
+            <div class="tools-bar__views" role="group" aria-label="${audioLabel}">
+            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="listen" aria-pressed="false" title="${escapeHtml(tUi("listen", "Mətni dinlə"))}" aria-label="${escapeHtml(tUi("listen", "Mətni dinlə"))}">
+              ${STORY_ICONS.listen}
+            </button>
+            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="stop" aria-pressed="true" title="${escapeHtml(tUi("stop", "Dayandır"))}" aria-label="${escapeHtml(tUi("stop", "Dayandır"))}">
+              ${STORY_ICONS.stop}
+            </button>
+            </div>
+          </div>
+          ${figureToggle}
+          <div class="story__action-group">
+            <span class="tools-bar__label">${textLabel}</span>
+            <div class="tools-bar__views" role="group" aria-label="${textLabel}">
+            <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-texts-mode="show" aria-pressed="true" aria-controls="text-${escapeHtml(story.stem)}" title="${escapeHtml(tUi("show_text", "Mətni göstər"))}" aria-label="${escapeHtml(tUi("show_text", "Mətni göstər"))}">
+              ${STORY_ICONS.text}
+            </button>
+            <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-texts-mode="hide" aria-pressed="false" aria-controls="text-${escapeHtml(story.stem)}" title="${escapeHtml(tUi("hide_text", "Mətni gizlət"))}" aria-label="${escapeHtml(tUi("hide_text", "Mətni gizlət"))}">
+              ${STORY_ICONS["text-off"]}
+            </button>
+            </div>
+          </div>
           <p class="story-tts__note" data-story-tts-note hidden></p>
         </div>
         <div class="story__text card-text" id="text-${escapeHtml(story.stem)}">
-          ${paragraphsHtml(story.paragraphs)}
+          ${paragraphsHtml(story.paragraphs, story.stem)}
         </div>
       </div>
     </div>
-    <figure class="story__figure" id="figure-${escapeHtml(story.stem)}">
-      <button type="button" class="story__figure-open" aria-label="${escapeHtml(story.title)} şəklini böyüt">
-        <img src="illustrations/${escapeHtml(story.stem)}.webp" alt="${escapeHtml(story.title)} illüstrasiyası" loading="lazy" width="1536" height="1024" />
-      </button>
-    </figure>
+    ${figureHtml}
   </div>
 </article>`.trim();
     };
@@ -6287,22 +7265,21 @@ JS = r"""
     const renderList = ({ resetWindow = false } = {}) => {
       if (!storiesList) return;
       if (typeof window.__birinciStopStoryTts === "function") window.__birinciStopStoryTts();
-      const q = searchInput.value.trim().toLocaleLowerCase("az");
+      const q = searchInput.value.trim().toLocaleLowerCase(LOCALE_TAG);
       filtered = (allStories || []).filter((story) => !q || story.hay.includes(q));
       filtered.sort((a, b) => localeCompareAz(a.title, b.title));
 
       const total = filtered.length;
+      syncSearchFilterUi(searchInput.value.trim(), total);
       const cap = Math.max(1, total || 1);
-      if (allMode) {
-        if (batchSizeInput) batchSizeInput.value = "";
-      } else {
-        let n = readBatchSize();
-        if (!Number.isFinite(n) || n < 1) n = 1;
-        if (n > cap) n = cap;
-        if (batchSizeInput && String(batchSizeInput.value) !== String(n)) {
-          batchSizeInput.value = String(n);
-        }
-        batchSize = n;
+      let n = readBatchSize();
+      if (!Number.isFinite(n) || n < 1) n = batchSize || 12;
+      if (n > cap) n = cap;
+      batchSize = n;
+      if (batchSizeInput && String(batchSizeInput.value) !== String(n)) {
+        batchSizeInput.value = String(n);
+      }
+      if (!allMode) {
         try {
           localStorage.setItem(batchSizeStorageKey, String(n));
         } catch (_) {}
@@ -6360,6 +7337,9 @@ JS = r"""
       }
       refreshSidebarNav(visibleStories);
       if (listEmpty) listEmpty.hidden = total !== 0;
+      if (typeof window.__birinciClearListenQueue === "function") {
+        window.__birinciClearListenQueue({ keepTrack: true });
+      }
       syncBatchUi(visibleStories.length);
       persistAllMode();
       writeUrlState();
@@ -6471,48 +7451,60 @@ JS = r"""
     const runBatchAction = (action) => {
       if (view !== "list") return;
       const total = filtered.length;
+      const scrollHomeTools = () => {
+        if (typeof window.__birinciScrollHomeTools === "function") {
+          window.__birinciScrollHomeTools();
+        }
+      };
       if (!total) {
-        allMode = true;
-        if (batchSizeInput) batchSizeInput.value = "";
+        randomStems = null;
+        windowStart = 0;
         persistBatchSize();
         persistAllMode();
         renderList();
         return;
       }
       if (action === "all") {
-        if (allMode) {
-          syncBatchUi(filtered.length);
-          return;
+        if (allMode && !randomStems) {
+          allMode = false;
+        } else {
+          allMode = true;
+          randomStems = null;
         }
-        allMode = true;
-        randomStems = null;
         windowStart = 0;
-        if (batchSizeInput) batchSizeInput.value = "";
         persistBatchSize();
         persistAllMode();
         pendingStem = null;
         renderList();
-        if (typeof window.__birinciScrollHomeTools === "function") {
-          window.__birinciScrollHomeTools();
-        }
+        scrollHomeTools();
         return;
       }
-      if (!inputRaw()) {
-        // Require an explicit count — never invent a default like 10.
-        syncBatchUi((filtered && filtered.length) || 0);
+      if (action === "dec") {
+        applyPageSize(batchSize - 1, { persist: true, render: true });
+        scrollHomeTools();
         return;
       }
-      commitBatchSize({ persist: true, render: false });
-      allMode = false;
+      if (action === "inc") {
+        applyPageSize(batchSize + 1, { persist: true, render: true });
+        scrollHomeTools();
+        return;
+      }
       if (action === "prev") {
-        randomStems = null;
-        windowStart = Math.max(0, windowStart - batchSize);
+        allMode = false;
+        if (randomStems) {
+          randomStems = null;
+          windowStart = 0;
+        } else {
+          windowStart = Math.max(0, windowStart - batchSize);
+        }
       } else if (action === "next") {
+        allMode = false;
         randomStems = null;
         if (windowStart + batchSize < total) {
           windowStart += batchSize;
         }
       } else if (action === "random") {
+        allMode = false;
         randomStems = pickRandomStems(batchSize);
       } else {
         return;
@@ -6521,10 +7513,10 @@ JS = r"""
       persistAllMode();
       pendingStem = null;
       renderList();
-      if (typeof window.__birinciScrollHomeTools === "function") {
-        window.__birinciScrollHomeTools();
-      }
+      scrollHomeTools();
     };
+    if (batchDecBtn) batchDecBtn.addEventListener("click", () => runBatchAction("dec"));
+    if (batchIncBtn) batchIncBtn.addEventListener("click", () => runBatchAction("inc"));
     if (batchPrevBtn) {
       batchPrevBtn.addEventListener("click", () => runBatchAction("prev"));
     }
@@ -6596,11 +7588,16 @@ JS = r"""
     let objectUrl = "";
     let activeSourceKey = "";
     let loadToken = 0;
+    let speakToken = 0;
     let fetchController = null;
+    let queueActive = false;
+    let queueStems = [];
+    let queueIndex = 0;
 
     const setLabel = (btn, text) => {
-      const label = btn.querySelector("[data-story-tts-label]");
-      if (label) label.textContent = text;
+      if (!btn) return;
+      btn.setAttribute("aria-label", text);
+      btn.setAttribute("title", text);
     };
 
     const showNote = (btn, message) => {
@@ -6661,20 +7658,30 @@ JS = r"""
       return buttons;
     };
 
-    const syncPlayingUi = (btn, playing) => {
+    const syncTtsPairUi = (btn, state) => {
       const stem = stemFor(btn) || activeStem;
+      const roots = new Set();
       buttonsForStem(stem, btn).forEach((el) => {
-        el.setAttribute("aria-pressed", playing ? "true" : "false");
-        setLabel(el, playing ? "Dayandır" : "Mətni dinlə");
+        const root = el.closest(".tools-bar__views") || el.parentElement;
+        if (root) roots.add(root);
+      });
+      const listenOn = state === "playing" || state === "paused";
+      roots.forEach((root) => {
+        root.querySelectorAll("[data-tts-mode]").forEach((el) => {
+          const mode = el.getAttribute("data-tts-mode");
+          const pressed = listenOn ? mode === "listen" : mode === "stop";
+          el.setAttribute("aria-pressed", pressed ? "true" : "false");
+          el.setAttribute("data-tts-state", state);
+        });
       });
     };
 
+    const syncPlayingUi = (btn, playing) => {
+      syncTtsPairUi(btn, playing ? "playing" : "idle");
+    };
+
     const syncPausedUi = (btn) => {
-      const stem = stemFor(btn) || activeStem;
-      buttonsForStem(stem, btn).forEach((el) => {
-        el.setAttribute("aria-pressed", "false");
-        setLabel(el, "Davam et");
-      });
+      syncTtsPairUi(btn, "paused");
     };
 
     const formatTime = (seconds) => {
@@ -6760,11 +7767,23 @@ JS = r"""
       updateMuteUi();
     };
 
+    const syncAudioPlayerInset = () => {
+      if (!playerShell || playerShell.hidden) {
+        document.documentElement.style.removeProperty("--audio-player-h");
+        return;
+      }
+      const h = Math.ceil(playerShell.getBoundingClientRect().height || 0);
+      if (h > 0) {
+        document.documentElement.style.setProperty("--audio-player-h", `${h}px`);
+      }
+    };
+
     const hidePlayerShell = () => {
       if (!playerShell) return;
       playerShell.hidden = true;
       playerShell.setAttribute("hidden", "");
       document.body.classList.remove("audio-player-open");
+      syncAudioPlayerInset();
     };
 
     const showPlayerShell = () => {
@@ -6772,6 +7791,8 @@ JS = r"""
       playerShell.hidden = false;
       playerShell.removeAttribute("hidden");
       document.body.classList.add("audio-player-open");
+      syncAudioPlayerInset();
+      window.requestAnimationFrame(syncAudioPlayerInset);
     };
 
     const clearActive = () => {
@@ -6810,18 +7831,48 @@ JS = r"""
       }
     };
 
-    const closePlayer = () => {
+    const stopCurrentMedia = () => {
       suppressError = true;
       loadToken += 1;
+      speakToken += 1;
       stopAudioElement({ clearSrc: true });
       if (window.speechSynthesis) window.speechSynthesis.cancel();
-      clearActive();
-      hidePlayerShell();
-      updatePlayButton(false);
-      updateProgressUi();
       window.setTimeout(() => {
         suppressError = false;
       }, 120);
+    };
+
+    const clearQueue = ({ keepTrack = true } = {}) => {
+      queueActive = false;
+      queueStems = [];
+      queueIndex = 0;
+      if (!keepTrack) highlightPlaying(null);
+      updateQueueChrome();
+      syncPlayVisibleButton();
+    };
+
+    const idleProbeForStem = (stem) => {
+      if (!stem) return null;
+      const esc = escapeStem(stem);
+      return document.querySelector(
+        `[data-story-tts][data-story-stem="${esc}"], article.story[data-stem="${esc}"] [data-story-tts], article.story#${esc} [data-story-tts]`
+      );
+    };
+
+    const closePlayer = () => {
+      const btn = activeBtn;
+      const stem = activeStem;
+      clearQueue({ keepTrack: false });
+      hidePlayerShell();
+      stopCurrentMedia();
+      const probe = btn || idleProbeForStem(stem);
+      if (probe) syncTtsPairUi(probe, "idle");
+      activeBtn = null;
+      activeStem = "";
+      utterance = null;
+      updatePlayButton(false);
+      updateProgressUi();
+      syncPlayVisibleButton();
     };
 
     const stopSpeech = () => {
@@ -6856,7 +7907,138 @@ JS = r"""
       if (!btn) return false;
       const stem = stemFor(btn);
       if (stem && activeStem) return stem === activeStem;
-      return activeBtn === btn;
+      if (activeBtn === btn) return true;
+      if (activeBtn) {
+        const a = activeBtn.closest(".tools-bar__views");
+        const b = btn.closest(".tools-bar__views");
+        if (a && b && a === b) return true;
+      }
+      return false;
+    };
+
+    const collectVisibleStems = () =>
+      Array.from(document.querySelectorAll("article.story"))
+        .filter((el) => !el.hidden && !el.closest("[hidden]"))
+        .map((el) => (el.dataset.stem || el.id || "").trim())
+        .filter(Boolean);
+
+    const storyElForStem = (stem) => {
+      if (!stem) return null;
+      const esc = escapeStem(stem);
+      return (
+        document.getElementById(stem) ||
+        document.querySelector(`article.story[data-stem="${esc}"]`)
+      );
+    };
+
+    const listenBtnForStem = (stem) => {
+      const story = storyElForStem(stem);
+      return (
+        (story && story.querySelector('[data-tts-mode="listen"]')) ||
+        (story && story.querySelector("[data-story-tts]")) ||
+        null
+      );
+    };
+
+    const isPausedPlayback = () => {
+      if (audioPlayer && audioPlayer.src && audioPlayer.paused && !audioPlayer.ended) return true;
+      if (window.speechSynthesis && window.speechSynthesis.paused) return true;
+      return false;
+    };
+
+    const highlightPlaying = (story, { scroll = false } = {}) => {
+      document.querySelectorAll("article.story.story--playing").forEach((el) => {
+        el.classList.remove("story--playing");
+      });
+      if (!story) return;
+      story.classList.add("story--playing");
+      if (scroll) {
+        try {
+          story.scrollIntoView({ block: "start", behavior: "smooth" });
+        } catch (_) {}
+      }
+    };
+
+    const syncPlayVisibleButton = () => {
+      const stems = collectVisibleStems();
+      const listenOn = queueActive && (isActivelyPlaying() || isPausedPlayback());
+      const base = tUi("listen_page", "Səhifəni dinlə");
+      const stop = tUi("stop", "Dayandır");
+      const suffix = tUi("stories_count_suffix", "hekayə");
+      const listenLabel = stems.length ? `${base} · ${stems.length} ${suffix}` : base;
+      document.querySelectorAll("[data-tools-play-visible]").forEach((btn) => {
+        btn.disabled = stems.length === 0;
+        const mode = btn.getAttribute("data-tts-mode") || "listen";
+        const pressed = listenOn ? mode === "listen" : mode === "stop";
+        btn.setAttribute("aria-pressed", pressed ? "true" : "false");
+        if (mode === "listen") {
+          btn.title = listenLabel;
+          btn.setAttribute("aria-label", listenLabel);
+        } else {
+          btn.title = stop;
+          btn.setAttribute("aria-label", stop);
+        }
+      });
+    };
+
+    const updateQueueChrome = (title) => {
+      if (!playerEls) return;
+      const hasQueue = queueActive && queueStems.length > 0;
+      if (playerShell) playerShell.classList.toggle("audio-player--queue", hasQueue);
+      if (playerEls.storyPrev) {
+        playerEls.storyPrev.hidden = !hasQueue;
+        playerEls.storyPrev.disabled = !hasQueue || queueIndex <= 0;
+      }
+      if (playerEls.storyNext) {
+        playerEls.storyNext.hidden = !hasQueue;
+        playerEls.storyNext.disabled = !hasQueue || queueIndex >= queueStems.length - 1;
+      }
+      if (playerEls.title) {
+        if (title) {
+          playerEls.title.textContent = hasQueue
+            ? `${queueIndex + 1} / ${queueStems.length}  ·  ${title}`
+            : title;
+        } else if (!hasQueue) {
+          playerEls.title.textContent = String(playerEls.title.textContent || "").replace(
+            /^\d+\s*\/\s*\d+\s*·\s*/,
+            ""
+          );
+        }
+      }
+    };
+
+    const sameVisibleQueue = () => {
+      if (!queueActive) return false;
+      const now = collectVisibleStems();
+      return (
+        now.length === queueStems.length && now.every((stem, i) => stem === queueStems[i])
+      );
+    };
+
+    const pauseCurrent = () => {
+      if (audioPlayer && audioPlayer.src && !audioPlayer.paused && !audioPlayer.ended) {
+        audioPlayer.pause();
+        return;
+      }
+      if (window.speechSynthesis && window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
+        window.speechSynthesis.pause();
+        if (activeBtn) syncPausedUi(activeBtn);
+        updatePlayButton(false);
+      }
+    };
+
+    const resumeCurrent = () => {
+      if (audioPlayer && audioPlayer.src && audioPlayer.paused) {
+        const start = audioPlayer.play();
+        if (start && typeof start.catch === "function") {
+          start.catch(() => showNote(activeBtn, audioFailedMessage));
+        }
+        return;
+      }
+      if (window.speechSynthesis && window.speechSynthesis.paused) {
+        window.speechSynthesis.resume();
+        if (activeBtn) markPlaying(activeBtn, true);
+      }
     };
 
     const loadVoices = () =>
@@ -6890,12 +8072,24 @@ JS = r"""
     };
     document.addEventListener("pointerdown", warmVoices, { once: true, passive: true });
 
-    const pickVoice = (voices) =>
-      voices.find((v) => (v.lang || "").toLowerCase().startsWith("az")) ||
-      voices.find((v) => /azərbaycan|azerbaijani/i.test(v.name || "")) ||
-      voices.find((v) => (v.lang || "").toLowerCase().startsWith("tr")) ||
-      voices.find((v) => /turkish|türk/i.test(v.name || "")) ||
-      null;
+    const pickVoice = (voices) => {
+      const lang = String(LOCALE_TAG || "az").toLowerCase();
+      const nameRe = {
+        az: /azərbaycan|azerbaijani/i,
+        en: /english/i,
+        ru: /russian|русск/i,
+        tr: /turkish|türk/i,
+        ky: /kyrgyz|kirghiz|кыргыз/i,
+      }[lang];
+      const byLang = voices.find((v) => (v.lang || "").toLowerCase().startsWith(lang));
+      const byName = nameRe ? voices.find((v) => nameRe.test(v.name || "")) : null;
+      const turkicFallback =
+        lang === "az" || lang === "ky"
+          ? voices.find((v) => (v.lang || "").toLowerCase().startsWith("tr")) ||
+            voices.find((v) => /turkish|türk/i.test(v.name || ""))
+          : null;
+      return byLang || byName || turkicFallback || null;
+    };
 
     const textForSpeech = (story) => {
       const textEl = story && story.querySelector(".story__text");
@@ -6914,7 +8108,7 @@ JS = r"""
         .replace(/\s+/g, " ")
         .trim();
       if (!body) return title;
-      if (title && body.toLocaleLowerCase("az").startsWith(title.toLocaleLowerCase("az"))) {
+      if (title && body.toLocaleLowerCase(LOCALE_TAG).startsWith(title.toLocaleLowerCase(LOCALE_TAG))) {
         return body;
       }
       return title ? `${title}. ${body}` : body;
@@ -6957,9 +8151,11 @@ JS = r"""
             <span class="audio-player__time audio-player__time--duration" data-audio-duration>0:00</span>
           </div>
           <div class="audio-player__controls">
+            <button type="button" class="audio-player__btn audio-player__btn--story" data-audio-story-prev hidden aria-label="${tUi("queue_prev", "Əvvəlki hekayə")}">⏮</button>
             <button type="button" class="audio-player__btn" data-audio-skip-back aria-label="15 saniyə geriyə">−15</button>
             <button type="button" class="audio-player__btn audio-player__btn--play" data-audio-play aria-label="Oynat" aria-pressed="false"></button>
             <button type="button" class="audio-player__btn" data-audio-skip-fwd aria-label="15 saniyə irəli">+15</button>
+            <button type="button" class="audio-player__btn audio-player__btn--story" data-audio-story-next hidden aria-label="${tUi("queue_next", "Növbəti hekayə")}">⏭</button>
             <div class="audio-player__speed" data-audio-speed role="group" aria-label="Sürət">
               <span class="audio-player__speed-label">Sürət</span>
               <button type="button" class="audio-player__speed-btn" data-speed="0.75" aria-pressed="false">0.75×</button>
@@ -6987,6 +8183,8 @@ JS = r"""
         duration: playerShell.querySelector("[data-audio-duration]"),
         seek: playerShell.querySelector("[data-audio-seek]"),
         playBtn: playerShell.querySelector("[data-audio-play]"),
+        storyPrev: playerShell.querySelector("[data-audio-story-prev]"),
+        storyNext: playerShell.querySelector("[data-audio-story-next]"),
         skipBack: playerShell.querySelector("[data-audio-skip-back]"),
         skipFwd: playerShell.querySelector("[data-audio-skip-fwd]"),
         speedGroup: playerShell.querySelector("[data-audio-speed]"),
@@ -7001,7 +8199,21 @@ JS = r"""
       updateMuteUi();
       applyAudioSettings();
 
+      if (typeof ResizeObserver !== "undefined") {
+        const audioRo = new ResizeObserver(() => syncAudioPlayerInset());
+        audioRo.observe(playerShell);
+      }
+      window.addEventListener("resize", syncAudioPlayerInset, { passive: true });
+      if (window.visualViewport) {
+        window.visualViewport.addEventListener("resize", syncAudioPlayerInset, { passive: true });
+      }
+
       playerEls.playBtn.addEventListener("click", () => {
+        if (utterance && window.speechSynthesis) {
+          if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) pauseCurrent();
+          else if (window.speechSynthesis.paused) resumeCurrent();
+          return;
+        }
         if (!audioPlayer || !audioPlayer.src) return;
         if (audioPlayer.paused) {
           const start = audioPlayer.play();
@@ -7012,6 +8224,16 @@ JS = r"""
           audioPlayer.pause();
         }
       });
+      if (playerEls.storyPrev) {
+        playerEls.storyPrev.addEventListener("click", () => {
+          if (typeof window.__birinciQueuePrev === "function") window.__birinciQueuePrev();
+        });
+      }
+      if (playerEls.storyNext) {
+        playerEls.storyNext.addEventListener("click", () => {
+          if (typeof window.__birinciQueueNext === "function") window.__birinciQueueNext();
+        });
+      }
 
       playerEls.skipBack.addEventListener("click", () => {
         if (!audioPlayer) return;
@@ -7085,19 +8307,40 @@ JS = r"""
       audioPlayer.addEventListener("play", () => {
         if (activeBtn) markPlaying(activeBtn, true);
         else updatePlayButton(true);
+        syncPlayVisibleButton();
       });
       audioPlayer.addEventListener("pause", () => {
+        if (playerShell && playerShell.hidden) {
+          updatePlayButton(false);
+          syncPlayVisibleButton();
+          return;
+        }
         if (audioPlayer && !audioPlayer.ended && activeBtn) syncPausedUi(activeBtn);
         updatePlayButton(false);
+        syncPlayVisibleButton();
       });
       audioPlayer.addEventListener("ended", () => {
         updatePlayButton(false);
         updateProgressUi();
+        if (queueActive) {
+          if (typeof window.__birinciQueueAdvance === "function") window.__birinciQueueAdvance();
+          return;
+        }
+        if (playerShell && playerShell.hidden) {
+          syncPlayVisibleButton();
+          return;
+        }
         if (activeBtn) syncPausedUi(activeBtn);
+        syncPlayVisibleButton();
       });
       audioPlayer.addEventListener("error", () => {
         if (suppressError) return;
         const btn = activeBtn;
+        if (queueActive) {
+          if (btn) showNote(btn, audioFailedMessage);
+          if (typeof window.__birinciQueueAdvance === "function") window.__birinciQueueAdvance();
+          return;
+        }
         closePlayer();
         if (btn) showNote(btn, audioFailedMessage);
       });
@@ -7112,6 +8355,11 @@ JS = r"""
       const start = audioPlayer.play();
       if (start && typeof start.catch === "function") {
         start.catch(() => {
+          if (queueActive) {
+            showNote(btn, audioFailedMessage);
+            advanceQueue();
+            return;
+          }
           closePlayer();
           showNote(btn, audioFailedMessage);
         });
@@ -7130,7 +8378,14 @@ JS = r"""
       activeStem = stem || stemFor(btn);
       startGuardUntil = Date.now() + 450;
       showNote(btn, "");
-      if (playerEls.title) playerEls.title.textContent = title || "Hekayə";
+      if (playerEls.title) {
+        const rawTitle = title || "Hekayə";
+        playerEls.title.textContent =
+          queueActive && queueStems.length
+            ? `${queueIndex + 1} / ${queueStems.length}  ·  ${rawTitle}`
+            : rawTitle;
+      }
+      updateQueueChrome(title || "Hekayə");
       showPlayerShell();
       applyAudioSettings();
 
@@ -7193,9 +8448,12 @@ JS = r"""
       });
     };
 
-    const speakStory = async (btn) => {
+    const speakStory = async (btn, { fromQueue = false } = {}) => {
       if (!("speechSynthesis" in window) || typeof window.SpeechSynthesisUtterance !== "function") {
         showNote(btn, unsupportedMessage);
+        if (fromQueue && queueActive && typeof window.__birinciQueueAdvance === "function") {
+          window.__birinciQueueAdvance();
+        }
         return;
       }
 
@@ -7203,31 +8461,68 @@ JS = r"""
       const text = textForSpeech(story);
       if (!text) {
         showNote(btn, failedMessage);
+        if (fromQueue && queueActive && typeof window.__birinciQueueAdvance === "function") {
+          window.__birinciQueueAdvance();
+        }
         return;
       }
 
       const voices = await loadVoices();
       const voice = pickVoice(voices);
       if (!voice) {
+        if (fromQueue && queueActive) {
+          showNote(btn, noVoiceMessage);
+          if (typeof window.__birinciQueueAdvance === "function") window.__birinciQueueAdvance();
+          return;
+        }
         stopSpeech();
         showNote(btn, noVoiceMessage);
         return;
       }
 
-      closePlayer();
+      if (!fromQueue) {
+        clearQueue({ keepTrack: false });
+        closePlayer();
+      } else {
+        ensurePlayer();
+        stopCurrentMedia();
+        showPlayerShell();
+        updateQueueChrome(titleFor(btn, story));
+      }
       markPlaying(btn, true);
+      syncPlayVisibleButton();
 
+      const token = ++speakToken;
       const startSpeak = () => {
+        if (token !== speakToken) return;
         utterance = new SpeechSynthesisUtterance(text);
         utterance.lang = (voice.lang || "az-AZ").startsWith("tr") ? "tr-TR" : "az-AZ";
         utterance.voice = voice;
         utterance.rate = 1;
         utterance.pitch = 1;
 
-        utterance.onstart = () => markPlaying(btn, true);
-        utterance.onend = () => clearActive();
+        utterance.onstart = () => {
+          if (token !== speakToken) return;
+          markPlaying(btn, true);
+          syncPlayVisibleButton();
+        };
+        utterance.onend = () => {
+          if (suppressError || token !== speakToken) return;
+          if (fromQueue && queueActive && typeof window.__birinciQueueAdvance === "function") {
+            window.__birinciQueueAdvance();
+            return;
+          }
+          clearActive();
+          hidePlayerShell();
+          syncPlayVisibleButton();
+        };
         utterance.onerror = () => {
-          if (suppressError) return;
+          if (suppressError || token !== speakToken) return;
+          if (fromQueue && queueActive) {
+            showNote(btn, failedMessage);
+            if (typeof window.__birinciQueueAdvance === "function") window.__birinciQueueAdvance();
+            return;
+          }
           clearActive();
           showNote(btn, failedMessage);
         };
@@ -7235,6 +8530,10 @@ JS = r"""
         try {
           window.speechSynthesis.speak(utterance);
         } catch (err) {
+          if (fromQueue && queueActive && typeof window.__birinciQueueAdvance === "function") {
+            window.__birinciQueueAdvance();
+            return;
+          }
           clearActive();
           showNote(btn, unsupportedMessage);
         }
@@ -7243,7 +8542,81 @@ JS = r"""
       window.setTimeout(startSpeak, 60);
     };
 
+    const playQueueIndex = (index, { scroll = false, skipCount = 0 } = {}) => {
+      if (!queueActive || !queueStems.length) return;
+      if (index < 0 || index >= queueStems.length || skipCount >= queueStems.length) {
+        closePlayer();
+        return;
+      }
+      queueIndex = index;
+      const stem = queueStems[index];
+      const story = storyElForStem(stem);
+      const btn = listenBtnForStem(stem);
+      if (!story || !btn) {
+        playQueueIndex(index + 1, { scroll, skipCount: skipCount + 1 });
+        return;
+      }
+      highlightPlaying(story, { scroll });
+      updateQueueChrome(titleFor(btn, story));
+      const audioSrc = story.dataset.audio;
+      if (audioSrc) playAudioStory(btn, audioSrc, story);
+      else speakStory(btn, { fromQueue: true });
+      syncPlayVisibleButton();
+    };
+
+    const advanceQueue = () => {
+      if (!queueActive) return;
+      if (queueIndex + 1 >= queueStems.length) {
+        closePlayer();
+        return;
+      }
+      playQueueIndex(queueIndex + 1, { scroll: true });
+    };
+
+    const playVisible = () => {
+      const stems = collectVisibleStems();
+      if (!stems.length) return;
+      if (sameVisibleQueue() && isActivelyPlaying()) {
+        return;
+      }
+      if (sameVisibleQueue() && activeStem && !isActivelyPlaying()) {
+        resumeCurrent();
+        syncPlayVisibleButton();
+        return;
+      }
+      queueStems = stems.slice();
+      queueActive = true;
+      queueIndex = 0;
+      playQueueIndex(0, { scroll: true });
+    };
+
+    window.__birinciPlayVisible = playVisible;
+    window.__birinciQueueAdvance = advanceQueue;
+    window.__birinciQueuePrev = () => {
+      if (!queueActive || queueIndex <= 0) return;
+      playQueueIndex(queueIndex - 1, { scroll: true });
+    };
+    window.__birinciQueueNext = () => {
+      if (!queueActive || queueIndex + 1 >= queueStems.length) return;
+      playQueueIndex(queueIndex + 1, { scroll: true });
+    };
+    window.__birinciClearListenQueue = (opts) => clearQueue(opts || { keepTrack: true });
+    window.__birinciSyncPlayVisibleUi = syncPlayVisibleButton;
+
     document.addEventListener("click", (event) => {
+      const playVisibleBtn = event.target.closest("[data-tools-play-visible]");
+      if (playVisibleBtn) {
+        event.preventDefault();
+        event.stopPropagation();
+        const mode = playVisibleBtn.getAttribute("data-tts-mode") || "listen";
+        if (mode === "stop") {
+          stopSpeech();
+          syncPlayVisibleButton();
+          return;
+        }
+        playVisible();
+        return;
+      }
       const btn = event.target.closest("[data-story-tts]");
       if (!btn) return;
       event.preventDefault();
@@ -7251,24 +8624,55 @@ JS = r"""
       if (Date.now() < ignoreClicksUntil) return;
 
       const story = resolveStory(btn);
+      const stem = stemFor(btn);
       const audioSrc = story && story.dataset.audio;
       const same = isSameStoryActive(btn);
+      const mode = btn.getAttribute("data-tts-mode") || "listen";
+
+      if (mode === "stop") {
+        const root = btn.closest(".tools-bar__views") || btn.parentElement;
+        const listenEl = root && root.querySelector('[data-tts-mode="listen"]');
+        const pairOn =
+          btn.getAttribute("data-tts-state") === "playing" ||
+          btn.getAttribute("data-tts-state") === "paused" ||
+          (listenEl && listenEl.getAttribute("aria-pressed") === "true");
+        if (same || (stem && activeStem === stem) || pairOn) {
+          stopSpeech();
+        }
+        syncTtsPairUi(btn, "idle");
+        showNote(btn, "");
+        return;
+      }
+
+      if (queueActive) {
+        const idx = queueStems.indexOf(stem);
+        if (idx >= 0) {
+          if (same && isPausedPlayback()) {
+            resumeCurrent();
+            return;
+          }
+          if (same && isActivelyPlaying()) return;
+          if (same && !isActivelyPlaying()) {
+            resumeCurrent();
+            return;
+          }
+          playQueueIndex(idx, { scroll: true });
+          return;
+        }
+        clearQueue({ keepTrack: false });
+      }
 
       if (audioSrc) {
         ensurePlayer();
-        if (same && audioPlayer && !audioPlayer.paused && !audioPlayer.ended) {
-          audioPlayer.pause();
-          return;
-        }
         playAudioStory(btn, audioSrc, story);
         return;
       }
 
-      if (same && isActivelyPlaying()) {
-        stopSpeech();
-        showNote(btn, "");
+      if (same && isPausedPlayback()) {
+        resumeCurrent();
         return;
       }
+      if (same && isActivelyPlaying()) return;
       speakStory(btn);
     });
 
@@ -7397,6 +8801,7 @@ JS = r"""
     let bodyEl = null;
     let closeBtn = null;
     let ttsBtn = null;
+    let ttsBtns = [];
     let ttsNote = null;
     let lastFocus = null;
 
@@ -7413,14 +8818,17 @@ JS = r"""
             <h2 class="text-lightbox__title"></h2>
           </div>
           <div class="text-lightbox__tts">
-            <button type="button" class="story-tts" data-story-tts data-lightbox-tts aria-pressed="false">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
-              </svg>
-              <span data-story-tts-label>Mətni dinlə</span>
+            <div class="story__action-group">
+              <span class="tools-bar__label">${tUi("story_audio_label", "Səs")}</span>
+              <div class="tools-bar__views" role="group" aria-label="${tUi("story_audio_label", "Səs")}">
+            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-lightbox-tts data-tts-mode="listen" aria-pressed="false" title="${tUi("listen", "Mətni dinlə")}" aria-label="${tUi("listen", "Mətni dinlə")}">
+              ${STORY_ICONS.listen}
             </button>
+            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-lightbox-tts data-tts-mode="stop" aria-pressed="true" title="${tUi("stop", "Dayandır")}" aria-label="${tUi("stop", "Dayandır")}">
+              ${STORY_ICONS.stop}
+            </button>
+              </div>
+            </div>
             <p class="story-tts__note" data-story-tts-note hidden></p>
           </div>
           <div class="text-lightbox__body"></div>
@@ -7430,7 +8838,9 @@ JS = r"""
       titleEl = overlay.querySelector(".text-lightbox__title");
       bodyEl = overlay.querySelector(".text-lightbox__body");
       closeBtn = overlay.querySelector(".text-lightbox__close");
-      ttsBtn = overlay.querySelector("[data-lightbox-tts]");
+      ttsBtns = Array.from(overlay.querySelectorAll("[data-lightbox-tts]"));
+      ttsBtn =
+        overlay.querySelector('[data-lightbox-tts][data-tts-mode="listen"]') || ttsBtns[0] || null;
       ttsNote = overlay.querySelector("[data-story-tts-note]");
       overlay.addEventListener("click", (event) => {
         if (event.target === overlay) close();
@@ -7440,11 +8850,12 @@ JS = r"""
     };
 
     const resetTtsUi = () => {
-      if (!ttsBtn) return;
-      ttsBtn.setAttribute("aria-pressed", "false");
-      ttsBtn.removeAttribute("data-story-stem");
-      const label = ttsBtn.querySelector("[data-story-tts-label]");
-      if (label) label.textContent = "Mətni dinlə";
+      ttsBtns.forEach((el) => {
+        el.removeAttribute("data-story-stem");
+        el.setAttribute("data-tts-state", "idle");
+        const mode = el.getAttribute("data-tts-mode");
+        el.setAttribute("aria-pressed", mode === "stop" ? "true" : "false");
+      });
       if (ttsNote) {
         ttsNote.hidden = true;
         ttsNote.textContent = "";
@@ -7478,13 +8889,13 @@ JS = r"""
       titleEl.textContent = titleNode ? titleNode.textContent.trim() : "Hekayə";
       bodyEl.innerHTML = textEl.innerHTML;
       const stem = ((story.dataset.stem || story.id) || "").trim();
-      if (ttsBtn) {
-        if (stem) ttsBtn.setAttribute("data-story-stem", stem);
-        else ttsBtn.removeAttribute("data-story-stem");
-        ttsBtn.setAttribute("aria-pressed", "false");
-        const label = ttsBtn.querySelector("[data-story-tts-label]");
-        if (label) label.textContent = "Mətni dinlə";
-      }
+      ttsBtns.forEach((el) => {
+        if (stem) el.setAttribute("data-story-stem", stem);
+        else el.removeAttribute("data-story-stem");
+        el.setAttribute("data-tts-state", "idle");
+        const mode = el.getAttribute("data-tts-mode");
+        el.setAttribute("aria-pressed", mode === "stop" ? "true" : "false");
+      });
       if (ttsNote) {
         ttsNote.hidden = true;
         ttsNote.textContent = "";
@@ -7497,11 +8908,11 @@ JS = r"""
       overlay.removeAttribute("hidden");
       document.body.classList.add("text-lightbox-open");
       if (stem && typeof window.__birinciSyncStoryTtsUi === "function") {
-        const cardBtn = story.querySelector("[data-story-tts]");
+        const cardBtn =
+          story.querySelector('[data-tts-mode="listen"]') || story.querySelector("[data-story-tts]");
         const pressed = cardBtn && cardBtn.getAttribute("aria-pressed") === "true";
         const pausedLabel =
-          cardBtn &&
-          (cardBtn.querySelector("[data-story-tts-label]") || {}).textContent === "Davam et";
+          cardBtn && cardBtn.getAttribute("data-tts-state") === "paused";
         const active =
           typeof window.__birinciIsStoryAudioActive === "function" &&
           window.__birinciIsStoryAudioActive(stem);
@@ -7539,11 +8950,7 @@ JS = r"""
     const setFigureState = (story, visible) => {
       if (!story) return;
       story.classList.toggle("story--figure-hidden", !visible);
-      const btn = story.querySelector("[data-story-figure-toggle]");
-      if (!btn) return;
-      btn.setAttribute("aria-expanded", visible ? "true" : "false");
-      const label = btn.querySelector("[data-story-figure-label]");
-      if (label) label.textContent = visible ? "Şəkli gizlət" : "Şəkli göstər";
+      setStoryModePressed(story, "data-images-mode", visible);
     };
 
     const setAllFigures = (visible) => {
@@ -7556,13 +8963,12 @@ JS = r"""
     window.__birinciSetAllStoryFigures = setAllFigures;
 
     document.addEventListener("click", (event) => {
-      const btn = event.target.closest("[data-story-figure-toggle]");
-      if (!btn) return;
-      event.preventDefault();
-      const story = btn.closest(".story");
+      const btn = event.target.closest("[data-images-mode]");
+      if (!btn || btn.closest("[data-tools]")) return;
+      const story = btn.closest("article.story");
       if (!story) return;
-      const visible = btn.getAttribute("aria-expanded") !== "true";
-      setFigureState(story, visible);
+      event.preventDefault();
+      setFigureState(story, btn.getAttribute("data-images-mode") === "show");
     });
 
     setAllFigures(!document.body.classList.contains("images-collapsed"));
@@ -7572,11 +8978,7 @@ JS = r"""
     const setTextState = (story, visible) => {
       if (!story) return;
       story.classList.toggle("story--text-hidden", !visible);
-      const btn = story.querySelector("[data-story-text-toggle]");
-      if (!btn) return;
-      btn.setAttribute("aria-expanded", visible ? "true" : "false");
-      const label = btn.querySelector("[data-story-text-label]");
-      if (label) label.textContent = visible ? "Mətni gizlət" : "Mətni göstər";
+      setStoryModePressed(story, "data-texts-mode", visible);
     };
 
     const setAllTexts = (visible) => {
@@ -7589,13 +8991,12 @@ JS = r"""
     window.__birinciSetAllStoryTexts = setAllTexts;
 
     document.addEventListener("click", (event) => {
-      const btn = event.target.closest("[data-story-text-toggle]");
-      if (!btn) return;
-      event.preventDefault();
-      const story = btn.closest(".story");
+      const btn = event.target.closest("[data-texts-mode]");
+      if (!btn || btn.closest("[data-tools]")) return;
+      const story = btn.closest("article.story");
       if (!story) return;
-      const visible = btn.getAttribute("aria-expanded") !== "true";
-      setTextState(story, visible);
+      event.preventDefault();
+      setTextState(story, btn.getAttribute("data-texts-mode") === "show");
     });
 
     setAllTexts(!document.body.classList.contains("texts-collapsed"));
@@ -7643,16 +9044,20 @@ JS = r"""
 """
 
 
-def main() -> int:
-    print("Extracting stories…")
+def build_one_locale() -> dict:
+    """Build the currently configured LANG into LANG_ROOT. Returns catalog."""
+    if stories_ready(LANG):
+        print(f"[{LANG}] Extracting stories…")
+    else:
+        print(f"[{LANG}] Building placeholder pages (stories not ready)…")
     catalog = load_catalog()
     total = sum(c["count"] for c in catalog["categories"])
-    print(f"categories={len(catalog['categories'])} stories={total}")
+    print(f"[{LANG}] categories={len(catalog['categories'])} stories={total}")
 
     DATA_JSON.parent.mkdir(parents=True, exist_ok=True)
-    # Slim JSON for potential future use (no need to duplicate huge if unused)
     slim = {
         "site_title": catalog["site_title"],
+        "lang": LANG,
         "categories": [
             {
                 "title": c["title"],
@@ -7665,6 +9070,7 @@ def main() -> int:
                         "title": s["title"],
                         "paragraphs": s["paragraphs"],
                         "hasAudio": (AUDIO_DIR / f"{s['stem']}.mp3").is_file(),
+                        "hasImage": bool(s.get("has_image")),
                     }
                     for s in c["stories"]
                 ],
@@ -7698,42 +9104,177 @@ def main() -> int:
         + ";\n"
     )
 
-    ASSETS.mkdir(parents=True, exist_ok=True)
+    js_i18n = dict(LOCALE.get("js") or {})
+    for k, v in list(js_i18n.items()):
+        if isinstance(v, str):
+            js_i18n[k] = v.replace("{lang}", LANG)
+    ui_i18n = dict(UI)
+    i18n_boot = (
+        "window.__BIRINCI_I18N__ = "
+        + json.dumps({"lang": LANG, "ui": ui_i18n, "js": js_i18n}, ensure_ascii=False)
+        + ";\n"
+    )
+
+    for folder in (STORIES, ILLUSTRATIONS, AUDIO_DIR, ASSETS):
+        folder.mkdir(parents=True, exist_ok=True)
+    sync_shared_assets()
+
     (ASSETS / "search-index.js").write_text(search_js, encoding="utf-8")
     (ASSETS / "stories-data.js").write_text(stories_js, encoding="utf-8")
-    (ASSETS / "site.css").write_text(CSS, encoding="utf-8")
-    (ASSETS / "site.js").write_text(JS, encoding="utf-8")
+    icons_js = (
+        "window.__BIRINCI_STORY_ICONS__ = "
+        + json.dumps(
+            {
+                "text": _tools_bar_glyph("text"),
+                "text-off": _tools_bar_glyph("text-off"),
+                "eye": _tools_bar_glyph("eye"),
+                "eye-off": _tools_bar_glyph("eye-off"),
+                "listen": _tools_bar_glyph("listen"),
+                "stop": _tools_bar_glyph("stop"),
+            },
+            ensure_ascii=False,
+        )
+        + ";\n"
+    )
+    (ASSETS / "site.js").write_text(i18n_boot + icons_js + JS, encoding="utf-8")
+    prune_locale_assets()
 
     PAGES_DIR.mkdir(parents=True, exist_ok=True)
-    (AZ_ROOT / "index.html").write_text(build_landing(catalog), encoding="utf-8")
+    (LANG_ROOT / "index.html").write_text(build_landing(catalog), encoding="utf-8")
 
     for cat in catalog["categories"]:
         path = PAGES_DIR / f"{cat['slug']}.html"
         path.write_text(build_category_page(cat), encoding="utf-8")
-        print(f"  wrote {path.name} ({cat['count']})")
+        print(f"  [{LANG}] wrote {path.name} ({cat['count']})")
 
-    # Root redirect into az/
+    print(f"[{LANG}] landing: {LANG_ROOT / 'index.html'}")
+    print(f"[{LANG}] data: {DATA_JSON}")
+    return catalog
+
+
+def write_root_language_gate() -> None:
     (SITE_ROOT / "index.html").write_text(
         """<!DOCTYPE html>
 <html lang="az">
 <head>
   <meta charset="utf-8" />
-  <meta http-equiv="refresh" content="0; url=az/" />
-  <link rel="canonical" href="az/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0069b4" />
   <title>Bir inci</title>
-  <script>location.replace("az/");</script>
+  <meta name="description" content="Bir inci" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --nav-blue:#0069b4;
+      --nav-blue-deep:#005a9a;
+      --ink:#08263b;
+      --font-display:"Fraunces",Georgia,serif;
+      --font-ui:"Source Sans 3","Segoe UI","Noto Sans",sans-serif;
+    }
+    body{font-family:var(--font-ui);margin:0;min-height:100vh;min-height:100dvh;display:grid;place-items:center;
+      padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+      background:linear-gradient(165deg,#e8f4fc,#fff8e8);color:var(--ink)}
+    .gate{text-align:center;padding:2rem}
+    h1{font-family:var(--font-display);font-size:clamp(2rem,5vw,3rem);margin:0 0 .4rem}
+    p{opacity:.8;margin:0 0 1.5rem}
+    .langs{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
+    a,.lang{display:inline-flex;align-items:center;gap:.55rem;padding:.7rem 1.1rem;border-radius:999px;
+      background:var(--nav-blue);color:#fff;text-decoration:none;font-weight:700;min-width:7.5rem}
+    a:hover{background:var(--nav-blue-deep)}
+    .lang[aria-disabled="true"]{opacity:.42;cursor:not-allowed;background:#7aa7c9}
+    img{width:1.35rem;height:.9rem;border-radius:2px;object-fit:cover;box-shadow:0 0 0 1px rgba(0,0,0,.12)}
+  </style>
+  <script>
+    (function () {
+      function enabledLangs(cfg) {
+        return (cfg.languages || []).filter(function (lang) {
+          return lang && lang.enabled !== false && lang.code && lang.show_in_switcher !== false;
+        });
+      }
+      function matchesNav(nav, prefixes) {
+        return (prefixes || []).some(function (p) { return nav.indexOf(p) === 0; });
+      }
+      fetch("languages.json")
+        .then(function (res) { return res.json(); })
+        .then(function (cfg) {
+          var langs = enabledLangs(cfg);
+          var ready = langs.filter(function (lang) { return lang.implemented !== false; });
+          var readyCodes = ready.map(function (lang) { return lang.code; });
+          try {
+            var saved = localStorage.getItem("birinci-lang");
+            if (saved && readyCodes.indexOf(saved) !== -1) {
+              location.replace(saved + "/index.html");
+              return;
+            }
+          } catch (e) {}
+          var nav = (navigator.language || "").toLowerCase();
+          var match = ready.find(function (lang) { return matchesNav(nav, lang.nav_prefixes); });
+          if (match) {
+            location.replace(match.code + "/index.html");
+            return;
+          }
+          var prompt = document.querySelector("[data-gate-prompt]");
+          if (prompt && cfg.gate_prompt) prompt.textContent = cfg.gate_prompt;
+          var host = document.querySelector("[data-gate-langs]");
+          if (!host) return;
+          host.innerHTML = langs.map(function (lang) {
+            var flag = lang.flag
+              ? '<img src="' + lang.flag + '" alt="" width="22" height="15">'
+              : "";
+            var name = lang.name || lang.label || lang.code;
+            if (lang.implemented === false) {
+              return '<span class="lang" aria-disabled="true" title="Coming soon">' +
+                flag + "<span>" + name + "</span></span>";
+            }
+            return '<a href="' + lang.code + '/index.html" hreflang="' + lang.code + '" data-lang="' + lang.code + '">' +
+              flag + "<span>" + name + "</span></a>";
+          }).join("");
+          host.querySelectorAll("[data-lang]").forEach(function (link) {
+            link.addEventListener("click", function () {
+              try { localStorage.setItem("birinci-lang", link.getAttribute("data-lang") || ""); } catch (e) {}
+            });
+          });
+        })
+        .catch(function () {});
+    })();
+  </script>
 </head>
 <body>
-  <p><a href="az/">Bir inci</a></p>
+  <div class="gate">
+    <h1>Bir inci</h1>
+    <p data-gate-prompt>Choose language</p>
+    <div class="langs" data-gate-langs></div>
+  </div>
 </body>
 </html>
 """,
         encoding="utf-8",
     )
-
-    print(f"landing: {AZ_ROOT / 'index.html'}")
     print(f"root: {SITE_ROOT / 'index.html'}")
-    print(f"data: {DATA_JSON}")
+
+
+def main(argv: list[str] | None = None) -> int:
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description=f"Build Bir inci static site ({'/'.join(SUPPORTED_LANGS)})."
+    )
+    parser.add_argument(
+        "--lang",
+        choices=[*SUPPORTED_LANGS, "all"],
+        default="all",
+        help="Locale to build (default: all)",
+    )
+    args = parser.parse_args(argv)
+
+    langs = list(SUPPORTED_LANGS) if args.lang == "all" else [args.lang]
+    for lang in langs:
+        apply_locale(lang)
+        build_one_locale()
+
+    write_root_language_gate()
     return 0
 
 

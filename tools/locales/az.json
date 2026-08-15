@@ -1,0 +1,455 @@
+{
+  "html_lang": "az",
+  "site_name": "Bir inci",
+  "site_title": "İbrətamiz deyimlər və hekayələr",
+  "nav_label": "Ədəbiyyat",
+  "nav_stories_label": "İbrətamiz hekayələr",
+  "nav_stories_desc": "Kateqoriyalar üzrə ibrətamiz hekayələr",
+  "nav_arts_label": "İncəsənət",
+  "nav_arts_desc": "Rəssamlıq, memarlıq, musiqi və kino",
+  "nav_science_label": "Elm",
+  "nav_natural_science_label": "Təbiət elmləri",
+  "nav_natural_science_desc": "Fizika, kimya və biologiya",
+  "nav_social_science_label": "İctimai elmlər",
+  "nav_social_science_desc": "Cəmiyyət, iqtisadiyyat və insan davranışı",
+  "nav_humanities_label": "Humanitar elmlər",
+  "nav_humanities_desc": "Tarix, fəlsəfə, dil və mədəniyyət",
+  "nav_medical_science_label": "Tibb elmləri",
+  "nav_medical_science_desc": "İnsan orqanizmi, diaqnostika və müalicə",
+  "nav_informatics_label": "İnformatika",
+  "nav_informatics_desc": "Alqoritmlər, data və proqram sistemləri",
+  "nav_math_label": "Riyaziyyat",
+  "nav_math_desc": "Rəqəm, düstur və məntiq",
+  "home_crumb": "Ana səhifə",
+  "ui": {
+    "open_menu": "Menyunu aç",
+    "close_menu": "Menyunu bağla",
+    "main_menu": "Əsas menyu",
+    "coming_soon": "Tezliklə",
+    "stories_coming_soon": "Hekayələr tezliklə",
+    "stories_coming_soon_lead": "Bu dil üçün hekayələr hazırlanır. Səhifə quruluşu artıq hazırdır; mətnlər əlavə olunanda burada görünəcək.",
+    "intro_source": "Hekayələr açıq İnternet mənbələrindən əldə olunub",
+    "story_source": "Mənbə: İnternet",
+    "site_description": "Bir inci — ibrətamiz deyimlər və hekayələr toplusu.",
+    "stories_nav": "Hekayələr",
+    "stories_nav_open": "Hekayələr menyusunu aç",
+    "no_matching_category": "Uyğun kateqoriya tapılmadı.",
+    "no_matching_story": "Uyğun hekayə tapılmadı.",
+    "categories_heading": "Kateqoriyalar",
+    "skip_to_content": "Məzmuna keç",
+    "back_to_top": "Səhifənin yuxarısına qayıt",
+    "search": "Axtar…",
+    "search_aria": "Axtar",
+    "global_search": "Qlobal axtarış",
+    "global_search_toggle": "Qlobal axtarış, Ctrl+K",
+    "global_search_title_attr": "Axtar (Ctrl+K)",
+    "close_search": "Axtarışı bağla",
+    "close": "Bağla",
+    "search_stories_label": "Hekayə axtar",
+    "search_stories_placeholder": "Bütün hekayələrdə axtar…",
+    "search_filter_label": "Axtarış",
+    "search_results_count": "{n} nəticə",
+    "clear_search_filter": "Filtri təmizlə",
+    "view": "Görüntü",
+    "view_cards": "Təsnifatlı",
+    "view_list": "Ardıcıl",
+    "images": "Şəkillər",
+    "texts": "Mətnlər",
+    "show": "Göstər",
+    "hide": "Gizlət",
+    "batch": "Hekayələrin sayı",
+    "batch_all": "Hamısı",
+    "batch_count": "Hekayə sayı",
+    "batch_prev": "Əvvəlki",
+    "batch_next": "Növbəti",
+    "batch_random": "Təsadüfi",
+    "batch_dec": "Azalt",
+    "batch_inc": "Artır",
+    "batch_pager": "Səhifə",
+    "listen": "Mətni dinlə",
+    "listen_page": "Səhifəni dinlə",
+    "story_audio_label": "Səs",
+    "story_image_label": "Şəkil",
+    "story_text_label": "Mətn",
+    "queue_prev": "Əvvəlki hekayə",
+    "queue_next": "Növbəti hekayə",
+    "hide_text": "Mətni gizlət",
+    "hide_image": "Şəkli gizlət",
+    "show_text": "Mətni göstər",
+    "show_image": "Şəkli göstər",
+    "stories_count_suffix": "hekayə",
+    "stop": "Dayandır",
+    "resume": "Davam et",
+    "play": "Oynat",
+    "mute": "Səssiz",
+    "speed": "Sürət",
+    "close_player": "Pleyeri bağla",
+    "lang_switcher_label": "Dil",
+    "hero_lead": "İbrətamiz hekayələr — oxumaq və dinləmək üçün.",
+    "intro_lead": "Saytımızda bəşəriyyətin tarix boyu elm və texnologiya, təbiət elmləri, ictimai və humanitar elmlər, eləcə də ədəbiyyat və incəsənətin müxtəlif sahələrində qazandığı möhtəşəm nailiyyətlər, ümumbəşəri mənəvi dəyərlər, görkəmli şəxsiyyətlər, mühüm tarixi kəşf və ixtiralar haqqında zəngin məlumatlar təqdim olunur. Niyyətimiz əsrlər boyu toplanmış bu dəyərli irsi qorumaq, sistemləşdirmək və gələcək nəsillərə bilik, ibrət və ilham mənbəyi kimi çatdırmaqdır.",
+    "footer_contact": "Əlaqə vasitələri",
+    "footer_phone": "Telefon",
+    "footer_address": "Ünvan",
+    "footer_website": "Veb sayt",
+    "footer_phone_placeholder": "+994 XX XXX XX XX",
+    "footer_address_placeholder": "Ünvan əlavə olunacaq",
+    "footer_website_placeholder": "https://birinci.cloud",
+    "footer_website_url": "https://birinci.cloud"
+  },
+  "js": {
+    "index_loading": "İndeks yüklənir…",
+    "results_n": "{n} nəticə",
+    "no_match": "Uyğun hekayə tapılmadı.",
+    "index_failed": "Axtarış indeksi yüklənmədi. Saytı http://localhost:8765/{lang}/ ünvanından açın.",
+    "tts_unsupported": "Hörmətli oxucu, təəssüf ki, bu cihazda və ya brauzerdə səsə çevirmə (TTS) xidməti mövcud deyil. Zəhmət olmasa hekayəni oxuyaraq davam edin.",
+    "tts_no_voice": "Hörmətli oxucu, bu cihazda uyğun nitq səsi tapılmadı.",
+    "tts_failed": "Hörmətli oxucu, hazırda səsə çevirməni başlatmaq mümkün olmadı. Zəhmət olmasa bir az sonra yenidən cəhd edin və ya hekayəni oxuyun.",
+    "audio_failed": "Hörmətli oxucu, səs faylını oxumaq mümkün olmadı. Zəhmət olmasa bir az sonra yenidən cəhd edin."
+  },
+  "categories": {
+    "iman-ve-meneviyyat": {
+      "title": "İman və mənəviyyat",
+      "blurb": "İnanç, ibadət və ruhi yol axtarışına dair hekayələr."
+    },
+    "aile-ve-terbiye": {
+      "title": "Ailə və tərbiyə",
+      "blurb": "Ana-ata sevgisi, övlad tərbiyəsi və yuva qurmaq."
+    },
+    "sevgi-ve-evlilik": {
+      "title": "Sevgi və evlilik",
+      "blurb": "Eşq, vəfa və birgə ömrün sınaqları."
+    },
+    "dostluq-ve-insan-munasibetleri": {
+      "title": "Dostluq və insan münasibətləri",
+      "blurb": "Dost seçimi, mərhəmət və insanlara münasibət."
+    },
+    "exlaq-ve-xarakter": {
+      "title": "Əxlaq və xarakter",
+      "blurb": "Dürüstlük, səxavət və şəxsi kamillik."
+    },
+    "soz-sukut-ve-unsiyyet": {
+      "title": "Söz, sükut və ünsiyyət",
+      "blurb": "Sözün gücü, sükutun hikməti və doğru ünsiyyət."
+    },
+    "hikmet-ve-heyat-dersleri": {
+      "title": "Hikmət və həyat dərsləri",
+      "blurb": "Həyatın mənası, seçimlər və düşüncə tərzi."
+    },
+    "emek-ruzi-ve-servet": {
+      "title": "Əmək, ruzi və sərvət",
+      "blurb": "Zəhmət, ruzi və var-dövlətə baxış."
+    },
+    "edalet-ve-cemiyyet": {
+      "title": "Ədalət və cəmiyyət",
+      "blurb": "Haqq, cəmiyyət və ortaq məsuliyyət."
+    },
+    "yaslanma-ve-zaman": {
+      "title": "Yaşlanma və zaman",
+      "blurb": "Ömrün fəsilləri və zamanın dəyişdirdikləri."
+    },
+    "temsiller-ve-meseller": {
+      "title": "Təmsillər və məsəllər",
+      "blurb": "Heyvanlar və obrazlarla öyrədən məsəllər."
+    },
+    "tarix-ve-taninmish-shexsiyyetler": {
+      "title": "Tarix və tanınmış şəxsiyyətlər",
+      "blurb": "Tarixdən və tanınmış adlardan ibrət."
+    }
+  },
+  "top_nav": [
+    {
+      "label": "Tanınmış şəxsiyyətlər",
+      "icon": "landmark"
+    },
+    {
+      "label": "Kəşf və ixtiralar",
+      "icon": "lightbulb"
+    },
+    {
+      "label": "Ümumi biliklər",
+      "icon": "globe"
+    },
+    {
+      "label": "Haqqımızda",
+      "icon": "info"
+    },
+    {
+      "label": "Bizi dəstəkləyin",
+      "icon": "hand-heart"
+    }
+  ],
+  "arts_items": [
+    {
+      "label": "Rəssamlıq",
+      "icon": "palette",
+      "desc": "Rəng, forma və təsviri sənət"
+    },
+    {
+      "label": "Memarlıq",
+      "icon": "building",
+      "desc": "Bina, məkan və dizayn"
+    },
+    {
+      "label": "Musiqi",
+      "icon": "music",
+      "desc": "Səs, ritm və melodiya"
+    },
+    {
+      "label": "Kino",
+      "icon": "film",
+      "desc": "Kino və ekran sənəti"
+    }
+  ],
+  "natural_items": [
+    {
+      "label": "Fizika",
+      "icon": "atom",
+      "desc": "Maddə, enerji, hərəkət və qüvvələrin qanunauyğunluqları"
+    },
+    {
+      "label": "Kimya",
+      "icon": "flask",
+      "desc": "Maddələrin tərkibi, xassələri və çevrilmələri"
+    },
+    {
+      "label": "Biologiya",
+      "icon": "dna",
+      "desc": "Canlı orqanizmlər və həyat prosesləri"
+    },
+    {
+      "label": "Astronomiya",
+      "icon": "telescope",
+      "desc": "Kainat, ulduzlar, planetlər"
+    },
+    {
+      "label": "Geologiya (Yer elmləri)",
+      "icon": "mountain",
+      "desc": "Yerin quruluşu, süxurlar, geoloji proseslər"
+    },
+    {
+      "label": "Ekologiya",
+      "icon": "leaf",
+      "desc": "Canlıların ətraf mühitlə qarşılıqlı əlaqəsi"
+    }
+  ],
+  "social_items": [
+    {
+      "label": "İqtisadiyyat",
+      "icon": "chart",
+      "desc": "İstehsal, bölgü və maliyyə"
+    },
+    {
+      "label": "Sosiologiya",
+      "icon": "users",
+      "desc": "Cəmiyyət, qruplar və sosial münasibətlər"
+    },
+    {
+      "label": "Siyasi elmlər",
+      "icon": "scale",
+      "desc": "Hakimiyyət, dövlət və siyasi proseslər"
+    },
+    {
+      "label": "Psixologiya",
+      "icon": "brain",
+      "desc": "Psixi proseslər və insan davranışı"
+    },
+    {
+      "label": "Demoqrafiya",
+      "icon": "globe",
+      "desc": "Əhali, doğum, ölüm və miqrasiya"
+    }
+  ],
+  "humanities_items": [
+    {
+      "label": "Tarix",
+      "icon": "landmark",
+      "desc": "Keçmiş hadisələr və sivilizasiyalar"
+    },
+    {
+      "label": "Fəlsəfə",
+      "icon": "lightbulb",
+      "desc": "Varlıq, bilik və dəyərlər haqqında düşüncə"
+    },
+    {
+      "label": "Dilçilik (filologiya)",
+      "icon": "message",
+      "desc": "Dil quruluşu, inkişafı və işlənməsi"
+    },
+    {
+      "label": "Ədəbiyyatşünaslıq",
+      "icon": "book",
+      "desc": "Ədəbi əsərlərin təhlili və tədqiqi"
+    },
+    {
+      "label": "Sənətşünaslıq",
+      "icon": "palette",
+      "desc": "İncəsənət tarixi və nəzəriyyəsi"
+    },
+    {
+      "label": "Dinşünaslıq (teologiya)",
+      "icon": "sparkles",
+      "desc": "Dinlər, inanclar və teoloji tədqiqat"
+    },
+    {
+      "label": "Antropologiya və etnoqrafiya",
+      "icon": "users",
+      "desc": "İnsan mədəniyyətləri və etnik qruplar"
+    },
+    {
+      "label": "Arxeologiya",
+      "icon": "mountain",
+      "desc": "Qədim mədəniyyətlərin maddi qalıqları"
+    }
+  ],
+  "medical_items": [
+    {
+      "label": "Anatomiya",
+      "icon": "activity",
+      "desc": "Orqanizmin quruluşu və orqanlar"
+    },
+    {
+      "label": "Fiziologiya",
+      "icon": "heart",
+      "desc": "Orqan və sistemlərin funksiyaları"
+    },
+    {
+      "label": "Patologiya",
+      "icon": "microscope",
+      "desc": "Xəstəliklərin səbəb və mexanizmləri"
+    },
+    {
+      "label": "Farmakologiya",
+      "icon": "pill",
+      "desc": "Dərmanlar və onların təsiri"
+    },
+    {
+      "label": "Cərrahiyyə",
+      "icon": "scissors",
+      "desc": "Cərrahi müalicə və əməliyyatlar"
+    },
+    {
+      "label": "Daxili xəstəliklər (terapiya)",
+      "icon": "stethoscope",
+      "desc": "Daxili orqan xəstəliklərinin müalicəsi"
+    },
+    {
+      "label": "Pediatriya",
+      "icon": "baby",
+      "desc": "Uşaq sağlamlığı və xəstəlikləri"
+    },
+    {
+      "label": "Kardiologiya",
+      "icon": "heart",
+      "desc": "Ürək və qan-damar sistemi"
+    },
+    {
+      "label": "Nevrologiya",
+      "icon": "brain",
+      "desc": "Sinir sistemi və beyin"
+    },
+    {
+      "label": "Onkologiya",
+      "icon": "microscope",
+      "desc": "Şiş xəstəlikləri və müalicəsi"
+    },
+    {
+      "label": "Psixiatriya",
+      "icon": "brain",
+      "desc": "Psixi sağlamlıq və pozuntular"
+    },
+    {
+      "label": "Genetika (tibbi)",
+      "icon": "dna",
+      "desc": "İrsi xəstəliklər və genlər"
+    },
+    {
+      "label": "Epidemiologiya",
+      "icon": "globe",
+      "desc": "Xəstəliklərin yayılması və profilaktikası"
+    }
+  ],
+  "informatics_items": [
+    {
+      "label": "Alqoritmlər və data strukturları",
+      "icon": "layers",
+      "desc": "Hesablama problemlərinin həlli üsulları və verilənlərin səmərəli təşkili"
+    },
+    {
+      "label": "Data bazaları",
+      "icon": "database",
+      "desc": "Verilənlərin saxlanması, təşkili, axtarışı və idarə edilməsi"
+    },
+    {
+      "label": "Data elmi",
+      "icon": "chart",
+      "desc": "Böyük məlumat massivlərinin toplanması, emalı, təhlili və onlardan bilik əldə edilməsi"
+    },
+    {
+      "label": "Kibertəhlükəsizlik",
+      "icon": "shield",
+      "desc": "Məlumatların, şəbəkələrin və kompüter sistemlərinin qorunması"
+    },
+    {
+      "label": "Kompüter qrafikası və vizuallaşdırma",
+      "icon": "palette",
+      "desc": "Vizual məlumatların yaradılması, emalı, təsviri və təqdim edilməsi"
+    },
+    {
+      "label": "Proqram mühəndisliyi",
+      "icon": "cpu",
+      "desc": "Proqram təminatının tələblərinin müəyyənləşdirilməsi, layihələndirilməsi, hazırlanması, test edilməsi və idarə olunması"
+    },
+    {
+      "label": "Süni intellekt",
+      "icon": "brain",
+      "desc": "Maşın öyrənməsi, neyron şəbəkələr, təbii dilin emalı və intellektual sistemlər"
+    },
+    {
+      "label": "Şəbəkə texnologiyaları",
+      "icon": "network",
+      "desc": "İnternet, kompüter şəbəkələri, rabitə protokolları və paylanmış sistemlər"
+    }
+  ],
+  "math_items": [
+    {
+      "label": "Cəbr",
+      "icon": "calculator",
+      "desc": "Tənliklər və cəbri strukturlar"
+    },
+    {
+      "label": "Diferensial tənliklər və riyazi modelləşdirmə",
+      "icon": "activity",
+      "desc": "Real proseslərin riyazi təsviri"
+    },
+    {
+      "label": "Diskret riyaziyyat və riyazi məntiq",
+      "icon": "layers",
+      "desc": "Kombinatorika, qraflar və formal düşüncə"
+    },
+    {
+      "label": "Ehtimal nəzəriyyəsi və statistika",
+      "icon": "chart",
+      "desc": "Təsadüfilik və məlumatların təhlili"
+    },
+    {
+      "label": "Ədədlər nəzəriyyəsi",
+      "icon": "lightbulb",
+      "desc": "Tam ədədlərin qanunauyğunluqları"
+    },
+    {
+      "label": "Həndəsə və topologiya",
+      "icon": "mountain",
+      "desc": "Forma, fəza və onların xassələri"
+    },
+    {
+      "label": "Riyazi analiz",
+      "icon": "atom",
+      "desc": "Funksiyalar və dəyişən proseslər"
+    },
+    {
+      "label": "Tətbiqi və hesablama riyaziyyatı",
+      "icon": "cpu",
+      "desc": "Praktik məsələlərin riyazi və kompüter üsulları ilə həlli"
+    }
+  ]
+}

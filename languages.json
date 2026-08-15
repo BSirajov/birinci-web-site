@@ -1,0 +1,73 @@
+{
+  "source": "az",
+  "gate_prompt": "Choose language / Dil seçin / Выберите язык / Dil seçin / Тил тандаңыз",
+  "languages": [
+    {
+      "code": "az",
+      "enabled": true,
+      "label": "AZ",
+      "name": "Azərbaycan",
+      "html_lang": "az",
+      "flag": "flags/az.svg",
+      "implemented": true,
+      "stories_ready": true,
+      "nav_prefixes": [],
+      "tts_voice": "az-AZ-BabekNeural",
+      "tts_dialogue_voice": "az-AZ-BanuNeural"
+    },
+    {
+      "code": "en",
+      "enabled": true,
+      "label": "EN",
+      "name": "English",
+      "html_lang": "en",
+      "flag": "flags/en.svg",
+      "implemented": true,
+      "stories_ready": true,
+      "nav_prefixes": ["en"],
+      "tts_voice": "en-US-GuyNeural",
+      "tts_dialogue_voice": "en-US-JennyNeural"
+    },
+    {
+      "code": "ru",
+      "enabled": true,
+      "label": "RU",
+      "name": "Русский",
+      "html_lang": "ru",
+      "flag": "flags/ru.svg",
+      "implemented": true,
+      "stories_ready": true,
+      "nav_prefixes": ["ru"],
+      "tts_voice": "ru-RU-DmitryNeural",
+      "tts_dialogue_voice": "ru-RU-SvetlanaNeural"
+    },
+    {
+      "code": "tr",
+      "enabled": true,
+      "label": "TR",
+      "name": "Türkçe",
+      "html_lang": "tr",
+      "flag": "flags/tr.svg",
+      "implemented": false,
+      "show_in_switcher": false,
+      "stories_ready": false,
+      "nav_prefixes": ["tr"],
+      "tts_voice": "tr-TR-AhmetNeural",
+      "tts_dialogue_voice": "tr-TR-EmelNeural"
+    },
+    {
+      "code": "ky",
+      "enabled": true,
+      "label": "KY",
+      "name": "Кыргызча",
+      "html_lang": "ky",
+      "flag": "flags/ky.svg",
+      "implemented": true,
+      "stories_ready": true,
+      "nav_prefixes": ["ky", "kir"],
+      "tts_voice": "kk-KZ-DauletNeural",
+      "tts_dialogue_voice": "kk-KZ-AigulNeural",
+      "tts_voice_note": "No Kyrgyz neural voice in Edge/Azure; Kazakh (closest Cyrillic Turkic) used for KY narration."
+    }
+  ]
+}

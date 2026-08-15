@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate crisp multi-size favicons from az/assets/pearl.webp."""
+"""Generate crisp multi-size favicons from assets/pearl.webp."""
 from __future__ import annotations
 
 import struct
@@ -8,7 +8,7 @@ from pathlib import Path
 
 from PIL import Image, ImageFilter
 
-ASSETS = Path(__file__).resolve().parents[1] / "az" / "assets"
+ASSETS = Path(__file__).resolve().parents[1] / "assets"
 SRC = ASSETS / "pearl.webp"
 
 

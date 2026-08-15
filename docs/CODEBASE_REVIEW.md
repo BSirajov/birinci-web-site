@@ -1,112 +1,76 @@
-# Bir inci — codebase review (2026-08-12)
+# Bir inci — codebase review (updated 2026-08-15)
 
 ## Scope note
 
-This repo is an **Azerbaijani-only** static story site. It does **not** use the classic `/css`, `/js`, `/helpers`, `/images`, `/documents` layout, and there is **no English (`en/`) locale** or language switcher. Review items that assume bilingual DAAB multi-folder apps are noted as N/A below.
+Multilingual static story site: **AZ / EN / RU / TR / KY**. Shared chrome CSS lives once under `/assets/`; each locale tree holds pages, stories data, illustrations, audio, and locale JS.
 
 ### Actual layout
 
-| Expectation | Actual |
-|-------------|--------|
-| `/css` | `az/assets/site.css` (generated from `tools/build_website.py`) |
-| `/js` | `az/assets/site.js`, `search-index.js`, `stories-data.js` |
-| `/images` | `az/illustrations/*.webp` + brand files in `az/assets/` |
-| `/documents` | `az/stories/*.docx` (build input only; not deployed) |
-| `/helpers` | Absent (stale `.gitignore` pattern removed) |
-| `en/` | Does not exist |
+| Concern | Path |
+|---------|------|
+| Source of truth | `tools/build_website.py` (embedded CSS / JS / HTML builders) |
+| Shared CSS / brand | `assets/site.css`, favicons, pearl, bg |
+| Locale trees | `{az,en,ru,tr,ky}/` — `index.html`, `categories/`, `data/`, `illustrations/`, `audio/`, `assets/site.js` (+ search/stories JS) |
+| Story sources | `{lang}/stories/*.docx` (build input; not deployed) |
+| Locales UI strings | `tools/locales/{lang}.json` |
+| Publish mirror | `deployment/` via `tools/build_deployment.py` |
 
-**Source of truth:** `tools/build_website.py` → writes `az/`. Deploy with `tools/build_deployment.py` → `deployment/`.
+**Do not hand-edit** generated `assets/site.css` or `{lang}/assets/site.js` — rebuild from the builder.
 
 ---
 
 ## Findings and fixes
 
-### Applied in this pass
+### Applied 2026-08-15 (Full Site QA pass)
 
 | Issue | Severity | Fix |
 |-------|----------|-----|
-| Nested / invalid landmarks: page shell used `<div id="main">` while home/category wrapped content in `<main>` | High (a11y) | Single `<main id="main">` in shell; page bodies use `<div>` wrappers |
-| Back-to-top `title` / `aria-label` in English | Medium | Localized to Azerbaijani |
-| Placeholder nav links (`href="#"`) still focusable | Medium | Added `tabindex="-1"` on `aria-disabled` items |
-| Unused JS binding `primaryNav` | Low | Removed |
-| Story text used UI font + very tight `line-height: 1.15` | Medium (readability) | Switched to `--font-body` (Source Serif 4), `line-height: 1.55`, ~16px size |
-| Missing global `:focus-visible` after edit risk | Medium | Restored + kept gold focus ring |
-| Touch targets / 300ms delay | Low | `touch-action: manipulation` on interactive controls |
-| `tools/story-mapping.json` root path typo (`birinci-web-stite`) | Low | Corrected to `birinci-web-site` |
-| `.gitignore` referenced missing `helpers/` | Low | Cleaned; ignore `_verify_list_view/` |
-| `deployment/` drifted behind `az/` (asset version / HTML / CSS / JS) | High (ops) | Rebuild site + refresh deployment |
+| Dead `.tools-bar__images` / `__texts` CSS (HTML uses `*-toggle`) | Medium | Removed; ≤480 rules retargeted to toggle groups |
+| Language gate hover `#005291` ≠ `--nav-blue-deep` | Low | Gate tokens + hover `#005a9a`; Fraunces / Source Sans 3 |
+| Duplicated menu-icon chrome rules | Low | Shared selector group; default icon colors use CSS vars |
+| Mobile nav open/close aria-labels hardcoded AZ | Medium | `tUi("open_menu"\|"close_menu")` + `close_menu` in all locale JSON |
+| Mobile sidebar open body missing overscroll contain | Low | Added `overscroll-behavior: contain` + touch scrolling |
+| `body.nav-open` iOS scroll bleed | Low | `overscroll-behavior: none` |
+| Stale CODEBASE_REVIEW (AZ-only) | Docs | This file refreshed |
+
+### Earlier (2026-08-12)
+
+| Issue | Severity | Fix |
+|-------|----------|-----|
+| Nested / invalid landmarks | High | Single `<main id="main">` |
+| Focus rings / story body typography | Medium | Restored `:focus-visible`; `--font-body` + line-height 1.55 |
+| Touch targets | Low | `touch-action: manipulation` |
 
 ### Confirmed healthy
 
-- All 12 category pages + home present; internal category hrefs resolve
-- Breadcrumbs: Ana səhifə → Ədəbiyyat… → İbrətamiz hekayələr → category (`#kateqoriyalar` exists on home)
-- Skip link → `#main`
-- Favicons / `pearl.webp` / illustrations / audio: **250/250/250** stems aligned
-- Search index + stories-data generated with build
-- Control panels have responsive breakpoints (≤1180 wrap for home **and** category, ≤760 2-col grid, ≤480 1-col)
-- Nav mega menus use hover/click with mobile hamburger at **≤1400px** (not 1180)
+- Shared CSS hash matches `assets/` ↔ `deployment/assets/`
+- Skip link → `#main`; one `<main>` on home/category shells
+- Hamburger ≤1400px; tools wrap ≤1180; category sidebar accordion ≤1060
+- Illustrations emit `loading="lazy"`, 1536×1024, non-empty alt
+- Asset version: **20260815b**
 
 ### Intentional stubs (not bugs)
 
-- **Elm**, **İncəsənət**, **TOP_NAV** items (Tanınmış şəxsiyyətlər, Tarixi kəşf…, Ümumi biliklər, Haqqımızda, Bizi dəstəkləyin): `aria-disabled` + “Tezliklə”
-- English stems are **filenames only**, not an English UI
-
-### Not changed (document only)
-
-| Issue | Notes / recommendation |
-|-------|------------------------|
-| No English site | Out of scope unless product asks for `en/` parallel build |
-| `az/assets/bir-inci-logo.png` unused in HTML | Keep for branding/OG later, or wire into hero/footer when needed |
-| `_verify_list_view/*.png` | Local QA screenshots; gitignored |
-| Emoji in sidebar widget heads (`📖`) | Decorative; already `aria-hidden` on wrap — acceptable |
-| Dense top nav may hit hamburger earlier after new items | By design; responsive nav collapses ≤1400px |
-| Category tools “Görünüş” groups image/text hide buttons | Matches home pattern; OK |
+- Elm / İncəsənət / some TOP_NAV items: `aria-disabled` + coming soon
+- TR may ship as placeholder until `stories_ready`
+- Dual hamburgers (primary nav vs story sidebar) by design
+- `--sticky-stack-h: 0rem` reserved; `syncStickyChrome()` sets header/breadcrumb only
 
 ---
 
-## Bilingual synchronization
+## Responsiveness
 
-**N/A — AZ only.** No language-switching links to audit. If English is added later: mirror `az/` → `en/`, shared CSS tokens, parallel category slugs, and a header locale switch that preserves path mapping.
+Breakpoints: **480 / 760 / 1060 / 1180 (tools wrap) / 1400 (hamburger)**.
 
----
-
-## Responsiveness checklist
-
-Breakpoints in use: **480 / 760 / 1060 / 1180 (tools wrap) / 1400 (hamburger)**.
-
-| Surface | Desktop (>1400) | Mid (≤1400 / ≤1180) | Phone (≤760 / ≤480) |
-|---------|-----------------|---------------------|---------------------|
-| Primary nav | Inline + dropdowns | Hamburger + accordion | Hamburger + accordion |
-| Home / category tools bar | Single row, labels above | ≤1180: search full-width, controls wrap (category uses `.tools-bar--dense`) | 2-col then 1-col grid; ~44px touch targets |
-| Story actions in text frame | Float + wrap | Same | Same; buttons remain usable when text hidden |
-| Sticky header / sticky-stack | OK | OK | OK (category stack sticky) |
-| Global search dialog | OK | OK | Full-panel |
-
-See [`docs/SITE_QA_CHECKLIST.md`](SITE_QA_CHECKLIST.md) for the full manual device/browser matrix.
+See [`docs/SITE_QA_CHECKLIST.md`](SITE_QA_CHECKLIST.md) for the manual device/browser matrix.
 
 ---
 
-## Accessibility checklist
-
-| Item | Status |
-|------|--------|
-| Skip link | OK |
-| One `<main>` | Fixed |
-| Focus rings | Global + component `:focus-visible` |
-| Image alts on story figures | Present (`… illüstrasiyası`) |
-| Decorative brand images | Empty `alt` next to visible text — OK |
-| Keyboard: Escape closes nav/search | OK |
-| Disabled upcoming nav items | Not in tab order |
-| Contrast | Blue/gold on white generally strong; gold listen button uses white text — OK |
-| Min readable story type | Improved |
-
----
-
-## Recommended ops workflow
+## Ops workflow
 
 ```bash
-python tools/build_website.py
+python tools/build_website.py --lang all
 python tools/build_deployment.py
 ```
 
-Serve from `deployment/` (or `az/` for local preview). Hard-refresh after asset version bumps.
+Serve from `deployment/` (or a locale folder for local preview). Hard-refresh after asset version bumps.
