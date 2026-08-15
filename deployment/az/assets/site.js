@@ -1,4 +1,4 @@
-window.__BIRINCI_I18N__ = {"lang": "az", "ui": {"open_menu": "Menyunu aç", "close_menu": "Menyunu bağla", "main_menu": "Əsas menyu", "coming_soon": "Tezliklə", "stories_coming_soon": "Hekayələr tezliklə", "stories_coming_soon_lead": "Bu dil üçün hekayələr hazırlanır. Səhifə quruluşu artıq hazırdır; mətnlər əlavə olunanda burada görünəcək.", "intro_source": "Hekayələr açıq İnternet mənbələrindən əldə olunub", "story_source": "Mənbə: İnternet", "site_description": "Bir inci — ibrətamiz deyimlər və hekayələr toplusu.", "stories_nav": "Hekayələr", "stories_nav_open": "Hekayələr menyusunu aç", "no_matching_category": "Uyğun kateqoriya tapılmadı.", "no_matching_story": "Uyğun hekayə tapılmadı.", "categories_heading": "Kateqoriyalar", "skip_to_content": "Məzmuna keç", "back_to_top": "Səhifənin yuxarısına qayıt", "search": "Axtar…", "search_aria": "Axtar", "global_search": "Qlobal axtarış", "global_search_toggle": "Qlobal axtarış, Ctrl+K", "global_search_title_attr": "Axtar (Ctrl+K)", "close_search": "Axtarışı bağla", "close": "Bağla", "search_stories_label": "Hekayə axtar", "search_stories_placeholder": "Bütün hekayələrdə axtar…", "search_filter_label": "Axtarış", "search_results_count": "{n} nəticə", "clear_search_filter": "Filtri təmizlə", "view": "Görüntü", "view_cards": "Təsnifatlı", "view_list": "Ardıcıl", "images": "Şəkillər", "texts": "Mətnlər", "show": "Göstər", "hide": "Gizlət", "batch": "Hekayələrin sayı", "batch_all": "Hamısı", "batch_count": "Hekayə sayı", "batch_prev": "Əvvəlki", "batch_next": "Növbəti", "batch_random": "Təsadüfi", "batch_dec": "Azalt", "batch_inc": "Artır", "batch_pager": "Səhifə", "listen": "Mətni dinlə", "listen_page": "Səhifəni dinlə", "story_audio_label": "Səs", "story_image_label": "Şəkil", "story_text_label": "Mətn", "queue_prev": "Əvvəlki hekayə", "queue_next": "Növbəti hekayə", "hide_text": "Mətni gizlət", "hide_image": "Şəkli gizlət", "show_text": "Mətni göstər", "show_image": "Şəkli göstər", "stories_count_suffix": "hekayə", "stop": "Dayandır", "resume": "Davam et", "play": "Oynat", "mute": "Səssiz", "speed": "Sürət", "close_player": "Pleyeri bağla", "lang_switcher_label": "Dil", "hero_lead": "İbrətamiz hekayələr — oxumaq və dinləmək üçün.", "intro_lead": "Saytımızda bəşəriyyətin tarix boyu elm və texnologiya, təbiət elmləri, ictimai və humanitar elmlər, eləcə də ədəbiyyat və incəsənətin müxtəlif sahələrində qazandığı möhtəşəm nailiyyətlər, ümumbəşəri mənəvi dəyərlər, görkəmli şəxsiyyətlər, mühüm tarixi kəşf və ixtiralar haqqında zəngin məlumatlar təqdim olunur. Niyyətimiz əsrlər boyu toplanmış bu dəyərli irsi qorumaq, sistemləşdirmək və gələcək nəsillərə bilik, ibrət və ilham mənbəyi kimi çatdırmaqdır.", "footer_contact": "Əlaqə vasitələri", "footer_phone": "Telefon", "footer_address": "Ünvan", "footer_website": "Veb sayt", "footer_phone_placeholder": "+994 XX XXX XX XX", "footer_address_placeholder": "Ünvan əlavə olunacaq", "footer_website_placeholder": "https://birinci.cloud", "footer_website_url": "https://birinci.cloud"}, "js": {"index_loading": "İndeks yüklənir…", "results_n": "{n} nəticə", "no_match": "Uyğun hekayə tapılmadı.", "index_failed": "Axtarış indeksi yüklənmədi. Saytı http://localhost:8765/az/ ünvanından açın.", "tts_unsupported": "Hörmətli oxucu, təəssüf ki, bu cihazda və ya brauzerdə səsə çevirmə (TTS) xidməti mövcud deyil. Zəhmət olmasa hekayəni oxuyaraq davam edin.", "tts_no_voice": "Hörmətli oxucu, bu cihazda uyğun nitq səsi tapılmadı.", "tts_failed": "Hörmətli oxucu, hazırda səsə çevirməni başlatmaq mümkün olmadı. Zəhmət olmasa bir az sonra yenidən cəhd edin və ya hekayəni oxuyun.", "audio_failed": "Hörmətli oxucu, səs faylını oxumaq mümkün olmadı. Zəhmət olmasa bir az sonra yenidən cəhd edin."}};
+window.__BIRINCI_I18N__ = {"lang": "az", "ui": {"open_menu": "Menyunu aç", "close_menu": "Menyunu bağla", "main_menu": "Əsas menyu", "coming_soon": "Tezliklə", "stories_coming_soon": "Hekayələr tezliklə", "stories_coming_soon_lead": "Bu dil üçün hekayələr hazırlanır. Səhifə quruluşu artıq hazırdır; mətnlər əlavə olunanda burada görünəcək.", "intro_source": "Hekayələr açıq internet mənbələrindən alınmış, illüstrasiyalar isə süni intellektlə yaradılmışdır.", "story_source": "Hekayələr açıq internet mənbələrindən alınmış, illüstrasiyalar isə süni intellektlə yaradılmışdır.", "site_description": "Bir inci — ibrətamiz deyimlər və hekayələr toplusu.", "stories_nav": "Hekayələr", "stories_nav_open": "Hekayələr menyusunu aç", "no_matching_category": "Uyğun kateqoriya tapılmadı.", "no_matching_story": "Uyğun hekayə tapılmadı.", "categories_heading": "Kateqoriyalar", "skip_to_content": "Məzmuna keç", "back_to_top": "Səhifənin yuxarısına qayıt", "search": "Axtar…", "search_aria": "Axtar", "global_search": "Qlobal axtarış", "global_search_toggle": "Qlobal axtarış, Ctrl+K", "global_search_title_attr": "Axtar (Ctrl+K)", "close_search": "Axtarışı bağla", "close": "Bağla", "search_stories_label": "Hekayə axtar", "search_stories_placeholder": "Bütün hekayələrdə axtar…", "search_filter_label": "Axtarış", "search_results_count": "{n} nəticə", "clear_search_filter": "Filtri təmizlə", "view": "Görüntü", "view_cards": "Təsnifatlı", "view_list": "Ardıcıl", "images": "Şəkillər", "texts": "Mətnlər", "show": "Göstər", "hide": "Gizlət", "batch": "Hekayələrin sayı", "batch_all": "Hamısı", "batch_count": "Hekayə sayı", "batch_prev": "Əvvəlki", "batch_next": "Növbəti", "batch_random": "Təsadüfi", "batch_dec": "Azalt", "batch_inc": "Artır", "batch_pager": "Səhifə", "listen": "Mətni dinlə", "listen_page": "Səhifəni dinlə", "story_audio_label": "Səs", "story_image_label": "Şəkil", "story_text_label": "Mətn", "queue_prev": "Əvvəlki hekayə", "queue_next": "Növbəti hekayə", "hide_text": "Mətni gizlət", "hide_image": "Şəkli gizlət", "show_text": "Mətni göstər", "show_image": "Şəkli göstər", "stories_count_suffix": "hekayə", "stop": "Dayandır", "resume": "Davam et", "play": "Oynat", "mute": "Səssiz", "speed": "Sürət", "close_player": "Pleyeri bağla", "lang_switcher_label": "Dil", "hero_lead": "İbrətamiz hekayələr — oxumaq və dinləmək üçün.", "intro_lead": "Saytımızda bəşəriyyətin tarix boyu elm və texnologiya, təbiət elmləri, ictimai və humanitar elmlər, eləcə də ədəbiyyat və incəsənətin müxtəlif sahələrində qazandığı möhtəşəm nailiyyətlər, ümumbəşəri mənəvi dəyərlər, görkəmli şəxsiyyətlər, mühüm tarixi kəşf və ixtiralar haqqında zəngin məlumatlar təqdim olunur. Niyyətimiz əsrlər boyu toplanmış bu dəyərli irsi qorumaq, sistemləşdirmək və gələcək nəsillərə bilik, ibrət və ilham mənbəyi kimi çatdırmaqdır.", "footer_contact": "Əlaqə vasitələri", "footer_phone": "Telefon", "footer_address": "Ünvan", "footer_website": "Veb sayt", "footer_phone_placeholder": "+994 XX XXX XX XX", "footer_address_placeholder": "Ünvan əlavə olunacaq", "footer_website_placeholder": "https://birinci.cloud", "footer_website_url": "https://birinci.cloud"}, "js": {"index_loading": "İndeks yüklənir…", "results_n": "{n} nəticə", "no_match": "Uyğun hekayə tapılmadı.", "index_failed": "Axtarış indeksi yüklənmədi. Saytı http://localhost:8765/az/ ünvanından açın.", "tts_unsupported": "Hörmətli oxucu, təəssüf ki, bu cihazda və ya brauzerdə səsə çevirmə (TTS) xidməti mövcud deyil. Zəhmət olmasa hekayəni oxuyaraq davam edin.", "tts_no_voice": "Hörmətli oxucu, bu cihazda uyğun nitq səsi tapılmadı.", "tts_failed": "Hörmətli oxucu, hazırda səsə çevirməni başlatmaq mümkün olmadı. Zəhmət olmasa bir az sonra yenidən cəhd edin və ya hekayəni oxuyun.", "audio_failed": "Hörmətli oxucu, səs faylını oxumaq mümkün olmadı. Zəhmət olmasa bir az sonra yenidən cəhd edin."}};
 window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 3h7l5 5v13H7z\"/><path d=\"M14 3v5h5\"/><path d=\"M9 13h6\"/><path d=\"M9 17h6\"/></svg>", "text-off": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 3h7l5 5v13H7z\"/><path d=\"M14 3v5h5\"/><path d=\"M9 13h6\"/><path d=\"M9 17h6\"/><path d=\"M5 5l14 14\"/></svg>", "eye": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/></svg>", "eye-off": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 3l18 18\"/><path d=\"M10.6 10.6a3 3 0 0 0 4.2 4.2\"/><path d=\"M9.9 5.1A11 11 0 0 1 12 5c6.5 0 10 7 10 7a19 19 0 0 1-3.2 4.1\"/><path d=\"M6.1 6.1C3.6 7.8 2 12 2 12s3.5 7 10 7c1.6 0 3.1-.3 4.4-.9\"/></svg>", "listen": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"/><path d=\"M15.54 8.46a5 5 0 0 1 0 7.07\"/><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14\"/></svg>", "stop": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"/><path d=\"M15.54 8.46a5 5 0 0 1 0 7.07\"/><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14\"/><path d=\"M3 3l18 18\"/></svg>"};
 
 (() => {
@@ -65,24 +65,82 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const menu = root && root.querySelector(".lang-switcher__menu");
     if (!root || !toggle || !menu) return;
 
+    const supportsPopover = typeof menu.showPopover === "function";
+    if (supportsPopover && menu.getAttribute("popover") !== "manual") {
+      menu.setAttribute("popover", "manual");
+    }
     const finePointerQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
-    const canHoverLang = () => finePointerQuery.matches;
+    const coarsePointerQuery = window.matchMedia("(pointer: coarse)");
+    const canHoverLang = () => finePointerQuery.matches && !coarsePointerQuery.matches;
     let hideTimer = 0;
+    let ignoreOutside = false;
+    let outsideBound = false;
 
-    const isOpen = () => root.classList.contains("is-open");
+    const isPopoverOpen = () => supportsPopover && menu.matches(":popover-open");
+    const isOpen = () => root.classList.contains("is-open") || isPopoverOpen();
+
+    const placeMenu = () => {
+      const rect = toggle.getBoundingClientRect();
+      const gap = 6;
+      const top = Math.round(rect.bottom + gap);
+      const right = Math.round(Math.max(8, window.innerWidth - rect.right));
+      menu.style.position = "fixed";
+      menu.style.inset = "auto";
+      menu.style.margin = "0";
+      menu.style.top = `${top}px`;
+      menu.style.right = `${right}px`;
+      menu.style.left = "auto";
+      menu.style.bottom = "auto";
+    };
+
+    const onOutsidePointer = (event) => {
+      if (ignoreOutside || !isOpen()) return;
+      const target = event.target;
+      if (root.contains(target) || menu.contains(target)) return;
+      closeMenu();
+    };
+
+    const bindOutside = () => {
+      if (outsideBound) return;
+      outsideBound = true;
+      document.addEventListener("pointerdown", onOutsidePointer, true);
+    };
+
+    const unbindOutside = () => {
+      if (!outsideBound) return;
+      outsideBound = false;
+      document.removeEventListener("pointerdown", onOutsidePointer, true);
+    };
 
     const openMenu = () => {
       window.clearTimeout(hideTimer);
-      root.classList.add("is-open");
       menu.hidden = false;
+      placeMenu();
+      root.classList.add("is-open");
       toggle.setAttribute("aria-expanded", "true");
+      if (supportsPopover) {
+        try {
+          menu.showPopover();
+        } catch (_) {}
+      }
+      ignoreOutside = true;
+      window.setTimeout(() => {
+        ignoreOutside = false;
+        bindOutside();
+      }, 0);
     };
 
     const closeMenu = () => {
       window.clearTimeout(hideTimer);
       root.classList.remove("is-open");
-      menu.hidden = true;
       toggle.setAttribute("aria-expanded", "false");
+      if (supportsPopover) {
+        try {
+          menu.hidePopover();
+        } catch (_) {}
+      }
+      menu.hidden = true;
+      unbindOutside();
     };
 
     const scheduleClose = () => {
@@ -97,20 +155,29 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       else openMenu();
     });
 
-    root.addEventListener("mouseenter", () => {
-      if (canHoverLang()) openMenu();
+    // iOS synthesizes mouseenter on tap; only hover-open for a real mouse.
+    root.addEventListener("pointerenter", (event) => {
+      if (event.pointerType === "mouse" && canHoverLang()) openMenu();
     });
-    root.addEventListener("mouseleave", () => {
-      if (canHoverLang()) scheduleClose();
+    root.addEventListener("pointerleave", (event) => {
+      if (event.pointerType === "mouse" && canHoverLang()) scheduleClose();
+    });
+    menu.addEventListener("pointerenter", (event) => {
+      if (event.pointerType === "mouse" && canHoverLang()) window.clearTimeout(hideTimer);
+    });
+    menu.addEventListener("pointerleave", (event) => {
+      if (event.pointerType === "mouse" && canHoverLang()) scheduleClose();
     });
 
-    document.addEventListener("click", (event) => {
-      if (!isOpen() || root.contains(event.target)) return;
-      closeMenu();
-    });
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape" && isOpen()) closeMenu();
     });
+    window.addEventListener("resize", () => {
+      if (isOpen()) placeMenu();
+    }, { passive: true });
+    window.addEventListener("scroll", () => {
+      if (isOpen()) placeMenu();
+    }, { passive: true, capture: true });
 
     root.addEventListener("click", (event) => {
       const link = event.target.closest("[data-lang]");

@@ -1,4 +1,4 @@
-window.__BIRINCI_I18N__ = {"lang": "ru", "ui": {"open_menu": "Открыть меню", "close_menu": "Закрыть меню", "main_menu": "Главное меню", "coming_soon": "Скоро", "stories_coming_soon": "Рассказы скоро появятся", "stories_coming_soon_lead": "Русские рассказы готовятся. Страницы уже собраны; тексты появятся здесь, как только их добавят.", "intro_source": "Рассказы взяты из открытых интернет-источников", "story_source": "Источник: Интернет", "site_description": "Bir inci — собрание назидательных изречений и рассказов.", "stories_nav": "Рассказы", "stories_nav_open": "Открыть меню рассказов", "no_matching_category": "Подходящая категория не найдена.", "no_matching_story": "Подходящий рассказ не найден.", "categories_heading": "Категории", "skip_to_content": "К содержанию", "back_to_top": "Наверх", "search": "Поиск…", "search_aria": "Поиск", "global_search": "Глобальный поиск", "global_search_toggle": "Глобальный поиск, Ctrl+K", "global_search_title_attr": "Поиск (Ctrl+K)", "close_search": "Закрыть поиск", "close": "Закрыть", "search_stories_label": "Поиск рассказов", "search_stories_placeholder": "Искать во всех рассказах…", "search_filter_label": "Поиск", "search_results_count": "{n} результатов", "clear_search_filter": "Сбросить фильтр", "view": "Вид", "view_cards": "По категориям", "view_list": "Список", "images": "Изображения", "texts": "Текст", "show": "Показать", "hide": "Скрыть", "batch": "Количество рассказов", "batch_all": "Все", "batch_count": "Число рассказов", "batch_prev": "Назад", "batch_next": "Далее", "batch_random": "Случайно", "batch_dec": "Меньше", "batch_inc": "Больше", "batch_pager": "Страница", "listen": "Слушать", "listen_page": "Слушать страницу", "story_audio_label": "Аудио", "story_image_label": "Изображение", "story_text_label": "Текст", "queue_prev": "Предыдущий рассказ", "queue_next": "Следующий рассказ", "hide_text": "Скрыть текст", "hide_image": "Скрыть изображение", "show_text": "Показать текст", "show_image": "Показать изображение", "stories_count_suffix": "рассказов", "stop": "Стоп", "resume": "Продолжить", "play": "Играть", "mute": "Без звука", "speed": "Скорость", "close_player": "Закрыть плеер", "lang_switcher_label": "Язык", "hero_lead": "Назидательные рассказы — читать и слушать.", "intro_lead": "На нашем сайте представлены богатые сведения о величественных достижениях человечества на протяжении истории в науке и технике, естественных науках, общественных и гуманитарных науках, а также в литературе и искусстве; об общечеловеческих духовных ценностях, выдающихся личностях и важнейших исторических открытиях и изобретениях. Наша цель — сохранить это ценное наследие, накопленное веками, систематизировать его и передать будущим поколениям как источник знания, назидания и вдохновения.", "footer_contact": "Контакты", "footer_phone": "Телефон", "footer_address": "Адрес", "footer_website": "Сайт", "footer_phone_placeholder": "+994 XX XXX XX XX", "footer_address_placeholder": "Адрес будет добавлен", "footer_website_placeholder": "https://birinci.cloud", "footer_website_url": "https://birinci.cloud"}, "js": {"index_loading": "Загрузка индекса…", "results_n": "{n} результатов", "no_match": "Подходящих рассказов нет.", "index_failed": "Не удалось загрузить поисковый индекс. Откройте сайт по адресу http://localhost:8765/ru/", "tts_unsupported": "К сожалению, синтез речи недоступен в этом браузере. Пожалуйста, продолжите чтение рассказа.", "tts_no_voice": "На этом устройстве не найден подходящий голос.", "tts_failed": "Не удалось начать озвучивание. Попробуйте позже или прочитайте рассказ.", "audio_failed": "Не удалось воспроизвести аудиофайл. Попробуйте позже."}};
+window.__BIRINCI_I18N__ = {"lang": "ru", "ui": {"open_menu": "Открыть меню", "close_menu": "Закрыть меню", "main_menu": "Главное меню", "coming_soon": "Скоро", "stories_coming_soon": "Рассказы скоро появятся", "stories_coming_soon_lead": "Русские рассказы готовятся. Страницы уже собраны; тексты появятся здесь, как только их добавят.", "intro_source": "Рассказы взяты из открытых интернет-источников, а иллюстрации созданы с помощью ИИ.", "story_source": "Рассказы взяты из открытых интернет-источников, а иллюстрации созданы с помощью ИИ.", "site_description": "Bir inci — собрание назидательных изречений и рассказов.", "stories_nav": "Рассказы", "stories_nav_open": "Открыть меню рассказов", "no_matching_category": "Подходящая категория не найдена.", "no_matching_story": "Подходящий рассказ не найден.", "categories_heading": "Категории", "skip_to_content": "К содержанию", "back_to_top": "Наверх", "search": "Поиск…", "search_aria": "Поиск", "global_search": "Глобальный поиск", "global_search_toggle": "Глобальный поиск, Ctrl+K", "global_search_title_attr": "Поиск (Ctrl+K)", "close_search": "Закрыть поиск", "close": "Закрыть", "search_stories_label": "Поиск рассказов", "search_stories_placeholder": "Искать во всех рассказах…", "search_filter_label": "Поиск", "search_results_count": "{n} результатов", "clear_search_filter": "Сбросить фильтр", "view": "Вид", "view_cards": "По категориям", "view_list": "Список", "images": "Изображения", "texts": "Текст", "show": "Показать", "hide": "Скрыть", "batch": "Количество рассказов", "batch_all": "Все", "batch_count": "Число рассказов", "batch_prev": "Назад", "batch_next": "Далее", "batch_random": "Случайно", "batch_dec": "Меньше", "batch_inc": "Больше", "batch_pager": "Страница", "listen": "Слушать", "listen_page": "Слушать страницу", "story_audio_label": "Аудио", "story_image_label": "Изображение", "story_text_label": "Текст", "queue_prev": "Предыдущий рассказ", "queue_next": "Следующий рассказ", "hide_text": "Скрыть текст", "hide_image": "Скрыть изображение", "show_text": "Показать текст", "show_image": "Показать изображение", "stories_count_suffix": "рассказов", "stop": "Стоп", "resume": "Продолжить", "play": "Играть", "mute": "Без звука", "speed": "Скорость", "close_player": "Закрыть плеер", "lang_switcher_label": "Язык", "hero_lead": "Назидательные рассказы — читать и слушать.", "intro_lead": "На нашем сайте представлены богатые сведения о величественных достижениях человечества на протяжении истории в науке и технике, естественных науках, общественных и гуманитарных науках, а также в литературе и искусстве; об общечеловеческих духовных ценностях, выдающихся личностях и важнейших исторических открытиях и изобретениях. Наша цель — сохранить это ценное наследие, накопленное веками, систематизировать его и передать будущим поколениям как источник знания, назидания и вдохновения.", "footer_contact": "Контакты", "footer_phone": "Телефон", "footer_address": "Адрес", "footer_website": "Сайт", "footer_phone_placeholder": "+994 XX XXX XX XX", "footer_address_placeholder": "Адрес будет добавлен", "footer_website_placeholder": "https://birinci.cloud", "footer_website_url": "https://birinci.cloud"}, "js": {"index_loading": "Загрузка индекса…", "results_n": "{n} результатов", "no_match": "Подходящих рассказов нет.", "index_failed": "Не удалось загрузить поисковый индекс. Откройте сайт по адресу http://localhost:8765/ru/", "tts_unsupported": "К сожалению, синтез речи недоступен в этом браузере. Пожалуйста, продолжите чтение рассказа.", "tts_no_voice": "На этом устройстве не найден подходящий голос.", "tts_failed": "Не удалось начать озвучивание. Попробуйте позже или прочитайте рассказ.", "audio_failed": "Не удалось воспроизвести аудиофайл. Попробуйте позже."}};
 window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 3h7l5 5v13H7z\"/><path d=\"M14 3v5h5\"/><path d=\"M9 13h6\"/><path d=\"M9 17h6\"/></svg>", "text-off": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 3h7l5 5v13H7z\"/><path d=\"M14 3v5h5\"/><path d=\"M9 13h6\"/><path d=\"M9 17h6\"/><path d=\"M5 5l14 14\"/></svg>", "eye": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/></svg>", "eye-off": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 3l18 18\"/><path d=\"M10.6 10.6a3 3 0 0 0 4.2 4.2\"/><path d=\"M9.9 5.1A11 11 0 0 1 12 5c6.5 0 10 7 10 7a19 19 0 0 1-3.2 4.1\"/><path d=\"M6.1 6.1C3.6 7.8 2 12 2 12s3.5 7 10 7c1.6 0 3.1-.3 4.4-.9\"/></svg>", "listen": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"/><path d=\"M15.54 8.46a5 5 0 0 1 0 7.07\"/><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14\"/></svg>", "stop": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"/><path d=\"M15.54 8.46a5 5 0 0 1 0 7.07\"/><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14\"/><path d=\"M3 3l18 18\"/></svg>"};
 
 (() => {
@@ -65,24 +65,82 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const menu = root && root.querySelector(".lang-switcher__menu");
     if (!root || !toggle || !menu) return;
 
+    const supportsPopover = typeof menu.showPopover === "function";
+    if (supportsPopover && menu.getAttribute("popover") !== "manual") {
+      menu.setAttribute("popover", "manual");
+    }
     const finePointerQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
-    const canHoverLang = () => finePointerQuery.matches;
+    const coarsePointerQuery = window.matchMedia("(pointer: coarse)");
+    const canHoverLang = () => finePointerQuery.matches && !coarsePointerQuery.matches;
     let hideTimer = 0;
+    let ignoreOutside = false;
+    let outsideBound = false;
 
-    const isOpen = () => root.classList.contains("is-open");
+    const isPopoverOpen = () => supportsPopover && menu.matches(":popover-open");
+    const isOpen = () => root.classList.contains("is-open") || isPopoverOpen();
+
+    const placeMenu = () => {
+      const rect = toggle.getBoundingClientRect();
+      const gap = 6;
+      const top = Math.round(rect.bottom + gap);
+      const right = Math.round(Math.max(8, window.innerWidth - rect.right));
+      menu.style.position = "fixed";
+      menu.style.inset = "auto";
+      menu.style.margin = "0";
+      menu.style.top = `${top}px`;
+      menu.style.right = `${right}px`;
+      menu.style.left = "auto";
+      menu.style.bottom = "auto";
+    };
+
+    const onOutsidePointer = (event) => {
+      if (ignoreOutside || !isOpen()) return;
+      const target = event.target;
+      if (root.contains(target) || menu.contains(target)) return;
+      closeMenu();
+    };
+
+    const bindOutside = () => {
+      if (outsideBound) return;
+      outsideBound = true;
+      document.addEventListener("pointerdown", onOutsidePointer, true);
+    };
+
+    const unbindOutside = () => {
+      if (!outsideBound) return;
+      outsideBound = false;
+      document.removeEventListener("pointerdown", onOutsidePointer, true);
+    };
 
     const openMenu = () => {
       window.clearTimeout(hideTimer);
-      root.classList.add("is-open");
       menu.hidden = false;
+      placeMenu();
+      root.classList.add("is-open");
       toggle.setAttribute("aria-expanded", "true");
+      if (supportsPopover) {
+        try {
+          menu.showPopover();
+        } catch (_) {}
+      }
+      ignoreOutside = true;
+      window.setTimeout(() => {
+        ignoreOutside = false;
+        bindOutside();
+      }, 0);
     };
 
     const closeMenu = () => {
       window.clearTimeout(hideTimer);
       root.classList.remove("is-open");
-      menu.hidden = true;
       toggle.setAttribute("aria-expanded", "false");
+      if (supportsPopover) {
+        try {
+          menu.hidePopover();
+        } catch (_) {}
+      }
+      menu.hidden = true;
+      unbindOutside();
     };
 
     const scheduleClose = () => {
@@ -97,20 +155,29 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       else openMenu();
     });
 
-    root.addEventListener("mouseenter", () => {
-      if (canHoverLang()) openMenu();
+    // iOS synthesizes mouseenter on tap; only hover-open for a real mouse.
+    root.addEventListener("pointerenter", (event) => {
+      if (event.pointerType === "mouse" && canHoverLang()) openMenu();
     });
-    root.addEventListener("mouseleave", () => {
-      if (canHoverLang()) scheduleClose();
+    root.addEventListener("pointerleave", (event) => {
+      if (event.pointerType === "mouse" && canHoverLang()) scheduleClose();
+    });
+    menu.addEventListener("pointerenter", (event) => {
+      if (event.pointerType === "mouse" && canHoverLang()) window.clearTimeout(hideTimer);
+    });
+    menu.addEventListener("pointerleave", (event) => {
+      if (event.pointerType === "mouse" && canHoverLang()) scheduleClose();
     });
 
-    document.addEventListener("click", (event) => {
-      if (!isOpen() || root.contains(event.target)) return;
-      closeMenu();
-    });
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape" && isOpen()) closeMenu();
     });
+    window.addEventListener("resize", () => {
+      if (isOpen()) placeMenu();
+    }, { passive: true });
+    window.addEventListener("scroll", () => {
+      if (isOpen()) placeMenu();
+    }, { passive: true, capture: true });
 
     root.addEventListener("click", (event) => {
       const link = event.target.closest("[data-lang]");

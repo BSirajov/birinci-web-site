@@ -390,7 +390,7 @@ TOP_NAV_LINKS: list[dict[str, str]] = [
     {"label": "Bizi dəstəkləyin", "icon": "hand-heart"},
 ]
 HOME_CRUMB = "Ana səhifə"
-ASSET_VERSION = "20260815e"
+ASSET_VERSION = "20260815j"
 
 
 def shared_asset_href(prefix: str, filename: str) -> str:
@@ -1139,6 +1139,22 @@ def story_paragraphs_html(paragraphs: list[str], stem: str = "") -> str:
     return "".join(parts)
 
 
+def source_attribution_html() -> str:
+    """Home-page disclaimer with intro__source styling."""
+    text = t_ui(
+        "intro_source",
+        "Hekayələr açıq İnternet mənbələrindən əldə olunub.",
+    )
+    if not str(text or "").strip():
+        return ""
+    return (
+        f'<p class="intro__source">'
+        f'<span class="intro__source-ornament" aria-hidden="true"></span>'
+        f'<span class="intro__source-text">{esc(text)}</span>'
+        f"</p>"
+    )
+
+
 def breadcrumbs_html(crumbs: list[tuple[str, str | None]], prefix: str) -> str:
     """crumbs: list of (label, href_or_None). Last item is current page."""
     items = []
@@ -1297,8 +1313,8 @@ def nav_html(active_slug: str | None, prefix: str) -> str:
         f"</a>"
         for item in TOP_NAV_LINKS
     )
-    # Language dropdown is built from languages.json and opened via the top-layer popover API
-    # so the sticky header cannot clip it.
+    # Language dropdown is built from languages.json. The menu uses the Popover API
+    # (manual) so a sticky header / overflow-x:clip cannot hide it on iOS Safari.
     current_lang = language_by_code(LANG) or {"code": LANG, "name": LANG, "flag": ""}
     flag_root = "../../" if prefix == "../" else "../"
 
@@ -1341,7 +1357,7 @@ def nav_html(active_slug: str | None, prefix: str) -> str:
         f'<span class="lang-switcher__name">{esc(str(current_lang.get("name") or LANG))}</span>'
         f'<span class="lang-switcher__caret" aria-hidden="true"></span>'
         f"</button>"
-        f'<div class="lang-switcher__menu" id="lang-switcher-menu" role="listbox" hidden>'
+        f'<div class="lang-switcher__menu" id="lang-switcher-menu" role="listbox" popover="manual" hidden>'
         f"{''.join(option_html)}"
         f"</div>"
         f"</nav>"
@@ -1777,7 +1793,7 @@ def build_landing(catalog: dict) -> str:
       <div class="intro__copy">
         <h1 class="intro__brand">Bir <span>inci</span></h1>
         <p class="intro__lead">{esc(t_ui("intro_lead", "Saytımızda bəşəriyyətin tarix boyu elm və texnologiya, təbiət elmləri, ictimai və humanitar elmlər, eləcə də ədəbiyyat və incəsənətin müxtəlif sahələrində qazandığı möhtəşəm nailiyyətlər, ümumbəşəri mənəvi dəyərlər, görkəmli şəxsiyyətlər, mühüm tarixi kəşf və ixtiralar haqqında zəngin məlumatlar təqdim olunur. Niyyətimiz əsrlər boyu toplanmış bu dəyərli irsi qorumaq, sistemləşdirmək və gələcək nəsillərə bilik, ibrət və ilham mənbəyi kimi çatdırmaqdır."))}</p>
-        <p class="intro__source"><span class="intro__source-ornament" aria-hidden="true"></span><strong>{esc(t_ui("intro_source", "Hekayələr açıq İnternet mənbələrindən əldə olunub."))}</strong></p>
+        {source_attribution_html()}
       </div>
       <div class="intro__visual">
         <img src="{shared_asset_href("", "Pearl with Background 3.png")}?v={ASSET_VERSION}" alt="" width="1536" height="1024" decoding="async" />
@@ -2158,6 +2174,9 @@ summary,
   z-index: 50;
   font-family: var(--font-ui, "Source Sans 3", sans-serif);
 }
+.site-header:has(.lang-switcher.is-open) {
+  z-index: 200;
+}
 .lang-switcher__toggle {
   display: inline-flex;
   align-items: center;
@@ -2173,6 +2192,8 @@ summary,
   font-weight: 700;
   letter-spacing: 0.01em;
   cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.18);
 }
 .lang-switcher__toggle:hover,
 .lang-switcher__toggle[aria-expanded="true"] {
@@ -2209,23 +2230,28 @@ summary,
 }
 .lang-switcher__menu {
   display: none;
-  position: absolute;
-  top: calc(100% + 0.4rem);
+  position: fixed;
+  inset: unset;
+  top: calc(var(--header-h, 3.5rem) + 0.2rem);
   left: auto;
-  right: 0;
+  right: 0.5rem;
+  bottom: auto;
   transform: none;
-  z-index: 80;
+  z-index: 400;
   width: max-content;
   min-width: 12.5rem;
   max-width: min(18rem, calc(100vw - 1rem));
   margin: 0;
   padding: 0.3rem;
+  overflow: visible;
   border: 1px solid var(--line-16);
   border-radius: 14px;
   background: #fff;
+  color: var(--ink);
   box-shadow: 0 16px 36px rgba(0, 78, 140, 0.18);
 }
-.lang-switcher.is-open .lang-switcher__menu {
+.lang-switcher.is-open .lang-switcher__menu,
+.lang-switcher__menu:popover-open {
   display: block;
 }
 .lang-switcher__menu::before {
@@ -2252,6 +2278,7 @@ summary,
   text-align: left;
   text-decoration: none;
   cursor: pointer;
+  touch-action: manipulation;
 }
 .lang-switcher__option:hover,
 .lang-switcher__option:focus-visible {
@@ -2274,6 +2301,15 @@ summary,
 }
 .lang-switcher__option .lang-switcher__flag {
   box-shadow: 0 0 0 1px rgba(0, 105, 180, 0.16);
+}
+@media (pointer: coarse) {
+  .lang-switcher__toggle {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  .lang-switcher__option {
+    min-height: 44px;
+  }
 }
 .primary-nav {
   position: absolute;
@@ -3225,13 +3261,14 @@ body.global-search-open { overflow: hidden; }
 .intro__source {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.55rem;
   margin: 0.7rem 0 0;
   font-family: var(--font-display);
-  font-size: clamp(0.9rem, 1.3vw, 1.04rem);
-  line-height: 1.35;
-  text-align: center;
+  font-size: clamp(0.72rem, 1.05vw, 0.84rem);
+  font-style: italic;
+  line-height: 1.4;
+  text-align: left;
   color: var(--blue-900);
   animation: intro-fade 900ms var(--ease-outro) both 240ms;
 }
@@ -3239,6 +3276,7 @@ body.global-search-open { overflow: hidden; }
   display: block;
   width: min(11.5rem, 56%);
   height: 0.72rem;
+  align-self: center;
   background:
     radial-gradient(circle at 50% 50%, var(--gold-bright) 0 0.17rem, var(--gold) 0.18rem 0.22rem, transparent 0.24rem),
     linear-gradient(90deg, transparent, rgba(201, 155, 59, 0.15), var(--gold) 42%, var(--gold) 58%, rgba(201, 155, 59, 0.15), transparent);
@@ -3246,12 +3284,15 @@ body.global-search-open { overflow: hidden; }
   background-position: center, center;
   background-repeat: no-repeat;
 }
-.intro__source strong {
+.intro__source strong,
+.intro__source-text {
   display: inline-block;
-  font-weight: 700;
-  letter-spacing: 0.012em;
-  padding: 0.34rem 0.95rem;
-  border-radius: var(--radius-pill);
+  max-width: min(46rem, 94%);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.008em;
+  padding: 0.32rem 0.85rem;
+  border-radius: 1rem;
   color: var(--blue-900);
   background: linear-gradient(180deg, rgba(255, 240, 191, 0.58), rgba(223, 242, 255, 0.42));
   border: 1px solid rgba(201, 155, 59, 0.4);
@@ -4377,6 +4418,17 @@ body.global-search-open { overflow: hidden; }
   overflow-wrap: anywhere;
   word-break: break-word;
 }
+.category-hero .intro__source {
+  margin-top: 0.85rem;
+  max-width: min(46rem, 100%);
+}
+.category-hero .intro__source-ornament {
+  align-self: flex-start;
+  width: min(11.5rem, 70%);
+}
+.category-hero .intro__source-text {
+  max-width: 100%;
+}
 
 .category-layout {
   max-width: var(--max-wide);
@@ -4674,13 +4726,26 @@ body.global-search-open { overflow: hidden; }
 }
 .story__text .story__source,
 .story .card-text .story__source {
-  margin: 0.75rem 0 0;
-  color: var(--ink-soft);
-  font-family: var(--font-ui);
-  font-size: 0.88rem;
+  display: inline-block;
+  max-width: min(46rem, 100%);
+  margin: 0.85rem 0 0;
+  padding: 0.32rem 0.85rem;
+  border-radius: 1rem;
+  color: var(--blue-900);
+  font-family: var(--font-display);
+  font-size: clamp(0.72rem, 1.05vw, 0.84rem);
   font-style: italic;
-  font-weight: 500;
-  line-height: 1.45;
+  font-weight: 400;
+  letter-spacing: 0.008em;
+  line-height: 1.4;
+  text-align: left;
+  text-justify: auto;
+  hyphens: manual;
+  background: linear-gradient(180deg, rgba(255, 240, 191, 0.58), rgba(223, 242, 255, 0.42));
+  border: 1px solid rgba(201, 155, 59, 0.4);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.78) inset,
+    0 6px 16px rgba(0, 78, 140, 0.08);
 }
 .story__text .story__moral,
 .story .card-text .story__moral {
@@ -4959,12 +5024,24 @@ body.text-lightbox-open {
   margin-bottom: 0;
 }
 .text-lightbox__body .story__source {
-  margin: 0.75rem 0 0;
-  color: var(--ink-soft);
-  font-family: var(--font-ui);
-  font-size: 0.88rem;
+  display: inline-block;
+  max-width: min(46rem, 100%);
+  margin: 0.85rem 0 0;
+  padding: 0.32rem 0.85rem;
+  border-radius: 1rem;
+  color: var(--blue-900);
+  font-family: var(--font-display);
+  font-size: clamp(0.72rem, 1.05vw, 0.84rem);
   font-style: italic;
-  font-weight: 500;
+  font-weight: 400;
+  letter-spacing: 0.008em;
+  line-height: 1.4;
+  text-align: left;
+  background: linear-gradient(180deg, rgba(255, 240, 191, 0.58), rgba(223, 242, 255, 0.42));
+  border: 1px solid rgba(201, 155, 59, 0.4);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.78) inset,
+    0 6px 16px rgba(0, 78, 140, 0.08);
 }
 .text-lightbox__body .story__moral {
   clear: both;
@@ -5761,24 +5838,82 @@ JS = r"""
     const menu = root && root.querySelector(".lang-switcher__menu");
     if (!root || !toggle || !menu) return;
 
+    const supportsPopover = typeof menu.showPopover === "function";
+    if (supportsPopover && menu.getAttribute("popover") !== "manual") {
+      menu.setAttribute("popover", "manual");
+    }
     const finePointerQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
-    const canHoverLang = () => finePointerQuery.matches;
+    const coarsePointerQuery = window.matchMedia("(pointer: coarse)");
+    const canHoverLang = () => finePointerQuery.matches && !coarsePointerQuery.matches;
     let hideTimer = 0;
+    let ignoreOutside = false;
+    let outsideBound = false;
 
-    const isOpen = () => root.classList.contains("is-open");
+    const isPopoverOpen = () => supportsPopover && menu.matches(":popover-open");
+    const isOpen = () => root.classList.contains("is-open") || isPopoverOpen();
+
+    const placeMenu = () => {
+      const rect = toggle.getBoundingClientRect();
+      const gap = 6;
+      const top = Math.round(rect.bottom + gap);
+      const right = Math.round(Math.max(8, window.innerWidth - rect.right));
+      menu.style.position = "fixed";
+      menu.style.inset = "auto";
+      menu.style.margin = "0";
+      menu.style.top = `${top}px`;
+      menu.style.right = `${right}px`;
+      menu.style.left = "auto";
+      menu.style.bottom = "auto";
+    };
+
+    const onOutsidePointer = (event) => {
+      if (ignoreOutside || !isOpen()) return;
+      const target = event.target;
+      if (root.contains(target) || menu.contains(target)) return;
+      closeMenu();
+    };
+
+    const bindOutside = () => {
+      if (outsideBound) return;
+      outsideBound = true;
+      document.addEventListener("pointerdown", onOutsidePointer, true);
+    };
+
+    const unbindOutside = () => {
+      if (!outsideBound) return;
+      outsideBound = false;
+      document.removeEventListener("pointerdown", onOutsidePointer, true);
+    };
 
     const openMenu = () => {
       window.clearTimeout(hideTimer);
-      root.classList.add("is-open");
       menu.hidden = false;
+      placeMenu();
+      root.classList.add("is-open");
       toggle.setAttribute("aria-expanded", "true");
+      if (supportsPopover) {
+        try {
+          menu.showPopover();
+        } catch (_) {}
+      }
+      ignoreOutside = true;
+      window.setTimeout(() => {
+        ignoreOutside = false;
+        bindOutside();
+      }, 0);
     };
 
     const closeMenu = () => {
       window.clearTimeout(hideTimer);
       root.classList.remove("is-open");
-      menu.hidden = true;
       toggle.setAttribute("aria-expanded", "false");
+      if (supportsPopover) {
+        try {
+          menu.hidePopover();
+        } catch (_) {}
+      }
+      menu.hidden = true;
+      unbindOutside();
     };
 
     const scheduleClose = () => {
@@ -5793,20 +5928,29 @@ JS = r"""
       else openMenu();
     });
 
-    root.addEventListener("mouseenter", () => {
-      if (canHoverLang()) openMenu();
+    // iOS synthesizes mouseenter on tap; only hover-open for a real mouse.
+    root.addEventListener("pointerenter", (event) => {
+      if (event.pointerType === "mouse" && canHoverLang()) openMenu();
     });
-    root.addEventListener("mouseleave", () => {
-      if (canHoverLang()) scheduleClose();
+    root.addEventListener("pointerleave", (event) => {
+      if (event.pointerType === "mouse" && canHoverLang()) scheduleClose();
+    });
+    menu.addEventListener("pointerenter", (event) => {
+      if (event.pointerType === "mouse" && canHoverLang()) window.clearTimeout(hideTimer);
+    });
+    menu.addEventListener("pointerleave", (event) => {
+      if (event.pointerType === "mouse" && canHoverLang()) scheduleClose();
     });
 
-    document.addEventListener("click", (event) => {
-      if (!isOpen() || root.contains(event.target)) return;
-      closeMenu();
-    });
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape" && isOpen()) closeMenu();
     });
+    window.addEventListener("resize", () => {
+      if (isOpen()) placeMenu();
+    }, { passive: true });
+    window.addEventListener("scroll", () => {
+      if (isOpen()) placeMenu();
+    }, { passive: true, capture: true });
 
     root.addEventListener("click", (event) => {
       const link = event.target.closest("[data-lang]");
