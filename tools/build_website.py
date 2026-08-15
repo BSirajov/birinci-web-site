@@ -390,7 +390,7 @@ TOP_NAV_LINKS: list[dict[str, str]] = [
     {"label": "Bizi dəstəkləyin", "icon": "hand-heart"},
 ]
 HOME_CRUMB = "Ana səhifə"
-ASSET_VERSION = "20260815j"
+ASSET_VERSION = "20260815k"
 
 
 def shared_asset_href(prefix: str, filename: str) -> str:
@@ -533,6 +533,14 @@ def apply_locale(lang: str) -> None:
 
 def t_ui(key: str, default: str = "") -> str:
     return str(UI.get(key) or default or key)
+
+
+def show_audio_controls(lang: str | None = None) -> bool:
+    """Whether Listen/Stop chrome should be emitted. Default true; languages.json can set false."""
+    meta = language_by_code(lang or LANG)
+    if not isinstance(meta, dict):
+        return True
+    return bool(meta.get("show_audio_controls", True))
 
 
 # Immediate home view toggle (not deferred). Survives site.js load races / failures.
@@ -1588,6 +1596,8 @@ def _story_mode_pair(*, kind: str, controls_id: str = "") -> str:
         extra_class = ""
         extra_attrs = f' aria-controls="{controls_id}"' if controls_id else ""
     elif kind == "tts":
+        if not show_audio_controls():
+            return ""
         mode_attr = "data-tts-mode"
         first_label = esc(t_ui("listen", "Mətni dinlə"))
         second_label = esc(t_ui("stop", "Dayandır"))
@@ -1645,6 +1655,16 @@ def tools_bar_html(*, mode: str = "home") -> str:
     listen_page_label = esc(t_ui("listen_page", "Səhifəni dinlə"))
     stop_label = esc(t_ui("stop", "Dayandır"))
     clear_filter_label = esc(t_ui("clear_search_filter", "Filtri təmizlə"))
+    listen_field = ""
+    if show_audio_controls():
+        listen_field = f"""
+  <div class="tools-bar__field"{list_only_attr}>
+    <span class="tools-bar__label" id="tools-listen-page-label">{listen_page_label}</span>
+    <div class="tools-bar__views" role="group" aria-labelledby="tools-listen-page-label">
+      <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-tools-play-visible data-tts-mode="listen" aria-pressed="false" title="{listen_page_label}" aria-label="{listen_page_label}">{_tools_bar_glyph("listen")}</button>
+      <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-tools-play-visible data-tts-mode="stop" aria-pressed="true" title="{stop_label}" aria-label="{stop_label}">{_tools_bar_glyph("stop")}</button>
+    </div>
+  </div>"""
     return f"""
 <div class="tools-bar{" tools-bar--dense" if not is_home else ""}" data-tools="{esc(mode)}">
   <div class="tools-bar__search">
@@ -1702,14 +1722,7 @@ def tools_bar_html(*, mode: str = "home") -> str:
       <button type="button" class="tools-bar__icon-btn" data-home-batch="random" title="{random_label}" aria-label="{random_label}">{_tools_bar_glyph("shuffle")}</button>
       <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon tools-bar__batch-all" data-home-batch="all" title="{all_label}" aria-label="{all_label}" aria-pressed="false">{_tools_bar_glyph("all")}</button>
     </div>
-  </div>
-  <div class="tools-bar__field"{list_only_attr}>
-    <span class="tools-bar__label" id="tools-listen-page-label">{listen_page_label}</span>
-    <div class="tools-bar__views" role="group" aria-labelledby="tools-listen-page-label">
-      <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-tools-play-visible data-tts-mode="listen" aria-pressed="false" title="{listen_page_label}" aria-label="{listen_page_label}">{_tools_bar_glyph("listen")}</button>
-      <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-tools-play-visible data-tts-mode="stop" aria-pressed="true" title="{stop_label}" aria-label="{stop_label}">{_tools_bar_glyph("stop")}</button>
-    </div>
-  </div>
+  </div>{listen_field}
 </div>
 """.strip()
 
@@ -5777,6 +5790,16 @@ JS = r"""
 (() => {
   const I18N = window.__BIRINCI_I18N__ || { lang: "az", ui: {}, js: {} };
   const LOCALE_TAG = I18N.lang || document.documentElement.lang || "az";
+  const SHOW_AUDIO_CONTROLS = I18N.show_audio_controls !== false;
+
+  const hideAudioChrome = (root = document) => {
+    if (SHOW_AUDIO_CONTROLS) return;
+    (root || document).querySelectorAll("[data-story-tts], [data-tools-play-visible]").forEach((el) => {
+      const group = el.closest(".story__action-group, .tools-bar__field, .text-lightbox__tts");
+      if (group) group.hidden = true;
+      else el.hidden = true;
+    });
+  };
   const tUi = (key, fallback) =>
     (I18N.ui && I18N.ui[key]) || fallback || key;
   const tJs = (key, fallback) =>
@@ -7315,6 +7338,20 @@ JS = r"""
       const audioLabel = escapeHtml(tUi("story_audio_label", "Səs"));
       const imageLabel = escapeHtml(tUi("story_image_label", "Şəkil"));
       const textLabel = escapeHtml(tUi("story_text_label", "Mətn"));
+      const audioToggle = SHOW_AUDIO_CONTROLS
+        ? `
+          <div class="story__action-group">
+            <span class="tools-bar__label">${audioLabel}</span>
+            <div class="tools-bar__views" role="group" aria-label="${audioLabel}">
+            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="listen" aria-pressed="false" title="${escapeHtml(tUi("listen", "Mətni dinlə"))}" aria-label="${escapeHtml(tUi("listen", "Mətni dinlə"))}">
+              ${STORY_ICONS.listen}
+            </button>
+            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="stop" aria-pressed="true" title="${escapeHtml(tUi("stop", "Dayandır"))}" aria-label="${escapeHtml(tUi("stop", "Dayandır"))}">
+              ${STORY_ICONS.stop}
+            </button>
+            </div>
+          </div>`
+        : "";
       const figureToggle = story.hasImage
         ? `
           <div class="story__action-group">
@@ -7346,17 +7383,7 @@ JS = r"""
     <div class="story__content">
       <div class="story__panel">
         <div class="story__actions">
-          <div class="story__action-group">
-            <span class="tools-bar__label">${audioLabel}</span>
-            <div class="tools-bar__views" role="group" aria-label="${audioLabel}">
-            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="listen" aria-pressed="false" title="${escapeHtml(tUi("listen", "Mətni dinlə"))}" aria-label="${escapeHtml(tUi("listen", "Mətni dinlə"))}">
-              ${STORY_ICONS.listen}
-            </button>
-            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="stop" aria-pressed="true" title="${escapeHtml(tUi("stop", "Dayandır"))}" aria-label="${escapeHtml(tUi("stop", "Dayandır"))}">
-              ${STORY_ICONS.stop}
-            </button>
-            </div>
-          </div>
+          ${audioToggle}
           ${figureToggle}
           <div class="story__action-group">
             <span class="tools-bar__label">${textLabel}</span>
@@ -7473,6 +7500,7 @@ JS = r"""
       }
 
       storiesList.innerHTML = visibleStories.map(storyArticleHtml).join("");
+      hideAudioChrome(storiesList);
       if (typeof window.__birinciSetAllStoryFigures === "function") {
         window.__birinciSetAllStoryFigures(!document.body.classList.contains("images-collapsed"));
       }
@@ -8961,7 +8989,7 @@ JS = r"""
           <div class="text-lightbox__header">
             <h2 class="text-lightbox__title"></h2>
           </div>
-          <div class="text-lightbox__tts">
+          ${SHOW_AUDIO_CONTROLS ? `<div class="text-lightbox__tts">
             <div class="story__action-group">
               <span class="tools-bar__label">${tUi("story_audio_label", "Səs")}</span>
               <div class="tools-bar__views" role="group" aria-label="${tUi("story_audio_label", "Səs")}">
@@ -8974,7 +9002,7 @@ JS = r"""
               </div>
             </div>
             <p class="story-tts__note" data-story-tts-note hidden></p>
-          </div>
+          </div>` : ""}
           <div class="text-lightbox__body"></div>
         </div>
       `.trim();
@@ -9172,6 +9200,11 @@ JS = r"""
     console.error("initHomeViews failed", err);
   }
   try {
+    hideAudioChrome();
+  } catch (err) {
+    console.error("hideAudioChrome failed", err);
+  }
+  try {
     initStoryTts();
   } catch (err) {
     console.error("initStoryTts failed", err);
@@ -9255,7 +9288,15 @@ def build_one_locale() -> dict:
     ui_i18n = dict(UI)
     i18n_boot = (
         "window.__BIRINCI_I18N__ = "
-        + json.dumps({"lang": LANG, "ui": ui_i18n, "js": js_i18n}, ensure_ascii=False)
+        + json.dumps(
+            {
+                "lang": LANG,
+                "ui": ui_i18n,
+                "js": js_i18n,
+                "show_audio_controls": show_audio_controls(),
+            },
+            ensure_ascii=False,
+        )
         + ";\n"
     )
 

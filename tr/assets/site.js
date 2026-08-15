@@ -1,9 +1,19 @@
-window.__BIRINCI_I18N__ = {"lang": "tr", "ui": {"open_menu": "Menüyü aç", "close_menu": "Menüyü kapat", "main_menu": "Ana menü", "coming_soon": "Yakında", "stories_coming_soon": "Hikâyeler yakında", "stories_coming_soon_lead": "Bu dil için hikâyeler hazırlanıyor. Sayfa yapısı hazır; metinler eklendiğinde burada görünecek.", "intro_source": "Hikâyeler açık internet kaynaklarından alınmıştır; illüstrasyonlar ise yapay zekâ ile oluşturulmuştur.", "story_source": "Hikâyeler açık internet kaynaklarından alınmıştır; illüstrasyonlar ise yapay zekâ ile oluşturulmuştur.", "site_description": "Bir inci — ibretlik sözler ve hikâyeler derlemesi.", "stories_nav": "Hikâyeler", "stories_nav_open": "Hikâye menüsünü aç", "no_matching_category": "Uygun kategori bulunamadı.", "no_matching_story": "Uygun hikâye bulunamadı.", "categories_heading": "Kategoriler", "skip_to_content": "İçeriğe geç", "back_to_top": "Sayfanın başına dön", "search": "Ara…", "search_aria": "Ara", "global_search": "Genel arama", "global_search_toggle": "Genel arama, Ctrl+K", "global_search_title_attr": "Ara (Ctrl+K)", "close_search": "Aramayı kapat", "close": "Kapat", "search_stories_label": "Hikâye ara", "search_stories_placeholder": "Tüm hikâyelerde ara…", "search_filter_label": "Arama", "search_results_count": "{n} sonuç", "clear_search_filter": "Filtreyi temizle", "view": "Görünüm", "view_cards": "Kategorili", "view_list": "Liste", "images": "Görseller", "texts": "Metin", "show": "Göster", "hide": "Gizle", "batch": "Hikâyelerin sayısı", "batch_all": "Tümü", "batch_count": "Hikâye sayısı", "batch_prev": "Önceki", "batch_next": "Sonraki", "batch_random": "Rastgele", "batch_dec": "Azalt", "batch_inc": "Artır", "batch_pager": "Sayfa", "listen": "Metni dinle", "listen_page": "Sayfayı dinle", "story_audio_label": "Ses", "story_image_label": "Görsel", "story_text_label": "Metin", "queue_prev": "Önceki hikâye", "queue_next": "Sonraki hikâye", "hide_text": "Metni gizle", "hide_image": "Görseli gizle", "show_text": "Metni göster", "show_image": "Görseli göster", "stories_count_suffix": "hikâye", "stop": "Durdur", "resume": "Devam et", "play": "Oynat", "mute": "Sessiz", "speed": "Hız", "close_player": "Oynatıcıyı kapat", "lang_switcher_label": "Dil", "hero_lead": "İbret verici hikâyeler — okumak ve dinlemek için.", "intro_lead": "Sitemizde insanlığın tarih boyunca bilim ve teknoloji, doğa bilimleri, sosyal ve beşeri bilimler ile edebiyat ve sanatın çeşitli alanlarında kazandığı görkemli başarılar, evrensel manevi değerler, önde gelen şahsiyetler ve önemli tarihî keşif ve icatlar hakkında zengin bilgiler sunulur. Amacımız, yüzyıllar boyunca birikmiş bu değerli mirası korumak, sistemleştirmek ve gelecek kuşaklara bilgi, ibret ve ilham kaynağı olarak aktarmaktır.", "footer_contact": "İletişim", "footer_phone": "Telefon", "footer_address": "Adres", "footer_website": "Web sitesi", "footer_phone_placeholder": "+994 XX XXX XX XX", "footer_address_placeholder": "Adres eklenecek", "footer_website_placeholder": "https://birinci.cloud", "footer_website_url": "https://birinci.cloud"}, "js": {"index_loading": "Dizin yükleniyor…", "results_n": "{n} sonuç", "no_match": "Uygun hikâye bulunamadı.", "index_failed": "Arama dizini yüklenemedi. Siteyi http://localhost:8765/tr/ adresinden açın.", "tts_unsupported": "Konuşma sentezi bu tarayıcıda kullanılamıyor. Lütfen hikâyeyi okuyarak devam edin.", "tts_no_voice": "Bu cihazda uygun bir konuşma sesi bulunamadı.", "tts_failed": "Sesli okuma başlatılamadı. Lütfen daha sonra tekrar deneyin veya hikâyeyi okuyun.", "audio_failed": "Ses dosyası çalınamadı. Lütfen daha sonra tekrar deneyin."}};
+window.__BIRINCI_I18N__ = {"lang": "tr", "ui": {"open_menu": "Menüyü aç", "close_menu": "Menüyü kapat", "main_menu": "Ana menü", "coming_soon": "Yakında", "stories_coming_soon": "Hikâyeler yakında", "stories_coming_soon_lead": "Bu dil için hikâyeler hazırlanıyor. Sayfa yapısı hazır; metinler eklendiğinde burada görünecek.", "intro_source": "Hikâyeler açık internet kaynaklarından alınmıştır; illüstrasyonlar ise yapay zekâ ile oluşturulmuştur.", "story_source": "Hikâyeler açık internet kaynaklarından alınmıştır; illüstrasyonlar ise yapay zekâ ile oluşturulmuştur.", "site_description": "Bir inci — ibretlik sözler ve hikâyeler derlemesi.", "stories_nav": "Hikâyeler", "stories_nav_open": "Hikâye menüsünü aç", "no_matching_category": "Uygun kategori bulunamadı.", "no_matching_story": "Uygun hikâye bulunamadı.", "categories_heading": "Kategoriler", "skip_to_content": "İçeriğe geç", "back_to_top": "Sayfanın başına dön", "search": "Ara…", "search_aria": "Ara", "global_search": "Genel arama", "global_search_toggle": "Genel arama, Ctrl+K", "global_search_title_attr": "Ara (Ctrl+K)", "close_search": "Aramayı kapat", "close": "Kapat", "search_stories_label": "Hikâye ara", "search_stories_placeholder": "Tüm hikâyelerde ara…", "search_filter_label": "Arama", "search_results_count": "{n} sonuç", "clear_search_filter": "Filtreyi temizle", "view": "Görünüm", "view_cards": "Kategorili", "view_list": "Liste", "images": "Görseller", "texts": "Metin", "show": "Göster", "hide": "Gizle", "batch": "Hikâyelerin sayısı", "batch_all": "Tümü", "batch_count": "Hikâye sayısı", "batch_prev": "Önceki", "batch_next": "Sonraki", "batch_random": "Rastgele", "batch_dec": "Azalt", "batch_inc": "Artır", "batch_pager": "Sayfa", "listen": "Metni dinle", "listen_page": "Sayfayı dinle", "story_audio_label": "Ses", "story_image_label": "Görsel", "story_text_label": "Metin", "queue_prev": "Önceki hikâye", "queue_next": "Sonraki hikâye", "hide_text": "Metni gizle", "hide_image": "Görseli gizle", "show_text": "Metni göster", "show_image": "Görseli göster", "stories_count_suffix": "hikâye", "stop": "Durdur", "resume": "Devam et", "play": "Oynat", "mute": "Sessiz", "speed": "Hız", "close_player": "Oynatıcıyı kapat", "lang_switcher_label": "Dil", "hero_lead": "İbret verici hikâyeler — okumak ve dinlemek için.", "intro_lead": "Sitemizde insanlığın tarih boyunca bilim ve teknoloji, doğa bilimleri, sosyal ve beşeri bilimler ile edebiyat ve sanatın çeşitli alanlarında kazandığı görkemli başarılar, evrensel manevi değerler, önde gelen şahsiyetler ve önemli tarihî keşif ve icatlar hakkında zengin bilgiler sunulur. Amacımız, yüzyıllar boyunca birikmiş bu değerli mirası korumak, sistemleştirmek ve gelecek kuşaklara bilgi, ibret ve ilham kaynağı olarak aktarmaktır.", "footer_contact": "İletişim", "footer_phone": "Telefon", "footer_address": "Adres", "footer_website": "Web sitesi", "footer_phone_placeholder": "+994 XX XXX XX XX", "footer_address_placeholder": "Adres eklenecek", "footer_website_placeholder": "https://birinci.cloud", "footer_website_url": "https://birinci.cloud"}, "js": {"index_loading": "Dizin yükleniyor…", "results_n": "{n} sonuç", "no_match": "Uygun hikâye bulunamadı.", "index_failed": "Arama dizini yüklenemedi. Siteyi http://localhost:8765/tr/ adresinden açın.", "tts_unsupported": "Konuşma sentezi bu tarayıcıda kullanılamıyor. Lütfen hikâyeyi okuyarak devam edin.", "tts_no_voice": "Bu cihazda uygun bir konuşma sesi bulunamadı.", "tts_failed": "Sesli okuma başlatılamadı. Lütfen daha sonra tekrar deneyin veya hikâyeyi okuyun.", "audio_failed": "Ses dosyası çalınamadı. Lütfen daha sonra tekrar deneyin."}, "show_audio_controls": false};
 window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 3h7l5 5v13H7z\"/><path d=\"M14 3v5h5\"/><path d=\"M9 13h6\"/><path d=\"M9 17h6\"/></svg>", "text-off": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 3h7l5 5v13H7z\"/><path d=\"M14 3v5h5\"/><path d=\"M9 13h6\"/><path d=\"M9 17h6\"/><path d=\"M5 5l14 14\"/></svg>", "eye": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/></svg>", "eye-off": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 3l18 18\"/><path d=\"M10.6 10.6a3 3 0 0 0 4.2 4.2\"/><path d=\"M9.9 5.1A11 11 0 0 1 12 5c6.5 0 10 7 10 7a19 19 0 0 1-3.2 4.1\"/><path d=\"M6.1 6.1C3.6 7.8 2 12 2 12s3.5 7 10 7c1.6 0 3.1-.3 4.4-.9\"/></svg>", "listen": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"/><path d=\"M15.54 8.46a5 5 0 0 1 0 7.07\"/><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14\"/></svg>", "stop": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"/><path d=\"M15.54 8.46a5 5 0 0 1 0 7.07\"/><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14\"/><path d=\"M3 3l18 18\"/></svg>"};
 
 (() => {
   const I18N = window.__BIRINCI_I18N__ || { lang: "az", ui: {}, js: {} };
   const LOCALE_TAG = I18N.lang || document.documentElement.lang || "az";
+  const SHOW_AUDIO_CONTROLS = I18N.show_audio_controls !== false;
+
+  const hideAudioChrome = (root = document) => {
+    if (SHOW_AUDIO_CONTROLS) return;
+    (root || document).querySelectorAll("[data-story-tts], [data-tools-play-visible]").forEach((el) => {
+      const group = el.closest(".story__action-group, .tools-bar__field, .text-lightbox__tts");
+      if (group) group.hidden = true;
+      else el.hidden = true;
+    });
+  };
   const tUi = (key, fallback) =>
     (I18N.ui && I18N.ui[key]) || fallback || key;
   const tJs = (key, fallback) =>
@@ -1542,6 +1552,20 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const audioLabel = escapeHtml(tUi("story_audio_label", "Səs"));
       const imageLabel = escapeHtml(tUi("story_image_label", "Şəkil"));
       const textLabel = escapeHtml(tUi("story_text_label", "Mətn"));
+      const audioToggle = SHOW_AUDIO_CONTROLS
+        ? `
+          <div class="story__action-group">
+            <span class="tools-bar__label">${audioLabel}</span>
+            <div class="tools-bar__views" role="group" aria-label="${audioLabel}">
+            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="listen" aria-pressed="false" title="${escapeHtml(tUi("listen", "Mətni dinlə"))}" aria-label="${escapeHtml(tUi("listen", "Mətni dinlə"))}">
+              ${STORY_ICONS.listen}
+            </button>
+            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="stop" aria-pressed="true" title="${escapeHtml(tUi("stop", "Dayandır"))}" aria-label="${escapeHtml(tUi("stop", "Dayandır"))}">
+              ${STORY_ICONS.stop}
+            </button>
+            </div>
+          </div>`
+        : "";
       const figureToggle = story.hasImage
         ? `
           <div class="story__action-group">
@@ -1573,17 +1597,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     <div class="story__content">
       <div class="story__panel">
         <div class="story__actions">
-          <div class="story__action-group">
-            <span class="tools-bar__label">${audioLabel}</span>
-            <div class="tools-bar__views" role="group" aria-label="${audioLabel}">
-            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="listen" aria-pressed="false" title="${escapeHtml(tUi("listen", "Mətni dinlə"))}" aria-label="${escapeHtml(tUi("listen", "Mətni dinlə"))}">
-              ${STORY_ICONS.listen}
-            </button>
-            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="stop" aria-pressed="true" title="${escapeHtml(tUi("stop", "Dayandır"))}" aria-label="${escapeHtml(tUi("stop", "Dayandır"))}">
-              ${STORY_ICONS.stop}
-            </button>
-            </div>
-          </div>
+          ${audioToggle}
           ${figureToggle}
           <div class="story__action-group">
             <span class="tools-bar__label">${textLabel}</span>
@@ -1700,6 +1714,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       }
 
       storiesList.innerHTML = visibleStories.map(storyArticleHtml).join("");
+      hideAudioChrome(storiesList);
       if (typeof window.__birinciSetAllStoryFigures === "function") {
         window.__birinciSetAllStoryFigures(!document.body.classList.contains("images-collapsed"));
       }
@@ -3188,7 +3203,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           <div class="text-lightbox__header">
             <h2 class="text-lightbox__title"></h2>
           </div>
-          <div class="text-lightbox__tts">
+          ${SHOW_AUDIO_CONTROLS ? `<div class="text-lightbox__tts">
             <div class="story__action-group">
               <span class="tools-bar__label">${tUi("story_audio_label", "Səs")}</span>
               <div class="tools-bar__views" role="group" aria-label="${tUi("story_audio_label", "Səs")}">
@@ -3201,7 +3216,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
               </div>
             </div>
             <p class="story-tts__note" data-story-tts-note hidden></p>
-          </div>
+          </div>` : ""}
           <div class="text-lightbox__body"></div>
         </div>
       `.trim();
@@ -3397,6 +3412,11 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     initHomeViews();
   } catch (err) {
     console.error("initHomeViews failed", err);
+  }
+  try {
+    hideAudioChrome();
+  } catch (err) {
+    console.error("hideAudioChrome failed", err);
   }
   try {
     initStoryTts();

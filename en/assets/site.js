@@ -1,9 +1,19 @@
-window.__BIRINCI_I18N__ = {"lang": "en", "ui": {"open_menu": "Open menu", "close_menu": "Close menu", "main_menu": "Main menu", "coming_soon": "Coming soon", "stories_coming_soon": "Stories coming soon", "stories_coming_soon_lead": "English stories are being prepared. The pages are ready; the texts will appear here as soon as they are added.", "intro_source": "Stories are taken from open Internet sources; illustrations were created with AI.", "story_source": "Stories are taken from open Internet sources; illustrations were created with AI.", "site_description": "Bir inci — a collection of edifying sayings and stories.", "stories_nav": "Stories", "stories_nav_open": "Open stories menu", "no_matching_category": "No matching category.", "no_matching_story": "No matching story.", "categories_heading": "Categories", "skip_to_content": "Skip to content", "back_to_top": "Back to top", "search": "Search…", "search_aria": "Search", "global_search": "Global search", "global_search_toggle": "Global search, Ctrl+K", "global_search_title_attr": "Search (Ctrl+K)", "close_search": "Close search", "close": "Close", "search_stories_label": "Search stories", "search_stories_placeholder": "Search all stories…", "search_filter_label": "Search", "search_results_count": "{n} results", "clear_search_filter": "Clear filter", "view": "View", "view_cards": "By category", "view_list": "List", "images": "Images", "texts": "Text", "show": "Show", "hide": "Hide", "batch": "Number of stories", "batch_all": "All", "batch_count": "Story count", "batch_prev": "Previous", "batch_next": "Next", "batch_random": "Shuffle", "batch_dec": "Decrease", "batch_inc": "Increase", "batch_pager": "Page", "listen": "Listen", "listen_page": "Listen to this page", "story_audio_label": "Audio", "story_image_label": "Image", "story_text_label": "Text", "queue_prev": "Previous story", "queue_next": "Next story", "hide_text": "Hide text", "hide_image": "Hide image", "show_text": "Show text", "show_image": "Show image", "stories_count_suffix": "stories", "stop": "Stop", "resume": "Resume", "play": "Play", "mute": "Mute", "speed": "Speed", "close_player": "Close player", "lang_switcher_label": "Language", "hero_lead": "Edifying stories — to read and to listen.", "intro_lead": "Our site presents rich information about humanity’s magnificent achievements throughout history in science and technology, the natural sciences, the social and human sciences, as well as literature and the arts; about universal moral values, outstanding figures, and important historical discoveries and inventions. Our aim is to preserve this valuable heritage gathered over the centuries, to systematize it, and to pass it on to future generations as a source of knowledge, moral lesson, and inspiration.", "footer_contact": "Contact", "footer_phone": "Telephone", "footer_address": "Address", "footer_website": "Website", "footer_phone_placeholder": "+994 XX XXX XX XX", "footer_address_placeholder": "Address to be added", "footer_website_placeholder": "https://birinci.cloud", "footer_website_url": "https://birinci.cloud"}, "js": {"index_loading": "Loading index…", "results_n": "{n} results", "no_match": "No matching stories.", "index_failed": "Search index failed to load. Open the site from http://localhost:8765/en/", "tts_unsupported": "Speech synthesis is not available in this browser. Please continue by reading the story.", "tts_no_voice": "No suitable speech voice was found on this device.", "tts_failed": "Could not start speech playback. Please try again later or read the story.", "audio_failed": "Could not play the audio file. Please try again later."}};
+window.__BIRINCI_I18N__ = {"lang": "en", "ui": {"open_menu": "Open menu", "close_menu": "Close menu", "main_menu": "Main menu", "coming_soon": "Coming soon", "stories_coming_soon": "Stories coming soon", "stories_coming_soon_lead": "English stories are being prepared. The pages are ready; the texts will appear here as soon as they are added.", "intro_source": "Stories are taken from open Internet sources; illustrations were created with AI.", "story_source": "Stories are taken from open Internet sources; illustrations were created with AI.", "site_description": "Bir inci — a collection of edifying sayings and stories.", "stories_nav": "Stories", "stories_nav_open": "Open stories menu", "no_matching_category": "No matching category.", "no_matching_story": "No matching story.", "categories_heading": "Categories", "skip_to_content": "Skip to content", "back_to_top": "Back to top", "search": "Search…", "search_aria": "Search", "global_search": "Global search", "global_search_toggle": "Global search, Ctrl+K", "global_search_title_attr": "Search (Ctrl+K)", "close_search": "Close search", "close": "Close", "search_stories_label": "Search stories", "search_stories_placeholder": "Search all stories…", "search_filter_label": "Search", "search_results_count": "{n} results", "clear_search_filter": "Clear filter", "view": "View", "view_cards": "By category", "view_list": "List", "images": "Images", "texts": "Text", "show": "Show", "hide": "Hide", "batch": "Number of stories", "batch_all": "All", "batch_count": "Story count", "batch_prev": "Previous", "batch_next": "Next", "batch_random": "Shuffle", "batch_dec": "Decrease", "batch_inc": "Increase", "batch_pager": "Page", "listen": "Listen", "listen_page": "Listen to this page", "story_audio_label": "Audio", "story_image_label": "Image", "story_text_label": "Text", "queue_prev": "Previous story", "queue_next": "Next story", "hide_text": "Hide text", "hide_image": "Hide image", "show_text": "Show text", "show_image": "Show image", "stories_count_suffix": "stories", "stop": "Stop", "resume": "Resume", "play": "Play", "mute": "Mute", "speed": "Speed", "close_player": "Close player", "lang_switcher_label": "Language", "hero_lead": "Edifying stories — to read and to listen.", "intro_lead": "Our site presents rich information about humanity’s magnificent achievements throughout history in science and technology, the natural sciences, the social and human sciences, as well as literature and the arts; about universal moral values, outstanding figures, and important historical discoveries and inventions. Our aim is to preserve this valuable heritage gathered over the centuries, to systematize it, and to pass it on to future generations as a source of knowledge, moral lesson, and inspiration.", "footer_contact": "Contact", "footer_phone": "Telephone", "footer_address": "Address", "footer_website": "Website", "footer_phone_placeholder": "+994 XX XXX XX XX", "footer_address_placeholder": "Address to be added", "footer_website_placeholder": "https://birinci.cloud", "footer_website_url": "https://birinci.cloud"}, "js": {"index_loading": "Loading index…", "results_n": "{n} results", "no_match": "No matching stories.", "index_failed": "Search index failed to load. Open the site from http://localhost:8765/en/", "tts_unsupported": "Speech synthesis is not available in this browser. Please continue by reading the story.", "tts_no_voice": "No suitable speech voice was found on this device.", "tts_failed": "Could not start speech playback. Please try again later or read the story.", "audio_failed": "Could not play the audio file. Please try again later."}, "show_audio_controls": false};
 window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 3h7l5 5v13H7z\"/><path d=\"M14 3v5h5\"/><path d=\"M9 13h6\"/><path d=\"M9 17h6\"/></svg>", "text-off": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 3h7l5 5v13H7z\"/><path d=\"M14 3v5h5\"/><path d=\"M9 13h6\"/><path d=\"M9 17h6\"/><path d=\"M5 5l14 14\"/></svg>", "eye": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/></svg>", "eye-off": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 3l18 18\"/><path d=\"M10.6 10.6a3 3 0 0 0 4.2 4.2\"/><path d=\"M9.9 5.1A11 11 0 0 1 12 5c6.5 0 10 7 10 7a19 19 0 0 1-3.2 4.1\"/><path d=\"M6.1 6.1C3.6 7.8 2 12 2 12s3.5 7 10 7c1.6 0 3.1-.3 4.4-.9\"/></svg>", "listen": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"/><path d=\"M15.54 8.46a5 5 0 0 1 0 7.07\"/><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14\"/></svg>", "stop": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"/><path d=\"M15.54 8.46a5 5 0 0 1 0 7.07\"/><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14\"/><path d=\"M3 3l18 18\"/></svg>"};
 
 (() => {
   const I18N = window.__BIRINCI_I18N__ || { lang: "az", ui: {}, js: {} };
   const LOCALE_TAG = I18N.lang || document.documentElement.lang || "az";
+  const SHOW_AUDIO_CONTROLS = I18N.show_audio_controls !== false;
+
+  const hideAudioChrome = (root = document) => {
+    if (SHOW_AUDIO_CONTROLS) return;
+    (root || document).querySelectorAll("[data-story-tts], [data-tools-play-visible]").forEach((el) => {
+      const group = el.closest(".story__action-group, .tools-bar__field, .text-lightbox__tts");
+      if (group) group.hidden = true;
+      else el.hidden = true;
+    });
+  };
   const tUi = (key, fallback) =>
     (I18N.ui && I18N.ui[key]) || fallback || key;
   const tJs = (key, fallback) =>
@@ -1542,6 +1552,20 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const audioLabel = escapeHtml(tUi("story_audio_label", "Səs"));
       const imageLabel = escapeHtml(tUi("story_image_label", "Şəkil"));
       const textLabel = escapeHtml(tUi("story_text_label", "Mətn"));
+      const audioToggle = SHOW_AUDIO_CONTROLS
+        ? `
+          <div class="story__action-group">
+            <span class="tools-bar__label">${audioLabel}</span>
+            <div class="tools-bar__views" role="group" aria-label="${audioLabel}">
+            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="listen" aria-pressed="false" title="${escapeHtml(tUi("listen", "Mətni dinlə"))}" aria-label="${escapeHtml(tUi("listen", "Mətni dinlə"))}">
+              ${STORY_ICONS.listen}
+            </button>
+            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="stop" aria-pressed="true" title="${escapeHtml(tUi("stop", "Dayandır"))}" aria-label="${escapeHtml(tUi("stop", "Dayandır"))}">
+              ${STORY_ICONS.stop}
+            </button>
+            </div>
+          </div>`
+        : "";
       const figureToggle = story.hasImage
         ? `
           <div class="story__action-group">
@@ -1573,17 +1597,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     <div class="story__content">
       <div class="story__panel">
         <div class="story__actions">
-          <div class="story__action-group">
-            <span class="tools-bar__label">${audioLabel}</span>
-            <div class="tools-bar__views" role="group" aria-label="${audioLabel}">
-            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="listen" aria-pressed="false" title="${escapeHtml(tUi("listen", "Mətni dinlə"))}" aria-label="${escapeHtml(tUi("listen", "Mətni dinlə"))}">
-              ${STORY_ICONS.listen}
-            </button>
-            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="stop" aria-pressed="true" title="${escapeHtml(tUi("stop", "Dayandır"))}" aria-label="${escapeHtml(tUi("stop", "Dayandır"))}">
-              ${STORY_ICONS.stop}
-            </button>
-            </div>
-          </div>
+          ${audioToggle}
           ${figureToggle}
           <div class="story__action-group">
             <span class="tools-bar__label">${textLabel}</span>
@@ -1700,6 +1714,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       }
 
       storiesList.innerHTML = visibleStories.map(storyArticleHtml).join("");
+      hideAudioChrome(storiesList);
       if (typeof window.__birinciSetAllStoryFigures === "function") {
         window.__birinciSetAllStoryFigures(!document.body.classList.contains("images-collapsed"));
       }
@@ -3188,7 +3203,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           <div class="text-lightbox__header">
             <h2 class="text-lightbox__title"></h2>
           </div>
-          <div class="text-lightbox__tts">
+          ${SHOW_AUDIO_CONTROLS ? `<div class="text-lightbox__tts">
             <div class="story__action-group">
               <span class="tools-bar__label">${tUi("story_audio_label", "Səs")}</span>
               <div class="tools-bar__views" role="group" aria-label="${tUi("story_audio_label", "Səs")}">
@@ -3201,7 +3216,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
               </div>
             </div>
             <p class="story-tts__note" data-story-tts-note hidden></p>
-          </div>
+          </div>` : ""}
           <div class="text-lightbox__body"></div>
         </div>
       `.trim();
@@ -3397,6 +3412,11 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     initHomeViews();
   } catch (err) {
     console.error("initHomeViews failed", err);
+  }
+  try {
+    hideAudioChrome();
+  } catch (err) {
+    console.error("hideAudioChrome failed", err);
   }
   try {
     initStoryTts();

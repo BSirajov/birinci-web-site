@@ -1,9 +1,19 @@
-window.__BIRINCI_I18N__ = {"lang": "ky", "ui": {"open_menu": "Менюну ачуу", "close_menu": "Менюну жабуу", "main_menu": "Негизги меню", "coming_soon": "Жакында", "stories_coming_soon": "Аңгемелер жакында", "stories_coming_soon_lead": "Бул тил үчүн аңгемелер даярдалууда. Барактын түзүлүшү даяр; тексттер кошулганда бул жерде көрүнөт.", "intro_source": "Аңгемелер ачык интернет булактарынан алынган, иллюстрациялар болсо ЖИ менен түзүлгөн.", "story_source": "Аңгемелер ачык интернет булактарынан алынган, иллюстрациялар болсо ЖИ менен түзүлгөн.", "site_description": "Bir inci — үлгүлүү сөздөр менен аңгемелер жыйнагы.", "stories_nav": "Аңгемелер", "stories_nav_open": "Аңгеме менюсун ачуу", "no_matching_category": "Ылайыктуу категория табылган жок.", "no_matching_story": "Ылайыктуу аңгеме табылган жок.", "categories_heading": "Категориялар", "skip_to_content": "Мазмунга өтүү", "back_to_top": "Барактын башына кайтуу", "search": "Издөө…", "search_aria": "Издөө", "global_search": "Жалпы издөө", "global_search_toggle": "Жалпы издөө, Ctrl+K", "global_search_title_attr": "Издөө (Ctrl+K)", "close_search": "Издөөнү жабуу", "close": "Жабуу", "search_stories_label": "Аңгеме издөө", "search_stories_placeholder": "Бардык аңгемелерден издөө…", "search_filter_label": "Издөө", "search_results_count": "{n} жыйынтык", "clear_search_filter": "Фильтрди тазалоо", "view": "Көрүнүш", "view_cards": "Категориялар боюнча", "view_list": "Тизме", "images": "Сүрөттөр", "texts": "Текст", "show": "Көрсөтүү", "hide": "Жашыруу", "batch": "Аңгемелердин саны", "batch_all": "Баары", "batch_count": "Аңгеме саны", "batch_prev": "Мурунку", "batch_next": "Кийинки", "batch_random": "Кокустан", "batch_dec": "Азайтуу", "batch_inc": "Көбөйтүү", "batch_pager": "Бет", "listen": "Текстти угуу", "listen_page": "Бетти угуу", "story_audio_label": "Аудио", "story_image_label": "Сүрөт", "story_text_label": "Текст", "queue_prev": "Мурунку аңгеме", "queue_next": "Кийинки аңгеме", "hide_text": "Текстти жашыруу", "hide_image": "Сүрөттү жашыруу", "show_text": "Текстти көрсөтүү", "show_image": "Сүрөттү көрсөтүү", "stories_count_suffix": "аңгеме", "stop": "Токтотуу", "resume": "Улантуу", "play": "Ойнотуу", "mute": "Үнсүз", "speed": "Ылдамдык", "close_player": "Плеерди жабуу", "lang_switcher_label": "Тил", "hero_lead": "Үлгүлүү аңгемелер — окуу жана угуу үчүн.", "intro_lead": "Сайтыбызда адамзаттын тарых бою илим жана технология, табият илимдери, коомдук жана гуманитардык илимдер, ошондой эле адабият менен искусствонун ар кандай тармактарындагы улуу жетишкендиктери, жалпы адамзаттык адеп-ахлактык баалуулуктар, көрүнүктүү инсандар, маанилүү тарыхый ачылыштар жана ойлоп табуулар жөнүндө бай маалымат берилет. Максатыбыз — кылымдар бою топтолгон бул баалуу мурасты сактоо, системалаштыруу жана келечек муундарга билим, үлгү жана шыктандыруу булагы катары жеткирүү.", "footer_contact": "Байланыш", "footer_phone": "Телефон", "footer_address": "Дарек", "footer_website": "Веб-сайт", "footer_phone_placeholder": "+994 XX XXX XX XX", "footer_address_placeholder": "Дарек кошулат", "footer_website_placeholder": "https://birinci.cloud", "footer_website_url": "https://birinci.cloud"}, "js": {"index_loading": "Индекс жүктөлүүдө…", "results_n": "{n} жыйынтык", "no_match": "Ылайыктуу аңгеме табылган жок.", "index_failed": "Издөө индекси жүктөлгөн жок. Сайтты http://localhost:8765/ky/ дарегинен ачыңыз.", "tts_unsupported": "Кеп синтези бул браузерде жеткиликсиз. Сураныч, аңгемени окуп улантыңыз.", "tts_no_voice": "Бул түзмөктө ылайыктуу үн табылган жок.", "tts_failed": "Үн чыгарууну баштоо мүмкүн болгон жок. Кийинчерээк кайра аракет кылыңыз же аңгемени окуңуз.", "audio_failed": "Аудио файлды ойнотуу мүмкүн болгон жок. Кийинчерээк кайра аракет кылыңыз."}};
+window.__BIRINCI_I18N__ = {"lang": "ky", "ui": {"open_menu": "Менюну ачуу", "close_menu": "Менюну жабуу", "main_menu": "Негизги меню", "coming_soon": "Жакында", "stories_coming_soon": "Аңгемелер жакында", "stories_coming_soon_lead": "Бул тил үчүн аңгемелер даярдалууда. Барактын түзүлүшү даяр; тексттер кошулганда бул жерде көрүнөт.", "intro_source": "Аңгемелер ачык интернет булактарынан алынган, иллюстрациялар болсо ЖИ менен түзүлгөн.", "story_source": "Аңгемелер ачык интернет булактарынан алынган, иллюстрациялар болсо ЖИ менен түзүлгөн.", "site_description": "Bir inci — үлгүлүү сөздөр менен аңгемелер жыйнагы.", "stories_nav": "Аңгемелер", "stories_nav_open": "Аңгеме менюсун ачуу", "no_matching_category": "Ылайыктуу категория табылган жок.", "no_matching_story": "Ылайыктуу аңгеме табылган жок.", "categories_heading": "Категориялар", "skip_to_content": "Мазмунга өтүү", "back_to_top": "Барактын башына кайтуу", "search": "Издөө…", "search_aria": "Издөө", "global_search": "Жалпы издөө", "global_search_toggle": "Жалпы издөө, Ctrl+K", "global_search_title_attr": "Издөө (Ctrl+K)", "close_search": "Издөөнү жабуу", "close": "Жабуу", "search_stories_label": "Аңгеме издөө", "search_stories_placeholder": "Бардык аңгемелерден издөө…", "search_filter_label": "Издөө", "search_results_count": "{n} жыйынтык", "clear_search_filter": "Фильтрди тазалоо", "view": "Көрүнүш", "view_cards": "Категориялар боюнча", "view_list": "Тизме", "images": "Сүрөттөр", "texts": "Текст", "show": "Көрсөтүү", "hide": "Жашыруу", "batch": "Аңгемелердин саны", "batch_all": "Баары", "batch_count": "Аңгеме саны", "batch_prev": "Мурунку", "batch_next": "Кийинки", "batch_random": "Кокустан", "batch_dec": "Азайтуу", "batch_inc": "Көбөйтүү", "batch_pager": "Бет", "listen": "Текстти угуу", "listen_page": "Бетти угуу", "story_audio_label": "Аудио", "story_image_label": "Сүрөт", "story_text_label": "Текст", "queue_prev": "Мурунку аңгеме", "queue_next": "Кийинки аңгеме", "hide_text": "Текстти жашыруу", "hide_image": "Сүрөттү жашыруу", "show_text": "Текстти көрсөтүү", "show_image": "Сүрөттү көрсөтүү", "stories_count_suffix": "аңгеме", "stop": "Токтотуу", "resume": "Улантуу", "play": "Ойнотуу", "mute": "Үнсүз", "speed": "Ылдамдык", "close_player": "Плеерди жабуу", "lang_switcher_label": "Тил", "hero_lead": "Үлгүлүү аңгемелер — окуу жана угуу үчүн.", "intro_lead": "Сайтыбызда адамзаттын тарых бою илим жана технология, табият илимдери, коомдук жана гуманитардык илимдер, ошондой эле адабият менен искусствонун ар кандай тармактарындагы улуу жетишкендиктери, жалпы адамзаттык адеп-ахлактык баалуулуктар, көрүнүктүү инсандар, маанилүү тарыхый ачылыштар жана ойлоп табуулар жөнүндө бай маалымат берилет. Максатыбыз — кылымдар бою топтолгон бул баалуу мурасты сактоо, системалаштыруу жана келечек муундарга билим, үлгү жана шыктандыруу булагы катары жеткирүү.", "footer_contact": "Байланыш", "footer_phone": "Телефон", "footer_address": "Дарек", "footer_website": "Веб-сайт", "footer_phone_placeholder": "+994 XX XXX XX XX", "footer_address_placeholder": "Дарек кошулат", "footer_website_placeholder": "https://birinci.cloud", "footer_website_url": "https://birinci.cloud"}, "js": {"index_loading": "Индекс жүктөлүүдө…", "results_n": "{n} жыйынтык", "no_match": "Ылайыктуу аңгеме табылган жок.", "index_failed": "Издөө индекси жүктөлгөн жок. Сайтты http://localhost:8765/ky/ дарегинен ачыңыз.", "tts_unsupported": "Кеп синтези бул браузерде жеткиликсиз. Сураныч, аңгемени окуп улантыңыз.", "tts_no_voice": "Бул түзмөктө ылайыктуу үн табылган жок.", "tts_failed": "Үн чыгарууну баштоо мүмкүн болгон жок. Кийинчерээк кайра аракет кылыңыз же аңгемени окуңуз.", "audio_failed": "Аудио файлды ойнотуу мүмкүн болгон жок. Кийинчерээк кайра аракет кылыңыз."}, "show_audio_controls": false};
 window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 3h7l5 5v13H7z\"/><path d=\"M14 3v5h5\"/><path d=\"M9 13h6\"/><path d=\"M9 17h6\"/></svg>", "text-off": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 3h7l5 5v13H7z\"/><path d=\"M14 3v5h5\"/><path d=\"M9 13h6\"/><path d=\"M9 17h6\"/><path d=\"M5 5l14 14\"/></svg>", "eye": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/></svg>", "eye-off": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 3l18 18\"/><path d=\"M10.6 10.6a3 3 0 0 0 4.2 4.2\"/><path d=\"M9.9 5.1A11 11 0 0 1 12 5c6.5 0 10 7 10 7a19 19 0 0 1-3.2 4.1\"/><path d=\"M6.1 6.1C3.6 7.8 2 12 2 12s3.5 7 10 7c1.6 0 3.1-.3 4.4-.9\"/></svg>", "listen": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"/><path d=\"M15.54 8.46a5 5 0 0 1 0 7.07\"/><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14\"/></svg>", "stop": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"/><path d=\"M15.54 8.46a5 5 0 0 1 0 7.07\"/><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14\"/><path d=\"M3 3l18 18\"/></svg>"};
 
 (() => {
   const I18N = window.__BIRINCI_I18N__ || { lang: "az", ui: {}, js: {} };
   const LOCALE_TAG = I18N.lang || document.documentElement.lang || "az";
+  const SHOW_AUDIO_CONTROLS = I18N.show_audio_controls !== false;
+
+  const hideAudioChrome = (root = document) => {
+    if (SHOW_AUDIO_CONTROLS) return;
+    (root || document).querySelectorAll("[data-story-tts], [data-tools-play-visible]").forEach((el) => {
+      const group = el.closest(".story__action-group, .tools-bar__field, .text-lightbox__tts");
+      if (group) group.hidden = true;
+      else el.hidden = true;
+    });
+  };
   const tUi = (key, fallback) =>
     (I18N.ui && I18N.ui[key]) || fallback || key;
   const tJs = (key, fallback) =>
@@ -1542,6 +1552,20 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const audioLabel = escapeHtml(tUi("story_audio_label", "Səs"));
       const imageLabel = escapeHtml(tUi("story_image_label", "Şəkil"));
       const textLabel = escapeHtml(tUi("story_text_label", "Mətn"));
+      const audioToggle = SHOW_AUDIO_CONTROLS
+        ? `
+          <div class="story__action-group">
+            <span class="tools-bar__label">${audioLabel}</span>
+            <div class="tools-bar__views" role="group" aria-label="${audioLabel}">
+            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="listen" aria-pressed="false" title="${escapeHtml(tUi("listen", "Mətni dinlə"))}" aria-label="${escapeHtml(tUi("listen", "Mətni dinlə"))}">
+              ${STORY_ICONS.listen}
+            </button>
+            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="stop" aria-pressed="true" title="${escapeHtml(tUi("stop", "Dayandır"))}" aria-label="${escapeHtml(tUi("stop", "Dayandır"))}">
+              ${STORY_ICONS.stop}
+            </button>
+            </div>
+          </div>`
+        : "";
       const figureToggle = story.hasImage
         ? `
           <div class="story__action-group">
@@ -1573,17 +1597,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     <div class="story__content">
       <div class="story__panel">
         <div class="story__actions">
-          <div class="story__action-group">
-            <span class="tools-bar__label">${audioLabel}</span>
-            <div class="tools-bar__views" role="group" aria-label="${audioLabel}">
-            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="listen" aria-pressed="false" title="${escapeHtml(tUi("listen", "Mətni dinlə"))}" aria-label="${escapeHtml(tUi("listen", "Mətni dinlə"))}">
-              ${STORY_ICONS.listen}
-            </button>
-            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="stop" aria-pressed="true" title="${escapeHtml(tUi("stop", "Dayandır"))}" aria-label="${escapeHtml(tUi("stop", "Dayandır"))}">
-              ${STORY_ICONS.stop}
-            </button>
-            </div>
-          </div>
+          ${audioToggle}
           ${figureToggle}
           <div class="story__action-group">
             <span class="tools-bar__label">${textLabel}</span>
@@ -1700,6 +1714,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       }
 
       storiesList.innerHTML = visibleStories.map(storyArticleHtml).join("");
+      hideAudioChrome(storiesList);
       if (typeof window.__birinciSetAllStoryFigures === "function") {
         window.__birinciSetAllStoryFigures(!document.body.classList.contains("images-collapsed"));
       }
@@ -3188,7 +3203,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           <div class="text-lightbox__header">
             <h2 class="text-lightbox__title"></h2>
           </div>
-          <div class="text-lightbox__tts">
+          ${SHOW_AUDIO_CONTROLS ? `<div class="text-lightbox__tts">
             <div class="story__action-group">
               <span class="tools-bar__label">${tUi("story_audio_label", "Səs")}</span>
               <div class="tools-bar__views" role="group" aria-label="${tUi("story_audio_label", "Səs")}">
@@ -3201,7 +3216,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
               </div>
             </div>
             <p class="story-tts__note" data-story-tts-note hidden></p>
-          </div>
+          </div>` : ""}
           <div class="text-lightbox__body"></div>
         </div>
       `.trim();
@@ -3397,6 +3412,11 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     initHomeViews();
   } catch (err) {
     console.error("initHomeViews failed", err);
+  }
+  try {
+    hideAudioChrome();
+  } catch (err) {
+    console.error("hideAudioChrome failed", err);
   }
   try {
     initStoryTts();

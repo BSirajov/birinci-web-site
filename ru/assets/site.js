@@ -1,9 +1,19 @@
-window.__BIRINCI_I18N__ = {"lang": "ru", "ui": {"open_menu": "Открыть меню", "close_menu": "Закрыть меню", "main_menu": "Главное меню", "coming_soon": "Скоро", "stories_coming_soon": "Рассказы скоро появятся", "stories_coming_soon_lead": "Русские рассказы готовятся. Страницы уже собраны; тексты появятся здесь, как только их добавят.", "intro_source": "Рассказы взяты из открытых интернет-источников, а иллюстрации созданы с помощью ИИ.", "story_source": "Рассказы взяты из открытых интернет-источников, а иллюстрации созданы с помощью ИИ.", "site_description": "Bir inci — собрание назидательных изречений и рассказов.", "stories_nav": "Рассказы", "stories_nav_open": "Открыть меню рассказов", "no_matching_category": "Подходящая категория не найдена.", "no_matching_story": "Подходящий рассказ не найден.", "categories_heading": "Категории", "skip_to_content": "К содержанию", "back_to_top": "Наверх", "search": "Поиск…", "search_aria": "Поиск", "global_search": "Глобальный поиск", "global_search_toggle": "Глобальный поиск, Ctrl+K", "global_search_title_attr": "Поиск (Ctrl+K)", "close_search": "Закрыть поиск", "close": "Закрыть", "search_stories_label": "Поиск рассказов", "search_stories_placeholder": "Искать во всех рассказах…", "search_filter_label": "Поиск", "search_results_count": "{n} результатов", "clear_search_filter": "Сбросить фильтр", "view": "Вид", "view_cards": "По категориям", "view_list": "Список", "images": "Изображения", "texts": "Текст", "show": "Показать", "hide": "Скрыть", "batch": "Количество рассказов", "batch_all": "Все", "batch_count": "Число рассказов", "batch_prev": "Назад", "batch_next": "Далее", "batch_random": "Случайно", "batch_dec": "Меньше", "batch_inc": "Больше", "batch_pager": "Страница", "listen": "Слушать", "listen_page": "Слушать страницу", "story_audio_label": "Аудио", "story_image_label": "Изображение", "story_text_label": "Текст", "queue_prev": "Предыдущий рассказ", "queue_next": "Следующий рассказ", "hide_text": "Скрыть текст", "hide_image": "Скрыть изображение", "show_text": "Показать текст", "show_image": "Показать изображение", "stories_count_suffix": "рассказов", "stop": "Стоп", "resume": "Продолжить", "play": "Играть", "mute": "Без звука", "speed": "Скорость", "close_player": "Закрыть плеер", "lang_switcher_label": "Язык", "hero_lead": "Назидательные рассказы — читать и слушать.", "intro_lead": "На нашем сайте представлены богатые сведения о величественных достижениях человечества на протяжении истории в науке и технике, естественных науках, общественных и гуманитарных науках, а также в литературе и искусстве; об общечеловеческих духовных ценностях, выдающихся личностях и важнейших исторических открытиях и изобретениях. Наша цель — сохранить это ценное наследие, накопленное веками, систематизировать его и передать будущим поколениям как источник знания, назидания и вдохновения.", "footer_contact": "Контакты", "footer_phone": "Телефон", "footer_address": "Адрес", "footer_website": "Сайт", "footer_phone_placeholder": "+994 XX XXX XX XX", "footer_address_placeholder": "Адрес будет добавлен", "footer_website_placeholder": "https://birinci.cloud", "footer_website_url": "https://birinci.cloud"}, "js": {"index_loading": "Загрузка индекса…", "results_n": "{n} результатов", "no_match": "Подходящих рассказов нет.", "index_failed": "Не удалось загрузить поисковый индекс. Откройте сайт по адресу http://localhost:8765/ru/", "tts_unsupported": "К сожалению, синтез речи недоступен в этом браузере. Пожалуйста, продолжите чтение рассказа.", "tts_no_voice": "На этом устройстве не найден подходящий голос.", "tts_failed": "Не удалось начать озвучивание. Попробуйте позже или прочитайте рассказ.", "audio_failed": "Не удалось воспроизвести аудиофайл. Попробуйте позже."}};
+window.__BIRINCI_I18N__ = {"lang": "ru", "ui": {"open_menu": "Открыть меню", "close_menu": "Закрыть меню", "main_menu": "Главное меню", "coming_soon": "Скоро", "stories_coming_soon": "Рассказы скоро появятся", "stories_coming_soon_lead": "Русские рассказы готовятся. Страницы уже собраны; тексты появятся здесь, как только их добавят.", "intro_source": "Рассказы взяты из открытых интернет-источников, а иллюстрации созданы с помощью ИИ.", "story_source": "Рассказы взяты из открытых интернет-источников, а иллюстрации созданы с помощью ИИ.", "site_description": "Bir inci — собрание назидательных изречений и рассказов.", "stories_nav": "Рассказы", "stories_nav_open": "Открыть меню рассказов", "no_matching_category": "Подходящая категория не найдена.", "no_matching_story": "Подходящий рассказ не найден.", "categories_heading": "Категории", "skip_to_content": "К содержанию", "back_to_top": "Наверх", "search": "Поиск…", "search_aria": "Поиск", "global_search": "Глобальный поиск", "global_search_toggle": "Глобальный поиск, Ctrl+K", "global_search_title_attr": "Поиск (Ctrl+K)", "close_search": "Закрыть поиск", "close": "Закрыть", "search_stories_label": "Поиск рассказов", "search_stories_placeholder": "Искать во всех рассказах…", "search_filter_label": "Поиск", "search_results_count": "{n} результатов", "clear_search_filter": "Сбросить фильтр", "view": "Вид", "view_cards": "По категориям", "view_list": "Список", "images": "Изображения", "texts": "Текст", "show": "Показать", "hide": "Скрыть", "batch": "Количество рассказов", "batch_all": "Все", "batch_count": "Число рассказов", "batch_prev": "Назад", "batch_next": "Далее", "batch_random": "Случайно", "batch_dec": "Меньше", "batch_inc": "Больше", "batch_pager": "Страница", "listen": "Слушать", "listen_page": "Слушать страницу", "story_audio_label": "Аудио", "story_image_label": "Изображение", "story_text_label": "Текст", "queue_prev": "Предыдущий рассказ", "queue_next": "Следующий рассказ", "hide_text": "Скрыть текст", "hide_image": "Скрыть изображение", "show_text": "Показать текст", "show_image": "Показать изображение", "stories_count_suffix": "рассказов", "stop": "Стоп", "resume": "Продолжить", "play": "Играть", "mute": "Без звука", "speed": "Скорость", "close_player": "Закрыть плеер", "lang_switcher_label": "Язык", "hero_lead": "Назидательные рассказы — читать и слушать.", "intro_lead": "На нашем сайте представлены богатые сведения о величественных достижениях человечества на протяжении истории в науке и технике, естественных науках, общественных и гуманитарных науках, а также в литературе и искусстве; об общечеловеческих духовных ценностях, выдающихся личностях и важнейших исторических открытиях и изобретениях. Наша цель — сохранить это ценное наследие, накопленное веками, систематизировать его и передать будущим поколениям как источник знания, назидания и вдохновения.", "footer_contact": "Контакты", "footer_phone": "Телефон", "footer_address": "Адрес", "footer_website": "Сайт", "footer_phone_placeholder": "+994 XX XXX XX XX", "footer_address_placeholder": "Адрес будет добавлен", "footer_website_placeholder": "https://birinci.cloud", "footer_website_url": "https://birinci.cloud"}, "js": {"index_loading": "Загрузка индекса…", "results_n": "{n} результатов", "no_match": "Подходящих рассказов нет.", "index_failed": "Не удалось загрузить поисковый индекс. Откройте сайт по адресу http://localhost:8765/ru/", "tts_unsupported": "К сожалению, синтез речи недоступен в этом браузере. Пожалуйста, продолжите чтение рассказа.", "tts_no_voice": "На этом устройстве не найден подходящий голос.", "tts_failed": "Не удалось начать озвучивание. Попробуйте позже или прочитайте рассказ.", "audio_failed": "Не удалось воспроизвести аудиофайл. Попробуйте позже."}, "show_audio_controls": false};
 window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 3h7l5 5v13H7z\"/><path d=\"M14 3v5h5\"/><path d=\"M9 13h6\"/><path d=\"M9 17h6\"/></svg>", "text-off": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 3h7l5 5v13H7z\"/><path d=\"M14 3v5h5\"/><path d=\"M9 13h6\"/><path d=\"M9 17h6\"/><path d=\"M5 5l14 14\"/></svg>", "eye": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/></svg>", "eye-off": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 3l18 18\"/><path d=\"M10.6 10.6a3 3 0 0 0 4.2 4.2\"/><path d=\"M9.9 5.1A11 11 0 0 1 12 5c6.5 0 10 7 10 7a19 19 0 0 1-3.2 4.1\"/><path d=\"M6.1 6.1C3.6 7.8 2 12 2 12s3.5 7 10 7c1.6 0 3.1-.3 4.4-.9\"/></svg>", "listen": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"/><path d=\"M15.54 8.46a5 5 0 0 1 0 7.07\"/><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14\"/></svg>", "stop": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"/><path d=\"M15.54 8.46a5 5 0 0 1 0 7.07\"/><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14\"/><path d=\"M3 3l18 18\"/></svg>"};
 
 (() => {
   const I18N = window.__BIRINCI_I18N__ || { lang: "az", ui: {}, js: {} };
   const LOCALE_TAG = I18N.lang || document.documentElement.lang || "az";
+  const SHOW_AUDIO_CONTROLS = I18N.show_audio_controls !== false;
+
+  const hideAudioChrome = (root = document) => {
+    if (SHOW_AUDIO_CONTROLS) return;
+    (root || document).querySelectorAll("[data-story-tts], [data-tools-play-visible]").forEach((el) => {
+      const group = el.closest(".story__action-group, .tools-bar__field, .text-lightbox__tts");
+      if (group) group.hidden = true;
+      else el.hidden = true;
+    });
+  };
   const tUi = (key, fallback) =>
     (I18N.ui && I18N.ui[key]) || fallback || key;
   const tJs = (key, fallback) =>
@@ -1542,6 +1552,20 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const audioLabel = escapeHtml(tUi("story_audio_label", "Səs"));
       const imageLabel = escapeHtml(tUi("story_image_label", "Şəkil"));
       const textLabel = escapeHtml(tUi("story_text_label", "Mətn"));
+      const audioToggle = SHOW_AUDIO_CONTROLS
+        ? `
+          <div class="story__action-group">
+            <span class="tools-bar__label">${audioLabel}</span>
+            <div class="tools-bar__views" role="group" aria-label="${audioLabel}">
+            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="listen" aria-pressed="false" title="${escapeHtml(tUi("listen", "Mətni dinlə"))}" aria-label="${escapeHtml(tUi("listen", "Mətni dinlə"))}">
+              ${STORY_ICONS.listen}
+            </button>
+            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="stop" aria-pressed="true" title="${escapeHtml(tUi("stop", "Dayandır"))}" aria-label="${escapeHtml(tUi("stop", "Dayandır"))}">
+              ${STORY_ICONS.stop}
+            </button>
+            </div>
+          </div>`
+        : "";
       const figureToggle = story.hasImage
         ? `
           <div class="story__action-group">
@@ -1573,17 +1597,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     <div class="story__content">
       <div class="story__panel">
         <div class="story__actions">
-          <div class="story__action-group">
-            <span class="tools-bar__label">${audioLabel}</span>
-            <div class="tools-bar__views" role="group" aria-label="${audioLabel}">
-            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="listen" aria-pressed="false" title="${escapeHtml(tUi("listen", "Mətni dinlə"))}" aria-label="${escapeHtml(tUi("listen", "Mətni dinlə"))}">
-              ${STORY_ICONS.listen}
-            </button>
-            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="stop" aria-pressed="true" title="${escapeHtml(tUi("stop", "Dayandır"))}" aria-label="${escapeHtml(tUi("stop", "Dayandır"))}">
-              ${STORY_ICONS.stop}
-            </button>
-            </div>
-          </div>
+          ${audioToggle}
           ${figureToggle}
           <div class="story__action-group">
             <span class="tools-bar__label">${textLabel}</span>
@@ -1700,6 +1714,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       }
 
       storiesList.innerHTML = visibleStories.map(storyArticleHtml).join("");
+      hideAudioChrome(storiesList);
       if (typeof window.__birinciSetAllStoryFigures === "function") {
         window.__birinciSetAllStoryFigures(!document.body.classList.contains("images-collapsed"));
       }
@@ -3188,7 +3203,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           <div class="text-lightbox__header">
             <h2 class="text-lightbox__title"></h2>
           </div>
-          <div class="text-lightbox__tts">
+          ${SHOW_AUDIO_CONTROLS ? `<div class="text-lightbox__tts">
             <div class="story__action-group">
               <span class="tools-bar__label">${tUi("story_audio_label", "Səs")}</span>
               <div class="tools-bar__views" role="group" aria-label="${tUi("story_audio_label", "Səs")}">
@@ -3201,7 +3216,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
               </div>
             </div>
             <p class="story-tts__note" data-story-tts-note hidden></p>
-          </div>
+          </div>` : ""}
           <div class="text-lightbox__body"></div>
         </div>
       `.trim();
@@ -3397,6 +3412,11 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     initHomeViews();
   } catch (err) {
     console.error("initHomeViews failed", err);
+  }
+  try {
+    hideAudioChrome();
+  } catch (err) {
+    console.error("hideAudioChrome failed", err);
   }
   try {
     initStoryTts();
