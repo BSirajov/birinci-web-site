@@ -1,4 +1,4 @@
-# Bir inci — Dialogue & paragraph house style
+# Birİnci — Dialogue & paragraph house style
 
 **Status:** Approved for automated cleanup · 2026-08-13  
 **Scope:** Azerbaijani story texts in `az/stories/*.docx` (source of truth) → rebuild updates `az/data/stories.json` and site HTML.

@@ -1,4 +1,4 @@
-window.__BIRINCI_I18N__ = {"lang": "tr", "ui": {"open_menu": "Menüyü aç", "close_menu": "Menüyü kapat", "main_menu": "Ana menü", "coming_soon": "Yakında", "stories_coming_soon": "Hikâyeler yakında", "stories_coming_soon_lead": "Bu dil için hikâyeler hazırlanıyor. Sayfa yapısı hazır; metinler eklendiğinde burada görünecek.", "intro_source": "Hikâyeler açık internet kaynaklarından alınmıştır; illüstrasyonlar ise yapay zekâ ile oluşturulmuştur.", "story_source": "Hikâyeler açık internet kaynaklarından alınmıştır; illüstrasyonlar ise yapay zekâ ile oluşturulmuştur.", "site_description": "Bir inci — ibretlik sözler ve hikâyeler derlemesi.", "stories_nav": "Hikâyeler", "stories_nav_open": "Hikâye menüsünü aç", "no_matching_category": "Uygun kategori bulunamadı.", "no_matching_story": "Uygun hikâye bulunamadı.", "categories_heading": "Kategoriler", "skip_to_content": "İçeriğe geç", "back_to_top": "Sayfanın başına dön", "search": "Ara…", "search_aria": "Ara", "global_search": "Genel arama", "global_search_toggle": "Genel arama, Ctrl+K", "global_search_title_attr": "Ara (Ctrl+K)", "close_search": "Aramayı kapat", "close": "Kapat", "search_stories_label": "Hikâye ara", "search_stories_placeholder": "Tüm hikâyelerde ara…", "search_filter_label": "Arama", "search_results_count": "{n} sonuç", "clear_search_filter": "Filtreyi temizle", "view": "Görünüm", "view_cards": "Kategorili", "view_list": "Liste", "images": "Görseller", "texts": "Metin", "show": "Göster", "hide": "Gizle", "batch": "Hikâyelerin sayısı", "batch_all": "Tümü", "batch_count": "Hikâye sayısı", "batch_prev": "Önceki", "batch_next": "Sonraki", "batch_random": "Rastgele", "batch_dec": "Azalt", "batch_inc": "Artır", "batch_pager": "Sayfa", "listen": "Metni dinle", "listen_page": "Sayfayı dinle", "story_audio_label": "Ses", "story_image_label": "Görsel", "story_text_label": "Metin", "queue_prev": "Önceki hikâye", "queue_next": "Sonraki hikâye", "hide_text": "Metni gizle", "hide_image": "Görseli gizle", "show_text": "Metni göster", "show_image": "Görseli göster", "stories_count_suffix": "hikâye", "stop": "Durdur", "resume": "Devam et", "play": "Oynat", "mute": "Sessiz", "speed": "Hız", "close_player": "Oynatıcıyı kapat", "lang_switcher_label": "Dil", "hero_lead": "İbret verici hikâyeler — okumak ve dinlemek için.", "intro_lead": "Sitemizde insanlığın tarih boyunca bilim ve teknoloji, doğa bilimleri, sosyal ve beşeri bilimler ile edebiyat ve sanatın çeşitli alanlarında kazandığı görkemli başarılar, evrensel manevi değerler, önde gelen şahsiyetler ve önemli tarihî keşif ve icatlar hakkında zengin bilgiler sunulur. Amacımız, yüzyıllar boyunca birikmiş bu değerli mirası korumak, sistemleştirmek ve gelecek kuşaklara bilgi, ibret ve ilham kaynağı olarak aktarmaktır.", "footer_contact": "İletişim", "footer_phone": "Telefon", "footer_address": "Adres", "footer_website": "Web sitesi", "footer_phone_placeholder": "+994 XX XXX XX XX", "footer_address_placeholder": "Adres eklenecek", "footer_website_placeholder": "https://birinci.cloud", "footer_website_url": "https://birinci.cloud"}, "js": {"index_loading": "Dizin yükleniyor…", "results_n": "{n} sonuç", "no_match": "Uygun hikâye bulunamadı.", "index_failed": "Arama dizini yüklenemedi. Siteyi http://localhost:8765/tr/ adresinden açın.", "tts_unsupported": "Konuşma sentezi bu tarayıcıda kullanılamıyor. Lütfen hikâyeyi okuyarak devam edin.", "tts_no_voice": "Bu cihazda uygun bir konuşma sesi bulunamadı.", "tts_failed": "Sesli okuma başlatılamadı. Lütfen daha sonra tekrar deneyin veya hikâyeyi okuyun.", "audio_failed": "Ses dosyası çalınamadı. Lütfen daha sonra tekrar deneyin."}, "show_audio_controls": false};
+window.__BIRINCI_I18N__ = {"lang": "tr", "ui": {"open_menu": "Menüyü aç", "close_menu": "Menüyü kapat", "main_menu": "Ana menü", "coming_soon": "Yakında", "stories_coming_soon": "Hikâyeler yakında", "stories_coming_soon_lead": "Bu dil için hikâyeler hazırlanıyor. Sayfa yapısı hazır; metinler eklendiğinde burada görünecek.", "intro_source": "Hikâyeler açık internet kaynaklarından alınmıştır; illüstrasyonlar ise yapay zekâ ile oluşturulmuştur.", "story_source": "Hikâyeler açık internet kaynaklarından alınmıştır; illüstrasyonlar ise yapay zekâ ile oluşturulmuştur.", "site_description": "Birİnci — ibretlik sözler ve hikâyeler derlemesi.", "stories_nav": "Hikâyeler", "stories_nav_open": "Hikâye menüsünü aç", "no_matching_category": "Uygun kategori bulunamadı.", "no_matching_story": "Uygun hikâye bulunamadı.", "categories_heading": "Kategoriler", "skip_to_content": "İçeriğe geç", "back_to_top": "Sayfanın başına dön", "go_to_bottom": "Sayfanın sonuna git", "search": "Ara…", "search_aria": "Ara", "global_search": "Genel arama", "global_search_toggle": "Genel arama, Ctrl+K", "global_search_title_attr": "Ara (Ctrl+K)", "close_search": "Aramayı kapat", "close": "Kapat", "search_stories_label": "Hikâye ara", "search_stories_placeholder": "Tüm hikâyelerde ara…", "search_filter_label": "Arama", "search_results_count": "{n} sonuç", "clear_search_filter": "Filtreyi temizle", "view": "Görünüm", "view_cards": "Kategorili", "view_list": "Liste", "images": "Görseller", "texts": "Metin", "show": "Göster", "hide": "Gizle", "batch": "Hikâyelerin sayısı", "batch_all": "Tümü", "batch_count": "Hikâye sayısı", "batch_prev": "Önceki", "batch_next": "Sonraki", "batch_random": "Rastgele", "batch_dec": "Azalt", "batch_inc": "Artır", "batch_pager": "Sayfa", "listen": "Metni dinle", "listen_page": "Sayfayı dinle", "story_audio_label": "Ses", "story_image_label": "Görsel", "story_text_label": "Metin", "queue_prev": "Önceki hikâye", "queue_next": "Sonraki hikâye", "hide_text": "Metni gizle", "hide_image": "Görseli gizle", "show_text": "Metni göster", "show_image": "Görseli göster", "stories_count_suffix": "hikâye", "stop": "Durdur", "resume": "Devam et", "play": "Oynat", "mute": "Sessiz", "speed": "Hız", "close_player": "Oynatıcıyı kapat", "lang_switcher_label": "Dil", "hero_lead": "Bilgi ve kültür ocağı", "intro_lead": "Sitemizde insanlığın tarih boyunca bilim ve teknoloji, doğa bilimleri, sosyal ve beşeri bilimler ile edebiyat ve sanatın çeşitli alanlarında kazandığı görkemli başarılar, evrensel manevi değerler, önde gelen şahsiyetler ve önemli tarihî keşif ve icatlar hakkında zengin bilgiler sunulur. Amacımız, yüzyıllar boyunca birikmiş bu değerli mirası korumak, sistemleştirmek ve gelecek kuşaklara bilgi, ibret ve ilham kaynağı olarak aktarmaktır.", "footer_contact": "İletişim", "footer_phone": "Telefon", "footer_address": "Adres", "footer_website": "Web sitesi", "footer_phone_placeholder": "+994 XX XXX XX XX", "footer_address_placeholder": "Adres eklenecek", "footer_website_placeholder": "https://birinci.cloud", "footer_website_url": "https://birinci.cloud", "about": {"nav_item": "Misyonumuz, Vizyon ve Değerlerimiz", "page_title": "Misyonumuz, Vizyon ve Değerlerimiz", "page_description": "Bu sayfada amacımız, geleceğe bakışımız ve temel ilkelerimiz ifade edilir. Ocağımız bilgiyi ve manevi mirası korumayı, paylaşmayı ve gelecek kuşaklara aktarmayı hedefler.", "kicker": "Hakkımızda", "mission_kicker": "Bugün", "mission_title": "Misyon", "mission_body": "Misyonumuz, insanlığın yüzyıllar boyunca bilim ve teknoloji, edebiyat ve sanat alanlarında kazandığı başarılar, oluşturduğu evrensel değerler, yetiştirdiği önde gelen şahsiyetler ile önemli keşif ve icatlar hakkındaki değerli bilgileri toplamak, sistemleştirmek ve gelecek kuşaklara bilgi, ibret ve ilham kaynağı olarak aktarmaktır.", "vision_kicker": "İleriye", "vision_title": "Vizyon", "vision_body": "İnsanlığın zengin bilgi ve manevi mirasını koruyan, onu herkes için erişilebilir ve anlaşılır kılan, geçmişin deneyimini bugünün düşüncesiyle birleştirerek gelecek kuşakları öğrenmeye, düşünmeye, yaratmaya ve daha iyi bir gelecek kurmaya ilham veren güvenilir ve sürekli zenginleşen bir bilgi ocağına dönüşmek.", "values_kicker": "Dayandığımız", "values_title": "Değerlerimiz", "values_intro": "Ocağın faaliyetinin temelinde bilgiye, insana ve insanlığın yarattığı zengin mirasa saygı durur. Misyon ve vizyonumuzu hayata geçirirken aşağıdaki temel değerleri rehber alırız.", "values": [{"name": "Bilgi", "gloss": "Bilgiyi insanlığın en değerli servetlerinden biri sayarız. Yüzyıllar boyunca bilim, teknoloji, edebiyat, sanat ve diğer alanlarda birikmiş bilgilerin korunmasına, sistemleştirilmesine ve gelecek kuşaklara aktarılmasına çalışırız."}, {"name": "Hakikat ve güvenilirlik", "gloss": "Bilginin değeri, onun hakikate dayanmasından başlar. Sunduğumuz bilgilerin doğru, nesnel ve güvenilir olmasına, mümkün olduğunca muteber kaynaklara dayanmasına özel önem veririz."}, {"name": "Aydınlanma", "gloss": "Bilgiyi yalnızca toplamak değil, onu paylaşmak ve insanları öğrenmeye teşvik etmek de temel amaçlarımızdandır. İnanırız ki aydınlanma insanın dünya görüşünü genişletir, düşüncesini zenginleştirir ve toplumun gelişimine hizmet eder."}, {"name": "Evrensel değerler", "gloss": "İnsan onuru, adalet, dürüstlük, merhamet, karşılıklı saygı ve sorumluluk gibi değerleri sağlıklı toplumun manevi temeli sayarız. Bilginin insanı yalnızca daha bilgili değil, aynı zamanda daha bilge ve sorumlu kılması gerektiğine inanırız."}, {"name": "Mirasa hürmet", "gloss": "Geçmiş kuşakların yarattığı bilimsel, edebî, kültürel ve manevi miras, bugünümüzü şekillendiren büyük bir servettir. Bu mirası öğrenmeyi, korumayı ve gelecek kuşaklara aktarmayı kendimize manevi borç biliriz."}, {"name": "Eleştirel ve bağımsız düşünce", "gloss": "Bilginin yalnızca kabul edilmesini değil, düşünülerek idrak edilmesini önemli sayarız. İnsanları soru sormaya, araştırmaya, farklı bakışları karşılaştırmaya, neden-sonuç ilişkilerini anlamaya ve gerekçeli sonuçlar çıkarmaya teşvik ederiz."}, {"name": "İlham ve gelişim", "gloss": "Bilgi yalnızca geçmiş hakkında bilgi vermemeli, aynı zamanda geleceği yaratmaya ilham da vermelidir. Ocağın insanları öğrenmeye, düşünmeye, yaratmaya ve sürekli gelişmeye ilham veren bir mekân olmasını isteriz."}]}}, "js": {"index_loading": "Dizin yükleniyor…", "results_n": "{n} sonuç", "no_match": "Uygun hikâye bulunamadı.", "index_failed": "Arama dizini yüklenemedi. Siteyi http://localhost:8765/tr/ adresinden açın.", "tts_unsupported": "Konuşma sentezi bu tarayıcıda kullanılamıyor. Lütfen hikâyeyi okuyarak devam edin.", "tts_no_voice": "Bu cihazda uygun bir konuşma sesi bulunamadı.", "tts_failed": "Sesli okuma başlatılamadı. Lütfen daha sonra tekrar deneyin veya hikâyeyi okuyun.", "audio_failed": "Ses dosyası çalınamadı. Lütfen daha sonra tekrar deneyin."}, "show_audio_controls": false};
 window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 3h7l5 5v13H7z\"/><path d=\"M14 3v5h5\"/><path d=\"M9 13h6\"/><path d=\"M9 17h6\"/></svg>", "text-off": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 3h7l5 5v13H7z\"/><path d=\"M14 3v5h5\"/><path d=\"M9 13h6\"/><path d=\"M9 17h6\"/><path d=\"M5 5l14 14\"/></svg>", "eye": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/></svg>", "eye-off": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 3l18 18\"/><path d=\"M10.6 10.6a3 3 0 0 0 4.2 4.2\"/><path d=\"M9.9 5.1A11 11 0 0 1 12 5c6.5 0 10 7 10 7a19 19 0 0 1-3.2 4.1\"/><path d=\"M6.1 6.1C3.6 7.8 2 12 2 12s3.5 7 10 7c1.6 0 3.1-.3 4.4-.9\"/></svg>", "listen": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"/><path d=\"M15.54 8.46a5 5 0 0 1 0 7.07\"/><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14\"/></svg>", "stop": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"/><path d=\"M15.54 8.46a5 5 0 0 1 0 7.07\"/><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14\"/><path d=\"M3 3l18 18\"/></svg>"};
 
 (() => {
@@ -89,6 +89,210 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const isPopoverOpen = () => supportsPopover && menu.matches(":popover-open");
     const isOpen = () => root.classList.contains("is-open") || isPopoverOpen();
 
+    const decodeHash = () => {
+      try {
+        return decodeURIComponent((window.location.hash || "").replace(/^#/, ""));
+      } catch (_) {
+        return (window.location.hash || "").replace(/^#/, "");
+      }
+    };
+
+    const resolveActiveAnchor = () => {
+      const hash = decodeHash();
+      if (hash && hash !== "top" && hash !== "main" && document.getElementById(hash)) {
+        return hash;
+      }
+      const activeLink =
+        document.querySelector(".timeline-list a.tl-active[href^='#']") ||
+        document.querySelector(".story-nav a.tl-active[href^='#']") ||
+        document.querySelector(".story-nav a.is-active[href^='#']");
+      if (activeLink) {
+        const id = (activeLink.getAttribute("href") || "").replace(/^#/, "");
+        if (id && document.getElementById(id)) return id;
+      }
+      if (typeof window.__birinciInventionsContext === "function") {
+        try {
+          const inv = window.__birinciInventionsContext();
+          if (inv && inv.sectionId && document.getElementById(inv.sectionId)) {
+            return inv.sectionId;
+          }
+        } catch (_) {}
+      }
+      const story = document.querySelector("article.story:not([hidden])");
+      if (story && story.id && story.getBoundingClientRect().top < window.innerHeight) {
+        const mid = window.scrollY + window.innerHeight * 0.35;
+        const stories = Array.from(document.querySelectorAll("article.story[id]"));
+        let best = "";
+        for (let i = stories.length - 1; i >= 0; i -= 1) {
+          const top = stories[i].getBoundingClientRect().top + window.scrollY;
+          if (top <= mid) {
+            best = stories[i].id;
+            break;
+          }
+        }
+        if (best) return best;
+      }
+      return "";
+    };
+
+    const resolveCategoryFallback = (stem) => {
+      if (!stem) return "";
+      const el = document.getElementById(stem);
+      if (el) {
+        const cat = el.closest(".inventions-category");
+        if (cat && cat.id) return cat.id;
+      }
+      const toc = document.querySelector(`.inventions-toc-entry[data-toc-entry="${stem}"]`);
+      return (toc && toc.getAttribute("data-toc-cat")) || "";
+    };
+
+    const browseContext = () => {
+      const params = new URLSearchParams(window.location.search || "");
+      const searchInput =
+        document.querySelector("[data-tools-search]") ||
+        document.getElementById("inventionsSearch");
+      const typedQ = searchInput ? String(searchInput.value || "").trim() : "";
+      const q = typedQ || String(params.get("q") || "").trim();
+      const isCategory = document.body.classList.contains("page-category");
+      const isHome = document.body.classList.contains("page-home");
+      const isInventions =
+        document.body.classList.contains("page-inventions") ||
+        document.body.classList.contains("inventions-preview-page");
+      const langPage = String(document.body.getAttribute("data-lang-page") || "").replace(/^\/+/, "");
+      const catMatch = (window.location.pathname || "").match(/\/categories\/([^/]+)\.html$/i);
+      let view = params.get("view");
+      if (isHome) {
+        const stemProbe = resolveActiveAnchor() || decodeHash();
+        if (stemProbe) view = "list";
+        else if (view !== "list" && view !== "cards") {
+          if (window.__birinciHomeView === "list" || window.__birinciHomeView === "cards") {
+            view = window.__birinciHomeView;
+          }
+        }
+      }
+
+      let cat = String(params.get("cat") || "").trim();
+      let period = String(params.get("period") || "").trim();
+      let sort = String(params.get("sort") || "").trim();
+      let start = String(params.get("start") || "").trim();
+      let batch = String(params.get("batch") || "").trim();
+      let tocCollapsed = [];
+
+      if (isInventions && typeof window.__birinciInventionsContext === "function") {
+        try {
+          const inv = window.__birinciInventionsContext();
+          if (inv) {
+            if (Array.isArray(inv.cat) && inv.cat.length) cat = inv.cat.join(",");
+            if (Array.isArray(inv.period) && inv.period.length) period = inv.period.join(",");
+            if (inv.q) {
+              /* prefer live search box already in q */
+            }
+            if (Array.isArray(inv.tocCollapsed)) tocCollapsed = inv.tocCollapsed.slice();
+          }
+        } catch (_) {}
+      }
+
+      if (!start && window.__birinciListStart != null) {
+        start = String(window.__birinciListStart);
+      }
+      if (!batch) {
+        const batchInput = document.querySelector("[data-home-batch-size]");
+        if (batchInput && batchInput.value) batch = String(batchInput.value).trim();
+      }
+
+      const stem = resolveActiveAnchor() || decodeHash();
+      const categoryId = resolveCategoryFallback(stem);
+      const maxScroll = Math.max(
+        0,
+        (document.documentElement.scrollHeight || document.body.scrollHeight) - window.innerHeight
+      );
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+      const scrollRatio = maxScroll > 0 ? Math.max(0, Math.min(1, scrollY / maxScroll)) : 0;
+
+      return {
+        isCategory,
+        isHome,
+        isInventions,
+        langPage,
+        slug: catMatch ? catMatch[1] : "",
+        view: view === "list" ? "list" : view === "cards" ? "cards" : "",
+        q,
+        cat,
+        period,
+        sort,
+        start,
+        batch,
+        stem,
+        categoryId,
+        tocCollapsed,
+        scrollY,
+        scrollRatio,
+      };
+    };
+
+    const hrefForLang = (code, ctx) => {
+      let path = `../${code}/index.html`;
+      if (ctx.isCategory && ctx.slug) {
+        path = `../../${code}/categories/${encodeURIComponent(ctx.slug)}.html`;
+      } else if (ctx.langPage) {
+        const depth = ctx.langPage.split("/").filter(Boolean).length;
+        path = `${"../".repeat(depth)}${code}/${ctx.langPage}`;
+      } else if (ctx.isHome) {
+        path = `../${code}/index.html`;
+      }
+
+      const params = new URLSearchParams();
+      if (ctx.isHome && (ctx.view === "list" || ctx.stem)) {
+        params.set("view", "list");
+      } else if (ctx.view === "list" || ctx.view === "cards") {
+        params.set("view", ctx.view);
+      }
+      if (ctx.q) params.set("q", ctx.q);
+      if (ctx.cat) params.set("cat", ctx.cat);
+      if (ctx.period) params.set("period", ctx.period);
+      if (ctx.sort) params.set("sort", ctx.sort);
+      if (ctx.start && Number(ctx.start) > 0) params.set("start", String(ctx.start));
+      if (ctx.batch && Number(ctx.batch) > 0) params.set("batch", String(ctx.batch));
+
+      const qs = params.toString();
+      let hash = "";
+      if (ctx.stem) hash = `#${encodeURIComponent(ctx.stem).replace(/%2F/gi, "/")}`;
+      else if (ctx.categoryId) hash = `#${encodeURIComponent(ctx.categoryId).replace(/%2F/gi, "/")}`;
+      return `${path}${qs ? `?${qs}` : ""}${hash}`;
+    };
+
+    const stashLangContext = (ctx) => {
+      try {
+        sessionStorage.setItem(
+          "birinci-lang-ctx",
+          JSON.stringify({
+            sectionId: ctx.stem || "",
+            categoryId: ctx.categoryId || "",
+            scrollY: ctx.scrollY || 0,
+            scrollRatio: ctx.scrollRatio || 0,
+            tocCollapsed: ctx.tocCollapsed || [],
+            q: ctx.q || "",
+            cat: ctx.cat || "",
+            period: ctx.period || "",
+            view: ctx.view || "",
+            start: ctx.start || "",
+            batch: ctx.batch || "",
+            sort: ctx.sort || "",
+            ts: Date.now(),
+          })
+        );
+      } catch (_) {}
+    };
+
+    const syncLangHrefs = () => {
+      const ctx = browseContext();
+      root.querySelectorAll("a[data-lang]").forEach((link) => {
+        const code = link.getAttribute("data-lang");
+        if (!code) return;
+        link.setAttribute("href", hrefForLang(code, ctx));
+      });
+    };
+
     const placeMenu = () => {
       const rect = toggle.getBoundingClientRect();
       const gap = 6;
@@ -124,6 +328,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
     const openMenu = () => {
       window.clearTimeout(hideTimer);
+      syncLangHrefs();
       menu.hidden = false;
       placeMenu();
       root.classList.add("is-open");
@@ -165,7 +370,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       else openMenu();
     });
 
-    // iOS synthesizes mouseenter on tap; only hover-open for a real mouse.
     root.addEventListener("pointerenter", (event) => {
       if (event.pointerType === "mouse" && canHoverLang()) openMenu();
     });
@@ -190,14 +394,67 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     }, { passive: true, capture: true });
 
     root.addEventListener("click", (event) => {
-      const link = event.target.closest("[data-lang]");
+      const link = event.target.closest("a[data-lang]");
       if (!link) return;
+      const ctx = browseContext();
+      syncLangHrefs();
+      stashLangContext(ctx);
       try {
         localStorage.setItem("birinci-lang", link.getAttribute("data-lang") || "");
       } catch (_) {}
     });
+
+    syncLangHrefs();
+    window.addEventListener("hashchange", syncLangHrefs);
+    window.addEventListener("popstate", syncLangHrefs);
+    document.addEventListener("kt-catalog-filter-change", syncLangHrefs);
+    const inventionsSearch = document.getElementById("inventionsSearch");
+    if (inventionsSearch) {
+      inventionsSearch.addEventListener("input", syncLangHrefs);
+    }
+    document.querySelectorAll("[data-tools-search]").forEach((el) => {
+      el.addEventListener("input", syncLangHrefs);
+    });
   };
   initLangSwitcher();
+
+  // Restore approximate scroll after a language switch when no exact hash target applied.
+  (function restoreGenericLangScroll() {
+    if (document.body.classList.contains("page-inventions")) return;
+    let raw = "";
+    try {
+      raw = sessionStorage.getItem("birinci-lang-ctx") || "";
+    } catch (_) {
+      return;
+    }
+    if (!raw) return;
+    let ctx = null;
+    try {
+      ctx = JSON.parse(raw);
+    } catch (_) {
+      return;
+    }
+    const hash = (window.location.hash || "").replace(/^#/, "");
+    if (hash && document.getElementById(decodeURIComponent(hash))) {
+      // Hash navigation handles focus; keep ctx for inventions-only fields already consumed there.
+      try {
+        sessionStorage.removeItem("birinci-lang-ctx");
+      } catch (_) {}
+      return;
+    }
+    try {
+      sessionStorage.removeItem("birinci-lang-ctx");
+    } catch (_) {}
+    if (!ctx || typeof ctx.scrollRatio !== "number" || !isFinite(ctx.scrollRatio)) return;
+    const apply = () => {
+      const root = document.documentElement;
+      const max = Math.max(0, (root.scrollHeight || document.body.scrollHeight) - window.innerHeight);
+      const y = Math.round(Math.max(0, Math.min(1, ctx.scrollRatio)) * max);
+      window.scrollTo({ top: y, left: 0, behavior: "auto" });
+    };
+    window.requestAnimationFrame(() => window.requestAnimationFrame(apply));
+  })();
+
   const header = document.querySelector(".site-header");
   const dropdowns = Array.from(document.querySelectorAll(".nav-dropdown"));
   const navToggle = document.getElementById("nav-toggle");
@@ -243,15 +500,24 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     navToggle.setAttribute("aria-expanded", "false");
     navToggle.setAttribute("aria-label", tUi("open_menu", "Menyunu aç"));
     resetMobileNavSections();
+    const y = Number(document.body.dataset.navScrollY || "0");
+    document.body.style.top = "";
+    delete document.body.dataset.navScrollY;
+    window.scrollTo(0, y);
+    syncStickyChrome();
   };
 
   const openMobileNav = () => {
     if (!header || !navToggle || !dropdowns.length) return;
     resetMobileNavSections();
+    const y = window.scrollY || document.documentElement.scrollTop || 0;
+    document.body.dataset.navScrollY = String(y);
+    document.body.style.top = `-${y}px`;
     header.classList.add("is-nav-open");
     document.body.classList.add("nav-open");
     navToggle.setAttribute("aria-expanded", "true");
     navToggle.setAttribute("aria-label", tUi("close_menu", "Menyunu bağla"));
+    syncStickyChrome();
   };
 
   if (navToggle && header && dropdowns.length) {
@@ -396,6 +662,30 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       html.scrollTop = 0;
       if (document.body) document.body.scrollTop = 0;
       window.scrollTo(0, 0);
+      history.replaceState(null, "", window.location.pathname + window.location.search);
+      requestAnimationFrame(() => {
+        html.classList.remove("no-smooth-scroll");
+      });
+    });
+  }
+
+  const goToBottom = document.getElementById("go-to-bottom");
+  if (goToBottom) {
+    goToBottom.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      const html = document.documentElement;
+      const footer = document.getElementById("site-footer") || document.querySelector("footer.footer-pro, footer");
+      html.classList.add("no-smooth-scroll");
+      if (footer) {
+        const top = Math.round(footer.getBoundingClientRect().top + window.pageYOffset);
+        html.scrollTop = top;
+        if (document.body) document.body.scrollTop = top;
+        window.scrollTo(0, top);
+      } else {
+        const max = Math.max(html.scrollHeight, document.body ? document.body.scrollHeight : 0);
+        window.scrollTo(0, max);
+      }
       history.replaceState(null, "", window.location.pathname + window.location.search);
       requestAnimationFrame(() => {
         html.classList.remove("no-smooth-scroll");
@@ -823,6 +1113,22 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       } catch (_) {}
     };
 
+    const writeCategoryUrlState = () => {
+      try {
+        const params = new URLSearchParams();
+        const q = searchInput.value.trim();
+        if (q) params.set("q", q);
+        if (windowStart > 0) params.set("start", String(windowStart));
+        if (batchSize > 0) params.set("batch", String(batchSize));
+        const url = new URL(window.location.href);
+        url.search = params.toString();
+        const hash = (window.location.hash || "").replace(/^#/, "");
+        url.hash = hash;
+        history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+        window.__birinciListStart = windowStart;
+      } catch (_) {}
+    };
+
     const renderList = ({ resetWindow = false } = {}) => {
       if (typeof window.__birinciStopStoryTts === "function") window.__birinciStopStoryTts();
       const q = searchInput.value.trim().toLocaleLowerCase(LOCALE_TAG);
@@ -914,6 +1220,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       }
       syncBatchUi(visibleStories.length);
       persistAllMode();
+      writeCategoryUrlState();
       if (pendingStem) {
         const el = document.getElementById(pendingStem);
         if (el) {
@@ -1012,6 +1319,22 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     if (batchAllBtn) batchAllBtn.addEventListener("click", () => runBatchAction("all"));
 
     try {
+      const params = new URLSearchParams(window.location.search || "");
+      const qParam = String(params.get("q") || "").trim();
+      if (qParam) searchInput.value = qParam;
+      const batchParam = Number(params.get("batch") || "");
+      if (Number.isFinite(batchParam) && batchParam > 0) {
+        batchSize = Math.floor(batchParam);
+        if (batchSizeInput) batchSizeInput.value = String(batchSize);
+        try {
+          localStorage.setItem(batchSizeStorageKey, String(batchSize));
+        } catch (_) {}
+      }
+      const startParam = Number(params.get("start") || "");
+      if (Number.isFinite(startParam) && startParam > 0) {
+        windowStart = Math.floor(startParam);
+      }
+      window.__birinciListStart = windowStart;
       const hash = decodeURIComponent((window.location.hash || "").replace(/^#/, ""));
       if (hash) pendingStem = hash;
     } catch (_) {}
@@ -1129,7 +1452,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       target.scrollIntoView({ block: "start", behavior: "auto" });
       html.style.scrollBehavior = prevBehavior;
       try {
-        history.pushState(null, "", `#${id}`);
+        history.pushState(null, "", `${window.location.pathname}${window.location.search}#${id}`);
       } catch (_) {}
       if (mobileQuery.matches) closeMenu();
     });
@@ -1351,6 +1674,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         view: params.get("view"),
         q: params.get("q"),
         stem: hash || null,
+        start: params.get("start"),
+        batch: params.get("batch"),
       };
     };
 
@@ -1360,10 +1685,13 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         if (view === "list") params.set("view", "list");
         const q = searchInput.value.trim();
         if (view === "list" && q) params.set("q", q);
+        if (view === "list" && windowStart > 0) params.set("start", String(windowStart));
+        if (view === "list" && batchSize > 0) params.set("batch", String(batchSize));
         const url = new URL(window.location.href);
         url.search = params.toString();
         url.hash = pendingStem ? pendingStem : "";
         history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+        window.__birinciListStart = windowStart;
       } catch (_) {
         /* file:// or sandboxed histories must not block view switching */
       }
@@ -1523,7 +1851,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const foldAzI = (s) => String(s || "").replace(/[İIı]/g, "i");
       const srcRe = /(internet\s+sources|internet\s+mənb|internet\s+kaynak|открыт\w*\s+источник|интернет|(?:source|mənbə|kaynak|источник|булак|булагы)\s*:)/i;
       const moralRe = /^(ibrət|ibret|moral|мораль|үлгү)\s*:/i;
-      const authorSrcStems = { "everyone-has-work-to-do": 1, "weeds-must-be-pulled-from-the-root": 1, "the-silent-corridor": 1 };
+      const authorSrcStems = { "everyone-has-work-to-do": 1, "weeds-must-be-pulled-from-the-root": 1, "the-silent-corridor": 1, "if-fate-allows-we-will-meet": 1 };
       const authorSrc = !!(stem && authorSrcStems[stem]);
       const lastIsSrc = last >= 0 && (authorSrc || srcRe.test(foldAzI(paragraphs[last] || "")));
       const srcLabel = (I18N.ui && I18N.ui.story_source) || "";
@@ -1934,6 +2262,19 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       pendingStem = urlState.stem;
     }
     if (urlState.q) searchInput.value = urlState.q;
+    const batchFromUrl = Number(urlState.batch || "");
+    if (Number.isFinite(batchFromUrl) && batchFromUrl > 0) {
+      batchSize = Math.floor(batchFromUrl);
+      if (batchSizeInput) batchSizeInput.value = String(batchSize);
+      try {
+        localStorage.setItem(batchSizeStorageKey, String(batchSize));
+      } catch (_) {}
+    }
+    const startFromUrl = Number(urlState.start || "");
+    if (Number.isFinite(startFromUrl) && startFromUrl > 0) {
+      windowStart = Math.floor(startFromUrl);
+    }
+    window.__birinciListStart = windowStart;
 
     try {
       setView(initialView, { persist: false });
@@ -3089,6 +3430,35 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     window.addEventListener("beforeunload", stopSpeech);
   };
 
+  const initAboutValuesHighlight = () => {
+    if (!document.body.classList.contains("page-about")) return;
+    const pills = document.querySelector(".about-pills");
+    const grid = document.querySelector(".about-vd-grid");
+    const links = document.querySelectorAll(".about-pill");
+    const boxes = document.querySelectorAll(".about-vd");
+    if (!pills || !grid || !links.length) return;
+    const clearHighlight = () => {
+      boxes.forEach((box) => box.classList.remove("is-active"));
+      grid.classList.remove("is-dimmed");
+    };
+    const highlightBox = (targetId) => {
+      clearHighlight();
+      const target = document.getElementById(targetId);
+      if (!target) return;
+      grid.classList.add("is-dimmed");
+      target.classList.add("is-active");
+    };
+    links.forEach((link) => {
+      const href = link.getAttribute("href") || "";
+      const targetId = href.startsWith("#") ? href.slice(1) : "";
+      if (!targetId) return;
+      link.addEventListener("mouseenter", () => highlightBox(targetId));
+      link.addEventListener("focus", () => highlightBox(targetId));
+      link.addEventListener("click", () => highlightBox(targetId));
+    });
+    pills.addEventListener("mouseleave", clearHighlight);
+  };
+
   const initIllustrationLightbox = () => {
     let overlay = null;
     let dialog = null;
@@ -3422,6 +3792,11 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     initStoryTts();
   } catch (err) {
     console.error("initStoryTts failed", err);
+  }
+  try {
+    initAboutValuesHighlight();
+  } catch (err) {
+    console.error("initAboutValuesHighlight failed", err);
   }
 
   document.querySelectorAll(".category-layout").forEach((layout) => {

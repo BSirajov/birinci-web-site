@@ -1,0 +1,519 @@
+/**
+ * Shared sidebar widget for Knowledge Treasury TOC / reference panels.
+ * Used by Major Scientific Inventions and other charter-style TOC panels.
+ *
+ * Markup contract:
+ *   <aside class="charter-sidebar toc-card">
+ *     <div class="sidebar-widget" id="…">
+ *       <div class="widget-head">…<button class="events-menu-toggle">…</button></div>
+ *       <div class="widget-body">
+ *         <ul class="timeline-list">…</ul>
+ *       </div>
+ *     </div>
+ *   </aside>
+ */
+
+.charter-sidebar.toc-card {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  max-height: none !important;
+}
+
+.charter-sidebar > .sidebar-widget {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.charter-sidebar > .sidebar-widget > .widget-body {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+@media (min-width: 1061px) {
+  .charter-sidebar > .sidebar-widget > .widget-body {
+    max-height: none;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+
+.sidebar-widget {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid var(--color-border-blue-faint);
+  border-radius: 14px;
+  box-shadow: 0 14px 28px rgba(0, 45, 82, 0.1);
+  overflow: hidden;
+}
+
+.widget-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, var(--ink) 0%, var(--blue-dark) 58%, #2e9fd4 100%);
+  border-bottom: 2px solid #f0c75e;
+  color: var(--white);
+  font-family: var(--font-serif);
+  font-size: 12.6px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.widget-head > span,
+.widget-head__title {
+  align-items: center;
+  display: inline-flex;
+  font: inherit;
+  gap: 8px;
+  letter-spacing: inherit;
+  margin: 0;
+}
+
+.widget-head__title {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.widget-head__icon {
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.widget-actions {
+  align-items: center;
+  background: #f4f8fc;
+  border-bottom: 1px solid rgba(0, 45, 82, 0.08);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+  padding: 8px 16px;
+}
+
+.widget-actions__views {
+  display: inline-flex;
+  align-items: stretch;
+  gap: 0.15rem;
+  padding: 0.15rem;
+  border: 1px solid rgba(0, 105, 180, 0.16);
+  border-radius: 999px;
+  background: rgba(229, 244, 251, 0.7);
+}
+
+.widget-action-btn {
+  align-items: center;
+  background: var(--white);
+  border: 1px solid rgba(0, 45, 82, 0.14);
+  border-radius: 999px;
+  color: var(--ink);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  gap: 6px;
+  justify-content: center;
+  line-height: 1.2;
+  padding: 6px 12px;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+
+.widget-action-btn__icon {
+  flex: 0 0 auto;
+  height: 10px;
+  position: relative;
+  width: 10px;
+}
+
+.widget-action-btn__icon::before {
+  border-bottom: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  content: "";
+  display: block;
+  height: 6px;
+  left: 1px;
+  position: absolute;
+  top: 0;
+  transition: transform 0.2s ease, top 0.2s ease;
+  width: 6px;
+}
+
+.widget-action-btn[data-bulk-action="expand"] .widget-action-btn__icon::before {
+  top: 1px;
+  transform: rotate(45deg);
+}
+
+.widget-action-btn[data-bulk-action="collapse"] .widget-action-btn__icon::before {
+  top: 4px;
+  transform: rotate(-135deg);
+}
+
+.widget-action-btn__label {
+  flex: 0 1 auto;
+  min-width: 0;
+  text-align: left;
+}
+
+.widget-action-btn:hover,
+.widget-action-btn:focus-visible {
+  background: var(--soft);
+  border-color: var(--blue-700);
+  color: var(--blue-700);
+  outline: none;
+}
+
+.widget-action-btn--toggle[aria-pressed="true"] {
+  background: var(--blue-50, #f0f6ff);
+  border-color: color-mix(in srgb, var(--blue-700) 45%, rgba(0, 45, 82, 0.14));
+  color: var(--blue-700);
+}
+
+.widget-body {
+  padding: 16px 20px;
+  max-height: calc(15 * 41px + 32px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #2e9fd4 #e8eef5;
+}
+
+.widget-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.widget-body::-webkit-scrollbar-track {
+  background: #e8eef5;
+  border-radius: 3px;
+}
+
+.widget-body::-webkit-scrollbar-thumb {
+  background: #2e9fd4;
+  border-radius: 3px;
+}
+
+.widget-body::-webkit-scrollbar-thumb:hover {
+  background: #1a6fa8;
+}
+
+.timeline-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline-list li {
+  display: flex;
+  gap: 12px;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(0, 45, 82, 0.08);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.3;
+  color: var(--muted-hero);
+  transition: color 0.18s ease;
+}
+
+.timeline-list li:last-child {
+  border-bottom: none;
+}
+
+.timeline-list li:hover {
+  color: var(--blue-700);
+}
+
+.timeline-list .tl-date {
+  flex-shrink: 0;
+  padding-top: 2px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.timeline-list a,
+.timeline-list a:link,
+.timeline-list a:visited {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: block;
+  margin: -2px -6px;
+  padding: 2px 6px;
+  color: inherit;
+  background: transparent;
+  border-radius: 10px;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.3;
+  text-decoration: none !important;
+  text-decoration-thickness: 0 !important;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.timeline-list a:hover,
+.timeline-list a:focus-visible,
+.timeline-list a.tl-active {
+  color: var(--blue-700) !important;
+  background: var(--soft) !important;
+  text-decoration: none !important;
+}
+
+.timeline-list a.tl-active {
+  font-weight: 700;
+}
+
+.timeline-list li:has(a.tl-active) .tl-date {
+  color: var(--blue-700);
+}
+
+.events-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 44px;
+  height: 44px;
+  padding: 6px 8px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.events-menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--white);
+  border-radius: var(--radius-pill);
+}
+
+@media (max-width: 1060px) {
+  .events-menu-toggle {
+    display: inline-flex;
+  }
+
+  .sidebar-widget .widget-actions {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 16px;
+    transition: max-height 0.28s ease, padding 0.28s ease;
+  }
+
+  .sidebar-widget.events-open .widget-actions {
+    max-height: 88px;
+    padding: 8px 16px;
+  }
+
+  .sidebar-widget .widget-body {
+    max-height: 0;
+    padding: 0 20px;
+    overflow: hidden;
+    transition: max-height 0.28s ease, padding 0.28s ease;
+  }
+
+  .sidebar-widget.events-open .widget-body {
+    max-height: min(70vh, 560px);
+    padding: 16px 20px;
+    overflow: auto;
+  }
+}
+
+@media (max-width: 720px) {
+  .widget-head {
+    padding: 12px 16px;
+    font-size: 16px;
+  }
+
+  .widget-actions {
+    justify-content: stretch;
+    padding: 8px 12px;
+  }
+
+  .widget-action-btn {
+    flex: 1 1 calc(50% - 4px);
+    font-size: 12px;
+    min-height: 40px;
+    padding: 8px 10px;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .timeline-list li {
+    gap: 10px;
+    font-size: 14px;
+  }
+
+  .timeline-list a {
+    min-height: 44px;
+    line-height: 1.35;
+    padding: 6px 8px;
+    margin: -6px -8px;
+  }
+}
+
+/* Collapsible TOC groups inside sidebar widget (Articles panel pattern) */
+.timeline-list > li.toc-group {
+  display: block;
+  flex-direction: unset;
+  gap: unset;
+  padding: 0;
+}
+
+.toc-group__head {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  min-height: 40px;
+  padding: 6px 0;
+}
+
+.toc-group__head .tl-date {
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.toc-group__head a,
+.toc-group__label {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.toc-group__label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.toc-group__count {
+  background: var(--blue-50, #f0f6ff);
+  border-radius: 999px;
+  color: var(--blue-700);
+  flex: 0 0 auto;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+}
+
+.toc-group__toggle {
+  align-items: center;
+  background: transparent;
+  border: 1px solid rgba(0, 45, 82, 0.14);
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  flex: 0 0 auto;
+  height: 32px;
+  justify-content: center;
+  padding: 0;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  width: 32px;
+}
+
+.toc-group__toggle:hover,
+.toc-group__toggle:focus-visible {
+  background: var(--soft);
+  border-color: var(--blue-700);
+  outline: none;
+}
+
+.toc-group__chevron {
+  border-bottom: 2px solid var(--muted);
+  border-right: 2px solid var(--muted);
+  height: 8px;
+  margin-top: -2px;
+  transform: rotate(45deg);
+  transition: transform 0.28s ease, margin-top 0.28s ease;
+  width: 8px;
+}
+
+.toc-group.events-open .toc-group__chevron {
+  margin-top: 2px;
+  transform: rotate(-135deg);
+}
+
+.toc-group__body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.28s ease;
+}
+
+.toc-group.events-open .toc-group__body {
+  max-height: var(--toc-group-expanded-max, 1600px);
+}
+
+.toc-group__list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 6px;
+}
+
+.toc-group__list > li {
+  border-bottom: 1px solid rgba(0, 45, 82, 0.06);
+  display: flex;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  gap: 10px;
+  line-height: 1.3;
+  padding: 5px 0 5px 6px;
+}
+
+.toc-group__list > li.inventions-toc-entry,
+.toc-group__list > li.research-toc-entry {
+  font-weight: 400;
+  padding-left: 10px;
+}
+
+.toc-group__list > li.inventions-toc-ref-row {
+  font-weight: 400;
+  padding-left: 10px;
+}
+
+.toc-group__list > li.inventions-toc-entry a,
+.toc-group__list > li.research-toc-entry a,
+.toc-group__list > li.inventions-toc-ref-row a {
+  font-weight: 500;
+}
+
+.toc-group__list > li:last-child {
+  border-bottom: none;
+}
+
+.toc-group.toc-active .toc-group__head .tl-date,
+.toc-group.toc-active .toc-group__head a {
+  color: var(--blue-700);
+}
+
+.toc-group.is-hidden {
+  display: none !important;
+}
+
+/* Compact panel variant: header + actions only (e.g. main-column Articles controls) */
+.sidebar-widget.sidebar-widget--controls-only .widget-actions {
+  border-bottom: none;
+}
+
+.sidebar-widget.sidebar-widget--controls-only {
+  margin-bottom: 0;
+}
+
+@media (max-width: 720px) {
+  .toc-group__head {
+    min-height: 44px;
+  }
+
+  .toc-group__toggle {
+    height: 36px;
+    width: 36px;
+  }
+}

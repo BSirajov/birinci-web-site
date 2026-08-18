@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Build a Kindle-ready EPUB from Bir inci stories + illustrations.
+"""Build a Kindle-ready EPUB from Birİnci stories + illustrations.
 
 Pilot / full builds read az/data/stories.json (run build_website.py first).
 Illustrations are converted from WebP to JPEG for Kindle compatibility.
@@ -183,8 +183,8 @@ def build_epub(
     book.set_identifier("bir-inci-pilot-" + slugify(book_title))
     book.set_title(book_title)
     book.set_language("az")
-    book.add_author("Bir inci")
-    book.add_metadata("DC", "publisher", "Bir inci")
+    book.add_author("Birİnci")
+    book.add_metadata("DC", "publisher", "Birİnci")
     book.add_metadata("DC", "description", "İbrətamiz hekayələr — mətn və illüstrasiya ilə.")
 
     style = epub.EpubItem(
@@ -216,7 +216,7 @@ def build_epub(
         lang="az",
     )
     cover_block = (
-        '<div class="cover-fig"><img src="../images/cover.jpg" alt="Bir inci"/></div>'
+        '<div class="cover-fig"><img src="../images/cover.jpg" alt="Birİnci"/></div>'
         if cover_bytes
         else ""
     )
@@ -227,7 +227,7 @@ def build_epub(
         f"""
 {cover_block}
 <h1 class="cover-title">{esc(book_title)}</h1>
-<p class="meta no-indent">Bir inci</p>
+<p class="meta no-indent">Birİnci</p>
 <p class="blurb">{esc(cat_labels)}</p>
 <p class="meta no-indent">{story_count} hekayə · mətn və illüstrasiya</p>
 <p class="no-indent">Bu pilot nəşr saytdakı hekayələrin Kindle/EPUB yoxlaması üçündür.
@@ -331,21 +331,21 @@ def main() -> None:
     data = load_data()
     if args.pilot:
         cats = select_categories(data, all_cats=False, category=PILOT_CATEGORY, stems=None)
-        book_title = f"Bir inci — {cats[0]['title']} (pilot)"
+        book_title = f"Birİnci — {cats[0]['title']} (pilot)"
         default_name = f"bir-inci-pilot-{PILOT_CATEGORY}.epub"
     elif args.all:
         cats = select_categories(data, all_cats=True, category=None, stems=None)
-        book_title = "Bir inci — İbrətamiz hekayələr"
+        book_title = "Birİnci — İbrətamiz hekayələr"
         default_name = "bir-inci-all-stories.epub"
     elif args.category:
         cats = select_categories(data, all_cats=False, category=args.category, stems=None)
-        book_title = f"Bir inci — {cats[0]['title']}"
+        book_title = f"Birİnci — {cats[0]['title']}"
         default_name = f"bir-inci-{args.category}.epub"
     else:
         cats = select_categories(
             data, all_cats=False, category=None, stems=set(args.stems)
         )
-        book_title = "Bir inci — Seçilmiş hekayələr"
+        book_title = "Birİnci — Seçilmiş hekayələr"
         default_name = "bir-inci-selected.epub"
 
     out = args.out or (OUT_DIR / default_name)

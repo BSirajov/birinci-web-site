@@ -1,4 +1,4 @@
-# Bir inci — codebase review (updated 2026-08-15)
+# Birİnci — codebase review (updated 2026-08-15)
 
 ## Scope note
 
@@ -15,7 +15,7 @@ Multilingual static story site: **AZ / EN / RU / TR / KY**. Shared chrome CSS li
 | Locales UI strings | `tools/locales/{lang}.json` |
 | Publish mirror | `deployment/` via `tools/build_deployment.py` |
 
-**Do not hand-edit** generated `assets/site.css` or `{lang}/assets/site.js` — rebuild from the builder.
+Prefer chrome fixes via `tools/chrome_restore.py` (and locales / inventions bodies). The builder still rewrites `assets/site.css` and `{lang}/assets/site.js` from bytecode; the overlay re-applies brand-one, page-jump, footer frames, short AZ footer, discoveries hero copy, and strips Discovery videos after each sync.
 
 ---
 
@@ -47,12 +47,14 @@ Multilingual static story site: **AZ / EN / RU / TR / KY**. Shared chrome CSS li
 - Skip link → `#main`; one `<main>` on home/category shells
 - Hamburger ≤1400px; tools wrap ≤1180; category sidebar accordion ≤1060
 - Illustrations emit `loading="lazy"`, 1536×1024, non-empty alt
-- Asset version: **20260815b**
+- Asset version: **20260818c**
 
 ### Intentional stubs (not bugs)
 
-- Elm / İncəsənət / some TOP_NAV items: `aria-disabled` + coming soon
-- TR may ship as placeholder until `stories_ready`
+- Top nav stubs hidden until content exists: Knowledge (`Biliklər`), Arts (`İncəsənət`), Notable figures (`Tanınmış şəxsiyyətlər`), Support (`Bizi dəstəkləyin`) — toggled in `chrome_restore.HIDE_TOP_NAV`
+- Elm / İncəsənət / some TOP_NAV items: `aria-disabled` + coming soon (builder still emits them; overlay strips the four above)
+- TR is UI placeholder only (0 stories; no Discoveries tree) until content is ready
+- Discovery Ocaq videos disabled site-wide (`DISABLE_DISCOVERY_VIDEOS`)
 - Dual hamburgers (primary nav vs story sidebar) by design
 - `--sticky-stack-h: 0rem` reserved; `syncStickyChrome()` sets header/breadcrumb only
 

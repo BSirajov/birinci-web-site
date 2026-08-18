@@ -13,6 +13,7 @@ from i18n_config import SUPPORTED_LANGS  # noqa: E402
 DEPLOY = ROOT / "deployment"
 LANGS = SUPPORTED_LANGS
 COPY_DIRS = ("assets", "categories", "data", "illustrations")
+OPTIONAL_PAGE_DIRS = ("about", "discoveries", "stories")
 OPTIONAL_DIRS = ("audio",)
 COPY_FILES = ("index.html",)
 
@@ -36,6 +37,10 @@ def copy_locale(lang: str) -> None:
                 continue
             raise SystemExit(f"Missing required folder: {src}")
         shutil.copytree(src, dst / name)
+    for name in OPTIONAL_PAGE_DIRS:
+        src = src_root / name
+        if src.is_dir():
+            shutil.copytree(src, dst / name)
     for name in OPTIONAL_DIRS:
         src = src_root / name
         if src.is_dir():

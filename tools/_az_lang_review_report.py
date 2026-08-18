@@ -205,7 +205,7 @@ def build(stats, stories):
 
     t = doc.add_paragraph()
     t.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    r = t.add_run("Bir inci — Azerbaijani Language Review Report")
+    r = t.add_run("Birİnci — Azerbaijani Language Review Report")
     font(r, size=18, bold=True, color=RGBColor(0x00, 0x3C, 0x6E))
 
     p(
@@ -219,7 +219,7 @@ def build(stats, stories):
     h(doc, "1. Assignment and method", 1)
     p(
         doc,
-        "This report reviews all published stories on the Bir inci site against modern "
+        "This report reviews all published stories on the Birİnci site against modern "
         "Azerbaijani orthographic and grammatical expectations: Latin-script standard spelling, "
         "literary stylistic fluency, unified dialogue formatting, and logical paragraph division "
         "of formerly dense narrative blocks.",
@@ -401,7 +401,7 @@ def build(stats, stories):
     h(doc, "6.1 Recommended house style", 2)
     p(
         doc,
-        "Adopt one primary system for Bir inci literary short prose:",
+        "Adopt one primary system for Birİnci literary short prose:",
     )
     p(
         doc,

@@ -1,4 +1,4 @@
-window.__BIRINCI_I18N__ = {"lang": "ru", "ui": {"open_menu": "Открыть меню", "close_menu": "Закрыть меню", "main_menu": "Главное меню", "coming_soon": "Скоро", "stories_coming_soon": "Рассказы скоро появятся", "stories_coming_soon_lead": "Русские рассказы готовятся. Страницы уже собраны; тексты появятся здесь, как только их добавят.", "intro_source": "Рассказы взяты из открытых интернет-источников, а иллюстрации созданы с помощью ИИ.", "story_source": "Рассказы взяты из открытых интернет-источников, а иллюстрации созданы с помощью ИИ.", "site_description": "Bir inci — собрание назидательных изречений и рассказов.", "stories_nav": "Рассказы", "stories_nav_open": "Открыть меню рассказов", "no_matching_category": "Подходящая категория не найдена.", "no_matching_story": "Подходящий рассказ не найден.", "categories_heading": "Категории", "skip_to_content": "К содержанию", "back_to_top": "Наверх", "search": "Поиск…", "search_aria": "Поиск", "global_search": "Глобальный поиск", "global_search_toggle": "Глобальный поиск, Ctrl+K", "global_search_title_attr": "Поиск (Ctrl+K)", "close_search": "Закрыть поиск", "close": "Закрыть", "search_stories_label": "Поиск рассказов", "search_stories_placeholder": "Искать во всех рассказах…", "search_filter_label": "Поиск", "search_results_count": "{n} результатов", "clear_search_filter": "Сбросить фильтр", "view": "Вид", "view_cards": "По категориям", "view_list": "Список", "images": "Изображения", "texts": "Текст", "show": "Показать", "hide": "Скрыть", "batch": "Количество рассказов", "batch_all": "Все", "batch_count": "Число рассказов", "batch_prev": "Назад", "batch_next": "Далее", "batch_random": "Случайно", "batch_dec": "Меньше", "batch_inc": "Больше", "batch_pager": "Страница", "listen": "Слушать", "listen_page": "Слушать страницу", "story_audio_label": "Аудио", "story_image_label": "Изображение", "story_text_label": "Текст", "queue_prev": "Предыдущий рассказ", "queue_next": "Следующий рассказ", "hide_text": "Скрыть текст", "hide_image": "Скрыть изображение", "show_text": "Показать текст", "show_image": "Показать изображение", "stories_count_suffix": "рассказов", "stop": "Стоп", "resume": "Продолжить", "play": "Играть", "mute": "Без звука", "speed": "Скорость", "close_player": "Закрыть плеер", "lang_switcher_label": "Язык", "hero_lead": "Назидательные рассказы — читать и слушать.", "intro_lead": "На нашем сайте представлены богатые сведения о величественных достижениях человечества на протяжении истории в науке и технике, естественных науках, общественных и гуманитарных науках, а также в литературе и искусстве; об общечеловеческих духовных ценностях, выдающихся личностях и важнейших исторических открытиях и изобретениях. Наша цель — сохранить это ценное наследие, накопленное веками, систематизировать его и передать будущим поколениям как источник знания, назидания и вдохновения.", "footer_contact": "Контакты", "footer_phone": "Телефон", "footer_address": "Адрес", "footer_website": "Сайт", "footer_phone_placeholder": "+994 XX XXX XX XX", "footer_address_placeholder": "Адрес будет добавлен", "footer_website_placeholder": "https://birinci.cloud", "footer_website_url": "https://birinci.cloud"}, "js": {"index_loading": "Загрузка индекса…", "results_n": "{n} результатов", "no_match": "Подходящих рассказов нет.", "index_failed": "Не удалось загрузить поисковый индекс. Откройте сайт по адресу http://localhost:8765/ru/", "tts_unsupported": "К сожалению, синтез речи недоступен в этом браузере. Пожалуйста, продолжите чтение рассказа.", "tts_no_voice": "На этом устройстве не найден подходящий голос.", "tts_failed": "Не удалось начать озвучивание. Попробуйте позже или прочитайте рассказ.", "audio_failed": "Не удалось воспроизвести аудиофайл. Попробуйте позже."}, "show_audio_controls": false};
+window.__BIRINCI_I18N__ = {"lang": "ru", "ui": {"open_menu": "Открыть меню", "close_menu": "Закрыть меню", "main_menu": "Главное меню", "coming_soon": "Скоро", "stories_coming_soon": "Рассказы скоро появятся", "stories_coming_soon_lead": "Русские рассказы готовятся. Страницы уже собраны; тексты появятся здесь, как только их добавят.", "intro_source": "Рассказы взяты из открытых интернет-источников, а иллюстрации созданы с помощью ИИ.", "story_source": "Рассказы взяты из открытых интернет-источников, а иллюстрации созданы с помощью ИИ.", "site_description": "Birİnci — собрание назидательных изречений и рассказов.", "stories_nav": "Рассказы", "stories_nav_open": "Открыть меню рассказов", "no_matching_category": "Подходящая категория не найдена.", "no_matching_story": "Подходящий рассказ не найден.", "categories_heading": "Категории", "skip_to_content": "К содержанию", "back_to_top": "Наверх", "go_to_bottom": "Вниз страницы", "search": "Поиск…", "search_aria": "Поиск", "global_search": "Глобальный поиск", "global_search_toggle": "Глобальный поиск, Ctrl+K", "global_search_title_attr": "Поиск (Ctrl+K)", "close_search": "Закрыть поиск", "close": "Закрыть", "search_stories_label": "Поиск рассказов", "search_stories_placeholder": "Искать во всех рассказах…", "search_filter_label": "Поиск", "search_results_count": "{n} результатов", "clear_search_filter": "Сбросить фильтр", "view": "Вид", "view_cards": "По категориям", "view_list": "Список", "images": "Изображения", "texts": "Текст", "show": "Показать", "hide": "Скрыть", "batch": "Количество рассказов", "batch_all": "Все", "batch_count": "Число рассказов", "batch_prev": "Назад", "batch_next": "Далее", "batch_random": "Случайно", "batch_dec": "Меньше", "batch_inc": "Больше", "batch_pager": "Страница", "listen": "Слушать", "listen_page": "Слушать страницу", "story_audio_label": "Аудио", "story_image_label": "Изображение", "story_text_label": "Текст", "queue_prev": "Предыдущий рассказ", "queue_next": "Следующий рассказ", "hide_text": "Скрыть текст", "hide_image": "Скрыть изображение", "show_text": "Показать текст", "show_image": "Показать изображение", "stories_count_suffix": "рассказов", "stop": "Стоп", "resume": "Продолжить", "play": "Играть", "mute": "Без звука", "speed": "Скорость", "close_player": "Закрыть плеер", "lang_switcher_label": "Язык", "hero_lead": "Очаг знаний и культуры", "intro_lead": "На нашем сайте представлены богатые сведения о величественных достижениях человечества на протяжении истории в науке и технике, естественных науках, общественных и гуманитарных науках, а также в литературе и искусстве; об общечеловеческих духовных ценностях, выдающихся личностях и важнейших исторических открытиях и изобретениях. Наша цель — сохранить это ценное наследие, накопленное веками, систематизировать его и передать будущим поколениям как источник знания, назидания и вдохновения.", "footer_contact": "Контакты", "footer_phone": "Телефон", "footer_address": "Адрес", "footer_website": "Сайт", "footer_phone_placeholder": "+994 XX XXX XX XX", "footer_address_placeholder": "Адрес будет добавлен", "footer_website_placeholder": "https://birinci.cloud", "footer_website_url": "https://birinci.cloud", "about": {"nav_item": "Наша миссия, видение и ценности", "page_title": "Наша миссия, видение и ценности", "page_description": "На этой странице изложены наша цель, наше видение будущего и наши основные принципы. Наш очаг стремится хранить знание и духовное наследие, делиться ими и передавать их будущим поколениям.", "kicker": "О нас", "mission_kicker": "Сегодня", "mission_title": "Миссия", "mission_body": "Наша миссия — собирать и систематизировать ценные знания о достижениях человечества на протяжении веков в областях науки и технологии, литературы и искусства, о сформированных им общечеловеческих ценностях, о воспитанных им выдающихся личностях, а также о важнейших открытиях и изобретениях, и передавать эти знания будущим поколениям как источник знания, назидания и вдохновения.", "vision_kicker": "Вперёд", "vision_title": "Видение", "vision_body": "Стать надёжным и постоянно обогащающимся очагом знаний, который хранит богатое знание и духовное наследие человечества, делает его доступным и понятным для каждого и, соединяя опыт прошлого с мыслью сегодняшнего дня, вдохновляет будущие поколения учиться, мыслить, творить и строить лучшее будущее.", "values_kicker": "На чём стоим", "values_title": "Наши ценности", "values_intro": "В основе деятельности очага лежит уважение к знанию, к человеку и к богатому наследию, созданному человечеством. Осуществляя нашу миссию и видение, мы руководствуемся следующими основными ценностями.", "values": [{"name": "Знание", "gloss": "Мы считаем знание одним из самых ценных сокровищ человечества. Мы стремимся сохранять, систематизировать и передавать будущим поколениям знания, накопленные веками в науке, технологии, литературе, искусстве и других областях."}, {"name": "Истина и надёжность", "gloss": "Ценность знания начинается с того, что оно опирается на истину. Мы придаём особое значение тому, чтобы представляемые нами сведения были верными, объективными и надёжными и, насколько возможно, опирались на авторитетные источники."}, {"name": "Просвещение", "gloss": "Одна из наших главных целей — не только собирать знание, но и делиться им и побуждать людей к учению. Мы верим, что просвещение расширяет кругозор человека, обогащает его мысль и служит развитию общества."}, {"name": "Общечеловеческие ценности", "gloss": "Такие ценности, как человеческое достоинство, справедливость, честность, милосердие, взаимное уважение и ответственность, мы считаем нравственной основой здорового общества. Мы верим, что знание должно делать человека не только более осведомлённым, но и более мудрым и ответственным."}, {"name": "Почтение к наследию", "gloss": "Научное, литературное, культурное и духовное наследие, созданное прошлыми поколениями, — великое богатство, формирующее наше настоящее. Изучать это наследие, хранить его и передавать будущим поколениям мы почитаем своим нравственным долгом."}, {"name": "Критическое и независимое мышление", "gloss": "Мы считаем важным не простое принятие знания, а его осмысленное постижение. Мы побуждаем людей задавать вопросы, исследовать, сравнивать различные взгляды, понимать причинно-следственные связи и делать обоснованные выводы."}, {"name": "Вдохновение и развитие", "gloss": "Знание не должно лишь сообщать о прошлом; оно должно и вдохновлять на создание будущего. Мы хотим, чтобы очаг был местом, которое вдохновляет людей учиться, мыслить, творить и постоянно развиваться."}]}, "inventions": {"page_title": "Открытия и изобретения", "page_description": "Понятный путеводитель по великим идеям, изменившим науку, повседневную жизнь и способы передачи знаний — с историческим контекстом и проверяемыми источниками.", "crumb": "Открытия и изобретения", "watch_video": "Смотреть видео", "video_series": "Ocaq", "close_video": "Закрыть видео", "video_note": "Ocaq — образовательная видеэнциклопедия Birİnci"}}, "js": {"index_loading": "Загрузка индекса…", "results_n": "{n} результатов", "no_match": "Подходящих рассказов нет.", "index_failed": "Не удалось загрузить поисковый индекс. Откройте сайт по адресу http://localhost:8765/ru/", "tts_unsupported": "К сожалению, синтез речи недоступен в этом браузере. Пожалуйста, продолжите чтение рассказа.", "tts_no_voice": "На этом устройстве не найден подходящий голос.", "tts_failed": "Не удалось начать озвучивание. Попробуйте позже или прочитайте рассказ.", "audio_failed": "Не удалось воспроизвести аудиофайл. Попробуйте позже."}, "show_audio_controls": false};
 window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 3h7l5 5v13H7z\"/><path d=\"M14 3v5h5\"/><path d=\"M9 13h6\"/><path d=\"M9 17h6\"/></svg>", "text-off": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 3h7l5 5v13H7z\"/><path d=\"M14 3v5h5\"/><path d=\"M9 13h6\"/><path d=\"M9 17h6\"/><path d=\"M5 5l14 14\"/></svg>", "eye": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/></svg>", "eye-off": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 3l18 18\"/><path d=\"M10.6 10.6a3 3 0 0 0 4.2 4.2\"/><path d=\"M9.9 5.1A11 11 0 0 1 12 5c6.5 0 10 7 10 7a19 19 0 0 1-3.2 4.1\"/><path d=\"M6.1 6.1C3.6 7.8 2 12 2 12s3.5 7 10 7c1.6 0 3.1-.3 4.4-.9\"/></svg>", "listen": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"/><path d=\"M15.54 8.46a5 5 0 0 1 0 7.07\"/><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14\"/></svg>", "stop": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"/><path d=\"M15.54 8.46a5 5 0 0 1 0 7.07\"/><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14\"/><path d=\"M3 3l18 18\"/></svg>"};
 
 (() => {
@@ -89,6 +89,210 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const isPopoverOpen = () => supportsPopover && menu.matches(":popover-open");
     const isOpen = () => root.classList.contains("is-open") || isPopoverOpen();
 
+    const decodeHash = () => {
+      try {
+        return decodeURIComponent((window.location.hash || "").replace(/^#/, ""));
+      } catch (_) {
+        return (window.location.hash || "").replace(/^#/, "");
+      }
+    };
+
+    const resolveActiveAnchor = () => {
+      const hash = decodeHash();
+      if (hash && hash !== "top" && hash !== "main" && document.getElementById(hash)) {
+        return hash;
+      }
+      const activeLink =
+        document.querySelector(".timeline-list a.tl-active[href^='#']") ||
+        document.querySelector(".story-nav a.tl-active[href^='#']") ||
+        document.querySelector(".story-nav a.is-active[href^='#']");
+      if (activeLink) {
+        const id = (activeLink.getAttribute("href") || "").replace(/^#/, "");
+        if (id && document.getElementById(id)) return id;
+      }
+      if (typeof window.__birinciInventionsContext === "function") {
+        try {
+          const inv = window.__birinciInventionsContext();
+          if (inv && inv.sectionId && document.getElementById(inv.sectionId)) {
+            return inv.sectionId;
+          }
+        } catch (_) {}
+      }
+      const story = document.querySelector("article.story:not([hidden])");
+      if (story && story.id && story.getBoundingClientRect().top < window.innerHeight) {
+        const mid = window.scrollY + window.innerHeight * 0.35;
+        const stories = Array.from(document.querySelectorAll("article.story[id]"));
+        let best = "";
+        for (let i = stories.length - 1; i >= 0; i -= 1) {
+          const top = stories[i].getBoundingClientRect().top + window.scrollY;
+          if (top <= mid) {
+            best = stories[i].id;
+            break;
+          }
+        }
+        if (best) return best;
+      }
+      return "";
+    };
+
+    const resolveCategoryFallback = (stem) => {
+      if (!stem) return "";
+      const el = document.getElementById(stem);
+      if (el) {
+        const cat = el.closest(".inventions-category");
+        if (cat && cat.id) return cat.id;
+      }
+      const toc = document.querySelector(`.inventions-toc-entry[data-toc-entry="${stem}"]`);
+      return (toc && toc.getAttribute("data-toc-cat")) || "";
+    };
+
+    const browseContext = () => {
+      const params = new URLSearchParams(window.location.search || "");
+      const searchInput =
+        document.querySelector("[data-tools-search]") ||
+        document.getElementById("inventionsSearch");
+      const typedQ = searchInput ? String(searchInput.value || "").trim() : "";
+      const q = typedQ || String(params.get("q") || "").trim();
+      const isCategory = document.body.classList.contains("page-category");
+      const isHome = document.body.classList.contains("page-home");
+      const isInventions =
+        document.body.classList.contains("page-inventions") ||
+        document.body.classList.contains("inventions-preview-page");
+      const langPage = String(document.body.getAttribute("data-lang-page") || "").replace(/^\/+/, "");
+      const catMatch = (window.location.pathname || "").match(/\/categories\/([^/]+)\.html$/i);
+      let view = params.get("view");
+      if (isHome) {
+        const stemProbe = resolveActiveAnchor() || decodeHash();
+        if (stemProbe) view = "list";
+        else if (view !== "list" && view !== "cards") {
+          if (window.__birinciHomeView === "list" || window.__birinciHomeView === "cards") {
+            view = window.__birinciHomeView;
+          }
+        }
+      }
+
+      let cat = String(params.get("cat") || "").trim();
+      let period = String(params.get("period") || "").trim();
+      let sort = String(params.get("sort") || "").trim();
+      let start = String(params.get("start") || "").trim();
+      let batch = String(params.get("batch") || "").trim();
+      let tocCollapsed = [];
+
+      if (isInventions && typeof window.__birinciInventionsContext === "function") {
+        try {
+          const inv = window.__birinciInventionsContext();
+          if (inv) {
+            if (Array.isArray(inv.cat) && inv.cat.length) cat = inv.cat.join(",");
+            if (Array.isArray(inv.period) && inv.period.length) period = inv.period.join(",");
+            if (inv.q) {
+              /* prefer live search box already in q */
+            }
+            if (Array.isArray(inv.tocCollapsed)) tocCollapsed = inv.tocCollapsed.slice();
+          }
+        } catch (_) {}
+      }
+
+      if (!start && window.__birinciListStart != null) {
+        start = String(window.__birinciListStart);
+      }
+      if (!batch) {
+        const batchInput = document.querySelector("[data-home-batch-size]");
+        if (batchInput && batchInput.value) batch = String(batchInput.value).trim();
+      }
+
+      const stem = resolveActiveAnchor() || decodeHash();
+      const categoryId = resolveCategoryFallback(stem);
+      const maxScroll = Math.max(
+        0,
+        (document.documentElement.scrollHeight || document.body.scrollHeight) - window.innerHeight
+      );
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+      const scrollRatio = maxScroll > 0 ? Math.max(0, Math.min(1, scrollY / maxScroll)) : 0;
+
+      return {
+        isCategory,
+        isHome,
+        isInventions,
+        langPage,
+        slug: catMatch ? catMatch[1] : "",
+        view: view === "list" ? "list" : view === "cards" ? "cards" : "",
+        q,
+        cat,
+        period,
+        sort,
+        start,
+        batch,
+        stem,
+        categoryId,
+        tocCollapsed,
+        scrollY,
+        scrollRatio,
+      };
+    };
+
+    const hrefForLang = (code, ctx) => {
+      let path = `../${code}/index.html`;
+      if (ctx.isCategory && ctx.slug) {
+        path = `../../${code}/categories/${encodeURIComponent(ctx.slug)}.html`;
+      } else if (ctx.langPage) {
+        const depth = ctx.langPage.split("/").filter(Boolean).length;
+        path = `${"../".repeat(depth)}${code}/${ctx.langPage}`;
+      } else if (ctx.isHome) {
+        path = `../${code}/index.html`;
+      }
+
+      const params = new URLSearchParams();
+      if (ctx.isHome && (ctx.view === "list" || ctx.stem)) {
+        params.set("view", "list");
+      } else if (ctx.view === "list" || ctx.view === "cards") {
+        params.set("view", ctx.view);
+      }
+      if (ctx.q) params.set("q", ctx.q);
+      if (ctx.cat) params.set("cat", ctx.cat);
+      if (ctx.period) params.set("period", ctx.period);
+      if (ctx.sort) params.set("sort", ctx.sort);
+      if (ctx.start && Number(ctx.start) > 0) params.set("start", String(ctx.start));
+      if (ctx.batch && Number(ctx.batch) > 0) params.set("batch", String(ctx.batch));
+
+      const qs = params.toString();
+      let hash = "";
+      if (ctx.stem) hash = `#${encodeURIComponent(ctx.stem).replace(/%2F/gi, "/")}`;
+      else if (ctx.categoryId) hash = `#${encodeURIComponent(ctx.categoryId).replace(/%2F/gi, "/")}`;
+      return `${path}${qs ? `?${qs}` : ""}${hash}`;
+    };
+
+    const stashLangContext = (ctx) => {
+      try {
+        sessionStorage.setItem(
+          "birinci-lang-ctx",
+          JSON.stringify({
+            sectionId: ctx.stem || "",
+            categoryId: ctx.categoryId || "",
+            scrollY: ctx.scrollY || 0,
+            scrollRatio: ctx.scrollRatio || 0,
+            tocCollapsed: ctx.tocCollapsed || [],
+            q: ctx.q || "",
+            cat: ctx.cat || "",
+            period: ctx.period || "",
+            view: ctx.view || "",
+            start: ctx.start || "",
+            batch: ctx.batch || "",
+            sort: ctx.sort || "",
+            ts: Date.now(),
+          })
+        );
+      } catch (_) {}
+    };
+
+    const syncLangHrefs = () => {
+      const ctx = browseContext();
+      root.querySelectorAll("a[data-lang]").forEach((link) => {
+        const code = link.getAttribute("data-lang");
+        if (!code) return;
+        link.setAttribute("href", hrefForLang(code, ctx));
+      });
+    };
+
     const placeMenu = () => {
       const rect = toggle.getBoundingClientRect();
       const gap = 6;
@@ -124,6 +328,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
     const openMenu = () => {
       window.clearTimeout(hideTimer);
+      syncLangHrefs();
       menu.hidden = false;
       placeMenu();
       root.classList.add("is-open");
@@ -165,7 +370,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       else openMenu();
     });
 
-    // iOS synthesizes mouseenter on tap; only hover-open for a real mouse.
     root.addEventListener("pointerenter", (event) => {
       if (event.pointerType === "mouse" && canHoverLang()) openMenu();
     });
@@ -190,14 +394,67 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     }, { passive: true, capture: true });
 
     root.addEventListener("click", (event) => {
-      const link = event.target.closest("[data-lang]");
+      const link = event.target.closest("a[data-lang]");
       if (!link) return;
+      const ctx = browseContext();
+      syncLangHrefs();
+      stashLangContext(ctx);
       try {
         localStorage.setItem("birinci-lang", link.getAttribute("data-lang") || "");
       } catch (_) {}
     });
+
+    syncLangHrefs();
+    window.addEventListener("hashchange", syncLangHrefs);
+    window.addEventListener("popstate", syncLangHrefs);
+    document.addEventListener("kt-catalog-filter-change", syncLangHrefs);
+    const inventionsSearch = document.getElementById("inventionsSearch");
+    if (inventionsSearch) {
+      inventionsSearch.addEventListener("input", syncLangHrefs);
+    }
+    document.querySelectorAll("[data-tools-search]").forEach((el) => {
+      el.addEventListener("input", syncLangHrefs);
+    });
   };
   initLangSwitcher();
+
+  // Restore approximate scroll after a language switch when no exact hash target applied.
+  (function restoreGenericLangScroll() {
+    if (document.body.classList.contains("page-inventions")) return;
+    let raw = "";
+    try {
+      raw = sessionStorage.getItem("birinci-lang-ctx") || "";
+    } catch (_) {
+      return;
+    }
+    if (!raw) return;
+    let ctx = null;
+    try {
+      ctx = JSON.parse(raw);
+    } catch (_) {
+      return;
+    }
+    const hash = (window.location.hash || "").replace(/^#/, "");
+    if (hash && document.getElementById(decodeURIComponent(hash))) {
+      // Hash navigation handles focus; keep ctx for inventions-only fields already consumed there.
+      try {
+        sessionStorage.removeItem("birinci-lang-ctx");
+      } catch (_) {}
+      return;
+    }
+    try {
+      sessionStorage.removeItem("birinci-lang-ctx");
+    } catch (_) {}
+    if (!ctx || typeof ctx.scrollRatio !== "number" || !isFinite(ctx.scrollRatio)) return;
+    const apply = () => {
+      const root = document.documentElement;
+      const max = Math.max(0, (root.scrollHeight || document.body.scrollHeight) - window.innerHeight);
+      const y = Math.round(Math.max(0, Math.min(1, ctx.scrollRatio)) * max);
+      window.scrollTo({ top: y, left: 0, behavior: "auto" });
+    };
+    window.requestAnimationFrame(() => window.requestAnimationFrame(apply));
+  })();
+
   const header = document.querySelector(".site-header");
   const dropdowns = Array.from(document.querySelectorAll(".nav-dropdown"));
   const navToggle = document.getElementById("nav-toggle");
@@ -243,15 +500,24 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     navToggle.setAttribute("aria-expanded", "false");
     navToggle.setAttribute("aria-label", tUi("open_menu", "Menyunu aç"));
     resetMobileNavSections();
+    const y = Number(document.body.dataset.navScrollY || "0");
+    document.body.style.top = "";
+    delete document.body.dataset.navScrollY;
+    window.scrollTo(0, y);
+    syncStickyChrome();
   };
 
   const openMobileNav = () => {
     if (!header || !navToggle || !dropdowns.length) return;
     resetMobileNavSections();
+    const y = window.scrollY || document.documentElement.scrollTop || 0;
+    document.body.dataset.navScrollY = String(y);
+    document.body.style.top = `-${y}px`;
     header.classList.add("is-nav-open");
     document.body.classList.add("nav-open");
     navToggle.setAttribute("aria-expanded", "true");
     navToggle.setAttribute("aria-label", tUi("close_menu", "Menyunu bağla"));
+    syncStickyChrome();
   };
 
   if (navToggle && header && dropdowns.length) {
@@ -403,6 +669,31 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     });
   }
 
+
+  const goToBottom = document.getElementById("go-to-bottom");
+  if (goToBottom) {
+    goToBottom.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      const html = document.documentElement;
+      const footer = document.getElementById("site-footer") || document.querySelector("footer.footer-pro, footer");
+      html.classList.add("no-smooth-scroll");
+      if (footer) {
+        const top = Math.round(footer.getBoundingClientRect().top + window.pageYOffset);
+        html.scrollTop = top;
+        if (document.body) document.body.scrollTop = top;
+        window.scrollTo(0, top);
+      } else {
+        const max = Math.max(html.scrollHeight, document.body ? document.body.scrollHeight : 0);
+        window.scrollTo(0, max);
+      }
+      history.replaceState(null, "", window.location.pathname + window.location.search);
+      requestAnimationFrame(() => {
+        html.classList.remove("no-smooth-scroll");
+      });
+    });
+  }
+
   const initGlobalSearch = () => {
     const root = document.getElementById("global-search");
     const toggle = document.getElementById("global-search-toggle");
@@ -546,6 +837,32 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     if (!searchInput) return;
     bindSearchFilterClear(searchInput);
 
+    const cardsPanel = document.querySelector('[data-view="cards"]');
+    const listPanel = document.querySelector('[data-view="list"]');
+    const cardGrid = document.querySelector("[data-tools-cards]");
+    const applyCategoryView = (view) => {
+      const next = view === "cards" ? "cards" : "list";
+      if (cardsPanel) {
+        cardsPanel.hidden = next !== "cards";
+        if (next === "cards") cardsPanel.removeAttribute("hidden");
+        else cardsPanel.setAttribute("hidden", "");
+      }
+      if (listPanel) {
+        listPanel.hidden = next !== "list";
+        if (next === "list") listPanel.removeAttribute("hidden");
+        else listPanel.setAttribute("hidden", "");
+      }
+      bar.querySelectorAll("[data-home-view]").forEach((btn) => {
+        btn.setAttribute("aria-pressed", btn.getAttribute("data-home-view") === next ? "true" : "false");
+      });
+      document.body.classList.toggle("category-view-cards", next === "cards");
+      try {
+        localStorage.setItem("birinci-category-view", next);
+      } catch (_) {}
+      return false;
+    };
+    window.__birinciSetHomeView = applyCategoryView;
+
     const imagesToggle = bar.querySelector("[data-tools-images]");
     const imagesBtns = Array.from(bar.querySelectorAll("[data-images-mode]"));
     const textsToggle = bar.querySelector("[data-tools-texts]");
@@ -568,6 +885,10 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const allStories = Array.from(list.querySelectorAll(".story"));
     allStories.sort((a, b) => localeCompareAz(a.dataset.title, b.dataset.title));
     allStories.forEach((story) => list.appendChild(story));
+    const allCards = cardGrid ? Array.from(cardGrid.querySelectorAll("[data-stem]")) : [];
+    const cardsByStem = new Map(allCards.map((card) => [card.dataset.stem, card]));
+    allCards.sort((a, b) => localeCompareAz(a.dataset.title, b.dataset.title));
+    if (cardGrid) allCards.forEach((card) => cardGrid.appendChild(card));
     if (navList) {
       const navItems = Array.from(navList.querySelectorAll("li[data-stem]"));
       navItems.sort((a, b) => localeCompareAz(a.dataset.title, b.dataset.title));
@@ -823,6 +1144,22 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       } catch (_) {}
     };
 
+    const writeCategoryUrlState = () => {
+      try {
+        const params = new URLSearchParams();
+        const q = searchInput.value.trim();
+        if (q) params.set("q", q);
+        if (windowStart > 0) params.set("start", String(windowStart));
+        if (batchSize > 0) params.set("batch", String(batchSize));
+        const url = new URL(window.location.href);
+        url.search = params.toString();
+        const hash = (window.location.hash || "").replace(/^#/, "");
+        url.hash = hash;
+        history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+        window.__birinciListStart = windowStart;
+      } catch (_) {}
+    };
+
     const renderList = ({ resetWindow = false } = {}) => {
       if (typeof window.__birinciStopStoryTts === "function") window.__birinciStopStoryTts();
       const q = searchInput.value.trim().toLocaleLowerCase(LOCALE_TAG);
@@ -899,6 +1236,18 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       allStories
         .filter((story) => !visibleSet.has(story.dataset.stem))
         .forEach((story) => list.appendChild(story));
+      allCards.forEach((card) => {
+        card.hidden = !visibleSet.has(card.dataset.stem);
+      });
+      if (cardGrid) {
+        visibleStories.forEach((story) => {
+          const card = cardsByStem.get(story.dataset.stem);
+          if (card) cardGrid.appendChild(card);
+        });
+        allCards
+          .filter((card) => !visibleSet.has(card.dataset.stem))
+          .forEach((card) => cardGrid.appendChild(card));
+      }
 
       if (typeof window.__birinciSetAllStoryFigures === "function") {
         window.__birinciSetAllStoryFigures(!document.body.classList.contains("images-collapsed"));
@@ -914,6 +1263,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       }
       syncBatchUi(visibleStories.length);
       persistAllMode();
+      writeCategoryUrlState();
       if (pendingStem) {
         const el = document.getElementById(pendingStem);
         if (el) {
@@ -1012,9 +1362,57 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     if (batchAllBtn) batchAllBtn.addEventListener("click", () => runBatchAction("all"));
 
     try {
+      const params = new URLSearchParams(window.location.search || "");
+      const qParam = String(params.get("q") || "").trim();
+      if (qParam) searchInput.value = qParam;
+      const batchParam = Number(params.get("batch") || "");
+      if (Number.isFinite(batchParam) && batchParam > 0) {
+        batchSize = Math.floor(batchParam);
+        if (batchSizeInput) batchSizeInput.value = String(batchSize);
+        try {
+          localStorage.setItem(batchSizeStorageKey, String(batchSize));
+        } catch (_) {}
+      }
+      const startParam = Number(params.get("start") || "");
+      if (Number.isFinite(startParam) && startParam > 0) {
+        windowStart = Math.floor(startParam);
+      }
+      window.__birinciListStart = windowStart;
       const hash = decodeURIComponent((window.location.hash || "").replace(/^#/, ""));
       if (hash) pendingStem = hash;
     } catch (_) {}
+
+    if (cardGrid) {
+      cardGrid.addEventListener("click", (event) => {
+        const card = event.target.closest("[data-stem]");
+        if (!card || !cardGrid.contains(card)) return;
+        event.preventDefault();
+        pendingStem = card.getAttribute("data-stem") || "";
+        applyCategoryView("list");
+        renderList();
+      });
+    }
+    if (navList) {
+      navList.addEventListener("click", (event) => {
+        const link = event.target.closest("a[href^='#']");
+        if (!link || !navList.contains(link)) return;
+        const stem = (link.getAttribute("href") || "").replace(/^#/, "");
+        if (!stem || !document.body.classList.contains("category-view-cards")) return;
+        event.preventDefault();
+        pendingStem = stem;
+        applyCategoryView("list");
+        renderList();
+      });
+    }
+
+    if (pendingStem) applyCategoryView("list");
+    else {
+      let stored = "list";
+      try {
+        stored = localStorage.getItem("birinci-category-view") || "list";
+      } catch (_) {}
+      applyCategoryView(stored === "cards" ? "cards" : "list");
+    }
 
     renderList();
   };
@@ -1129,7 +1527,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       target.scrollIntoView({ block: "start", behavior: "auto" });
       html.style.scrollBehavior = prevBehavior;
       try {
-        history.pushState(null, "", `#${id}`);
+        history.pushState(null, "", `${window.location.pathname}${window.location.search}#${id}`);
       } catch (_) {}
       if (mobileQuery.matches) closeMenu();
     });
@@ -1351,6 +1749,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         view: params.get("view"),
         q: params.get("q"),
         stem: hash || null,
+        start: params.get("start"),
+        batch: params.get("batch"),
       };
     };
 
@@ -1360,10 +1760,13 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         if (view === "list") params.set("view", "list");
         const q = searchInput.value.trim();
         if (view === "list" && q) params.set("q", q);
+        if (view === "list" && windowStart > 0) params.set("start", String(windowStart));
+        if (view === "list" && batchSize > 0) params.set("batch", String(batchSize));
         const url = new URL(window.location.href);
         url.search = params.toString();
         url.hash = pendingStem ? pendingStem : "";
         history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+        window.__birinciListStart = windowStart;
       } catch (_) {
         /* file:// or sandboxed histories must not block view switching */
       }
@@ -1523,7 +1926,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const foldAzI = (s) => String(s || "").replace(/[İIı]/g, "i");
       const srcRe = /(internet\s+sources|internet\s+mənb|internet\s+kaynak|открыт\w*\s+источник|интернет|(?:source|mənbə|kaynak|источник|булак|булагы)\s*:)/i;
       const moralRe = /^(ibrət|ibret|moral|мораль|үлгү)\s*:/i;
-      const authorSrcStems = { "everyone-has-work-to-do": 1, "weeds-must-be-pulled-from-the-root": 1, "the-silent-corridor": 1 };
+      const authorSrcStems = { "everyone-has-work-to-do": 1, "weeds-must-be-pulled-from-the-root": 1, "the-silent-corridor": 1, "if-fate-allows-we-will-meet": 1 };
       const authorSrc = !!(stem && authorSrcStems[stem]);
       const lastIsSrc = last >= 0 && (authorSrc || srcRe.test(foldAzI(paragraphs[last] || "")));
       const srcLabel = (I18N.ui && I18N.ui.story_source) || "";
@@ -1934,6 +2337,19 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       pendingStem = urlState.stem;
     }
     if (urlState.q) searchInput.value = urlState.q;
+    const batchFromUrl = Number(urlState.batch || "");
+    if (Number.isFinite(batchFromUrl) && batchFromUrl > 0) {
+      batchSize = Math.floor(batchFromUrl);
+      if (batchSizeInput) batchSizeInput.value = String(batchSize);
+      try {
+        localStorage.setItem(batchSizeStorageKey, String(batchSize));
+      } catch (_) {}
+    }
+    const startFromUrl = Number(urlState.start || "");
+    if (Number.isFinite(startFromUrl) && startFromUrl > 0) {
+      windowStart = Math.floor(startFromUrl);
+    }
+    window.__birinciListStart = windowStart;
 
     try {
       setView(initialView, { persist: false });
@@ -3089,6 +3505,35 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     window.addEventListener("beforeunload", stopSpeech);
   };
 
+  const initAboutValuesHighlight = () => {
+    if (!document.body.classList.contains("page-about")) return;
+    const pills = document.querySelector(".about-pills");
+    const grid = document.querySelector(".about-vd-grid");
+    const links = document.querySelectorAll(".about-pill");
+    const boxes = document.querySelectorAll(".about-vd");
+    if (!pills || !grid || !links.length) return;
+    const clearHighlight = () => {
+      boxes.forEach((box) => box.classList.remove("is-active"));
+      grid.classList.remove("is-dimmed");
+    };
+    const highlightBox = (targetId) => {
+      clearHighlight();
+      const target = document.getElementById(targetId);
+      if (!target) return;
+      grid.classList.add("is-dimmed");
+      target.classList.add("is-active");
+    };
+    links.forEach((link) => {
+      const href = link.getAttribute("href") || "";
+      const targetId = href.startsWith("#") ? href.slice(1) : "";
+      if (!targetId) return;
+      link.addEventListener("mouseenter", () => highlightBox(targetId));
+      link.addEventListener("focus", () => highlightBox(targetId));
+      link.addEventListener("click", () => highlightBox(targetId));
+    });
+    pills.addEventListener("mouseleave", clearHighlight);
+  };
+
   const initIllustrationLightbox = () => {
     let overlay = null;
     let dialog = null;
@@ -3422,6 +3867,11 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     initStoryTts();
   } catch (err) {
     console.error("initStoryTts failed", err);
+  }
+  try {
+    initAboutValuesHighlight();
+  } catch (err) {
+    console.error("initAboutValuesHighlight failed", err);
   }
 
   document.querySelectorAll(".category-layout").forEach((layout) => {

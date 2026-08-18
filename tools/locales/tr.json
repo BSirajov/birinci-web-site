@@ -1,13 +1,17 @@
 {
   "html_lang": "tr",
-  "site_name": "Bir inci",
+  "site_name": "Birİnci",
   "site_title": "İbret verici sözler ve hikâyeler",
-  "nav_label": "Edebiyat",
+  "nav_label": "İbret verici hikâyeler",
   "nav_stories_label": "İbret verici hikâyeler",
-  "nav_stories_desc": "Kategorilere göre ibret verici hikâyeler",
+  "nav_stories_desc": "Dünya halklarının hikmetinden süzülüp gelmiş kısa, etkileyici hikâyeler derlemesi. Her hikâye dostluk, sabır, sadakat, aile ve sözün gücü gibi hayati değerleri yansıtır. Bu hikâyeler yalnızca okumak için değil — durup düşünmek, kendi seçimlerinize ve insanlarla ilişkinize yeniden bakmak içindir.",
+  "nav_stories_all": "Tümü",
+  "nav_stories_by_category": "Kategoriye göre",
   "nav_arts_label": "Sanat",
   "nav_arts_desc": "Resim, mimari, müzik ve sinema",
-  "nav_science_label": "Bilim",
+  "nav_science_label": "Bilgiler",
+  "nav_general_knowledge_label": "Genel bilgiler",
+  "nav_general_knowledge_desc": "Çeşitli konularda genel bilgiler",
   "nav_natural_science_label": "Doğa bilimleri",
   "nav_natural_science_desc": "Fizik, kimya ve biyoloji",
   "nav_social_science_label": "Sosyal bilimler",
@@ -30,7 +34,7 @@
     "stories_coming_soon_lead": "Bu dil için hikâyeler hazırlanıyor. Sayfa yapısı hazır; metinler eklendiğinde burada görünecek.",
     "intro_source": "Hikâyeler açık internet kaynaklarından alınmıştır; illüstrasyonlar ise yapay zekâ ile oluşturulmuştur.",
     "story_source": "Hikâyeler açık internet kaynaklarından alınmıştır; illüstrasyonlar ise yapay zekâ ile oluşturulmuştur.",
-    "site_description": "Bir inci — ibretlik sözler ve hikâyeler derlemesi.",
+    "site_description": "Birİnci — ibretlik sözler ve hikâyeler derlemesi.",
     "stories_nav": "Hikâyeler",
     "stories_nav_open": "Hikâye menüsünü aç",
     "no_matching_category": "Uygun kategori bulunamadı.",
@@ -38,6 +42,7 @@
     "categories_heading": "Kategoriler",
     "skip_to_content": "İçeriğe geç",
     "back_to_top": "Sayfanın başına dön",
+    "go_to_bottom": "Sayfanın sonuna git",
     "search": "Ara…",
     "search_aria": "Ara",
     "global_search": "Genel arama",
@@ -85,7 +90,7 @@
     "speed": "Hız",
     "close_player": "Oynatıcıyı kapat",
     "lang_switcher_label": "Dil",
-    "hero_lead": "İbret verici hikâyeler — okumak ve dinlemek için.",
+    "hero_lead": "Bilgi ve kültür ocağı",
     "intro_lead": "Sitemizde insanlığın tarih boyunca bilim ve teknoloji, doğa bilimleri, sosyal ve beşeri bilimler ile edebiyat ve sanatın çeşitli alanlarında kazandığı görkemli başarılar, evrensel manevi değerler, önde gelen şahsiyetler ve önemli tarihî keşif ve icatlar hakkında zengin bilgiler sunulur. Amacımız, yüzyıllar boyunca birikmiş bu değerli mirası korumak, sistemleştirmek ve gelecek kuşaklara bilgi, ibret ve ilham kaynağı olarak aktarmaktır.",
     "footer_contact": "İletişim",
     "footer_phone": "Telefon",
@@ -94,7 +99,32 @@
     "footer_phone_placeholder": "+994 XX XXX XX XX",
     "footer_address_placeholder": "Adres eklenecek",
     "footer_website_placeholder": "https://birinci.cloud",
-    "footer_website_url": "https://birinci.cloud"
+    "footer_website_url": "https://birinci.cloud",
+    "about": {
+      "nav_item": "Misyonumuz, Vizyon ve Değerlerimiz",
+      "page_title": "Misyonumuz, Vizyon ve Değerlerimiz",
+      "page_description": "Bu sayfada amacımız, geleceğe bakışımız ve temel ilkelerimiz ifade edilir. Ocağımız bilgiyi ve manevi mirası korumayı, paylaşmayı ve gelecek kuşaklara aktarmayı hedefler.",
+      "card_description": "\"Birİnci\", insanlığın çeşitli alanlardaki başarılarını, evrensel değerlerini ve önemli keşif ve icatlarını toplayıp gelecek kuşaklara bilgi ve ilham kaynağı olarak aktaran bir bilgi ocağıdır. Faaliyetlerimiz sayesinde sürekli zenginleşen güvenilir bir bilgi kaynağı olmayı hedefleriz.",
+      "kicker": "Hakkımızda",
+      "mission_kicker": "Bugün",
+      "mission_title": "Misyon",
+      "mission_body": "Misyonumuz, insanlığın yüzyıllar boyunca bilim ve teknoloji, edebiyat ve sanat alanlarında kazandığı başarılar, oluşturduğu evrensel değerler, yetiştirdiği önde gelen şahsiyetler ile önemli keşif ve icatlar hakkındaki değerli bilgileri toplamak, sistemleştirmek ve gelecek kuşaklara bilgi, ibret ve ilham kaynağı olarak aktarmaktır.",
+      "vision_kicker": "İleriye",
+      "vision_title": "Vizyon",
+      "vision_body": "İnsanlığın zengin bilgi ve manevi mirasını koruyan, onu herkes için erişilebilir ve anlaşılır kılan, geçmişin deneyimini bugünün düşüncesiyle birleştirerek gelecek kuşakları öğrenmeye, düşünmeye, yaratmaya ve daha iyi bir gelecek kurmaya ilham veren güvenilir ve sürekli zenginleşen bir bilgi ocağına dönüşmek.",
+      "values_kicker": "Dayandığımız",
+      "values_title": "Değerlerimiz",
+      "values_intro": "Ocağın faaliyetinin temelinde bilgiye, insana ve insanlığın yarattığı zengin mirasa saygı durur. Misyon ve vizyonumuzu hayata geçirirken aşağıdaki temel değerleri rehber alırız.",
+      "values": [
+        {"name": "Bilgi", "gloss": "Bilgiyi insanlığın en değerli servetlerinden biri sayarız. Yüzyıllar boyunca bilim, teknoloji, edebiyat, sanat ve diğer alanlarda birikmiş bilgilerin korunmasına, sistemleştirilmesine ve gelecek kuşaklara aktarılmasına çalışırız."},
+        {"name": "Hakikat ve güvenilirlik", "gloss": "Bilginin değeri, onun hakikate dayanmasından başlar. Sunduğumuz bilgilerin doğru, nesnel ve güvenilir olmasına, mümkün olduğunca muteber kaynaklara dayanmasına özel önem veririz."},
+        {"name": "Aydınlanma", "gloss": "Bilgiyi yalnızca toplamak değil, onu paylaşmak ve insanları öğrenmeye teşvik etmek de temel amaçlarımızdandır. İnanırız ki aydınlanma insanın dünya görüşünü genişletir, düşüncesini zenginleştirir ve toplumun gelişimine hizmet eder."},
+        {"name": "Evrensel değerler", "gloss": "İnsan onuru, adalet, dürüstlük, merhamet, karşılıklı saygı ve sorumluluk gibi değerleri sağlıklı toplumun manevi temeli sayarız. Bilginin insanı yalnızca daha bilgili değil, aynı zamanda daha bilge ve sorumlu kılması gerektiğine inanırız."},
+        {"name": "Mirasa hürmet", "gloss": "Geçmiş kuşakların yarattığı bilimsel, edebî, kültürel ve manevi miras, bugünümüzü şekillendiren büyük bir servettir. Bu mirası öğrenmeyi, korumayı ve gelecek kuşaklara aktarmayı kendimize manevi borç biliriz."},
+        {"name": "Eleştirel ve bağımsız düşünce", "gloss": "Bilginin yalnızca kabul edilmesini değil, düşünülerek idrak edilmesini önemli sayarız. İnsanları soru sormaya, araştırmaya, farklı bakışları karşılaştırmaya, neden-sonuç ilişkilerini anlamaya ve gerekçeli sonuçlar çıkarmaya teşvik ederiz."},
+        {"name": "İlham ve gelişim", "gloss": "Bilgi yalnızca geçmiş hakkında bilgi vermemeli, aynı zamanda geleceği yaratmaya ilham da vermelidir. Ocağın insanları öğrenmeye, düşünmeye, yaratmaya ve sürekli gelişmeye ilham veren bir mekân olmasını isteriz."}
+      ]
+    }
   },
   "js": {
     "index_loading": "Dizin yükleniyor…",
@@ -166,12 +196,9 @@
       "icon": "lightbulb"
     },
     {
-      "label": "Genel bilgiler",
-      "icon": "globe"
-    },
-    {
       "label": "Hakkımızda",
-      "icon": "info"
+      "icon": "info",
+      "menu": "about"
     },
     {
       "label": "Bizi destekleyin",

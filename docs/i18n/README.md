@@ -54,14 +54,15 @@ Place localized art at:
 
 Do **not** copy AZ WebPs. Mark `illustration_<lang>` in the manifest when done.
 
-## Status (2026-08-14)
+## Status (2026-08-18)
 
 | Phase | Status |
 |-------|--------|
 | A — Shell / builder / switcher | **Done** (AZ, EN, RU, TR, KY) |
-| B — Translate 250×N | EN/RU **125 / 250**; TR/KY **0 / 250** (UI chrome ready) |
-| B2 — Illustrations | **Pending** (folders ready; do not copy AZ art) |
-| C — Audio | EN/RU narrated for translated stems; TR pending stories; KY pending voice |
-| D — Deploy | `deployment/` includes `az/`, `en/`, `ru/`, `tr/`, `ky/` |
+| B — Translate 250×N | AZ/EN/RU/KY **250 / 250** in `stories-data.js`; TR **0 / 250** (UI chrome only) |
+| B2 — Illustrations | Locale folders ready; do not copy AZ art into other langs blindly |
+| C — Audio | AZ/EN/RU present for narrated stems; KY/TR follow content readiness |
+| D — Deploy | `deployment/` includes `az/`, `en/`, `ru/`, `tr/`, `ky/` (+ `about/`, `discoveries/` when present) |
+| E — Discoveries | AZ/EN/RU/KY live (121 articles); videos stripped from UI; TR has no Discoveries tree yet |
 
 Open `index.html` → language chooser, or go directly to `/en/`, `/ru/`, `/tr/`, or `/ky/`.

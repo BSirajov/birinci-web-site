@@ -82,7 +82,7 @@ def main():
 
     p(
         doc,
-        "Bir inci · Derived from the Azerbaijani language review · 13 August 2026",
+        "Birİnci · Derived from the Azerbaijani language review · 13 August 2026",
         size=10,
         center=True,
     )

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+  <!-- horizon -->
+  <path d="M4.5 20.2h23" stroke="#F0C75E" stroke-width="1.35" stroke-linecap="round"/>
+  <!-- sun -->
+  <path d="M11.6 20.2a4.4 4.4 0 0 1 8.8 0" stroke="#F0C75E" stroke-width="1.3" stroke-linecap="round"/>
+  <!-- rays -->
+  <path d="M16 10.2v2.4" stroke="#F0C75E" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M11.4 12.2 12.8 14" stroke="#F0C75E" stroke-width="1.15" stroke-linecap="round"/>
+  <path d="M20.6 12.2 19.2 14" stroke="#F0C75E" stroke-width="1.15" stroke-linecap="round"/>
+  <!-- gentle path -->
+  <path d="M16 20.2c-1.6 2.2-2.2 4.2-1.4 6.6" stroke="#F0C75E" stroke-width="1.15" stroke-linecap="round"/>
+</svg>

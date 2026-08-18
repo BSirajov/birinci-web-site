@@ -1,0 +1,158 @@
+/**
+ * Knowledge Treasury design tokens — single source of truth for CSS custom properties.
+ * Loaded via @import from kt-common.css (do not link separately in HTML).
+ * JavaScript mirror: i18n/design-system.json + js/kt-design-tokens.js
+ */
+:root {
+  /* —— Color: brand blues —— */
+  --ink: #08263b;
+  --muted: #345f86;
+  --muted-hero: #345d76;
+  --soft: #eef7fc;
+  --soft-alt: #eef8ff;
+  --white: #fff;
+  --line: rgba(0, 105, 180, 0.26);
+  --blue-900: #06314e;
+  --blue-800: #133f63;
+  --blue-700: #0069b4;
+  --blue-600: #117fc8;
+  --blue-400: #4eb4ee;
+  --blue: var(--blue-700);
+  --blue-dark: #005a9a;
+  --blue-soft: #9ed6f5;
+  /* Legacy aliases (prefer --blue-* in new CSS) */
+  --iaea-blue: var(--blue-700);
+  --iaea-blue-dark: var(--blue-dark);
+  --iaea-blue-light: #0078c8;
+  --gold: #c99b3b;
+  --gold-soft: #fff0bf;
+
+  /* —— Color: semantic surfaces & borders —— */
+  --color-surface: var(--white);
+  --color-surface-soft: var(--soft);
+  --color-surface-toolbar: rgba(245, 251, 255, 0.96);
+  --color-surface-filter-chip: rgba(0, 105, 180, 0.08);
+  --color-border-default: var(--line);
+  --color-border-blue-subtle: rgba(0, 105, 180, 0.22);
+  --color-border-blue-light: rgba(0, 105, 180, 0.24);
+  --color-border-focus: var(--blue-700);
+  --color-focus-ring: rgba(0, 105, 180, 0.14);
+  --color-overlay-search: rgba(13, 31, 60, 0.72);
+  --color-nav-hover-bg: rgba(255, 255, 255, 0.12);
+  --color-hero-scrim: rgba(255, 255, 255, 0.36);
+  --site-bg-image: url("../diaspor-body-top-bg.png");
+  --color-heading-blue: #094d78;
+  --color-tint-blue: #dff2ff;
+  --color-panel-blue: #e5f4fb;
+  --color-surface-news: #f5fbff;
+  --color-border-blue-faint: rgba(0, 105, 180, 0.18);
+  --color-border-blue-muted: rgba(0, 105, 180, 0.14);
+  --color-border-blue-12: rgba(0, 105, 180, 0.12);
+  --color-border-blue-16: rgba(0, 105, 180, 0.16);
+  --color-border-blue-10: rgba(0, 105, 180, 0.1);
+  --color-hero-panel-bg: rgba(255, 255, 255, 0.12);
+  --color-hero-panel-border: rgba(255, 255, 255, 0.24);
+  --color-panel-card-bg: rgba(255, 255, 255, 0.92);
+  --color-panel-card-border: rgba(255, 255, 255, 0.62);
+  --shadow-hero-panel: 0 18px 50px rgba(0, 45, 82, 0.22);
+
+  /* —— Typography —— */
+  --font-sans: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-size-xs: 12px;
+  --font-size-sm: 13px;
+  --font-size-breadcrumb: 16.9px;
+  --font-size-breadcrumb-compact: 15.6px;
+  --font-size-breadcrumb-mobile: 14.95px;
+  --font-size-summary-panel-title: 15.47px;
+  --font-size-summary-panel-title-md: 16.38px;
+  --font-size-summary-panel-title-lg: 20.02px;
+  --font-size-summary-panel-title-forum: 19.11px;
+  --font-size-summary-panel-title-mobile: 14.56px;
+  --font-size-base: 16px;
+  --font-weight-bold: 800;
+  --line-height-body: 1.62;
+  --line-height-tight: 1.42;
+  --letter-spacing-caps: 0.06em;
+
+  /* Title scale (1 = design default; 0.7 = 30% smaller) */
+  --kt-title-scale: 0.7;
+  --font-size-title-hero: clamp(21.28px, 3.36vw, 40.32px);
+  --font-size-title-hero-mobile: clamp(21px, 7.35vw, 29.4px);
+  --font-size-title-section: clamp(19.6px, 2.1vw, 29.4px);
+  --font-size-title-panel: 12.6px;
+  --font-size-title-card: 15.4px;
+  --font-size-title-footer: 16.8px;
+
+  /* —— Spacing scale —— */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 36px;
+  --shell-padding-x: var(--space-6);
+  --shell-gap: var(--space-7);
+
+  /* —— Layout —— */
+  --max: 1220px;
+  --content-max-narrow: 1060px;
+
+  /* —— Border radii —— */
+  --radius: 24px;
+  --radius2: 18px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+  --radius-pill: 999px;
+
+  /* —— Shadows —— */
+  --shadow: 0 12px 32px rgba(0, 78, 140, 0.14);
+  --shadow-strong: 0 20px 45px rgba(0, 78, 140, 0.2);
+  --shadow2: 0 26px 80px rgba(13, 31, 60, 0.22);
+  --shadow-btn-primary: 0 14px 30px rgba(0, 45, 82, 0.22);
+  --shadow-btn-secondary: 0 10px 24px rgba(0, 45, 82, 0.12);
+  --shadow-focus: 0 0 0 4px var(--color-focus-ring);
+
+  /* —— Motion —— */
+  --ease-default: ease;
+  --duration-fast: 0.18s;
+  --duration-medium: 0.22s;
+  --transition-fast: var(--duration-fast) var(--ease-default);
+  --transition-medium: var(--duration-medium) var(--ease-default);
+  --transition-transform: transform var(--duration-medium) var(--ease-default);
+  --transition-btn: transform var(--duration-medium) var(--ease-default),
+    filter var(--duration-fast) var(--ease-default),
+    box-shadow var(--duration-fast) var(--ease-default);
+
+  /* —— Z-index stack —— */
+  --z-breadcrumbs: 100;
+  --z-hero: 1;
+  --z-nav: 9999;
+  --z-back-to-top: 10050;
+  --z-search-overlay: 999999;
+
+  /* —— Sticky / chrome heights (mobile overrides in kt-mobile.css) —— */
+  --kt-nav-height: 72px;
+  --kt-breadcrumbs-height: 0px;
+  --kt-breadcrumbs-min-height: 40px;
+  --kt-scroll-anchor-gap: 1.25rem;
+  --kt-sticky-top-stack: calc(
+    var(--kt-nav-height, 86px) + var(--kt-breadcrumbs-height, 0px)
+  );
+
+  /* —— Touch / safe area (extended in kt-mobile.css) —— */
+  --kt-safe-top: env(safe-area-inset-top, 0px);
+  --kt-safe-right: env(safe-area-inset-right, 0px);
+  --kt-safe-bottom: env(safe-area-inset-bottom, 0px);
+  --kt-safe-left: env(safe-area-inset-left, 0px);
+  --kt-touch-min: 44px;
+
+  /*
+   * Breakpoints (reference for authors; @media cannot use these variables in all browsers).
+   * JS: i18n/design-system.json → KT_DESIGN.breakpoints
+   * --bp-nav-compact: 1180px
+   * --bp-sidebar-stack: 1060px
+   */
+}
