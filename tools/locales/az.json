@@ -127,10 +127,10 @@
       ]
     },
     "inventions": {
-      "page_title": "Kəşflər və ixtiralar",
+      "page_title": "Kəşf və ixtiralar",
       "page_description": "Bu səhifədə bəşəriyyətin elm, mədəniyyət və mənəvi irsi haqqında məlumatlar təqdim olunur. Niyyətimiz bu dəyərli irsi qoruyub gələcək nəsillərə çatdırmaqdır.",
       "card_description": "Odun əhliləşdirilməsindən süni intellektə qədər insanlığın qət etdiyi yolu əks etdirən maraqlı məqalələr toplusu. Bu məqalələr kəşf və ixtiraların necə ərsəyə gəldiyini, elmə təsirini və gündəlik həyatımızı necə dəyişdiyini izah edir.",
-      "crumb": "Kəşflər və ixtiralar",
+      "crumb": "Kəşf və ixtiralar",
       "watch_video": "Videoya bax",
       "video_series": "Ocaq",
       "close_video": "Videonu bağla",
@@ -141,7 +141,7 @@
     "index_loading": "İndeks yüklənir…",
     "results_n": "{n} nəticə",
     "no_match": "Uyğun hekayə tapılmadı.",
-    "index_failed": "Axtarış indeksi yüklənmədi. Saytı http://localhost:8765/{lang}/ ünvanından açın.",
+    "index_failed": "Axtarış indeksi yüklənmədi. Səhifəni yeniləyin.",
     "tts_unsupported": "Hörmətli oxucu, təəssüf ki, bu cihazda və ya brauzerdə səsə çevirmə (TTS) xidməti mövcud deyil. Zəhmət olmasa hekayəni oxuyaraq davam edin.",
     "tts_no_voice": "Hörmətli oxucu, bu cihazda uyğun nitq səsi tapılmadı.",
     "tts_failed": "Hörmətli oxucu, hazırda səsə çevirməni başlatmaq mümkün olmadı. Zəhmət olmasa bir az sonra yenidən cəhd edin və ya hekayəni oxuyun.",

@@ -130,7 +130,7 @@
     "index_loading": "Dizin yükleniyor…",
     "results_n": "{n} sonuç",
     "no_match": "Uygun hikâye bulunamadı.",
-    "index_failed": "Arama dizini yüklenemedi. Siteyi http://localhost:8765/{lang}/ adresinden açın.",
+    "index_failed": "Arama dizini yüklenemedi. Sayfayı yenileyin.",
     "tts_unsupported": "Konuşma sentezi bu tarayıcıda kullanılamıyor. Lütfen hikâyeyi okuyarak devam edin.",
     "tts_no_voice": "Bu cihazda uygun bir konuşma sesi bulunamadı.",
     "tts_failed": "Sesli okuma başlatılamadı. Lütfen daha sonra tekrar deneyin veya hikâyeyi okuyun.",

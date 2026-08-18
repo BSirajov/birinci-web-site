@@ -17,8 +17,12 @@ if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 from brand_one_mark import ensure_brand_one_mark  # noqa: E402
 
-# User asked to remove Discovery videos; keep MP4s on disk but never emit UI.
+# Discovery videos are off. chrome_restore still strips leftover Ocaq markup
+# if a bytecode rebuild re-emits it.
 DISABLE_DISCOVERY_VIDEOS = True
+
+# Keep in sync with tools/build_website.py SITE_ASSET_VERSION
+SITE_ASSET_VERSION = "20260818j"
 
 # Top navbar stubs with no content yet — remove until sections are ready.
 # Re-enable by setting False (or removing specific keys) then rebuilding.
@@ -419,6 +423,15 @@ _DISCOVERIES_PANEL_RE = re.compile(
     r"[ \t]*<aside class=\"about-hero__panel\"[\s\S]*?</aside>\s*",
     re.I,
 )
+_HERO_H1_RE = re.compile(
+    r'(<h1 class="about-hero__title" id="about-hero-title">)([\s\S]*?)(</h1>)',
+    re.I,
+)
+_DOC_TITLE_RE = re.compile(r"(<title>)([^<]*?)( · Birİnci</title>)", re.I)
+_CRUMB_CURRENT_RE = re.compile(
+    r'(<li class="breadcrumbs__item" aria-current="page"><span>)([^<]*)(</span></li>)',
+    re.I,
+)
 _OCAQ_SLOT_RE = re.compile(
     r"<div class=\"ocaq-video-slot\"[\s\S]*?</div>",
     re.I,
@@ -526,6 +539,287 @@ def ensure_site_js_go_to_bottom(js: str) -> str:
     return js[:end] + "\n" + _GO_BOTTOM_JS + js[end:]
 
 
+SEARCH_INDEX_FAILED = {
+    "az": "Axtarış indeksi yüklənmədi. Səhifəni yeniləyin.",
+    "en": "Search index failed to load. Reload the page.",
+    "ru": "Не удалось загрузить поисковый индекс. Обновите страницу.",
+    "ky": "Издөө индекси жүктөлгөн жок. Баракты жаңыртыңыз.",
+    "tr": "Arama dizini yüklenemedi. Sayfayı yenileyin.",
+}
+
+_OLD_GLOBAL_SEARCH_CORE = """    let index = null;
+    let loading = null;
+    let lastQuery = \"\";
+
+    const closeSearch = () => {
+      root.hidden = true;
+      toggle.setAttribute(\"aria-expanded\", \"false\");
+      document.body.classList.remove(\"global-search-open\");
+    };
+
+    const openSearch = () => {
+      root.hidden = false;
+      toggle.setAttribute(\"aria-expanded\", \"true\");
+      document.body.classList.add(\"global-search-open\");
+      window.setTimeout(() => input.focus(), 20);
+      ensureIndex();
+    };
+
+    const ensureIndex = () => {
+      if (index || loading) return loading;
+      if (Array.isArray(window.__BIRINCI_SEARCH__)) {
+        index = window.__BIRINCI_SEARCH__;
+        if (status) status.textContent = `${index.length} hekayə`;
+        if (lastQuery) render(lastQuery);
+        return Promise.resolve(index);
+      }
+      const url = root.getAttribute(\"data-search-index\");
+      if (!url) return null;
+      if (status) status.textContent = \"İndeks yüklənir…\";
+      loading = new Promise((resolve, reject) => {
+        const script = document.createElement(\"script\");
+        script.src = url;
+        script.async = true;
+        script.onload = () => {
+          if (Array.isArray(window.__BIRINCI_SEARCH__)) resolve(window.__BIRINCI_SEARCH__);
+          else reject(new Error(\"empty-index\"));
+        };
+        script.onerror = () => reject(new Error(\"script-error\"));
+        document.head.appendChild(script);
+      })
+        .then((rows) => {
+          index = rows || [];
+          if (status) status.textContent = lastQuery ? status.textContent : `${index.length} hekayə`;
+          if (lastQuery) render(lastQuery);
+        })
+        .catch(() => {
+          index = [];
+          if (status) {
+            status.textContent =
+              \"Axtarış indeksi yüklənmədi. Saytı http://localhost:8765/az/ ünvanından açın.\";
+          }
+        })
+        .finally(() => {
+          loading = null;
+        });
+      return loading;
+    };
+
+    const render = (query) => {
+      lastQuery = query;
+      const q = query.trim().toLocaleLowerCase(LOCALE_TAG);
+      results.innerHTML = \"\";
+      if (!q) {
+        if (status) status.textContent = index ? `${index.length} hekayə` : \"\";
+        return;
+      }
+      if (!index) {
+        if (status) status.textContent = \"İndeks yüklənir…\";
+        return;
+      }
+      const matches = index.filter((row) => row.hay.includes(q)).slice(0, 40);
+      if (status) {
+        status.textContent = matches.length
+          ? `${matches.length} nəticə`
+          : \"Uyğun hekayə tapılmadı.\";
+      }
+"""
+
+_NEW_GLOBAL_SEARCH_CORE = r"""    let index = null;
+    let loading = null;
+    let lastQuery = "";
+    let loadedUrl = "";
+
+    const searchLang = () =>
+      (window.__BIRINCI_I18N__ && window.__BIRINCI_I18N__.lang) || LOCALE_TAG || "az";
+    const currentSearchUrl = () => root.getAttribute("data-search-index") || "";
+    const countStatus = (n) => `${n} ${tUi("stories_count_suffix", "hekayə")}`;
+    const resetIndex = () => {
+      index = null;
+      loading = null;
+      loadedUrl = "";
+      window.__BIRINCI_SEARCH__ = undefined;
+    };
+
+    const closeSearch = () => {
+      root.hidden = true;
+      toggle.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("global-search-open");
+    };
+
+    const openSearch = () => {
+      root.hidden = false;
+      toggle.setAttribute("aria-expanded", "true");
+      document.body.classList.add("global-search-open");
+      window.setTimeout(() => input.focus(), 20);
+      ensureIndex();
+    };
+
+    const ensureIndex = () => {
+      const url = currentSearchUrl();
+      if (loadedUrl && url && loadedUrl !== url) resetIndex();
+      if (index && loadedUrl === url) {
+        if (status && !lastQuery) status.textContent = countStatus(index.length);
+        return Promise.resolve(index);
+      }
+      if (loading) return loading;
+      if (!url) return null;
+      if (status) status.textContent = tJs("index_loading", "İndeks yüklənir…");
+      loadedUrl = url;
+      loading = new Promise((resolve, reject) => {
+        const script = document.createElement("script");
+        script.src = url;
+        script.async = true;
+        script.onload = () => {
+          if (Array.isArray(window.__BIRINCI_SEARCH__)) resolve(window.__BIRINCI_SEARCH__);
+          else reject(new Error("empty-index"));
+        };
+        script.onerror = () => reject(new Error("script-error"));
+        document.head.appendChild(script);
+      })
+        .then((rows) => {
+          index = rows || [];
+          if (status) status.textContent = lastQuery ? status.textContent : countStatus(index.length);
+          if (lastQuery) render(lastQuery);
+        })
+        .catch(() => {
+          index = [];
+          loadedUrl = "";
+          if (status) {
+            status.textContent = tJs("index_failed", "Axtarış indeksi yüklənmədi.").replace(
+              /\{lang\}/g,
+              searchLang()
+            );
+          }
+        })
+        .finally(() => {
+          loading = null;
+        });
+      return loading;
+    };
+
+    const render = (query) => {
+      lastQuery = query;
+      const q = query.trim().toLocaleLowerCase(searchLang());
+      results.innerHTML = "";
+      if (!q) {
+        if (status) status.textContent = index ? countStatus(index.length) : "";
+        return;
+      }
+      if (!index) {
+        if (status) status.textContent = tJs("index_loading", "İndeks yüklənir…");
+        return;
+      }
+      const matches = index.filter((row) => row.hay.includes(q)).slice(0, 40);
+      if (status) {
+        status.textContent = matches.length
+          ? tJs("results_n", "{n} nəticə").replace(/\{n\}/g, String(matches.length))
+          : tJs("no_match", "Uyğun hekayə tapılmadı.");
+      }
+"""
+
+_OLD_GLOBAL_SEARCH_KBD = """      toggle.title = \"Axtar (⌘K)\";
+      toggle.setAttribute(\"aria-label\", \"Qlobal axtarış, Command+K\");
+"""
+
+_NEW_GLOBAL_SEARCH_KBD = """      toggle.title = tUi(\"global_search_title_attr\", \"Axtar (Ctrl+K)\").replace(\"Ctrl+K\", \"⌘K\");
+      toggle.setAttribute(
+        \"aria-label\",
+        tUi(\"global_search_toggle\", \"Qlobal axtarış, Ctrl+K\").replace(\"Ctrl+K\", \"Command+K\")
+      );
+"""
+
+_GLOBAL_SEARCH_OBSERVER = """
+    if (typeof MutationObserver === \"function\") {
+      new MutationObserver(() => {
+        const url = currentSearchUrl();
+        if (!url || url === loadedUrl) return;
+        resetIndex();
+        results.innerHTML = \"\";
+        if (!root.hidden) ensureIndex();
+      }).observe(root, { attributes: true, attributeFilter: [\"data-search-index\"] });
+    }
+
+"""
+
+
+def update_locale_search_fail() -> None:
+    for lang, text in SEARCH_INDEX_FAILED.items():
+        path = TOOLS / "locales" / f"{lang}.json"
+        if not path.is_file():
+            continue
+        raw = path.read_text(encoding="utf-8")
+        new_raw, n = re.subn(
+            r'("index_failed":\s*)"(?:\\.|[^"\\])*"',
+            lambda m, value=text: m.group(1) + json.dumps(value, ensure_ascii=False),
+            raw,
+            count=1,
+        )
+        if n and new_raw != raw:
+            path.write_text(new_raw, encoding="utf-8")
+
+
+def _replace_i18n_index_failed(js: str, lang: str) -> str:
+    text = SEARCH_INDEX_FAILED.get(lang)
+    if not text:
+        return js
+    return re.sub(
+        r'"index_failed":\s*"(?:\\.|[^"\\])*"',
+        '"index_failed": ' + json.dumps(text, ensure_ascii=False),
+        js,
+        count=1,
+    )
+
+
+def ensure_site_js_search(js: str) -> str:
+    if _OLD_GLOBAL_SEARCH_CORE in js:
+        js = js.replace(_OLD_GLOBAL_SEARCH_CORE, _NEW_GLOBAL_SEARCH_CORE, 1)
+    if _OLD_GLOBAL_SEARCH_KBD in js:
+        js = js.replace(_OLD_GLOBAL_SEARCH_KBD, _NEW_GLOBAL_SEARCH_KBD, 1)
+    needle = '    toggle.addEventListener("click", () => {'
+    if (
+        'attributeFilter: ["data-search-index"]' not in js
+        and "attributeFilter: ['data-search-index']" not in js
+        and needle in js
+    ):
+        js = js.replace(needle, _GLOBAL_SEARCH_OBSERVER + needle, 1)
+    old_tui = (
+        "  const tUi = (key, fallback) =>\n"
+        "    (I18N.ui && I18N.ui[key]) || fallback || key;\n"
+        "  const tJs = (key, fallback) =>\n"
+        "    (I18N.js && I18N.js[key]) || fallback || key;"
+    )
+    new_tui = (
+        "  const liveI18n = () => window.__BIRINCI_I18N__ || I18N;\n"
+        "  const tUi = (key, fallback) => {\n"
+        "    const ui = liveI18n().ui || {};\n"
+        "    return ui[key] || fallback || key;\n"
+        "  };\n"
+        "  const tJs = (key, fallback) => {\n"
+        "    const pack = liveI18n().js || {};\n"
+        "    return pack[key] || fallback || key;\n"
+        "  };"
+    )
+    if old_tui in js:
+        js = js.replace(old_tui, new_tui, 1)
+    old_home = (
+        '      const inCategories = window.location.pathname.includes("/categories/");\n'
+        '      const homeListBase = inCategories ? "../index.html" : "index.html";\n'
+    )
+    new_home = (
+        '      const onRoot = document.body.classList.contains("page-root-home");\n'
+        '      const inCategories = window.location.pathname.includes("/categories/");\n'
+        '      const homeListBase = onRoot\n'
+        '        ? `${searchLang()}/index.html`\n'
+        '        : inCategories\n'
+        '          ? "../index.html"\n'
+        '          : "index.html";\n'
+    )
+    if old_home in js:
+        js = js.replace(old_home, new_home, 1)
+    return js
+
+
 def strip_ocaq_videos(html: str) -> str:
     html = _OCAQ_SLOT_RE.sub("", html)
     html = _OCAQ_I18N_RE.sub("", html)
@@ -542,6 +836,56 @@ def strip_ocaq_videos(html: str) -> str:
         flags=re.M,
     )
     return html
+
+
+_DISABLED_DISCOVERIES_NAV_RE = re.compile(
+    r'<a(\s+class="primary-nav__link")\s+href="#"\s+aria-disabled="true"[^>]*>'
+    r'(\s*<span class="menu-icon menu-icon--lightbulb")',
+    re.I,
+)
+_KEY_FACTS_H4_RE = re.compile(
+    r'(<div class="inventions-key-facts">\s*)<h4>(.*?)</h4>',
+    re.I | re.S,
+)
+_TOOLBAR_MOBILE_JS_RE = re.compile(
+    r"^[ \t]*<script[^>]+kt-catalog-toolbar-mobile\.js[^>]*></script>\s*\n?",
+    re.M,
+)
+_ASSET_VERSION_RE = re.compile(r"(\?v=)2026\d{4}[a-zA-Z0-9]*")
+
+
+def _discoveries_nav_href(html: str) -> str:
+    if "page-inventions" in html or 'data-lang-page="discoveries/' in html:
+        return "discoveries-and-inventions.html"
+    if re.search(r'href="\.\./(?:about|categories|discoveries)/', html):
+        return "../discoveries/discoveries-and-inventions.html"
+    return "discoveries/discoveries-and-inventions.html"
+
+
+def ensure_discoveries_nav_link(html: str, lang: str) -> str:
+    """Turn the disabled Discoveries stub into a real link when the page exists."""
+    if not (ROOT / lang / "discoveries" / "discoveries-and-inventions.html").is_file():
+        return html
+    href = _discoveries_nav_href(html)
+
+    def _repl(match: re.Match[str], target: str = href) -> str:
+        return f'<a{match.group(1)} href="{target}">{match.group(2)}'
+
+    return _DISABLED_DISCOVERIES_NAV_RE.sub(_repl, html, count=1)
+
+
+def ensure_discoveries_heading_order(html: str) -> str:
+    """Key-facts heading is H4 under an H2 entry title; use H3 instead."""
+    return _KEY_FACTS_H4_RE.sub(r"\1<h3>\2</h3>", html)
+
+
+def strip_unused_inventions_scripts(html: str) -> str:
+    """Drop KT catalog-toolbar mobile JS — Birİnci uses .tools-bar--inventions."""
+    return _TOOLBAR_MOBILE_JS_RE.sub("", html)
+
+
+def pin_asset_versions(html: str) -> str:
+    return _ASSET_VERSION_RE.sub(rf"\g<1>{SITE_ASSET_VERSION}", html)
 
 
 def ensure_page_jump_html(html: str, lang: str) -> str:
@@ -583,13 +927,38 @@ def ensure_footer_about_html(html: str, lang: str) -> str:
     return _FOOTER_ABOUT_RE.sub(rf"\1{short}\3", html, count=1)
 
 
-def ensure_discoveries_hero_html(html: str, lang: str) -> str:
-    """Keep the discoveries title; drop the hearth-of-knowledge side panel."""
-    if "inventions-page-body" not in html and "inventions-entry" not in html:
-        return html
+def _strip_hero_hearth_panel(html: str) -> str:
     if "about-hero__panel" not in html:
         return html
     return _DISCOVERIES_PANEL_RE.sub("", html, count=1)
+
+
+def ensure_discoveries_hero_html(markup: str, lang: str) -> str:
+    """Keep the discoveries title; drop the hearth-of-knowledge side panel."""
+    if "inventions-page-body" not in markup and "inventions-entry" not in markup:
+        return markup
+    markup = _strip_hero_hearth_panel(markup)
+    title = (
+        _load_locale(lang).get("ui", {}).get("inventions", {}).get("page_title") or ""
+    )
+    if not title:
+        return markup
+    title_html = _about_title_html(title)
+    escaped = html.escape(title)
+    if _HERO_H1_RE.search(markup):
+        markup = _HERO_H1_RE.sub(rf"\1{title_html}\3", markup, count=1)
+    if _DOC_TITLE_RE.search(markup):
+        markup = _DOC_TITLE_RE.sub(rf"\1{escaped}\3", markup, count=1)
+    if _CRUMB_CURRENT_RE.search(markup):
+        markup = _CRUMB_CURRENT_RE.sub(rf"\1{escaped}\3", markup, count=1)
+    return markup
+
+
+def ensure_about_hero_html(html: str, lang: str) -> str:
+    """Keep the Mission title; drop the hearth-of-knowledge side panel."""
+    if "page-about" not in html and "about-page" not in html:
+        return html
+    return _strip_hero_hearth_panel(html)
 
 
 def _about_title_html(title: str) -> str:
@@ -635,7 +1004,7 @@ def build_root_intro_hero_html() -> str:
         "      </div>\n"
         '      <div class="intro__visual">\n'
         f'        <img src="../assets/Pearl%20with%20Background%203.png?v={ROOT_HOME_ASSET_VERSION}" '
-        'alt="" width="1536" height="1024" decoding="async" />\n'
+        'alt="Birİnci" width="1536" height="1024" decoding="async" />\n'
         "      </div>\n"
         "    </div>\n"
         "  </section>"
@@ -717,15 +1086,20 @@ _TOP_NAV_DISABLED_LINK_RE = re.compile(
 
 
 def _stories_all_href(html: str, lang: str) -> str:
-    match = re.search(r'href="([^"]*categories/[^"]+\.html)"', html)
-    if not match:
-        return "index.html?view=list"
-    href = match.group(1)
-    prefix = re.match(r"^([a-z]{2})/", href)
-    if prefix:
-        return f"{prefix.group(1)}/index.html?view=list"
-    if href.startswith("../"):
+    if "page-root-home" in html:
+        return f"{lang}/index.html?view=list"
+    if "page-inventions" in html or 'data-lang-page="discoveries/' in html:
         return "../index.html?view=list"
+    if re.search(r'href="\.\./(?:about|categories|discoveries)/', html):
+        return "../index.html?view=list"
+    match = re.search(r'href="([^"]*categories/[^"]+\.html)"', html)
+    if match:
+        href = match.group(1)
+        prefix = re.match(r"^([a-z]{2})/", href)
+        if prefix:
+            return f"{prefix.group(1)}/index.html?view=list"
+        if href.startswith("../"):
+            return "../index.html?view=list"
     return "index.html?view=list"
 
 
@@ -741,45 +1115,76 @@ _ICON_LIST = (
 )
 
 
+_LIT_FLAT_LINK_RE = re.compile(
+    r'(<a class="primary-nav__link" href=")[^"]*(" data-nav-stories-all>'
+    r'[\s\S]*?</svg></span>\s*<span>)([^<]*)(</span></a>)',
+    re.I,
+)
+_LIT_BOOK_ICON_RE = re.compile(
+    r'(<span class="menu-icon menu-icon--book"[^>]*>[\s\S]*?</span>)',
+    re.I,
+)
+
+
+def _replace_balanced_details(html: str, class_name: str, replacement: str) -> str:
+    """Replace a top-level ``<details class="... class_name ...">`` block."""
+    removed = _remove_balanced_details(html, class_name)
+    if removed == html:
+        return html
+    # Re-find the cut point by comparing prefixes is fragile; re-run locate.
+    needle = f'class="nav-dropdown {class_name}"'
+    start = html.find(f"<details {needle}")
+    if start < 0:
+        m = re.search(
+            rf"<details\b[^>]*\b{re.escape(class_name)}\b[^>]*>",
+            html,
+        )
+        if not m:
+            return html
+        start = m.start()
+    i = start
+    depth = 0
+    while i < len(html):
+        if html.startswith("<details", i):
+            depth += 1
+            i = html.find(">", i) + 1
+            continue
+        if html.startswith("</details>", i):
+            depth -= 1
+            i += len("</details>")
+            if depth == 0:
+                return html[:start] + replacement + html[i:]
+            continue
+        i += 1
+    return html
+
+
 def ensure_literature_submenu(source: str, lang: str) -> str:
-    """Literature menu: All (stories list) + By Category (existing mega menu)."""
-    if 'data-nav-branch="stories"' not in source:
-        return source
-    all_label = html.escape(NAV_STORIES_ALL.get(lang) or NAV_STORIES_ALL["en"])
-    by_cat = html.escape(NAV_STORIES_BY_CATEGORY.get(lang) or NAV_STORIES_BY_CATEGORY["en"])
-    all_href = _stories_all_href(source, lang)
-    escaped_href = html.escape(all_href, quote=True)
+    """Stories top-nav is a single link to the full collection (no submenu)."""
+    label = html.escape(NAV_LITERATURE_LABEL.get(lang) or NAV_LITERATURE_LABEL["en"])
+    href = html.escape(_stories_all_href(source, lang), quote=True)
 
-    start = source.find('data-nav-branch="stories"')
-    panel = source.find('id="literature-mega-panel"', start)
-    if start != -1 and panel != -1:
-        chunk = source[start:panel]
-        new_chunk, n = _TOGGLE_COPY_RE.subn(
-            lambda m, title=by_cat: m.group(1) + title + m.group(3),
-            chunk,
-            count=1,
-        )
-        if n:
-            source = source[:start] + new_chunk + source[panel:]
-
-    all_link = (
-        f'<a class="nav-dropdown-link" href="{escaped_href}" '
-        f'data-nav-stories-all>{_ICON_LIST}'
-        f'<span class="nav-dropdown-link-copy">'
-        f'<span class="nav-dropdown-link-title">{all_label}</span>'
-        f"</span></a>\n          "
-    )
-    if "data-nav-stories-all" not in source:
-        source, n = _NESTED_STORIES_OPEN_RE.subn(
-            lambda m, prefix=all_link: prefix + m.group(1),
+    if "nav-dropdown--literature" in source:
+        block_m = re.search(
+            rf"<details\b[^>]*\bnav-dropdown--literature\b[\s\S]*?</details>",
             source,
-            count=1,
+            re.I,
         )
-    else:
-        source = _ALL_LINK_RE.sub(
-            lambda m, href=escaped_href, title=all_label: (
-                m.group(1) + href + m.group(3) + title + m.group(5)
-            ),
+        icon = _ICON_LIST
+        if block_m:
+            icon_m = _LIT_BOOK_ICON_RE.search(block_m.group(0))
+            if icon_m:
+                icon = icon_m.group(1)
+        link = (
+            f'<a class="primary-nav__link" href="{href}" '
+            f'data-nav-stories-all>{icon}<span>{label}</span></a>'
+        )
+        source = _replace_balanced_details(source, "nav-dropdown--literature", link)
+        return ensure_literature_nav_label(source, lang)
+
+    if _LIT_FLAT_LINK_RE.search(source):
+        source = _LIT_FLAT_LINK_RE.sub(
+            lambda m, h=href, t=label: m.group(1) + h + m.group(2) + t + m.group(4),
             source,
             count=1,
         )
@@ -837,16 +1242,21 @@ def hide_empty_top_nav(html: str) -> str:
 
 def patch_emitted_html(html: str, lang: str, *, inventions: bool = False) -> str:
     html = hide_empty_top_nav(html)
+    html = ensure_discoveries_nav_link(html, lang)
     html = ensure_page_jump_html(html, lang)
     html = ensure_literature_submenu(html, lang)
     html = ensure_literature_nav_label(html, lang)
     html = ensure_footer_about_html(html, lang)
     html = ensure_brand_home_href(html)
     html = ensure_stories_hero_html(html, lang)
+    html = ensure_about_hero_html(html, lang)
     if inventions or "ocaq-video" in html or "inventions-entry" in html:
         if DISABLE_DISCOVERY_VIDEOS:
             html = strip_ocaq_videos(html)
         html = ensure_discoveries_hero_html(html, lang)
+        html = ensure_discoveries_heading_order(html)
+        html = strip_unused_inventions_scripts(html)
+    html = pin_asset_versions(html)
     return html
 
 
@@ -866,6 +1276,7 @@ def update_locale_discoveries_descriptions() -> None:
 
 
 def apply_shared_assets() -> None:
+    update_locale_search_fail()
     css_path = ROOT / "assets" / "site.css"
     css_path.write_text(ensure_site_css_chrome(css_path.read_text(encoding="utf-8")), encoding="utf-8")
 
@@ -873,10 +1284,11 @@ def apply_shared_assets() -> None:
     for lang in ("az", "en", "ru", "ky", "tr"):
         js_path = ROOT / lang / "assets" / "site.js"
         if js_path.is_file():
-            js_path.write_text(
-                ensure_site_js_go_to_bottom(js_path.read_text(encoding="utf-8")),
-                encoding="utf-8",
-            )
+            js = js_path.read_text(encoding="utf-8")
+            js = ensure_site_js_go_to_bottom(js)
+            js = ensure_site_js_search(js)
+            js = _replace_i18n_index_failed(js, lang)
+            js_path.write_text(js, encoding="utf-8")
 
 
 _BREADCRUMBS_RE = re.compile(
@@ -896,9 +1308,35 @@ _CATEGORIES_SECTION_RE = re.compile(
     re.I,
 )
 
-ROOT_HOME_ASSET_VERSION = "20260818g"
+ROOT_HOME_ASSET_VERSION = SITE_ASSET_VERSION
 
 ROOT_ENTRY_LANGS = ("az", "en", "ru", "ky")
+ROOT_CHROME_UI_KEYS = (
+    "skip_to_content",
+    "open_menu",
+    "close_menu",
+    "main_menu",
+    "lang_switcher_label",
+    "search",
+    "search_aria",
+    "global_search",
+    "global_search_toggle",
+    "global_search_title_attr",
+    "close_search",
+    "close",
+    "search_stories_label",
+    "search_stories_placeholder",
+    "search_filter_label",
+    "search_results_count",
+    "clear_search_filter",
+    "go_to_bottom",
+    "back_to_top",
+    "footer_contact",
+    "footer_phone",
+    "footer_address",
+    "footer_website",
+    "site_description",
+)
 
 ROOT_ENTRY_SECTION_LABEL = {
     "az": "Əsas bölmələr",
@@ -982,22 +1420,83 @@ _ROOT_ENTRY_SCRIPT = """\
     if (source && L.intro_source) source.textContent = L.intro_source;
     var footerAbout = document.querySelector(".footer-about");
     if (footerAbout && L.footer_about) footerAbout.textContent = L.footer_about;
-    var litNav = document.querySelector(
-      ".nav-dropdown--literature > .nav-dropdown__summary > span:not(.menu-icon)"
-    );
-    if (litNav && L.nav_label) litNav.textContent = L.nav_label;
     var storiesAll = document.querySelector("[data-nav-stories-all]");
     if (storiesAll) {
       if (L.stories_all_href) storiesAll.href = L.stories_all_href;
-      var allTitle = storiesAll.querySelector(".nav-dropdown-link-title");
-      if (allTitle && L.nav_stories_all) allTitle.textContent = L.nav_stories_all;
+      var litNav = storiesAll.querySelector("span:not(.menu-icon)");
+      if (litNav && L.nav_label) litNav.textContent = L.nav_label;
     }
-    var byCategory = document.querySelector(
-      '[data-nav-branch="stories"] [data-nav-mega-toggle] .nav-dropdown-link-title'
-    );
-    if (byCategory && L.nav_stories_by_category) byCategory.textContent = L.nav_stories_by_category;
     var search = document.getElementById("global-search");
     if (search && L.search_index) search.setAttribute("data-search-index", L.search_index);
+    var ui = L.ui || {};
+    function setText(el, text) {
+      if (el && text) el.textContent = text;
+    }
+    function setAttr(el, name, value) {
+      if (el && value) el.setAttribute(name, value);
+    }
+    setText(document.querySelector(".skip-link"), ui.skip_to_content);
+    setAttr(document.getElementById("nav-toggle"), "aria-label", ui.open_menu);
+    setAttr(document.getElementById("primaryNav"), "aria-label", ui.main_menu);
+    setAttr(document.querySelector(".lang-switcher"), "aria-label", ui.lang_switcher_label);
+    var disc = document.querySelector('.primary-nav a[href*="discoveries"]');
+    if (disc) {
+      if (L.discoveries_href) disc.setAttribute("href", L.discoveries_href);
+      setText(disc.querySelector("span:not(.menu-icon)"), L.discoveries_label);
+    }
+    setText(
+      document.querySelector(".nav-dropdown--about .nav-dropdown__summary > span:not(.menu-icon)"),
+      L.about_label
+    );
+    var aboutLink = document.querySelector(".nav-dropdown--about .nav-dropdown-link");
+    if (aboutLink && L.about_href) aboutLink.setAttribute("href", L.about_href);
+    setText(document.querySelector(".nav-dropdown--about .nav-dropdown-link-title"), L.about_item);
+    var searchToggle = document.getElementById("global-search-toggle");
+    setAttr(searchToggle, "title", ui.global_search_title_attr);
+    setAttr(searchToggle, "aria-label", ui.global_search_toggle);
+    setText(document.querySelector(".global-search-toggle__label"), ui.search);
+    setText(document.getElementById("global-search-title"), ui.global_search);
+    document.querySelectorAll("[data-global-search-close]").forEach(function (btn) {
+      setAttr(
+        btn,
+        "aria-label",
+        btn.classList.contains("global-search__backdrop") ? ui.close_search : ui.close
+      );
+    });
+    setText(document.querySelector(".global-search__field .visually-hidden"), ui.search_stories_label);
+    var searchInput = document.getElementById("global-search-input");
+    if (searchInput && ui.search_stories_placeholder) {
+      searchInput.setAttribute("placeholder", ui.search_stories_placeholder);
+    }
+    setAttr(document.querySelector(".page-jump"), "aria-label", L.page_jump);
+    var goBottom = document.getElementById("go-to-bottom");
+    setAttr(goBottom, "title", ui.go_to_bottom);
+    setAttr(goBottom, "aria-label", ui.go_to_bottom);
+    var backTop = document.getElementById("back-to-top");
+    setAttr(backTop, "title", ui.back_to_top);
+    setAttr(backTop, "aria-label", ui.back_to_top);
+    setText(document.querySelector(".footer-logo__tagline"), L.hero_lead);
+    setText(document.querySelector(".footer-contact__title"), ui.footer_contact);
+    var contactLabels = document.querySelectorAll(".footer-contact__label");
+    setText(contactLabels[0], ui.footer_phone);
+    setText(contactLabels[1], ui.footer_address);
+    setText(contactLabels[2], ui.footer_website);
+    var meta = document.querySelector('meta[name="description"]');
+    if (meta && L.meta_description) meta.setAttribute("content", L.meta_description);
+    var runtime = window.__BIRINCI_I18N__;
+    if (runtime) {
+      runtime.lang = code;
+      if (!runtime.ui) runtime.ui = {};
+      Object.keys(ui).forEach(function (key) {
+        runtime.ui[key] = ui[key];
+      });
+      if (L.js) {
+        if (!runtime.js) runtime.js = {};
+        Object.keys(L.js).forEach(function (key) {
+          runtime.js[key] = L.js[key];
+        });
+      }
+    }
     var switcher = document.querySelector(".lang-switcher");
     if (switcher) {
       switcher.querySelectorAll("a[data-lang]").forEach(function (link) {
@@ -1055,6 +1554,9 @@ _ROOT_ENTRY_SCRIPT = """\
     });
   }
   applyLang(readLang());
+  document.addEventListener("DOMContentLoaded", function () {
+    applyLang(readLang());
+  });
 })();
 """
 
@@ -1100,6 +1602,15 @@ def _root_entry_locale_pack(lang: str) -> dict:
         or ui.get("footer_about")
         or DISCOVERIES_HERO.get(lang, ""),
         "search_index": f"{lang}/assets/search-index.js?v={ROOT_HOME_ASSET_VERSION}",
+        "page_jump": PAGE_JUMP_NAV.get(lang, PAGE_JUMP_NAV["en"]),
+        "meta_description": ui.get("site_description", ""),
+        "discoveries_label": inv.get("page_title", ""),
+        "discoveries_href": f"{lang}/discoveries/discoveries-and-inventions.html",
+        "about_label": about.get("kicker", ""),
+        "about_item": about.get("nav_item") or about.get("page_title", ""),
+        "about_href": f"{lang}/about/mission-vision-values.html",
+        "ui": {key: ui[key] for key in ROOT_CHROME_UI_KEYS if key in ui},
+        "js": data.get("js") or {},
     }
 
 

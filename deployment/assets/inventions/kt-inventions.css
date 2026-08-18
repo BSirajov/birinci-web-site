@@ -324,6 +324,7 @@ body.inventions-preview-page {
   text-justify: auto;
 }
 
+.inventions-key-facts h3,
 .inventions-key-facts h4 {
   color: var(--blue-700);
   font-size: 11px;

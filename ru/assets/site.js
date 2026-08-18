@@ -1,4 +1,4 @@
-window.__BIRINCI_I18N__ = {"lang": "ru", "ui": {"open_menu": "Открыть меню", "close_menu": "Закрыть меню", "main_menu": "Главное меню", "coming_soon": "Скоро", "stories_coming_soon": "Рассказы скоро появятся", "stories_coming_soon_lead": "Русские рассказы готовятся. Страницы уже собраны; тексты появятся здесь, как только их добавят.", "intro_source": "Рассказы взяты из открытых интернет-источников, а иллюстрации созданы с помощью ИИ.", "story_source": "Рассказы взяты из открытых интернет-источников, а иллюстрации созданы с помощью ИИ.", "site_description": "Birİnci — собрание назидательных изречений и рассказов.", "stories_nav": "Рассказы", "stories_nav_open": "Открыть меню рассказов", "no_matching_category": "Подходящая категория не найдена.", "no_matching_story": "Подходящий рассказ не найден.", "categories_heading": "Категории", "skip_to_content": "К содержанию", "back_to_top": "Наверх", "go_to_bottom": "Вниз страницы", "search": "Поиск…", "search_aria": "Поиск", "global_search": "Глобальный поиск", "global_search_toggle": "Глобальный поиск, Ctrl+K", "global_search_title_attr": "Поиск (Ctrl+K)", "close_search": "Закрыть поиск", "close": "Закрыть", "search_stories_label": "Поиск рассказов", "search_stories_placeholder": "Искать во всех рассказах…", "search_filter_label": "Поиск", "search_results_count": "{n} результатов", "clear_search_filter": "Сбросить фильтр", "view": "Вид", "view_cards": "По категориям", "view_list": "Список", "images": "Изображения", "texts": "Текст", "show": "Показать", "hide": "Скрыть", "batch": "Количество рассказов", "batch_all": "Все", "batch_count": "Число рассказов", "batch_prev": "Назад", "batch_next": "Далее", "batch_random": "Случайно", "batch_dec": "Меньше", "batch_inc": "Больше", "batch_pager": "Страница", "listen": "Слушать", "listen_page": "Слушать страницу", "story_audio_label": "Аудио", "story_image_label": "Изображение", "story_text_label": "Текст", "queue_prev": "Предыдущий рассказ", "queue_next": "Следующий рассказ", "hide_text": "Скрыть текст", "hide_image": "Скрыть изображение", "show_text": "Показать текст", "show_image": "Показать изображение", "stories_count_suffix": "рассказов", "stop": "Стоп", "resume": "Продолжить", "play": "Играть", "mute": "Без звука", "speed": "Скорость", "close_player": "Закрыть плеер", "lang_switcher_label": "Язык", "hero_lead": "Очаг знаний и культуры", "intro_lead": "На нашем сайте представлены богатые сведения о величественных достижениях человечества на протяжении истории в науке и технике, естественных науках, общественных и гуманитарных науках, а также в литературе и искусстве; об общечеловеческих духовных ценностях, выдающихся личностях и важнейших исторических открытиях и изобретениях. Наша цель — сохранить это ценное наследие, накопленное веками, систематизировать его и передать будущим поколениям как источник знания, назидания и вдохновения.", "footer_contact": "Контакты", "footer_phone": "Телефон", "footer_address": "Адрес", "footer_website": "Сайт", "footer_phone_placeholder": "+994 XX XXX XX XX", "footer_address_placeholder": "Адрес будет добавлен", "footer_website_placeholder": "https://birinci.cloud", "footer_website_url": "https://birinci.cloud", "about": {"nav_item": "Наша миссия, видение и ценности", "page_title": "Наша миссия, видение и ценности", "page_description": "На этой странице изложены наша цель, наше видение будущего и наши основные принципы. Наш очаг стремится хранить знание и духовное наследие, делиться ими и передавать их будущим поколениям.", "kicker": "О нас", "mission_kicker": "Сегодня", "mission_title": "Миссия", "mission_body": "Наша миссия — собирать и систематизировать ценные знания о достижениях человечества на протяжении веков в областях науки и технологии, литературы и искусства, о сформированных им общечеловеческих ценностях, о воспитанных им выдающихся личностях, а также о важнейших открытиях и изобретениях, и передавать эти знания будущим поколениям как источник знания, назидания и вдохновения.", "vision_kicker": "Вперёд", "vision_title": "Видение", "vision_body": "Стать надёжным и постоянно обогащающимся очагом знаний, который хранит богатое знание и духовное наследие человечества, делает его доступным и понятным для каждого и, соединяя опыт прошлого с мыслью сегодняшнего дня, вдохновляет будущие поколения учиться, мыслить, творить и строить лучшее будущее.", "values_kicker": "На чём стоим", "values_title": "Наши ценности", "values_intro": "В основе деятельности очага лежит уважение к знанию, к человеку и к богатому наследию, созданному человечеством. Осуществляя нашу миссию и видение, мы руководствуемся следующими основными ценностями.", "values": [{"name": "Знание", "gloss": "Мы считаем знание одним из самых ценных сокровищ человечества. Мы стремимся сохранять, систематизировать и передавать будущим поколениям знания, накопленные веками в науке, технологии, литературе, искусстве и других областях."}, {"name": "Истина и надёжность", "gloss": "Ценность знания начинается с того, что оно опирается на истину. Мы придаём особое значение тому, чтобы представляемые нами сведения были верными, объективными и надёжными и, насколько возможно, опирались на авторитетные источники."}, {"name": "Просвещение", "gloss": "Одна из наших главных целей — не только собирать знание, но и делиться им и побуждать людей к учению. Мы верим, что просвещение расширяет кругозор человека, обогащает его мысль и служит развитию общества."}, {"name": "Общечеловеческие ценности", "gloss": "Такие ценности, как человеческое достоинство, справедливость, честность, милосердие, взаимное уважение и ответственность, мы считаем нравственной основой здорового общества. Мы верим, что знание должно делать человека не только более осведомлённым, но и более мудрым и ответственным."}, {"name": "Почтение к наследию", "gloss": "Научное, литературное, культурное и духовное наследие, созданное прошлыми поколениями, — великое богатство, формирующее наше настоящее. Изучать это наследие, хранить его и передавать будущим поколениям мы почитаем своим нравственным долгом."}, {"name": "Критическое и независимое мышление", "gloss": "Мы считаем важным не простое принятие знания, а его осмысленное постижение. Мы побуждаем людей задавать вопросы, исследовать, сравнивать различные взгляды, понимать причинно-следственные связи и делать обоснованные выводы."}, {"name": "Вдохновение и развитие", "gloss": "Знание не должно лишь сообщать о прошлом; оно должно и вдохновлять на создание будущего. Мы хотим, чтобы очаг был местом, которое вдохновляет людей учиться, мыслить, творить и постоянно развиваться."}]}, "inventions": {"page_title": "Открытия и изобретения", "page_description": "Понятный путеводитель по великим идеям, изменившим науку, повседневную жизнь и способы передачи знаний — с историческим контекстом и проверяемыми источниками.", "crumb": "Открытия и изобретения", "watch_video": "Смотреть видео", "video_series": "Ocaq", "close_video": "Закрыть видео", "video_note": "Ocaq — образовательная видеэнциклопедия Birİnci"}}, "js": {"index_loading": "Загрузка индекса…", "results_n": "{n} результатов", "no_match": "Подходящих рассказов нет.", "index_failed": "Не удалось загрузить поисковый индекс. Откройте сайт по адресу http://localhost:8765/ru/", "tts_unsupported": "К сожалению, синтез речи недоступен в этом браузере. Пожалуйста, продолжите чтение рассказа.", "tts_no_voice": "На этом устройстве не найден подходящий голос.", "tts_failed": "Не удалось начать озвучивание. Попробуйте позже или прочитайте рассказ.", "audio_failed": "Не удалось воспроизвести аудиофайл. Попробуйте позже."}, "show_audio_controls": false};
+window.__BIRINCI_I18N__ = {"lang": "ru", "ui": {"open_menu": "Открыть меню", "close_menu": "Закрыть меню", "main_menu": "Главное меню", "coming_soon": "Скоро", "stories_coming_soon": "Рассказы скоро появятся", "stories_coming_soon_lead": "Русские рассказы готовятся. Страницы уже собраны; тексты появятся здесь, как только их добавят.", "intro_source": "Рассказы взяты из открытых интернет-источников, а иллюстрации созданы с помощью ИИ.", "story_source": "Рассказы взяты из открытых интернет-источников, а иллюстрации созданы с помощью ИИ.", "site_description": "Birİnci — собрание назидательных изречений и рассказов.", "stories_nav": "Рассказы", "stories_nav_open": "Открыть меню рассказов", "no_matching_category": "Подходящая категория не найдена.", "no_matching_story": "Подходящий рассказ не найден.", "categories_heading": "Категории", "skip_to_content": "К содержанию", "back_to_top": "Наверх", "go_to_bottom": "Вниз страницы", "search": "Поиск…", "search_aria": "Поиск", "global_search": "Глобальный поиск", "global_search_toggle": "Глобальный поиск, Ctrl+K", "global_search_title_attr": "Поиск (Ctrl+K)", "close_search": "Закрыть поиск", "close": "Закрыть", "search_stories_label": "Поиск рассказов", "search_stories_placeholder": "Искать во всех рассказах…", "search_filter_label": "Поиск", "search_results_count": "{n} результатов", "clear_search_filter": "Сбросить фильтр", "view": "Вид", "view_cards": "По категориям", "view_list": "Список", "images": "Изображения", "texts": "Текст", "show": "Показать", "hide": "Скрыть", "batch": "Количество рассказов", "batch_all": "Все", "batch_count": "Число рассказов", "batch_prev": "Назад", "batch_next": "Далее", "batch_random": "Случайно", "batch_dec": "Меньше", "batch_inc": "Больше", "batch_pager": "Страница", "listen": "Слушать", "listen_page": "Слушать страницу", "story_audio_label": "Аудио", "story_image_label": "Изображение", "story_text_label": "Текст", "queue_prev": "Предыдущий рассказ", "queue_next": "Следующий рассказ", "hide_text": "Скрыть текст", "hide_image": "Скрыть изображение", "show_text": "Показать текст", "show_image": "Показать изображение", "stories_count_suffix": "рассказов", "stop": "Стоп", "resume": "Продолжить", "play": "Играть", "mute": "Без звука", "speed": "Скорость", "close_player": "Закрыть плеер", "lang_switcher_label": "Язык", "hero_lead": "Очаг знаний и культуры", "intro_lead": "На нашем сайте представлены богатые сведения о величественных достижениях человечества на протяжении истории в науке и технике, естественных науках, общественных и гуманитарных науках, а также в литературе и искусстве; об общечеловеческих духовных ценностях, выдающихся личностях и важнейших исторических открытиях и изобретениях. Наша цель — сохранить это ценное наследие, накопленное веками, систематизировать его и передать будущим поколениям как источник знания, назидания и вдохновения.", "footer_contact": "Контакты", "footer_phone": "Телефон", "footer_address": "Адрес", "footer_website": "Сайт", "footer_phone_placeholder": "+994 XX XXX XX XX", "footer_address_placeholder": "Адрес будет добавлен", "footer_website_placeholder": "https://birinci.cloud", "footer_website_url": "https://birinci.cloud", "about": {"nav_item": "Наша миссия, видение и ценности", "page_title": "Наша миссия, видение и ценности", "page_description": "На этой странице изложены наша цель, наше видение будущего и наши основные принципы. Наш очаг стремится хранить знание и духовное наследие, делиться ими и передавать их будущим поколениям.", "kicker": "О нас", "mission_kicker": "Сегодня", "mission_title": "Миссия", "mission_body": "Наша миссия — собирать и систематизировать ценные знания о достижениях человечества на протяжении веков в областях науки и технологии, литературы и искусства, о сформированных им общечеловеческих ценностях, о воспитанных им выдающихся личностях, а также о важнейших открытиях и изобретениях, и передавать эти знания будущим поколениям как источник знания, назидания и вдохновения.", "vision_kicker": "Вперёд", "vision_title": "Видение", "vision_body": "Стать надёжным и постоянно обогащающимся очагом знаний, который хранит богатое знание и духовное наследие человечества, делает его доступным и понятным для каждого и, соединяя опыт прошлого с мыслью сегодняшнего дня, вдохновляет будущие поколения учиться, мыслить, творить и строить лучшее будущее.", "values_kicker": "На чём стоим", "values_title": "Наши ценности", "values_intro": "В основе деятельности очага лежит уважение к знанию, к человеку и к богатому наследию, созданному человечеством. Осуществляя нашу миссию и видение, мы руководствуемся следующими основными ценностями.", "values": [{"name": "Знание", "gloss": "Мы считаем знание одним из самых ценных сокровищ человечества. Мы стремимся сохранять, систематизировать и передавать будущим поколениям знания, накопленные веками в науке, технологии, литературе, искусстве и других областях."}, {"name": "Истина и надёжность", "gloss": "Ценность знания начинается с того, что оно опирается на истину. Мы придаём особое значение тому, чтобы представляемые нами сведения были верными, объективными и надёжными и, насколько возможно, опирались на авторитетные источники."}, {"name": "Просвещение", "gloss": "Одна из наших главных целей — не только собирать знание, но и делиться им и побуждать людей к учению. Мы верим, что просвещение расширяет кругозор человека, обогащает его мысль и служит развитию общества."}, {"name": "Общечеловеческие ценности", "gloss": "Такие ценности, как человеческое достоинство, справедливость, честность, милосердие, взаимное уважение и ответственность, мы считаем нравственной основой здорового общества. Мы верим, что знание должно делать человека не только более осведомлённым, но и более мудрым и ответственным."}, {"name": "Почтение к наследию", "gloss": "Научное, литературное, культурное и духовное наследие, созданное прошлыми поколениями, — великое богатство, формирующее наше настоящее. Изучать это наследие, хранить его и передавать будущим поколениям мы почитаем своим нравственным долгом."}, {"name": "Критическое и независимое мышление", "gloss": "Мы считаем важным не простое принятие знания, а его осмысленное постижение. Мы побуждаем людей задавать вопросы, исследовать, сравнивать различные взгляды, понимать причинно-следственные связи и делать обоснованные выводы."}, {"name": "Вдохновение и развитие", "gloss": "Знание не должно лишь сообщать о прошлом; оно должно и вдохновлять на создание будущего. Мы хотим, чтобы очаг был местом, которое вдохновляет людей учиться, мыслить, творить и постоянно развиваться."}]}, "inventions": {"page_title": "Открытия и изобретения", "page_description": "Понятный путеводитель по великим идеям, изменившим науку, повседневную жизнь и способы передачи знаний — с историческим контекстом и проверяемыми источниками.", "crumb": "Открытия и изобретения", "watch_video": "Смотреть видео", "video_series": "Ocaq", "close_video": "Закрыть видео", "video_note": "Ocaq — образовательная видеэнциклопедия Birİnci"}}, "js": {"index_loading": "Загрузка индекса…", "results_n": "{n} результатов", "no_match": "Подходящих рассказов нет.", "index_failed": "Не удалось загрузить поисковый индекс. Обновите страницу.", "tts_unsupported": "К сожалению, синтез речи недоступен в этом браузере. Пожалуйста, продолжите чтение рассказа.", "tts_no_voice": "На этом устройстве не найден подходящий голос.", "tts_failed": "Не удалось начать озвучивание. Попробуйте позже или прочитайте рассказ.", "audio_failed": "Не удалось воспроизвести аудиофайл. Попробуйте позже."}, "show_audio_controls": false};
 window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 3h7l5 5v13H7z\"/><path d=\"M14 3v5h5\"/><path d=\"M9 13h6\"/><path d=\"M9 17h6\"/></svg>", "text-off": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 3h7l5 5v13H7z\"/><path d=\"M14 3v5h5\"/><path d=\"M9 13h6\"/><path d=\"M9 17h6\"/><path d=\"M5 5l14 14\"/></svg>", "eye": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/></svg>", "eye-off": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 3l18 18\"/><path d=\"M10.6 10.6a3 3 0 0 0 4.2 4.2\"/><path d=\"M9.9 5.1A11 11 0 0 1 12 5c6.5 0 10 7 10 7a19 19 0 0 1-3.2 4.1\"/><path d=\"M6.1 6.1C3.6 7.8 2 12 2 12s3.5 7 10 7c1.6 0 3.1-.3 4.4-.9\"/></svg>", "listen": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"/><path d=\"M15.54 8.46a5 5 0 0 1 0 7.07\"/><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14\"/></svg>", "stop": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"/><path d=\"M15.54 8.46a5 5 0 0 1 0 7.07\"/><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14\"/><path d=\"M3 3l18 18\"/></svg>"};
 
 (() => {
@@ -14,10 +14,15 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       else el.hidden = true;
     });
   };
-  const tUi = (key, fallback) =>
-    (I18N.ui && I18N.ui[key]) || fallback || key;
-  const tJs = (key, fallback) =>
-    (I18N.js && I18N.js[key]) || fallback || key;
+  const liveI18n = () => window.__BIRINCI_I18N__ || I18N;
+  const tUi = (key, fallback) => {
+    const ui = liveI18n().ui || {};
+    return ui[key] || fallback || key;
+  };
+  const tJs = (key, fallback) => {
+    const pack = liveI18n().js || {};
+    return pack[key] || fallback || key;
+  };
 
   const syncSearchFilterUi = (q, total) => {
     const wrap = document.querySelector(".tools-bar__search");
@@ -705,6 +710,18 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     let index = null;
     let loading = null;
     let lastQuery = "";
+    let loadedUrl = "";
+
+    const searchLang = () =>
+      (window.__BIRINCI_I18N__ && window.__BIRINCI_I18N__.lang) || LOCALE_TAG || "az";
+    const currentSearchUrl = () => root.getAttribute("data-search-index") || "";
+    const countStatus = (n) => `${n} ${tUi("stories_count_suffix", "hekayə")}`;
+    const resetIndex = () => {
+      index = null;
+      loading = null;
+      loadedUrl = "";
+      window.__BIRINCI_SEARCH__ = undefined;
+    };
 
     const closeSearch = () => {
       root.hidden = true;
@@ -721,16 +738,16 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     };
 
     const ensureIndex = () => {
-      if (index || loading) return loading;
-      if (Array.isArray(window.__BIRINCI_SEARCH__)) {
-        index = window.__BIRINCI_SEARCH__;
-        if (status) status.textContent = `${index.length} hekayə`;
-        if (lastQuery) render(lastQuery);
+      const url = currentSearchUrl();
+      if (loadedUrl && url && loadedUrl !== url) resetIndex();
+      if (index && loadedUrl === url) {
+        if (status && !lastQuery) status.textContent = countStatus(index.length);
         return Promise.resolve(index);
       }
-      const url = root.getAttribute("data-search-index");
+      if (loading) return loading;
       if (!url) return null;
-      if (status) status.textContent = "İndeks yüklənir…";
+      if (status) status.textContent = tJs("index_loading", "İndeks yüklənir…");
+      loadedUrl = url;
       loading = new Promise((resolve, reject) => {
         const script = document.createElement("script");
         script.src = url;
@@ -744,14 +761,17 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       })
         .then((rows) => {
           index = rows || [];
-          if (status) status.textContent = lastQuery ? status.textContent : `${index.length} hekayə`;
+          if (status) status.textContent = lastQuery ? status.textContent : countStatus(index.length);
           if (lastQuery) render(lastQuery);
         })
         .catch(() => {
           index = [];
+          loadedUrl = "";
           if (status) {
-            status.textContent =
-              "Axtarış indeksi yüklənmədi. Saytı http://localhost:8765/az/ ünvanından açın.";
+            status.textContent = tJs("index_failed", "Axtarış indeksi yüklənmədi.").replace(
+              /\{lang\}/g,
+              searchLang()
+            );
           }
         })
         .finally(() => {
@@ -762,24 +782,29 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
     const render = (query) => {
       lastQuery = query;
-      const q = query.trim().toLocaleLowerCase(LOCALE_TAG);
+      const q = query.trim().toLocaleLowerCase(searchLang());
       results.innerHTML = "";
       if (!q) {
-        if (status) status.textContent = index ? `${index.length} hekayə` : "";
+        if (status) status.textContent = index ? countStatus(index.length) : "";
         return;
       }
       if (!index) {
-        if (status) status.textContent = "İndeks yüklənir…";
+        if (status) status.textContent = tJs("index_loading", "İndeks yüklənir…");
         return;
       }
       const matches = index.filter((row) => row.hay.includes(q)).slice(0, 40);
       if (status) {
         status.textContent = matches.length
-          ? `${matches.length} nəticə`
-          : "Uyğun hekayə tapılmadı.";
+          ? tJs("results_n", "{n} nəticə").replace(/\{n\}/g, String(matches.length))
+          : tJs("no_match", "Uyğun hekayə tapılmadı.");
       }
+      const onRoot = document.body.classList.contains("page-root-home");
       const inCategories = window.location.pathname.includes("/categories/");
-      const homeListBase = inCategories ? "../index.html" : "index.html";
+      const homeListBase = onRoot
+        ? `${searchLang()}/index.html`
+        : inCategories
+          ? "../index.html"
+          : "index.html";
       matches.forEach((row) => {
         const a = document.createElement("a");
         a.className = "global-search__item";
@@ -797,8 +822,22 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const kbdHint = toggle.querySelector(".global-search-toggle__kbd");
     if (kbdHint && /Mac|iPhone|iPad|iPod/.test(navigator.platform || navigator.userAgent || "")) {
       kbdHint.textContent = "⌘K";
-      toggle.title = "Axtar (⌘K)";
-      toggle.setAttribute("aria-label", "Qlobal axtarış, Command+K");
+      toggle.title = tUi("global_search_title_attr", "Axtar (Ctrl+K)").replace("Ctrl+K", "⌘K");
+      toggle.setAttribute(
+        "aria-label",
+        tUi("global_search_toggle", "Qlobal axtarış, Ctrl+K").replace("Ctrl+K", "Command+K")
+      );
+    }
+
+
+    if (typeof MutationObserver === "function") {
+      new MutationObserver(() => {
+        const url = currentSearchUrl();
+        if (!url || url === loadedUrl) return;
+        resetIndex();
+        results.innerHTML = "";
+        if (!root.hidden) ensureIndex();
+      }).observe(root, { attributes: true, attributeFilter: ["data-search-index"] });
     }
 
     toggle.addEventListener("click", () => {

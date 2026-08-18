@@ -82,10 +82,6 @@
   color: var(--ink-soft, #345f86);
 }
 
-.page-inventions .research-hero-related {
-  display: none;
-}
-
 .page-inventions .resource-link {
   color: var(--nav-blue, #0069b4);
   word-break: break-word;

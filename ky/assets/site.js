@@ -1,4 +1,4 @@
-window.__BIRINCI_I18N__ = {"lang": "ky", "ui": {"open_menu": "Менюну ачуу", "close_menu": "Менюну жабуу", "main_menu": "Негизги меню", "coming_soon": "Жакында", "stories_coming_soon": "Аңгемелер жакында", "stories_coming_soon_lead": "Бул тил үчүн аңгемелер даярдалууда. Барактын түзүлүшү даяр; тексттер кошулганда бул жерде көрүнөт.", "intro_source": "Аңгемелер ачык интернет булактарынан алынган, иллюстрациялар болсо ЖИ менен түзүлгөн.", "story_source": "Аңгемелер ачык интернет булактарынан алынган, иллюстрациялар болсо ЖИ менен түзүлгөн.", "site_description": "Birİnci — үлгүлүү сөздөр менен аңгемелер жыйнагы.", "stories_nav": "Аңгемелер", "stories_nav_open": "Аңгеме менюсун ачуу", "no_matching_category": "Ылайыктуу категория табылган жок.", "no_matching_story": "Ылайыктуу аңгеме табылган жок.", "categories_heading": "Категориялар", "skip_to_content": "Мазмунга өтүү", "back_to_top": "Барактын башына кайтуу", "go_to_bottom": "Барактын аягына өтүү", "search": "Издөө…", "search_aria": "Издөө", "global_search": "Жалпы издөө", "global_search_toggle": "Жалпы издөө, Ctrl+K", "global_search_title_attr": "Издөө (Ctrl+K)", "close_search": "Издөөнү жабуу", "close": "Жабуу", "search_stories_label": "Аңгеме издөө", "search_stories_placeholder": "Бардык аңгемелерден издөө…", "search_filter_label": "Издөө", "search_results_count": "{n} жыйынтык", "clear_search_filter": "Фильтрди тазалоо", "view": "Көрүнүш", "view_cards": "Категориялар боюнча", "view_list": "Тизме", "images": "Сүрөттөр", "texts": "Текст", "show": "Көрсөтүү", "hide": "Жашыруу", "batch": "Аңгемелердин саны", "batch_all": "Баары", "batch_count": "Аңгеме саны", "batch_prev": "Мурунку", "batch_next": "Кийинки", "batch_random": "Кокустан", "batch_dec": "Азайтуу", "batch_inc": "Көбөйтүү", "batch_pager": "Бет", "listen": "Текстти угуу", "listen_page": "Бетти угуу", "story_audio_label": "Аудио", "story_image_label": "Сүрөт", "story_text_label": "Текст", "queue_prev": "Мурунку аңгеме", "queue_next": "Кийинки аңгеме", "hide_text": "Текстти жашыруу", "hide_image": "Сүрөттү жашыруу", "show_text": "Текстти көрсөтүү", "show_image": "Сүрөттү көрсөтүү", "stories_count_suffix": "аңгеме", "stop": "Токтотуу", "resume": "Улантуу", "play": "Ойнотуу", "mute": "Үнсүз", "speed": "Ылдамдык", "close_player": "Плеерди жабуу", "lang_switcher_label": "Тил", "hero_lead": "Билим жана маданият очогу", "intro_lead": "Сайтыбызда адамзаттын тарых бою илим жана технология, табият илимдери, коомдук жана гуманитардык илимдер, ошондой эле адабият менен искусствонун ар кандай тармактарындагы улуу жетишкендиктери, жалпы адамзаттык адеп-ахлактык баалуулуктар, көрүнүктүү инсандар, маанилүү тарыхый ачылыштар жана ойлоп табуулар жөнүндө бай маалымат берилет. Максатыбыз — кылымдар бою топтолгон бул баалуу мурасты сактоо, системалаштыруу жана келечек муундарга билим, үлгү жана шыктандыруу булагы катары жеткирүү.", "footer_contact": "Байланыш", "footer_phone": "Телефон", "footer_address": "Дарек", "footer_website": "Веб-сайт", "footer_phone_placeholder": "+994 XX XXX XX XX", "footer_address_placeholder": "Дарек кошулат", "footer_website_placeholder": "https://birinci.cloud", "footer_website_url": "https://birinci.cloud", "about": {"nav_item": "Миссиябыз, Көз караш жана Баалуулуктарыбыз", "page_title": "Миссиябыз, Көз караш жана Баалуулуктарыбыз", "page_description": "Бул баракта максатыбыз, келечекке көз карашыбыз жана негизги принциптерибиз баяндалат. Очогубуз билимди жана руханий мурасты сактоону, бөлүшүүнү жана келечек муундарга жеткирүүнү көздөйт.", "kicker": "Биз жөнүндө", "mission_kicker": "Бүгүн", "mission_title": "Миссия", "mission_body": "Миссиябыз — адамзаттын кылымдар бою илим жана технология, адабият жана искусство тармактарындагы жетишкендиктери, калыптандырган жалпы адамзаттык баалуулуктары, тарбиялаган көрүнүктүү инсандары, ошондой эле маанилүү ачылыштар менен ойлоп табуулар жөнүндөгү баалуу билимдерди топтоо, системалаштыруу жана келечек муундарга билим, үлгү жана шыктандыруу булагы катары өткөрүү.", "vision_kicker": "Алдыга", "vision_title": "Көз караш", "vision_body": "Адамзаттын бай билим жана руханий мурасын коргогон, аны ар кимге жеткиликтүү жана түшүнүктүү кылган, өткөндүн тажрыйбасын бүгүнкү ой жүгүртүү менен айкалыштырып, келечек муундарды үйрөнүүгө, ойлонууга, жаратууга жана жакшыраак келечек курууга шыктандырган ишенимдүү жана дайыма байып турган билим очогуна айлануу.", "values_kicker": "Таянганыбыз", "values_title": "Биздин баалуулуктар", "values_intro": "Очоктун ишмердигинин негизинде билимге, адамга жана адамзат жараткан бай мураска урмат жатат. Миссиябыз менен көз карашыбызды ишке ашырууда төмөнкү негизги баалуулуктарды жетекчиликке алабыз.", "values": [{"name": "Билим", "gloss": "Билимди адамзаттын эң баалуу кенчтеринин бири деп эсептейбиз. Кылымдар бою илим, технология, адабият, искусство жана башка тармактарда топтолгон билимдерди сактоого, системалаштырууга жана келечек муундарга жеткирүүгө аракет кылабыз."}, {"name": "Чындык жана ишенимдүүлүк", "gloss": "Билимдин баалуулугу анын чындыкка таянышынан башталат. Сунуштаган маалыматтарыбыздын туура, объективдүү жана ишенимдүү болушуна, мүмкүн болушунча беделдүү булактарга негизделишине өзгөчө маани беребиз."}, {"name": "Агартуу", "gloss": "Билимди гана топтоо эмес, аны бөлүшүү жана адамдарды үйрөнүүгө шыктандыруу да негизги максаттарыбыздан. Ишенебиз: агартуу адамдын дүйнө таанымын кеңейтет, ой жүгүртүүсүн байытат жана коомдун өнүгүшүнө кызмат кылат."}, {"name": "Жалпы адамзаттык баалуулуктар", "gloss": "Адамдык кадыр-барк, адилеттүүлүк, чынчылдык, мээрмандык, өз ара урмат жана жоопкерчилик сыяктуу баалуулуктарды дени сак коомдун адеп-ахлактык негизи деп эсептейбиз. Билим адамды гана көбүрөөк маалыматтуу эмес, ошондой эле акылман жана жоопкерчиликтүү кылышы керек деп ишенебиз."}, {"name": "Мураска урмат", "gloss": "Мурунку муундар жараткан илимий, адабий, маданий жана руханий мурас бүгүнкүбүздү калыптандырган чоң байлык. Бул мурасты үйрөнүүнү, сактоону жана келечек муундарга жеткирүүнү өзүбүзгө адеп-ахлактык парз билебиз."}, {"name": "Сынчыл жана көз карандысыз ой жүгүртүү", "gloss": "Билимдин жөн гана кабыл алынышын эмес, ойлонуп түшүнүлүшүн маанилүү деп эсептейбиз. Адамдарды суроо берүүгө, изилдөөгө, ар түрдүү көз караштарды салыштырууга, себеп-натыйжа байланыштарын түшүнүүгө жана негизделген жыйынтык чыгарууга үндөйбүз."}, {"name": "Шыктандыруу жана өнүгүү", "gloss": "Билим өткөн жөнүндө гана маалымат бербеши, келечекти жаратууга да шыктандырышы керек. Очоктун адамдарды үйрөнүүгө, ойлонууга, жаратууга жана дайыма өнүгүүгө шыктандырган жай болушун каалайбыз."}]}, "inventions": {"page_title": "Ачылыштар жана ойлоп табуулар", "page_description": "Илимди, күнүмдүк жашоону жана билим бөлүшүүнү өзгөрткөн чоң идеяларга түшүнүктүү жол көрсөткүч — тарыхы, контексти жана текшерүүгө боло турган булактары менен.", "crumb": "Ачылыштар жана ойлоп табуулар", "watch_video": "Видеону көрүү", "video_series": "Ocaq", "close_video": "Видеону жабуу", "video_note": "Ocaq — Birİnciнин билим берүүчү видео энциклопедиясы"}}, "js": {"index_loading": "Индекс жүктөлүүдө…", "results_n": "{n} жыйынтык", "no_match": "Ылайыктуу аңгеме табылган жок.", "index_failed": "Издөө индекси жүктөлгөн жок. Сайтты http://localhost:8765/ky/ дарегинен ачыңыз.", "tts_unsupported": "Кеп синтези бул браузерде жеткиликсиз. Сураныч, аңгемени окуп улантыңыз.", "tts_no_voice": "Бул түзмөктө ылайыктуу үн табылган жок.", "tts_failed": "Үн чыгарууну баштоо мүмкүн болгон жок. Кийинчерээк кайра аракет кылыңыз же аңгемени окуңуз.", "audio_failed": "Аудио файлды ойнотуу мүмкүн болгон жок. Кийинчерээк кайра аракет кылыңыз."}, "show_audio_controls": false};
+window.__BIRINCI_I18N__ = {"lang": "ky", "ui": {"open_menu": "Менюну ачуу", "close_menu": "Менюну жабуу", "main_menu": "Негизги меню", "coming_soon": "Жакында", "stories_coming_soon": "Аңгемелер жакында", "stories_coming_soon_lead": "Бул тил үчүн аңгемелер даярдалууда. Барактын түзүлүшү даяр; тексттер кошулганда бул жерде көрүнөт.", "intro_source": "Аңгемелер ачык интернет булактарынан алынган, иллюстрациялар болсо ЖИ менен түзүлгөн.", "story_source": "Аңгемелер ачык интернет булактарынан алынган, иллюстрациялар болсо ЖИ менен түзүлгөн.", "site_description": "Birİnci — үлгүлүү сөздөр менен аңгемелер жыйнагы.", "stories_nav": "Аңгемелер", "stories_nav_open": "Аңгеме менюсун ачуу", "no_matching_category": "Ылайыктуу категория табылган жок.", "no_matching_story": "Ылайыктуу аңгеме табылган жок.", "categories_heading": "Категориялар", "skip_to_content": "Мазмунга өтүү", "back_to_top": "Барактын башына кайтуу", "go_to_bottom": "Барактын аягына өтүү", "search": "Издөө…", "search_aria": "Издөө", "global_search": "Жалпы издөө", "global_search_toggle": "Жалпы издөө, Ctrl+K", "global_search_title_attr": "Издөө (Ctrl+K)", "close_search": "Издөөнү жабуу", "close": "Жабуу", "search_stories_label": "Аңгеме издөө", "search_stories_placeholder": "Бардык аңгемелерден издөө…", "search_filter_label": "Издөө", "search_results_count": "{n} жыйынтык", "clear_search_filter": "Фильтрди тазалоо", "view": "Көрүнүш", "view_cards": "Категориялар боюнча", "view_list": "Тизме", "images": "Сүрөттөр", "texts": "Текст", "show": "Көрсөтүү", "hide": "Жашыруу", "batch": "Аңгемелердин саны", "batch_all": "Баары", "batch_count": "Аңгеме саны", "batch_prev": "Мурунку", "batch_next": "Кийинки", "batch_random": "Кокустан", "batch_dec": "Азайтуу", "batch_inc": "Көбөйтүү", "batch_pager": "Бет", "listen": "Текстти угуу", "listen_page": "Бетти угуу", "story_audio_label": "Аудио", "story_image_label": "Сүрөт", "story_text_label": "Текст", "queue_prev": "Мурунку аңгеме", "queue_next": "Кийинки аңгеме", "hide_text": "Текстти жашыруу", "hide_image": "Сүрөттү жашыруу", "show_text": "Текстти көрсөтүү", "show_image": "Сүрөттү көрсөтүү", "stories_count_suffix": "аңгеме", "stop": "Токтотуу", "resume": "Улантуу", "play": "Ойнотуу", "mute": "Үнсүз", "speed": "Ылдамдык", "close_player": "Плеерди жабуу", "lang_switcher_label": "Тил", "hero_lead": "Билим жана маданият очогу", "intro_lead": "Сайтыбызда адамзаттын тарых бою илим жана технология, табият илимдери, коомдук жана гуманитардык илимдер, ошондой эле адабият менен искусствонун ар кандай тармактарындагы улуу жетишкендиктери, жалпы адамзаттык адеп-ахлактык баалуулуктар, көрүнүктүү инсандар, маанилүү тарыхый ачылыштар жана ойлоп табуулар жөнүндө бай маалымат берилет. Максатыбыз — кылымдар бою топтолгон бул баалуу мурасты сактоо, системалаштыруу жана келечек муундарга билим, үлгү жана шыктандыруу булагы катары жеткирүү.", "footer_contact": "Байланыш", "footer_phone": "Телефон", "footer_address": "Дарек", "footer_website": "Веб-сайт", "footer_phone_placeholder": "+994 XX XXX XX XX", "footer_address_placeholder": "Дарек кошулат", "footer_website_placeholder": "https://birinci.cloud", "footer_website_url": "https://birinci.cloud", "about": {"nav_item": "Миссиябыз, Көз караш жана Баалуулуктарыбыз", "page_title": "Миссиябыз, Көз караш жана Баалуулуктарыбыз", "page_description": "Бул баракта максатыбыз, келечекке көз карашыбыз жана негизги принциптерибиз баяндалат. Очогубуз билимди жана руханий мурасты сактоону, бөлүшүүнү жана келечек муундарга жеткирүүнү көздөйт.", "kicker": "Биз жөнүндө", "mission_kicker": "Бүгүн", "mission_title": "Миссия", "mission_body": "Миссиябыз — адамзаттын кылымдар бою илим жана технология, адабият жана искусство тармактарындагы жетишкендиктери, калыптандырган жалпы адамзаттык баалуулуктары, тарбиялаган көрүнүктүү инсандары, ошондой эле маанилүү ачылыштар менен ойлоп табуулар жөнүндөгү баалуу билимдерди топтоо, системалаштыруу жана келечек муундарга билим, үлгү жана шыктандыруу булагы катары өткөрүү.", "vision_kicker": "Алдыга", "vision_title": "Көз караш", "vision_body": "Адамзаттын бай билим жана руханий мурасын коргогон, аны ар кимге жеткиликтүү жана түшүнүктүү кылган, өткөндүн тажрыйбасын бүгүнкү ой жүгүртүү менен айкалыштырып, келечек муундарды үйрөнүүгө, ойлонууга, жаратууга жана жакшыраак келечек курууга шыктандырган ишенимдүү жана дайыма байып турган билим очогуна айлануу.", "values_kicker": "Таянганыбыз", "values_title": "Биздин баалуулуктар", "values_intro": "Очоктун ишмердигинин негизинде билимге, адамга жана адамзат жараткан бай мураска урмат жатат. Миссиябыз менен көз карашыбызды ишке ашырууда төмөнкү негизги баалуулуктарды жетекчиликке алабыз.", "values": [{"name": "Билим", "gloss": "Билимди адамзаттын эң баалуу кенчтеринин бири деп эсептейбиз. Кылымдар бою илим, технология, адабият, искусство жана башка тармактарда топтолгон билимдерди сактоого, системалаштырууга жана келечек муундарга жеткирүүгө аракет кылабыз."}, {"name": "Чындык жана ишенимдүүлүк", "gloss": "Билимдин баалуулугу анын чындыкка таянышынан башталат. Сунуштаган маалыматтарыбыздын туура, объективдүү жана ишенимдүү болушуна, мүмкүн болушунча беделдүү булактарга негизделишине өзгөчө маани беребиз."}, {"name": "Агартуу", "gloss": "Билимди гана топтоо эмес, аны бөлүшүү жана адамдарды үйрөнүүгө шыктандыруу да негизги максаттарыбыздан. Ишенебиз: агартуу адамдын дүйнө таанымын кеңейтет, ой жүгүртүүсүн байытат жана коомдун өнүгүшүнө кызмат кылат."}, {"name": "Жалпы адамзаттык баалуулуктар", "gloss": "Адамдык кадыр-барк, адилеттүүлүк, чынчылдык, мээрмандык, өз ара урмат жана жоопкерчилик сыяктуу баалуулуктарды дени сак коомдун адеп-ахлактык негизи деп эсептейбиз. Билим адамды гана көбүрөөк маалыматтуу эмес, ошондой эле акылман жана жоопкерчиликтүү кылышы керек деп ишенебиз."}, {"name": "Мураска урмат", "gloss": "Мурунку муундар жараткан илимий, адабий, маданий жана руханий мурас бүгүнкүбүздү калыптандырган чоң байлык. Бул мурасты үйрөнүүнү, сактоону жана келечек муундарга жеткирүүнү өзүбүзгө адеп-ахлактык парз билебиз."}, {"name": "Сынчыл жана көз карандысыз ой жүгүртүү", "gloss": "Билимдин жөн гана кабыл алынышын эмес, ойлонуп түшүнүлүшүн маанилүү деп эсептейбиз. Адамдарды суроо берүүгө, изилдөөгө, ар түрдүү көз караштарды салыштырууга, себеп-натыйжа байланыштарын түшүнүүгө жана негизделген жыйынтык чыгарууга үндөйбүз."}, {"name": "Шыктандыруу жана өнүгүү", "gloss": "Билим өткөн жөнүндө гана маалымат бербеши, келечекти жаратууга да шыктандырышы керек. Очоктун адамдарды үйрөнүүгө, ойлонууга, жаратууга жана дайыма өнүгүүгө шыктандырган жай болушун каалайбыз."}]}, "inventions": {"page_title": "Ачылыштар жана ойлоп табуулар", "page_description": "Илимди, күнүмдүк жашоону жана билим бөлүшүүнү өзгөрткөн чоң идеяларга түшүнүктүү жол көрсөткүч — тарыхы, контексти жана текшерүүгө боло турган булактары менен.", "crumb": "Ачылыштар жана ойлоп табуулар", "watch_video": "Видеону көрүү", "video_series": "Ocaq", "close_video": "Видеону жабуу", "video_note": "Ocaq — Birİnciнин билим берүүчү видео энциклопедиясы"}}, "js": {"index_loading": "Индекс жүктөлүүдө…", "results_n": "{n} жыйынтык", "no_match": "Ылайыктуу аңгеме табылган жок.", "index_failed": "Издөө индекси жүктөлгөн жок. Баракты жаңыртыңыз.", "tts_unsupported": "Кеп синтези бул браузерде жеткиликсиз. Сураныч, аңгемени окуп улантыңыз.", "tts_no_voice": "Бул түзмөктө ылайыктуу үн табылган жок.", "tts_failed": "Үн чыгарууну баштоо мүмкүн болгон жок. Кийинчерээк кайра аракет кылыңыз же аңгемени окуңуз.", "audio_failed": "Аудио файлды ойнотуу мүмкүн болгон жок. Кийинчерээк кайра аракет кылыңыз."}, "show_audio_controls": false};
 window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 3h7l5 5v13H7z\"/><path d=\"M14 3v5h5\"/><path d=\"M9 13h6\"/><path d=\"M9 17h6\"/></svg>", "text-off": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 3h7l5 5v13H7z\"/><path d=\"M14 3v5h5\"/><path d=\"M9 13h6\"/><path d=\"M9 17h6\"/><path d=\"M5 5l14 14\"/></svg>", "eye": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/></svg>", "eye-off": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 3l18 18\"/><path d=\"M10.6 10.6a3 3 0 0 0 4.2 4.2\"/><path d=\"M9.9 5.1A11 11 0 0 1 12 5c6.5 0 10 7 10 7a19 19 0 0 1-3.2 4.1\"/><path d=\"M6.1 6.1C3.6 7.8 2 12 2 12s3.5 7 10 7c1.6 0 3.1-.3 4.4-.9\"/></svg>", "listen": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"/><path d=\"M15.54 8.46a5 5 0 0 1 0 7.07\"/><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14\"/></svg>", "stop": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"/><path d=\"M15.54 8.46a5 5 0 0 1 0 7.07\"/><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14\"/><path d=\"M3 3l18 18\"/></svg>"};
 
 (() => {
@@ -14,10 +14,15 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       else el.hidden = true;
     });
   };
-  const tUi = (key, fallback) =>
-    (I18N.ui && I18N.ui[key]) || fallback || key;
-  const tJs = (key, fallback) =>
-    (I18N.js && I18N.js[key]) || fallback || key;
+  const liveI18n = () => window.__BIRINCI_I18N__ || I18N;
+  const tUi = (key, fallback) => {
+    const ui = liveI18n().ui || {};
+    return ui[key] || fallback || key;
+  };
+  const tJs = (key, fallback) => {
+    const pack = liveI18n().js || {};
+    return pack[key] || fallback || key;
+  };
 
   const syncSearchFilterUi = (q, total) => {
     const wrap = document.querySelector(".tools-bar__search");
@@ -705,6 +710,18 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     let index = null;
     let loading = null;
     let lastQuery = "";
+    let loadedUrl = "";
+
+    const searchLang = () =>
+      (window.__BIRINCI_I18N__ && window.__BIRINCI_I18N__.lang) || LOCALE_TAG || "az";
+    const currentSearchUrl = () => root.getAttribute("data-search-index") || "";
+    const countStatus = (n) => `${n} ${tUi("stories_count_suffix", "hekayə")}`;
+    const resetIndex = () => {
+      index = null;
+      loading = null;
+      loadedUrl = "";
+      window.__BIRINCI_SEARCH__ = undefined;
+    };
 
     const closeSearch = () => {
       root.hidden = true;
@@ -721,16 +738,16 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     };
 
     const ensureIndex = () => {
-      if (index || loading) return loading;
-      if (Array.isArray(window.__BIRINCI_SEARCH__)) {
-        index = window.__BIRINCI_SEARCH__;
-        if (status) status.textContent = `${index.length} hekayə`;
-        if (lastQuery) render(lastQuery);
+      const url = currentSearchUrl();
+      if (loadedUrl && url && loadedUrl !== url) resetIndex();
+      if (index && loadedUrl === url) {
+        if (status && !lastQuery) status.textContent = countStatus(index.length);
         return Promise.resolve(index);
       }
-      const url = root.getAttribute("data-search-index");
+      if (loading) return loading;
       if (!url) return null;
-      if (status) status.textContent = "İndeks yüklənir…";
+      if (status) status.textContent = tJs("index_loading", "İndeks yüklənir…");
+      loadedUrl = url;
       loading = new Promise((resolve, reject) => {
         const script = document.createElement("script");
         script.src = url;
@@ -744,14 +761,17 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       })
         .then((rows) => {
           index = rows || [];
-          if (status) status.textContent = lastQuery ? status.textContent : `${index.length} hekayə`;
+          if (status) status.textContent = lastQuery ? status.textContent : countStatus(index.length);
           if (lastQuery) render(lastQuery);
         })
         .catch(() => {
           index = [];
+          loadedUrl = "";
           if (status) {
-            status.textContent =
-              "Axtarış indeksi yüklənmədi. Saytı http://localhost:8765/az/ ünvanından açın.";
+            status.textContent = tJs("index_failed", "Axtarış indeksi yüklənmədi.").replace(
+              /\{lang\}/g,
+              searchLang()
+            );
           }
         })
         .finally(() => {
@@ -762,24 +782,29 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
     const render = (query) => {
       lastQuery = query;
-      const q = query.trim().toLocaleLowerCase(LOCALE_TAG);
+      const q = query.trim().toLocaleLowerCase(searchLang());
       results.innerHTML = "";
       if (!q) {
-        if (status) status.textContent = index ? `${index.length} hekayə` : "";
+        if (status) status.textContent = index ? countStatus(index.length) : "";
         return;
       }
       if (!index) {
-        if (status) status.textContent = "İndeks yüklənir…";
+        if (status) status.textContent = tJs("index_loading", "İndeks yüklənir…");
         return;
       }
       const matches = index.filter((row) => row.hay.includes(q)).slice(0, 40);
       if (status) {
         status.textContent = matches.length
-          ? `${matches.length} nəticə`
-          : "Uyğun hekayə tapılmadı.";
+          ? tJs("results_n", "{n} nəticə").replace(/\{n\}/g, String(matches.length))
+          : tJs("no_match", "Uyğun hekayə tapılmadı.");
       }
+      const onRoot = document.body.classList.contains("page-root-home");
       const inCategories = window.location.pathname.includes("/categories/");
-      const homeListBase = inCategories ? "../index.html" : "index.html";
+      const homeListBase = onRoot
+        ? `${searchLang()}/index.html`
+        : inCategories
+          ? "../index.html"
+          : "index.html";
       matches.forEach((row) => {
         const a = document.createElement("a");
         a.className = "global-search__item";
@@ -797,8 +822,22 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const kbdHint = toggle.querySelector(".global-search-toggle__kbd");
     if (kbdHint && /Mac|iPhone|iPad|iPod/.test(navigator.platform || navigator.userAgent || "")) {
       kbdHint.textContent = "⌘K";
-      toggle.title = "Axtar (⌘K)";
-      toggle.setAttribute("aria-label", "Qlobal axtarış, Command+K");
+      toggle.title = tUi("global_search_title_attr", "Axtar (Ctrl+K)").replace("Ctrl+K", "⌘K");
+      toggle.setAttribute(
+        "aria-label",
+        tUi("global_search_toggle", "Qlobal axtarış, Ctrl+K").replace("Ctrl+K", "Command+K")
+      );
+    }
+
+
+    if (typeof MutationObserver === "function") {
+      new MutationObserver(() => {
+        const url = currentSearchUrl();
+        if (!url || url === loadedUrl) return;
+        resetIndex();
+        results.innerHTML = "";
+        if (!root.hidden) ensureIndex();
+      }).observe(root, { attributes: true, attributeFilter: ["data-search-index"] });
     }
 
     toggle.addEventListener("click", () => {

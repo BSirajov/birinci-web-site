@@ -22,14 +22,14 @@ _CANDIDATES = [
     _HERE / "__pycache__" / "build_website.cpython-314.pyc",
 ]
 
-# Keep in sync with live HTML cache-bust and docs/SITE_QA_CHECKLIST.md
-SITE_ASSET_VERSION = "20260818g"
+# SITE_ASSET_VERSION is imported from chrome_restore
 _VERSION_RE = re.compile(r"(\?v=)2026\d{4}[a-zA-Z0-9]*")
 
 if str(_HERE) not in sys.path:
     sys.path.insert(0, str(_HERE))
 from chrome_restore import (  # noqa: E402
     DISABLE_DISCOVERY_VIDEOS,
+    SITE_ASSET_VERSION,
     apply_shared_assets,
     patch_emitted_html,
     write_root_home,

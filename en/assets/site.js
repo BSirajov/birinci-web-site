@@ -1,4 +1,4 @@
-window.__BIRINCI_I18N__ = {"lang": "en", "ui": {"open_menu": "Open menu", "close_menu": "Close menu", "main_menu": "Main menu", "coming_soon": "Coming soon", "stories_coming_soon": "Stories coming soon", "stories_coming_soon_lead": "English stories are being prepared. The pages are ready; the texts will appear here as soon as they are added.", "intro_source": "Stories are taken from open Internet sources; illustrations were created with AI.", "story_source": "Stories are taken from open Internet sources; illustrations were created with AI.", "site_description": "Birİnci — a collection of edifying sayings and stories.", "stories_nav": "Stories", "stories_nav_open": "Open stories menu", "no_matching_category": "No matching category.", "no_matching_story": "No matching story.", "categories_heading": "Categories", "skip_to_content": "Skip to content", "back_to_top": "Back to top", "go_to_bottom": "Go to bottom of page", "search": "Search…", "search_aria": "Search", "global_search": "Global search", "global_search_toggle": "Global search, Ctrl+K", "global_search_title_attr": "Search (Ctrl+K)", "close_search": "Close search", "close": "Close", "search_stories_label": "Search stories", "search_stories_placeholder": "Search all stories…", "search_filter_label": "Search", "search_results_count": "{n} results", "clear_search_filter": "Clear filter", "view": "View", "view_cards": "By category", "view_list": "List", "images": "Images", "texts": "Text", "show": "Show", "hide": "Hide", "batch": "Number of stories", "batch_all": "All", "batch_count": "Story count", "batch_prev": "Previous", "batch_next": "Next", "batch_random": "Shuffle", "batch_dec": "Decrease", "batch_inc": "Increase", "batch_pager": "Page", "listen": "Listen", "listen_page": "Listen to this page", "story_audio_label": "Audio", "story_image_label": "Image", "story_text_label": "Text", "queue_prev": "Previous story", "queue_next": "Next story", "hide_text": "Hide text", "hide_image": "Hide image", "show_text": "Show text", "show_image": "Show image", "stories_count_suffix": "stories", "stop": "Stop", "resume": "Resume", "play": "Play", "mute": "Mute", "speed": "Speed", "close_player": "Close player", "lang_switcher_label": "Language", "hero_lead": "A hearth of knowledge and culture", "intro_lead": "Our site presents rich information about humanity’s magnificent achievements throughout history in science and technology, the natural sciences, the social and human sciences, as well as literature and the arts; about universal moral values, outstanding figures, and important historical discoveries and inventions. Our aim is to preserve this valuable heritage gathered over the centuries, to systematize it, and to pass it on to future generations as a source of knowledge, moral lesson, and inspiration.", "footer_contact": "Contact", "footer_phone": "Telephone", "footer_address": "Address", "footer_website": "Website", "footer_phone_placeholder": "+994 XX XXX XX XX", "footer_address_placeholder": "Address to be added", "footer_website_placeholder": "https://birinci.cloud", "footer_website_url": "https://birinci.cloud", "about": {"nav_item": "Our Mission, Vision, and Values", "page_title": "Our Mission, Vision, and Values", "page_description": "This page sets forth our purpose, our vision for the future, and our core principles. Our hearth aims to protect knowledge and moral heritage, to share them, and to pass them on to future generations.", "kicker": "About us", "mission_kicker": "Today", "mission_title": "Mission", "mission_body": "Our mission is to collect and systematize valuable knowledge about humanity’s achievements over the centuries in the fields of science and technology, literature and the arts, the universal values it has formed, the outstanding figures it has raised, as well as important discoveries and inventions, and to pass this knowledge on to future generations as a source of knowledge, moral lesson, and inspiration.", "vision_kicker": "Ahead", "vision_title": "Vision", "vision_body": "To become a reliable and constantly enriching hearth of knowledge that protects humanity's rich knowledge and moral heritage, makes it accessible and understandable for everyone, and by joining the experience of the past with the thinking of today, inspires future generations to learn, to think, to create, and to build a better future.", "values_kicker": "What we stand on", "values_title": "Our values", "values_intro": "At the foundation of the hearth’s work lies respect for knowledge, for the human being, and for the rich heritage created by humanity. In carrying out our mission and vision, we are guided by the following core values.", "values": [{"name": "Knowledge", "gloss": "We regard knowledge as one of humanity’s most precious treasures. We strive to protect, systematize, and pass on to future generations the knowledge gathered over the centuries in science, technology, literature, the arts, and other fields."}, {"name": "Truth and reliability", "gloss": "The value of knowledge begins with its being grounded in truth. We attach special importance to the accuracy, objectivity, and reliability of the information we present, and to its being based, as far as possible, on authoritative sources."}, {"name": "Enlightenment", "gloss": "One of our main aims is not only to gather knowledge, but also to share it and to encourage people to learn. We believe that enlightenment broadens a person’s worldview, enriches their thinking, and serves the development of society."}, {"name": "Universal values", "gloss": "We regard values such as human dignity, justice, honesty, compassion, mutual respect, and responsibility as the moral foundation of a healthy society. We believe that knowledge should make a person not only more informed, but also wiser and more responsible."}, {"name": "Reverence for heritage", "gloss": "The scientific, literary, cultural, and moral heritage created by past generations is a great treasure that shapes our present. We consider it our moral duty to study this heritage, to protect it, and to pass it on to future generations."}, {"name": "Critical and independent thought", "gloss": "We consider it important that knowledge not merely be accepted, but be understood through thinking. We encourage people to ask questions, to investigate, to compare different views, to understand cause-and-effect relationships, and to draw well-founded conclusions."}, {"name": "Inspiration and development", "gloss": "Knowledge should not only inform about the past; it should also inspire the creation of the future. We want the hearth to be a place that inspires people to learn, to think, to create, and to keep developing."}]}, "inventions": {"page_title": "Discoveries and Inventions", "page_description": "This page presents information about humanity’s scientific, cultural, and moral heritage. Our aim is to preserve this valuable heritage and pass it on to future generations.", "crumb": "Discoveries and inventions", "watch_video": "Watch video", "video_series": "Ocaq", "close_video": "Close video", "video_note": "Ocaq — Birİnci educational video encyclopedia"}}, "js": {"index_loading": "Loading index…", "results_n": "{n} results", "no_match": "No matching stories.", "index_failed": "Search index failed to load. Open the site from http://localhost:8765/en/", "tts_unsupported": "Speech synthesis is not available in this browser. Please continue by reading the story.", "tts_no_voice": "No suitable speech voice was found on this device.", "tts_failed": "Could not start speech playback. Please try again later or read the story.", "audio_failed": "Could not play the audio file. Please try again later."}, "show_audio_controls": false};
+window.__BIRINCI_I18N__ = {"lang": "en", "ui": {"open_menu": "Open menu", "close_menu": "Close menu", "main_menu": "Main menu", "coming_soon": "Coming soon", "stories_coming_soon": "Stories coming soon", "stories_coming_soon_lead": "English stories are being prepared. The pages are ready; the texts will appear here as soon as they are added.", "intro_source": "Stories are taken from open Internet sources; illustrations were created with AI.", "story_source": "Stories are taken from open Internet sources; illustrations were created with AI.", "site_description": "Birİnci — a collection of edifying sayings and stories.", "stories_nav": "Stories", "stories_nav_open": "Open stories menu", "no_matching_category": "No matching category.", "no_matching_story": "No matching story.", "categories_heading": "Categories", "skip_to_content": "Skip to content", "back_to_top": "Back to top", "go_to_bottom": "Go to bottom of page", "search": "Search…", "search_aria": "Search", "global_search": "Global search", "global_search_toggle": "Global search, Ctrl+K", "global_search_title_attr": "Search (Ctrl+K)", "close_search": "Close search", "close": "Close", "search_stories_label": "Search stories", "search_stories_placeholder": "Search all stories…", "search_filter_label": "Search", "search_results_count": "{n} results", "clear_search_filter": "Clear filter", "view": "View", "view_cards": "By category", "view_list": "List", "images": "Images", "texts": "Text", "show": "Show", "hide": "Hide", "batch": "Number of stories", "batch_all": "All", "batch_count": "Story count", "batch_prev": "Previous", "batch_next": "Next", "batch_random": "Shuffle", "batch_dec": "Decrease", "batch_inc": "Increase", "batch_pager": "Page", "listen": "Listen", "listen_page": "Listen to this page", "story_audio_label": "Audio", "story_image_label": "Image", "story_text_label": "Text", "queue_prev": "Previous story", "queue_next": "Next story", "hide_text": "Hide text", "hide_image": "Hide image", "show_text": "Show text", "show_image": "Show image", "stories_count_suffix": "stories", "stop": "Stop", "resume": "Resume", "play": "Play", "mute": "Mute", "speed": "Speed", "close_player": "Close player", "lang_switcher_label": "Language", "hero_lead": "A hearth of knowledge and culture", "intro_lead": "Our site presents rich information about humanity’s magnificent achievements throughout history in science and technology, the natural sciences, the social and human sciences, as well as literature and the arts; about universal moral values, outstanding figures, and important historical discoveries and inventions. Our aim is to preserve this valuable heritage gathered over the centuries, to systematize it, and to pass it on to future generations as a source of knowledge, moral lesson, and inspiration.", "footer_contact": "Contact", "footer_phone": "Telephone", "footer_address": "Address", "footer_website": "Website", "footer_phone_placeholder": "+994 XX XXX XX XX", "footer_address_placeholder": "Address to be added", "footer_website_placeholder": "https://birinci.cloud", "footer_website_url": "https://birinci.cloud", "about": {"nav_item": "Our Mission, Vision, and Values", "page_title": "Our Mission, Vision, and Values", "page_description": "This page sets forth our purpose, our vision for the future, and our core principles. Our hearth aims to protect knowledge and moral heritage, to share them, and to pass them on to future generations.", "kicker": "About us", "mission_kicker": "Today", "mission_title": "Mission", "mission_body": "Our mission is to collect and systematize valuable knowledge about humanity’s achievements over the centuries in the fields of science and technology, literature and the arts, the universal values it has formed, the outstanding figures it has raised, as well as important discoveries and inventions, and to pass this knowledge on to future generations as a source of knowledge, moral lesson, and inspiration.", "vision_kicker": "Ahead", "vision_title": "Vision", "vision_body": "To become a reliable and constantly enriching hearth of knowledge that protects humanity's rich knowledge and moral heritage, makes it accessible and understandable for everyone, and by joining the experience of the past with the thinking of today, inspires future generations to learn, to think, to create, and to build a better future.", "values_kicker": "What we stand on", "values_title": "Our values", "values_intro": "At the foundation of the hearth’s work lies respect for knowledge, for the human being, and for the rich heritage created by humanity. In carrying out our mission and vision, we are guided by the following core values.", "values": [{"name": "Knowledge", "gloss": "We regard knowledge as one of humanity’s most precious treasures. We strive to protect, systematize, and pass on to future generations the knowledge gathered over the centuries in science, technology, literature, the arts, and other fields."}, {"name": "Truth and reliability", "gloss": "The value of knowledge begins with its being grounded in truth. We attach special importance to the accuracy, objectivity, and reliability of the information we present, and to its being based, as far as possible, on authoritative sources."}, {"name": "Enlightenment", "gloss": "One of our main aims is not only to gather knowledge, but also to share it and to encourage people to learn. We believe that enlightenment broadens a person’s worldview, enriches their thinking, and serves the development of society."}, {"name": "Universal values", "gloss": "We regard values such as human dignity, justice, honesty, compassion, mutual respect, and responsibility as the moral foundation of a healthy society. We believe that knowledge should make a person not only more informed, but also wiser and more responsible."}, {"name": "Reverence for heritage", "gloss": "The scientific, literary, cultural, and moral heritage created by past generations is a great treasure that shapes our present. We consider it our moral duty to study this heritage, to protect it, and to pass it on to future generations."}, {"name": "Critical and independent thought", "gloss": "We consider it important that knowledge not merely be accepted, but be understood through thinking. We encourage people to ask questions, to investigate, to compare different views, to understand cause-and-effect relationships, and to draw well-founded conclusions."}, {"name": "Inspiration and development", "gloss": "Knowledge should not only inform about the past; it should also inspire the creation of the future. We want the hearth to be a place that inspires people to learn, to think, to create, and to keep developing."}]}, "inventions": {"page_title": "Discoveries and Inventions", "page_description": "This page presents information about humanity’s scientific, cultural, and moral heritage. Our aim is to preserve this valuable heritage and pass it on to future generations.", "crumb": "Discoveries and inventions", "watch_video": "Watch video", "video_series": "Ocaq", "close_video": "Close video", "video_note": "Ocaq — Birİnci educational video encyclopedia"}}, "js": {"index_loading": "Loading index…", "results_n": "{n} results", "no_match": "No matching stories.", "index_failed": "Search index failed to load. Reload the page.", "tts_unsupported": "Speech synthesis is not available in this browser. Please continue by reading the story.", "tts_no_voice": "No suitable speech voice was found on this device.", "tts_failed": "Could not start speech playback. Please try again later or read the story.", "audio_failed": "Could not play the audio file. Please try again later."}, "show_audio_controls": false};
 window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 3h7l5 5v13H7z\"/><path d=\"M14 3v5h5\"/><path d=\"M9 13h6\"/><path d=\"M9 17h6\"/></svg>", "text-off": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 3h7l5 5v13H7z\"/><path d=\"M14 3v5h5\"/><path d=\"M9 13h6\"/><path d=\"M9 17h6\"/><path d=\"M5 5l14 14\"/></svg>", "eye": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/></svg>", "eye-off": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 3l18 18\"/><path d=\"M10.6 10.6a3 3 0 0 0 4.2 4.2\"/><path d=\"M9.9 5.1A11 11 0 0 1 12 5c6.5 0 10 7 10 7a19 19 0 0 1-3.2 4.1\"/><path d=\"M6.1 6.1C3.6 7.8 2 12 2 12s3.5 7 10 7c1.6 0 3.1-.3 4.4-.9\"/></svg>", "listen": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"/><path d=\"M15.54 8.46a5 5 0 0 1 0 7.07\"/><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14\"/></svg>", "stop": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"/><path d=\"M15.54 8.46a5 5 0 0 1 0 7.07\"/><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14\"/><path d=\"M3 3l18 18\"/></svg>"};
 
 (() => {
@@ -14,10 +14,15 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       else el.hidden = true;
     });
   };
-  const tUi = (key, fallback) =>
-    (I18N.ui && I18N.ui[key]) || fallback || key;
-  const tJs = (key, fallback) =>
-    (I18N.js && I18N.js[key]) || fallback || key;
+  const liveI18n = () => window.__BIRINCI_I18N__ || I18N;
+  const tUi = (key, fallback) => {
+    const ui = liveI18n().ui || {};
+    return ui[key] || fallback || key;
+  };
+  const tJs = (key, fallback) => {
+    const pack = liveI18n().js || {};
+    return pack[key] || fallback || key;
+  };
 
   const syncSearchFilterUi = (q, total) => {
     const wrap = document.querySelector(".tools-bar__search");
@@ -705,6 +710,18 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     let index = null;
     let loading = null;
     let lastQuery = "";
+    let loadedUrl = "";
+
+    const searchLang = () =>
+      (window.__BIRINCI_I18N__ && window.__BIRINCI_I18N__.lang) || LOCALE_TAG || "az";
+    const currentSearchUrl = () => root.getAttribute("data-search-index") || "";
+    const countStatus = (n) => `${n} ${tUi("stories_count_suffix", "hekayə")}`;
+    const resetIndex = () => {
+      index = null;
+      loading = null;
+      loadedUrl = "";
+      window.__BIRINCI_SEARCH__ = undefined;
+    };
 
     const closeSearch = () => {
       root.hidden = true;
@@ -721,16 +738,16 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     };
 
     const ensureIndex = () => {
-      if (index || loading) return loading;
-      if (Array.isArray(window.__BIRINCI_SEARCH__)) {
-        index = window.__BIRINCI_SEARCH__;
-        if (status) status.textContent = `${index.length} hekayə`;
-        if (lastQuery) render(lastQuery);
+      const url = currentSearchUrl();
+      if (loadedUrl && url && loadedUrl !== url) resetIndex();
+      if (index && loadedUrl === url) {
+        if (status && !lastQuery) status.textContent = countStatus(index.length);
         return Promise.resolve(index);
       }
-      const url = root.getAttribute("data-search-index");
+      if (loading) return loading;
       if (!url) return null;
-      if (status) status.textContent = "İndeks yüklənir…";
+      if (status) status.textContent = tJs("index_loading", "İndeks yüklənir…");
+      loadedUrl = url;
       loading = new Promise((resolve, reject) => {
         const script = document.createElement("script");
         script.src = url;
@@ -744,14 +761,17 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       })
         .then((rows) => {
           index = rows || [];
-          if (status) status.textContent = lastQuery ? status.textContent : `${index.length} hekayə`;
+          if (status) status.textContent = lastQuery ? status.textContent : countStatus(index.length);
           if (lastQuery) render(lastQuery);
         })
         .catch(() => {
           index = [];
+          loadedUrl = "";
           if (status) {
-            status.textContent =
-              "Axtarış indeksi yüklənmədi. Saytı http://localhost:8765/az/ ünvanından açın.";
+            status.textContent = tJs("index_failed", "Axtarış indeksi yüklənmədi.").replace(
+              /\{lang\}/g,
+              searchLang()
+            );
           }
         })
         .finally(() => {
@@ -762,24 +782,29 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
     const render = (query) => {
       lastQuery = query;
-      const q = query.trim().toLocaleLowerCase(LOCALE_TAG);
+      const q = query.trim().toLocaleLowerCase(searchLang());
       results.innerHTML = "";
       if (!q) {
-        if (status) status.textContent = index ? `${index.length} hekayə` : "";
+        if (status) status.textContent = index ? countStatus(index.length) : "";
         return;
       }
       if (!index) {
-        if (status) status.textContent = "İndeks yüklənir…";
+        if (status) status.textContent = tJs("index_loading", "İndeks yüklənir…");
         return;
       }
       const matches = index.filter((row) => row.hay.includes(q)).slice(0, 40);
       if (status) {
         status.textContent = matches.length
-          ? `${matches.length} nəticə`
-          : "Uyğun hekayə tapılmadı.";
+          ? tJs("results_n", "{n} nəticə").replace(/\{n\}/g, String(matches.length))
+          : tJs("no_match", "Uyğun hekayə tapılmadı.");
       }
+      const onRoot = document.body.classList.contains("page-root-home");
       const inCategories = window.location.pathname.includes("/categories/");
-      const homeListBase = inCategories ? "../index.html" : "index.html";
+      const homeListBase = onRoot
+        ? `${searchLang()}/index.html`
+        : inCategories
+          ? "../index.html"
+          : "index.html";
       matches.forEach((row) => {
         const a = document.createElement("a");
         a.className = "global-search__item";
@@ -797,8 +822,22 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const kbdHint = toggle.querySelector(".global-search-toggle__kbd");
     if (kbdHint && /Mac|iPhone|iPad|iPod/.test(navigator.platform || navigator.userAgent || "")) {
       kbdHint.textContent = "⌘K";
-      toggle.title = "Axtar (⌘K)";
-      toggle.setAttribute("aria-label", "Qlobal axtarış, Command+K");
+      toggle.title = tUi("global_search_title_attr", "Axtar (Ctrl+K)").replace("Ctrl+K", "⌘K");
+      toggle.setAttribute(
+        "aria-label",
+        tUi("global_search_toggle", "Qlobal axtarış, Ctrl+K").replace("Ctrl+K", "Command+K")
+      );
+    }
+
+
+    if (typeof MutationObserver === "function") {
+      new MutationObserver(() => {
+        const url = currentSearchUrl();
+        if (!url || url === loadedUrl) return;
+        resetIndex();
+        results.innerHTML = "";
+        if (!root.hidden) ensureIndex();
+      }).observe(root, { attributes: true, attributeFilter: ["data-search-index"] });
     }
 
     toggle.addEventListener("click", () => {

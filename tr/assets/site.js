@@ -1,4 +1,4 @@
-window.__BIRINCI_I18N__ = {"lang": "tr", "ui": {"open_menu": "Menüyü aç", "close_menu": "Menüyü kapat", "main_menu": "Ana menü", "coming_soon": "Yakında", "stories_coming_soon": "Hikâyeler yakında", "stories_coming_soon_lead": "Bu dil için hikâyeler hazırlanıyor. Sayfa yapısı hazır; metinler eklendiğinde burada görünecek.", "intro_source": "Hikâyeler açık internet kaynaklarından alınmıştır; illüstrasyonlar ise yapay zekâ ile oluşturulmuştur.", "story_source": "Hikâyeler açık internet kaynaklarından alınmıştır; illüstrasyonlar ise yapay zekâ ile oluşturulmuştur.", "site_description": "Birİnci — ibretlik sözler ve hikâyeler derlemesi.", "stories_nav": "Hikâyeler", "stories_nav_open": "Hikâye menüsünü aç", "no_matching_category": "Uygun kategori bulunamadı.", "no_matching_story": "Uygun hikâye bulunamadı.", "categories_heading": "Kategoriler", "skip_to_content": "İçeriğe geç", "back_to_top": "Sayfanın başına dön", "go_to_bottom": "Sayfanın sonuna git", "search": "Ara…", "search_aria": "Ara", "global_search": "Genel arama", "global_search_toggle": "Genel arama, Ctrl+K", "global_search_title_attr": "Ara (Ctrl+K)", "close_search": "Aramayı kapat", "close": "Kapat", "search_stories_label": "Hikâye ara", "search_stories_placeholder": "Tüm hikâyelerde ara…", "search_filter_label": "Arama", "search_results_count": "{n} sonuç", "clear_search_filter": "Filtreyi temizle", "view": "Görünüm", "view_cards": "Kategorili", "view_list": "Liste", "images": "Görseller", "texts": "Metin", "show": "Göster", "hide": "Gizle", "batch": "Hikâyelerin sayısı", "batch_all": "Tümü", "batch_count": "Hikâye sayısı", "batch_prev": "Önceki", "batch_next": "Sonraki", "batch_random": "Rastgele", "batch_dec": "Azalt", "batch_inc": "Artır", "batch_pager": "Sayfa", "listen": "Metni dinle", "listen_page": "Sayfayı dinle", "story_audio_label": "Ses", "story_image_label": "Görsel", "story_text_label": "Metin", "queue_prev": "Önceki hikâye", "queue_next": "Sonraki hikâye", "hide_text": "Metni gizle", "hide_image": "Görseli gizle", "show_text": "Metni göster", "show_image": "Görseli göster", "stories_count_suffix": "hikâye", "stop": "Durdur", "resume": "Devam et", "play": "Oynat", "mute": "Sessiz", "speed": "Hız", "close_player": "Oynatıcıyı kapat", "lang_switcher_label": "Dil", "hero_lead": "Bilgi ve kültür ocağı", "intro_lead": "Sitemizde insanlığın tarih boyunca bilim ve teknoloji, doğa bilimleri, sosyal ve beşeri bilimler ile edebiyat ve sanatın çeşitli alanlarında kazandığı görkemli başarılar, evrensel manevi değerler, önde gelen şahsiyetler ve önemli tarihî keşif ve icatlar hakkında zengin bilgiler sunulur. Amacımız, yüzyıllar boyunca birikmiş bu değerli mirası korumak, sistemleştirmek ve gelecek kuşaklara bilgi, ibret ve ilham kaynağı olarak aktarmaktır.", "footer_contact": "İletişim", "footer_phone": "Telefon", "footer_address": "Adres", "footer_website": "Web sitesi", "footer_phone_placeholder": "+994 XX XXX XX XX", "footer_address_placeholder": "Adres eklenecek", "footer_website_placeholder": "https://birinci.cloud", "footer_website_url": "https://birinci.cloud", "about": {"nav_item": "Misyonumuz, Vizyon ve Değerlerimiz", "page_title": "Misyonumuz, Vizyon ve Değerlerimiz", "page_description": "Bu sayfada amacımız, geleceğe bakışımız ve temel ilkelerimiz ifade edilir. Ocağımız bilgiyi ve manevi mirası korumayı, paylaşmayı ve gelecek kuşaklara aktarmayı hedefler.", "kicker": "Hakkımızda", "mission_kicker": "Bugün", "mission_title": "Misyon", "mission_body": "Misyonumuz, insanlığın yüzyıllar boyunca bilim ve teknoloji, edebiyat ve sanat alanlarında kazandığı başarılar, oluşturduğu evrensel değerler, yetiştirdiği önde gelen şahsiyetler ile önemli keşif ve icatlar hakkındaki değerli bilgileri toplamak, sistemleştirmek ve gelecek kuşaklara bilgi, ibret ve ilham kaynağı olarak aktarmaktır.", "vision_kicker": "İleriye", "vision_title": "Vizyon", "vision_body": "İnsanlığın zengin bilgi ve manevi mirasını koruyan, onu herkes için erişilebilir ve anlaşılır kılan, geçmişin deneyimini bugünün düşüncesiyle birleştirerek gelecek kuşakları öğrenmeye, düşünmeye, yaratmaya ve daha iyi bir gelecek kurmaya ilham veren güvenilir ve sürekli zenginleşen bir bilgi ocağına dönüşmek.", "values_kicker": "Dayandığımız", "values_title": "Değerlerimiz", "values_intro": "Ocağın faaliyetinin temelinde bilgiye, insana ve insanlığın yarattığı zengin mirasa saygı durur. Misyon ve vizyonumuzu hayata geçirirken aşağıdaki temel değerleri rehber alırız.", "values": [{"name": "Bilgi", "gloss": "Bilgiyi insanlığın en değerli servetlerinden biri sayarız. Yüzyıllar boyunca bilim, teknoloji, edebiyat, sanat ve diğer alanlarda birikmiş bilgilerin korunmasına, sistemleştirilmesine ve gelecek kuşaklara aktarılmasına çalışırız."}, {"name": "Hakikat ve güvenilirlik", "gloss": "Bilginin değeri, onun hakikate dayanmasından başlar. Sunduğumuz bilgilerin doğru, nesnel ve güvenilir olmasına, mümkün olduğunca muteber kaynaklara dayanmasına özel önem veririz."}, {"name": "Aydınlanma", "gloss": "Bilgiyi yalnızca toplamak değil, onu paylaşmak ve insanları öğrenmeye teşvik etmek de temel amaçlarımızdandır. İnanırız ki aydınlanma insanın dünya görüşünü genişletir, düşüncesini zenginleştirir ve toplumun gelişimine hizmet eder."}, {"name": "Evrensel değerler", "gloss": "İnsan onuru, adalet, dürüstlük, merhamet, karşılıklı saygı ve sorumluluk gibi değerleri sağlıklı toplumun manevi temeli sayarız. Bilginin insanı yalnızca daha bilgili değil, aynı zamanda daha bilge ve sorumlu kılması gerektiğine inanırız."}, {"name": "Mirasa hürmet", "gloss": "Geçmiş kuşakların yarattığı bilimsel, edebî, kültürel ve manevi miras, bugünümüzü şekillendiren büyük bir servettir. Bu mirası öğrenmeyi, korumayı ve gelecek kuşaklara aktarmayı kendimize manevi borç biliriz."}, {"name": "Eleştirel ve bağımsız düşünce", "gloss": "Bilginin yalnızca kabul edilmesini değil, düşünülerek idrak edilmesini önemli sayarız. İnsanları soru sormaya, araştırmaya, farklı bakışları karşılaştırmaya, neden-sonuç ilişkilerini anlamaya ve gerekçeli sonuçlar çıkarmaya teşvik ederiz."}, {"name": "İlham ve gelişim", "gloss": "Bilgi yalnızca geçmiş hakkında bilgi vermemeli, aynı zamanda geleceği yaratmaya ilham da vermelidir. Ocağın insanları öğrenmeye, düşünmeye, yaratmaya ve sürekli gelişmeye ilham veren bir mekân olmasını isteriz."}]}}, "js": {"index_loading": "Dizin yükleniyor…", "results_n": "{n} sonuç", "no_match": "Uygun hikâye bulunamadı.", "index_failed": "Arama dizini yüklenemedi. Siteyi http://localhost:8765/tr/ adresinden açın.", "tts_unsupported": "Konuşma sentezi bu tarayıcıda kullanılamıyor. Lütfen hikâyeyi okuyarak devam edin.", "tts_no_voice": "Bu cihazda uygun bir konuşma sesi bulunamadı.", "tts_failed": "Sesli okuma başlatılamadı. Lütfen daha sonra tekrar deneyin veya hikâyeyi okuyun.", "audio_failed": "Ses dosyası çalınamadı. Lütfen daha sonra tekrar deneyin."}, "show_audio_controls": false};
+window.__BIRINCI_I18N__ = {"lang": "tr", "ui": {"open_menu": "Menüyü aç", "close_menu": "Menüyü kapat", "main_menu": "Ana menü", "coming_soon": "Yakında", "stories_coming_soon": "Hikâyeler yakında", "stories_coming_soon_lead": "Bu dil için hikâyeler hazırlanıyor. Sayfa yapısı hazır; metinler eklendiğinde burada görünecek.", "intro_source": "Hikâyeler açık internet kaynaklarından alınmıştır; illüstrasyonlar ise yapay zekâ ile oluşturulmuştur.", "story_source": "Hikâyeler açık internet kaynaklarından alınmıştır; illüstrasyonlar ise yapay zekâ ile oluşturulmuştur.", "site_description": "Birİnci — ibretlik sözler ve hikâyeler derlemesi.", "stories_nav": "Hikâyeler", "stories_nav_open": "Hikâye menüsünü aç", "no_matching_category": "Uygun kategori bulunamadı.", "no_matching_story": "Uygun hikâye bulunamadı.", "categories_heading": "Kategoriler", "skip_to_content": "İçeriğe geç", "back_to_top": "Sayfanın başına dön", "go_to_bottom": "Sayfanın sonuna git", "search": "Ara…", "search_aria": "Ara", "global_search": "Genel arama", "global_search_toggle": "Genel arama, Ctrl+K", "global_search_title_attr": "Ara (Ctrl+K)", "close_search": "Aramayı kapat", "close": "Kapat", "search_stories_label": "Hikâye ara", "search_stories_placeholder": "Tüm hikâyelerde ara…", "search_filter_label": "Arama", "search_results_count": "{n} sonuç", "clear_search_filter": "Filtreyi temizle", "view": "Görünüm", "view_cards": "Kategorili", "view_list": "Liste", "images": "Görseller", "texts": "Metin", "show": "Göster", "hide": "Gizle", "batch": "Hikâyelerin sayısı", "batch_all": "Tümü", "batch_count": "Hikâye sayısı", "batch_prev": "Önceki", "batch_next": "Sonraki", "batch_random": "Rastgele", "batch_dec": "Azalt", "batch_inc": "Artır", "batch_pager": "Sayfa", "listen": "Metni dinle", "listen_page": "Sayfayı dinle", "story_audio_label": "Ses", "story_image_label": "Görsel", "story_text_label": "Metin", "queue_prev": "Önceki hikâye", "queue_next": "Sonraki hikâye", "hide_text": "Metni gizle", "hide_image": "Görseli gizle", "show_text": "Metni göster", "show_image": "Görseli göster", "stories_count_suffix": "hikâye", "stop": "Durdur", "resume": "Devam et", "play": "Oynat", "mute": "Sessiz", "speed": "Hız", "close_player": "Oynatıcıyı kapat", "lang_switcher_label": "Dil", "hero_lead": "Bilgi ve kültür ocağı", "intro_lead": "Sitemizde insanlığın tarih boyunca bilim ve teknoloji, doğa bilimleri, sosyal ve beşeri bilimler ile edebiyat ve sanatın çeşitli alanlarında kazandığı görkemli başarılar, evrensel manevi değerler, önde gelen şahsiyetler ve önemli tarihî keşif ve icatlar hakkında zengin bilgiler sunulur. Amacımız, yüzyıllar boyunca birikmiş bu değerli mirası korumak, sistemleştirmek ve gelecek kuşaklara bilgi, ibret ve ilham kaynağı olarak aktarmaktır.", "footer_contact": "İletişim", "footer_phone": "Telefon", "footer_address": "Adres", "footer_website": "Web sitesi", "footer_phone_placeholder": "+994 XX XXX XX XX", "footer_address_placeholder": "Adres eklenecek", "footer_website_placeholder": "https://birinci.cloud", "footer_website_url": "https://birinci.cloud", "about": {"nav_item": "Misyonumuz, Vizyon ve Değerlerimiz", "page_title": "Misyonumuz, Vizyon ve Değerlerimiz", "page_description": "Bu sayfada amacımız, geleceğe bakışımız ve temel ilkelerimiz ifade edilir. Ocağımız bilgiyi ve manevi mirası korumayı, paylaşmayı ve gelecek kuşaklara aktarmayı hedefler.", "kicker": "Hakkımızda", "mission_kicker": "Bugün", "mission_title": "Misyon", "mission_body": "Misyonumuz, insanlığın yüzyıllar boyunca bilim ve teknoloji, edebiyat ve sanat alanlarında kazandığı başarılar, oluşturduğu evrensel değerler, yetiştirdiği önde gelen şahsiyetler ile önemli keşif ve icatlar hakkındaki değerli bilgileri toplamak, sistemleştirmek ve gelecek kuşaklara bilgi, ibret ve ilham kaynağı olarak aktarmaktır.", "vision_kicker": "İleriye", "vision_title": "Vizyon", "vision_body": "İnsanlığın zengin bilgi ve manevi mirasını koruyan, onu herkes için erişilebilir ve anlaşılır kılan, geçmişin deneyimini bugünün düşüncesiyle birleştirerek gelecek kuşakları öğrenmeye, düşünmeye, yaratmaya ve daha iyi bir gelecek kurmaya ilham veren güvenilir ve sürekli zenginleşen bir bilgi ocağına dönüşmek.", "values_kicker": "Dayandığımız", "values_title": "Değerlerimiz", "values_intro": "Ocağın faaliyetinin temelinde bilgiye, insana ve insanlığın yarattığı zengin mirasa saygı durur. Misyon ve vizyonumuzu hayata geçirirken aşağıdaki temel değerleri rehber alırız.", "values": [{"name": "Bilgi", "gloss": "Bilgiyi insanlığın en değerli servetlerinden biri sayarız. Yüzyıllar boyunca bilim, teknoloji, edebiyat, sanat ve diğer alanlarda birikmiş bilgilerin korunmasına, sistemleştirilmesine ve gelecek kuşaklara aktarılmasına çalışırız."}, {"name": "Hakikat ve güvenilirlik", "gloss": "Bilginin değeri, onun hakikate dayanmasından başlar. Sunduğumuz bilgilerin doğru, nesnel ve güvenilir olmasına, mümkün olduğunca muteber kaynaklara dayanmasına özel önem veririz."}, {"name": "Aydınlanma", "gloss": "Bilgiyi yalnızca toplamak değil, onu paylaşmak ve insanları öğrenmeye teşvik etmek de temel amaçlarımızdandır. İnanırız ki aydınlanma insanın dünya görüşünü genişletir, düşüncesini zenginleştirir ve toplumun gelişimine hizmet eder."}, {"name": "Evrensel değerler", "gloss": "İnsan onuru, adalet, dürüstlük, merhamet, karşılıklı saygı ve sorumluluk gibi değerleri sağlıklı toplumun manevi temeli sayarız. Bilginin insanı yalnızca daha bilgili değil, aynı zamanda daha bilge ve sorumlu kılması gerektiğine inanırız."}, {"name": "Mirasa hürmet", "gloss": "Geçmiş kuşakların yarattığı bilimsel, edebî, kültürel ve manevi miras, bugünümüzü şekillendiren büyük bir servettir. Bu mirası öğrenmeyi, korumayı ve gelecek kuşaklara aktarmayı kendimize manevi borç biliriz."}, {"name": "Eleştirel ve bağımsız düşünce", "gloss": "Bilginin yalnızca kabul edilmesini değil, düşünülerek idrak edilmesini önemli sayarız. İnsanları soru sormaya, araştırmaya, farklı bakışları karşılaştırmaya, neden-sonuç ilişkilerini anlamaya ve gerekçeli sonuçlar çıkarmaya teşvik ederiz."}, {"name": "İlham ve gelişim", "gloss": "Bilgi yalnızca geçmiş hakkında bilgi vermemeli, aynı zamanda geleceği yaratmaya ilham da vermelidir. Ocağın insanları öğrenmeye, düşünmeye, yaratmaya ve sürekli gelişmeye ilham veren bir mekân olmasını isteriz."}]}}, "js": {"index_loading": "Dizin yükleniyor…", "results_n": "{n} sonuç", "no_match": "Uygun hikâye bulunamadı.", "index_failed": "Arama dizini yüklenemedi. Sayfayı yenileyin.", "tts_unsupported": "Konuşma sentezi bu tarayıcıda kullanılamıyor. Lütfen hikâyeyi okuyarak devam edin.", "tts_no_voice": "Bu cihazda uygun bir konuşma sesi bulunamadı.", "tts_failed": "Sesli okuma başlatılamadı. Lütfen daha sonra tekrar deneyin veya hikâyeyi okuyun.", "audio_failed": "Ses dosyası çalınamadı. Lütfen daha sonra tekrar deneyin."}, "show_audio_controls": false};
 window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 3h7l5 5v13H7z\"/><path d=\"M14 3v5h5\"/><path d=\"M9 13h6\"/><path d=\"M9 17h6\"/></svg>", "text-off": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 3h7l5 5v13H7z\"/><path d=\"M14 3v5h5\"/><path d=\"M9 13h6\"/><path d=\"M9 17h6\"/><path d=\"M5 5l14 14\"/></svg>", "eye": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/></svg>", "eye-off": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 3l18 18\"/><path d=\"M10.6 10.6a3 3 0 0 0 4.2 4.2\"/><path d=\"M9.9 5.1A11 11 0 0 1 12 5c6.5 0 10 7 10 7a19 19 0 0 1-3.2 4.1\"/><path d=\"M6.1 6.1C3.6 7.8 2 12 2 12s3.5 7 10 7c1.6 0 3.1-.3 4.4-.9\"/></svg>", "listen": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"/><path d=\"M15.54 8.46a5 5 0 0 1 0 7.07\"/><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14\"/></svg>", "stop": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"/><path d=\"M15.54 8.46a5 5 0 0 1 0 7.07\"/><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14\"/><path d=\"M3 3l18 18\"/></svg>"};
 
 (() => {
@@ -14,10 +14,15 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       else el.hidden = true;
     });
   };
-  const tUi = (key, fallback) =>
-    (I18N.ui && I18N.ui[key]) || fallback || key;
-  const tJs = (key, fallback) =>
-    (I18N.js && I18N.js[key]) || fallback || key;
+  const liveI18n = () => window.__BIRINCI_I18N__ || I18N;
+  const tUi = (key, fallback) => {
+    const ui = liveI18n().ui || {};
+    return ui[key] || fallback || key;
+  };
+  const tJs = (key, fallback) => {
+    const pack = liveI18n().js || {};
+    return pack[key] || fallback || key;
+  };
 
   const syncSearchFilterUi = (q, total) => {
     const wrap = document.querySelector(".tools-bar__search");
@@ -704,6 +709,18 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     let index = null;
     let loading = null;
     let lastQuery = "";
+    let loadedUrl = "";
+
+    const searchLang = () =>
+      (window.__BIRINCI_I18N__ && window.__BIRINCI_I18N__.lang) || LOCALE_TAG || "az";
+    const currentSearchUrl = () => root.getAttribute("data-search-index") || "";
+    const countStatus = (n) => `${n} ${tUi("stories_count_suffix", "hekayə")}`;
+    const resetIndex = () => {
+      index = null;
+      loading = null;
+      loadedUrl = "";
+      window.__BIRINCI_SEARCH__ = undefined;
+    };
 
     const closeSearch = () => {
       root.hidden = true;
@@ -720,16 +737,16 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     };
 
     const ensureIndex = () => {
-      if (index || loading) return loading;
-      if (Array.isArray(window.__BIRINCI_SEARCH__)) {
-        index = window.__BIRINCI_SEARCH__;
-        if (status) status.textContent = `${index.length} hekayə`;
-        if (lastQuery) render(lastQuery);
+      const url = currentSearchUrl();
+      if (loadedUrl && url && loadedUrl !== url) resetIndex();
+      if (index && loadedUrl === url) {
+        if (status && !lastQuery) status.textContent = countStatus(index.length);
         return Promise.resolve(index);
       }
-      const url = root.getAttribute("data-search-index");
+      if (loading) return loading;
       if (!url) return null;
-      if (status) status.textContent = "İndeks yüklənir…";
+      if (status) status.textContent = tJs("index_loading", "İndeks yüklənir…");
+      loadedUrl = url;
       loading = new Promise((resolve, reject) => {
         const script = document.createElement("script");
         script.src = url;
@@ -743,14 +760,17 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       })
         .then((rows) => {
           index = rows || [];
-          if (status) status.textContent = lastQuery ? status.textContent : `${index.length} hekayə`;
+          if (status) status.textContent = lastQuery ? status.textContent : countStatus(index.length);
           if (lastQuery) render(lastQuery);
         })
         .catch(() => {
           index = [];
+          loadedUrl = "";
           if (status) {
-            status.textContent =
-              "Axtarış indeksi yüklənmədi. Saytı http://localhost:8765/az/ ünvanından açın.";
+            status.textContent = tJs("index_failed", "Axtarış indeksi yüklənmədi.").replace(
+              /\{lang\}/g,
+              searchLang()
+            );
           }
         })
         .finally(() => {
@@ -761,24 +781,29 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
     const render = (query) => {
       lastQuery = query;
-      const q = query.trim().toLocaleLowerCase(LOCALE_TAG);
+      const q = query.trim().toLocaleLowerCase(searchLang());
       results.innerHTML = "";
       if (!q) {
-        if (status) status.textContent = index ? `${index.length} hekayə` : "";
+        if (status) status.textContent = index ? countStatus(index.length) : "";
         return;
       }
       if (!index) {
-        if (status) status.textContent = "İndeks yüklənir…";
+        if (status) status.textContent = tJs("index_loading", "İndeks yüklənir…");
         return;
       }
       const matches = index.filter((row) => row.hay.includes(q)).slice(0, 40);
       if (status) {
         status.textContent = matches.length
-          ? `${matches.length} nəticə`
-          : "Uyğun hekayə tapılmadı.";
+          ? tJs("results_n", "{n} nəticə").replace(/\{n\}/g, String(matches.length))
+          : tJs("no_match", "Uyğun hekayə tapılmadı.");
       }
+      const onRoot = document.body.classList.contains("page-root-home");
       const inCategories = window.location.pathname.includes("/categories/");
-      const homeListBase = inCategories ? "../index.html" : "index.html";
+      const homeListBase = onRoot
+        ? `${searchLang()}/index.html`
+        : inCategories
+          ? "../index.html"
+          : "index.html";
       matches.forEach((row) => {
         const a = document.createElement("a");
         a.className = "global-search__item";
@@ -796,8 +821,22 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const kbdHint = toggle.querySelector(".global-search-toggle__kbd");
     if (kbdHint && /Mac|iPhone|iPad|iPod/.test(navigator.platform || navigator.userAgent || "")) {
       kbdHint.textContent = "⌘K";
-      toggle.title = "Axtar (⌘K)";
-      toggle.setAttribute("aria-label", "Qlobal axtarış, Command+K");
+      toggle.title = tUi("global_search_title_attr", "Axtar (Ctrl+K)").replace("Ctrl+K", "⌘K");
+      toggle.setAttribute(
+        "aria-label",
+        tUi("global_search_toggle", "Qlobal axtarış, Ctrl+K").replace("Ctrl+K", "Command+K")
+      );
+    }
+
+
+    if (typeof MutationObserver === "function") {
+      new MutationObserver(() => {
+        const url = currentSearchUrl();
+        if (!url || url === loadedUrl) return;
+        resetIndex();
+        results.innerHTML = "";
+        if (!root.hidden) ensureIndex();
+      }).observe(root, { attributes: true, attributeFilter: ["data-search-index"] });
     }
 
     toggle.addEventListener("click", () => {

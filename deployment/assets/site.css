@@ -17,6 +17,7 @@
   --panel-blue: #e5f4fb;
   --panel-blue-deep: #d9eef9;
   --blue-400: #4eb4ee;
+  --blue-mid: #2e9fd4;
   --blue-600: #117fc8;
   --blue-800: #133f63;
   --blue-900: #06314e;
@@ -253,8 +254,7 @@ summary,
 .lang-switcher__toggle[aria-expanded="true"] {
   background: rgba(255, 255, 255, 0.26);
 }
-.lang-switcher__flag,
-.lang-switcher__flag-slot {
+.lang-switcher__flag {
   display: block;
   width: 1.25rem;
   height: 0.86rem;
@@ -1319,7 +1319,7 @@ body.global-search-open { overflow: hidden; }
   animation: intro-fade 760ms var(--ease-outro) both 120ms;
 }
 .intro__brand span {
-  background: linear-gradient(135deg, var(--nav-blue) 10%, var(--blue-400) 55%, #2e9fd4 100%);
+  background: linear-gradient(135deg, var(--nav-blue) 10%, var(--blue-400) 55%, var(--blue-mid) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -1427,23 +1427,6 @@ body.global-search-open { overflow: hidden; }
 .page-home #kateqoriyalar.home-browser {
   scroll-margin-top: calc(var(--header-h) + var(--breadcrumb-h) + 0.75rem);
 }
-.section__head {
-  max-width: 40rem;
-  margin-bottom: 1.5rem;
-}
-.section__head h2 {
-  font-family: var(--font-display);
-  font-size: clamp(1.7rem, 3vw, 2.3rem);
-  margin: 0 0 0.45rem;
-  letter-spacing: -0.02em;
-}
-.section__head p {
-  margin: 0;
-  color: var(--ink-soft);
-  font-family: var(--font-ui);
-  font-size: 1rem;
-}
-
 .visually-hidden {
   position: absolute !important;
   width: 1px;
@@ -1849,8 +1832,7 @@ body.global-search-open { overflow: hidden; }
 :is(.page-home, .page-category) .tools-bar__batch [data-home-batch] {
   white-space: nowrap;
 }
-:is(.page-home, .page-category) .tools-bar__batch [data-home-batch]:disabled,
-:is(.page-home, .page-category) [data-tools-play-visible]:disabled {
+:is(.page-home, .page-category) .tools-bar__batch [data-home-batch]:disabled {
   opacity: 0.4;
   cursor: not-allowed;
   box-shadow: none;
@@ -2631,7 +2613,7 @@ body.global-search-open { overflow: hidden; }
   justify-content: space-between;
   gap: 12px;
   padding: 14px 20px;
-  background: linear-gradient(135deg, var(--ink) 0%, var(--nav-blue-deep) 58%, #2e9fd4 100%);
+  background: linear-gradient(135deg, var(--ink) 0%, var(--nav-blue-deep) 58%, var(--blue-mid) 100%);
   border-bottom: 2px solid var(--gold-bright);
   color: #fff;
   font-family: var(--font-display);
@@ -2673,11 +2655,11 @@ body.global-search-open { overflow: hidden; }
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
-  scrollbar-color: #2e9fd4 #e8eef5;
+  scrollbar-color: var(--blue-mid) #e8eef5;
 }
 .story-nav .widget-body::-webkit-scrollbar { width: 6px; }
 .story-nav .widget-body::-webkit-scrollbar-track { background: #e8eef5; border-radius: 3px; }
-.story-nav .widget-body::-webkit-scrollbar-thumb { background: #2e9fd4; border-radius: 3px; }
+.story-nav .widget-body::-webkit-scrollbar-thumb { background: var(--blue-mid); border-radius: 3px; }
 .story-nav .widget-body::-webkit-scrollbar-thumb:hover { background: #1a6fa8; }
 .story-nav .timeline-list {
   list-style: none;
@@ -4055,26 +4037,12 @@ body.audio-player-open .text-lightbox {
   color: var(--ink);
 }
 .page-about .about-hero__title span,
-.page-inventions .about-hero__title,
+.page-inventions .about-hero__title span,
 .page-home .about-hero__title span {
-  background: linear-gradient(135deg, var(--nav-blue) 10%, var(--blue-400) 55%, #2e9fd4 100%);
+  background: linear-gradient(135deg, var(--nav-blue) 10%, var(--blue-400) 55%, var(--blue-mid) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-}
-.page-about .about-hero__subtitle,
-.page-inventions .about-hero__subtitle,
-.page-home .about-hero__subtitle {
-  margin: 0;
-  max-width: none;
-  font-family: var(--font-display);
-  font-size: clamp(0.92rem, 1.45vw, 1.12rem);
-  font-weight: 500;
-  font-style: italic;
-  letter-spacing: 0.02em;
-  line-height: 1.3;
-  color: var(--ink-soft);
-  text-wrap: pretty;
 }
 .page-about .about-hero__panel,
 .page-inventions .about-hero__panel,
@@ -4438,6 +4406,7 @@ body.audio-player-open .text-lightbox {
   color: inherit;
 }
 .page-home:not(.page-root-home) .about-hero__wrap,
-.page-inventions .about-hero__wrap {
+.page-inventions .about-hero__wrap,
+.page-about .about-hero__wrap {
   grid-template-columns: 1fr;
 }

@@ -141,7 +141,7 @@
     "index_loading": "Loading index…",
     "results_n": "{n} results",
     "no_match": "No matching stories.",
-    "index_failed": "Search index failed to load. Open the site from http://localhost:8765/{lang}/",
+    "index_failed": "Search index failed to load. Reload the page.",
     "tts_unsupported": "Speech synthesis is not available in this browser. Please continue by reading the story.",
     "tts_no_voice": "No suitable speech voice was found on this device.",
     "tts_failed": "Could not start speech playback. Please try again later or read the story.",
