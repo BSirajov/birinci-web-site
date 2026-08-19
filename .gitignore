@@ -11,3 +11,4 @@ _verify_list_view/
 .env
 deployment/
 docs/epub/*.epub
+samples/
