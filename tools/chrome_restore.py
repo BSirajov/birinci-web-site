@@ -16,13 +16,14 @@ import sys
 if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 from brand_one_mark import ensure_brand_one_mark  # noqa: E402
+from html_sitemap import write_html_sitemaps  # noqa: E402
 
 # Discovery videos are off. chrome_restore still strips leftover Ocaq markup
 # if a bytecode rebuild re-emits it.
 DISABLE_DISCOVERY_VIDEOS = True
 
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
-SITE_ASSET_VERSION = "20260818p"
+SITE_ASSET_VERSION = "20260819h"
 SITE_PUBLIC_ORIGIN = "https://birinci.cloud"
 LIVE_LANGS = ("az", "en", "ru", "ky")
 OG_IMAGE_URL = f"{SITE_PUBLIC_ORIGIN}/assets/pearl-hero.webp"
@@ -533,7 +534,8 @@ def ensure_site_css_chrome(css: str) -> str:
     if ".page-home:not(.page-root-home) .about-hero__wrap" not in css:
         css = css.rstrip() + (
             "\n.page-home:not(.page-root-home) .about-hero__wrap,\n"
-            ".page-inventions .about-hero__wrap {\n"
+            ".page-inventions .about-hero__wrap,\n"
+            ".page-sitemap .about-hero__wrap {\n"
             "  grid-template-columns: 1fr;\n"
             "}\n"
         )
@@ -543,7 +545,8 @@ def ensure_site_css_chrome(css: str) -> str:
             "  grid-template-columns: 1fr;\n"
             "}",
             ".page-home:not(.page-root-home) .about-hero__wrap,\n"
-            ".page-inventions .about-hero__wrap {\n"
+            ".page-inventions .about-hero__wrap,\n"
+            ".page-sitemap .about-hero__wrap {\n"
             "  grid-template-columns: 1fr;\n"
             "}",
             1,
@@ -940,6 +943,22 @@ _SITE_JS_ONLY_RE = re.compile(
     r"[ \t]*<script src=\"[^\"]*assets/site\.js\?v=[^\"]+\"[^>]*></script>\s*",
     re.I,
 )
+_SITEMAP_NAV_RE = re.compile(
+    r'<a class="primary-nav__link(?: is-active)?" href="[^"]*" data-nav-sitemap>[\s\S]*?</a>',
+    re.I,
+)
+_ABOUT_DETAILS_RE = re.compile(
+    r'(<details class="nav-dropdown nav-dropdown--about">[\s\S]*?</details>)',
+    re.I,
+)
+_SITEMAP_NAV_ICON = (
+    '<span class="menu-icon menu-icon--map" aria-hidden="true" '
+    'style="--icon-from:#06b6d4;--icon-to:#0284c7;--icon-glow:#67e8f9">'
+    '<svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" fill="none" '
+    'stroke="#fff" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round">'
+    '<path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/>'
+    '<path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg></span>'
+)
 
 
 def _discoveries_nav_href(html: str) -> str:
@@ -1068,6 +1087,8 @@ def infer_html_rel_path(html: str, lang: str, *, inventions: bool = False) -> st
         return f"{lang}/{page.group(1).lstrip('/')}"
     if inventions or "page-inventions" in html:
         return f"{lang}/discoveries/discoveries-and-inventions.html"
+    if "page-sitemap" in html or 'data-lang-page="sitemap.html"' in html:
+        return f"{lang}/sitemap.html"
     if "page-about" in html:
         return f"{lang}/about/mission-vision-values.html"
     if "page-home" in html:
@@ -1590,6 +1611,59 @@ def ensure_site_js_i18n_chrome(js: str) -> str:
     return js
 
 
+def _sitemap_nav_label(lang: str) -> str:
+    loc = _load_locale(lang)
+    label = ((loc.get("ui") or {}).get("sitemap") or {}).get("nav_item")
+    if label:
+        return str(label)
+    return {
+        "az": "Sayt xəritəsi",
+        "en": "Sitemap",
+        "ru": "Карта сайта",
+        "ky": "Сайт картасы",
+    }.get(lang, "Sitemap")
+
+
+def _sitemap_nav_href(markup: str) -> str:
+    if "page-root-home" in markup:
+        return "az/sitemap.html"
+    if re.search(r'href="\.\./(?:about|categories|discoveries)/', markup):
+        return "../sitemap.html"
+    if re.search(r'data-lang-page="(?:about|categories|discoveries)/', markup):
+        return "../sitemap.html"
+    return "sitemap.html"
+
+
+def ensure_sitemap_nav_link(markup: str, lang: str) -> str:
+    """Add or refresh the top-navbar Sitemap item."""
+    active = (
+        " is-active"
+        if "page-sitemap" in markup or 'data-lang-page="sitemap.html"' in markup
+        else ""
+    )
+    href = _sitemap_nav_href(markup)
+    label = html.escape(_sitemap_nav_label(lang))
+    link = (
+        f'<a class="primary-nav__link{active}" href="{href}" data-nav-sitemap>'
+        f"{_SITEMAP_NAV_ICON}<span>{label}</span></a>"
+    )
+    if _SITEMAP_NAV_RE.search(markup):
+        return _SITEMAP_NAV_RE.sub(link, markup, count=1)
+    if _ABOUT_DETAILS_RE.search(markup):
+        return _ABOUT_DETAILS_RE.sub(rf"\1{link}", markup, count=1)
+
+    def _append(match: re.Match[str]) -> str:
+        return f"{match.group(1)}{match.group(2).rstrip()}{link}\n{match.group(3)}"
+
+    return re.sub(
+        r'(<nav class="primary-nav"[^>]*>)([\s\S]*?)(</nav>)',
+        _append,
+        markup,
+        count=1,
+        flags=re.I,
+    )
+
+
 def hide_empty_top_nav(html: str) -> str:
     """Strip unfinished top-nav sections (science, arts, figures, support)."""
     if HIDE_TOP_NAV.get("science"):
@@ -1615,6 +1689,7 @@ def patch_emitted_html(
 ) -> str:
     html = hide_empty_top_nav(html)
     html = ensure_discoveries_nav_link(html, lang)
+    html = ensure_sitemap_nav_link(html, lang)
     html = ensure_page_jump_html(html, lang)
     html = ensure_literature_submenu(html, lang)
     html = ensure_literature_nav_label(html, lang)
@@ -2109,6 +2184,7 @@ def build_root_home_html(az_html: str) -> str:
     html = html.replace('href="categories/', 'href="az/categories/')
     html = html.replace('href="discoveries/', 'href="az/discoveries/')
     html = html.replace('href="about/', 'href="az/about/')
+    html = html.replace('href="sitemap.html"', 'href="az/sitemap.html"')
     html = html.replace('href="index.html?view=list"', 'href="az/index.html?view=list"')
     html = html.replace(
         'data-search-index="assets/search-index.js',
@@ -2181,6 +2257,9 @@ def write_public_seo_files() -> None:
         about = ROOT / lang / "about" / "mission-vision-values.html"
         if about.is_file():
             urls.append(_public_url(f"{lang}/about/mission-vision-values.html"))
+        sitemap = ROOT / lang / "sitemap.html"
+        if sitemap.is_file():
+            urls.append(_public_url(f"{lang}/sitemap.html"))
         disc = ROOT / lang / "discoveries" / "discoveries-and-inventions.html"
         if disc.is_file():
             urls.append(_public_url(f"{lang}/discoveries/discoveries-and-inventions.html"))
@@ -2269,6 +2348,9 @@ def apply_all_html() -> int:
         about = base / "about" / "mission-vision-values.html"
         if about.is_file():
             paths.append(about)
+        sitemap = base / "sitemap.html"
+        if sitemap.is_file():
+            paths.append(sitemap)
         disc = base / "discoveries" / "discoveries-and-inventions.html"
         if disc.is_file():
             paths.append(disc)
@@ -2297,6 +2379,11 @@ def apply_review_fixes() -> int:
     apply_story_audio_cleanup()
     apply_invention_source_bodies()
     n = apply_all_html()
+    n += write_html_sitemaps(
+        lambda markup, lang, rel_path="": patch_emitted_html(
+            markup, lang, rel_path=rel_path
+        )
+    )
     write_public_seo_files()
     write_translation_manifest()
     return n

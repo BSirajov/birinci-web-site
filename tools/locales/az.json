@@ -135,6 +135,28 @@
       "page_description": "Bu səhifədə bəşəriyyətin elm, mədəniyyət və mənəvi irsi haqqında məlumatlar təqdim olunur. Niyyətimiz bu dəyərli irsi qoruyub gələcək nəsillərə çatdırmaqdır.",
       "card_description": "Odun əhliləşdirilməsindən süni intellektə qədər insanlığın qət etdiyi yolu əks etdirən maraqlı məqalələr toplusu. Bu məqalələr kəşf və ixtiraların necə ərsəyə gəldiyini, elmə təsirini və gündəlik həyatımızı necə dəyişdiyini izah edir.",
       "crumb": "Kəşf və ixtiralar"
+    },
+    "sitemap": {
+      "nav_item": "Sayt xəritəsi",
+      "page_title": "Sayt xəritəsi",
+      "page_description": "Birİnci-nin bütün açıq səhifələri — ibrətamiz hekayələr, kəşf və ixtiralar, haqqımızda — bir yerdə.",
+      "kicker": "Naviqasiya",
+      "lead": "Aşağıda saytın canlı bölmələri, hekayə kateqoriyaları və kəşf fəsilləri toplanıb. Hər keçid sizi birbaşa həmin səhifəyə və ya məqaləyə aparır.",
+      "jump_label": "Bu səhifədə",
+      "overview_title": "Əsas bölmələr",
+      "home_title": "Ana səhifə",
+      "home_desc": "Dil seçimi və ocağın giriş qapısı.",
+      "stories_all_desc": "Bütün hekayələr siyahı və kateqoriya görünüşündə.",
+      "discoveries_all_desc": "Kəşf və ixtiralar kataloqu — odun əhliləşdirilməsindən süni intellektə.",
+      "about_desc": "Missiyamız, baxışımız və dayandığımız dəyərlər.",
+      "stories_section": "İbrətamiz hekayələr",
+      "discoveries_section": "Kəşf və ixtiralar",
+      "about_section": "Haqqımızda",
+      "languages_section": "Dillər",
+      "languages_lead": "Eyni səhifəni başqa dildə açın.",
+      "stories_count": "{n} hekayə",
+      "articles_count": "{n} məqalə",
+      "browse_chapter": "Fəslə keç"
     }
   },
   "js": {

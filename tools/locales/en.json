@@ -135,6 +135,28 @@
       "page_description": "This page presents information about humanity’s scientific, cultural, and moral heritage. Our aim is to preserve this valuable heritage and pass it on to future generations.",
       "card_description": "A collection of engaging articles tracing humanity’s path from the taming of fire to artificial intelligence. These articles explain how discoveries and inventions came about, their impact on science, and how they have changed everyday life.",
       "crumb": "Discoveries and inventions"
+    },
+    "sitemap": {
+      "nav_item": "Sitemap",
+      "page_title": "Sitemap",
+      "page_description": "A map of every live Birİnci page — wisdom stories, discoveries, and about — in one place.",
+      "kicker": "Navigation",
+      "lead": "Every live section, story category, and discovery chapter is gathered here. Each link opens that page or article directly.",
+      "jump_label": "On this page",
+      "overview_title": "Main sections",
+      "home_title": "Home",
+      "home_desc": "The language doorway and the hearth’s front page.",
+      "stories_all_desc": "All stories in list and category views.",
+      "discoveries_all_desc": "The discoveries catalogue — from the taming of fire to artificial intelligence.",
+      "about_desc": "Our mission, vision, and the values we stand on.",
+      "stories_section": "Wisdom stories",
+      "discoveries_section": "Discoveries and inventions",
+      "about_section": "About us",
+      "languages_section": "Languages",
+      "languages_lead": "Open this page in another language.",
+      "stories_count": "{n} stories",
+      "articles_count": "{n} articles",
+      "browse_chapter": "Open chapter"
     }
   },
   "js": {

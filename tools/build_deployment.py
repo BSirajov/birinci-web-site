@@ -15,7 +15,7 @@ LANGS = SUPPORTED_LANGS
 COPY_DIRS = ("assets", "categories", "illustrations")
 OPTIONAL_PAGE_DIRS = ("about", "discoveries")
 OPTIONAL_DIRS = ("audio", "data")
-COPY_FILES = ("index.html",)
+COPY_FILES = ("index.html", "sitemap.html")
 
 
 def copy_locale(lang: str) -> None:

@@ -40,6 +40,7 @@ docs/                   QA and i18n notes
 assets/                 Shared CSS, fonts, icons, site.js
 az/ en/ ru/ ky/         Generated locale trees
 index.html              Root home
+{lang}/sitemap.html     Human sitemap (also in the top nav)
 deployment/             Generated publish tree (not in git)
 samples/                Local design experiments (not in git)
 ```

@@ -1,6 +1,6 @@
 # Birİnci — Full Site QA checklist
 
-Asset version under test: **20260818p**.
+Asset version under test: **20260819h**.
 
 ## Architecture reminder
 
