@@ -47,7 +47,7 @@ Prefer chrome fixes via `tools/chrome_restore.py` (and locales / inventions bodi
 - Skip link → `#main`; one `<main>` on home/category shells
 - Hamburger ≤1400px; tools wrap ≤1180; category sidebar accordion ≤1060
 - Illustrations emit `loading="lazy"`, 1536×1024, non-empty alt
-- Asset version: **20260818c**
+- Asset version: **20260818n**
 
 ### Intentional stubs (not bugs)
 

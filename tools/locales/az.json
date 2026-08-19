@@ -50,6 +50,10 @@
     "global_search_title_attr": "Axtar (Ctrl+K)",
     "close_search": "Axtarışı bağla",
     "close": "Bağla",
+    "enlarge_image": "{title} şəklini böyüt",
+    "illustration_alt": "{title} illüstrasiyası",
+    "lightbox_illustration": "Böyüdülmüş illüstrasiya",
+    "lightbox_text": "Böyüdülmüş hekayə mətni",
     "search_stories_label": "Hekayə axtar",
     "search_stories_placeholder": "Bütün hekayələrdə axtar…",
     "search_filter_label": "Axtarış",
@@ -130,11 +134,7 @@
       "page_title": "Kəşf və ixtiralar",
       "page_description": "Bu səhifədə bəşəriyyətin elm, mədəniyyət və mənəvi irsi haqqında məlumatlar təqdim olunur. Niyyətimiz bu dəyərli irsi qoruyub gələcək nəsillərə çatdırmaqdır.",
       "card_description": "Odun əhliləşdirilməsindən süni intellektə qədər insanlığın qət etdiyi yolu əks etdirən maraqlı məqalələr toplusu. Bu məqalələr kəşf və ixtiraların necə ərsəyə gəldiyini, elmə təsirini və gündəlik həyatımızı necə dəyişdiyini izah edir.",
-      "crumb": "Kəşf və ixtiralar",
-      "watch_video": "Videoya bax",
-      "video_series": "Ocaq",
-      "close_video": "Videonu bağla",
-      "video_note": "Ocaq — Birİncinin kəşf və ixtiralar üzrə qısa tədris videoları"
+      "crumb": "Kəşf və ixtiralar"
     }
   },
   "js": {

@@ -50,6 +50,10 @@
     "global_search_title_attr": "Search (Ctrl+K)",
     "close_search": "Close search",
     "close": "Close",
+    "enlarge_image": "Enlarge {title}",
+    "illustration_alt": "Illustration of {title}",
+    "lightbox_illustration": "Enlarged illustration",
+    "lightbox_text": "Enlarged story text",
     "search_stories_label": "Search stories",
     "search_stories_placeholder": "Search all stories…",
     "search_filter_label": "Search",
@@ -130,11 +134,7 @@
       "page_title": "Discoveries and Inventions",
       "page_description": "This page presents information about humanity’s scientific, cultural, and moral heritage. Our aim is to preserve this valuable heritage and pass it on to future generations.",
       "card_description": "A collection of engaging articles tracing humanity’s path from the taming of fire to artificial intelligence. These articles explain how discoveries and inventions came about, their impact on science, and how they have changed everyday life.",
-      "crumb": "Discoveries and inventions",
-      "watch_video": "Watch video",
-      "video_series": "Ocaq",
-      "close_video": "Close video",
-      "video_note": "Ocaq — Birİnci educational video encyclopedia"
+      "crumb": "Discoveries and inventions"
     }
   },
   "js": {

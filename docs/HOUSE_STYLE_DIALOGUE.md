@@ -1,7 +1,7 @@
 # Birİnci — Dialogue & paragraph house style
 
 **Status:** Approved for automated cleanup · 2026-08-13  
-**Scope:** Azerbaijani story texts in `source/stories/az/*.docx` (source of truth) → rebuild updates `az/data/stories.json` and site HTML.
+**Scope:** Azerbaijani story texts in `source/stories/az/*.docx` (source of truth) → rebuild updates `az/assets/stories-data.js` and site HTML.
 
 ## 1. Dialogue punctuation
 

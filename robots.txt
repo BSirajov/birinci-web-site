@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://birinci.cloud/sitemap.xml

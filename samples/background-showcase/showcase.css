@@ -1,0 +1,440 @@
+:root {
+  --ink: #08263b;
+  --ink-soft: #3a5f7a;
+  --nav-blue: #0069b4;
+  --nav-blue-deep: #005a9a;
+  --surface: #f4f9fc;
+  --card: #ffffff;
+  --line: rgba(8, 38, 59, 0.12);
+  --warm: #c4783a;
+  --minimal: #2a6f97;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-ui: "Source Sans 3", system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-ui);
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(0, 105, 180, 0.08), transparent 60%),
+    radial-gradient(900px 500px at 100% 0%, rgba(196, 120, 58, 0.06), transparent 55%),
+    var(--surface);
+  line-height: 1.5;
+}
+
+.top {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 1.5rem;
+}
+
+.top__eyebrow {
+  margin: 0 0 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--nav-blue);
+}
+
+.top__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.top__lead {
+  max-width: 42rem;
+  margin: 0.85rem 0 1.5rem;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filters__btn {
+  appearance: none;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.92rem;
+  padding: 0.55rem 0.95rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.filters__btn:hover,
+.filters__btn:focus-visible {
+  border-color: var(--nav-blue);
+  color: var(--nav-blue-deep);
+  outline: none;
+}
+
+.filters__btn.is-active {
+  background: var(--nav-blue);
+  border-color: var(--nav-blue);
+  color: #fff;
+}
+
+.gallery {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.5rem 1.25rem 2rem;
+  display: grid;
+  gap: 1.75rem;
+}
+
+.option {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.9fr) minmax(0, 1.4fr);
+  gap: 1.25rem;
+  padding: 1.15rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(8, 38, 59, 0.05);
+}
+
+.option.is-hidden {
+  display: none;
+}
+
+.option__meta h2 {
+  margin: 0.45rem 0 0.4rem;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.option__blurb {
+  margin: 0 0 0.85rem;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+.option__fit {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.88rem;
+  color: var(--ink);
+}
+
+.option__fit strong {
+  color: var(--nav-blue-deep);
+}
+
+.pill {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.55rem;
+  border-radius: 999px;
+}
+
+.pill--warm {
+  background: rgba(196, 120, 58, 0.14);
+  color: #8a4f1c;
+}
+
+.pill--minimal {
+  background: rgba(42, 111, 151, 0.12);
+  color: #1d5575;
+}
+
+.option__previews {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.mock {
+  position: relative;
+  margin: 0;
+  min-height: 220px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(8, 38, 59, 0.16);
+  background-color: #d7e8f4;
+  background-image: var(--bg);
+  background-size: cover;
+  background-position: center;
+  isolation: isolate;
+}
+
+.mock--hero {
+  min-height: 260px;
+}
+
+.mock--page {
+  min-height: 260px;
+}
+
+.mock > figcaption {
+  position: absolute;
+  top: 0.55rem;
+  left: 0.55rem;
+  z-index: 3;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(8, 38, 59, 0.55);
+  padding: 0.22rem 0.45rem;
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+}
+
+.mock__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(120deg, rgba(8, 38, 59, 0.55) 0%, rgba(8, 38, 59, 0.28) 42%, rgba(8, 38, 59, 0.18) 100%),
+    linear-gradient(to top, rgba(8, 38, 59, 0.35), transparent 55%);
+}
+
+.mock__scrim--strong {
+  background:
+    linear-gradient(180deg, rgba(245, 251, 255, 0.78) 0%, rgba(245, 251, 255, 0.88) 100%),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35));
+}
+
+.mock__scrim--light {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.45));
+}
+
+.mock__chrome {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.1rem 1rem 1.15rem;
+  color: #fff;
+}
+
+.mock__chrome--ink {
+  color: var(--ink);
+}
+
+.mock__brand {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.55rem;
+}
+
+.mock__chrome h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  font-weight: 700;
+  line-height: 1.2;
+  max-width: 14ch;
+}
+
+.mock__chrome h3 em {
+  font-style: italic;
+  font-weight: 500;
+}
+
+.mock__chrome p {
+  margin: 0.45rem 0 0.85rem;
+  max-width: 28ch;
+  font-size: 0.86rem;
+  opacity: 0.92;
+}
+
+.mock__cta {
+  align-self: flex-start;
+  display: inline-block;
+  padding: 0.4rem 0.75rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--nav-blue-deep);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.mock__chrome--ink .mock__cta {
+  background: var(--nav-blue);
+  color: #fff;
+}
+
+.mock__page-body {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding: 2.1rem 0.85rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.mock__nav {
+  height: 18px;
+  border-radius: 6px;
+  background: rgba(0, 105, 180, 0.55);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.35) inset;
+}
+
+.mock__page-body--ink .mock__nav {
+  background: rgba(0, 105, 180, 0.85);
+}
+
+.mock__lines {
+  flex: 1;
+  border-radius: 8px;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      rgba(8, 38, 59, 0.08) 0 10px,
+      transparent 10px 18px
+    ),
+    rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(8, 38, 59, 0.08);
+}
+
+.mock__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.35rem;
+}
+
+.mock__cards i {
+  display: block;
+  height: 36px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(8, 38, 59, 0.1);
+}
+
+/* CSS-only abstract backgrounds */
+.mock--paper-sky {
+  background-image:
+    radial-gradient(ellipse 90% 70% at 80% 10%, rgba(186, 220, 245, 0.95), transparent 55%),
+    radial-gradient(ellipse 70% 60% at 15% 90%, rgba(255, 236, 210, 0.9), transparent 50%),
+    linear-gradient(165deg, #f7fbff 0%, #eef5fb 42%, #f8f1e6 100%);
+}
+
+.mock--paper-grain {
+  background-color: #f7fafc;
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E"),
+    linear-gradient(180deg, #f9fcff, #eef5fa);
+  background-size: 180px 180px, 100% 100%;
+}
+
+.combo {
+  max-width: 1100px;
+  margin: 0 auto 2.5rem;
+  padding: 0 1.25rem;
+}
+
+.combo h2 {
+  margin: 0 0 0.9rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+}
+
+.combo__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.combo__card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1rem 1.05rem;
+}
+
+.combo__card h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1rem;
+}
+
+.combo__card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.combo__note {
+  margin-top: 0.65rem !important;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--line);
+  color: var(--ink) !important;
+  font-size: 0.86rem !important;
+}
+
+.foot {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.25rem 2.5rem;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+}
+
+.foot code {
+  font-size: 0.82rem;
+  background: rgba(0, 105, 180, 0.08);
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+}
+
+@media (max-width: 920px) {
+  .option {
+    grid-template-columns: 1fr;
+  }
+
+  .option__previews {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .combo__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .option__previews {
+    grid-template-columns: 1fr;
+  }
+
+  .mock--hero,
+  .mock--page {
+    min-height: 210px;
+  }
+}

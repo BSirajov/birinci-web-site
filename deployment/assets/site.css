@@ -1,3 +1,4 @@
+@import url("fonts.css");
 
 :root {
   /* DAAB activities palette (daab-tokens.css) */
@@ -5,7 +6,7 @@
   --ink-soft: #345f86;
   --color-surface-news: #f5fbff;
   --color-site-bg-scrim: rgba(255, 255, 255, 0.07);
-  --site-bg-image: url("diaspor-body-top-bg.png");
+  --site-bg-image: url("diaspor-body-top-bg.webp");
   --site-bg-position: top center;
   --site-bg-size: cover;
   --site-bg-repeat: no-repeat;
@@ -103,7 +104,7 @@ body::before {
       var(--color-site-bg-scrim, rgba(255, 255, 255, 0.07)),
       var(--color-site-bg-scrim, rgba(255, 255, 255, 0.07))
     ),
-    var(--site-bg-image, url("diaspor-body-top-bg.png"));
+    var(--site-bg-image, url("diaspor-body-top-bg.webp"));
   background-position: center, var(--site-bg-position, top center);
   background-size: 100% 100%, var(--site-bg-size, cover);
   background-repeat: no-repeat, var(--site-bg-repeat, no-repeat);
@@ -4409,4 +4410,11 @@ body.audio-player-open .text-lightbox {
 .page-inventions .about-hero__wrap,
 .page-about .about-hero__wrap {
   grid-template-columns: 1fr;
+}
+.footer-contact li:not(:has(.footer-contact__link)) {
+  display: none;
+}
+.story-tts__note,
+[data-story-tts-note] {
+  display: none;
 }

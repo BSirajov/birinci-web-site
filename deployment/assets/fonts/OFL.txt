@@ -1,0 +1,3 @@
+These font files are licensed under the SIL Open Font License 1.1.
+Fraunces, Source Serif 4, and Source Sans 3.
+https://scripts.sil.org/OFL

@@ -12,9 +12,9 @@ from i18n_config import SUPPORTED_LANGS  # noqa: E402
 
 DEPLOY = ROOT / "deployment"
 LANGS = SUPPORTED_LANGS
-COPY_DIRS = ("assets", "categories", "data", "illustrations")
+COPY_DIRS = ("assets", "categories", "illustrations")
 OPTIONAL_PAGE_DIRS = ("about", "discoveries")
-OPTIONAL_DIRS = ("audio",)
+OPTIONAL_DIRS = ("audio", "data")
 COPY_FILES = ("index.html",)
 
 
@@ -52,9 +52,10 @@ def main() -> None:
         shutil.rmtree(DEPLOY)
     DEPLOY.mkdir(parents=True)
 
-    root_index = ROOT / "index.html"
-    if root_index.is_file():
-        shutil.copy2(root_index, DEPLOY / "index.html")
+    for name in ("index.html", "robots.txt", "sitemap.xml", "404.html"):
+        src = ROOT / name
+        if src.is_file():
+            shutil.copy2(src, DEPLOY / name)
     languages_json = ROOT / "languages.json"
     if languages_json.is_file():
         shutil.copy2(languages_json, DEPLOY / "languages.json")

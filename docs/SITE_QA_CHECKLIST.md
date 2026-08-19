@@ -1,13 +1,13 @@
 # Birİnci — Full Site QA checklist
 
-Asset version under test: **20260818i**.
+Asset version under test: **20260818n**.
 
 ## Architecture reminder
 
-1. Prefer editing shared CSS in `assets/site.css` and Discoveries bridge in `assets/inventions/inventions-bridge.css`. `tools/build_website.py` loads inventions-aware bytecode plus `chrome_restore.py` (pins `SITE_ASSET_VERSION=20260818i`, brand-one / page-jump / footer frames, strips leftover Discovery-video markup, hides unfinished top-nav stubs, enables RU/KY Discoveries nav when that page exists).
+1. Prefer editing shared CSS in `assets/site.css` and Discoveries bridge in `assets/inventions/inventions-bridge.css`. `tools/build_website.py` loads inventions-aware bytecode plus `chrome_restore.py` (pins `SITE_ASSET_VERSION=20260818n`, brand-one / page-jump / footer frames, strips leftover Discovery-video markup, hides unfinished top-nav stubs, enables RU/KY Discoveries nav when that page exists).
 2. Discoveries content: EN/AZ/RU/KY via `tools/inventions/{lang}-body.html` + rebuild when chrome must regenerate.
 3. `python tools/build_deployment.py` after asset changes so `deployment/` matches `assets/`.
-4. Hard-refresh browsers after deploy (`?v=20260818i`).
+4. Hard-refresh browsers after deploy (`?v=20260818n`).
 
 Shared CSS: `assets/site.css` (all locales). Locale JS: `{lang}/assets/site.js`.
 Discoveries: KT stack under `assets/inventions/` + `inventions-bridge.css`.
@@ -27,6 +27,32 @@ Discoveries: KT stack under `assets/inventions/` + `inventions-bridge.css`.
 | ≤1180 | Home **and** category tools wrap (search full-width); inventions search full-width |
 | ≤1400 | Hamburger nav (accordion) |
 | ≥1401 | Desktop inline nav + hover megas |
+
+## Agent pass (2026-08-19, asset `20260818n`)
+
+| Check | Result |
+|-------|--------|
+| Google Fonts self-hosted under `assets/fonts/` + `assets/fonts.css` | Done |
+| Published `data/stories.json` removed; home list uses `stories-data.js` only | Done |
+| Category HTML still inlines stories (SEO / per-page weight) | Kept on purpose |
+| Dirty tree committed | Done |
+
+## Agent pass (2026-08-19, asset `20260818m`)
+
+Review fixes applied without changing story/invention prose:
+
+| Check | Result |
+|-------|--------|
+| Home-list / lightbox alt and aria labels use `tUi()` + locale packs | Done |
+| KY Discoveries figure prefix `Иллюстрация:` → `Сүрөт:` | Done |
+| `data-asset-version` pinned to `SITE_ASSET_VERSION` | Done |
+| Root `applyLang()` updates `document.title` and OG/Twitter title | Done |
+| Empty footer phone/address rows hidden | Done |
+| Dead `data-audio` / `hasAudio` / `az/audio/manifest.json` stripped | Done |
+| Ocaq video i18n keys removed from locale packs and site.js blobs | Done |
+| Discoveries `data-search` blobs removed (filter uses `textContent`) | Done |
+| `robots.txt`, `sitemap.xml`, `404.html`, canonical / OG / hreflang | Done |
+| `docs/i18n/translation_manifest.json` regenerated for AZ/EN/RU/KY | Done |
 
 ## Agent pass (2026-08-18, asset `20260818i`)
 

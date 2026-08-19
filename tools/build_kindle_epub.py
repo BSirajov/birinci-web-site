@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Build a Kindle-ready EPUB from Birİnci stories + illustrations.
 
-Pilot / full builds read az/data/stories.json (run build_website.py first).
+Pilot / full builds read az/assets/stories-data.js (run build_website.py first).
 Illustrations are converted from WebP to JPEG for Kindle compatibility.
 
 Examples:
@@ -24,9 +24,12 @@ from ebooklib import epub
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA_JSON = ROOT / "az" / "data" / "stories.json"
+sys.path.insert(0, str(ROOT / "tools"))
+from stories_catalog import load_stories_catalog, stories_data_path  # noqa: E402
+
+DATA_JS = stories_data_path("az")
 ILLUSTRATIONS = ROOT / "az" / "illustrations"
-BRAND_COVER = ROOT / "az" / "assets" / "Pearl with Background 2.png"
+BRAND_COVER = ROOT / "assets" / "pearl-with-background-2.webp"
 OUT_DIR = ROOT / "docs" / "epub"
 
 # Compact pilot category (~10 stories) for Kindle Previewer checks.
@@ -108,9 +111,9 @@ def slugify(text: str) -> str:
 
 
 def load_data() -> dict:
-    if not DATA_JSON.is_file():
-        raise SystemExit(f"Missing {DATA_JSON} — run tools/build_website.py first.")
-    return json.loads(DATA_JSON.read_text(encoding="utf-8"))
+    if not DATA_JS.is_file():
+        raise SystemExit(f"Missing {DATA_JS} — run tools/build_website.py first.")
+    return load_stories_catalog("az")
 
 
 def select_categories(

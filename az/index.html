@@ -12,11 +12,27 @@
   <link rel="icon" href="../assets/favicon.png" type="image/png" sizes="192x192" />
   <link rel="icon" href="../assets/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" sizes="180x180" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/site.css?v=20260818j" />
+  <link rel="stylesheet" href="../assets/site.css?v=20260818n" />
   
+  <!-- birinci-seo:start -->
+  <link rel="canonical" href="https://birinci.cloud/az/index.html" />
+  <link rel="alternate" hreflang="x-default" href="https://birinci.cloud/en/index.html" />
+  <link rel="alternate" hreflang="az" href="https://birinci.cloud/az/index.html" />
+  <link rel="alternate" hreflang="en" href="https://birinci.cloud/en/index.html" />
+  <link rel="alternate" hreflang="ru" href="https://birinci.cloud/ru/index.html" />
+  <link rel="alternate" hreflang="ky" href="https://birinci.cloud/ky/index.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Birİnci" />
+  <meta property="og:title" content="Birİnci" />
+  <meta property="og:description" content="Birİnci — ibrətamiz deyimlər və hekayələr toplusu." />
+  <meta property="og:url" content="https://birinci.cloud/az/index.html" />
+  <meta property="og:image" content="https://birinci.cloud/assets/pearl-hero.webp" />
+  <meta property="og:locale" content="az_AZ" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Birİnci" />
+  <meta name="twitter:description" content="Birİnci — ibrətamiz deyimlər və hekayələr toplusu." />
+  <meta name="twitter:image" content="https://birinci.cloud/assets/pearl-hero.webp" />
+  <!-- birinci-seo:end -->
 </head>
 <body class="page-home" id="top" data-lang="az">
   <a class="skip-link" href="#main">Məzmuna keç</a>
@@ -49,7 +65,7 @@
     </div>
   </div>
 </header>
-<div class="global-search" id="global-search" hidden data-search-index="assets/search-index.js?v=20260818j">
+<div class="global-search" id="global-search" hidden data-search-index="assets/search-index.js?v=20260818n">
   <button type="button" class="global-search__backdrop" data-global-search-close tabindex="-1" aria-label="Axtarışı bağla"></button>
   <div class="global-search__panel" role="dialog" aria-modal="true" aria-labelledby="global-search-title">
     <div class="global-search__head">
@@ -301,9 +317,7 @@
     }
     window.__birinciHomeStoriesLoading = true;
     var scriptUrl = panel.getAttribute("data-stories-script");
-    var jsonUrl = panel.getAttribute("data-stories-url") || "data/stories.json";
-
-    function done() {
+function done() {
       window.__birinciHomeStoriesLoading = false;
     }
 
@@ -329,12 +343,6 @@
     }
 
     loadViaScript()
-      .catch(function () {
-        return fetch(jsonUrl).then(function (res) {
-          if (!res.ok) throw new Error("fetch-failed");
-          return res.json();
-        });
-      })
       .then(function (catalog) {
         window.__BIRINCI_STORIES__ = catalog;
         renderFallbackStories(catalog);
@@ -453,9 +461,8 @@
     </div>
     
     <div data-view="list" hidden
-         data-stories-url="data/stories.json"
-         data-stories-script="assets/stories-data.js?v=20260818j"
-         data-asset-version="20260818a">
+         data-stories-script="assets/stories-data.js?v=20260818n"
+         data-asset-version="20260818n">
       <div class="category-layout home-stories-layout">
         <aside class="story-nav sidebar" aria-label="Hekayələr">
           <div class="sidebar-widget">
@@ -529,6 +536,6 @@
     </div>
   </footer>
   
-  <script src="assets/site.js?v=20260818j" defer></script>
+  <script src="assets/site.js?v=20260818n" defer></script>
 </body>
 </html>

@@ -22,7 +22,56 @@ from brand_one_mark import ensure_brand_one_mark  # noqa: E402
 DISABLE_DISCOVERY_VIDEOS = True
 
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
-SITE_ASSET_VERSION = "20260818j"
+SITE_ASSET_VERSION = "20260818n"
+SITE_PUBLIC_ORIGIN = "https://birinci.cloud"
+LIVE_LANGS = ("az", "en", "ru", "ky")
+OG_IMAGE_URL = f"{SITE_PUBLIC_ORIGIN}/assets/pearl-hero.webp"
+OG_LOCALE = {
+    "az": "az_AZ",
+    "en": "en",
+    "ru": "ru_RU",
+    "ky": "ky_KG",
+}
+_NOT_FOUND_HTML = """\
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="robots" content="noindex" />
+  <title>Birİnci — Page not found</title>
+  <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="stylesheet" href="/assets/site.css?v=SITE_ASSET_VERSION" />
+</head>
+<body class="page-home" id="top">
+  <main class="intro" id="main" style="padding:4rem 1.5rem">
+    <div class="intro__content">
+      <div class="intro__copy">
+        <h1 class="intro__brand">Bir<span>İnci</span></h1>
+        <p class="intro__tagline">This page could not be found.</p>
+        <p class="intro__lead">The address may have changed, or the page is not available in this language.</p>
+        <p>
+          <a href="/">Home</a> ·
+          <a href="/az/index.html" hreflang="az">AZ</a> ·
+          <a href="/en/index.html" hreflang="en">EN</a> ·
+          <a href="/ru/index.html" hreflang="ru">RU</a> ·
+          <a href="/ky/index.html" hreflang="ky">KY</a>
+        </p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
+""".replace("SITE_ASSET_VERSION", SITE_ASSET_VERSION)
+
+DEAD_INVENTION_VIDEO_KEYS = ("watch_video", "video_series", "close_video", "video_note")
+STORY_I18N_UI_KEYS = (
+    "enlarge_image",
+    "illustration_alt",
+    "lightbox_illustration",
+    "lightbox_text",
+    "close",
+)
 
 # Top navbar stubs with no content yet — remove until sections are ready.
 # Re-enable by setting False (or removing specific keys) then rebuilding.
@@ -450,6 +499,8 @@ def ensure_site_css_chrome(css: str) -> str:
             1,
         )
 
+    css = css.replace("diaspor-body-top-bg.png", "diaspor-body-top-bg.webp")
+
     if ".page-jump {" not in css:
         if not _BACK_TO_TOP_BLOCK_RE.search(css):
             raise ValueError("Could not find stock .back-to-top CSS block")
@@ -509,6 +560,24 @@ def ensure_site_css_chrome(css: str) -> str:
     if not n and "font-size: 0.92rem" not in css[css.find(".footer-about") : css.find(".footer-about") + 200]:
         # already bumped or different shape
         pass
+
+    if ".footer-contact li:not(:has(.footer-contact__link))" not in css:
+        css = css.rstrip() + (
+            "\n.footer-contact li:not(:has(.footer-contact__link)) {\n"
+            "  display: none;\n"
+            "}\n"
+        )
+
+    if ".story-tts__note" not in css or "data-story-tts-note" not in css:
+        css = css.rstrip() + (
+            "\n.story-tts__note,\n"
+            "[data-story-tts-note] {\n"
+            "  display: none;\n"
+            "}\n"
+        )
+
+    if '@import url("fonts.css")' not in css and "@import url('fonts.css')" not in css:
+        css = '@import url("fonts.css");\n' + css
 
     return css
 
@@ -844,6 +913,24 @@ _TOOLBAR_MOBILE_JS_RE = re.compile(
     re.M,
 )
 _ASSET_VERSION_RE = re.compile(r"(\?v=)2026\d{4}[a-zA-Z0-9]*")
+_DATA_ASSET_VERSION_RE = re.compile(r'data-asset-version="[^"]*"')
+_DATA_AUDIO_RE = re.compile(r'\s+data-audio="[^"]*"')
+_DATA_SEARCH_RE = re.compile(r'\s+data-search="[^"]*"')
+_SEO_BLOCK_RE = re.compile(
+    r"\n?[ \t]*<!-- birinci-seo:start -->[\s\S]*?<!-- birinci-seo:end -->\s*",
+    re.I,
+)
+_TITLE_RE = re.compile(r"<title>(.*?)</title>", re.I | re.S)
+_META_DESC_RE = re.compile(
+    r'<meta\s+name="description"\s+content="([^"]*)"',
+    re.I,
+)
+_LANG_PAGE_RE = re.compile(r'data-lang-page="([^"]+)"', re.I)
+_CATEGORY_HREF_RE = re.compile(
+    r'href="(?:\.\./)+(?:az|en|ru|ky)/categories/([^"]+\.html)"',
+    re.I,
+)
+_I18N_ASSIGN_PREFIX = "window.__BIRINCI_I18N__ = "
 
 
 def _discoveries_nav_href(html: str) -> str:
@@ -877,7 +964,148 @@ def strip_unused_inventions_scripts(html: str) -> str:
 
 
 def pin_asset_versions(html: str) -> str:
-    return _ASSET_VERSION_RE.sub(rf"\g<1>{SITE_ASSET_VERSION}", html)
+    html = _ASSET_VERSION_RE.sub(rf"\g<1>{SITE_ASSET_VERSION}", html)
+    html = _DATA_ASSET_VERSION_RE.sub(f'data-asset-version="{SITE_ASSET_VERSION}"', html)
+    return html
+
+
+def strip_data_audio(html: str) -> str:
+    return _DATA_AUDIO_RE.sub("", html)
+
+
+def slim_discoveries_search(html: str) -> str:
+    return _DATA_SEARCH_RE.sub("", html)
+
+
+def strip_google_fonts(html: str) -> str:
+    html = re.sub(
+        r"[ \t]*<link[^>]+fonts\.googleapis\.com[^>]*>\n",
+        "",
+        html,
+        flags=re.I,
+    )
+    html = re.sub(
+        r"[ \t]*<link[^>]+fonts\.gstatic\.com[^>]*>\n",
+        "",
+        html,
+        flags=re.I,
+    )
+    html = re.sub(
+        r'<link rel=\\"stylesheet\\" href=\\"([^\\"]+)\\"',
+        r'<link rel="stylesheet" href="\1"',
+        html,
+    )
+    return html
+
+
+def strip_stories_json_refs(html: str) -> str:
+    html = re.sub(r'\s+data-stories-url="[^"]*"', "", html)
+    html = re.sub(
+        r"[ \t]*var jsonUrl = panel\.getAttribute\(\"data-stories-url\"\)[^;]+;\s*",
+        "",
+        html,
+    )
+    html = html.replace(
+        """    loadViaScript()
+      .catch(function () {
+        return fetch(jsonUrl).then(function (res) {
+          if (!res.ok) throw new Error("fetch-failed");
+          return res.json();
+        });
+      })
+      .then(function (catalog) {""",
+        """    loadViaScript()
+      .then(function (catalog) {""",
+        1,
+    )
+    return html
+
+
+def fix_ky_illustration_prefix(html: str, lang: str) -> str:
+    if lang != "ky":
+        return html
+    return html.replace("Иллюстрация:", "Сүрөт:")
+
+
+def _public_url(rel_path: str) -> str:
+    rel = rel_path.replace("\\", "/").lstrip("/")
+    if rel in ("", "index.html"):
+        return f"{SITE_PUBLIC_ORIGIN}/"
+    return f"{SITE_PUBLIC_ORIGIN}/{rel}"
+
+
+def _hreflang_pairs(rel_path: str) -> list[tuple[str, str]]:
+    rel = rel_path.replace("\\", "/").lstrip("/")
+    pairs: list[tuple[str, str]] = []
+    if rel in ("", "index.html"):
+        pairs.append(("x-default", f"{SITE_PUBLIC_ORIGIN}/"))
+        for lang in LIVE_LANGS:
+            pairs.append((lang, f"{SITE_PUBLIC_ORIGIN}/{lang}/index.html"))
+        return pairs
+    parts = rel.split("/", 1)
+    if parts[0] in LIVE_LANGS and len(parts) == 2:
+        rest = parts[1]
+        pairs.append(("x-default", f"{SITE_PUBLIC_ORIGIN}/en/{rest}"))
+        for lang in LIVE_LANGS:
+            pairs.append((lang, f"{SITE_PUBLIC_ORIGIN}/{lang}/{rest}"))
+    return pairs
+
+
+def infer_html_rel_path(html: str, lang: str, *, inventions: bool = False) -> str:
+    if "page-root-home" in html:
+        return "index.html"
+    page = _LANG_PAGE_RE.search(html)
+    if page:
+        return f"{lang}/{page.group(1).lstrip('/')}"
+    if inventions or "page-inventions" in html:
+        return f"{lang}/discoveries/discoveries-and-inventions.html"
+    if "page-about" in html:
+        return f"{lang}/about/mission-vision-values.html"
+    if "page-home" in html:
+        return f"{lang}/index.html"
+    cat = _CATEGORY_HREF_RE.search(html)
+    if cat:
+        return f"{lang}/categories/{cat.group(1)}"
+    return f"{lang}/index.html"
+
+
+def ensure_seo_head(markup: str, lang: str, rel_path: str = "") -> str:
+    rel_path = rel_path or infer_html_rel_path(markup, lang)
+    title_m = _TITLE_RE.search(markup)
+    title = html.unescape(title_m.group(1)).strip() if title_m else "Birİnci"
+    desc_m = _META_DESC_RE.search(markup)
+    desc = html.unescape(desc_m.group(1)).strip() if desc_m else ""
+    canonical = _public_url(rel_path)
+    og_locale = OG_LOCALE.get(lang, lang)
+    lines = [
+        "  <!-- birinci-seo:start -->",
+        f'  <link rel="canonical" href="{html.escape(canonical, quote=True)}" />',
+    ]
+    for hreflang, url in _hreflang_pairs(rel_path):
+        lines.append(
+            f'  <link rel="alternate" hreflang="{hreflang}" href="{html.escape(url, quote=True)}" />'
+        )
+    lines.extend(
+        [
+            '  <meta property="og:type" content="website" />',
+            '  <meta property="og:site_name" content="Birİnci" />',
+            f'  <meta property="og:title" content="{html.escape(title, quote=True)}" />',
+            f'  <meta property="og:description" content="{html.escape(desc, quote=True)}" />',
+            f'  <meta property="og:url" content="{html.escape(canonical, quote=True)}" />',
+            f'  <meta property="og:image" content="{html.escape(OG_IMAGE_URL, quote=True)}" />',
+            f'  <meta property="og:locale" content="{og_locale}" />',
+            '  <meta name="twitter:card" content="summary_large_image" />',
+            f'  <meta name="twitter:title" content="{html.escape(title, quote=True)}" />',
+            f'  <meta name="twitter:description" content="{html.escape(desc, quote=True)}" />',
+            f'  <meta name="twitter:image" content="{html.escape(OG_IMAGE_URL, quote=True)}" />',
+            "  <!-- birinci-seo:end -->",
+        ]
+    )
+    block = "\n".join(lines) + "\n"
+    markup = _SEO_BLOCK_RE.sub("\n", markup)
+    if re.search(r"</head>", markup, re.I):
+        markup = re.sub(r"[ \t]*</head>", block + "</head>", markup, count=1, flags=re.I)
+    return markup
 
 
 def ensure_page_jump_html(html: str, lang: str) -> str:
@@ -995,7 +1223,7 @@ def build_root_intro_hero_html() -> str:
         f'<span class="intro__source-text">{html.escape(source)}</span></p>\n'
         "      </div>\n"
         '      <div class="intro__visual">\n'
-        f'        <img src="../assets/Pearl%20with%20Background%203.png?v={ROOT_HOME_ASSET_VERSION}" '
+        f'        <img src="../assets/pearl-hero.webp?v={ROOT_HOME_ASSET_VERSION}" '
         'alt="Birİnci" width="1536" height="1024" decoding="async" />\n'
         "      </div>\n"
         "    </div>\n"
@@ -1212,6 +1440,113 @@ def ensure_literature_nav_label(source: str, lang: str) -> str:
     return source
 
 
+def _parse_site_js_i18n_blob(js: str) -> tuple[dict, int, int] | None:
+    start = js.find(_I18N_ASSIGN_PREFIX)
+    if start < 0:
+        return None
+    payload_start = start + len(_I18N_ASSIGN_PREFIX)
+    decoder = json.JSONDecoder()
+    try:
+        blob, end = decoder.raw_decode(js, payload_start)
+    except json.JSONDecodeError:
+        return None
+    if end < len(js) and js[end] == ";":
+        end += 1
+    return blob, start, end
+
+
+def sync_site_js_i18n_blob(js: str, lang: str) -> str:
+    parsed = _parse_site_js_i18n_blob(js)
+    if not parsed:
+        return js
+    blob, start, end = parsed
+    locale = _load_locale(lang)
+    ui = locale.get("ui") or {}
+    blob_ui = blob.setdefault("ui", {})
+    for key in STORY_I18N_UI_KEYS:
+        if key in ui:
+            blob_ui[key] = ui[key]
+    inventions = blob_ui.get("inventions")
+    if isinstance(inventions, dict):
+        for dead in DEAD_INVENTION_VIDEO_KEYS:
+            inventions.pop(dead, None)
+        loc_inv = ui.get("inventions") if isinstance(ui.get("inventions"), dict) else {}
+        for key, value in loc_inv.items():
+            inventions[key] = value
+    dumped = json.dumps(blob, ensure_ascii=False, separators=(", ", ": "))
+    return js[:start] + _I18N_ASSIGN_PREFIX + dumped + ";" + js[end:]
+
+
+def ensure_site_js_i18n_chrome(js: str) -> str:
+    old_figure = (
+        '      const figureHtml = story.hasImage\n'
+        "        ? `\n"
+        '    <figure class="story__figure" id="figure-${escapeHtml(story.stem)}">\n'
+        '      <button type="button" class="story__figure-open" aria-label="${escapeHtml(story.title)} şəklini böyüt">\n'
+        '        <img src="illustrations/${escapeHtml(story.stem)}.webp" alt="${escapeHtml(story.title)} illüstrasiyası" loading="lazy" width="1536" height="1024" />\n'
+    )
+    new_figure = (
+        "      const enlargeLabel = escapeHtml(\n"
+        '        tUi("enlarge_image", "{title} şəklini böyüt").replace("{title}", story.title || "")\n'
+        "      );\n"
+        "      const figAlt = escapeHtml(\n"
+        '        tUi("illustration_alt", "{title} illüstrasiyası").replace("{title}", story.title || "")\n'
+        "      );\n"
+        "      const figureHtml = story.hasImage\n"
+        "        ? `\n"
+        '    <figure class="story__figure" id="figure-${escapeHtml(story.stem)}">\n'
+        '      <button type="button" class="story__figure-open" aria-label="${enlargeLabel}">\n'
+        '        <img src="illustrations/${escapeHtml(story.stem)}.webp" alt="${figAlt}" loading="lazy" width="1536" height="1024" />\n'
+    )
+    if old_figure in js:
+        js = js.replace(old_figure, new_figure, 1)
+    replacements = (
+        (
+            'aria-label="Böyüdülmüş illüstrasiya"',
+            'aria-label="${tUi("lightbox_illustration", "Böyüdülmüş illüstrasiya")}"',
+        ),
+        (
+            'aria-label="Böyüdülmüş hekayə mətni"',
+            'aria-label="${tUi("lightbox_text", "Böyüdülmüş hekayə mətni")}"',
+        ),
+        (
+            'class="illustration-lightbox__close" aria-label="Bağla"',
+            'class="illustration-lightbox__close" aria-label="${tUi("close", "Bağla")}"',
+        ),
+        (
+            'class="text-lightbox__close" aria-label="Bağla"',
+            'class="text-lightbox__close" aria-label="${tUi("close", "Bağla")}"',
+        ),
+    )
+    for old, new in replacements:
+        if old in js:
+            js = js.replace(old, new, 1)
+    old_hide = (
+        '    (root || document).querySelectorAll("[data-story-tts], [data-tools-play-visible]").forEach((el) => {'
+    )
+    new_hide = (
+        '    (root || document).querySelectorAll("[data-story-tts], [data-tools-play-visible], [data-story-tts-note], .story-tts__note").forEach((el) => {'
+    )
+    if old_hide in js:
+        js = js.replace(old_hide, new_hide, 1)
+    js = js.replace(
+        '    const storiesUrl = listPanel.getAttribute("data-stories-url") || "data/stories.json";\n',
+        "",
+        1,
+    )
+    js = js.replace(
+        """          return loadCatalogViaScript().catch(() =>
+            fetch(storiesUrl).then((res) => {
+              if (!res.ok) throw new Error("fetch-failed");
+              return res.json();
+            })
+          );""",
+        "          return loadCatalogViaScript();",
+        1,
+    )
+    return js
+
+
 def hide_empty_top_nav(html: str) -> str:
     """Strip unfinished top-nav sections (science, arts, figures, support)."""
     if HIDE_TOP_NAV.get("science"):
@@ -1232,7 +1567,9 @@ def hide_empty_top_nav(html: str) -> str:
     return html
 
 
-def patch_emitted_html(html: str, lang: str, *, inventions: bool = False) -> str:
+def patch_emitted_html(
+    html: str, lang: str, *, inventions: bool = False, rel_path: str = ""
+) -> str:
     html = hide_empty_top_nav(html)
     html = ensure_discoveries_nav_link(html, lang)
     html = ensure_page_jump_html(html, lang)
@@ -1248,7 +1585,13 @@ def patch_emitted_html(html: str, lang: str, *, inventions: bool = False) -> str
         html = ensure_discoveries_hero_html(html, lang)
         html = ensure_discoveries_heading_order(html)
         html = strip_unused_inventions_scripts(html)
+        html = slim_discoveries_search(html)
+        html = fix_ky_illustration_prefix(html, lang)
+    html = strip_data_audio(html)
+    html = strip_google_fonts(html)
+    html = strip_stories_json_refs(html)
     html = pin_asset_versions(html)
+    html = ensure_seo_head(html, lang, rel_path)
     return html
 
 
@@ -1279,7 +1622,9 @@ def apply_shared_assets() -> None:
             js = js_path.read_text(encoding="utf-8")
             js = ensure_site_js_go_to_bottom(js)
             js = ensure_site_js_search(js)
+            js = ensure_site_js_i18n_chrome(js)
             js = _replace_i18n_index_failed(js, lang)
+            js = sync_site_js_i18n_blob(js, lang)
             js_path.write_text(js, encoding="utf-8")
 
 
@@ -1316,6 +1661,10 @@ ROOT_CHROME_UI_KEYS = (
     "global_search_title_attr",
     "close_search",
     "close",
+    "enlarge_image",
+    "illustration_alt",
+    "lightbox_illustration",
+    "lightbox_text",
     "search_stories_label",
     "search_stories_placeholder",
     "search_filter_label",
@@ -1392,6 +1741,13 @@ _ROOT_ENTRY_SCRIPT = """\
     if (!L) return;
     document.documentElement.lang = code;
     body.setAttribute("data-lang", code);
+    if (L.page_title) {
+      document.title = L.page_title;
+      var ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) ogTitle.setAttribute("content", L.page_title);
+      var twTitle = document.querySelector('meta[name="twitter:title"]');
+      if (twTitle) twTitle.setAttribute("content", L.page_title);
+    }
     document.querySelectorAll("[data-root-entry]").forEach(function (link) {
       var key = link.getAttribute("data-root-entry");
       var card = L.cards && L.cards[key];
@@ -1475,6 +1831,14 @@ _ROOT_ENTRY_SCRIPT = """\
     setText(contactLabels[2], ui.footer_website);
     var meta = document.querySelector('meta[name="description"]');
     if (meta && L.meta_description) meta.setAttribute("content", L.meta_description);
+    if (L.meta_description) {
+      var ogDesc = document.querySelector('meta[property="og:description"]');
+      if (ogDesc) ogDesc.setAttribute("content", L.meta_description);
+      var twDesc = document.querySelector('meta[name="twitter:description"]');
+      if (twDesc) twDesc.setAttribute("content", L.meta_description);
+    }
+    var ogLocale = document.querySelector('meta[property="og:locale"]');
+    if (ogLocale && L.og_locale) ogLocale.setAttribute("content", L.og_locale);
     var runtime = window.__BIRINCI_I18N__;
     if (runtime) {
       runtime.lang = code;
@@ -1595,6 +1959,8 @@ def _root_entry_locale_pack(lang: str) -> dict:
         or DISCOVERIES_HERO.get(lang, ""),
         "search_index": f"{lang}/assets/search-index.js?v={ROOT_HOME_ASSET_VERSION}",
         "page_jump": PAGE_JUMP_NAV.get(lang, PAGE_JUMP_NAV["en"]),
+        "page_title": data.get("site_name") or "Birİnci",
+        "og_locale": OG_LOCALE.get(lang, lang),
         "meta_description": ui.get("site_description", ""),
         "discoveries_label": inv.get("page_title", ""),
         "discoveries_href": f"{lang}/discoveries/discoveries-and-inventions.html",
@@ -1699,13 +2065,137 @@ def write_root_home() -> None:
     if not az_index.is_file():
         raise FileNotFoundError(az_index)
     html = build_root_home_html(az_index.read_text(encoding="utf-8"))
+    html = strip_google_fonts(html)
+    html = strip_stories_json_refs(html)
+    html = pin_asset_versions(html)
+    html = ensure_seo_head(html, "az", "index.html")
     (ROOT / "index.html").write_text(html, encoding="utf-8")
+
+
+def apply_story_audio_cleanup() -> None:
+    for lang in LIVE_LANGS:
+        for rel in (
+            Path(lang) / "assets" / "stories-data.js",
+        ):
+            path = ROOT / rel
+            if not path.is_file():
+                continue
+            text = path.read_text(encoding="utf-8")
+            new = text.replace('"hasAudio": true', '"hasAudio": false')
+            if new != text:
+                path.write_text(new, encoding="utf-8")
+    manifest = ROOT / "az" / "audio" / "manifest.json"
+    if manifest.is_file():
+        manifest.unlink()
+    for lang in LIVE_LANGS:
+        path = ROOT / lang / "data" / "stories.json"
+        if path.is_file():
+            path.unlink()
+        data_dir = ROOT / lang / "data"
+        if data_dir.is_dir() and not any(data_dir.iterdir()):
+            data_dir.rmdir()
+
+
+def apply_invention_source_bodies() -> None:
+    for lang in LIVE_LANGS:
+        path = TOOLS / "inventions" / f"{lang}-body.html"
+        if not path.is_file():
+            continue
+        markup = path.read_text(encoding="utf-8")
+        new = slim_discoveries_search(markup)
+        new = fix_ky_illustration_prefix(new, lang)
+        if new != markup:
+            path.write_text(new, encoding="utf-8")
+
+
+def write_public_seo_files() -> None:
+    urls = [_public_url("index.html")]
+    for lang in LIVE_LANGS:
+        urls.append(_public_url(f"{lang}/index.html"))
+        about = ROOT / lang / "about" / "mission-vision-values.html"
+        if about.is_file():
+            urls.append(_public_url(f"{lang}/about/mission-vision-values.html"))
+        disc = ROOT / lang / "discoveries" / "discoveries-and-inventions.html"
+        if disc.is_file():
+            urls.append(_public_url(f"{lang}/discoveries/discoveries-and-inventions.html"))
+        cat = ROOT / lang / "categories"
+        if cat.is_dir():
+            for path in sorted(cat.glob("*.html")):
+                urls.append(_public_url(f"{lang}/categories/{path.name}"))
+    today = "2026-08-19"
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ]
+    for url in urls:
+        lines.extend(
+            [
+                "  <url>",
+                f"    <loc>{html.escape(url)}</loc>",
+                f"    <lastmod>{today}</lastmod>",
+                "  </url>",
+            ]
+        )
+    lines.append("</urlset>")
+    (ROOT / "sitemap.xml").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    (ROOT / "robots.txt").write_text(
+        "User-agent: *\n"
+        "Allow: /\n"
+        f"Sitemap: {SITE_PUBLIC_ORIGIN}/sitemap.xml\n",
+        encoding="utf-8",
+    )
+    (ROOT / "404.html").write_text(_NOT_FOUND_HTML, encoding="utf-8")
+
+
+def _load_stories_blob(lang: str) -> dict:
+    path = ROOT / lang / "assets" / "stories-data.js"
+    text = path.read_text(encoding="utf-8")
+    prefix = "window.__BIRINCI_STORIES__ = "
+    start = text.find(prefix)
+    if start < 0:
+        raise ValueError(f"Missing stories blob in {path}")
+    blob, _end = json.JSONDecoder().raw_decode(text, start + len(prefix))
+    return blob
+
+
+def write_translation_manifest() -> None:
+    blobs = {
+        lang: _load_stories_blob(lang)
+        for lang in LIVE_LANGS
+        if (ROOT / lang / "assets" / "stories-data.js").is_file()
+    }
+    present = {
+        lang: {
+            story.get("stem")
+            for cat in (blob.get("categories") or [])
+            for story in (cat.get("stories") or [])
+            if story.get("stem") and story.get("paragraphs")
+        }
+        for lang, blob in blobs.items()
+    }
+    az = blobs["az"]
+    stems: dict[str, dict[str, str]] = {}
+    for cat in az.get("categories") or []:
+        for story in cat.get("stories") or []:
+            stem = story.get("stem")
+            if not stem:
+                continue
+            entry: dict[str, str] = {}
+            for lang in LIVE_LANGS:
+                entry[f"text_{lang}"] = "done" if stem in present.get(lang, set()) else "pending"
+                entry[f"audio_{lang}"] = "pending"
+                illu = ROOT / lang / "illustrations" / f"{stem}.webp"
+                entry[f"illustration_{lang}"] = "done" if illu.is_file() else "pending"
+            stems[stem] = entry
+    dest = ROOT / "docs" / "i18n" / "translation_manifest.json"
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    dest.write_text(json.dumps({"stems": stems}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
 def apply_all_html() -> int:
     update_locale_discoveries_descriptions()
     n = 0
-    for lang in ("az", "en", "ru", "ky"):
+    for lang in LIVE_LANGS:
         base = ROOT / lang
         if not base.is_dir():
             continue
@@ -1722,12 +2212,31 @@ def apply_all_html() -> int:
         for path in paths:
             if not path.is_file():
                 continue
-            html = path.read_text(encoding="utf-8")
-            inventions = "discoveries" in path.parts or "ocaq-video" in html
-            new_html = patch_emitted_html(html, lang, inventions=inventions)
-            if new_html != html:
+            markup = path.read_text(encoding="utf-8")
+            inventions = "discoveries" in path.parts or "ocaq-video" in markup
+            rel = path.relative_to(ROOT).as_posix()
+            new_html = patch_emitted_html(
+                markup, lang, inventions=inventions, rel_path=rel
+            )
+            if new_html != markup:
                 path.write_text(new_html, encoding="utf-8")
                 n += 1
     write_root_home()
     n += 1
     return n
+
+
+def apply_review_fixes() -> int:
+    apply_shared_assets()
+    apply_story_audio_cleanup()
+    apply_invention_source_bodies()
+    n = apply_all_html()
+    write_public_seo_files()
+    write_translation_manifest()
+    return n
+
+
+if __name__ == "__main__":
+    count = apply_review_fixes()
+    print(f"chrome_restore: patched {count} HTML files; asset {SITE_ASSET_VERSION}")
+

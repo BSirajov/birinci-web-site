@@ -51,8 +51,9 @@ except ImportError as exc:  # pragma: no cover
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from i18n_config import SUPPORTED_LANGS, TTS_DIALOGUE_VOICES, TTS_VOICES  # noqa: E402
+from stories_catalog import load_stories_catalog, stories_data_path  # noqa: E402
 
-DATA_JSON = ROOT / "az" / "data" / "stories.json"
+DATA_JS = stories_data_path("az")
 AUDIO_DIR = ROOT / "az" / "audio"
 MANIFEST_JSON = AUDIO_DIR / "manifest.json"
 
@@ -89,11 +90,11 @@ PILOT_LANGS = ("az", "en", "ru")
 
 
 def configure_lang(lang: str) -> None:
-    global LANG, DATA_JSON, AUDIO_DIR, MANIFEST_JSON, DEFAULT_VOICE, DEFAULT_DIALOGUE_VOICE
+    global LANG, DATA_JS, AUDIO_DIR, MANIFEST_JSON, DEFAULT_VOICE, DEFAULT_DIALOGUE_VOICE
     if lang not in SUPPORTED_LANGS:
         raise SystemExit(f"Unsupported lang {lang}")
     LANG = lang
-    DATA_JSON = ROOT / lang / "data" / "stories.json"
+    DATA_JS = stories_data_path(lang)
     AUDIO_DIR = ROOT / lang / "audio"
     MANIFEST_JSON = AUDIO_DIR / "manifest.json"
     voice = TTS_VOICES.get(lang)
@@ -194,7 +195,7 @@ def stems_with_voice(voice: str) -> set[str]:
 
 
 def load_categories() -> list[dict]:
-    data = json.loads(DATA_JSON.read_text(encoding="utf-8"))
+    data = load_stories_catalog(LANG)
     return list(data.get("categories", []))
 
 
@@ -771,8 +772,8 @@ def main() -> None:
                 )
                 continue
 
-        if not DATA_JSON.is_file():
-            print(f"skip {lang}: missing {DATA_JSON}", flush=True)
+        if not DATA_JS.is_file():
+            print(f"skip {lang}: missing {DATA_JS}", flush=True)
             continue
 
         jobs = planned_jobs(lang_filter)
