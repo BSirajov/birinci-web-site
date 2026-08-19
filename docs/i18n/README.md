@@ -11,7 +11,8 @@
 | `languages.json` | Enabled languages, names, flags, TTS voices |
 | `flags/{code}.svg` | Mini flags for the language dropdown |
 | `tools/locales/{code}.json` | UI chrome + category titles |
-| `{code}/` | Per-locale site trees |
+| `{code}/` | Generated locale trees (`i18n.js`, stories data, illustrations) |
+| `assets/site.js` | Shared site runtime |
 | `docs/i18n/translation_manifest.json` | Progress: text/audio/illustration |
 | `tools/i18n_config.py` | Loads `languages.json` for builds |
 
@@ -59,7 +60,7 @@ Do **not** copy AZ WebPs. Mark `illustration_<lang>` in the manifest when done.
 | B — Translate 250×N | AZ/EN/RU/KY **250 / 250** in `stories-data.js` |
 | B2 — Illustrations | Locale folders ready; do not copy AZ art into other langs blindly |
 | C — Audio | AZ/EN/RU present for narrated stems; KY follows content readiness |
-| D — Deploy | `deployment/` includes `az/`, `en/`, `ru/`, `ky/` (+ `about/`, `discoveries/` when present) |
+| D — Deploy | `python tools/build_deployment.py` writes a local `deployment/` copy (not in git) |
 | E — Discoveries | AZ/EN/RU/KY live (121 articles); videos stripped from UI |
 
 Open `index.html` → language chooser, or go directly to `/en/`, `/ru/`, or `/ky/`.

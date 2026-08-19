@@ -10,12 +10,13 @@ Multilingual static story site: **AZ / EN / RU / KY**. Shared chrome CSS lives o
 |---------|------|
 | Source of truth | `tools/build_website.py` (embedded CSS / JS / HTML builders) |
 | Shared CSS / brand | `assets/site.css`, favicons, pearl, bg |
-| Locale trees | `{az,en,ru,ky}/` — `index.html`, `categories/`, `data/`, `illustrations/`, `audio/`, `assets/site.js` (+ search/stories JS) |
+| Locale trees | `{az,en,ru,ky}/` — generated pages, illustrations, `{lang}/assets/i18n.js` + stories/search data |
+| Shared JS / CSS | `assets/site.js`, `assets/site.css`, `assets/fonts.css` |
 | Story sources | `source/stories/{lang}/*.docx` (build input; not deployed) |
 | Locales UI strings | `tools/locales/{lang}.json` |
-| Publish mirror | `deployment/` via `tools/build_deployment.py` |
+| Publish mirror | `deployment/` via `tools/build_deployment.py` (gitignored) |
 
-Prefer chrome fixes via `tools/chrome_restore.py` (and locales / inventions bodies). The builder still rewrites `assets/site.css` and `{lang}/assets/site.js` from bytecode; the overlay re-applies brand-one, page-jump, footer frames, short AZ footer, discoveries hero copy, and strips Discovery videos after each sync.
+Prefer chrome fixes via `tools/chrome_restore.py` (and locales / inventions bodies). The builder may still emit per-locale `site.js`; the overlay folds that into shared `assets/site.js` plus `{lang}/assets/i18n.js`.
 
 ---
 
@@ -47,7 +48,7 @@ Prefer chrome fixes via `tools/chrome_restore.py` (and locales / inventions bodi
 - Skip link → `#main`; one `<main>` on home/category shells
 - Hamburger ≤1400px; tools wrap ≤1180; category sidebar accordion ≤1060
 - Illustrations emit `loading="lazy"`, 1536×1024, non-empty alt
-- Asset version: **20260818n**
+- Asset version: **20260818p**
 
 ### Intentional stubs (not bugs)
 

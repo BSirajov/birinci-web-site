@@ -1,15 +1,15 @@
 # Birİnci — Full Site QA checklist
 
-Asset version under test: **20260818n**.
+Asset version under test: **20260818p**.
 
 ## Architecture reminder
 
-1. Prefer editing shared CSS in `assets/site.css` and Discoveries bridge in `assets/inventions/inventions-bridge.css`. `tools/build_website.py` loads inventions-aware bytecode plus `chrome_restore.py` (pins `SITE_ASSET_VERSION=20260818n`, brand-one / page-jump / footer frames, strips leftover Discovery-video markup, hides unfinished top-nav stubs, enables RU/KY Discoveries nav when that page exists).
+1. Prefer editing shared CSS in `assets/site.css` and Discoveries bridge in `assets/inventions/inventions-bridge.css`. `tools/build_website.py` loads inventions-aware bytecode plus `chrome_restore.py` (pins `SITE_ASSET_VERSION=20260818p`, brand-one / page-jump / footer frames, strips leftover Discovery-video markup, hides unfinished top-nav stubs, enables RU/KY Discoveries nav when that page exists).
 2. Discoveries content: EN/AZ/RU/KY via `tools/inventions/{lang}-body.html` + rebuild when chrome must regenerate.
 3. `python tools/build_deployment.py` after asset changes so `deployment/` matches `assets/`.
-4. Hard-refresh browsers after deploy (`?v=20260818n`).
+4. Hard-refresh browsers after deploy (`?v=20260818p`). `deployment/` is a local publish copy (gitignored).
 
-Shared CSS: `assets/site.css` (all locales). Locale JS: `{lang}/assets/site.js`.
+Shared CSS: `assets/site.css`. Shared JS: `assets/site.js`. Locale strings: `{lang}/assets/i18n.js`.
 Discoveries: KT stack under `assets/inventions/` + `inventions-bridge.css`.
 
 ### Discovery videos (Ocaq)

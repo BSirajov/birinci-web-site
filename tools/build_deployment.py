@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build deployment/ for all locale trees."""
+"""Build a local publish tree in deployment/ (gitignored)."""
 from __future__ import annotations
 
 import shutil
@@ -74,7 +74,7 @@ def main() -> None:
 
     files = sum(1 for p in DEPLOY.rglob("*") if p.is_file())
     size_mb = sum(p.stat().st_size for p in DEPLOY.rglob("*") if p.is_file()) / (1024 * 1024)
-    print(f"deployment: {DEPLOY}")
+    print(f"deployment: {DEPLOY} (local publish copy, not committed)")
     print(f"files={files} size_mb={size_mb:.1f}")
 
 

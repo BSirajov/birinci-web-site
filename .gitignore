@@ -9,3 +9,5 @@ az/Moral-Stories-Collection.docx
 tools/_tmp_*
 _verify_list_view/
 .env
+deployment/
+docs/epub/*.epub

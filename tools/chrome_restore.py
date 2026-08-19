@@ -22,7 +22,7 @@ from brand_one_mark import ensure_brand_one_mark  # noqa: E402
 DISABLE_DISCOVERY_VIDEOS = True
 
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
-SITE_ASSET_VERSION = "20260818n"
+SITE_ASSET_VERSION = "20260818p"
 SITE_PUBLIC_ORIGIN = "https://birinci.cloud"
 LIVE_LANGS = ("az", "en", "ru", "ky")
 OG_IMAGE_URL = f"{SITE_PUBLIC_ORIGIN}/assets/pearl-hero.webp"
@@ -931,6 +931,15 @@ _CATEGORY_HREF_RE = re.compile(
     re.I,
 )
 _I18N_ASSIGN_PREFIX = "window.__BIRINCI_I18N__ = "
+_SITE_RUNTIME_SCRIPTS_RE = re.compile(
+    r"[ \t]*<script src=\"[^\"]*i18n\.js\?v=[^\"]+\"[^>]*></script>\s*"
+    r"[ \t]*<script src=\"[^\"]*site\.js\?v=[^\"]+\"[^>]*></script>\s*",
+    re.I,
+)
+_SITE_JS_ONLY_RE = re.compile(
+    r"[ \t]*<script src=\"[^\"]*assets/site\.js\?v=[^\"]+\"[^>]*></script>\s*",
+    re.I,
+)
 
 
 def _discoveries_nav_href(html: str) -> str:
@@ -1477,6 +1486,40 @@ def sync_site_js_i18n_blob(js: str, lang: str) -> str:
     return js[:start] + _I18N_ASSIGN_PREFIX + dumped + ";" + js[end:]
 
 
+def split_site_js_i18n(js: str) -> tuple[str, str]:
+    parsed = _parse_site_js_i18n_blob(js)
+    if not parsed:
+        return "", js
+    _blob, start, end = parsed
+    i18n = js[start:end].strip()
+    if i18n and not i18n.endswith(";"):
+        i18n += ";"
+    rest = (js[:start] + js[end:]).lstrip("\n")
+    return (i18n + "\n") if i18n else "", rest
+
+
+def ensure_shared_site_js_tags(markup: str, lang: str, rel_path: str = "") -> str:
+    rel_path = rel_path or infer_html_rel_path(markup, lang)
+    if rel_path in ("", "index.html") or "page-root-home" in markup:
+        i18n_src = f"az/assets/i18n.js?v={SITE_ASSET_VERSION}"
+        site_src = f"assets/site.js?v={SITE_ASSET_VERSION}"
+    elif rel_path.count("/") <= 1:
+        i18n_src = f"assets/i18n.js?v={SITE_ASSET_VERSION}"
+        site_src = f"../assets/site.js?v={SITE_ASSET_VERSION}"
+    else:
+        i18n_src = f"../assets/i18n.js?v={SITE_ASSET_VERSION}"
+        site_src = f"../../assets/site.js?v={SITE_ASSET_VERSION}"
+    block = (
+        f'  <script src="{i18n_src}"></script>\n'
+        f'  <script src="{site_src}" defer></script>\n'
+    )
+    if _SITE_RUNTIME_SCRIPTS_RE.search(markup):
+        return _SITE_RUNTIME_SCRIPTS_RE.sub(block, markup, count=1)
+    if _SITE_JS_ONLY_RE.search(markup):
+        return _SITE_JS_ONLY_RE.sub(block, markup, count=1)
+    return markup
+
+
 def ensure_site_js_i18n_chrome(js: str) -> str:
     old_figure = (
         '      const figureHtml = story.hasImage\n'
@@ -1590,6 +1633,7 @@ def patch_emitted_html(
     html = strip_data_audio(html)
     html = strip_google_fonts(html)
     html = strip_stories_json_refs(html)
+    html = ensure_shared_site_js_tags(html, lang, rel_path)
     html = pin_asset_versions(html)
     html = ensure_seo_head(html, lang, rel_path)
     return html
@@ -1615,17 +1659,39 @@ def apply_shared_assets() -> None:
     css_path = ROOT / "assets" / "site.css"
     css_path.write_text(ensure_site_css_chrome(css_path.read_text(encoding="utf-8")), encoding="utf-8")
 
-    # Locale copies of site.js (builder writes per-lang)
-    for lang in ("az", "en", "ru", "ky"):
-        js_path = ROOT / lang / "assets" / "site.js"
-        if js_path.is_file():
-            js = js_path.read_text(encoding="utf-8")
-            js = ensure_site_js_go_to_bottom(js)
-            js = ensure_site_js_search(js)
-            js = ensure_site_js_i18n_chrome(js)
-            js = _replace_i18n_index_failed(js, lang)
-            js = sync_site_js_i18n_blob(js, lang)
-            js_path.write_text(js, encoding="utf-8")
+    shared_path = ROOT / "assets" / "site.js"
+    shared_src = ""
+    az_js = ROOT / "az" / "assets" / "site.js"
+    if az_js.is_file():
+        shared_src = az_js.read_text(encoding="utf-8")
+    elif shared_path.is_file():
+        shared_src = shared_path.read_text(encoding="utf-8")
+    if shared_src:
+        _i18n, rest = split_site_js_i18n(shared_src)
+        rest = ensure_site_js_go_to_bottom(rest)
+        rest = ensure_site_js_search(rest)
+        rest = ensure_site_js_i18n_chrome(rest)
+        shared_path.write_text(rest, encoding="utf-8")
+
+    for lang in LIVE_LANGS:
+        loc_path = ROOT / lang / "assets" / "site.js"
+        i18n_path = ROOT / lang / "assets" / "i18n.js"
+        if loc_path.is_file():
+            js = loc_path.read_text(encoding="utf-8")
+        elif i18n_path.is_file():
+            js = i18n_path.read_text(encoding="utf-8")
+        else:
+            continue
+        js = _replace_i18n_index_failed(js, lang)
+        js = sync_site_js_i18n_blob(js, lang)
+        i18n_line, _rest = split_site_js_i18n(js)
+        if not i18n_line:
+            i18n_line = js if js.startswith(_I18N_ASSIGN_PREFIX) else ""
+        if i18n_line:
+            i18n_path.parent.mkdir(parents=True, exist_ok=True)
+            i18n_path.write_text(i18n_line, encoding="utf-8")
+        if loc_path.is_file():
+            loc_path.unlink()
 
 
 _BREADCRUMBS_RE = re.compile(
@@ -2044,7 +2110,6 @@ def build_root_home_html(az_html: str) -> str:
     html = html.replace('href="discoveries/', 'href="az/discoveries/')
     html = html.replace('href="about/', 'href="az/about/')
     html = html.replace('href="index.html?view=list"', 'href="az/index.html?view=list"')
-    html = html.replace('src="assets/site.js', 'src="az/assets/site.js')
     html = html.replace(
         'data-search-index="assets/search-index.js',
         'data-search-index="az/assets/search-index.js',
@@ -2067,6 +2132,7 @@ def write_root_home() -> None:
     html = build_root_home_html(az_index.read_text(encoding="utf-8"))
     html = strip_google_fonts(html)
     html = strip_stories_json_refs(html)
+    html = ensure_shared_site_js_tags(html, "az", "index.html")
     html = pin_asset_versions(html)
     html = ensure_seo_head(html, "az", "index.html")
     (ROOT / "index.html").write_text(html, encoding="utf-8")
