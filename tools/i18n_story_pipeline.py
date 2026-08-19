@@ -6,7 +6,7 @@ Export:
 
 Import a translated JSON package (list of {stem, title, paragraphs}):
   python tools/i18n_story_pipeline.py import --lang en path/to/batch.json
-  python tools/i18n_story_pipeline.py import --lang tr path/to/batch.json
+  python tools/i18n_story_pipeline.py import --lang ky path/to/batch.json
 """
 from __future__ import annotations
 
@@ -19,8 +19,8 @@ from docx import Document
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from i18n_config import TARGET_LANGS  # noqa: E402
-AZ_STORIES = ROOT / "az" / "stories"
+from i18n_config import TARGET_LANGS, story_sources  # noqa: E402
+AZ_STORIES = story_sources("az")
 MAP_JSON = ROOT / "tools" / "story-mapping.json"
 MANIFEST = ROOT / "docs" / "i18n" / "translation_manifest.json"
 
@@ -96,7 +96,7 @@ def cmd_import(lang: str, package: Path) -> None:
     else:
         raise SystemExit("Package must be a list or {stories:[...]}")
 
-    dest = ROOT / lang / "stories"
+    dest = story_sources(lang)
     dest.mkdir(parents=True, exist_ok=True)
     manifest = load_manifest()
     stems = manifest.setdefault("stems", {})

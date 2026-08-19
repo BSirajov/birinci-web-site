@@ -1,7 +1,7 @@
-# Multilingual rollout (AZ / EN / RU / TR / KY)
+# Multilingual rollout (AZ / EN / RU / KY)
 
 ## Locked decisions
-- Full UI + all 250 stories in each target locale (EN, RU, TR, KY)
+- Full UI + all 250 stories in each target locale (EN, RU, KY)
 - TTS when each story is translated (male neural voices where available)
 - **Separate illustrations per locale** (AZ text in art → regenerate per language)
 
@@ -35,12 +35,10 @@ python tools/i18n_story_pipeline.py export
 # Import a translated package
 python tools/i18n_story_pipeline.py import --lang en path/to/batch.json
 python tools/i18n_story_pipeline.py import --lang ru path/to/batch.json
-python tools/i18n_story_pipeline.py import --lang tr path/to/batch.json
 python tools/i18n_story_pipeline.py import --lang ky path/to/batch.json
 
 # Audio for a locale
 python tools/generate_story_audio.py --lang en --all --force
-python tools/generate_story_audio.py --lang tr stem-one stem-two --force
 ```
 
 Kyrgyz (`ky`) has no Edge/Azure neural voice as of 2026-08. `generate_story_audio.py --lang ky` exits until a voice is configured in `tools/i18n_config.py`.
@@ -49,7 +47,6 @@ Kyrgyz (`ky`) has no Edge/Azure neural voice as of 2026-08. `generate_story_audi
 Place localized art at:
 - `en/illustrations/{stem}.webp`
 - `ru/illustrations/{stem}.webp`
-- `tr/illustrations/{stem}.webp`
 - `ky/illustrations/{stem}.webp`
 
 Do **not** copy AZ WebPs. Mark `illustration_<lang>` in the manifest when done.
@@ -58,11 +55,11 @@ Do **not** copy AZ WebPs. Mark `illustration_<lang>` in the manifest when done.
 
 | Phase | Status |
 |-------|--------|
-| A — Shell / builder / switcher | **Done** (AZ, EN, RU, TR, KY) |
-| B — Translate 250×N | AZ/EN/RU/KY **250 / 250** in `stories-data.js`; TR **0 / 250** (UI chrome only) |
+| A — Shell / builder / switcher | **Done** (AZ, EN, RU, KY) |
+| B — Translate 250×N | AZ/EN/RU/KY **250 / 250** in `stories-data.js` |
 | B2 — Illustrations | Locale folders ready; do not copy AZ art into other langs blindly |
-| C — Audio | AZ/EN/RU present for narrated stems; KY/TR follow content readiness |
-| D — Deploy | `deployment/` includes `az/`, `en/`, `ru/`, `tr/`, `ky/` (+ `about/`, `discoveries/` when present) |
-| E — Discoveries | AZ/EN/RU/KY live (121 articles); videos stripped from UI; TR has no Discoveries tree yet |
+| C — Audio | AZ/EN/RU present for narrated stems; KY follows content readiness |
+| D — Deploy | `deployment/` includes `az/`, `en/`, `ru/`, `ky/` (+ `about/`, `discoveries/` when present) |
+| E — Discoveries | AZ/EN/RU/KY live (121 articles); videos stripped from UI |
 
-Open `index.html` → language chooser, or go directly to `/en/`, `/ru/`, `/tr/`, or `/ky/`.
+Open `index.html` → language chooser, or go directly to `/en/`, `/ru/`, or `/ky/`.

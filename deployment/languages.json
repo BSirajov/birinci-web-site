@@ -1,6 +1,6 @@
 {
   "source": "az",
-  "gate_prompt": "Choose language / Dil seçin / Выберите язык / Dil seçin / Тил тандаңыз",
+  "gate_prompt": "Choose language / Dil seçin / Выберите язык / Тил тандаңыз",
   "languages": [
     {
       "code": "az",
@@ -43,21 +43,6 @@
       "show_audio_controls": false,
       "tts_voice": "ru-RU-DmitryNeural",
       "tts_dialogue_voice": "ru-RU-SvetlanaNeural"
-    },
-    {
-      "code": "tr",
-      "enabled": true,
-      "label": "TR",
-      "name": "Türkçe",
-      "html_lang": "tr",
-      "flag": "flags/tr.svg",
-      "implemented": false,
-      "show_in_switcher": false,
-      "stories_ready": false,
-      "nav_prefixes": ["tr"],
-      "show_audio_controls": false,
-      "tts_voice": "tr-TR-AhmetNeural",
-      "tts_dialogue_voice": "tr-TR-EmelNeural"
     },
     {
       "code": "ky",

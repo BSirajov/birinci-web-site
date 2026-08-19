@@ -2,7 +2,7 @@
 
 ## Scope note
 
-Multilingual static story site: **AZ / EN / RU / TR / KY**. Shared chrome CSS lives once under `/assets/`; each locale tree holds pages, stories data, illustrations, audio, and locale JS.
+Multilingual static story site: **AZ / EN / RU / KY**. Shared chrome CSS lives once under `/assets/`; each locale tree holds pages, stories data, illustrations, audio, and locale JS.
 
 ### Actual layout
 
@@ -10,8 +10,8 @@ Multilingual static story site: **AZ / EN / RU / TR / KY**. Shared chrome CSS li
 |---------|------|
 | Source of truth | `tools/build_website.py` (embedded CSS / JS / HTML builders) |
 | Shared CSS / brand | `assets/site.css`, favicons, pearl, bg |
-| Locale trees | `{az,en,ru,tr,ky}/` — `index.html`, `categories/`, `data/`, `illustrations/`, `audio/`, `assets/site.js` (+ search/stories JS) |
-| Story sources | `{lang}/stories/*.docx` (build input; not deployed) |
+| Locale trees | `{az,en,ru,ky}/` — `index.html`, `categories/`, `data/`, `illustrations/`, `audio/`, `assets/site.js` (+ search/stories JS) |
+| Story sources | `source/stories/{lang}/*.docx` (build input; not deployed) |
 | Locales UI strings | `tools/locales/{lang}.json` |
 | Publish mirror | `deployment/` via `tools/build_deployment.py` |
 
@@ -53,7 +53,6 @@ Prefer chrome fixes via `tools/chrome_restore.py` (and locales / inventions bodi
 
 - Top nav stubs hidden until content exists: Knowledge (`Biliklər`), Arts (`İncəsənət`), Notable figures (`Tanınmış şəxsiyyətlər`), Support (`Bizi dəstəkləyin`) — toggled in `chrome_restore.HIDE_TOP_NAV`
 - Elm / İncəsənət / some TOP_NAV items: `aria-disabled` + coming soon (builder still emits them; overlay strips the four above)
-- TR is UI placeholder only (0 stories; no Discoveries tree) until content is ready
 - Discovery Ocaq videos disabled site-wide (`DISABLE_DISCOVERY_VIDEOS`)
 - Dual hamburgers (primary nav vs story sidebar) by design
 - `--sticky-stack-h: 0rem` reserved; `syncStickyChrome()` sets header/breadcrumb only

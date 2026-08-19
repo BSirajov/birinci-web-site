@@ -95,6 +95,18 @@ def locale_root(lang: str) -> Path:
     return ROOT / lang
 
 
+def source_root() -> Path:
+    return ROOT / "source"
+
+
+def story_sources(lang: str) -> Path:
+    return source_root() / "stories" / lang
+
+
+def discovery_sources(lang: str) -> Path:
+    return source_root() / "discoveries" / lang
+
+
 def progress_manifest_path() -> Path:
     return ROOT / "docs" / "i18n" / "translation_manifest.json"
 

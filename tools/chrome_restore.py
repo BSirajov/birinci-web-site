@@ -38,7 +38,6 @@ PAGE_JUMP_NAV = {
     "en": "Page navigation",
     "ru": "Навигация по странице",
     "ky": "Барак навигациясы",
-    "tr": "Sayfa gezintisi",
 }
 
 GO_TO_BOTTOM = {
@@ -46,7 +45,6 @@ GO_TO_BOTTOM = {
     "en": "Go to bottom of page",
     "ru": "Вниз страницы",
     "ky": "Барактын аягына өтүү",
-    "tr": "Sayfanın sonuna git",
 }
 
 BACK_TO_TOP = {
@@ -54,7 +52,6 @@ BACK_TO_TOP = {
     "en": "Back to top",
     "ru": "Наверх",
     "ky": "Барактын башына кайтуу",
-    "tr": "Sayfanın başına dön",
 }
 
 NAV_STORIES_ALL = {
@@ -62,7 +59,6 @@ NAV_STORIES_ALL = {
     "en": "All",
     "ru": "Все",
     "ky": "Баары",
-    "tr": "Tümü",
 }
 
 NAV_STORIES_BY_CATEGORY = {
@@ -70,7 +66,6 @@ NAV_STORIES_BY_CATEGORY = {
     "en": "By Category",
     "ru": "По категориям",
     "ky": "Категория боюнча",
-    "tr": "Kategoriye göre",
 }
 
 # Former Literature top-nav labels → stories-section name in each language.
@@ -79,14 +74,12 @@ OLD_NAV_LITERATURE = {
     "en": "Literature",
     "ru": "Литература",
     "ky": "Адабият",
-    "tr": "Edebiyat",
 }
 NAV_LITERATURE_LABEL = {
     "az": "İbrətamiz hekayələr",
     "en": "Wisdom stories",
     "ru": "Нравоучительные рассказы",
     "ky": "Үлгүлүү аңгемелер",
-    "tr": "İbret verici hikâyeler",
 }
 _LIT_NAV_SPAN_RE = re.compile(
     r'(<details class="nav-dropdown nav-dropdown--literature">[\s\S]*?'
@@ -544,7 +537,6 @@ SEARCH_INDEX_FAILED = {
     "en": "Search index failed to load. Reload the page.",
     "ru": "Не удалось загрузить поисковый индекс. Обновите страницу.",
     "ky": "Издөө индекси жүктөлгөн жок. Баракты жаңыртыңыз.",
-    "tr": "Arama dizini yüklenemedi. Sayfayı yenileyin.",
 }
 
 _OLD_GLOBAL_SEARCH_CORE = """    let index = null;
@@ -1281,7 +1273,7 @@ def apply_shared_assets() -> None:
     css_path.write_text(ensure_site_css_chrome(css_path.read_text(encoding="utf-8")), encoding="utf-8")
 
     # Locale copies of site.js (builder writes per-lang)
-    for lang in ("az", "en", "ru", "ky", "tr"):
+    for lang in ("az", "en", "ru", "ky"):
         js_path = ROOT / lang / "assets" / "site.js"
         if js_path.is_file():
             js = js_path.read_text(encoding="utf-8")
@@ -1682,7 +1674,6 @@ def build_root_home_html(az_html: str) -> str:
     html = html.replace('href="../en/', 'href="en/')
     html = html.replace('href="../ru/', 'href="ru/')
     html = html.replace('href="../ky/', 'href="ky/')
-    html = html.replace('href="../tr/', 'href="tr/')
     html = html.replace('href="categories/', 'href="az/categories/')
     html = html.replace('href="discoveries/', 'href="az/discoveries/')
     html = html.replace('href="about/', 'href="az/about/')
@@ -1714,7 +1705,7 @@ def write_root_home() -> None:
 def apply_all_html() -> int:
     update_locale_discoveries_descriptions()
     n = 0
-    for lang in ("az", "en", "ru", "ky", "tr"):
+    for lang in ("az", "en", "ru", "ky"):
         base = ROOT / lang
         if not base.is_dir():
             continue

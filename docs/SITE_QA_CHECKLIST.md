@@ -35,7 +35,6 @@ Done without changing story/invention content or the visual system:
 | Check | Result |
 |-------|--------|
 | RU/KY Discoveries nav is a real link (page exists) | Pass |
-| TR Discoveries nav stays disabled (no TR page) | Pass |
 | Cache-bust `?v=` unified to `20260818i` on live HTML | Pass |
 | Dead CSS removed: `.section__head`, `.about-hero__subtitle`, `.lang-switcher__flag-slot`, `[data-tools-play-visible]:disabled` | Pass |
 | Title gradient one-off `#2e9fd4` → `--blue-mid` token | Pass |
@@ -52,7 +51,6 @@ Done without changing story/invention content or the visual system:
 - Full TTS / `.audio-player*` stack — gated by `show_audio_controls: false`, kept for re-enable
 - Arts / Knowledge / Figures / Support nav CSS — HTML hidden; CSS kept if those menus return
 - Large KT catalog-toolbar CSS trim — `.sel-wrap` / `.kt-multi-filter` still live
-- TR locale not added to the main language switcher (existing product choice)
 - CSS/JS minify — skipped to keep source readable and avoid regressions
 
 ## Manual physical matrix (you run)

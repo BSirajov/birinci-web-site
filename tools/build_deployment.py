@@ -13,7 +13,7 @@ from i18n_config import SUPPORTED_LANGS  # noqa: E402
 DEPLOY = ROOT / "deployment"
 LANGS = SUPPORTED_LANGS
 COPY_DIRS = ("assets", "categories", "data", "illustrations")
-OPTIONAL_PAGE_DIRS = ("about", "discoveries", "stories")
+OPTIONAL_PAGE_DIRS = ("about", "discoveries")
 OPTIONAL_DIRS = ("audio",)
 COPY_FILES = ("index.html",)
 
