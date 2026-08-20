@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% if page == "login" %}{% set title = s.login %}
+{% elif page == "register" %}{% set title = s.register %}
+{% elif page == "forgot" %}{% set title = s.forgot %}
+{% elif page == "reset" %}{% set title = s.reset %}
+{% else %}{% set title = s.verify %}{% endif %}
+{% block main %}
+  <section class="account-card">
+    <h1>{{ title }}</h1>
+    {% if page == "login" %}<p class="account-lead">{{ s.lead_login }}</p>{% endif %}
+    {% if page == "register" %}<p class="account-lead">{{ s.lead_register }}</p>{% endif %}
+    {% if page == "forgot" %}<p class="account-lead">{{ s.lead_forgot }}</p>{% endif %}
+    <p class="account-msg" id="account-msg" hidden></p>
+    <form class="account-form" data-form="{{ page }}" {% if token is defined %}data-token="{{ token }}"{% endif %}{% if page == "register" %} data-password-mismatch="{{ s.password_mismatch }}"{% endif %} data-password-show="{{ s.password_show }}" data-password-hide="{{ s.password_hide }}">
+      {% if page == "register" %}
+      <label>
+        <span>{{ s.first_name }}</span>
+        <input type="text" name="first_name" maxlength="80" autocomplete="given-name" required />
+      </label>
+      <label>
+        <span>{{ s.last_name }}</span>
+        <input type="text" name="last_name" maxlength="80" autocomplete="family-name" required />
+      </label>
+      {% endif %}
+      {% if page != "verify" and page != "reset" %}
+      <label>
+        <span>{{ s.email }}</span>
+        <input type="email" name="email" autocomplete="email" required value="{{ email }}" />
+      </label>
+      {% endif %}
+      {% if page == "register" %}
+      <label>
+        <span>{{ s.display_name }}</span>
+        <input type="text" name="display_name" maxlength="80" autocomplete="nickname" />
+      </label>
+      <label>
+        <span>{{ s.locale }}</span>
+        <div class="lang-switcher lang-switcher--embedded" data-pref-locale aria-label="{{ s.locale }}">
+          <input type="hidden" name="preferred_locale" value="{{ lang }}" />
+          <button type="button" class="lang-switcher__toggle" aria-expanded="false" aria-haspopup="listbox" aria-controls="account-pref-locale-menu" title="{% if lang == 'en' %}English{% elif lang == 'ru' %}Русский{% elif lang == 'ky' %}Кыргызча{% else %}Azərbaycan{% endif %}">
+            <img class="lang-switcher__flag" src="/flags/{{ lang }}.svg" alt="" width="20" height="14" decoding="async" />
+            <span class="lang-switcher__name">{{ lang|upper }}</span>
+            <span class="lang-switcher__caret" aria-hidden="true"></span>
+          </button>
+          <div class="lang-switcher__menu" id="account-pref-locale-menu" role="listbox" hidden>
+            <button type="button" class="lang-switcher__option" role="option" data-lang="az" aria-selected="{% if lang == 'az' %}true{% else %}false{% endif %}" title="Azərbaycan">
+              <img class="lang-switcher__flag" src="/flags/az.svg" alt="" width="20" height="14" decoding="async" /><span>AZ</span>
+            </button>
+            <button type="button" class="lang-switcher__option" role="option" data-lang="en" aria-selected="{% if lang == 'en' %}true{% else %}false{% endif %}" title="English">
+              <img class="lang-switcher__flag" src="/flags/en.svg" alt="" width="20" height="14" decoding="async" /><span>EN</span>
+            </button>
+            <button type="button" class="lang-switcher__option" role="option" data-lang="ru" aria-selected="{% if lang == 'ru' %}true{% else %}false{% endif %}" title="Русский">
+              <img class="lang-switcher__flag" src="/flags/ru.svg" alt="" width="20" height="14" decoding="async" /><span>RU</span>
+            </button>
+            <button type="button" class="lang-switcher__option" role="option" data-lang="ky" aria-selected="{% if lang == 'ky' %}true{% else %}false{% endif %}" title="Кыргызча">
+              <img class="lang-switcher__flag" src="/flags/ky.svg" alt="" width="20" height="14" decoding="async" /><span>KY</span>
+            </button>
+          </div>
+        </div>
+      </label>
+      <div class="account-photo">
+        <span class="account-photo__preview" id="register-photo-preview" hidden></span>
+        <label>
+          <span>{{ s.photo }}</span>
+          <input type="file" name="avatar" accept="image/jpeg,image/png,image/webp" />
+          <small class="account-photo__hint">{{ s.photo_hint }}</small>
+        </label>
+      </div>
+      {% endif %}
+      {% if page == "login" or page == "register" or page == "reset" %}
+      <label>
+        <span>{{ s.password }}</span>
+        <div class="auth-password">
+          <input type="password" name="password" autocomplete="{% if page == 'login' %}current-password{% else %}new-password{% endif %}" minlength="10" required />
+          <button type="button" class="auth-password__toggle" data-password-toggle aria-pressed="false" aria-label="{{ s.password_show }}">
+            <svg class="auth-password__icon auth-password__icon--show" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+            <svg class="auth-password__icon auth-password__icon--hide" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-10-8-10-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 10 8 10 8a18.5 18.5 0 0 1-2.16 3.19"/><path d="M14.12 14.12a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+          </button>
+        </div>
+      </label>
+      {% endif %}
+      {% if page == "register" %}
+      <label>
+        <span>{{ s.password_confirm }}</span>
+        <div class="auth-password">
+          <input type="password" name="password_confirm" autocomplete="new-password" minlength="10" required />
+          <button type="button" class="auth-password__toggle" data-password-toggle aria-pressed="false" aria-label="{{ s.password_show }}">
+            <svg class="auth-password__icon auth-password__icon--show" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+            <svg class="auth-password__icon auth-password__icon--hide" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-10-8-10-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 10 8 10 8a18.5 18.5 0 0 1-2.16 3.19"/><path d="M14.12 14.12a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+          </button>
+        </div>
+      </label>
+      {% endif %}
+      {% if page == "login" %}
+      <button type="submit" class="account-btn">{{ s.submit_login }}</button>
+      <p class="account-invite" id="account-invite" hidden data-no-account="{{ s.no_account }}" data-bad-password="{{ s.bad_password }}">
+        <a class="account-btn account-btn--secondary" id="account-create" href="/account/register?lang={{ lang }}">{{ s.create_account }}</a>
+      </p>
+      <p class="account-alt"><a href="/account/forgot?lang={{ lang }}">{{ s.forgot }}</a> · <a id="account-need-account" href="/account/register?lang={{ lang }}">{{ s.need_account }}</a></p>
+      {% elif page == "register" %}
+      <button type="submit" class="account-btn">{{ s.submit_register }}</button>
+      <p class="account-alt"><a href="/account/login?lang={{ lang }}">{{ s.have_account }}</a></p>
+      {% elif page == "forgot" %}
+      <button type="submit" class="account-btn">{{ s.submit_forgot }}</button>
+      {% elif page == "reset" %}
+      <button type="submit" class="account-btn">{{ s.submit_reset }}</button>
+      {% endif %}
+    </form>
+    <p class="account-alt"><a href="/{{ lang }}/index.html">{{ s.back }}</a></p>
+  </section>
+{% endblock %}

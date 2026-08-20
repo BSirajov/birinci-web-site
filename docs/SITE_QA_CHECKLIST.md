@@ -1,16 +1,18 @@
 # Birİnci — Full Site QA checklist
 
-Asset version under test: **20260819h**.
+Asset version under test: **20260820y**.
 
 ## Architecture reminder
 
-1. Prefer editing shared CSS in `assets/site.css` and Discoveries bridge in `assets/inventions/inventions-bridge.css`. `tools/build_website.py` loads inventions-aware bytecode plus `chrome_restore.py` (pins `SITE_ASSET_VERSION=20260818p`, brand-one / page-jump / footer frames, strips leftover Discovery-video markup, hides unfinished top-nav stubs, enables RU/KY Discoveries nav when that page exists).
+1. Prefer editing shared CSS in `assets/site.css` and Discoveries bridge in `assets/inventions/inventions-bridge.css`. `tools/build_website.py` loads inventions-aware bytecode plus `chrome_restore.py` (pins brand-one / page-jump / footer frames, strips leftover Discovery-video markup, hides unfinished top-nav stubs, enables RU/KY Discoveries nav when that page exists).
 2. Discoveries content: EN/AZ/RU/KY via `tools/inventions/{lang}-body.html` + rebuild when chrome must regenerate.
-3. `python tools/build_deployment.py` after asset changes so `deployment/` matches `assets/`.
-4. Hard-refresh browsers after deploy (`?v=20260818p`). `deployment/` is a local publish copy (gitignored).
+3. Sync `deployment/assets/` after asset changes so the publish mirror matches `assets/`.
+4. Hard-refresh browsers after deploy (`?v=20260820y`). `deployment/` is a local publish copy (gitignored).
 
 Shared CSS: `assets/site.css`. Shared JS: `assets/site.js`. Locale strings: `{lang}/assets/i18n.js`.
 Discoveries: KT stack under `assets/inventions/` + `inventions-bridge.css`.
+
+Automated runner: `python tools/full_site_qa.py` → `tools/_qa_report.txt`.
 
 ### Discovery videos (Ocaq)
 
@@ -27,6 +29,40 @@ Discoveries: KT stack under `assets/inventions/` + `inventions-bridge.css`.
 | ≤1180 | Home **and** category tools wrap (search full-width); inventions search full-width |
 | ≤1400 | Hamburger nav (accordion) |
 | ≥1401 | Desktop inline nav + hover megas |
+
+## Agent pass (2026-08-20, asset `20260820y`)
+
+Full Site QA & Consistency Checklist — automated re-verification after recent chrome/typography work + cleanup.
+
+### Checklist map (user sections 1–4)
+
+| Section | Automated status | Notes |
+|---------|------------------|-------|
+| **1. Code cleanup** | **Pass** | Dead assets/orphan JS removed; obsolete `.tools-bar__images` absent; landmarks + single `h1` on samples; minify skipped (preserve readable source) |
+| **2. Unified design system** | **Pass** | Tokens + Discoveries bridge; story/discovery typography & black body text aligned; nav/page-jump/footer consistent; high-frequency one-off hex outside tokens = 0 |
+| **3. Responsive & mobile QA** | **Pass (Chromium)** | Widths 360–1440: no overflow; sticky page-jump; hamburger ≤1400. **Hardware browsers / orientation / real touch still manual** |
+| **4. Final acceptance** | **Pass (automated gates)** | No overflow/inaccessible chrome on tested surfaces; regressions guarded (page-jump fixed). Physical device sign-off remaining |
+
+| Check | Result |
+|-------|--------|
+| CSS/JS `?v=` unified to `20260820y` across AZ/EN/RU/KY + deployment HTML | Pass |
+| `deployment/assets` hashes match live `assets/` (site + inventions critical CSS/JS) | Pass |
+| Landmarks (`header` / `main` / `footer`) + page-jump on sample surfaces | Pass |
+| Go-to-bottom markup sits above Back-to-top; both fixed (`z-index: 50`) and clickable | Pass |
+| No Ocaq / Watch-video controls on Discoveries | Pass |
+| RU/KY home nav links to live Discoveries page | Pass |
+| No horizontal overflow at 360 / 390 / 768 / 1024 / 1440 (home, category, about, discoveries EN/RU, KY home) | Pass |
+| Breadcrumbs visible with solid light-blue background | Pass |
+| Story body: Source Sans 3, black text, line-height ~1.3 | Pass |
+| Discoveries body: black + justify; titles centered; category heads blue bar; entry card gaps | Pass |
+| Hamburger visible ≤1400, hidden ≥1401 | Pass |
+| Page-jump regression guard (`body > .page-jump` stays `position: fixed`) | Pass |
+| Heading order samples (no bad skips); Discoveries images have `alt` | Pass |
+| Orphan `kt-catalog-toolbar-mobile.js` + duplicate `inventions/inventions/` removed | Pass |
+
+### Intentionally manual (hardware / real browsers)
+
+Physical matrix below still needs human sign-off (iOS Safari, Android Chrome, Samsung Internet, portrait + landscape, real touch).
 
 ## Agent pass (2026-08-19, asset `20260818n`)
 
@@ -128,4 +164,5 @@ Mark each cell Pass / Fail. Test portrait **and** landscape on phones/tablets.
 
 | Role | Date | Notes |
 |------|------|-------|
+| Agent (automated) | 2026-08-20 | `tools/full_site_qa.py` FAIL=0; asset `20260820y` |
 | | | |

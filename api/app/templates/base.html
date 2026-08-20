@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ title }} · {{ s.brand }}</title>
+  <link rel="icon" href="/assets/favicon.png" type="image/png" />
+  <link rel="stylesheet" href="/assets/account.css" />
+</head>
+<body class="page-account" data-lang="{{ lang }}" data-page="{{ page }}">
+  <header class="account-top">
+    <a class="brand" href="/{{ lang }}/index.html">
+      <img class="brand__logo" src="/assets/pearl.webp" alt="" width="40" height="40" />
+      <span class="brand__name">{{ s.brand }}</span>
+    </a>
+    <nav class="account-top__nav" data-account-guest-nav>
+      <a href="/account/login?lang={{ lang }}">{{ s.login }}</a>
+      <a href="/account/register?lang={{ lang }}">{{ s.register }}</a>
+    </nav>
+  </header>
+  <main class="account-main" id="main">
+    {% block main %}{% endblock %}
+  </main>
+  <script src="/assets/account.js" defer></script>
+</body>
+</html>

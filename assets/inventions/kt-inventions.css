@@ -167,22 +167,25 @@ body.inventions-preview-page {
 }
 
 .inventions-category-head {
-  background: var(--blue-700);
-  border-bottom: 3px solid var(--blue-400);
-  border-radius: 12px 12px 0 0;
-  color: var(--white);
+  background: var(--blue-700, #0069b4);
+  border-bottom: 3px solid var(--blue-400, #4eb4ee);
+  border-radius: 12px;
+  color: var(--white, #fff);
   font-family: var(--font-serif);
   font-size: clamp(1.1rem, 2vw, 1.35rem);
   font-weight: 700;
   line-height: 1.25;
-  margin: 0;
+  margin: 0 0 14px;
   padding: 16px 20px;
+  text-align: center;
 }
 
 .inventions-entry {
   background: var(--white);
   border: 1px solid var(--border);
-  border-top: 0;
+  border-radius: 12px;
+  margin: 0 0 16px;
+  overflow: hidden;
   padding: 22px 22px 20px;
   scroll-margin-top: calc(
     var(--kt-sticky-top-stack, var(--kt-nav-height, 86px)) +
@@ -199,34 +202,48 @@ body.inventions-preview-page {
 }
 
 .inventions-entry:last-child {
-  border-radius: 0 0 12px 12px;
+  margin-bottom: 0;
 }
 
 .inventions-entry-title {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
+  justify-content: center;
   column-gap: 0.55em;
+  margin: -22px -22px 14px;
+  padding: 16px 22px;
+  border-radius: 0;
+  background: linear-gradient(
+    135deg,
+    var(--blue-900, #06314e) 0%,
+    var(--nav-blue, var(--blue-700, #0069b4)) 58%,
+    var(--blue-400, #4eb4ee) 100%
+  );
+  border-bottom: 2px solid var(--gold-bright, #f0c75e);
+  color: #fff;
   font-family: var(--font-serif);
   font-size: clamp(1.2rem, 2.2vw, 1.45rem);
   line-height: 1.2;
-  margin: 0 0 8px;
   row-gap: 0.15em;
+  text-align: center;
 }
 
 .inventions-entry-num {
-  color: var(--blue-700);
+  color: #fff;
   flex: 0 0 auto;
   font-family: var(--font-sans, Inter, system-ui, sans-serif);
   font-size: 0.82em;
   font-variant-numeric: tabular-nums;
   font-weight: 700;
   letter-spacing: 0.02em;
+  opacity: 0.92;
 }
 
 .inventions-entry-name {
   flex: 1 1 auto;
   min-width: min(12rem, 100%);
+  color: inherit;
 }
 
 .inventions-entry-visual {
@@ -320,8 +337,10 @@ body.inventions-preview-page {
   font-size: 15px;
   line-height: 1.65;
   margin: 0 0 14px;
-  text-align: left !important;
-  text-justify: auto;
+  color: #000;
+  text-align: justify !important;
+  text-justify: inter-word;
+  hyphens: auto;
 }
 
 .inventions-key-facts h3,
@@ -399,6 +418,10 @@ body.inventions-preview-page {
   font-size: 15px;
   line-height: 1.65;
   margin: 0 0 10px;
+  color: #000;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
 }
 
 .inventions-entry-section p:last-child {
@@ -510,6 +533,10 @@ body.inventions-preview-page {
   font-size: 15px;
   line-height: 1.65;
   margin: 0 0 12px;
+  color: #000;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
 }
 
 .inventions-references {
@@ -644,18 +671,23 @@ body.inventions-view-cards .charter-layout.inventions-layout {
 
 .inventions-cards-head {
   margin: 0 0 14px;
-  color: var(--nav-blue-deep, #004e8c);
-  font-family: var(--font-display, inherit);
-  font-size: 1.15rem;
-  font-weight: 800;
+  padding: 16px 20px;
+  background: var(--blue-700, #0069b4);
+  border-bottom: 3px solid var(--blue-400, #4eb4ee);
+  border-radius: 12px;
+  color: var(--white, #fff);
+  font-family: var(--font-serif, var(--font-display, inherit));
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-weight: 700;
   letter-spacing: -0.02em;
-  line-height: 1.3;
+  line-height: 1.25;
+  text-align: center;
 }
 
 .inventions-card-grid {
   display: grid;
   grid-template-columns: repeat(8, minmax(0, 1fr));
-  gap: 8px;
+  gap: 12px;
   align-items: stretch;
 }
 
@@ -761,5 +793,9 @@ body.inventions-view-cards .charter-layout.inventions-layout {
 @media (max-width: 720px) {
   .inventions-entry {
     padding: 18px 16px;
+  }
+  .inventions-entry-title {
+    margin: -18px -16px 12px;
+    padding: 14px 16px;
   }
 }

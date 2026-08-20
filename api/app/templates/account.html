@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% set title = s.account %}
+{% block main %}
+  <section class="account-card">
+    <h1>{{ s.account }}</h1>
+    <p
+      class="account-lead"
+      id="account-status"
+      data-verified="{{ s.verified_status }}"
+      data-unverified="{{ s.unverified_status }}"
+    >…</p>
+    <div class="account-photo account-photo--profile" id="account-photo" hidden>
+      <span class="account-photo__preview" id="account-photo-preview"></span>
+    </div>
+    <p class="account-msg" id="account-msg" hidden></p>
+    <dl
+      class="account-dl"
+      id="account-dl"
+      hidden
+      data-label-email="{{ s.label_email }}"
+      data-label-name="{{ s.label_name }}"
+      data-label-surname="{{ s.label_surname }}"
+      data-label-display-name="{{ s.label_display_name }}"
+      data-label-locale="{{ s.label_locale }}"
+    ></dl>
+    <div class="account-actions">
+      <button type="button" class="account-btn" data-action="logout">{{ s.logout }}</button>
+      <a class="account-link" href="/{{ lang }}/index.html">{{ s.back }}</a>
+    </div>
+    <div class="account-danger">
+      <p class="account-danger__title">{{ s.delete_account }}</p>
+      <p class="account-danger__lead">{{ s.delete_lead }}</p>
+      <button type="button" class="account-btn account-btn--danger" data-action="delete">{{ s.delete_account }}</button>
+      <div class="account-confirm" id="account-delete-confirm" hidden>
+        <p>{{ s.delete_confirm }}</p>
+        <div class="account-confirm__actions">
+          <button type="button" class="account-btn account-btn--secondary" data-action="delete-cancel">{{ s.delete_cancel }}</button>
+          <button type="button" class="account-btn account-btn--danger" data-action="delete-confirm">{{ s.delete_forever }}</button>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

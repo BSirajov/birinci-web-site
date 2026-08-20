@@ -23,7 +23,7 @@ from html_sitemap import write_html_sitemaps  # noqa: E402
 DISABLE_DISCOVERY_VIDEOS = True
 
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
-SITE_ASSET_VERSION = "20260819h"
+SITE_ASSET_VERSION = "20260819u"
 SITE_PUBLIC_ORIGIN = "https://birinci.cloud"
 LIVE_LANGS = ("az", "en", "ru", "ky")
 OG_IMAGE_URL = f"{SITE_PUBLIC_ORIGIN}/assets/pearl-hero.webp"
@@ -72,6 +72,46 @@ STORY_I18N_UI_KEYS = (
     "lightbox_illustration",
     "lightbox_text",
     "close",
+    "sign_in",
+    "sign_up",
+    "sign_out",
+    "auth_email",
+    "auth_first_name",
+    "auth_last_name",
+    "auth_password",
+    "auth_display_name",
+    "auth_lead_login",
+    "auth_lead_register",
+    "auth_close",
+    "auth_forgot",
+    "auth_have_account",
+    "auth_need_account",
+    "auth_account",
+    "auth_no_account",
+    "auth_create_account",
+    "auth_bad_password",
+    "auth_need_signin",
+    "auth_photo",
+    "auth_photo_hint",
+    "settings",
+    "settings_lead",
+    "settings_save",
+    "settings_saved",
+    "settings_delete",
+    "settings_delete_lead",
+    "settings_delete_confirm",
+    "settings_delete_forever",
+    "settings_delete_cancel",
+    "pref_view_stories",
+    "pref_view_category",
+    "pref_view_discoveries",
+    "pref_view_list",
+    "pref_view_cards",
+    "pref_hide_images",
+    "pref_hide_texts",
+    "pref_verified",
+    "pref_unverified",
+    "pref_locale",
 )
 
 # Top navbar stubs with no content yet — remove until sections are ready.
@@ -1795,6 +1835,46 @@ ROOT_CHROME_UI_KEYS = (
     "close_menu",
     "main_menu",
     "lang_switcher_label",
+    "sign_in",
+    "sign_up",
+    "sign_out",
+    "auth_email",
+    "auth_first_name",
+    "auth_last_name",
+    "auth_password",
+    "auth_display_name",
+    "auth_lead_login",
+    "auth_lead_register",
+    "auth_close",
+    "auth_forgot",
+    "auth_have_account",
+    "auth_need_account",
+    "auth_account",
+    "settings",
+    "settings_lead",
+    "settings_save",
+    "settings_saved",
+    "settings_delete",
+    "settings_delete_lead",
+    "settings_delete_confirm",
+    "settings_delete_forever",
+    "settings_delete_cancel",
+    "pref_view_stories",
+    "pref_view_category",
+    "pref_view_discoveries",
+    "pref_view_list",
+    "pref_view_cards",
+    "pref_hide_images",
+    "pref_hide_texts",
+    "pref_verified",
+    "pref_unverified",
+    "pref_locale",
+    "auth_no_account",
+    "auth_create_account",
+    "auth_bad_password",
+    "auth_need_signin",
+    "auth_photo",
+    "auth_photo_hint",
     "search",
     "search_aria",
     "global_search",
@@ -1816,6 +1896,7 @@ ROOT_CHROME_UI_KEYS = (
     "footer_contact",
     "footer_phone",
     "footer_address",
+    "footer_email",
     "footer_website",
     "site_description",
 )
@@ -1966,10 +2047,6 @@ _ROOT_ENTRY_SCRIPT = """\
     setAttr(backTop, "aria-label", ui.back_to_top);
     setText(document.querySelector(".footer-logo__tagline"), L.hero_lead);
     setText(document.querySelector(".footer-contact__title"), ui.footer_contact);
-    var contactLabels = document.querySelectorAll(".footer-contact__label");
-    setText(contactLabels[0], ui.footer_phone);
-    setText(contactLabels[1], ui.footer_address);
-    setText(contactLabels[2], ui.footer_website);
     var meta = document.querySelector('meta[name="description"]');
     if (meta && L.meta_description) meta.setAttribute("content", L.meta_description);
     if (L.meta_description) {
@@ -2013,6 +2090,9 @@ _ROOT_ENTRY_SCRIPT = """\
           }
         }
       });
+    }
+    if (typeof window.__birinciRefreshAuthChrome === "function") {
+      window.__birinciRefreshAuthChrome();
     }
   }
   document.addEventListener(

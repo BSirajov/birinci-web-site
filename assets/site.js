@@ -476,6 +476,152 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       root.style.setProperty("--breadcrumb-h", `${Math.ceil(crumbs.getBoundingClientRect().height)}px`);
     }
   };
+
+  /**
+   * Append the active story / discovery article to the sticky breadcrumb trail.
+   * Base crumbs stay page-level in HTML; deep segment is managed here.
+   */
+  const initDeepBreadcrumbs = () => {
+    const list = document.querySelector(".breadcrumbs__list");
+    if (!list) return;
+
+    const pageHref = `${window.location.pathname}${window.location.search || ""}`;
+    let lastDeepId = null;
+
+    const escapeHtml = (value) =>
+      String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+
+    const titleForEl = (el) => {
+      if (!el) return "";
+      const dataTitle = el.getAttribute("data-title");
+      if (dataTitle && dataTitle.trim()) return dataTitle.trim();
+      const name = el.querySelector(".inventions-entry-name");
+      if (name && name.textContent.trim()) return name.textContent.trim();
+      const catHead = el.querySelector(".inventions-category-head");
+      if (catHead && catHead.textContent.trim()) return catHead.textContent.trim();
+      const heading = el.querySelector("h1, h2, .story__title, .story-title");
+      if (heading && heading.textContent.trim()) return heading.textContent.trim();
+      return (el.id || "").replace(/[-_]+/g, " ").trim();
+    };
+
+    const demoteCurrentToLink = () => {
+      const current = list.querySelector('.breadcrumbs__item[aria-current="page"]');
+      if (!current) return;
+      if (current.hasAttribute("data-deep-crumb")) return;
+      const labelEl = current.querySelector("span, a");
+      const label = (labelEl && labelEl.textContent.trim()) || "";
+      if (!label) return;
+      current.removeAttribute("aria-current");
+      current.innerHTML = `<a href="${escapeHtml(pageHref)}">${escapeHtml(label)}</a>`;
+    };
+
+    const restorePageCurrent = () => {
+      const deep = list.querySelector('[data-deep-crumb="1"]');
+      if (deep) deep.remove();
+      let pageItem = list.querySelector(".breadcrumbs__item:last-child");
+      if (!pageItem) return;
+      if (pageItem.querySelector("a") && !pageItem.hasAttribute("aria-current")) {
+        const label = pageItem.querySelector("a").textContent.trim();
+        pageItem.setAttribute("aria-current", "page");
+        pageItem.innerHTML = `<span>${escapeHtml(label)}</span>`;
+      }
+    };
+
+    const setDeepCrumb = (id, title) => {
+      const cleanTitle = String(title || "").trim();
+      const cleanId = String(id || "").trim();
+      if (!cleanId || !cleanTitle) {
+        clearDeepCrumb();
+        return;
+      }
+      if (cleanId === lastDeepId) {
+        const existing = list.querySelector('[data-deep-crumb="1"] span');
+        if (existing && existing.textContent === cleanTitle) return;
+      }
+      demoteCurrentToLink();
+      let deep = list.querySelector('[data-deep-crumb="1"]');
+      if (!deep) {
+        deep = document.createElement("li");
+        deep.className = "breadcrumbs__item";
+        deep.setAttribute("data-deep-crumb", "1");
+        list.appendChild(deep);
+      }
+      deep.setAttribute("aria-current", "page");
+      deep.innerHTML = `<span>${escapeHtml(cleanTitle)}</span>`;
+      lastDeepId = cleanId;
+      syncStickyChrome();
+    };
+
+    const clearDeepCrumb = () => {
+      if (!lastDeepId && !list.querySelector('[data-deep-crumb="1"]')) return;
+      lastDeepId = null;
+      restorePageCurrent();
+      syncStickyChrome();
+    };
+
+    const applyFromId = (id) => {
+      if (!id) {
+        clearDeepCrumb();
+        return;
+      }
+      const el = document.getElementById(id);
+      if (
+        !el ||
+        !(
+          el.classList.contains("story") ||
+          el.classList.contains("inventions-entry") ||
+          el.classList.contains("inventions-category")
+        )
+      ) {
+        clearDeepCrumb();
+        return;
+      }
+      setDeepCrumb(id, titleForEl(el));
+    };
+
+    window.__birinciSetDeepCrumb = (payload) => {
+      if (!payload || !payload.id) {
+        clearDeepCrumb();
+        return;
+      }
+      const title = payload.title || titleForEl(document.getElementById(payload.id));
+      setDeepCrumb(payload.id, title);
+    };
+    window.__birinciClearDeepCrumb = clearDeepCrumb;
+
+    const syncFromLocation = () => {
+      let hash = "";
+      try {
+        hash = decodeURIComponent((window.location.hash || "").replace(/^#/, ""));
+      } catch (_) {
+        hash = (window.location.hash || "").replace(/^#/, "");
+      }
+      if (hash) applyFromId(hash);
+      else clearDeepCrumb();
+    };
+
+    window.addEventListener("hashchange", syncFromLocation);
+    window.addEventListener("popstate", syncFromLocation);
+    if (window.__birinciPendingDeepCrumb) {
+      window.__birinciSetDeepCrumb(window.__birinciPendingDeepCrumb);
+      try {
+        delete window.__birinciPendingDeepCrumb;
+      } catch (_) {
+        window.__birinciPendingDeepCrumb = null;
+      }
+    } else {
+      syncFromLocation();
+    }
+  };
+  try {
+    initDeepBreadcrumbs();
+  } catch (err) {
+    console.error("initDeepBreadcrumbs failed", err);
+  }
   if (typeof ResizeObserver !== "undefined") {
     const stickyRo = new ResizeObserver(() => syncStickyChrome());
     if (header) stickyRo.observe(header);
@@ -655,6 +801,89 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       closeMobileNav();
     });
   }
+
+  const markCurrentPrimaryNav = () => {
+    const nav = document.getElementById("primaryNav") || document.querySelector(".primary-nav");
+    if (!nav) return;
+    const body = document.body;
+    const path = (window.location.pathname || "").replace(/\\/g, "/").toLowerCase();
+    const pageHint = (body.getAttribute("data-lang-page") || "").replace(/\\/g, "/").toLowerCase();
+    const fileOf = (value) => {
+      const clean = String(value || "").split("?")[0].split("#")[0];
+      const parts = clean.split("/").filter(Boolean);
+      return parts.length ? parts[parts.length - 1] : "";
+    };
+    const isRootHome = body.classList.contains("page-root-home");
+    const isSitemap =
+      body.classList.contains("page-sitemap") ||
+      pageHint === "sitemap.html" ||
+      /\/sitemap\.html$/.test(path);
+    const isAbout =
+      body.classList.contains("page-about") ||
+      pageHint.startsWith("about/") ||
+      /\/about\//.test(path);
+    const isDiscoveries =
+      body.classList.contains("page-inventions") ||
+      pageHint.startsWith("discoveries/") ||
+      /\/discoveries\//.test(path);
+    const isStories =
+      !isRootHome &&
+      !isSitemap &&
+      !isAbout &&
+      !isDiscoveries &&
+      (body.classList.contains("page-home") ||
+        body.classList.contains("page-category") ||
+        pageHint.startsWith("categories/") ||
+        /\/categories\//.test(path) ||
+        /\/(az|en|ru|ky)\/(index\.html)?$/.test(path));
+
+    nav.querySelectorAll(".primary-nav__link").forEach((link) => {
+      link.classList.remove("is-active", "is-current");
+      link.removeAttribute("aria-current");
+    });
+    nav.querySelectorAll(".nav-dropdown").forEach((dropdown) => {
+      dropdown.classList.remove("is-current");
+    });
+    nav.querySelectorAll(".nav-dropdown-link").forEach((link) => {
+      link.classList.remove("is-active");
+      link.removeAttribute("aria-current");
+    });
+
+    const setLinkCurrent = (link) => {
+      if (!link) return;
+      link.classList.add("is-current", "is-active");
+      link.setAttribute("aria-current", "page");
+    };
+
+    if (isSitemap) {
+      setLinkCurrent(nav.querySelector("[data-nav-sitemap]"));
+      return;
+    }
+    if (isDiscoveries) {
+      const disc = Array.from(nav.querySelectorAll(".primary-nav__link")).find((link) =>
+        (link.getAttribute("href") || "").includes("discoveries")
+      );
+      setLinkCurrent(disc);
+      return;
+    }
+    if (isAbout) {
+      const about = nav.querySelector(".nav-dropdown--about");
+      if (!about) return;
+      about.classList.add("is-current");
+      const currentFile = fileOf(pageHint) || fileOf(path);
+      about.querySelectorAll(".nav-dropdown-link").forEach((link) => {
+        const match = fileOf(link.getAttribute("href")) === currentFile;
+        link.classList.toggle("is-active", match);
+        if (match) link.setAttribute("aria-current", "page");
+        else link.removeAttribute("aria-current");
+      });
+      return;
+    }
+    if (isStories) {
+      setLinkCurrent(nav.querySelector("[data-nav-stories-all]"));
+    }
+  };
+  markCurrentPrimaryNav();
 
   const backToTop = document.getElementById("back-to-top");
   if (backToTop) {
@@ -1494,6 +1723,36 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         link.classList.toggle("is-active", on);
         link.classList.toggle("tl-active", on);
       });
+      if (typeof window.__birinciSetDeepCrumb !== "function") return;
+      if (!activeLink) {
+        let hash = "";
+        try {
+          hash = decodeURIComponent((window.location.hash || "").replace(/^#/, ""));
+        } catch (_) {
+          hash = (window.location.hash || "").replace(/^#/, "");
+        }
+        const hashed = hash ? document.getElementById(hash) : null;
+        if (hashed && hashed.classList.contains("story")) {
+          window.__birinciSetDeepCrumb({
+            id: hash,
+            title: (hashed.getAttribute("data-title") || "").trim(),
+          });
+        } else if (typeof window.__birinciClearDeepCrumb === "function") {
+          window.__birinciClearDeepCrumb();
+        }
+        return;
+      }
+      const raw = (activeLink.getAttribute("href") || "").slice(1);
+      let id = raw;
+      try {
+        id = decodeURIComponent(raw);
+      } catch (_) {}
+      const el = document.getElementById(id);
+      const title =
+        (el && (el.getAttribute("data-title") || "").trim()) ||
+        (el && el.querySelector("h2") && el.querySelector("h2").textContent.trim()) ||
+        (activeLink.textContent || "").trim();
+      window.__birinciSetDeepCrumb({ id, title });
     };
 
     const updateActive = () => {
@@ -2188,10 +2447,13 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       else el.removeAttribute("hidden");
     };
 
-    const setView = (nextView, { persist = true } = {}) => {
+    const setView = (nextView, { persist = true, scrollTools = true } = {}) => {
       const prevView = view;
       view = nextView === "list" ? "list" : "cards";
       window.__birinciHomeView = view;
+      try {
+        document.documentElement.setAttribute("data-home-view", view);
+      } catch (_) {}
       // Panels first — never gated on fetch / history / TTS.
       setHidden(cardsPanel, view !== "cards");
       setHidden(listPanel, view !== "list");
@@ -2216,7 +2478,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       try {
         bindHomeNav();
       } catch (_) {}
-      const scrollToTools = () => {
+      const maybeScrollTools = () => {
+        if (!scrollTools || prevView === "list") return;
         if (typeof window.__birinciScrollHomeTools === "function") {
           window.__birinciScrollHomeTools();
           return;
@@ -2226,13 +2489,13 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       ensureStories()
         .then(() => {
           renderList();
-          if (prevView !== "list") scrollToTools();
+          maybeScrollTools();
         })
         .catch(() => {
           if (listEmpty) listEmpty.hidden = false;
-          if (prevView !== "list") scrollToTools();
+          maybeScrollTools();
         });
-      if (prevView !== "list") scrollToTools();
+      maybeScrollTools();
     };
 
     const onViewButton = (event) => {
@@ -2390,7 +2653,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     window.__birinciListStart = windowStart;
 
     try {
-      setView(initialView, { persist: false });
+      setView(initialView, { persist: false, scrollTools: false });
     } catch (_) {
       setHidden(cardsPanel, initialView !== "cards");
       setHidden(listPanel, initialView !== "list");
@@ -3891,6 +4154,1234 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   } catch (err) {
     console.error("initStoryTextToggle failed", err);
   }
+  // Temporary kill-switch: keep auth UI code below, but do not mount Sign in / Sign up
+  // until server-side hosting is ready. Set to true to reactivate.
+  const AUTH_UI_ENABLED = false;
+
+  const initAccountEntry = () => {
+    if (!AUTH_UI_ENABLED) {
+      const leftover = document.querySelector(".auth-entry");
+      if (leftover) leftover.remove();
+      return;
+    }
+    const authCopy = {
+      az: {
+        sign_in: "Daxil ol",
+        sign_up: "Qeyd ol",
+        sign_out: "Çıxış",
+        auth_email: "E-poçt",
+        auth_first_name: "Ad",
+        auth_last_name: "Soyad",
+        auth_password: "Şifrə",
+        auth_password_confirm: "Şifrəni təkrar daxil edin",
+        auth_password_mismatch: "Şifrələr uyğun gəlmir.",
+        auth_password_show: "Şifrəni göstər",
+        auth_password_hide: "Şifrəni gizlət",
+        auth_display_name: "Göstərilən ad (istəyə bağlı)",
+        auth_lead_login: "Tərcihləri saxlamaq, şərh və reaksiya üçün daxil olun.",
+        auth_lead_register: "Hekayələr və kəşflər üçün hesab yaradın.",
+        auth_close: "Bağla",
+        auth_have_account: "Hesabınız var?",
+        auth_need_account: "Yeni istifadəçi?",
+        auth_forgot: "Şifrəni unutmusunuz?",
+        auth_lead_forgot: "E-poçtunuza sıfırlama linki göndəriləcək.",
+        auth_forgot_submit: "Sıfırlama linki göndər",
+        auth_back_to_signin: "Daxil olmaya qayıt",
+        auth_account: "Hesab",
+        settings: "Ayarlar",
+        settings_lead: "Adınız və oxu tərcihləriniz.",
+        settings_save: "Tərcihləri saxla",
+        settings_saved: "Tərcihlər saxlanıldı.",
+        settings_delete: "Hesabı sil",
+        settings_delete_lead: "Hesabınızı və şəxsi məlumatlarınızı həmişəlik silin.",
+        settings_delete_confirm: "Bu əməliyyat geri qaytarılmır. Hesabınız, profil şəkiliniz və saxlanmış tərcihləriniz silinəcək.",
+        settings_delete_forever: "Həmişəlik sil",
+        settings_delete_cancel: "Ləğv et",
+        pref_view_stories: "Hekayələr ana səhifə görünüşü",
+        pref_view_category: "Kateqoriya səhifələri",
+        pref_view_discoveries: "Kəşflər görünüşü",
+        pref_view_list: "Siyahı",
+        pref_view_cards: "Kartlar",
+        pref_hide_images: "Hekayə şəkillərini gizlət",
+        pref_hide_texts: "Hekayə mətnini gizlət",
+        pref_verified: "E-poçt təsdiqlənib",
+        pref_unverified: "E-poçt təsdiqlənməyib",
+        pref_locale: "Tərcih etdiyiniz dil",
+        auth_no_account: "Bu e-poçt üçün hesab tapılmadı. Şərh, reaksiya və tərcihləri saxlamaq üçün hesab yaradın.",
+        auth_create_account: "Hesab yarat",
+        auth_bad_password: "Şifrə bu hesabla uyğun gəlmir.",
+        auth_need_signin: "Bu funksiyadan istifadə üçün daxil olun.",
+        auth_photo: "Profil şəkli",
+        auth_photo_hint: "JPEG, PNG və ya WebP. İstəyə bağlı, ən çox 2 MB.",
+      },
+      en: {
+        sign_in: "Sign in",
+        sign_up: "Sign up",
+        sign_out: "Sign out",
+        auth_email: "Email",
+        auth_first_name: "Name",
+        auth_last_name: "Surname",
+        auth_password: "Password",
+        auth_password_confirm: "Re-enter password",
+        auth_password_mismatch: "Passwords do not match.",
+        auth_password_show: "Show password",
+        auth_password_hide: "Hide password",
+        auth_display_name: "Display name (optional)",
+        auth_lead_login: "Sign in to save preferences, comment, and react.",
+        auth_lead_register: "Create an account for Stories and Discoveries.",
+        auth_close: "Close",
+        auth_have_account: "Already have an account?",
+        auth_need_account: "New here?",
+        auth_forgot: "Forgot password?",
+        auth_lead_forgot: "We’ll email you a reset link.",
+        auth_forgot_submit: "Send reset link",
+        auth_back_to_signin: "Back to sign in",
+        auth_account: "Account",
+        settings: "Settings",
+        settings_lead: "Your name and reading preferences.",
+        settings_save: "Save preferences",
+        settings_saved: "Preferences saved.",
+        settings_delete: "Delete account",
+        settings_delete_lead: "Permanently delete your account and personal data.",
+        settings_delete_confirm: "This cannot be undone. Your account, profile photo, and saved preferences will be deleted.",
+        settings_delete_forever: "Delete permanently",
+        settings_delete_cancel: "Cancel",
+        pref_view_stories: "Stories home view",
+        pref_view_category: "Category pages view",
+        pref_view_discoveries: "Discoveries view",
+        pref_view_list: "List",
+        pref_view_cards: "Cards",
+        pref_hide_images: "Hide story images",
+        pref_hide_texts: "Hide story text",
+        pref_verified: "Email verified",
+        pref_unverified: "Email not verified",
+        pref_locale: "Preferred language",
+        auth_no_account: "No account was found for this email. Create an account to comment, react, and save preferences.",
+        auth_create_account: "Create an account",
+        auth_bad_password: "That password does not match this account.",
+        auth_need_signin: "Sign in to use this feature.",
+        auth_photo: "Profile picture",
+        auth_photo_hint: "JPEG, PNG, or WebP. Optional, up to 2 MB.",
+      },
+      ru: {
+        sign_in: "Войти",
+        sign_up: "Регистрация",
+        sign_out: "Выйти",
+        auth_email: "Эл. почта",
+        auth_first_name: "Имя",
+        auth_last_name: "Фамилия",
+        auth_password: "Пароль",
+        auth_password_confirm: "Повторите пароль",
+        auth_password_mismatch: "Пароли не совпадают.",
+        auth_password_show: "Показать пароль",
+        auth_password_hide: "Скрыть пароль",
+        auth_display_name: "Имя (необязательно)",
+        auth_lead_login: "Войдите, чтобы сохранять настройки, комментировать и ставить реакции.",
+        auth_lead_register: "Создайте аккаунт для историй и открытий.",
+        auth_close: "Закрыть",
+        auth_have_account: "Уже есть аккаунт?",
+        auth_need_account: "Впервые здесь?",
+        auth_forgot: "Забыли пароль?",
+        auth_lead_forgot: "Мы отправим ссылку для сброса пароля.",
+        auth_forgot_submit: "Отправить ссылку",
+        auth_back_to_signin: "Вернуться ко входу",
+        auth_account: "Аккаунт",
+        settings: "Настройки",
+        settings_lead: "Ваше имя и настройки чтения.",
+        settings_save: "Сохранить настройки",
+        settings_saved: "Настройки сохранены.",
+        settings_delete: "Удалить аккаунт",
+        settings_delete_lead: "Безвозвратно удалить аккаунт и персональные данные.",
+        settings_delete_confirm: "Это действие нельзя отменить. Аккаунт, фото профиля и сохранённые настройки будут удалены.",
+        settings_delete_forever: "Удалить навсегда",
+        settings_delete_cancel: "Отмена",
+        pref_view_stories: "Вид главной страницы историй",
+        pref_view_category: "Вид страниц категорий",
+        pref_view_discoveries: "Вид открытий",
+        pref_view_list: "Список",
+        pref_view_cards: "Карточки",
+        pref_hide_images: "Скрыть изображения рассказов",
+        pref_hide_texts: "Скрыть текст рассказов",
+        pref_verified: "Почта подтверждена",
+        pref_unverified: "Почта не подтверждена",
+        pref_locale: "Предпочитаемый язык",
+        auth_no_account: "Для этой почты аккаунт не найден. Создайте аккаунт, чтобы комментировать, ставить реакции и сохранять настройки.",
+        auth_create_account: "Создать аккаунт",
+        auth_bad_password: "Пароль не подходит к этому аккаунту.",
+        auth_need_signin: "Чтобы пользоваться этой функцией, войдите в аккаунт.",
+        auth_photo: "Фото профиля",
+        auth_photo_hint: "JPEG, PNG или WebP. Необязательно, до 2 МБ.",
+      },
+      ky: {
+        sign_in: "Кирүү",
+        sign_up: "Каттоо",
+        sign_out: "Чыгуу",
+        auth_email: "Электрондук почта",
+        auth_first_name: "Ат",
+        auth_last_name: "Фамилия",
+        auth_password: "Сырсөз",
+        auth_password_confirm: "Сырсөздү кайталаңыз",
+        auth_password_mismatch: "Сырсөздөр дал келбейт.",
+        auth_password_show: "Сырсөздү көрсөтүү",
+        auth_password_hide: "Сырсөздү жашыруу",
+        auth_display_name: "Көрсөтүлүүчү ат (милдеттүү эмес)",
+        auth_lead_login: "Жөндөөлөрдү сактоо, комментарий жана реакция үчүн кириңиз.",
+        auth_lead_register: "Окуялар жана ачылыштар үчүн аккаунт түзүңүз.",
+        auth_close: "Жабуу",
+        auth_have_account: "Аккаунтуңуз барбы?",
+        auth_need_account: "Жаңысызбы?",
+        auth_forgot: "Сырсөздү унуттуңузбу?",
+        auth_lead_forgot: "Сырсөздү калыбына келтирүү шилтемеси жөнөтүлөт.",
+        auth_forgot_submit: "Шилтеме жөнөтүү",
+        auth_back_to_signin: "Кирүүгө кайтуу",
+        auth_account: "Аккаунт",
+        settings: "Жөндөөлөр",
+        settings_lead: "Атыңыз жана окуу жөндөөлөрү.",
+        settings_save: "Жөндөөлөрдү сактоо",
+        settings_saved: "Жөндөөлөр сакталды.",
+        settings_delete: "Аккаунтту өчүрүү",
+        settings_delete_lead: "Аккаунтуңузду жана жеке маалыматтарды биротоло өчүрүңүз.",
+        settings_delete_confirm: "Бул аракет кайтарылбайт. Аккаунтуңуз, профиль сүрөтүңүз жана сакталган жөндөөлөр өчүрүлөт.",
+        settings_delete_forever: "Биротоло өчүрүү",
+        settings_delete_cancel: "Жокко чыгаруу",
+        pref_view_stories: "Окуялар башкы көрүнүшү",
+        pref_view_category: "Категория барактары",
+        pref_view_discoveries: "Ачылыштар көрүнүшү",
+        pref_view_list: "Тизме",
+        pref_view_cards: "Карточкалар",
+        pref_hide_images: "Окуя сүрөттөрүн жашыруу",
+        pref_hide_texts: "Окуя текстин жашыруу",
+        pref_verified: "Почта ырасталды",
+        pref_unverified: "Почта ырастала элек",
+        pref_locale: "Тандалган тил",
+        auth_no_account: "Бул почта үчүн аккаунт табылган жок. Комментарий, реакция жана жөндөөлөрдү сактоо үчүн аккаунт түзүңүз.",
+        auth_create_account: "Аккаунт түзүү",
+        auth_bad_password: "Сырсөз бул аккаунтка туура келбейт.",
+        auth_need_signin: "Бул функцияны колдонуу үчүн кириңиз.",
+        auth_photo: "Профиль сүрөтү",
+        auth_photo_hint: "JPEG, PNG же WebP. Милдеттүү эмес, 2 МБ чейин.",
+      },
+    };
+
+    const currentLang = () => {
+      const fromBody = document.body && document.body.getAttribute("data-lang");
+      const fromI18n = liveI18n().lang;
+      // Prefer the page language attribute so root-home client switches
+      // update auth UI even before __BIRINCI_I18N__.lang is rewritten.
+      const code = String(fromBody || fromI18n || "en").toLowerCase();
+      return authCopy[code] ? code : "en";
+    };
+    const t = (key) => {
+      const lang = currentLang();
+      const ui = liveI18n().ui || {};
+      // Prefer authCopy for the active page language so header Sign in / Sign up
+      // track language switches (root home i18n packs may omit these keys).
+      return (authCopy[lang] && authCopy[lang][key]) || ui[key] || (authCopy.en && authCopy.en[key]) || key;
+    };
+
+    let chromeUser = null;
+    const DEFAULT_API_ORIGIN = "http://127.0.0.1:8088";
+    let apiOrigin = "";
+    const apiUrl = (path) => (apiOrigin || "") + path;
+    const apiFetch = (path, opts) => {
+      const options = Object.assign({ credentials: "include" }, opts || {});
+      return fetch(apiUrl(path), options).catch(() => {
+        const err = new Error(
+          "Cannot reach the API. Open http://127.0.0.1:8088/ with the API running."
+        );
+        err.code = "api_unreachable";
+        throw err;
+      });
+    };
+    const resolveApiOrigin = () =>
+      fetch("/api/health", { credentials: "include" })
+        .then((res) => {
+          if (!res.ok) throw new Error("no api");
+          apiOrigin = "";
+          return apiOrigin;
+        })
+        .catch(() =>
+          fetch(DEFAULT_API_ORIGIN + "/api/health", { credentials: "include" }).then((res) => {
+            if (!res.ok) throw new Error("no api");
+            apiOrigin = DEFAULT_API_ORIGIN;
+            return apiOrigin;
+          })
+        )
+        .catch(() => {
+          apiOrigin = "";
+          return "";
+        });
+
+    const csrfHeader = (token) => ({ "Content-Type": "application/json", "X-CSRF-Token": token });
+    const getCsrf = () =>
+      apiFetch("/api/auth/csrf").then((res) => res.json()).then((data) => data.csrf_token);
+    const failAuth = (data) => {
+      const detail = data && data.detail;
+      const err = new Error("Request failed");
+      if (typeof detail === "string") err.message = detail;
+      else if (Array.isArray(detail)) err.message = detail.map((d) => d.msg || d).join(" ");
+      else if (detail && typeof detail === "object") {
+        err.message = detail.message || "Request failed";
+        err.code = detail.code;
+      }
+      throw err;
+    };
+    const postAuth = (url, body, method) =>
+      getCsrf().then((token) =>
+        apiFetch(url, {
+          method: method || "POST",
+          headers: csrfHeader(token),
+          body: JSON.stringify(body || {}),
+        }).then((res) =>
+          res.json().then((data) => {
+            if (!res.ok) failAuth(data);
+            return data;
+          })
+        )
+      );
+    const uploadAvatar = (file) =>
+      getCsrf().then((token) => {
+        const body = new FormData();
+        body.append("file", file);
+        return apiFetch("/api/auth/me/avatar", {
+          method: "POST",
+          headers: { "X-CSRF-Token": token },
+          body,
+        }).then((res) =>
+          res.json().then((data) => {
+            if (!res.ok) failAuth(data);
+            return data;
+          })
+        );
+      });
+    const bindPhotoPreview = (input, preview) => {
+      if (!input || !preview) return;
+      input.addEventListener("change", () => {
+        const file = input.files && input.files[0];
+        if (!file) return;
+        const url = URL.createObjectURL(file);
+        preview.innerHTML = '<img alt="" src="' + url + '" />';
+        preview.hidden = false;
+      });
+    };
+    const passwordFieldHtml = (attrs) =>
+      '<div class="auth-password">' +
+      "<input " +
+      attrs +
+      " />" +
+      '<button type="button" class="auth-password__toggle" data-password-toggle aria-pressed="false" aria-label="">' +
+      '<svg class="auth-password__icon auth-password__icon--show" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>' +
+      '<svg class="auth-password__icon auth-password__icon--hide" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-10-8-10-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 10 8 10 8a18.5 18.5 0 0 1-2.16 3.19"/><path d="M14.12 14.12a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>' +
+      "</button></div>";
+    const syncPasswordToggle = (btn) => {
+      const wrap = btn.closest(".auth-password");
+      const input = wrap && wrap.querySelector("input");
+      if (!input) return;
+      const shown = input.type === "text";
+      btn.setAttribute("aria-pressed", shown ? "true" : "false");
+      btn.classList.toggle("is-revealed", shown);
+      btn.setAttribute("aria-label", shown ? t("auth_password_hide") : t("auth_password_show"));
+    };
+    const bindPasswordToggles = (root) => {
+      if (!root) return;
+      root.querySelectorAll("[data-password-toggle]").forEach((btn) => {
+        syncPasswordToggle(btn);
+        if (btn.dataset.bound === "1") return;
+        btn.dataset.bound = "1";
+        const wrap = btn.closest(".auth-password");
+        const input = wrap && wrap.querySelector("input");
+        if (!input) return;
+        btn.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          input.type = input.type === "password" ? "text" : "password";
+          syncPasswordToggle(btn);
+        });
+      });
+    };
+    const LOCALE_META = {
+      az: { short: "AZ", title: "Azərbaycan" },
+      en: { short: "EN", title: "English" },
+      ru: { short: "RU", title: "Русский" },
+      ky: { short: "KY", title: "Кыргызча" },
+    };
+    const localeCodes = Object.keys(LOCALE_META);
+    const flagSrc = (code) => {
+      const sample = document.querySelector(".lang-switcher__flag");
+      const src = sample && sample.getAttribute("src");
+      if (src) return src.replace(/\/[a-z]{2}\.svg(?:\?.*)?$/i, "/" + code + ".svg");
+      return "/flags/" + code + ".svg";
+    };
+    const normalizeLocale = (code) => {
+      const c = String(code || "").toLowerCase();
+      return LOCALE_META[c] ? c : "en";
+    };
+    const prefLocaleHtml = (idPrefix, selected) => {
+      const value = normalizeLocale(selected || currentLang());
+      const meta = LOCALE_META[value];
+      const menuId = idPrefix + "-menu";
+      const options = localeCodes
+        .map((code) => {
+          const m = LOCALE_META[code];
+          const selectedAttr = code === value ? "true" : "false";
+          return (
+            '<button type="button" class="lang-switcher__option" role="option" data-lang="' +
+            code +
+            '" aria-selected="' +
+            selectedAttr +
+            '" title="' +
+            m.title +
+            '"><img class="lang-switcher__flag" src="' +
+            flagSrc(code) +
+            '" alt="" width="20" height="14" decoding="async" /><span>' +
+            m.short +
+            "</span></button>"
+          );
+        })
+        .join("");
+      return (
+        '<div class="lang-switcher lang-switcher--embedded" data-pref-locale>' +
+        '<input type="hidden" name="preferred_locale" value="' +
+        value +
+        '" />' +
+        '<button type="button" class="lang-switcher__toggle" aria-expanded="false" aria-haspopup="listbox" aria-controls="' +
+        menuId +
+        '" title="' +
+        meta.title +
+        '"><img class="lang-switcher__flag" src="' +
+        flagSrc(value) +
+        '" alt="" width="20" height="14" decoding="async" /><span class="lang-switcher__name">' +
+        meta.short +
+        '</span><span class="lang-switcher__caret" aria-hidden="true"></span></button>' +
+        '<div class="lang-switcher__menu" id="' +
+        menuId +
+        '" role="listbox" hidden>' +
+        options +
+        "</div></div>"
+      );
+    };
+    const setPrefLocaleValue = (wrap, code) => {
+      if (!wrap) return;
+      const value = normalizeLocale(code);
+      const meta = LOCALE_META[value];
+      const input = wrap.querySelector('input[name="preferred_locale"]');
+      const toggle = wrap.querySelector(".lang-switcher__toggle");
+      const flag = toggle && toggle.querySelector(".lang-switcher__flag");
+      const name = toggle && toggle.querySelector(".lang-switcher__name");
+      if (input) input.value = value;
+      if (toggle) toggle.title = meta.title;
+      if (flag) flag.src = flagSrc(value);
+      if (name) name.textContent = meta.short;
+      wrap.querySelectorAll(".lang-switcher__option").forEach((opt) => {
+        opt.setAttribute("aria-selected", opt.getAttribute("data-lang") === value ? "true" : "false");
+      });
+    };
+    const closePrefLocale = (wrap) => {
+      if (!wrap) return;
+      wrap.classList.remove("is-open");
+      const toggle = wrap.querySelector(".lang-switcher__toggle");
+      const menu = wrap.querySelector(".lang-switcher__menu");
+      if (toggle) toggle.setAttribute("aria-expanded", "false");
+      if (menu) {
+        menu.hidden = true;
+        menu.style.top = "";
+        menu.style.left = "";
+        menu.style.minWidth = "";
+      }
+    };
+    const placePrefLocaleMenu = (wrap) => {
+      const toggle = wrap.querySelector(".lang-switcher__toggle");
+      const menu = wrap.querySelector(".lang-switcher__menu");
+      if (!toggle || !menu) return;
+      const rect = toggle.getBoundingClientRect();
+      menu.style.top = Math.round(rect.bottom + 4) + "px";
+      menu.style.left = Math.round(rect.left) + "px";
+      menu.style.minWidth = Math.round(rect.width) + "px";
+    };
+    const bindPrefLocale = (wrap) => {
+      if (!wrap || wrap.dataset.bound === "1") return;
+      wrap.dataset.bound = "1";
+      const toggle = wrap.querySelector(".lang-switcher__toggle");
+      const menu = wrap.querySelector(".lang-switcher__menu");
+      if (!toggle || !menu) return;
+      const open = () => {
+        document.querySelectorAll(".lang-switcher--embedded.is-open").forEach((other) => {
+          if (other !== wrap) closePrefLocale(other);
+        });
+        wrap.classList.add("is-open");
+        toggle.setAttribute("aria-expanded", "true");
+        menu.hidden = false;
+        placePrefLocaleMenu(wrap);
+      };
+      toggle.addEventListener("click", (event) => {
+        event.preventDefault();
+        if (wrap.classList.contains("is-open")) closePrefLocale(wrap);
+        else open();
+      });
+      menu.addEventListener("click", (event) => {
+        const opt = event.target.closest(".lang-switcher__option[data-lang]");
+        if (!opt || !menu.contains(opt)) return;
+        event.preventDefault();
+        setPrefLocaleValue(wrap, opt.getAttribute("data-lang"));
+        closePrefLocale(wrap);
+      });
+      document.addEventListener("click", (event) => {
+        if (!wrap.classList.contains("is-open")) return;
+        if (wrap.contains(event.target) || menu.contains(event.target)) return;
+        closePrefLocale(wrap);
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closePrefLocale(wrap);
+      });
+      window.addEventListener(
+        "resize",
+        () => {
+          if (wrap.classList.contains("is-open")) placePrefLocaleMenu(wrap);
+        },
+        { passive: true }
+      );
+    };
+
+    const refreshAuthModalCopy = () => {
+      const root = document.getElementById("auth-modal");
+      if (!root) return;
+      root.querySelectorAll("[data-auth-i18n]").forEach((el) => {
+        const key = el.getAttribute("data-auth-i18n");
+        if (key) el.textContent = t(key);
+      });
+      root.querySelectorAll("[data-auth-close]").forEach((el) => {
+        el.setAttribute("aria-label", t("auth_close"));
+      });
+      const localeWrap = root.querySelector("#auth-form-register [data-pref-locale]");
+      if (localeWrap) {
+        const input = localeWrap.querySelector('input[name="preferred_locale"]');
+        const keep = (input && input.value) || currentLang();
+        setPrefLocaleValue(localeWrap, keep);
+        bindPrefLocale(localeWrap);
+        localeWrap.setAttribute("aria-label", t("pref_locale"));
+      }
+      const mode =
+        root.dataset.mode === "register"
+          ? "register"
+          : root.dataset.mode === "forgot"
+            ? "forgot"
+            : "login";
+      const title = document.getElementById("auth-modal-title");
+      const lead = document.getElementById("auth-modal-lead");
+      if (title) {
+        title.textContent =
+          mode === "register" ? t("sign_up") : mode === "forgot" ? t("auth_forgot") : t("sign_in");
+      }
+      if (lead) {
+        lead.textContent =
+          mode === "register"
+            ? t("auth_lead_register")
+            : mode === "forgot"
+              ? t("auth_lead_forgot")
+              : t("auth_lead_login");
+      }
+      const sw = root.querySelector("[data-auth-switch]");
+      if (sw) {
+        if (mode === "forgot") {
+          sw.dataset.authSwitch = "login";
+          sw.textContent = t("auth_back_to_signin");
+        } else {
+          const isLogin = mode === "login";
+          sw.dataset.authSwitch = isLogin ? "register" : "login";
+          sw.textContent = isLogin
+            ? t("auth_need_account") + " " + t("sign_up")
+            : t("auth_have_account") + " " + t("sign_in");
+        }
+      }
+      const forgot = root.querySelector("[data-auth-forgot]");
+      if (forgot) forgot.textContent = t("auth_forgot");
+      const loginSubmit = root.querySelector("#auth-form-login .auth-modal__submit");
+      if (loginSubmit) loginSubmit.textContent = t("sign_in");
+      const registerSubmit = root.querySelector("#auth-form-register .auth-modal__submit");
+      if (registerSubmit) registerSubmit.textContent = t("sign_up");
+      const forgotSubmit = root.querySelector("#auth-form-forgot .auth-modal__submit");
+      if (forgotSubmit) forgotSubmit.textContent = t("auth_forgot_submit");
+      const inviteBtn = root.querySelector("[data-open-signup]");
+      if (inviteBtn) inviteBtn.textContent = t("auth_create_account");
+      bindPasswordToggles(root);
+    };
+
+    const ensureModal = () => {
+      if (document.getElementById("auth-modal")) return;
+      const root = document.createElement("div");
+      root.id = "auth-modal";
+      root.className = "auth-modal";
+      root.dataset.mode = "login";
+      root.hidden = true;
+      root.innerHTML =
+        '<button type="button" class="auth-modal__backdrop" data-auth-close tabindex="-1" aria-label=""></button>' +
+        '<div class="auth-modal__panel" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">' +
+        '<div class="auth-modal__head"><p id="auth-modal-title" class="auth-modal__title"></p>' +
+        '<button type="button" class="auth-modal__close" data-auth-close aria-label="">×</button></div>' +
+        '<p class="auth-modal__lead" id="auth-modal-lead"></p>' +
+        '<p class="auth-modal__msg" id="auth-modal-msg" hidden></p>' +
+        '<form class="auth-modal__form" id="auth-form-login">' +
+        '<label><span data-auth-i18n="auth_email"></span><input type="email" name="email" autocomplete="email" required /></label>' +
+        '<label><span data-auth-i18n="auth_password"></span>' +
+        passwordFieldHtml(
+          'type="password" name="password" autocomplete="current-password" minlength="10" required'
+        ) +
+        "</label>" +
+        '<p class="auth-modal__forgot-wrap"><button type="button" class="auth-modal__forgot" data-auth-forgot></button></p>' +
+        '<button type="submit" class="auth-modal__submit"></button></form>' +
+        '<p class="auth-modal__invite" id="auth-invite" hidden>' +
+        '<button type="button" class="auth-modal__invite-btn" data-open-signup></button></p>' +
+        '<form class="auth-modal__form" id="auth-form-forgot" hidden>' +
+        '<label><span data-auth-i18n="auth_email"></span><input type="email" name="email" autocomplete="email" required /></label>' +
+        '<button type="submit" class="auth-modal__submit"></button></form>' +
+        '<form class="auth-modal__form" id="auth-form-register" hidden>' +
+        '<label><span data-auth-i18n="auth_first_name"></span><input type="text" name="first_name" maxlength="80" autocomplete="given-name" required /></label>' +
+        '<label><span data-auth-i18n="auth_last_name"></span><input type="text" name="last_name" maxlength="80" autocomplete="family-name" required /></label>' +
+        '<label><span data-auth-i18n="auth_email"></span><input type="email" name="email" autocomplete="email" required /></label>' +
+        '<label><span data-auth-i18n="auth_display_name"></span><input type="text" name="display_name" maxlength="80" autocomplete="nickname" /></label>' +
+        '<div class="auth-photo"><span class="auth-photo__preview" id="register-photo-preview" hidden></span>' +
+        '<label><span data-auth-i18n="auth_photo"></span><input type="file" name="avatar" accept="image/jpeg,image/png,image/webp" />' +
+        '<small class="auth-photo__hint" data-auth-i18n="auth_photo_hint"></small></label></div>' +
+        '<label><span data-auth-i18n="pref_locale"></span>' +
+        prefLocaleHtml("auth-pref-locale", currentLang()) +
+        "</label>" +
+        '<label><span data-auth-i18n="auth_password"></span>' +
+        passwordFieldHtml(
+          'type="password" name="password" autocomplete="new-password" minlength="10" required'
+        ) +
+        "</label>" +
+        '<label><span data-auth-i18n="auth_password_confirm"></span>' +
+        passwordFieldHtml(
+          'type="password" name="password_confirm" autocomplete="new-password" minlength="10" required'
+        ) +
+        "</label>" +
+        '<button type="submit" class="auth-modal__submit"></button></form>' +
+        '<p class="auth-modal__alt"><button type="button" class="auth-modal__switch" data-auth-switch></button></p>' +
+        "</div>";
+      document.body.appendChild(root);
+      refreshAuthModalCopy();
+      bindPasswordToggles(root);
+
+      const showMsg = (text, isError) => {
+        const msg = document.getElementById("auth-modal-msg");
+        msg.hidden = false;
+        msg.textContent = text;
+        msg.classList.toggle("is-error", !!isError);
+      };
+
+      const setMode = (mode) => {
+        const next =
+          mode === "register" ? "register" : mode === "forgot" ? "forgot" : "login";
+        root.dataset.mode = next;
+        document.getElementById("auth-form-login").hidden = next !== "login";
+        document.getElementById("auth-form-register").hidden = next !== "register";
+        document.getElementById("auth-form-forgot").hidden = next !== "forgot";
+        document.getElementById("auth-modal-msg").hidden = true;
+        const invite = document.getElementById("auth-invite");
+        if (invite) invite.hidden = true;
+        refreshAuthModalCopy();
+      };
+
+      const close = () => {
+        root.hidden = true;
+        document.body.classList.remove("auth-modal-open");
+      };
+
+      window.__birinciOpenAuth = (mode, email) => {
+        const next =
+          mode === "register" ? "register" : mode === "forgot" ? "forgot" : "login";
+        setMode(next);
+        root.hidden = false;
+        document.body.classList.add("auth-modal-open");
+        const formId =
+          next === "register"
+            ? "auth-form-register"
+            : next === "forgot"
+              ? "auth-form-forgot"
+              : "auth-form-login";
+        const form = document.getElementById(formId);
+        const input = form.querySelector(
+          next === "register" ? "input[name='first_name']" : "input[name='email']"
+        );
+        if (email) {
+          root.querySelectorAll("input[name='email']").forEach((el) => {
+            el.value = email;
+          });
+        }
+        if (input) input.focus();
+      };
+
+      root.addEventListener("click", (event) => {
+        if (event.target.closest("[data-auth-close]")) close();
+        const forgotBtn = event.target.closest("[data-auth-forgot]");
+        if (forgotBtn) {
+          const loginEmail = document.querySelector("#auth-form-login input[name='email']");
+          window.__birinciOpenAuth("forgot", loginEmail && loginEmail.value);
+          return;
+        }
+        const sw = event.target.closest("[data-auth-switch]");
+        if (sw) {
+          const fromRegister = root.dataset.mode === "register";
+          const emailInput = document.querySelector(
+            (fromRegister ? "#auth-form-register" : "#auth-form-login") + " input[name='email']"
+          );
+          const forgotEmail = document.querySelector("#auth-form-forgot input[name='email']");
+          const email =
+            (emailInput && emailInput.value) || (forgotEmail && forgotEmail.value) || "";
+          window.__birinciOpenAuth(sw.dataset.authSwitch, email);
+        }
+        if (event.target.closest("[data-open-signup]")) {
+          const loginEmail = document.querySelector("#auth-form-login input[name='email']");
+          window.__birinciOpenAuth("register", loginEmail && loginEmail.value);
+        }
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !root.hidden) close();
+      });
+
+      document.getElementById("auth-form-login").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const fd = new FormData(event.currentTarget);
+        const email = fd.get("email");
+        postAuth("/api/auth/login", { email: email, password: fd.get("password") })
+          .then((data) => {
+            close();
+            renderChrome(data.user);
+            if (goPreferredLocale(data.user)) return;
+            return syncPrefsFromServer({ reloadIfChanged: true });
+          })
+          .catch((err) => {
+            const invite = document.getElementById("auth-invite");
+            if (err.code === "account_not_found") {
+              showMsg(t("auth_no_account"), true);
+              if (invite) invite.hidden = false;
+            } else if (err.code === "invalid_password") {
+              showMsg(t("auth_bad_password"), true);
+              if (invite) invite.hidden = true;
+            } else {
+              showMsg(err.message, true);
+              if (invite) invite.hidden = true;
+            }
+          });
+      });
+      document.getElementById("auth-form-forgot").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const fd = new FormData(event.currentTarget);
+        postAuth("/api/auth/password-reset/request", { email: fd.get("email") })
+          .then((data) => {
+            let text = data.message || t("auth_lead_forgot");
+            if (data.reset_url) text += " " + data.reset_url;
+            showMsg(text, false);
+          })
+          .catch((err) => showMsg(err.message, true));
+      });
+      document.getElementById("auth-form-register").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const fd = new FormData(event.currentTarget);
+        const password = String(fd.get("password") || "");
+        const confirm = String(fd.get("password_confirm") || "");
+        if (password !== confirm) {
+          showMsg(t("auth_password_mismatch"), true);
+          return;
+        }
+        const photo = fd.get("avatar");
+        postAuth("/api/auth/register", {
+          email: fd.get("email"),
+          password: password,
+          first_name: fd.get("first_name"),
+          last_name: fd.get("last_name"),
+          display_name: fd.get("display_name") || null,
+          preferred_locale: fd.get("preferred_locale") || currentLang(),
+        })
+          .then((data) => {
+            if (photo && photo.size) {
+              return uploadAvatar(photo).then((av) => Object.assign({}, data, { user: av.user }));
+            }
+            return data;
+          })
+          .then((data) => {
+            close();
+            renderChrome(data.user);
+            if (goPreferredLocale(data.user)) return;
+            return syncPrefsFromServer({ reloadIfChanged: true });
+          })
+          .catch((err) => showMsg(err.message, true));
+      });
+      bindPhotoPreview(
+        document.querySelector("#auth-form-register input[name='avatar']"),
+        document.getElementById("register-photo-preview")
+      );
+    };
+
+    window.__birinciRequireAuth = (reason) => {
+      if (window.__birinciUser) return true;
+      ensureModal();
+      window.__birinciOpenAuth("login");
+      const msg = document.getElementById("auth-modal-msg");
+      if (msg && reason) {
+        msg.hidden = false;
+        msg.textContent = reason;
+        msg.classList.add("is-error");
+      }
+      return false;
+    };
+
+    const renderChrome = (user) => {
+      const actions = document.querySelector(".site-header__actions");
+      if (!actions) return;
+      chromeUser = user || null;
+      let box = actions.querySelector("[data-account-entry]");
+      if (!box) {
+        box = document.createElement("div");
+        box.className = "auth-entry";
+        box.dataset.accountEntry = "1";
+        actions.insertBefore(box, actions.firstChild);
+      }
+      window.__birinciUser = chromeUser;
+      if (user) {
+        const shown = user.display_name || user.email.split("@")[0];
+        const esc = (value) =>
+          String(value).replace(/[&<>"']/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]));
+        const initial = esc(String(shown).trim().charAt(0).toUpperCase() || "?");
+        const photo = user.avatar_url
+          ? '<img class="auth-user__photo" src="' +
+            esc(user.avatar_url) +
+            '" alt="" width="36" height="36" />'
+          : '<span class="auth-user__photo auth-user__photo--fallback" aria-hidden="true">' + initial + "</span>";
+        box.innerHTML =
+          '<span class="auth-user" title="' +
+          esc(user.email) +
+          '">' +
+          photo +
+          '<span class="auth-user__meta"><span class="auth-user__label">' +
+          t("auth_account") +
+          '</span><strong class="auth-user__name">' +
+          esc(shown) +
+          "</strong></span></span>" +
+          '<button type="button" class="auth-entry__btn auth-entry__btn--primary" data-open-settings>' +
+          t("settings") +
+          "</button>" +
+          '<button type="button" class="auth-entry__btn" data-auth-logout>' +
+          t("sign_out") +
+          "</button>";
+        box.querySelector("[data-auth-logout]").addEventListener("click", () => {
+          postAuth("/api/auth/logout", {})
+            .then(() => {
+              clearReadingPrefs();
+              renderChrome(null);
+            })
+            .catch(() => {});
+        });
+        box.querySelector("[data-open-settings]").addEventListener("click", () => openSettings(user));
+        return;
+      }
+      box.innerHTML =
+        '<button type="button" class="auth-entry__btn" data-auth-open="login">' +
+        t("sign_in") +
+        '</button><button type="button" class="auth-entry__btn" data-auth-open="register">' +
+        t("sign_up") +
+        "</button>";
+      box.querySelectorAll("[data-auth-open]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          ensureModal();
+          const mode = btn.getAttribute("data-auth-open") || "login";
+          if (typeof window.__birinciOpenAuth === "function") {
+            window.__birinciOpenAuth(mode);
+            return;
+          }
+          const lang = currentLang();
+          window.location.href =
+            "/account/" +
+            (mode === "register" ? "register" : "login") +
+            "?lang=" +
+            encodeURIComponent(lang);
+        });
+      });
+    };
+
+    const AUTH_LOCALES = ["az", "en", "ru", "ky"];
+    const prefKeys = {
+      home_view: "birinci-home-view",
+      category_view: "birinci-category-view",
+      inventions_view: "birinci-inventions-view",
+      images_collapsed: "birinci-images-collapsed",
+      texts_collapsed: "birinci-texts-collapsed",
+    };
+
+    const readLocalPrefs = () => ({
+      home_view: localStorage.getItem(prefKeys.home_view) || "list",
+      category_view: localStorage.getItem(prefKeys.category_view) || "list",
+      inventions_view: localStorage.getItem(prefKeys.inventions_view) || "list",
+      images_collapsed: localStorage.getItem(prefKeys.images_collapsed) === "1",
+      texts_collapsed: localStorage.getItem(prefKeys.texts_collapsed) === "1",
+    });
+
+    const prefsSnapshot = () => JSON.stringify(readLocalPrefs());
+
+    const applyLocalPrefs = (data) => {
+      if (!data) return;
+      if (data.home_view) localStorage.setItem(prefKeys.home_view, data.home_view);
+      if (data.category_view) localStorage.setItem(prefKeys.category_view, data.category_view);
+      if (data.inventions_view) localStorage.setItem(prefKeys.inventions_view, data.inventions_view);
+      if (typeof data.images_collapsed === "boolean") {
+        localStorage.setItem(prefKeys.images_collapsed, data.images_collapsed ? "1" : "0");
+      }
+      if (typeof data.texts_collapsed === "boolean") {
+        localStorage.setItem(prefKeys.texts_collapsed, data.texts_collapsed ? "1" : "0");
+      }
+    };
+
+    const clearReadingPrefs = () => {
+      Object.values(prefKeys).forEach((key) => {
+        try {
+          localStorage.removeItem(key);
+        } catch (_) {}
+      });
+    };
+
+    const pathForLocale = (targetLang) => {
+      const path = (window.location.pathname || "/").replace(/\\/g, "/");
+      const parts = path.split("/").filter(Boolean);
+      const qs = window.location.search || "";
+      const hash = window.location.hash || "";
+      if (!parts.length || (parts.length === 1 && parts[0] === "index.html")) {
+        return "/" + targetLang + "/index.html" + qs + hash;
+      }
+      if (AUTH_LOCALES.indexOf(parts[0]) >= 0) {
+        parts[0] = targetLang;
+        return "/" + parts.join("/") + qs + hash;
+      }
+      if (parts[0] === "account") {
+        const url = new URL(window.location.href);
+        url.searchParams.set("lang", targetLang);
+        return url.pathname + url.search + url.hash;
+      }
+      return "/" + targetLang + "/index.html";
+    };
+
+    const goPreferredLocale = (user) => {
+      const want = user && String(user.preferred_locale || "").toLowerCase();
+      if (!want || AUTH_LOCALES.indexOf(want) < 0) return false;
+      if (want === currentLang()) return false;
+      try {
+        localStorage.setItem("birinci-lang", want);
+      } catch (_) {}
+      window.location.assign(pathForLocale(want));
+      return true;
+    };
+
+    const syncPrefsFromServer = (opts) => {
+      const reloadIfChanged = !!(opts && opts.reloadIfChanged);
+      const before = prefsSnapshot();
+      const local = readLocalPrefs();
+      return fetch(apiUrl("/api/preferences"), { credentials: "include" })
+        .then((res) => {
+          if (!res.ok) throw new Error("prefs");
+          return res.json();
+        })
+        .then((payload) => {
+          const remote = (payload && payload.data) || {};
+          const missing = {};
+          Object.keys(local).forEach((key) => {
+            if (!Object.prototype.hasOwnProperty.call(remote, key)) missing[key] = local[key];
+          });
+          const merged = Object.assign({}, local, remote);
+          applyLocalPrefs(merged);
+          const changed = before !== prefsSnapshot();
+          const upload = Object.keys(missing).length
+            ? postAuth("/api/preferences", { data: missing }, "PUT")
+            : Promise.resolve();
+          return upload.then(() => {
+            if (reloadIfChanged && changed) {
+              window.location.reload();
+              return true;
+            }
+            return false;
+          });
+        })
+        .catch(() => false);
+    };
+
+    const ensureSettings = () => {
+      if (document.getElementById("settings-modal")) return;
+      const root = document.createElement("div");
+      root.id = "settings-modal";
+      root.className = "auth-modal settings-modal";
+      root.hidden = true;
+      root.innerHTML =
+        '<button type="button" class="auth-modal__backdrop" data-settings-close tabindex="-1"></button>' +
+        '<div class="auth-modal__panel settings-modal__panel" role="dialog" aria-modal="true" aria-labelledby="settings-title">' +
+        '<div class="auth-modal__head"><p id="settings-title" class="auth-modal__title">' +
+        t("settings") +
+        '</p><button type="button" class="auth-modal__close" data-settings-close aria-label="' +
+        t("auth_close") +
+        '">×</button></div>' +
+        '<p class="auth-modal__lead">' +
+        t("settings_lead") +
+        "</p>" +
+        '<p class="auth-modal__msg" id="settings-msg" hidden></p>' +
+        '<form class="auth-modal__form" id="settings-form">' +
+        '<div class="auth-photo"><span class="auth-photo__preview" id="settings-avatar-preview" hidden></span>' +
+        "<label><span>" +
+        t("auth_photo") +
+        '</span><input type="file" name="avatar" accept="image/jpeg,image/png,image/webp" />' +
+        '<small class="auth-photo__hint">' +
+        t("auth_photo_hint") +
+        "</small></label></div>" +
+        "<label><span>" +
+        t("auth_first_name") +
+        '</span><input type="text" name="first_name" maxlength="80" autocomplete="given-name" required /></label>' +
+        "<label><span>" +
+        t("auth_last_name") +
+        '</span><input type="text" name="last_name" maxlength="80" autocomplete="family-name" required /></label>' +
+        "<label><span>" +
+        t("auth_display_name") +
+        '</span><input type="text" name="display_name" maxlength="80" autocomplete="nickname" /></label>' +
+        "<label><span>" +
+        t("auth_email") +
+        '</span><input type="email" name="email" readonly /></label>' +
+        '<p class="settings-verified" id="settings-verified"></p>' +
+        "<label><span>" +
+        t("pref_locale") +
+        "</span>" +
+        prefLocaleHtml("settings-pref-locale", currentLang()) +
+        "</label>" +
+        "<label><span>" +
+        t("pref_view_stories") +
+        '</span><select name="home_view"><option value="list">' +
+        t("pref_view_list") +
+        '</option><option value="cards">' +
+        t("pref_view_cards") +
+        "</option></select></label>" +
+        "<label><span>" +
+        t("pref_view_category") +
+        '</span><select name="category_view"><option value="list">' +
+        t("pref_view_list") +
+        '</option><option value="cards">' +
+        t("pref_view_cards") +
+        "</option></select></label>" +
+        "<label><span>" +
+        t("pref_view_discoveries") +
+        '</span><select name="inventions_view"><option value="list">' +
+        t("pref_view_list") +
+        '</option><option value="cards">' +
+        t("pref_view_cards") +
+        "</option></select></label>" +
+        '<label class="settings-check"><input type="checkbox" name="images_collapsed" /> ' +
+        t("pref_hide_images") +
+        "</label>" +
+        '<label class="settings-check"><input type="checkbox" name="texts_collapsed" /> ' +
+        t("pref_hide_texts") +
+        "</label>" +
+        '<button type="submit" class="auth-modal__submit">' +
+        t("settings_save") +
+        "</button></form>" +
+        '<div class="settings-danger">' +
+        '<p class="settings-danger__title">' +
+        t("settings_delete") +
+        "</p>" +
+        '<p class="settings-danger__lead">' +
+        t("settings_delete_lead") +
+        "</p>" +
+        '<button type="button" class="settings-danger__open" data-delete-account>' +
+        t("settings_delete") +
+        "</button>" +
+        '<div class="settings-confirm" id="settings-delete-confirm" hidden>' +
+        '<p class="settings-confirm__text">' +
+        t("settings_delete_confirm") +
+        "</p>" +
+        '<div class="settings-confirm__actions">' +
+        '<button type="button" class="settings-confirm__cancel" data-delete-cancel>' +
+        t("settings_delete_cancel") +
+        "</button>" +
+        '<button type="button" class="settings-confirm__yes" data-delete-confirm>' +
+        t("settings_delete_forever") +
+        "</button></div></div></div></div>";
+      document.body.appendChild(root);
+      const hideDeleteConfirm = () => {
+        const panel = document.getElementById("settings-delete-confirm");
+        if (panel) panel.hidden = true;
+      };
+      root.addEventListener("click", (event) => {
+        if (event.target.closest("[data-settings-close]")) {
+          hideDeleteConfirm();
+          root.hidden = true;
+          document.body.classList.remove("auth-modal-open");
+        }
+        if (event.target.closest("[data-delete-account]")) {
+          const panel = document.getElementById("settings-delete-confirm");
+          if (panel) panel.hidden = false;
+        }
+        if (event.target.closest("[data-delete-cancel]")) hideDeleteConfirm();
+        if (event.target.closest("[data-delete-confirm]")) {
+          const btn = event.target.closest("[data-delete-confirm]");
+          btn.disabled = true;
+          postAuth("/api/auth/me", { confirm: true }, "DELETE")
+            .then(() => {
+              clearReadingPrefs();
+              hideDeleteConfirm();
+              root.hidden = true;
+              document.body.classList.remove("auth-modal-open");
+              renderChrome(null);
+            })
+            .catch((err) => {
+              btn.disabled = false;
+              const msg = document.getElementById("settings-msg");
+              msg.hidden = false;
+              msg.classList.add("is-error");
+              msg.textContent = err.message;
+            });
+        }
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape" || root.hidden) return;
+        const panel = document.getElementById("settings-delete-confirm");
+        if (panel && !panel.hidden) {
+          hideDeleteConfirm();
+          return;
+        }
+        root.hidden = true;
+        document.body.classList.remove("auth-modal-open");
+      });
+      document.getElementById("settings-form").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const form = event.currentTarget;
+        const fd = new FormData(form);
+        const firstName = String(fd.get("first_name") || "").trim();
+        const lastName = String(fd.get("last_name") || "").trim();
+        const displayName = String(fd.get("display_name") || "").trim();
+        const locale = String(fd.get("preferred_locale") || currentLang());
+        const prefs = {
+          home_view: fd.get("home_view"),
+          category_view: fd.get("category_view"),
+          inventions_view: fd.get("inventions_view"),
+          images_collapsed: form.images_collapsed.checked,
+          texts_collapsed: form.texts_collapsed.checked,
+        };
+        const msg = document.getElementById("settings-msg");
+        const photo = form.avatar && form.avatar.files && form.avatar.files[0];
+        const beforePrefs = prefsSnapshot();
+        Promise.all([
+          postAuth(
+            "/api/auth/me",
+            {
+              first_name: firstName,
+              last_name: lastName,
+              display_name: displayName || null,
+              preferred_locale: locale,
+            },
+            "PATCH"
+          ),
+          postAuth("/api/preferences", { data: prefs }, "PUT"),
+        ])
+          .then(([meRes]) => (photo && photo.size ? uploadAvatar(photo) : meRes))
+          .then((meRes) => {
+            applyLocalPrefs(prefs);
+            const prefsChanged = beforePrefs !== prefsSnapshot();
+            msg.hidden = false;
+            msg.classList.remove("is-error");
+            msg.textContent = t("settings_saved");
+            renderChrome(meRes.user);
+            if (goPreferredLocale(meRes.user)) return;
+            if (prefsChanged) window.location.reload();
+          })
+          .catch((err) => {
+            msg.hidden = false;
+            msg.classList.add("is-error");
+            msg.textContent = err.message;
+          });
+      });
+      bindPhotoPreview(
+        document.querySelector("#settings-form input[name='avatar']"),
+        document.getElementById("settings-avatar-preview")
+      );
+    };
+
+    const openSettings = (user) => {
+      ensureSettings();
+      const root = document.getElementById("settings-modal");
+      const form = document.getElementById("settings-form");
+      const local = readLocalPrefs();
+      fetch(apiUrl("/api/preferences"), { credentials: "include" })
+        .then((res) => res.json())
+        .then((payload) => {
+          const data = Object.assign({}, local, payload.data || {});
+          form.display_name.value = user.display_name || "";
+          form.first_name.value = user.first_name || "";
+          form.last_name.value = user.last_name || "";
+          form.email.value = user.email;
+          setPrefLocaleValue(form.querySelector("[data-pref-locale]"), user.preferred_locale || currentLang());
+          bindPrefLocale(form.querySelector("[data-pref-locale]"));
+          form.home_view.value = data.home_view === "cards" ? "cards" : "list";
+          form.category_view.value = data.category_view === "cards" ? "cards" : "list";
+          form.inventions_view.value = data.inventions_view === "cards" ? "cards" : "list";
+          form.images_collapsed.checked = !!data.images_collapsed;
+          form.texts_collapsed.checked = !!data.texts_collapsed;
+          document.getElementById("settings-verified").textContent = user.is_verified
+            ? t("pref_verified")
+            : t("pref_unverified");
+          document.getElementById("settings-msg").hidden = true;
+          const preview = document.getElementById("settings-avatar-preview");
+          if (preview) {
+            if (user.avatar_url) {
+              preview.innerHTML = '<img alt="" src="' + user.avatar_url + '" />';
+              preview.hidden = false;
+            } else {
+              preview.innerHTML = "";
+              preview.hidden = true;
+            }
+          }
+          if (form.avatar) form.avatar.value = "";
+          const confirmPanel = document.getElementById("settings-delete-confirm");
+          if (confirmPanel) confirmPanel.hidden = true;
+          const yes = root.querySelector("[data-delete-confirm]");
+          if (yes) yes.disabled = false;
+          root.hidden = false;
+          document.body.classList.add("auth-modal-open");
+          form.display_name.focus();
+        })
+        .catch(() => {
+          form.first_name.value = user.first_name || "";
+          form.last_name.value = user.last_name || "";
+          form.display_name.value = user.display_name || "";
+          form.email.value = user.email;
+          root.hidden = false;
+        });
+    };
+
+    window.__birinciRefreshAuthChrome = () => {
+      if (!document.querySelector(".site-header__actions")) return;
+      renderChrome(chromeUser);
+      refreshAuthModalCopy();
+      // Rebuild settings next open so its labels match the active language.
+      const settings = document.getElementById("settings-modal");
+      if (settings) settings.remove();
+    };
+    if (document.body) {
+      const langObserver = new MutationObserver(() => {
+        window.__birinciRefreshAuthChrome();
+      });
+      langObserver.observe(document.body, { attributes: true, attributeFilter: ["data-lang"] });
+    }
+
+    // Build the modal before painting buttons so root-home language applyLang
+    // (MutationObserver) cannot leave Sign in / Sign up without a click handler.
+    ensureModal();
+    renderChrome(null);
+
+    resolveApiOrigin()
+      .then(() => apiFetch("/api/auth/me"))
+      .then((res) => res.json())
+      .then((data) => {
+        const user = data.user || null;
+        renderChrome(user);
+        if (user) syncPrefsFromServer({ reloadIfChanged: true });
+      })
+      .catch(() => {
+        renderChrome(null);
+      });
+  };
+
   try {
     initHomeViews();
   } catch (err) {
@@ -3910,6 +5401,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     initAboutValuesHighlight();
   } catch (err) {
     console.error("initAboutValuesHighlight failed", err);
+  }
+
+  try {
+    initAccountEntry();
+  } catch (err) {
+    console.error("initAccountEntry failed", err);
   }
 
   document.querySelectorAll(".category-layout").forEach((layout) => {

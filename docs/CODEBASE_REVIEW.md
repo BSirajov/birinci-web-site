@@ -1,78 +1,146 @@
-# Birİnci — codebase review (updated 2026-08-15)
+# Birİnci — Full codebase review & cleanup (2026-08-20)
 
-## Scope note
-
-Multilingual static story site: **AZ / EN / RU / KY**. Shared chrome CSS lives once under `/assets/`; each locale tree holds pages, stories data, illustrations, audio, and locale JS.
-
-### Actual layout
-
-| Concern | Path |
-|---------|------|
-| Source of truth | `tools/build_website.py` (embedded CSS / JS / HTML builders) |
-| Shared CSS / brand | `assets/site.css`, favicons, pearl, bg |
-| Locale trees | `{az,en,ru,ky}/` — generated pages, illustrations, `{lang}/assets/i18n.js` + stories/search data |
-| Shared JS / CSS | `assets/site.js`, `assets/site.css`, `assets/fonts.css` |
-| Story sources | `source/stories/{lang}/*.docx` (build input; not deployed) |
-| Locales UI strings | `tools/locales/{lang}.json` |
-| Publish mirror | `deployment/` via `tools/build_deployment.py` (gitignored) |
-
-Prefer chrome fixes via `tools/chrome_restore.py` (and locales / inventions bodies). The builder may still emit per-locale `site.js`; the overlay folds that into shared `assets/site.js` plus `{lang}/assets/i18n.js`.
+**Scope:** Static multilingual site (`az` / `en` / `ru` / `ky`) + shared `assets/` + `tools/`.  
+**Constraint:** Preserve existing content, visual identity, and responsive behavior.  
+**Source checklist:** User “Full codebase review and cleanup” request + prior Full Site QA checklist.
 
 ---
 
-## Findings and fixes
+## 1. Project structure (vs assumed folders)
 
-### Applied 2026-08-15 (Full Site QA pass)
+The site does **not** use `/css`, `/js`, `/helpers`, `/images`, or `/documents`. Mapping:
 
-| Issue | Severity | Fix |
-|-------|----------|-----|
-| Dead `.tools-bar__images` / `__texts` CSS (HTML uses `*-toggle`) | Medium | Removed; ≤480 rules retargeted to toggle groups |
-| Language gate hover `#005291` ≠ `--nav-blue-deep` | Low | Gate tokens + hover `#005a9a`; Fraunces / Source Sans 3 |
-| Duplicated menu-icon chrome rules | Low | Shared selector group; default icon colors use CSS vars |
-| Mobile nav open/close aria-labels hardcoded AZ | Medium | `tUi("open_menu"\|"close_menu")` + `close_menu` in all locale JSON |
-| Mobile sidebar open body missing overscroll contain | Low | Added `overscroll-behavior: contain` + touch scrolling |
-| `body.nav-open` iOS scroll bleed | Low | `overscroll-behavior: none` |
-| Stale CODEBASE_REVIEW (AZ-only) | Docs | This file refreshed |
+| Assumed | Actual |
+|---------|--------|
+| `/css` | `assets/site.css`, `assets/fonts.css`, `assets/inventions/*.css` |
+| `/js` | `assets/site.js`, `assets/inventions/*.js`; `{lang}/assets/{i18n,stories-data,search-index}.js` |
+| `/images` | `assets/` (brand/bg), `{lang}/illustrations/`, `assets/inventions/icons/`, `flags/` |
+| `/documents` | `source/stories/`, `source/discoveries/`, `docs/` |
+| `/helpers` | `tools/` (builders, QA, chrome restore) |
 
-### Earlier (2026-08-12)
+**Live trees:** `{az,en,ru,ky}/` (pages + illustrations + locale JS).  
+**Publish mirror:** `deployment/` (keep in sync with `assets/`).  
+**API (separate):** `api/` FastAPI auth/account templates — out of static-page chrome scope.
 
-| Issue | Severity | Fix |
-|-------|----------|-----|
-| Nested / invalid landmarks | High | Single `<main id="main">` |
-| Focus rings / story body typography | Medium | Restored `:focus-visible`; `--font-body` + line-height 1.55 |
-| Touch targets | Low | `touch-action: manipulation` |
-
-### Confirmed healthy
-
-- Shared CSS hash matches `assets/` ↔ `deployment/assets/`
-- Skip link → `#main`; one `<main>` on home/category shells
-- Hamburger ≤1400px; tools wrap ≤1180; category sidebar accordion ≤1060
-- Illustrations emit `loading="lazy"`, 1536×1024, non-empty alt
-- Asset version: **20260818p**
-
-### Intentional stubs (not bugs)
-
-- Top nav stubs hidden until content exists: Knowledge (`Biliklər`), Arts (`İncəsənət`), Notable figures (`Tanınmış şəxsiyyətlər`), Support (`Bizi dəstəkləyin`) — toggled in `chrome_restore.HIDE_TOP_NAV`
-- Elm / İncəsənət / some TOP_NAV items: `aria-disabled` + coming soon (builder still emits them; overlay strips the four above)
-- Discovery Ocaq videos disabled site-wide (`DISABLE_DISCOVERY_VIDEOS`)
-- Dual hamburgers (primary nav vs story sidebar) by design
-- `--sticky-stack-h: 0rem` reserved; `syncStickyChrome()` sets header/breadcrumb only
+**Recommendation:** Keep this layout. Do not invent parallel `/css`/`/js` trees; they would duplicate the single source of truth.
 
 ---
 
-## Responsiveness
+## 2. Code quality — findings & actions
 
-Breakpoints: **480 / 760 / 1060 / 1180 (tools wrap) / 1400 (hamburger)**.
+| Issue | Severity | Action |
+|-------|----------|--------|
+| Orphan `assets/inventions/kt-catalog-toolbar-mobile.js` (0 HTML refs) | High | **Deleted** (+ deployment copy) |
+| Duplicate icon folder `assets/inventions/inventions/` (mirrors `icons/6-digital-…`) | High | **Deleted** (+ deployment) |
+| Unused brand images: `pearl-knowledge*.webp`, `pearl-with-background.webp`, `bir-inci-logo.webp` | High | **Deleted** |
+| Unused `diaspor-body-top-bg.webp` (CSS uses `.png`) | High | **Deleted** |
+| Unused About icons `assets/icons/mvv-*` (page uses emoji) | High | **Deleted** |
+| Root `index.html` mixed `?v=` (`site.css` 20x / `site.js` 20i) | Medium | **Unified to `20260820y`** |
+| Reserved mega-nav CSS stubs (science/arts/… not in HTML) | Low | **Kept** — documented intentional stubs for future menus |
+| Dormant TTS / `.audio-player*` stack (`hasAudio` always false) | Low | **Kept** — gated feature; removing would hinder re-enable |
+| Obsolete `.tools-bar__images` (without `-toggle`) | — | Already absent; live class is `tools-bar__images-toggle` |
+| Ocaq video UI | — | Already stripped from live HTML |
 
-See [`docs/SITE_QA_CHECKLIST.md`](SITE_QA_CHECKLIST.md) for the manual device/browser matrix.
+**Not done (would risk look/behavior):** wholesale CSS minify; large KT toolbar CSS trim; removing TTS/audio-player CSS.
 
 ---
 
-## Ops workflow
+## 3. Links and navigation
 
-```bash
-python tools/build_website.py --lang all
-python tools/build_deployment.py
-```
+Automated scan of `az/` + `en/` internal `href` file targets: **0 broken**.
 
-Serve from `deployment/` (or a locale folder for local preview). Hard-refresh after asset version bumps.
+| Surface | Result |
+|---------|--------|
+| Primary nav (Stories, Discoveries, Sitemap, About) | Resolves |
+| Footer (logo, birinci.cloud, mailto) | Resolves |
+| Lang switcher az↔en↔ru↔ky on index / category / discoveries / about / sitemap | Resolves |
+| Breadcrumbs + sample `#` anchors | Resolves |
+| RU/KY Discoveries nav → live page | Pass |
+
+**Non-bug note:** EN category breadcrumbs use fragment `#kateqoriyalar` (shared id on EN home). Works; optional future i18n of the fragment id.
+
+---
+
+## 4. UI/UX consistency
+
+Aligned with DAAB / Birİnci tokens after recent passes:
+
+| Area | Status |
+|------|--------|
+| Story + discovery body font | Source Sans 3 (`--font-ui`) |
+| Story + discovery body color | Black `#000` |
+| Titles | Fraunces on blue bars; discoveries titles centered |
+| Spacing | Discovery entries gapped as cards (`margin-bottom: 16px`) |
+| Breadcrumbs | Solid light-blue bar restored |
+| Page-jump | Fixed; go-to-bottom above back-to-top |
+| Footer | Contact = web + email only |
+| Cache-bust | Unified `?v=20260820y` on CSS/JS |
+
+Remaining intentional dual stack: Discoveries KT CSS + `inventions-bridge.css` aliasing tokens to site fonts/spacing (bridge-only strategy).
+
+---
+
+## 5. Bilingual synchronization (AZ / EN)
+
+| Check | Result |
+|-------|--------|
+| HTML page sets | 16 / 16 identical relative paths |
+| Categories | 12 / 12 same filenames |
+| Discoveries chrome (CSS/JS link lists) | Identical |
+| Nav structure | Same slots; labels translated |
+| Footer contact shape | Identical (2 links) |
+
+RU/KY follow the same chrome pattern; content depth differs by locale as authored.
+
+---
+
+## 6. Responsiveness
+
+Automated Chromium matrix (also covered by `tools/full_site_qa.py`):
+
+- Widths **390 / 768 / 1440** on root, EN/AZ home, category, discoveries: **no horizontal overflow**
+- Page-jump remains `position: fixed` and visible
+- Hamburger **visible ≤1400**, **hidden ≥1401**
+
+**Still manual (hardware):** iOS Safari, Android Chrome, Samsung Internet; portrait + landscape; real touch on lang switcher / filters / sidebar accordion.
+
+---
+
+## 7. Accessibility basics
+
+| Check | Result |
+|-------|--------|
+| Images missing `alt` (sampled pages) | **0** |
+| Body text on white | Black on light surface — strong contrast |
+| Focus styles | `:focus-visible` present in `site.css` |
+| Landmarks | `header` / `main` / `footer` (+ `nav.page-jump`) on samples |
+| Keyboard | Page-jump / primary controls are native `<a>`/`<button>` |
+
+**Optional follow-ups (not applied):** replace About emoji icons with SVG for consistency; audit every inventions figure caption for locale-specific “Illustration:” prefixes beyond KY (already fixed once).
+
+---
+
+## 8. Fixes applied this pass
+
+1. Deleted orphan JS, duplicate invention icon tree, unused brand/About image assets (live + deployment mirrors).  
+2. Unified root `index.html` asset cache-bust to **`20260820y`**.  
+3. Reconfirmed link health, AZ/EN sync, responsive/overflow, page-jump, alt attributes via smoke scripts.
+
+**Re-run QA:** `python tools/full_site_qa.py`
+
+---
+
+## 9. Recommended next steps (product / optional)
+
+1. Complete the **manual device matrix** in `docs/SITE_QA_CHECKLIST.md`.  
+2. Decide whether to permanently remove or re-enable TTS (`show_audio_controls`).  
+3. If About should use graphic icons, wire `mvv-*` assets back in (currently removed as unused).  
+4. Avoid hand-editing locale HTML chrome long-term — prefer `tools/chrome_restore.py` + rebuild so AZ/EN/RU/KY stay synchronized.
+
+---
+
+## Sign-off
+
+| Role | Date | Notes |
+|------|------|-------|
+| Agent | 2026-08-20 | Cleanup applied; automated checks green; physical browsers still human-owned |

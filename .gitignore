@@ -12,3 +12,12 @@ _verify_list_view/
 deployment/
 docs/epub/*.epub
 samples/
+api/var/
+api/.env
+api/.venv/
+*.db
+
+# Local QA artifacts / Office locks / mail notes
+tools/_qa_*.txt
+docs/~$*
+Email-info@*.txt

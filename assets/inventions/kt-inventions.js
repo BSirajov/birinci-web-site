@@ -529,6 +529,23 @@
     if (!options.skipSidebarScroll) {
       scrollSidebarLinkIntoView(link);
     }
+
+    var section = document.getElementById(id);
+    var title = "";
+    if (section) {
+      var nameEl = section.querySelector(".inventions-entry-name");
+      var headEl = section.querySelector(".inventions-category-head");
+      if (nameEl && nameEl.textContent) title = nameEl.textContent.trim();
+      else if (headEl && headEl.textContent) title = headEl.textContent.trim();
+      else if (section.getAttribute("data-title")) title = section.getAttribute("data-title").trim();
+    }
+    if (!title && link.textContent) title = link.textContent.trim();
+    var crumbPayload = { id: id, title: title };
+    if (typeof window.__birinciSetDeepCrumb === "function") {
+      window.__birinciSetDeepCrumb(crumbPayload);
+    } else {
+      window.__birinciPendingDeepCrumb = crumbPayload;
+    }
   }
 
   function isSectionVisible(section) {
