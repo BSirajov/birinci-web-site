@@ -25,3 +25,7 @@ Email-info@*.txt
 # ADİL PDF sources (local lexicon rebuild only; not published)
 assets/lexicon/*.pdf
 assets/lexicon/*.PDF
+
+# Local build artifacts
+en/prominent-figures/_extract.json
+en/prominent-figures/_preview.txt

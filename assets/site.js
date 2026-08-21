@@ -146,12 +146,18 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   window.__birinciClearSearchHighlights = clearSearchHighlights;
   window.__birinciApplySearchHighlights = applySearchHighlights;
 
+  const isAzStoryLexiconPage = () => {
+    const body = document.body;
+    if (!body) return false;
+    return body.classList.contains("page-category") || body.classList.contains("page-home");
+  };
+
   const refreshAzLexicon = (root) => {
-    if (typeof window.__birinciRefreshAzLexicon === "function") {
-      try {
-        window.__birinciRefreshAzLexicon(root || null);
-      } catch (_) {}
-    }
+    if (typeof window.__birinciRefreshAzLexicon !== "function") return;
+    if (!isAzStoryLexiconPage()) return;
+    try {
+      window.__birinciRefreshAzLexicon(root || null);
+    } catch (_) {}
   };
 
   const paintSearchAndLexicon = (root, query) => {
@@ -164,11 +170,13 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       document.documentElement.lang || document.body.getAttribute("data-lang") || ""
     ).toLowerCase();
     if (lang !== "az") return;
+    // Sticky-note underlines on AZ wisdom-story home + category pages only.
+    if (!isAzStoryLexiconPage()) return;
 
     const siteScript = document.querySelector('script[src*="site.js"]');
     if (!siteScript || !siteScript.src) return;
     const assetsBase = siteScript.src.replace(/site\.js(?:\?[^#]*)?(?:#.*)?$/i, "");
-    const stamp = "20260822d";
+    const stamp = "20260822k";
 
     const loadScript = (src, marker) =>
       new Promise((resolve, reject) => {
@@ -194,11 +202,14 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         return window.__birinciBootAzLexicon();
       })
       .then(() => {
-        const input = document.querySelector(
-          "[data-tools-search], #inventionsSearch, #sitemap-search-input"
-        );
+        const input = document.querySelector("[data-tools-search]");
         const q = input ? String(input.value || "") : "";
-        const root = document.querySelector("main") || document.body;
+        const root =
+          document.querySelector(".story-list") ||
+          document.querySelector("[data-stories-list]") ||
+          document.querySelector(".category-main") ||
+          document.querySelector("main") ||
+          document.body;
         paintSearchAndLexicon(root, q);
       })
       .catch((err) => {
@@ -736,6 +747,18 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       else list.appendChild(li);
     };
 
+    const siteRootHref = () => {
+      const brand = document.querySelector("a.brand[href]");
+      const brandHref = brand && brand.getAttribute("href");
+      if (brandHref) return brandHref;
+      const path = String(window.location.pathname || "");
+      if (/\/(categories|discoveries|about|prominent-figures)\//.test(path)) {
+        return "../../index.html";
+      }
+      if (/\/(az|en|ru|ky)(?:\/|$)/.test(path)) return "../index.html";
+      return "index.html";
+    };
+
     const demoteCurrentToLink = () => {
       const current = list.querySelector('.breadcrumbs__item[aria-current="page"]');
       if (!current) return;
@@ -743,8 +766,23 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const labelEl = current.querySelector("span, a");
       const label = (labelEl && labelEl.textContent.trim()) || "";
       if (!label) return;
+      const items = baseCrumbItems();
+      const href = items[0] === current ? siteRootHref() : pageHref;
       current.removeAttribute("aria-current");
-      current.innerHTML = `<a href="${escapeHtml(pageHref)}">${escapeHtml(label)}</a>`;
+      current.innerHTML = `<a href="${escapeHtml(href)}">${escapeHtml(label)}</a>`;
+    };
+
+    const fixHomeCrumbHref = () => {
+      const first = list.querySelector(".breadcrumbs__item");
+      if (!first || first.hasAttribute("data-deep-crumb") || first.hasAttribute("data-stories-crumb")) {
+        return;
+      }
+      const a = first.querySelector("a");
+      if (!a) return;
+      const href = a.getAttribute("href") || "";
+      // Leave Wisdom Stories / section crumbs alone.
+      if (/#kateqoriyalar|[?&]view=/.test(href)) return;
+      a.setAttribute("href", siteRootHref());
     };
 
     const restorePageCurrent = () => {
@@ -855,6 +893,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
     window.addEventListener("hashchange", syncFromLocation);
     window.addEventListener("popstate", syncFromLocation);
+    fixHomeCrumbHref();
     if (window.__birinciPendingDeepCrumb) {
       window.__birinciSetDeepCrumb(window.__birinciPendingDeepCrumb);
       try {

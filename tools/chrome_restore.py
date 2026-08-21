@@ -23,7 +23,7 @@ from html_sitemap import write_html_sitemaps  # noqa: E402
 DISABLE_DISCOVERY_VIDEOS = True
 
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
-SITE_ASSET_VERSION = "20260822d"
+SITE_ASSET_VERSION = "20260822k"
 SITE_PUBLIC_ORIGIN = "https://birinci.cloud"
 LIVE_LANGS = ("az", "en", "ru", "ky")
 OG_IMAGE_URL = f"{SITE_PUBLIC_ORIGIN}/assets/pearl-hero.webp"
@@ -1351,6 +1351,25 @@ def ensure_brand_home_href(html: str) -> str:
     return _BRAND_HREF_RE.sub(rf"\g<1>{href}\g<2>", html, count=1)
 
 
+# First breadcrumb item Home link (not Wisdom Stories / #kateqoriyalar).
+_BREADCRUMB_HOME_LINK_RE = re.compile(
+    r'(<ol class="breadcrumbs__list">\s*'
+    r'<li class="breadcrumbs__item"[^>]*>\s*'
+    r'<a href=")[^"]*(")',
+    re.I,
+)
+
+
+def ensure_breadcrumb_home_href(html: str) -> str:
+    """Point breadcrumb Home at the site root (same target as the brand logo)."""
+    if "page-root-home" in html:
+        return html
+    if 'class="breadcrumbs"' not in html:
+        return html
+    href = site_root_index_href(html)
+    return _BREADCRUMB_HOME_LINK_RE.sub(rf"\g<1>{href}\g<2>", html, count=1)
+
+
 _ABOUT_HERO_RE = re.compile(
     r"<header class=\"about-hero\">[\s\S]*?</header>",
     re.I,
@@ -1807,6 +1826,7 @@ def patch_emitted_html(
     html = ensure_footer_about_html(html, lang)
     html = ensure_footer_qr_html(html, lang, rel_path=rel_path)
     html = ensure_brand_home_href(html)
+    html = ensure_breadcrumb_home_href(html)
     html = ensure_stories_hero_html(html, lang)
     html = ensure_about_hero_html(html, lang)
     if inventions or "ocaq-video" in html or "inventions-entry" in html:
@@ -2301,10 +2321,10 @@ def build_root_entry_section() -> str:
 
 
 def build_root_home_html(az_html: str) -> str:
-    """Copy AZ home chrome to the site root: navbar, hero, footer only."""
+    """Copy AZ home chrome to the site root: navbar, breadcrumbs, hero, footer."""
     html = az_html
 
-    html = _BREADCRUMBS_RE.sub("", html)
+    # Keep the sticky breadcrumbs strip (Home only) — do not strip it.
     html = _HOME_INLINE_SCRIPT_RE.sub("", html)
     html = _CATEGORIES_SECTION_RE.sub("", html)
 

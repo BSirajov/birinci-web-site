@@ -375,10 +375,18 @@
   const refresh = (root) => {
     closeNote();
     if (!pack) return;
-    const scope = root || document.querySelector("main") || document.body;
+    const scope =
+      root ||
+      document.querySelector(".story-list") ||
+      document.querySelector("[data-stories-list]") ||
+      document.querySelector(".category-main") ||
+      document.querySelector("main") ||
+      document.body;
     if (!scope) return;
     unwrap(scope);
-    wrapRoot(scope);
+    // Only mark full story bodies — not cards, nav, or chrome.
+    const storyTexts = scope.querySelectorAll(".story__text");
+    storyTexts.forEach((node) => wrapRoot(node));
     const n = scope.querySelectorAll(".az-lex").length;
     document.documentElement.setAttribute("data-az-lexicon", n ? "ready:" + n : "empty");
   };

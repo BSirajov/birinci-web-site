@@ -1,0 +1,45 @@
+/* Preview-only tweaks for prominent figures page */
+.figures-preview-banner {
+  margin: 0;
+  padding: 0.65rem 1rem;
+  background: #fff3cd;
+  border-bottom: 1px solid #e6d28a;
+  color: #5a4a14;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  text-align: center;
+}
+.figures-preview-banner code {
+  font-size: 0.88em;
+}
+.figures-preview-header-note {
+  margin: 0;
+  margin-left: auto;
+  color: var(--muted, #667);
+  font-size: 0.9rem;
+}
+.figures-preview-page .about-hero__lead {
+  margin: 0.35rem 0 0;
+  max-width: 42rem;
+  color: var(--muted, #445);
+  font-size: 1.05rem;
+  line-height: 1.45;
+}
+.figures-cat-intro {
+  margin: 0 0 1rem;
+  max-width: 48rem;
+  color: #445;
+  line-height: 1.5;
+}
+.figures-preview-page .inventions-entry {
+  scroll-margin-top: 5.5rem;
+}
+.figures-preview-page .inventions-category[hidden],
+.figures-preview-page .inventions-entry[hidden] {
+  display: none !important;
+}
+@media (max-width: 720px) {
+  .figures-preview-header-note {
+    display: none;
+  }
+}
