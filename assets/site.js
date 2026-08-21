@@ -176,7 +176,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const siteScript = document.querySelector('script[src*="site.js"]');
     if (!siteScript || !siteScript.src) return;
     const assetsBase = siteScript.src.replace(/site\.js(?:\?[^#]*)?(?:#.*)?$/i, "");
-    const stamp = "20260822k";
+    const stamp = "20260823j";
 
     const loadScript = (src, marker) =>
       new Promise((resolve, reject) => {
@@ -1538,13 +1538,13 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           batchRangeEl.hidden = false;
           batchRangeEl.removeAttribute("hidden");
           if (inRandom) {
-            batchRangeEl.textContent = `${tUi("batch_random", "Təsadüfi")} · ${visibleCount} / ${total}`;
+            batchRangeEl.textContent = `${tUi("batch_random", "Təsadüfi")}·${visibleCount}/${total}`;
           } else if (allMode) {
-            batchRangeEl.textContent = `1–${total} / ${total}`;
+            batchRangeEl.textContent = `1–${total}/${total}`;
           } else {
             const from = windowStart + 1;
             const to = Math.max(from, windowStart + visibleCount);
-            batchRangeEl.textContent = `${from}–${to} / ${total}`;
+            batchRangeEl.textContent = `${from}–${to}/${total}`;
           }
         }
       }
@@ -2262,13 +2262,13 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           batchRangeEl.hidden = false;
           batchRangeEl.removeAttribute("hidden");
           if (inRandom) {
-            batchRangeEl.textContent = `${tUi("batch_random", "Təsadüfi")} · ${visibleCount} / ${total}`;
+            batchRangeEl.textContent = `${tUi("batch_random", "Təsadüfi")}·${visibleCount}/${total}`;
           } else if (allMode) {
-            batchRangeEl.textContent = `1–${total} / ${total}`;
+            batchRangeEl.textContent = `1–${total}/${total}`;
           } else {
             const from = windowStart + 1;
             const to = Math.max(from, windowStart + visibleCount);
-            batchRangeEl.textContent = `${from}–${to} / ${total}`;
+            batchRangeEl.textContent = `${from}–${to}/${total}`;
           }
         }
       }

@@ -67,6 +67,8 @@ FOOTER_LOGO_BLOCK = """\
   margin-inline: auto;
   text-decoration: none;
   color: #fff;
+  pointer-events: none;
+  cursor: default;
 }
 .footer-logo::before {
   content: "";
@@ -76,10 +78,6 @@ FOOTER_LOGO_BLOCK = """\
   height: 72px;
   margin-inline-end: -6px;
   background: url("brand-one.webp") center / contain no-repeat;
-}
-.footer-logo:hover {
-  color: #fff;
-  opacity: 0.94;
 }
 .footer-logo__img {
   order: 2;

@@ -200,6 +200,14 @@
     return parts.filter(Boolean).join("; ");
   };
 
+  const SOURCE_FULL = "Azərbaycan dilinin izahlı lüğəti.";
+
+  const formatSourceDocument = (doc) => {
+    const raw = String(doc || "").trim();
+    if (!raw || /^ADİL$/i.test(raw)) return SOURCE_FULL;
+    return raw;
+  };
+
   const fillNote = (entry) => {
     const note = ensureNote();
     note.querySelector("[data-lex-lemma]").textContent = entry.lemma || "";
@@ -220,9 +228,17 @@
     note.querySelector("[data-lex-ety]").textContent = formatOrigin(entry.origin || {});
 
     const src = entry.source || {};
-    const vol = src.volume ? " · " + src.volume.replace(/^Azərbaycan dilinin izahlı lüğəti\s*-?\s*/i, "") : "";
+    const PUBLISHER = ', "Şərq-Qərb" nəşriyyatı, Bakı, 2006';
+    let vol = "";
+    if (src.volume) {
+      const volText = String(src.volume).replace(
+        /^Azərbaycan dilinin izahlı lüğəti\s*-?\s*/i,
+        ""
+      );
+      vol = " · " + volText + (/cild\b/i.test(volText) ? PUBLISHER : "");
+    }
     note.querySelector("[data-lex-src]").textContent =
-      (src.document || "ADİL") + vol + (src.entry ? " · " + src.entry : "");
+      formatSourceDocument(src.document) + vol + (src.entry ? " · " + src.entry : "");
 
     const warn = note.querySelector("[data-lex-warn]");
     if (entry.origin && entry.origin.uncertain) {
@@ -345,7 +361,7 @@
       span.setAttribute("data-lex", id);
       span.setAttribute("aria-expanded", "false");
       span.setAttribute("aria-haspopup", "true");
-      span.title = "Lüğət izahı (ADİL)";
+      span.title = "Lüğət izahı (Azərbaycan dilinin izahlı lüğəti)";
       span.textContent = word;
       frag.appendChild(span);
       last = match.index + word.length;
@@ -464,7 +480,7 @@
       lang: "az",
       formToLemma: pack.formToId,
       entries: pack.entries,
-      source: "ADİL popup-data.js",
+      source: "Azərbaycan dilinin izahlı lüğəti (popup-data.js)",
     };
     document.addEventListener("pointerover", onPointerOver, true);
     document.addEventListener("pointerout", onPointerOut, true);
