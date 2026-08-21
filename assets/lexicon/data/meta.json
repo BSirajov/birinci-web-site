@@ -1,0 +1,34 @@
+{
+  "stamp": "20260822c",
+  "sources": [
+    "Azərbaycan dilinin izahlı lüğəti - 1-ci cild.pdf",
+    "Azərbaycan dilinin izahlı lüğəti - 2-ci cild.pdf",
+    "Azərbaycan dilinin izahlı lüğəti - 3-cü cild.pdf",
+    "Azərbaycan dilinin izahlı lüğəti - 4-cü cild.pdf"
+  ],
+  "entries": 10287,
+  "forms": 10287,
+  "per_volume": {
+    "Azərbaycan dilinin izahlı lüğəti - 1-ci cild": 1915,
+    "Azərbaycan dilinin izahlı lüğəti - 2-ci cild": 2873,
+    "Azərbaycan dilinin izahlı lüğəti - 3-cü cild": 3236,
+    "Azərbaycan dilinin izahlı lüğəti - 4-cü cild": 2277
+  },
+  "languages": {
+    "ərəb": 4781,
+    "fars": 1713,
+    "alman": 202,
+    "fransız": 710,
+    "yunan": 1150,
+    "latın": 934,
+    "italyan": 136,
+    "rus": 326,
+    "ingilis": 246,
+    "ispan": 47,
+    "xarici": 12,
+    "holland": 39,
+    "portuqal": 5
+  },
+  "empty_pos": 0,
+  "popup_data_js_bytes": 4898600
+}

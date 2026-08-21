@@ -137,6 +137,34 @@
     group.classList.toggle("events-open", expanded);
     var toggle = group.querySelector(".toc-group__toggle");
     if (toggle) toggle.setAttribute("aria-expanded", expanded ? "true" : "false");
+    syncMainCategoryFromTocGroup(group, expanded);
+  }
+
+  function syncMainCategoryFromTocGroup(group, expanded) {
+    if (!group) return;
+    var slug = group.getAttribute("data-toc-cat");
+    if (!slug) return;
+    var open = typeof expanded === "boolean" ? expanded : group.classList.contains("events-open");
+    var cat = document.getElementById(slug);
+    if (cat && cat.classList.contains("inventions-category")) {
+      cat.classList.toggle("is-collapsed", !open);
+      var catToggle = cat.querySelector(".inventions-category-toggle");
+      if (catToggle) catToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+    var cards = document.querySelector(
+      '.inventions-cards-category[data-cards-cat="' + slug + '"]'
+    );
+    if (cards) cards.classList.toggle("is-collapsed", !open);
+  }
+
+  function syncAllMainCategoriesFromToc(root) {
+    root = root || document;
+    Array.prototype.forEach.call(
+      root.querySelectorAll(".toc-group[data-toc-cat]"),
+      function (group) {
+        syncMainCategoryFromTocGroup(group);
+      }
+    );
   }
 
   function bindTocGroups(container) {
@@ -611,6 +639,8 @@
     collapseAll: collapseAll,
     expandGroupContaining: expandGroupContaining,
     setGroupExpanded: setGroupExpanded,
+    syncMainCategoryFromTocGroup: syncMainCategoryFromTocGroup,
+    syncAllMainCategoriesFromToc: syncAllMainCategoriesFromToc,
     refreshArticlesSidebarButtons: refreshArticlesSidebarButtons,
     updateBulkActionButton: updateBulkActionButton,
   };

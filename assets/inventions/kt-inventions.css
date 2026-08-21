@@ -180,6 +180,67 @@ body.inventions-preview-page {
   text-align: center;
 }
 
+.inventions-category-head--collapsible {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  gap: 0.65rem;
+  justify-content: center;
+  position: relative;
+  user-select: none;
+}
+
+.inventions-category-toggle {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  color: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  flex: 0 0 auto;
+  height: 1.85rem;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  width: 1.85rem;
+}
+
+.inventions-category-toggle:hover,
+.inventions-category-toggle:focus-visible {
+  background: rgba(255, 255, 255, 0.24);
+  outline: 2px solid rgba(255, 255, 255, 0.55);
+  outline-offset: 2px;
+}
+
+.inventions-category-toggle__chevron {
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  display: block;
+  height: 0.45rem;
+  margin-top: -0.12rem;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease, margin-top 0.2s ease;
+  width: 0.45rem;
+}
+
+.inventions-category:not(.is-collapsed) .inventions-category-toggle__chevron {
+  margin-top: 0.12rem;
+  transform: rotate(-135deg);
+}
+
+.inventions-category.is-collapsed > .inventions-entry {
+  display: none;
+}
+
+.inventions-category.is-collapsed .inventions-category-head {
+  margin-bottom: 0;
+}
+
+.inventions-cards-category.is-collapsed .inventions-card-grid {
+  display: none;
+}
+
 .inventions-entry {
   background: var(--white);
   border: 1px solid var(--border);

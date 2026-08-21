@@ -23,6 +23,31 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     return pack[key] || fallback || key;
   };
 
+  const prefersReducedMotion = () => {
+    try {
+      return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    } catch (_) {
+      return false;
+    }
+  };
+
+  /** Same-document UI updates (cards↔list, etc.). Cross-page uses CSS @view-transition. */
+  const runViewTransition = (update) => {
+    if (typeof update !== "function") return;
+    if (prefersReducedMotion() || typeof document.startViewTransition !== "function") {
+      update();
+      return null;
+    }
+    try {
+      return document.startViewTransition(() => {
+        update();
+      });
+    } catch (_) {
+      update();
+      return null;
+    }
+  };
+
   const syncSearchFilterUi = (q, total) => {
     const wrap = document.querySelector(".tools-bar__search");
     if (!wrap) return;
@@ -43,6 +68,143 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const count = tUi("search_results_count", "{n} nəticə").replace(/\{n\}/g, String(total));
       textEl.textContent = `${label}: ${raw} · ${count}`;
     }
+  };
+
+  const SEARCH_HIT_CLASS = "search-hit";
+  const SEARCH_HIT_SELECTOR = `mark.${SEARCH_HIT_CLASS}`;
+
+  const clearSearchHighlights = (root) => {
+    const scope = root || document;
+    if (!scope || !scope.querySelectorAll) return;
+    scope.querySelectorAll(SEARCH_HIT_SELECTOR).forEach((mark) => {
+      const parent = mark.parentNode;
+      if (!parent) return;
+      while (mark.firstChild) parent.insertBefore(mark.firstChild, mark);
+      parent.removeChild(mark);
+      try {
+        parent.normalize();
+      } catch (_) {}
+    });
+  };
+
+  /** Word-style yellow marks for the current search string (case-insensitive). */
+  const applySearchHighlights = (root, query, { locale } = {}) => {
+    if (!root || !root.querySelectorAll) return;
+    clearSearchHighlights(root);
+    const raw = String(query || "").trim();
+    if (!raw) return;
+    const tag = locale || LOCALE_TAG || "az";
+    const needle = raw.toLocaleLowerCase(tag);
+    if (!needle) return;
+
+    const skipClosest =
+      "script, style, noscript, textarea, input, select, button, option, " +
+      SEARCH_HIT_SELECTOR +
+      ", .tools-bar, .lang-switcher, .visually-hidden, .sr-only, " +
+      "[data-tools-search], #sitemap-search-input, #global-search-input, #inventionsSearch";
+
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        if (!node.nodeValue || !/\S/.test(node.nodeValue)) return NodeFilter.FILTER_REJECT;
+        const el = node.parentElement;
+        if (!el) return NodeFilter.FILTER_REJECT;
+        if (el.closest(skipClosest)) return NodeFilter.FILTER_REJECT;
+        if (el.closest("[hidden], .is-hidden")) return NodeFilter.FILTER_REJECT;
+        if (el.closest(".inventions-category.is-collapsed")) {
+          const entry = el.closest(".inventions-entry");
+          if (entry) return NodeFilter.FILTER_REJECT;
+        }
+        return NodeFilter.FILTER_ACCEPT;
+      },
+    });
+
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+
+    nodes.forEach((textNode) => {
+      const text = textNode.nodeValue;
+      const lower = text.toLocaleLowerCase(tag);
+      let from = 0;
+      let at = lower.indexOf(needle, from);
+      if (at < 0) return;
+
+      const frag = document.createDocumentFragment();
+      while (at >= 0) {
+        if (at > from) frag.appendChild(document.createTextNode(text.slice(from, at)));
+        const mark = document.createElement("mark");
+        mark.className = SEARCH_HIT_CLASS;
+        mark.textContent = text.slice(at, at + needle.length);
+        frag.appendChild(mark);
+        from = at + needle.length;
+        at = lower.indexOf(needle, from);
+      }
+      if (from < text.length) frag.appendChild(document.createTextNode(text.slice(from)));
+      if (textNode.parentNode) textNode.parentNode.replaceChild(frag, textNode);
+    });
+  };
+
+  window.__birinciClearSearchHighlights = clearSearchHighlights;
+  window.__birinciApplySearchHighlights = applySearchHighlights;
+
+  const refreshAzLexicon = (root) => {
+    if (typeof window.__birinciRefreshAzLexicon === "function") {
+      try {
+        window.__birinciRefreshAzLexicon(root || null);
+      } catch (_) {}
+    }
+  };
+
+  const paintSearchAndLexicon = (root, query) => {
+    refreshAzLexicon(root);
+    applySearchHighlights(root, query);
+  };
+
+  const initAzLexicon = () => {
+    const lang = String(
+      document.documentElement.lang || document.body.getAttribute("data-lang") || ""
+    ).toLowerCase();
+    if (lang !== "az") return;
+
+    const siteScript = document.querySelector('script[src*="site.js"]');
+    if (!siteScript || !siteScript.src) return;
+    const assetsBase = siteScript.src.replace(/site\.js(?:\?[^#]*)?(?:#.*)?$/i, "");
+    const stamp = "20260822d";
+
+    const loadScript = (src, marker) =>
+      new Promise((resolve, reject) => {
+        if (document.querySelector(`script[data-az-lex="${marker}"]`)) {
+          resolve();
+          return;
+        }
+        const s = document.createElement("script");
+        s.src = `${assetsBase}${src}?v=${stamp}`;
+        s.async = false;
+        s.dataset.azLex = marker;
+        s.onload = () => resolve();
+        s.onerror = () => reject(new Error("lexicon-load-failed:" + src));
+        document.head.appendChild(s);
+      });
+
+    loadScript("lexicon/popup-data.js", "data")
+      .then(() => loadScript("lexicon/az-lexicon-ui.js", "ui"))
+      .then(() => {
+        if (typeof window.__birinciBootAzLexicon !== "function") {
+          throw new Error("lexicon-boot-missing");
+        }
+        return window.__birinciBootAzLexicon();
+      })
+      .then(() => {
+        const input = document.querySelector(
+          "[data-tools-search], #inventionsSearch, #sitemap-search-input"
+        );
+        const q = input ? String(input.value || "") : "";
+        const root = document.querySelector("main") || document.body;
+        paintSearchAndLexicon(root, q);
+      })
+      .catch((err) => {
+        console.error("Az lexicon failed to load", err);
+        document.documentElement.setAttribute("data-az-lexicon", "error");
+      });
   };
 
   const bindSearchFilterClear = (searchInput) => {
@@ -480,6 +642,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   /**
    * Append the active story / discovery article to the sticky breadcrumb trail.
    * Base crumbs stay page-level in HTML; deep segment is managed here.
+   * Story trails always keep the Wisdom Stories section crumb:
+   * Home > Wisdom Stories > [Category?] > Story
    */
   const initDeepBreadcrumbs = () => {
     const list = document.querySelector(".breadcrumbs__list");
@@ -508,6 +672,70 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       return (el.id || "").replace(/[-_]+/g, " ").trim();
     };
 
+    const storiesSectionLabel = () => {
+      const navLabel = document.querySelector(
+        "[data-nav-stories-all] span:not(.menu-icon), .nav-dropdown--literature .nav-dropdown__summary > span:not(.menu-icon)"
+      );
+      if (navLabel && navLabel.textContent.trim()) return navLabel.textContent.trim();
+      const lang =
+        (document.body && document.body.getAttribute("data-lang")) ||
+        document.documentElement.lang ||
+        "en";
+      const labels = {
+        az: "İbrətamiz hekayələr",
+        en: "Wisdom stories",
+        ru: "Нравоучительные рассказы",
+        ky: "Үлгүлүү аңгемелер",
+      };
+      return labels[lang] || labels.en;
+    };
+
+    const storiesSectionHref = () => {
+      const nav = document.querySelector("[data-nav-stories-all]");
+      const href = nav && nav.getAttribute("href");
+      if (href) return href;
+      const existing = list.querySelector('a[href*="#kateqoriyalar"]');
+      if (existing) return existing.getAttribute("href");
+      const inCategory = /\/categories\//.test(window.location.pathname || "");
+      return inCategory ? "../index.html?view=list" : "index.html?view=list";
+    };
+
+    const baseCrumbItems = () =>
+      Array.from(list.querySelectorAll(".breadcrumbs__item:not([data-deep-crumb])"));
+
+    const isStoriesSectionItem = (item) => {
+      if (!item) return false;
+      if (item.hasAttribute("data-stories-crumb")) return true;
+      const a = item.querySelector("a");
+      if (!a) return false;
+      const href = a.getAttribute("href") || "";
+      // Home often becomes ?view=list after demote — never treat the first crumb as the section.
+      const items = baseCrumbItems();
+      if (items[0] === item) return false;
+      return (
+        href.includes("#kateqoriyalar") ||
+        href.includes("view=list") ||
+        href.includes("view=cards")
+      );
+    };
+
+    const hasStoriesSectionCrumb = () => baseCrumbItems().some(isStoriesSectionItem);
+
+    const ensureStoriesSectionCrumb = () => {
+      if (hasStoriesSectionCrumb()) return;
+      const items = baseCrumbItems();
+      const li = document.createElement("li");
+      li.className = "breadcrumbs__item";
+      li.setAttribute("data-stories-crumb", "1");
+      li.innerHTML = `<a href="${escapeHtml(storiesSectionHref())}">${escapeHtml(
+        storiesSectionLabel()
+      )}</a>`;
+      const home = items[0];
+      if (home && home.nextSibling) list.insertBefore(li, home.nextSibling);
+      else if (home) home.after(li);
+      else list.appendChild(li);
+    };
+
     const demoteCurrentToLink = () => {
       const current = list.querySelector('.breadcrumbs__item[aria-current="page"]');
       if (!current) return;
@@ -520,6 +748,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     };
 
     const restorePageCurrent = () => {
+      list.querySelectorAll("[data-stories-crumb]").forEach((el) => el.remove());
       const deep = list.querySelector('[data-deep-crumb="1"]');
       if (deep) deep.remove();
       let pageItem = list.querySelector(".breadcrumbs__item:last-child");
@@ -531,7 +760,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       }
     };
 
-    const setDeepCrumb = (id, title) => {
+    const setDeepCrumb = (id, title, kind) => {
       const cleanTitle = String(title || "").trim();
       const cleanId = String(id || "").trim();
       if (!cleanId || !cleanTitle) {
@@ -543,6 +772,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         if (existing && existing.textContent === cleanTitle) return;
       }
       demoteCurrentToLink();
+      if (kind === "story") ensureStoriesSectionCrumb();
       let deep = list.querySelector('[data-deep-crumb="1"]');
       if (!deep) {
         deep = document.createElement("li");
@@ -557,7 +787,13 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     };
 
     const clearDeepCrumb = () => {
-      if (!lastDeepId && !list.querySelector('[data-deep-crumb="1"]')) return;
+      if (
+        !lastDeepId &&
+        !list.querySelector('[data-deep-crumb="1"]') &&
+        !list.querySelector("[data-stories-crumb]")
+      ) {
+        return;
+      }
       lastDeepId = null;
       restorePageCurrent();
       syncStickyChrome();
@@ -580,7 +816,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         clearDeepCrumb();
         return;
       }
-      setDeepCrumb(id, titleForEl(el));
+      const kind = el.classList.contains("story")
+        ? "story"
+        : el.classList.contains("inventions-entry")
+          ? "invention"
+          : "invention-category";
+      setDeepCrumb(id, titleForEl(el), kind);
     };
 
     window.__birinciSetDeepCrumb = (payload) => {
@@ -588,8 +829,16 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         clearDeepCrumb();
         return;
       }
-      const title = payload.title || titleForEl(document.getElementById(payload.id));
-      setDeepCrumb(payload.id, title);
+      const el = document.getElementById(payload.id);
+      const title = payload.title || titleForEl(el);
+      const kind =
+        payload.kind ||
+        (el && el.classList.contains("story")
+          ? "story"
+          : el && el.classList.contains("inventions-entry")
+            ? "invention"
+            : "invention-category");
+      setDeepCrumb(payload.id, title, kind);
     };
     window.__birinciClearDeepCrumb = clearDeepCrumb;
 
@@ -1042,6 +1291,10 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           `<span class="global-search__item-meta"></span>`;
         a.querySelector(".global-search__item-title").textContent = row.title;
         a.querySelector(".global-search__item-meta").textContent = row.category;
+        if (q) {
+          applySearchHighlights(a.querySelector(".global-search__item-title"), q);
+          applySearchHighlights(a.querySelector(".global-search__item-meta"), q);
+        }
         a.addEventListener("click", closeSearch);
         results.appendChild(a);
       });
@@ -1107,25 +1360,33 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const cardsPanel = document.querySelector('[data-view="cards"]');
     const listPanel = document.querySelector('[data-view="list"]');
     const cardGrid = document.querySelector("[data-tools-cards]");
-    const applyCategoryView = (view) => {
+    const applyCategoryView = (view, { animate = true } = {}) => {
       const next = view === "cards" ? "cards" : "list";
-      if (cardsPanel) {
-        cardsPanel.hidden = next !== "cards";
-        if (next === "cards") cardsPanel.removeAttribute("hidden");
-        else cardsPanel.setAttribute("hidden", "");
-      }
-      if (listPanel) {
-        listPanel.hidden = next !== "list";
-        if (next === "list") listPanel.removeAttribute("hidden");
-        else listPanel.setAttribute("hidden", "");
-      }
-      bar.querySelectorAll("[data-home-view]").forEach((btn) => {
-        btn.setAttribute("aria-pressed", btn.getAttribute("data-home-view") === next ? "true" : "false");
-      });
-      document.body.classList.toggle("category-view-cards", next === "cards");
+      const apply = () => {
+        if (cardsPanel) {
+          cardsPanel.hidden = next !== "cards";
+          if (next === "cards") cardsPanel.removeAttribute("hidden");
+          else cardsPanel.setAttribute("hidden", "");
+        }
+        if (listPanel) {
+          listPanel.hidden = next !== "list";
+          if (next === "list") listPanel.removeAttribute("hidden");
+          else listPanel.setAttribute("hidden", "");
+        }
+        bar.querySelectorAll("[data-home-view]").forEach((btn) => {
+          btn.setAttribute("aria-pressed", btn.getAttribute("data-home-view") === next ? "true" : "false");
+        });
+        document.body.classList.toggle("category-view-cards", next === "cards");
+      };
+      if (animate) runViewTransition(apply);
+      else apply();
       try {
         localStorage.setItem("birinci-category-view", next);
       } catch (_) {}
+      // Lexicon wraps hidden panels too, but refresh after toggle so tips stay bound.
+      window.requestAnimationFrame(() => {
+        refreshAzLexicon(document.querySelector(".category-main") || document.querySelector("main"));
+      });
       return false;
     };
     window.__birinciSetHomeView = applyCategoryView;
@@ -1540,6 +1801,11 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         }
         pendingStem = null;
       }
+      const highlightRoot =
+        document.querySelector(".category-main") ||
+        list.closest("main") ||
+        list;
+      paintSearchAndLexicon(highlightRoot, searchInput.value.trim());
     };
 
     searchInput.addEventListener("input", () => {
@@ -1672,13 +1938,13 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       });
     }
 
-    if (pendingStem) applyCategoryView("list");
+    if (pendingStem) applyCategoryView("list", { animate: false });
     else {
       let stored = "list";
       try {
         stored = localStorage.getItem("birinci-category-view") || "list";
       } catch (_) {}
-      applyCategoryView(stored === "cards" ? "cards" : "list");
+      applyCategoryView(stored === "cards" ? "cards" : "list", { animate: false });
     }
 
     renderList();
@@ -1886,6 +2152,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     let windowStart = 0;
     let randomStems = null;
     let allMode = false;
+    let listRenderKey = "";
 
     const batchCap = () => {
       const n =
@@ -2149,6 +2416,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       });
       if (cardsEmpty) cardsEmpty.hidden = visible !== 0;
       syncSearchFilterUi(searchInput.value.trim(), visible);
+      paintSearchAndLexicon(cardsPanel || cardsList, searchInput.value.trim());
     };
 
     const flattenStories = (catalog) => {
@@ -2347,7 +2615,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       }
     };
 
-    const renderList = ({ resetWindow = false } = {}) => {
+    const renderList = ({ resetWindow = false, force = false } = {}) => {
       if (!storiesList) return;
       if (typeof window.__birinciStopStoryTts === "function") window.__birinciStopStoryTts();
       const q = searchInput.value.trim().toLocaleLowerCase(LOCALE_TAG);
@@ -2413,19 +2681,28 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         visibleStories = filtered.slice(windowStart, windowStart + batchSize);
       }
 
-      storiesList.innerHTML = visibleStories.map(storyArticleHtml).join("");
-      hideAudioChrome(storiesList);
-      if (typeof window.__birinciSetAllStoryFigures === "function") {
-        window.__birinciSetAllStoryFigures(!document.body.classList.contains("images-collapsed"));
+      const nextKey = `${visibleStories.map((s) => s.stem).join("\n")}|t${total}|a${allMode ? 1 : 0}|b${batchSize}`;
+      const reuseDom =
+        !force &&
+        nextKey === listRenderKey &&
+        storiesList.childElementCount === visibleStories.length;
+
+      if (!reuseDom) {
+        listRenderKey = nextKey;
+        storiesList.innerHTML = visibleStories.map(storyArticleHtml).join("");
+        hideAudioChrome(storiesList);
+        if (typeof window.__birinciSetAllStoryFigures === "function") {
+          window.__birinciSetAllStoryFigures(!document.body.classList.contains("images-collapsed"));
+        }
+        if (typeof window.__birinciSetAllStoryTexts === "function") {
+          window.__birinciSetAllStoryTexts(!document.body.classList.contains("texts-collapsed"));
+        }
+        refreshSidebarNav(visibleStories);
+        if (typeof window.__birinciClearListenQueue === "function") {
+          window.__birinciClearListenQueue({ keepTrack: true });
+        }
       }
-      if (typeof window.__birinciSetAllStoryTexts === "function") {
-        window.__birinciSetAllStoryTexts(!document.body.classList.contains("texts-collapsed"));
-      }
-      refreshSidebarNav(visibleStories);
       if (listEmpty) listEmpty.hidden = total !== 0;
-      if (typeof window.__birinciClearListenQueue === "function") {
-        window.__birinciClearListenQueue({ keepTrack: true });
-      }
       syncBatchUi(visibleStories.length);
       persistAllMode();
       writeUrlState();
@@ -2438,6 +2715,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         }
         pendingStem = null;
       }
+      paintSearchAndLexicon(listPanel || storiesList, searchInput.value.trim());
     };
 
     const setHidden = (el, hide) => {
@@ -2447,14 +2725,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       else el.removeAttribute("hidden");
     };
 
-    const setView = (nextView, { persist = true, scrollTools = true } = {}) => {
-      const prevView = view;
-      view = nextView === "list" ? "list" : "cards";
-      window.__birinciHomeView = view;
-      try {
-        document.documentElement.setAttribute("data-home-view", view);
-      } catch (_) {}
-      // Panels first — never gated on fetch / history / TTS.
+    const applyHomeViewChrome = () => {
       setHidden(cardsPanel, view !== "cards");
       setHidden(listPanel, view !== "list");
       viewBtns.forEach((btn) => {
@@ -2463,14 +2734,27 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       listOnly.forEach((el) => {
         setHidden(el, view !== "list");
       });
+    };
+
+    const setView = (nextView, { persist = true, scrollTools = true, forceList = false, animate = true } = {}) => {
+      const prevView = view;
+      view = nextView === "list" ? "list" : "cards";
+      window.__birinciHomeView = view;
+      try {
+        document.documentElement.setAttribute("data-home-view", view);
+      } catch (_) {}
       if (persist) {
         try {
           localStorage.setItem(viewStorageKey, view);
         } catch (_) {}
       }
+      const transition = animate ? runViewTransition : (fn) => fn();
       if (view === "cards") {
         if (typeof window.__birinciStopStoryTts === "function") window.__birinciStopStoryTts();
-        applyCards();
+        transition(() => {
+          applyHomeViewChrome();
+          applyCards();
+        });
         writeUrlState();
         return;
       }
@@ -2486,9 +2770,19 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         }
         window.scrollTo(0, 0);
       };
+      // Show list chrome immediately so the switch never waits on fetch.
+      transition(() => {
+        applyHomeViewChrome();
+      });
       ensureStories()
         .then(() => {
-          renderList();
+          const needsDomPaint =
+            forceList || !listRenderKey || !storiesList.childElementCount;
+          if (needsDomPaint) {
+            transition(() => renderList({ force: forceList }));
+          } else {
+            renderList();
+          }
           maybeScrollTools();
         })
         .catch(() => {
@@ -2503,9 +2797,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       if (!btn || !bar.contains(btn)) return;
       const next = btn.getAttribute("data-home-view");
       if (next !== "list" && next !== "cards") return;
-      // Re-apply even if already selected so a stalled list can recover.
+      // Re-clicking the active list control recovers a stalled list; cards↔list reuses DOM.
       pendingStem = null;
-      setView(next);
+      setView(next, { forceList: next === "list" && view === "list" });
     };
     viewBtns.forEach((btn) => {
       btn.addEventListener("click", (event) => {
@@ -2653,7 +2947,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     window.__birinciListStart = windowStart;
 
     try {
-      setView(initialView, { persist: false, scrollTools: false });
+      setView(initialView, { persist: false, scrollTools: false, animate: false });
     } catch (_) {
       setHidden(cardsPanel, initialView !== "cards");
       setHidden(listPanel, initialView !== "list");
@@ -3870,10 +4164,14 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         section.hidden = Boolean(q) && !any;
       });
 
-      if (!status) return;
+      if (!status) {
+        paintSearchAndLexicon(main, input.value.trim());
+        return;
+      }
       if (!q) {
         status.hidden = true;
         status.textContent = "";
+        paintSearchAndLexicon(main, "");
         return;
       }
       status.hidden = false;
@@ -3887,6 +4185,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           String(shown)
         );
       }
+      paintSearchAndLexicon(main, input.value.trim());
     };
 
     let timer = 0;
@@ -5498,6 +5797,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     initSitemapSearch();
   } catch (err) {
     console.error("initSitemapSearch failed", err);
+  }
+
+  try {
+    initAzLexicon();
+  } catch (err) {
+    console.error("initAzLexicon failed", err);
   }
 
   try {

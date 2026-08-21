@@ -23,7 +23,7 @@ from html_sitemap import write_html_sitemaps  # noqa: E402
 DISABLE_DISCOVERY_VIDEOS = True
 
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
-SITE_ASSET_VERSION = "20260821i"
+SITE_ASSET_VERSION = "20260822d"
 SITE_PUBLIC_ORIGIN = "https://birinci.cloud"
 LIVE_LANGS = ("az", "en", "ru", "ky")
 OG_IMAGE_URL = f"{SITE_PUBLIC_ORIGIN}/assets/pearl-hero.webp"
@@ -1569,6 +1569,10 @@ def sync_site_js_i18n_blob(js: str, lang: str) -> str:
     for key in STORY_I18N_UI_KEYS:
         if key in ui:
             blob_ui[key] = ui[key]
+    # Keep nested packs (about / inventions / sitemap) and common footer keys current.
+    for key in ("about", "inventions", "sitemap", "footer_about", "footer_email_url", "hero_lead"):
+        if key in ui:
+            blob_ui[key] = ui[key]
     inventions = blob_ui.get("inventions")
     if isinstance(inventions, dict):
         for dead in DEAD_INVENTION_VIDEO_KEYS:
@@ -1576,9 +1580,43 @@ def sync_site_js_i18n_blob(js: str, lang: str) -> str:
         loc_inv = ui.get("inventions") if isinstance(ui.get("inventions"), dict) else {}
         for key, value in loc_inv.items():
             inventions[key] = value
+    if isinstance(locale.get("js"), dict):
+        blob["js"] = locale["js"]
     dumped = json.dumps(blob, ensure_ascii=False, separators=(", ", ": "))
     return js[:start] + _I18N_ASSIGN_PREFIX + dumped + ";" + js[end:]
 
+
+def write_lang_i18n_from_locale(lang: str) -> None:
+    """Rebuild `{lang}/assets/i18n.js` from tools/locales/{lang}.json."""
+    locale = _load_locale(lang)
+    path = ROOT / lang / "assets" / "i18n.js"
+    show_audio = False
+    if path.is_file():
+        text = path.read_text(encoding="utf-8").strip()
+        if text.startswith(_I18N_ASSIGN_PREFIX):
+            raw = text[len(_I18N_ASSIGN_PREFIX) :].rstrip().rstrip(";")
+            try:
+                show_audio = bool(json.loads(raw).get("show_audio_controls"))
+            except json.JSONDecodeError:
+                pass
+    ui = dict(locale.get("ui") or {})
+    inventions = ui.get("inventions")
+    if isinstance(inventions, dict):
+        for dead in DEAD_INVENTION_VIDEO_KEYS:
+            inventions.pop(dead, None)
+    blob = {
+        "lang": lang,
+        "ui": ui,
+        "js": locale.get("js") or {},
+        "show_audio_controls": show_audio,
+    }
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        _I18N_ASSIGN_PREFIX
+        + json.dumps(blob, ensure_ascii=False, separators=(", ", ": "))
+        + ";\n",
+        encoding="utf-8",
+    )
 
 def split_site_js_i18n(js: str) -> tuple[str, str]:
     parsed = _parse_site_js_i18n_blob(js)
@@ -1827,21 +1865,15 @@ def apply_shared_assets() -> None:
         i18n_path = ROOT / lang / "assets" / "i18n.js"
         if loc_path.is_file():
             js = loc_path.read_text(encoding="utf-8")
-        elif i18n_path.is_file():
-            js = i18n_path.read_text(encoding="utf-8")
-        else:
-            continue
-        js = _replace_i18n_index_failed(js, lang)
-        js = sync_site_js_i18n_blob(js, lang)
-        i18n_line, _rest = split_site_js_i18n(js)
-        if not i18n_line:
-            i18n_line = js if js.startswith(_I18N_ASSIGN_PREFIX) else ""
-        if i18n_line:
-            i18n_path.parent.mkdir(parents=True, exist_ok=True)
-            i18n_path.write_text(i18n_line, encoding="utf-8")
-        if loc_path.is_file():
+            js = _replace_i18n_index_failed(js, lang)
+            js = sync_site_js_i18n_blob(js, lang)
+            i18n_line, _rest = split_site_js_i18n(js)
+            if i18n_line:
+                i18n_path.parent.mkdir(parents=True, exist_ok=True)
+                i18n_path.write_text(i18n_line, encoding="utf-8")
             loc_path.unlink()
-
+        else:
+            write_lang_i18n_from_locale(lang)
 
 _BREADCRUMBS_RE = re.compile(
     r"[ \t]*<nav class=\"breadcrumbs\"[\s\S]*?</nav>\s*",

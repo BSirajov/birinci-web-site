@@ -37,6 +37,78 @@
   );
   var mobileMq = window.matchMedia("(max-width: 1060px)");
 
+  function setMainCategoryExpanded(cat, expanded) {
+    if (!cat) return;
+    cat.classList.toggle("is-collapsed", !expanded);
+    var toggle = cat.querySelector(".inventions-category-toggle");
+    if (toggle) toggle.setAttribute("aria-expanded", expanded ? "true" : "false");
+    if (cat.id) {
+      var cards = document.querySelector(
+        '.inventions-cards-category[data-cards-cat="' + cat.id + '"]'
+      );
+      if (cards) cards.classList.toggle("is-collapsed", !expanded);
+    }
+  }
+
+  function syncCategoryPair(catId, expanded) {
+    if (!catId) return;
+    var group = document.querySelector('.toc-group[data-toc-cat="' + catId + '"]');
+    if (group && window.KT_SIDEBAR_TOC_GROUPS && window.KT_SIDEBAR_TOC_GROUPS.setGroupExpanded) {
+      window.KT_SIDEBAR_TOC_GROUPS.setGroupExpanded(group, expanded);
+      if (widget && window.KT_SIDEBAR_TOC_GROUPS.refreshArticlesSidebarButtons) {
+        window.KT_SIDEBAR_TOC_GROUPS.refreshArticlesSidebarButtons(widget);
+      }
+      return;
+    }
+    setMainCategoryExpanded(document.getElementById(catId), expanded);
+  }
+
+  function enhanceMainCategoryToggles() {
+    categories.forEach(function (cat) {
+      if (cat.getAttribute("data-kt-cat-toggle")) return;
+      cat.setAttribute("data-kt-cat-toggle", "1");
+      var head = cat.querySelector(".inventions-category-head");
+      if (!head) return;
+
+      head.classList.add("inventions-category-head--collapsible");
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "inventions-category-toggle";
+      btn.setAttribute("aria-expanded", cat.classList.contains("is-collapsed") ? "false" : "true");
+      btn.setAttribute(
+        "aria-label",
+        "Toggle " + (head.textContent || "category").replace(/\s+/g, " ").trim()
+      );
+      var chevron = document.createElement("span");
+      chevron.className = "inventions-category-toggle__chevron";
+      chevron.setAttribute("aria-hidden", "true");
+      btn.appendChild(chevron);
+      head.appendChild(btn);
+
+      var togglePair = function () {
+        var next = cat.classList.contains("is-collapsed");
+        syncCategoryPair(cat.id, next);
+      };
+
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        togglePair();
+      });
+
+      head.addEventListener("click", function (e) {
+        if (e.target.closest("a, button")) return;
+        togglePair();
+      });
+    });
+
+    if (window.KT_SIDEBAR_TOC_GROUPS && window.KT_SIDEBAR_TOC_GROUPS.syncAllMainCategoriesFromToc) {
+      window.KT_SIDEBAR_TOC_GROUPS.syncAllMainCategoriesFromToc();
+    }
+  }
+
+  enhanceMainCategoryToggles();
+
   var navLinks = widget
     ? Array.prototype.slice.call(
         widget.querySelectorAll('.timeline-list a[href^="#"]')
@@ -410,6 +482,10 @@
     categories.forEach(function (cat) {
       var visible = cat.querySelectorAll(".inventions-entry:not(.is-hidden)").length;
       cat.classList.toggle("is-hidden", filtering && visible === 0);
+      // Search should reveal matching articles even if the category was collapsed.
+      if (q && visible > 0 && cat.classList.contains("is-collapsed") && cat.id) {
+        syncCategoryPair(cat.id, true);
+      }
     });
 
     tocEntries.forEach(function (item) {
@@ -443,6 +519,26 @@
     if (window.KT_SIDEBAR_TOC_GROUPS && widget) {
       window.KT_SIDEBAR_TOC_GROUPS.refreshArticlesSidebarButtons(widget);
     }
+    var highlightRoot =
+      document.querySelector(".inventions-page-body") ||
+      document.getElementById("main") ||
+      document.body;
+    var q = searchInput ? searchInput.value : "";
+    var paint = function () {
+      if (typeof window.__birinciRefreshAzLexicon === "function") {
+        window.__birinciRefreshAzLexicon(highlightRoot);
+      }
+      if (typeof window.__birinciApplySearchHighlights === "function") {
+        window.__birinciApplySearchHighlights(highlightRoot, q);
+      }
+    };
+    // site.js / lexicon UI may load after this file (defer order); retry once if needed.
+    if (
+      typeof window.__birinciApplySearchHighlights === "function" ||
+      typeof window.__birinciRefreshAzLexicon === "function"
+    ) {
+      paint();
+    } else window.setTimeout(paint, 0);
   }
 
   function clearFilterInputs() {
@@ -778,6 +874,9 @@
         }
       );
       section.appendChild(grid);
+      if (cat.classList.contains("is-collapsed")) {
+        section.classList.add("is-collapsed");
+      }
       cardsHost.appendChild(section);
     });
   }
