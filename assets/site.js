@@ -3806,6 +3806,97 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     window.addEventListener("beforeunload", stopSpeech);
   };
 
+  const initSitemapSearch = () => {
+    if (!document.body.classList.contains("page-sitemap")) return;
+    const page = document.querySelector(".sitemap-page");
+    const main = page && page.querySelector(".sitemap-main");
+    const input = document.getElementById("sitemap-search-input");
+    const status = document.getElementById("sitemap-search-status");
+    if (!page || !main || !input) return;
+
+    const normalize = (value) =>
+      String(value || "")
+        .toLocaleLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+
+    const textOf = (el) => normalize(el ? el.textContent : "");
+
+    const apply = () => {
+      const q = normalize(input.value.trim());
+      let shown = 0;
+
+      main.querySelectorAll(".sitemap-links > li").forEach((li) => {
+        const hit = !q || textOf(li).includes(q);
+        li.hidden = Boolean(q) && !hit;
+        if (!li.hidden) shown += 1;
+      });
+
+      main.querySelectorAll(".sitemap-block").forEach((block) => {
+        const heading = textOf(block.querySelector("h3"));
+        const blurb = textOf(block.querySelector(".sitemap-block__blurb"));
+        const headingHit = !q || heading.includes(q) || blurb.includes(q);
+        const links = block.querySelectorAll(".sitemap-links > li");
+        if (q && headingHit) {
+          links.forEach((li) => {
+            if (li.hidden) {
+              li.hidden = false;
+              shown += 1;
+            }
+          });
+        }
+        const anyLink = Array.prototype.some.call(links, (li) => !li.hidden);
+        const show = !q || headingHit || anyLink;
+        block.hidden = Boolean(q) && !show;
+        if (!q) block.hidden = false;
+        if (show && !links.length && headingHit) shown += 1;
+      });
+
+      main.querySelectorAll(".sitemap-card, .sitemap-lang").forEach((card) => {
+        const hit = !q || textOf(card).includes(q);
+        card.hidden = Boolean(q) && !hit;
+        if (!card.hidden) shown += 1;
+      });
+
+      main.querySelectorAll(".sitemap-section").forEach((section) => {
+        const kids = section.querySelectorAll(
+          ".sitemap-block, .sitemap-card, .sitemap-lang"
+        );
+        if (!kids.length) {
+          section.hidden = false;
+          return;
+        }
+        const any = Array.prototype.some.call(kids, (el) => !el.hidden);
+        section.hidden = Boolean(q) && !any;
+      });
+
+      if (!status) return;
+      if (!q) {
+        status.hidden = true;
+        status.textContent = "";
+        return;
+      }
+      status.hidden = false;
+      if (shown === 0) {
+        status.textContent =
+          status.getAttribute("data-empty") ||
+          tJs("no_match", "No matching items on this page.");
+      } else {
+        status.textContent = tJs("results_n", "{n} results").replace(
+          "{n}",
+          String(shown)
+        );
+      }
+    };
+
+    let timer = 0;
+    input.addEventListener("input", () => {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(apply, 80);
+    });
+    input.addEventListener("search", apply);
+  };
+
   const initAboutValuesHighlight = () => {
     if (!document.body.classList.contains("page-about")) return;
     const pills = document.querySelector(".about-pills");
@@ -5401,6 +5492,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     initAboutValuesHighlight();
   } catch (err) {
     console.error("initAboutValuesHighlight failed", err);
+  }
+
+  try {
+    initSitemapSearch();
+  } catch (err) {
+    console.error("initSitemapSearch failed", err);
   }
 
   try {

@@ -135,7 +135,7 @@
     "auth_need_signin": "Bu funksiyadan istifadə üçün daxil olun.",
     "auth_photo": "Profil şəkli",
     "auth_photo_hint": "JPEG, PNG və ya WebP. İstəyə bağlı, ən çox 2 MB.",
-    "hero_lead": "Bilik və mədəniyyət ocağı",
+    "hero_lead": "Bilik və Mənəvi Dəyərlər İncisi",
     "intro_lead": "Saytımızda bəşəriyyətin tarix boyu elm və texnologiya, təbiət elmləri, ictimai və humanitar elmlər, eləcə də ədəbiyyat və incəsənətin müxtəlif sahələrində qazandığı möhtəşəm nailiyyətlər, ümumbəşəri mənəvi dəyərlər, görkəmli şəxsiyyətlər, mühüm tarixi kəşf və ixtiralar haqqında zəngin məlumatlar təqdim olunur. Niyyətimiz əsrlər boyu toplanmış bu dəyərli irsi qorumaq, sistemləşdirmək və gələcək nəsillərə bilik, ibrət və ilham mənbəyi kimi çatdırmaqdır.",
     "footer_about": "Biz bəşəriyyətin əsrlər boyu topladığı bilikləri və mənəvi irsi qoruyaraq gələcək nəsillərə çatdıran platformayıq. Böyük kəşflərdən ibrətamiz hekayələrədək sizi öyrənməyə, düşünməyə və ilham almağa dəvət edirik.",
     "footer_contact": "Əlaqə vasitələri",
@@ -218,7 +218,10 @@
       "languages_lead": "Eyni səhifəni başqa dildə açın.",
       "stories_count": "{n} hekayə",
       "articles_count": "{n} məqalə",
-      "browse_chapter": "Fəslə keç"
+      "browse_chapter": "Fəslə keç",
+      "search_label": "Bu səhifədə axtar",
+      "search_placeholder": "Hekayə, kəşf və bölmələrdə axtar…",
+      "search_no_match": "Bu səhifədə uyğun nəticə yoxdur."
     },
     "auth_forgot": "Şifrəni unutmusunuz?",
     "footer_email": "E-poçt",

@@ -67,6 +67,9 @@ def _sitemap_copy(lang: str) -> dict:
         "kicker": "",
         "lead": "",
         "jump_label": "On this page",
+        "search_label": "Search this page",
+        "search_placeholder": "Search stories, discoveries, and sections…",
+        "search_no_match": "No matching items on this page.",
         "overview_title": "Main sections",
         "home_title": loc.get("home_crumb", "Home"),
         "home_desc": "",
@@ -328,9 +331,25 @@ def build_sitemap_inner_html(lang: str) -> str:
     jump = (
         f'<nav class="sitemap-jump" aria-label="{_esc(copy["jump_label"])}">'
         f'<div class="sitemap-jump__inner">'
-        f'<p class="sitemap-jump__label">{_esc(copy["jump_label"])}</p>'
         f'<div class="sitemap-jump__chips">{jump_chips}</div>'
         "</div></nav>"
+    )
+    search = (
+        f'<div class="sitemap-search" role="search">'
+        f'<label class="sitemap-search__field">'
+        f'<span class="visually-hidden">{_esc(copy["search_label"])}</span>'
+        f'<svg class="sitemap-search__icon" viewBox="0 0 24 24" width="18" height="18" '
+        f'fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" '
+        f'stroke-linejoin="round" aria-hidden="true">'
+        f'<circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>'
+        f'<input type="search" id="sitemap-search-input" '
+        f'placeholder="{html.escape(copy["search_placeholder"], quote=True)}" '
+        f'autocomplete="off" />'
+        f"</label>"
+        f'<p class="sitemap-search__status" id="sitemap-search-status" '
+        f'data-empty="{html.escape(copy["search_no_match"], quote=True)}" '
+        f'aria-live="polite" hidden></p>'
+        f"</div>"
     )
 
     return (
@@ -344,6 +363,7 @@ def build_sitemap_inner_html(lang: str) -> str:
         "    </div>\n"
         "  </header>\n"
         f"  {jump}\n"
+        f"  {search}\n"
         '  <div class="sitemap-main">\n'
         f'    <section class="sitemap-section sitemap-section--overview" id="sitemap-overview" aria-labelledby="sitemap-overview-title">\n'
         f'      {section_head("sitemap-overview-title", copy["overview_title"])}\n'

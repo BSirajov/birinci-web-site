@@ -14,7 +14,7 @@ BRAND_BLOCK = """\
   z-index: 2;
   display: inline-flex;
   align-items: center;
-  gap: 0.12rem;
+  gap: 0;
   flex: 0 0 auto;
   flex-grow: 0;
   flex-shrink: 0;
@@ -36,6 +36,7 @@ BRAND_BLOCK = """\
   flex: 0 0 auto;
   width: calc(var(--brand-mark) * 0.58);
   height: var(--brand-mark);
+  margin-inline-end: -4px;
   background: url("brand-one.webp") center / contain no-repeat;
 }
 .brand__logo {
@@ -44,6 +45,7 @@ BRAND_BLOCK = """\
   height: var(--brand-mark);
   object-fit: contain;
   flex: 0 0 auto;
+  margin-inline-end: 0.35rem;
 }
 .brand__name {
   order: 3;
@@ -58,7 +60,7 @@ FOOTER_LOGO_BLOCK = """\
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  column-gap: 10px;
+  column-gap: 0;
   row-gap: 0.7rem;
   width: max-content;
   max-width: 100%;
@@ -72,6 +74,7 @@ FOOTER_LOGO_BLOCK = """\
   flex: 0 0 auto;
   width: 36px;
   height: 72px;
+  margin-inline-end: -6px;
   background: url("brand-one.webp") center / contain no-repeat;
 }
 .footer-logo:hover {

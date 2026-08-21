@@ -23,7 +23,7 @@ from html_sitemap import write_html_sitemaps  # noqa: E402
 DISABLE_DISCOVERY_VIDEOS = True
 
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
-SITE_ASSET_VERSION = "20260819u"
+SITE_ASSET_VERSION = "20260821i"
 SITE_PUBLIC_ORIGIN = "https://birinci.cloud"
 LIVE_LANGS = ("az", "en", "ru", "ky")
 OG_IMAGE_URL = f"{SITE_PUBLIC_ORIGIN}/assets/pearl-hero.webp"
@@ -498,6 +498,18 @@ _FOOTER_ABOUT_RE = re.compile(
     r"(<p class=\"footer-about\">)([\s\S]*?)(</p>)",
     re.I,
 )
+_FOOTER_ABOUT_COL_RE = re.compile(
+    r'(<div class="footer-col footer-col--about">)\s*'
+    r'(?:<a class="footer-qr"[\s\S]*?</a>\s*)?'
+    r'(<p class="footer-about">)',
+    re.I,
+)
+FOOTER_QR_ALT = {
+    "az": "birinci.cloud saytına keçid üçün QR kod",
+    "en": "QR code linking to birinci.cloud",
+    "ru": "QR-код со ссылкой на birinci.cloud",
+    "ky": "birinci.cloud сайтына шилтеме берген QR kod",
+}
 _ABOUT_PANEL_LEAD_RE = re.compile(
     r"(<p class=\"about-panel__lead\">)([\s\S]*?)(</p>)",
     re.I,
@@ -1217,6 +1229,27 @@ def ensure_footer_about_html(html: str, lang: str) -> str:
     return _FOOTER_ABOUT_RE.sub(rf"\1{short}\3", html, count=1)
 
 
+def _footer_qr_asset_href(rel_path: str) -> str:
+    """Relative href from an HTML file to assets/qr/birinci-cloud-qr.png."""
+    depth = Path(rel_path.replace("\\", "/")).as_posix().count("/")
+    prefix = "../" * depth if depth else ""
+    return f"{prefix}assets/qr/birinci-cloud-qr.png?v={SITE_ASSET_VERSION}"
+
+
+def ensure_footer_qr_html(markup: str, lang: str, *, rel_path: str = "") -> str:
+    if not _FOOTER_ABOUT_COL_RE.search(markup):
+        return markup
+    alt = html.escape(FOOTER_QR_ALT.get(lang) or FOOTER_QR_ALT["en"])
+    src = _footer_qr_asset_href(rel_path or "index.html")
+    block = (
+        f'<a class="footer-qr" href="{SITE_PUBLIC_ORIGIN}" '
+        f'rel="noopener noreferrer" title="birinci.cloud">'
+        f'<img class="footer-qr__img" src="{src}" alt="{alt}" '
+        f'width="88" height="88" decoding="async" /></a>\n          '
+    )
+    return _FOOTER_ABOUT_COL_RE.sub(rf"\1\n          {block}\2", markup, count=1)
+
+
 def _strip_hero_hearth_panel(html: str) -> str:
     if "about-hero__panel" not in html:
         return html
@@ -1277,7 +1310,7 @@ def build_root_intro_hero_html() -> str:
     """Previous root-home hero: pearl visual + Birİnci copy."""
     data = _load_locale("az")
     ui = data.get("ui", {})
-    tagline = ui.get("hero_lead", "Bilik və mədəniyyət ocağı")
+    tagline = ui.get("hero_lead", "Bilik və Mənəvi Dəyərlər İncisi")
     lead = ui.get("intro_lead", "")
     source = ui.get("intro_source", "")
     return (
@@ -1734,6 +1767,7 @@ def patch_emitted_html(
     html = ensure_literature_submenu(html, lang)
     html = ensure_literature_nav_label(html, lang)
     html = ensure_footer_about_html(html, lang)
+    html = ensure_footer_qr_html(html, lang, rel_path=rel_path)
     html = ensure_brand_home_href(html)
     html = ensure_stories_hero_html(html, lang)
     html = ensure_about_hero_html(html, lang)
