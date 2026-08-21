@@ -17,6 +17,9 @@ OPTIONAL_PAGE_DIRS = ("about", "discoveries")
 OPTIONAL_DIRS = ("audio", "data")
 COPY_FILES = ("index.html", "sitemap.html")
 
+# ADİL PDF sources are local build inputs only — never publish them.
+IGNORE_PUBLISH = shutil.ignore_patterns("*.pdf", "*.PDF")
+
 
 def copy_locale(lang: str) -> None:
     src_root = ROOT / lang
@@ -36,7 +39,8 @@ def copy_locale(lang: str) -> None:
                 (dst / name).mkdir(parents=True, exist_ok=True)
                 continue
             raise SystemExit(f"Missing required folder: {src}")
-        shutil.copytree(src, dst / name)
+        ignore = IGNORE_PUBLISH if name == "assets" else None
+        shutil.copytree(src, dst / name, ignore=ignore)
     for name in OPTIONAL_PAGE_DIRS:
         src = src_root / name
         if src.is_dir():
@@ -64,7 +68,7 @@ def main() -> None:
         shutil.copytree(flags_dir, DEPLOY / "flags")
     shared_assets = ROOT / "assets"
     if shared_assets.is_dir():
-        shutil.copytree(shared_assets, DEPLOY / "assets")
+        shutil.copytree(shared_assets, DEPLOY / "assets", ignore=IGNORE_PUBLISH)
 
     for lang in LANGS:
         if not (ROOT / lang / "index.html").is_file():
@@ -74,8 +78,11 @@ def main() -> None:
 
     files = sum(1 for p in DEPLOY.rglob("*") if p.is_file())
     size_mb = sum(p.stat().st_size for p in DEPLOY.rglob("*") if p.is_file()) / (1024 * 1024)
+    pdfs = list(DEPLOY.rglob("*.pdf")) + list(DEPLOY.rglob("*.PDF"))
     print(f"deployment: {DEPLOY} (local publish copy, not committed)")
     print(f"files={files} size_mb={size_mb:.1f}")
+    if pdfs:
+        raise SystemExit(f"Publish tree unexpectedly contains PDFs: {pdfs[:5]}")
 
 
 if __name__ == "__main__":

@@ -1,15 +1,15 @@
 # Azerbaijani lexicon (sticky notes)
 
-Source: four volumes of *Azərbaycan dilinin izahlı lüğəti* (PDF) in this folder.
+Runtime files in this folder (shipped):
 
-Build (non-Turkic origins only: ərəb, fars, yunan, latın, …):
+- `popup-data.js` — sticky-note data for AZ pages
+- `az-lexicon-ui.js` — hover/tap UI
+- `data/meta.json` — build stats
+
+**Source PDFs** (*Azərbaycan dilinin izahlı lüğəti*, 4 volumes) stay local only:
+they are gitignored and excluded from `deployment/`. Keep them in this folder
+on your machine to rebuild:
 
 ```bash
 python tools/build_adil_pdf_lexicon.py
 ```
-
-Outputs:
-
-- `popup-data.js` — loaded by AZ pages for sticky-note tips
-- `az-lexicon-ui.js` — hover/tap UI
-- `data/meta.json` — build stats

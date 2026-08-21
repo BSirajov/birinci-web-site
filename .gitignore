@@ -21,3 +21,7 @@ api/.venv/
 tools/_qa_*.txt
 docs/~$*
 Email-info@*.txt
+
+# ADİL PDF sources (local lexicon rebuild only; not published)
+assets/lexicon/*.pdf
+assets/lexicon/*.PDF
