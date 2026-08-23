@@ -12,7 +12,7 @@
       "implemented": true,
       "stories_ready": true,
       "nav_prefixes": [],
-      "show_audio_controls": false,
+      "show_audio_controls": true,
       "tts_voice": "az-AZ-BabekNeural",
       "tts_dialogue_voice": "az-AZ-BanuNeural"
     },
@@ -26,7 +26,7 @@
       "implemented": true,
       "stories_ready": true,
       "nav_prefixes": ["en"],
-      "show_audio_controls": false,
+      "show_audio_controls": true,
       "tts_voice": "en-US-GuyNeural",
       "tts_dialogue_voice": "en-US-JennyNeural"
     },
@@ -40,7 +40,7 @@
       "implemented": true,
       "stories_ready": true,
       "nav_prefixes": ["ru"],
-      "show_audio_controls": false,
+      "show_audio_controls": true,
       "tts_voice": "ru-RU-DmitryNeural",
       "tts_dialogue_voice": "ru-RU-SvetlanaNeural"
     },
@@ -55,6 +55,7 @@
       "stories_ready": true,
       "nav_prefixes": ["ky", "kir"],
       "show_audio_controls": false,
+      "show_discovery_listen": false,
       "tts_voice": "kk-KZ-DauletNeural",
       "tts_dialogue_voice": "kk-KZ-AigulNeural",
       "tts_voice_note": "No Kyrgyz neural voice in Edge/Azure; Kazakh (closest Cyrillic Turkic) used for KY narration."

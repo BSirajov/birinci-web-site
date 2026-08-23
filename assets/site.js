@@ -3,15 +3,40 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 (() => {
   const I18N = window.__BIRINCI_I18N__ || { lang: "az", ui: {}, js: {} };
   const LOCALE_TAG = I18N.lang || document.documentElement.lang || "az";
-  const SHOW_AUDIO_CONTROLS = I18N.show_audio_controls !== false;
+  const PAGE_LANG = String(
+    I18N.lang ||
+      (document.body && document.body.getAttribute("data-lang")) ||
+      document.documentElement.lang ||
+      "az"
+  )
+    .toLowerCase()
+    .split(/[-_]/)[0];
+  const SHOW_AUDIO_CONTROLS = I18N.show_audio_controls !== false && PAGE_LANG !== "ky";
+  // No native Kyrgyz neural voice — keep Listen off on KY articles.
+  const SHOW_DISCOVERY_LISTEN = I18N.show_discovery_listen !== false && PAGE_LANG !== "ky";
 
   const hideAudioChrome = (root = document) => {
-    if (SHOW_AUDIO_CONTROLS) return;
-    (root || document).querySelectorAll("[data-story-tts], [data-tools-play-visible], [data-story-tts-note], .story-tts__note").forEach((el) => {
-      const group = el.closest(".story__action-group, .tools-bar__field, .text-lightbox__tts");
-      if (group) group.hidden = true;
-      else el.hidden = true;
-    });
+    (root || document)
+      .querySelectorAll(
+        "[data-story-tts], [data-tools-play-visible], [data-story-tts-note], .story-tts__note, [data-discovery-tts], .inventions-entry__tts, .tools-bar__field--listen"
+      )
+      .forEach((el) => {
+        const isDiscovery = !!(
+          el.closest(
+            "[data-discovery-tts], .inventions-entry__tts, .inventions-entry, .tools-bar--inventions, [data-tools='inventions']"
+          )
+        );
+        if (isDiscovery) {
+          if (SHOW_DISCOVERY_LISTEN) return;
+        } else if (SHOW_AUDIO_CONTROLS) {
+          return;
+        }
+        const group = el.closest(
+          ".story__action-group, .tools-bar__field, .text-lightbox__tts, .inventions-entry__tts"
+        );
+        if (group) group.hidden = true;
+        else el.hidden = true;
+      });
   };
   const liveI18n = () => window.__BIRINCI_I18N__ || I18N;
   const tUi = (key, fallback) => {
@@ -169,14 +194,14 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const lang = String(
       document.documentElement.lang || document.body.getAttribute("data-lang") || ""
     ).toLowerCase();
-    if (lang !== "az") return;
+    if (lang !== "az" && !lang.startsWith("az-")) return;
     // Sticky-note underlines on AZ wisdom-story home + category pages only.
     if (!isAzStoryLexiconPage()) return;
 
     const siteScript = document.querySelector('script[src*="site.js"]');
     if (!siteScript || !siteScript.src) return;
     const assetsBase = siteScript.src.replace(/site\.js(?:\?[^#]*)?(?:#.*)?$/i, "");
-    const stamp = "20260823j";
+    const stamp = "20260823r";
 
     const loadScript = (src, marker) =>
       new Promise((resolve, reject) => {
@@ -237,6 +262,61 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     listen: "",
     stop: "",
   };
+  const escListen = (value) =>
+    String(value || "")
+      .replace(/&/g, "&amp;")
+      .replace(/"/g, "&quot;")
+      .replace(/</g, "&lt;");
+  const mountStoryTts = () => {
+    if (!SHOW_AUDIO_CONTROLS) return;
+    const listen = tUi("listen", "Mətni dinlə");
+    const stop = tUi("stop", "Dayandır");
+    const audioLabel = tUi("story_audio_label", "Səs");
+    const listenPage = tUi("listen_page", "Səhifəni dinlə");
+    document.querySelectorAll("article.story").forEach((story) => {
+      const actions = story.querySelector(".story__actions");
+      if (!actions || actions.querySelector("[data-story-tts]")) return;
+      const wrap = document.createElement("div");
+      wrap.innerHTML = `
+        <div class="story__action-group">
+          <span class="tools-bar__label">${escListen(audioLabel)}</span>
+          <div class="tools-bar__views" role="group" aria-label="${escListen(audioLabel)}">
+            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="listen" aria-pressed="false" title="${escListen(listen)}" aria-label="${escListen(listen)}">${STORY_ICONS.listen}</button>
+            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="stop" aria-pressed="true" title="${escListen(stop)}" aria-label="${escListen(stop)}">${STORY_ICONS.stop}</button>
+          </div>
+        </div>`;
+      const group = wrap.firstElementChild;
+      if (!group) return;
+      const first = actions.querySelector(".story__action-group");
+      if (first) actions.insertBefore(group, first);
+      else actions.insertBefore(group, actions.firstChild);
+    });
+    document.querySelectorAll('[data-tools="category"], [data-tools="home"]').forEach((bar) => {
+      if (bar.querySelector("[data-tools-play-visible]")) return;
+      const field = document.createElement("div");
+      field.className = "tools-bar__field tools-bar__field--listen";
+      if (bar.getAttribute("data-tools") === "home") {
+        field.setAttribute("data-home-list-only", "");
+        const homeView =
+          (document.documentElement && document.documentElement.getAttribute("data-home-view")) ||
+          "cards";
+        if (homeView !== "list") field.hidden = true;
+      }
+      field.innerHTML = `
+        <span class="tools-bar__label">${escListen(listenPage)}</span>
+        <div class="tools-bar__views" role="group" aria-label="${escListen(listenPage)}">
+          <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-tools-play-visible data-tts-mode="listen" aria-pressed="false" title="${escListen(listenPage)}" aria-label="${escListen(listenPage)}">${STORY_ICONS.listen}</button>
+          <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-tools-play-visible data-tts-mode="stop" aria-pressed="true" title="${escListen(stop)}" aria-label="${escListen(stop)}">${STORY_ICONS.stop}</button>
+        </div>`;
+      const batch = bar.querySelector(".tools-bar__batch");
+      if (batch) bar.insertBefore(field, batch);
+      else bar.appendChild(field);
+    });
+    if (typeof window.__birinciSyncPlayVisibleUi === "function") {
+      window.__birinciSyncPlayVisibleUi();
+    }
+  };
+  window.__birinciMountStoryTts = mountStoryTts;
   const setStoryModePressed = (root, attr, visible) => {
     if (!root) return;
     root.querySelectorAll("[" + attr + "]").forEach((btn) => {
@@ -1845,6 +1925,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         list.closest("main") ||
         list;
       paintSearchAndLexicon(highlightRoot, searchInput.value.trim());
+      mountStoryTts();
     };
 
     searchInput.addEventListener("input", () => {
@@ -1990,6 +2071,11 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   };
 
   initCategoryTools();
+  try {
+    mountStoryTts();
+  } catch (err) {
+    console.error("mountStoryTts failed", err);
+  }
 
   /**
    * DAAB News-style sidebar: sticky TOC, scroll-spy, mobile accordion.
@@ -2174,7 +2260,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const batchAllBtn = bar.querySelector('[data-home-batch="all"]');
     const batchRangeEl = bar.querySelector("[data-home-batch-range]");
     const viewBtns = Array.from(bar.querySelectorAll("[data-home-view]"));
-    const listOnly = Array.from(bar.querySelectorAll("[data-home-list-only]"));
     const assetVersion = listPanel.getAttribute("data-asset-version") || "";
     const viewStorageKey = "birinci-home-view";
     const batchSizeStorageKey = "birinci-home-batch-size";
@@ -2770,7 +2855,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       viewBtns.forEach((btn) => {
         btn.setAttribute("aria-pressed", btn.getAttribute("data-home-view") === view ? "true" : "false");
       });
-      listOnly.forEach((el) => {
+      bar.querySelectorAll("[data-home-list-only]").forEach((el) => {
         setHidden(el, view !== "list");
       });
     };
@@ -3038,9 +3123,18 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
     const showNote = (btn, message) => {
       const root =
-        (btn && btn.closest(".story__actions, .text-lightbox__tts")) ||
+        (btn &&
+          btn.closest(
+            ".story__actions, .text-lightbox__tts, .inventions-entry__tts, .tools-bar__field--listen, article.inventions-entry"
+          )) ||
         (btn && btn.parentElement);
-      const note = root && root.querySelector("[data-story-tts-note]");
+      let note = root && root.querySelector("[data-story-tts-note]");
+      if (!note && root) {
+        note = document.createElement("p");
+        note.className = "story-tts__note";
+        note.setAttribute("data-story-tts-note", "");
+        root.appendChild(note);
+      }
       if (!note) return;
       note.hidden = !message;
       note.textContent = message || "";
@@ -3048,13 +3142,14 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
     const resolveStory = (btn) => {
       if (!btn) return null;
-      const nested = btn.closest("article.story");
+      const nested = btn.closest("article.story, article.inventions-entry");
       if (nested) return nested;
       const stem = (btn.getAttribute("data-story-stem") || "").trim();
       if (!stem) return null;
       return (
         document.getElementById(stem) ||
-        document.querySelector(`article.story[data-stem="${stem}"]`)
+        document.querySelector(`article.story[data-stem="${stem}"]`) ||
+        document.querySelector(`article.inventions-entry#${window.CSS && CSS.escape ? CSS.escape(stem) : stem}`)
       );
     };
 
@@ -3069,6 +3164,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const titleFor = (btn, story) => {
       const fromStory = ((story && story.dataset.title) || "").trim();
       if (fromStory) return fromStory;
+      const discoveryName = story && story.querySelector(".inventions-entry-name");
+      if (discoveryName) return discoveryName.textContent.trim();
       const titleNode =
         story &&
         (story.querySelector(".story__title, .card-title") || story.querySelector("h2"));
@@ -3363,7 +3460,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const esc = escapeStem(stem);
       return (
         document.getElementById(stem) ||
-        document.querySelector(`article.story[data-stem="${esc}"]`)
+        document.querySelector(`article.story[data-stem="${esc}"]`) ||
+        document.querySelector(`article.inventions-entry#${esc}`)
       );
     };
 
@@ -3477,57 +3575,186 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       }
     };
 
-    const loadVoices = () =>
-      new Promise((resolve) => {
-        if (!window.speechSynthesis) {
-          resolve([]);
-          return;
-        }
-        const current = () => window.speechSynthesis.getVoices() || [];
-        const now = current();
-        if (now.length) {
-          resolve(now);
-          return;
-        }
-        let done = false;
-        const finish = () => {
-          if (done) return;
-          done = true;
-          window.speechSynthesis.onvoiceschanged = null;
-          resolve(current());
-        };
-        window.speechSynthesis.onvoiceschanged = finish;
-        window.setTimeout(finish, 800);
-      });
+    const currentVoices = () => {
+      if (!window.speechSynthesis) return [];
+      try {
+        return window.speechSynthesis.getVoices() || [];
+      } catch (_) {
+        return [];
+      }
+    };
 
     const warmVoices = () => {
-      if (!window.speechSynthesis) return;
-      try {
-        window.speechSynthesis.getVoices();
-      } catch (_) {}
+      currentVoices();
     };
-    document.addEventListener("pointerdown", warmVoices, { once: true, passive: true });
+    warmVoices();
+    document.addEventListener("pointerdown", warmVoices, { passive: true });
+    try {
+      window.speechSynthesis &&
+        window.speechSynthesis.addEventListener("voiceschanged", warmVoices);
+    } catch (_) {}
 
-    const pickVoice = (voices) => {
-      const lang = String(LOCALE_TAG || "az").toLowerCase();
-      const nameRe = {
-        az: /azərbaycan|azerbaijani/i,
-        en: /english/i,
-        ru: /russian|русск/i,
-        tr: /turkish|türk/i,
-        ky: /kyrgyz|kirghiz|кыргыз/i,
-      }[lang];
-      const byLang = voices.find((v) => (v.lang || "").toLowerCase().startsWith(lang));
-      const byName = nameRe ? voices.find((v) => nameRe.test(v.name || "")) : null;
-      const turkicFallback =
-        lang === "az" || lang === "ky"
-          ? voices.find((v) => (v.lang || "").toLowerCase().startsWith("tr")) ||
-            voices.find((v) => /turkish|türk/i.test(v.name || ""))
-          : null;
-      return byLang || byName || turkicFallback || null;
+    const hasAzVoice = (voices) =>
+      (Array.isArray(voices) ? voices : []).some((v) => {
+        const lang = String((v && v.lang) || "");
+        const name = String((v && v.name) || "");
+        return /^az\b/i.test(lang) || /babek|azerbaijani|azərbaycan/i.test(name);
+      });
+
+    const isDesktopEdge = () => {
+      const ua = String((window.navigator && window.navigator.userAgent) || "");
+      return /\bEdg\//.test(ua) && !/\bEdgA\/|\bEdgiOS\//.test(ua);
     };
+
+    const hasSpeechSynthesis = () =>
+      typeof window.speechSynthesis === "object" &&
+      window.speechSynthesis &&
+      typeof window.SpeechSynthesisUtterance === "function";
+
+    const browserSupportsAzTts = () =>
+      hasAzVoice(currentVoices()) || isDesktopEdge();
+    window.__birinciHasAzVoice = hasAzVoice;
+    window.__birinciIsDesktopEdge = isDesktopEdge;
+    window.__birinciBrowserSupportsAzTts = browserSupportsAzTts;
+
+    const pageLocaleCode = () => {
+      const raw = String(
+        (document.body && document.body.getAttribute("data-lang")) ||
+          (document.documentElement && document.documentElement.lang) ||
+          LOCALE_TAG ||
+          "az"
+      ).toLowerCase();
+      return raw.split(/[-_]/)[0] || "az";
+    };
+
+    const localeSpeechSpec = (code) => {
+      const lang = code || pageLocaleCode();
+      const configured = String((liveI18n().tts_voice || "")).trim();
+      const specs = {
+        az: {
+          bcp47: "az-AZ",
+          configured: configured || "az-AZ-BabekNeural",
+          preferName: /babek/i,
+          langOk: (l) => /^az\b/i.test(l),
+          nameOk: (n) => /azərbaycan|azerbaijani|babek/i.test(n),
+          fallbackLang: (l) => /^tr\b/i.test(l),
+          fallbackName: (n) => /turkish|türk/i.test(n),
+          reject: (l, n) =>
+            /^en\b/i.test(l) ||
+            /english|david|zira|mark\b|susan|george|hazel|google us english|google uk english/i.test(
+              n
+            ),
+        },
+        en: {
+          bcp47: "en-US",
+          configured: configured || "en-US-GuyNeural",
+          preferName: /guyneural|\bguy\b/i,
+          langOk: (l) => /^en\b/i.test(l),
+          nameOk: (n) => /english/i.test(n),
+          fallbackLang: () => false,
+          fallbackName: () => false,
+          reject: () => false,
+        },
+        ru: {
+          bcp47: "ru-RU",
+          configured: configured || "ru-RU-DmitryNeural",
+          preferName: /dmitry/i,
+          langOk: (l) => /^ru\b/i.test(l),
+          nameOk: (n) => /russian|русск/i.test(n),
+          fallbackLang: () => false,
+          fallbackName: () => false,
+          reject: () => false,
+        },
+        ky: {
+          bcp47: "ky-KG",
+          configured: configured || "kk-KZ-DauletNeural",
+          preferName: /daulet/i,
+          langOk: (l) => /^(ky|kk)\b/i.test(l),
+          nameOk: (n) => /kyrgyz|kirghiz|кыргыз|kazakh|қазақ|daulet/i.test(n),
+          fallbackLang: (l) => /^(kk|tr)\b/i.test(l),
+          fallbackName: (n) => /kazakh|қазақ|turkish|türk/i.test(n),
+          reject: (l, n) => /^en\b/i.test(l) || /english/i.test(n),
+        },
+      };
+      return specs[lang] || specs.az;
+    };
+
+    const pickVoice = (voices, localeHint) => {
+      const spec = localeSpeechSpec(localeHint);
+      const list = Array.isArray(voices) ? voices.filter(Boolean) : [];
+      const wanted = spec.configured.toLowerCase();
+      const score = (v) => {
+        const lang = String(v.lang || "");
+        const name = String(v.name || "");
+        const nameL = name.toLowerCase();
+        if (spec.reject(lang, nameL)) return -1000;
+        let s = 0;
+        if (wanted && (nameL.includes(wanted) || nameL.includes(wanted.replace(/neural$/i, "")))) {
+          s += 120;
+        }
+        if (spec.preferName.test(name)) s += 100;
+        if (spec.langOk(lang)) s += 60;
+        if (spec.nameOk(name)) s += 50;
+        if (/male/i.test(name) && spec.langOk(lang)) s += 8;
+        return s;
+      };
+      let best = null;
+      let bestScore = 0;
+      list.forEach((v) => {
+        const s = score(v);
+        if (s > bestScore) {
+          best = v;
+          bestScore = s;
+        }
+      });
+      if (best) return best;
+      return (
+        list.find(
+          (v) =>
+            !spec.reject(v.lang || "", String(v.name || "").toLowerCase()) &&
+            (spec.fallbackLang(v.lang || "") || spec.fallbackName(v.name || ""))
+        ) || null
+      );
+    };
+    window.__birinciPickTtsVoice = pickVoice;
+    window.__birinciTtsLocale = pageLocaleCode;
+
+    const cleanSpeechText = (value) =>
+      String(value || "")
+        .replace(/[\u00AD\u200B-\u200D\uFEFF]/g, "")
+        .replace(/[«»„“”]/g, "")
+        .replace(/[‘’']/g, "")
+        .replace(/[—–-]+\s*/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
 
     const textForSpeech = (story) => {
+      if (story && story.classList && story.classList.contains("inventions-entry")) {
+        const title = (
+          (story.querySelector(".inventions-entry-name") || {}).textContent || ""
+        ).trim();
+        const parts = [];
+        const summary = story.querySelector(".inventions-entry-visual-summary");
+        if (summary) parts.push(cleanSpeechText(summary.textContent));
+        story.querySelectorAll(".inventions-entry-section").forEach((sec) => {
+          if (sec.closest(".inventions-entry-references")) return;
+          const heading = sec.querySelector("h3");
+          if (heading) parts.push(cleanSpeechText(heading.textContent));
+          Array.from(sec.querySelectorAll("p"))
+            .map((p) => cleanSpeechText(p.textContent))
+            .filter(Boolean)
+            .forEach((p) => parts.push(p));
+        });
+        const body = parts.filter(Boolean).join(" ");
+        if (!body) return title;
+        if (
+          title &&
+          body.toLocaleLowerCase(LOCALE_TAG).startsWith(title.toLocaleLowerCase(LOCALE_TAG))
+        ) {
+          return body;
+        }
+        return title ? `${title}. ${body}` : body;
+      }
       const textEl = story && story.querySelector(".story__text");
       const title = ((story && story.dataset.title) || "").trim();
       const paras = textEl
@@ -3535,14 +3762,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
             .map((p) => p.textContent.replace(/\s+/g, " ").trim())
             .filter(Boolean)
         : [];
-      let body = paras.join(" ");
-      body = body
-        .replace(/[\u00AD\u200B-\u200D\uFEFF]/g, "")
-        .replace(/[«»„“”]/g, "")
-        .replace(/[‘’']/g, "")
-        .replace(/[—–-]+\s*/g, "")
-        .replace(/\s+/g, " ")
-        .trim();
+      let body = cleanSpeechText(paras.join(" "));
       if (!body) return title;
       if (title && body.toLocaleLowerCase(LOCALE_TAG).startsWith(title.toLocaleLowerCase(LOCALE_TAG))) {
         return body;
@@ -3884,8 +4104,116 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       });
     };
 
-    const speakStory = async (btn, { fromQueue = false } = {}) => {
-      if (!("speechSynthesis" in window) || typeof window.SpeechSynthesisUtterance !== "function") {
+    const pageUrl = () => {
+      try {
+        return window.location.href;
+      } catch (_) {
+        return "";
+      }
+    };
+
+    const fillAzTtsHelp = (panel) => {
+      if (!panel || panel.dataset.bound === "1") return panel;
+      const url = pageUrl();
+      const esc = (value) =>
+        String(value || "")
+          .replace(/&/g, "&amp;")
+          .replace(/"/g, "&quot;")
+          .replace(/</g, "&lt;");
+      panel.dataset.bound = "1";
+      panel.className = "az-tts-help";
+      panel.setAttribute("data-az-tts-help", "");
+      panel.setAttribute("role", "status");
+      panel.setAttribute("aria-live", "polite");
+      panel.innerHTML = `
+        <p class="az-tts-help__title">${esc(tUi("tts_az_unavailable_title", "Azərbaycan dilində səsli oxuma bu brauzerdə əlçatan deyil"))}</p>
+        <p class="az-tts-help__lead">${esc(tUi("tts_az_unavailable_lead", "Bu brauzer Azərbaycan mətnini səsləndirə bilmir. Mətni dinləmək üçün səhifəni Microsoft Edge brauzerində açın."))}</p>
+        <p class="az-tts-help__recommend">${esc(tUi("tts_az_unavailable_recommend", "Microsoft Edge Azərbaycan nitq səsini (Babek) dəstəkləyir."))}</p>
+        <ol class="az-tts-help__steps">
+          <li>${esc(tUi("tts_az_unavailable_step1", "«Microsoft Edge-də aç» düyməsinə klikləyin. Düymə işləməsə, ünvanı kopyalayın."))}</li>
+          <li>${esc(tUi("tts_az_unavailable_step2", "Kompüterinizdə Microsoft Edge-i açın. Yoxdursa, microsoft.com/edge ünvanından yükləyin."))}</li>
+          <li>${esc(tUi("tts_az_unavailable_step3", "Ünvan sətrinə kopyaladığınız ünvanı yapışdırın və Enter basın."))}</li>
+        </ol>
+        <p class="az-tts-help__url" data-az-tts-url></p>
+        <div class="az-tts-help__actions">
+          <button type="button" class="az-tts-help__btn az-tts-help__btn--primary" data-az-open-edge>${esc(tUi("tts_az_open_edge", "Microsoft Edge-də aç"))}</button>
+          <button type="button" class="az-tts-help__btn" data-az-copy-url>${esc(tUi("tts_az_copy_url", "Səhifə ünvanını kopyala"))}</button>
+          <a class="az-tts-help__btn" data-az-download-edge href="https://www.microsoft.com/edge" target="_blank" rel="noopener noreferrer">${esc(tUi("tts_az_download_edge", "Microsoft Edge-i yüklə"))}</a>
+        </div>
+      `;
+      const urlEl = panel.querySelector("[data-az-tts-url]");
+      if (urlEl) urlEl.textContent = url;
+      const openBtn = panel.querySelector("[data-az-open-edge]");
+      const copyBtn = panel.querySelector("[data-az-copy-url]");
+      if (openBtn) {
+        openBtn.addEventListener("click", () => {
+          const href = pageUrl();
+          if (!href) return;
+          try {
+            window.location.href = `microsoft-edge:${href}`;
+          } catch (_) {}
+        });
+      }
+      if (copyBtn) {
+        copyBtn.addEventListener("click", () => {
+          const href = pageUrl();
+          const done = () => {
+            copyBtn.textContent = tUi("tts_az_copied", "Ünvan kopyalandı");
+          };
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(href).then(done).catch(() => {
+              try {
+                window.prompt(tUi("tts_az_copy_url", "Səhifə ünvanını kopyala"), href);
+              } catch (_) {}
+            });
+            return;
+          }
+          try {
+            window.prompt(tUi("tts_az_copy_url", "Səhifə ünvanını kopyala"), href);
+          } catch (_) {}
+        });
+      }
+      return panel;
+    };
+
+    const showAzTtsHelp = (btn) => {
+      let panel = document.querySelector("[data-az-tts-help]");
+      if (!panel) {
+        panel = document.createElement("aside");
+        const host =
+          document.querySelector(".tools-bar--inventions") ||
+          (btn && btn.closest(".tools-bar, article.inventions-entry")) ||
+          document.querySelector("main") ||
+          document.body;
+        if (host && host.classList && host.classList.contains("tools-bar")) {
+          host.insertAdjacentElement("afterend", panel);
+        } else if (host && host.parentNode) {
+          host.parentNode.insertBefore(panel, host.nextSibling);
+        } else {
+          document.body.appendChild(panel);
+        }
+      }
+      fillAzTtsHelp(panel);
+      panel.hidden = false;
+      panel.removeAttribute("hidden");
+      try {
+        panel.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      } catch (_) {}
+      return panel;
+    };
+
+    const speakStory = (btn, { fromQueue = false } = {}) => {
+      // Azerbaijani neural voices (Babek) are available in desktop Microsoft
+      // Edge. Chrome, Firefox, Safari, and mobile browsers typically have none.
+      if (pageLocaleCode() === "az" && !browserSupportsAzTts()) {
+        showAzTtsHelp(btn);
+        if (fromQueue && queueActive && typeof window.__birinciQueueAdvance === "function") {
+          window.__birinciQueueAdvance();
+        }
+        return;
+      }
+
+      if (!hasSpeechSynthesis()) {
         showNote(btn, unsupportedMessage);
         if (fromQueue && queueActive && typeof window.__birinciQueueAdvance === "function") {
           window.__birinciQueueAdvance();
@@ -3903,22 +4231,22 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         return;
       }
 
-      const voices = await loadVoices();
-      const voice = pickVoice(voices);
-      if (!voice) {
-        if (fromQueue && queueActive) {
-          showNote(btn, noVoiceMessage);
-          if (typeof window.__birinciQueueAdvance === "function") window.__birinciQueueAdvance();
-          return;
-        }
-        stopSpeech();
-        showNote(btn, noVoiceMessage);
-        return;
+      const spec = localeSpeechSpec();
+      let voice = pickVoice(currentVoices());
+      if (voice && spec.reject && spec.reject(voice.lang || "", String(voice.name || "").toLowerCase())) {
+        voice = null;
       }
 
       if (!fromQueue) {
         clearQueue({ keepTrack: false });
-        closePlayer();
+        if (window.speechSynthesis && (window.speechSynthesis.speaking || window.speechSynthesis.paused)) {
+          suppressError = true;
+          window.speechSynthesis.cancel();
+          window.setTimeout(() => {
+            suppressError = false;
+          }, 120);
+        }
+        hidePlayerShell();
       } else {
         ensurePlayer();
         stopCurrentMedia();
@@ -3927,13 +4255,35 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       }
       markPlaying(btn, true);
       syncPlayVisibleButton();
+      showNote(btn, "");
 
       const token = ++speakToken;
+      const chunks = [];
+      const CHUNK = 14000;
+      if (text.length <= CHUNK) {
+        chunks.push(text);
+      } else {
+        let rest = text;
+        while (rest.length) {
+          if (rest.length <= CHUNK) {
+            chunks.push(rest);
+            break;
+          }
+          let cut = rest.lastIndexOf(". ", CHUNK);
+          if (cut < CHUNK * 0.5) cut = rest.lastIndexOf(" ", CHUNK);
+          if (cut < 1) cut = CHUNK;
+          chunks.push(rest.slice(0, cut + 1).trim());
+          rest = rest.slice(cut + 1).trim();
+        }
+      }
+      let chunkIndex = 0;
+      let retriedWithoutVoice = false;
       const startSpeak = () => {
         if (token !== speakToken) return;
-        utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = (voice.lang || "az-AZ").startsWith("tr") ? "tr-TR" : "az-AZ";
-        utterance.voice = voice;
+        const piece = chunks[chunkIndex] || text;
+        utterance = new SpeechSynthesisUtterance(piece);
+        utterance.lang = spec.bcp47;
+        if (voice) utterance.voice = voice;
         utterance.rate = 1;
         utterance.pitch = 1;
 
@@ -3944,6 +4294,11 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         };
         utterance.onend = () => {
           if (suppressError || token !== speakToken) return;
+          if (chunkIndex + 1 < chunks.length) {
+            chunkIndex += 1;
+            startSpeak();
+            return;
+          }
           if (fromQueue && queueActive && typeof window.__birinciQueueAdvance === "function") {
             window.__birinciQueueAdvance();
             return;
@@ -3952,8 +4307,19 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           hidePlayerShell();
           syncPlayVisibleButton();
         };
-        utterance.onerror = () => {
+        utterance.onerror = (event) => {
           if (suppressError || token !== speakToken) return;
+          const err = String((event && event.error) || "");
+          if (
+            voice &&
+            !retriedWithoutVoice &&
+            /voice-unavailable|language-unavailable|synthesis-failed|network|invalid-argument/i.test(err)
+          ) {
+            retriedWithoutVoice = true;
+            voice = null;
+            startSpeak();
+            return;
+          }
           if (fromQueue && queueActive) {
             showNote(btn, failedMessage);
             if (typeof window.__birinciQueueAdvance === "function") window.__birinciQueueAdvance();
@@ -3966,6 +4332,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         try {
           window.speechSynthesis.speak(utterance);
         } catch (err) {
+          if (voice && !retriedWithoutVoice) {
+            retriedWithoutVoice = true;
+            voice = null;
+            startSpeak();
+            return;
+          }
           if (fromQueue && queueActive && typeof window.__birinciQueueAdvance === "function") {
             window.__birinciQueueAdvance();
             return;
@@ -3975,7 +4347,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         }
       };
 
-      window.setTimeout(startSpeak, 60);
+      startSpeak();
     };
 
     const playQueueIndex = (index, { scroll = false, skipCount = 0 } = {}) => {
@@ -4039,9 +4411,113 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     window.__birinciClearListenQueue = (opts) => clearQueue(opts || { keepTrack: true });
     window.__birinciSyncPlayVisibleUi = syncPlayVisibleButton;
 
+    const currentDiscoveryEntry = () => {
+      if (typeof window.__birinciInventionsContext === "function") {
+        try {
+          const ctx = window.__birinciInventionsContext();
+          if (ctx && ctx.sectionId) {
+            const el = document.getElementById(ctx.sectionId);
+            if (el && el.classList.contains("inventions-entry")) return el;
+          }
+        } catch (_) {}
+      }
+      let hash = "";
+      try {
+        hash = decodeURIComponent((window.location.hash || "").replace(/^#/, ""));
+      } catch (_) {
+        hash = (window.location.hash || "").replace(/^#/, "");
+      }
+      if (hash) {
+        const hashed = document.getElementById(hash);
+        if (hashed && hashed.classList.contains("inventions-entry")) return hashed;
+      }
+      const entries = Array.from(document.querySelectorAll("article.inventions-entry")).filter(
+        (el) => !el.classList.contains("is-hidden") && !el.hidden
+      );
+      const mid = window.scrollY + window.innerHeight * 0.35;
+      let best = entries[0] || null;
+      for (let i = entries.length - 1; i >= 0; i -= 1) {
+        const top = entries[i].getBoundingClientRect().top + window.scrollY;
+        if (top <= mid) {
+          best = entries[i];
+          break;
+        }
+      }
+      return best;
+    };
+
+    const escAttr = (value) =>
+      String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/"/g, "&quot;")
+        .replace(/</g, "&lt;");
+
+    const discoveryTtsPairHtml = (stem) => {
+      const listen = tUi("listen", "Mətni dinlə");
+      const stop = tUi("stop", "Dayandır");
+      const stemAttr = stem ? ` data-story-stem="${escAttr(stem)}"` : "";
+      return `
+        <div class="tools-bar__views inventions-tts-pair" role="group" aria-label="${escAttr(listen)}">
+          <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-discovery-tts data-tts-mode="listen"${stemAttr} aria-pressed="false" title="${escAttr(listen)}" aria-label="${escAttr(listen)}">${STORY_ICONS.listen}</button>
+          <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-discovery-tts data-tts-mode="stop"${stemAttr} aria-pressed="true" title="${escAttr(stop)}" aria-label="${escAttr(stop)}">${STORY_ICONS.stop}</button>
+        </div>
+        <p class="story-tts__note" data-story-tts-note hidden></p>`;
+    };
+
+    const mountDiscoveryTts = () => {
+      const isDiscoveries =
+        document.body.classList.contains("page-inventions") ||
+        document.body.classList.contains("inventions-preview-page");
+      if (!isDiscoveries || !SHOW_DISCOVERY_LISTEN) return;
+      const bar = document.querySelector('[data-tools="inventions"], .tools-bar--inventions');
+      if (bar && !bar.querySelector("[data-discovery-tts]")) {
+        const field = document.createElement("div");
+        field.className = "tools-bar__field tools-bar__field--listen";
+        const label = tUi("listen", "Mətni dinlə");
+        field.innerHTML = `<span class="tools-bar__label">${escAttr(label)}</span>${discoveryTtsPairHtml("")}`;
+        const clearField = bar.querySelector("#clearFilters")
+          ? bar.querySelector("#clearFilters").closest(".tools-bar__field")
+          : null;
+        if (clearField) bar.insertBefore(field, clearField);
+        else bar.appendChild(field);
+      }
+      document.querySelectorAll("article.inventions-entry").forEach((entry) => {
+        const title = entry.querySelector(".inventions-entry-title");
+        if (!title || title.querySelector("[data-discovery-tts]")) return;
+        const wrap = document.createElement("div");
+        wrap.className = "inventions-entry__tts";
+        wrap.innerHTML = discoveryTtsPairHtml(entry.id || "");
+        title.appendChild(wrap);
+      });
+    };
+    mountStoryTts();
+    mountDiscoveryTts();
+    const azTtsHelpAnchor = () =>
+      document.querySelector("[data-discovery-tts], [data-story-tts], [data-tools-play-visible]");
+    const shouldOfferAzTtsHelp = () =>
+      pageLocaleCode() === "az" &&
+      !browserSupportsAzTts() &&
+      (SHOW_DISCOVERY_LISTEN || SHOW_AUDIO_CONTROLS);
+    if (shouldOfferAzTtsHelp()) {
+      showAzTtsHelp(azTtsHelpAnchor());
+    }
+    try {
+      window.speechSynthesis &&
+        window.speechSynthesis.addEventListener("voiceschanged", () => {
+          if (pageLocaleCode() !== "az") return;
+          const panel = document.querySelector("[data-az-tts-help]");
+          if (browserSupportsAzTts()) {
+            if (panel) panel.hidden = true;
+          } else if (shouldOfferAzTtsHelp()) {
+            showAzTtsHelp(azTtsHelpAnchor());
+          }
+        });
+    } catch (_) {}
+
     document.addEventListener("click", (event) => {
       const playVisibleBtn = event.target.closest("[data-tools-play-visible]");
       if (playVisibleBtn) {
+        if (!SHOW_AUDIO_CONTROLS) return;
         event.preventDefault();
         event.stopPropagation();
         const mode = playVisibleBtn.getAttribute("data-tts-mode") || "listen";
@@ -4053,11 +4529,23 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         playVisible();
         return;
       }
-      const btn = event.target.closest("[data-story-tts]");
+      const btn = event.target.closest("[data-story-tts], [data-discovery-tts]");
       if (!btn) return;
       event.preventDefault();
       event.stopPropagation();
       if (Date.now() < ignoreClicksUntil) return;
+      if (!SHOW_DISCOVERY_LISTEN && btn.hasAttribute("data-discovery-tts")) return;
+      if (!SHOW_AUDIO_CONTROLS && !btn.hasAttribute("data-discovery-tts")) return;
+
+      if (btn.hasAttribute("data-discovery-tts") && !stemFor(btn) && !btn.closest("article.inventions-entry")) {
+        const current = currentDiscoveryEntry();
+        if (current && current.id) {
+          const pair = btn.closest(".tools-bar__views") || btn.parentElement;
+          (pair ? pair.querySelectorAll("[data-story-tts], [data-discovery-tts]") : [btn]).forEach(
+            (el) => el.setAttribute("data-story-stem", current.id)
+          );
+        }
+      }
 
       const story = resolveStory(btn);
       const stem = stemFor(btn);
