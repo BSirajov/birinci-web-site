@@ -23,7 +23,7 @@ from html_sitemap import write_html_sitemaps  # noqa: E402
 DISABLE_DISCOVERY_VIDEOS = True
 
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
-SITE_ASSET_VERSION = "20260823j"
+SITE_ASSET_VERSION = "20260823k"
 SITE_PUBLIC_ORIGIN = "https://birinci.cloud"
 LIVE_LANGS = ("az", "en", "ru", "ky")
 OG_IMAGE_URL = f"{SITE_PUBLIC_ORIGIN}/assets/pearl-hero.webp"
@@ -1623,11 +1623,21 @@ def write_lang_i18n_from_locale(lang: str) -> None:
     if isinstance(inventions, dict):
         for dead in DEAD_INVENTION_VIDEO_KEYS:
             inventions.pop(dead, None)
+    tts_voice = ""
+    try:
+        langs = json.loads((ROOT / "languages.json").read_text(encoding="utf-8"))
+        for row in langs.get("languages") or []:
+            if isinstance(row, dict) and row.get("code") == lang:
+                tts_voice = str(row.get("tts_voice") or "")
+                break
+    except (OSError, json.JSONDecodeError, TypeError):
+        tts_voice = ""
     blob = {
         "lang": lang,
         "ui": ui,
         "js": locale.get("js") or {},
         "show_audio_controls": show_audio,
+        "tts_voice": tts_voice,
     }
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(

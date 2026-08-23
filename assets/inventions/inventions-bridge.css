@@ -389,3 +389,28 @@ body.page-inventions::after {
     min-width: 44px;
   }
 }
+
+.page-inventions .tools-bar--inventions .tools-bar__field--listen {
+  flex: 0 0 auto;
+}
+.page-inventions .inventions-entry-title {
+  position: relative;
+}
+.page-inventions .inventions-entry__tts {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  margin-left: auto;
+}
+.page-inventions .inventions-entry__tts .tools-bar__views {
+  display: inline-flex;
+  gap: 0.35rem;
+}
+.page-inventions .inventions-entry__tts .story-tts {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.38);
+  background: rgba(255, 255, 255, 0.08);
+}
+.page-inventions .inventions-entry__tts .story-tts[aria-pressed="true"] {
+  background: rgba(255, 255, 255, 0.22);
+}

@@ -8,6 +8,14 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   const hideAudioChrome = (root = document) => {
     if (SHOW_AUDIO_CONTROLS) return;
     (root || document).querySelectorAll("[data-story-tts], [data-tools-play-visible], [data-story-tts-note], .story-tts__note").forEach((el) => {
+      // Discoveries listen stays visible even when story MP3 controls are gated.
+      if (
+        el.closest(
+          "[data-discovery-tts], .inventions-entry, .tools-bar--inventions, [data-tools='inventions']"
+        )
+      ) {
+        return;
+      }
       const group = el.closest(".story__action-group, .tools-bar__field, .text-lightbox__tts");
       if (group) group.hidden = true;
       else el.hidden = true;
@@ -169,14 +177,14 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const lang = String(
       document.documentElement.lang || document.body.getAttribute("data-lang") || ""
     ).toLowerCase();
-    if (lang !== "az") return;
+    if (lang !== "az" && !lang.startsWith("az-")) return;
     // Sticky-note underlines on AZ wisdom-story home + category pages only.
     if (!isAzStoryLexiconPage()) return;
 
     const siteScript = document.querySelector('script[src*="site.js"]');
     if (!siteScript || !siteScript.src) return;
     const assetsBase = siteScript.src.replace(/site\.js(?:\?[^#]*)?(?:#.*)?$/i, "");
-    const stamp = "20260823j";
+    const stamp = "20260823k";
 
     const loadScript = (src, marker) =>
       new Promise((resolve, reject) => {
@@ -3048,13 +3056,14 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
     const resolveStory = (btn) => {
       if (!btn) return null;
-      const nested = btn.closest("article.story");
+      const nested = btn.closest("article.story, article.inventions-entry");
       if (nested) return nested;
       const stem = (btn.getAttribute("data-story-stem") || "").trim();
       if (!stem) return null;
       return (
         document.getElementById(stem) ||
-        document.querySelector(`article.story[data-stem="${stem}"]`)
+        document.querySelector(`article.story[data-stem="${stem}"]`) ||
+        document.querySelector(`article.inventions-entry#${window.CSS && CSS.escape ? CSS.escape(stem) : stem}`)
       );
     };
 
@@ -3069,6 +3078,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const titleFor = (btn, story) => {
       const fromStory = ((story && story.dataset.title) || "").trim();
       if (fromStory) return fromStory;
+      const discoveryName = story && story.querySelector(".inventions-entry-name");
+      if (discoveryName) return discoveryName.textContent.trim();
       const titleNode =
         story &&
         (story.querySelector(".story__title, .card-title") || story.querySelector("h2"));
@@ -3363,7 +3374,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const esc = escapeStem(stem);
       return (
         document.getElementById(stem) ||
-        document.querySelector(`article.story[data-stem="${esc}"]`)
+        document.querySelector(`article.story[data-stem="${esc}"]`) ||
+        document.querySelector(`article.inventions-entry#${esc}`)
       );
     };
 
@@ -3484,8 +3496,26 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           return;
         }
         const current = () => window.speechSynthesis.getVoices() || [];
+        const pageLang = String(
+          (document.body && document.body.getAttribute("data-lang")) ||
+            LOCALE_TAG ||
+            "az"
+        )
+          .toLowerCase()
+          .split(/[-_]/)[0];
+        const hasWantedVoice = (list) => {
+          if (pageLang !== "az") return list.length > 0;
+          return list.some((v) => {
+            const lang = String(v.lang || "").toLowerCase();
+            const name = String(v.name || "");
+            return (
+              /^az\b/.test(lang) ||
+              /babek|azərbaycan|azerbaijani/i.test(name)
+            );
+          });
+        };
         const now = current();
-        if (now.length) {
+        if (hasWantedVoice(now)) {
           resolve(now);
           return;
         }
@@ -3493,11 +3523,25 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         const finish = () => {
           if (done) return;
           done = true;
-          window.speechSynthesis.onvoiceschanged = null;
+          try {
+            window.speechSynthesis.removeEventListener("voiceschanged", onChange);
+          } catch (_) {}
+          if (window.speechSynthesis.onvoiceschanged === onChange) {
+            window.speechSynthesis.onvoiceschanged = null;
+          }
           resolve(current());
         };
-        window.speechSynthesis.onvoiceschanged = finish;
-        window.setTimeout(finish, 800);
+        const onChange = () => {
+          if (hasWantedVoice(current())) finish();
+        };
+        try {
+          window.speechSynthesis.addEventListener("voiceschanged", onChange);
+        } catch (_) {
+          window.speechSynthesis.onvoiceschanged = onChange;
+        }
+        // Edge often exposes Babek as an online neural voice after the first
+        // local English voices appear. Wait so AZ does not lock onto those.
+        window.setTimeout(finish, 2200);
       });
 
     const warmVoices = () => {
@@ -3508,26 +3552,144 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     };
     document.addEventListener("pointerdown", warmVoices, { once: true, passive: true });
 
-    const pickVoice = (voices) => {
-      const lang = String(LOCALE_TAG || "az").toLowerCase();
-      const nameRe = {
-        az: /azərbaycan|azerbaijani/i,
-        en: /english/i,
-        ru: /russian|русск/i,
-        tr: /turkish|türk/i,
-        ky: /kyrgyz|kirghiz|кыргыз/i,
-      }[lang];
-      const byLang = voices.find((v) => (v.lang || "").toLowerCase().startsWith(lang));
-      const byName = nameRe ? voices.find((v) => nameRe.test(v.name || "")) : null;
-      const turkicFallback =
-        lang === "az" || lang === "ky"
-          ? voices.find((v) => (v.lang || "").toLowerCase().startsWith("tr")) ||
-            voices.find((v) => /turkish|türk/i.test(v.name || ""))
-          : null;
-      return byLang || byName || turkicFallback || null;
+    const pageLocaleCode = () => {
+      const raw = String(
+        (document.body && document.body.getAttribute("data-lang")) ||
+          (document.documentElement && document.documentElement.lang) ||
+          LOCALE_TAG ||
+          "az"
+      ).toLowerCase();
+      return raw.split(/[-_]/)[0] || "az";
     };
 
+    const localeSpeechSpec = (code) => {
+      const lang = code || pageLocaleCode();
+      const configured = String((liveI18n().tts_voice || "")).trim();
+      const specs = {
+        az: {
+          bcp47: "az-AZ",
+          configured: configured || "az-AZ-BabekNeural",
+          preferName: /babek/i,
+          langOk: (l) => /^az\b/i.test(l),
+          nameOk: (n) => /azərbaycan|azerbaijani|babek/i.test(n),
+          fallbackLang: (l) => /^tr\b/i.test(l),
+          fallbackName: (n) => /turkish|türk/i.test(n),
+          reject: (l, n) =>
+            /^en\b/i.test(l) ||
+            /english|david|zira|mark\b|susan|george|hazel|google us english|google uk english/i.test(
+              n
+            ),
+        },
+        en: {
+          bcp47: "en-US",
+          configured: configured || "en-US-GuyNeural",
+          preferName: /guyneural|\bguy\b/i,
+          langOk: (l) => /^en\b/i.test(l),
+          nameOk: (n) => /english/i.test(n),
+          fallbackLang: () => false,
+          fallbackName: () => false,
+          reject: () => false,
+        },
+        ru: {
+          bcp47: "ru-RU",
+          configured: configured || "ru-RU-DmitryNeural",
+          preferName: /dmitry/i,
+          langOk: (l) => /^ru\b/i.test(l),
+          nameOk: (n) => /russian|русск/i.test(n),
+          fallbackLang: () => false,
+          fallbackName: () => false,
+          reject: () => false,
+        },
+        ky: {
+          bcp47: "ky-KG",
+          configured: configured || "kk-KZ-DauletNeural",
+          preferName: /daulet/i,
+          langOk: (l) => /^(ky|kk)\b/i.test(l),
+          nameOk: (n) => /kyrgyz|kirghiz|кыргыз|kazakh|қазақ|daulet/i.test(n),
+          fallbackLang: (l) => /^(kk|tr)\b/i.test(l),
+          fallbackName: (n) => /kazakh|қазақ|turkish|türk/i.test(n),
+          reject: (l, n) => /^en\b/i.test(l) || /english/i.test(n),
+        },
+      };
+      return specs[lang] || specs.az;
+    };
+
+    const pickVoice = (voices, localeHint) => {
+      const spec = localeSpeechSpec(localeHint);
+      const list = Array.isArray(voices) ? voices.filter(Boolean) : [];
+      const wanted = spec.configured.toLowerCase();
+      const score = (v) => {
+        const lang = String(v.lang || "");
+        const name = String(v.name || "");
+        const nameL = name.toLowerCase();
+        if (spec.reject(lang, nameL)) return -1000;
+        let s = 0;
+        if (wanted && (nameL.includes(wanted) || nameL.includes(wanted.replace(/neural$/i, "")))) {
+          s += 120;
+        }
+        if (spec.preferName.test(name)) s += 100;
+        if (spec.langOk(lang)) s += 60;
+        if (spec.nameOk(name)) s += 50;
+        if (/male/i.test(name) && spec.langOk(lang)) s += 8;
+        return s;
+      };
+      let best = null;
+      let bestScore = 0;
+      list.forEach((v) => {
+        const s = score(v);
+        if (s > bestScore) {
+          best = v;
+          bestScore = s;
+        }
+      });
+      if (best) return best;
+      return (
+        list.find(
+          (v) =>
+            !spec.reject(v.lang || "", String(v.name || "").toLowerCase()) &&
+            (spec.fallbackLang(v.lang || "") || spec.fallbackName(v.name || ""))
+        ) || null
+      );
+    };
+    window.__birinciPickTtsVoice = pickVoice;
+    window.__birinciTtsLocale = pageLocaleCode;
+
+    const cleanSpeechText = (value) =>
+      String(value || "")
+        .replace(/[\u00AD\u200B-\u200D\uFEFF]/g, "")
+        .replace(/[«»„“”]/g, "")
+        .replace(/[‘’']/g, "")
+        .replace(/[—–-]+\s*/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+
     const textForSpeech = (story) => {
+      if (story && story.classList && story.classList.contains("inventions-entry")) {
+        const title = (
+          (story.querySelector(".inventions-entry-name") || {}).textContent || ""
+        ).trim();
+        const parts = [];
+        const summary = story.querySelector(".inventions-entry-visual-summary");
+        if (summary) parts.push(cleanSpeechText(summary.textContent));
+        story.querySelectorAll(".inventions-entry-section").forEach((sec) => {
+          if (sec.closest(".inventions-entry-references")) return;
+          const heading = sec.querySelector("h3");
+          if (heading) parts.push(cleanSpeechText(heading.textContent));
+          Array.from(sec.querySelectorAll("p"))
+            .map((p) => cleanSpeechText(p.textContent))
+            .filter(Boolean)
+            .forEach((p) => parts.push(p));
+        });
+        const body = parts.filter(Boolean).join(" ");
+        if (!body) return title;
+        if (
+          title &&
+          body.toLocaleLowerCase(LOCALE_TAG).startsWith(title.toLocaleLowerCase(LOCALE_TAG))
+        ) {
+          return body;
+        }
+        return title ? `${title}. ${body}` : body;
+      }
       const textEl = story && story.querySelector(".story__text");
       const title = ((story && story.dataset.title) || "").trim();
       const paras = textEl
@@ -3535,14 +3697,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
             .map((p) => p.textContent.replace(/\s+/g, " ").trim())
             .filter(Boolean)
         : [];
-      let body = paras.join(" ");
-      body = body
-        .replace(/[\u00AD\u200B-\u200D\uFEFF]/g, "")
-        .replace(/[«»„“”]/g, "")
-        .replace(/[‘’']/g, "")
-        .replace(/[—–-]+\s*/g, "")
-        .replace(/\s+/g, " ")
-        .trim();
+      let body = cleanSpeechText(paras.join(" "));
       if (!body) return title;
       if (title && body.toLocaleLowerCase(LOCALE_TAG).startsWith(title.toLocaleLowerCase(LOCALE_TAG))) {
         return body;
@@ -3929,10 +4084,36 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       syncPlayVisibleButton();
 
       const token = ++speakToken;
+      const spec = localeSpeechSpec();
+      const chunks = [];
+      const CHUNK = 14000;
+      if (text.length <= CHUNK) {
+        chunks.push(text);
+      } else {
+        let rest = text;
+        while (rest.length) {
+          if (rest.length <= CHUNK) {
+            chunks.push(rest);
+            break;
+          }
+          let cut = rest.lastIndexOf(". ", CHUNK);
+          if (cut < CHUNK * 0.5) cut = rest.lastIndexOf(" ", CHUNK);
+          if (cut < 1) cut = CHUNK;
+          chunks.push(rest.slice(0, cut + 1).trim());
+          rest = rest.slice(cut + 1).trim();
+        }
+      }
+      let chunkIndex = 0;
+      const utteranceLang = () => {
+        const voiceLang = String((voice && voice.lang) || "");
+        if (voiceLang && !/^en\b/i.test(voiceLang)) return voiceLang;
+        return spec.bcp47;
+      };
       const startSpeak = () => {
         if (token !== speakToken) return;
-        utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = (voice.lang || "az-AZ").startsWith("tr") ? "tr-TR" : "az-AZ";
+        const piece = chunks[chunkIndex] || text;
+        utterance = new SpeechSynthesisUtterance(piece);
+        utterance.lang = utteranceLang();
         utterance.voice = voice;
         utterance.rate = 1;
         utterance.pitch = 1;
@@ -3944,6 +4125,11 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         };
         utterance.onend = () => {
           if (suppressError || token !== speakToken) return;
+          if (chunkIndex + 1 < chunks.length) {
+            chunkIndex += 1;
+            window.setTimeout(startSpeak, 40);
+            return;
+          }
           if (fromQueue && queueActive && typeof window.__birinciQueueAdvance === "function") {
             window.__birinciQueueAdvance();
             return;
@@ -4039,6 +4225,86 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     window.__birinciClearListenQueue = (opts) => clearQueue(opts || { keepTrack: true });
     window.__birinciSyncPlayVisibleUi = syncPlayVisibleButton;
 
+    const currentDiscoveryEntry = () => {
+      if (typeof window.__birinciInventionsContext === "function") {
+        try {
+          const ctx = window.__birinciInventionsContext();
+          if (ctx && ctx.sectionId) {
+            const el = document.getElementById(ctx.sectionId);
+            if (el && el.classList.contains("inventions-entry")) return el;
+          }
+        } catch (_) {}
+      }
+      let hash = "";
+      try {
+        hash = decodeURIComponent((window.location.hash || "").replace(/^#/, ""));
+      } catch (_) {
+        hash = (window.location.hash || "").replace(/^#/, "");
+      }
+      if (hash) {
+        const hashed = document.getElementById(hash);
+        if (hashed && hashed.classList.contains("inventions-entry")) return hashed;
+      }
+      const entries = Array.from(document.querySelectorAll("article.inventions-entry")).filter(
+        (el) => !el.classList.contains("is-hidden") && !el.hidden
+      );
+      const mid = window.scrollY + window.innerHeight * 0.35;
+      let best = entries[0] || null;
+      for (let i = entries.length - 1; i >= 0; i -= 1) {
+        const top = entries[i].getBoundingClientRect().top + window.scrollY;
+        if (top <= mid) {
+          best = entries[i];
+          break;
+        }
+      }
+      return best;
+    };
+
+    const escAttr = (value) =>
+      String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/"/g, "&quot;")
+        .replace(/</g, "&lt;");
+
+    const discoveryTtsPairHtml = (stem) => {
+      const listen = tUi("listen", "Mətni dinlə");
+      const stop = tUi("stop", "Dayandır");
+      const stemAttr = stem ? ` data-story-stem="${escAttr(stem)}"` : "";
+      return `
+        <div class="tools-bar__views inventions-tts-pair" role="group" aria-label="${escAttr(listen)}">
+          <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-discovery-tts data-tts-mode="listen"${stemAttr} aria-pressed="false" title="${escAttr(listen)}" aria-label="${escAttr(listen)}">${STORY_ICONS.listen}</button>
+          <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-discovery-tts data-tts-mode="stop"${stemAttr} aria-pressed="true" title="${escAttr(stop)}" aria-label="${escAttr(stop)}">${STORY_ICONS.stop}</button>
+        </div>`;
+    };
+
+    const mountDiscoveryTts = () => {
+      const isDiscoveries =
+        document.body.classList.contains("page-inventions") ||
+        document.body.classList.contains("inventions-preview-page");
+      if (!isDiscoveries) return;
+      const bar = document.querySelector('[data-tools="inventions"], .tools-bar--inventions');
+      if (bar && !bar.querySelector("[data-discovery-tts]")) {
+        const field = document.createElement("div");
+        field.className = "tools-bar__field tools-bar__field--listen";
+        const label = tUi("listen", "Mətni dinlə");
+        field.innerHTML = `<span class="tools-bar__label">${escAttr(label)}</span>${discoveryTtsPairHtml("")}`;
+        const clearField = bar.querySelector("#clearFilters")
+          ? bar.querySelector("#clearFilters").closest(".tools-bar__field")
+          : null;
+        if (clearField) bar.insertBefore(field, clearField);
+        else bar.appendChild(field);
+      }
+      document.querySelectorAll("article.inventions-entry").forEach((entry) => {
+        const title = entry.querySelector(".inventions-entry-title");
+        if (!title || title.querySelector("[data-discovery-tts]")) return;
+        const wrap = document.createElement("div");
+        wrap.className = "inventions-entry__tts";
+        wrap.innerHTML = discoveryTtsPairHtml(entry.id || "");
+        title.appendChild(wrap);
+      });
+    };
+    mountDiscoveryTts();
+
     document.addEventListener("click", (event) => {
       const playVisibleBtn = event.target.closest("[data-tools-play-visible]");
       if (playVisibleBtn) {
@@ -4053,11 +4319,21 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         playVisible();
         return;
       }
-      const btn = event.target.closest("[data-story-tts]");
+      const btn = event.target.closest("[data-story-tts], [data-discovery-tts]");
       if (!btn) return;
       event.preventDefault();
       event.stopPropagation();
       if (Date.now() < ignoreClicksUntil) return;
+
+      if (btn.hasAttribute("data-discovery-tts") && !stemFor(btn) && !btn.closest("article.inventions-entry")) {
+        const current = currentDiscoveryEntry();
+        if (current && current.id) {
+          const pair = btn.closest(".tools-bar__views") || btn.parentElement;
+          (pair ? pair.querySelectorAll("[data-story-tts], [data-discovery-tts]") : [btn]).forEach(
+            (el) => el.setAttribute("data-story-stem", current.id)
+          );
+        }
+      }
 
       const story = resolveStory(btn);
       const stem = stemFor(btn);
