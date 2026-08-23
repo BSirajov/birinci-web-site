@@ -23,7 +23,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       .forEach((el) => {
         const isDiscovery = !!(
           el.closest(
-            "[data-discovery-tts], .inventions-entry__tts, .tools-bar__field--listen, .inventions-entry, .tools-bar--inventions, [data-tools='inventions']"
+            "[data-discovery-tts], .inventions-entry__tts, .inventions-entry, .tools-bar--inventions, [data-tools='inventions']"
           )
         );
         if (isDiscovery) {
@@ -201,7 +201,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const siteScript = document.querySelector('script[src*="site.js"]');
     if (!siteScript || !siteScript.src) return;
     const assetsBase = siteScript.src.replace(/site\.js(?:\?[^#]*)?(?:#.*)?$/i, "");
-    const stamp = "20260823q";
+    const stamp = "20260823r";
 
     const loadScript = (src, marker) =>
       new Promise((resolve, reject) => {
@@ -262,6 +262,61 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     listen: "",
     stop: "",
   };
+  const escListen = (value) =>
+    String(value || "")
+      .replace(/&/g, "&amp;")
+      .replace(/"/g, "&quot;")
+      .replace(/</g, "&lt;");
+  const mountStoryTts = () => {
+    if (!SHOW_AUDIO_CONTROLS) return;
+    const listen = tUi("listen", "Mətni dinlə");
+    const stop = tUi("stop", "Dayandır");
+    const audioLabel = tUi("story_audio_label", "Səs");
+    const listenPage = tUi("listen_page", "Səhifəni dinlə");
+    document.querySelectorAll("article.story").forEach((story) => {
+      const actions = story.querySelector(".story__actions");
+      if (!actions || actions.querySelector("[data-story-tts]")) return;
+      const wrap = document.createElement("div");
+      wrap.innerHTML = `
+        <div class="story__action-group">
+          <span class="tools-bar__label">${escListen(audioLabel)}</span>
+          <div class="tools-bar__views" role="group" aria-label="${escListen(audioLabel)}">
+            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="listen" aria-pressed="false" title="${escListen(listen)}" aria-label="${escListen(listen)}">${STORY_ICONS.listen}</button>
+            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="stop" aria-pressed="true" title="${escListen(stop)}" aria-label="${escListen(stop)}">${STORY_ICONS.stop}</button>
+          </div>
+        </div>`;
+      const group = wrap.firstElementChild;
+      if (!group) return;
+      const first = actions.querySelector(".story__action-group");
+      if (first) actions.insertBefore(group, first);
+      else actions.insertBefore(group, actions.firstChild);
+    });
+    document.querySelectorAll('[data-tools="category"], [data-tools="home"]').forEach((bar) => {
+      if (bar.querySelector("[data-tools-play-visible]")) return;
+      const field = document.createElement("div");
+      field.className = "tools-bar__field tools-bar__field--listen";
+      if (bar.getAttribute("data-tools") === "home") {
+        field.setAttribute("data-home-list-only", "");
+        const homeView =
+          (document.documentElement && document.documentElement.getAttribute("data-home-view")) ||
+          "cards";
+        if (homeView !== "list") field.hidden = true;
+      }
+      field.innerHTML = `
+        <span class="tools-bar__label">${escListen(listenPage)}</span>
+        <div class="tools-bar__views" role="group" aria-label="${escListen(listenPage)}">
+          <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-tools-play-visible data-tts-mode="listen" aria-pressed="false" title="${escListen(listenPage)}" aria-label="${escListen(listenPage)}">${STORY_ICONS.listen}</button>
+          <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-tools-play-visible data-tts-mode="stop" aria-pressed="true" title="${escListen(stop)}" aria-label="${escListen(stop)}">${STORY_ICONS.stop}</button>
+        </div>`;
+      const batch = bar.querySelector(".tools-bar__batch");
+      if (batch) bar.insertBefore(field, batch);
+      else bar.appendChild(field);
+    });
+    if (typeof window.__birinciSyncPlayVisibleUi === "function") {
+      window.__birinciSyncPlayVisibleUi();
+    }
+  };
+  window.__birinciMountStoryTts = mountStoryTts;
   const setStoryModePressed = (root, attr, visible) => {
     if (!root) return;
     root.querySelectorAll("[" + attr + "]").forEach((btn) => {
@@ -1870,6 +1925,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         list.closest("main") ||
         list;
       paintSearchAndLexicon(highlightRoot, searchInput.value.trim());
+      mountStoryTts();
     };
 
     searchInput.addEventListener("input", () => {
@@ -2015,6 +2071,11 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   };
 
   initCategoryTools();
+  try {
+    mountStoryTts();
+  } catch (err) {
+    console.error("mountStoryTts failed", err);
+  }
 
   /**
    * DAAB News-style sidebar: sticky TOC, scroll-spy, mobile accordion.
@@ -4401,67 +4462,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-discovery-tts data-tts-mode="stop"${stemAttr} aria-pressed="true" title="${escAttr(stop)}" aria-label="${escAttr(stop)}">${STORY_ICONS.stop}</button>
         </div>
         <p class="story-tts__note" data-story-tts-note hidden></p>`;
-    };
-
-    const storyTtsPairHtml = (stem) => {
-      const audioLabel = tUi("story_audio_label", "Səs");
-      const listen = tUi("listen", "Mətni dinlə");
-      const stop = tUi("stop", "Dayandır");
-      const stemAttr = stem ? ` data-story-stem="${escAttr(stem)}"` : "";
-      return `
-        <div class="story__action-group">
-          <span class="tools-bar__label">${escAttr(audioLabel)}</span>
-          <div class="tools-bar__views" role="group" aria-label="${escAttr(audioLabel)}">
-            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="listen"${stemAttr} aria-pressed="false" title="${escAttr(listen)}" aria-label="${escAttr(listen)}">${STORY_ICONS.listen}</button>
-            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="stop"${stemAttr} aria-pressed="true" title="${escAttr(stop)}" aria-label="${escAttr(stop)}">${STORY_ICONS.stop}</button>
-          </div>
-        </div>`;
-    };
-
-    const playVisiblePairHtml = () => {
-      const listen = tUi("listen_page", "Səhifəni dinlə");
-      const stop = tUi("stop", "Dayandır");
-      return `
-        <span class="tools-bar__label">${escAttr(listen)}</span>
-        <div class="tools-bar__views" role="group" aria-label="${escAttr(listen)}">
-          <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-tools-play-visible data-tts-mode="listen" aria-pressed="false" title="${escAttr(listen)}" aria-label="${escAttr(listen)}">${STORY_ICONS.listen}</button>
-          <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-tools-play-visible data-tts-mode="stop" aria-pressed="true" title="${escAttr(stop)}" aria-label="${escAttr(stop)}">${STORY_ICONS.stop}</button>
-        </div>`;
-    };
-
-    const mountStoryTts = () => {
-      if (!SHOW_AUDIO_CONTROLS) return;
-      document.querySelectorAll("article.story").forEach((story) => {
-        if (story.querySelector("[data-story-tts]")) return;
-        const actions = story.querySelector(".story__actions");
-        if (!actions) return;
-        const wrap = document.createElement("div");
-        wrap.innerHTML = storyTtsPairHtml(story.getAttribute("data-stem") || story.id || "").trim();
-        const group = wrap.firstElementChild;
-        if (!group) return;
-        const first = actions.querySelector(".story__action-group");
-        if (first) actions.insertBefore(group, first);
-        else actions.insertBefore(group, actions.firstChild);
-      });
-      document.querySelectorAll('[data-tools="category"], [data-tools="home"]').forEach((bar) => {
-        if (bar.querySelector("[data-tools-play-visible]")) return;
-        const field = document.createElement("div");
-        field.className = "tools-bar__field tools-bar__field--listen";
-        if (bar.getAttribute("data-tools") === "home") {
-          field.setAttribute("data-home-list-only", "");
-          const homeView =
-            (document.documentElement && document.documentElement.getAttribute("data-home-view")) ||
-            "cards";
-          if (homeView !== "list") field.hidden = true;
-        }
-        field.innerHTML = playVisiblePairHtml();
-        const batch = bar.querySelector(".tools-bar__batch");
-        if (batch) bar.insertBefore(field, batch);
-        else bar.appendChild(field);
-      });
-      if (typeof window.__birinciSyncPlayVisibleUi === "function") {
-        window.__birinciSyncPlayVisibleUi();
-      }
     };
 
     const mountDiscoveryTts = () => {

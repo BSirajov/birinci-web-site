@@ -23,7 +23,7 @@ from html_sitemap import write_html_sitemaps  # noqa: E402
 DISABLE_DISCOVERY_VIDEOS = True
 
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
-SITE_ASSET_VERSION = "20260823q"
+SITE_ASSET_VERSION = "20260823r"
 SITE_PUBLIC_ORIGIN = "https://birinci.cloud"
 LIVE_LANGS = ("az", "en", "ru", "ky")
 OG_IMAGE_URL = f"{SITE_PUBLIC_ORIGIN}/assets/pearl-hero.webp"
@@ -1053,6 +1053,96 @@ def strip_data_audio(html: str) -> str:
     return _DATA_AUDIO_RE.sub("", html)
 
 
+_LISTEN_ICON = (
+    '<svg class="tools-bar__glyph" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" '
+    'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
+    '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>'
+    '<path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>'
+    '<path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>'
+)
+_STOP_ICON = (
+    '<svg class="tools-bar__glyph" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" '
+    'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
+    '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>'
+    '<path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>'
+    '<path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>'
+    '<path d="M3 3l18 18"/></svg>'
+)
+_STORY_ACTIONS_OPEN = '<div class="story__actions">'
+
+
+def _story_listen_labels(lang: str) -> dict[str, str]:
+    loc = _load_locale(lang)
+    ui = loc.get("ui") if isinstance(loc.get("ui"), dict) else {}
+    return {
+        "audio": str(ui.get("story_audio_label") or "Səs"),
+        "listen": str(ui.get("listen") or "Mətni dinlə"),
+        "stop": str(ui.get("stop") or "Dayandır"),
+        "listen_page": str(ui.get("listen_page") or "Səhifəni dinlə"),
+    }
+
+
+def ensure_story_listen_markup(markup: str, lang: str) -> str:
+    """Bake Listen buttons into static story HTML so they show without JS."""
+    if lang == "ky":
+        return markup
+    labels = _story_listen_labels(lang)
+    audio = html.escape(labels["audio"])
+    listen = html.escape(labels["listen"])
+    stop = html.escape(labels["stop"])
+    listen_page = html.escape(labels["listen_page"])
+    group = (
+        f'          <div class="story__action-group">\n'
+        f'            <span class="tools-bar__label">{audio}</span>\n'
+        f'            <div class="tools-bar__views" role="group" aria-label="{audio}">\n'
+        f'              <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" '
+        f'data-story-tts data-tts-mode="listen" aria-pressed="false" title="{listen}" aria-label="{listen}">'
+        f"{_LISTEN_ICON}</button>\n"
+        f'              <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" '
+        f'data-story-tts data-tts-mode="stop" aria-pressed="true" title="{stop}" aria-label="{stop}">'
+        f"{_STOP_ICON}</button>\n"
+        f"            </div>\n"
+        f"          </div>\n"
+    )
+
+    pieces = []
+    cursor = 0
+    while True:
+        start = markup.find(_STORY_ACTIONS_OPEN, cursor)
+        if start < 0:
+            pieces.append(markup[cursor:])
+            break
+        insert_at = start + len(_STORY_ACTIONS_OPEN)
+        next_text = markup.find('<div class="story__text', insert_at)
+        body = markup[insert_at:next_text] if next_text >= 0 else markup[insert_at : insert_at + 2500]
+        pieces.append(markup[cursor:insert_at])
+        if 'data-story-tts data-tts-mode' not in body:
+            pieces.append("\n" + group)
+        cursor = insert_at
+    markup = "".join(pieces)
+    if "data-tools-play-visible" not in markup and "tools-bar__batch" in markup:
+        extra = ' data-home-list-only hidden' if 'data-tools="home"' in markup else ""
+        field = (
+            f'  <div class="tools-bar__field tools-bar__field--listen"{extra}>\n'
+            f'    <span class="tools-bar__label">{listen_page}</span>\n'
+            f'    <div class="tools-bar__views" role="group" aria-label="{listen_page}">\n'
+            f'      <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" '
+            f'data-tools-play-visible data-tts-mode="listen" aria-pressed="false" title="{listen_page}" '
+            f'aria-label="{listen_page}">{_LISTEN_ICON}</button>\n'
+            f'      <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" '
+            f'data-tools-play-visible data-tts-mode="stop" aria-pressed="true" title="{stop}" '
+            f'aria-label="{stop}">{_STOP_ICON}</button>\n'
+            f"    </div>\n"
+            f"  </div>\n"
+        )
+        markup = markup.replace(
+            '<div class="tools-bar__field tools-bar__batch"',
+            field + '<div class="tools-bar__field tools-bar__batch"',
+            1,
+        )
+    return markup
+
+
 def slim_discoveries_search(html: str) -> str:
     return _DATA_SEARCH_RE.sub("", html)
 
@@ -1846,6 +1936,7 @@ def patch_emitted_html(
         html = slim_discoveries_search(html)
         html = fix_ky_illustration_prefix(html, lang)
     html = strip_data_audio(html)
+    html = ensure_story_listen_markup(html, lang)
     html = strip_google_fonts(html)
     html = strip_stories_json_refs(html)
     html = ensure_shared_site_js_tags(html, lang, rel_path)

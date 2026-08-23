@@ -120,5 +120,12 @@ for (const row of langsJson.languages || []) {
 if (!src.includes("const mountStoryTts = () =>")) {
   throw new Error("assets/site.js must mount story Listen buttons");
 }
+const hikmet = fs.readFileSync(
+  new URL("../az/categories/hikmet-ve-heyat-dersleri.html", import.meta.url),
+  "utf8"
+);
+if (!hikmet.includes('data-story-tts data-tts-mode="listen"')) {
+  throw new Error("AZ wisdom stories HTML must include Listen buttons");
+}
 
 console.log("test_az_tts_browser.mjs: ok");
