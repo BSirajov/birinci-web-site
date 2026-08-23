@@ -23,7 +23,7 @@ from html_sitemap import write_html_sitemaps  # noqa: E402
 DISABLE_DISCOVERY_VIDEOS = True
 
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
-SITE_ASSET_VERSION = "20260823r"
+SITE_ASSET_VERSION = "20260823s"
 SITE_PUBLIC_ORIGIN = "https://birinci.cloud"
 LIVE_LANGS = ("az", "en", "ru", "ky")
 OG_IMAGE_URL = f"{SITE_PUBLIC_ORIGIN}/assets/pearl-hero.webp"
@@ -1069,6 +1069,28 @@ _STOP_ICON = (
     '<path d="M3 3l18 18"/></svg>'
 )
 _STORY_ACTIONS_OPEN = '<div class="story__actions">'
+_CAT_STORY_CARD_RE = re.compile(
+    r'(<a class="cat-card page-card"[^>]*\bdata-stem="([^"]+)"[^>]*>)(.*?)(</a>)',
+    re.S,
+)
+
+
+def _inject_card_listen_buttons(markup: str, listen: str) -> str:
+    """Put a Listen control on category story cards (the default cards view)."""
+
+    def repl(match: re.Match[str]) -> str:
+        open_tag, stem, body, close = match.group(1), match.group(2), match.group(3), match.group(4)
+        if "data-story-tts" in body:
+            return match.group(0)
+        btn = (
+            f'<button type="button" class="story-tts cat-card__listen" '
+            f'data-story-tts data-tts-mode="listen" data-story-stem="{html.escape(stem)}" '
+            f'aria-pressed="false" title="{listen}" aria-label="{listen}">'
+            f"{_LISTEN_ICON}</button>"
+        )
+        return f"{open_tag}{body}{btn}{close}"
+
+    return _CAT_STORY_CARD_RE.sub(repl, markup)
 
 
 def _story_listen_labels(lang: str) -> dict[str, str]:
@@ -1120,10 +1142,27 @@ def ensure_story_listen_markup(markup: str, lang: str) -> str:
             pieces.append("\n" + group)
         cursor = insert_at
     markup = "".join(pieces)
+    # Listen used to be list-only on the home page (`hidden` + data-home-list-only).
+    # Always show the toolbar control in both cards and list views.
+    markup = re.sub(
+        r'<div class="tools-bar__field tools-bar__field--listen"[^>]*>',
+        '<div class="tools-bar__field tools-bar__field--listen">',
+        markup,
+    )
+    markup = _inject_card_listen_buttons(markup, listen)
+    markup = markup.replace(
+        'v = localStorage.getItem("birinci-home-view") || "";',
+        'v = localStorage.getItem("birinci-home-view") || "list";',
+    )
+    markup = markup.replace(
+        'document.querySelectorAll("[data-home-list-only]").forEach(function (el) {\n      hideEl(el, view !== "list");\n    });',
+        'document.querySelectorAll("[data-home-list-only]").forEach(function (el) {\n'
+        '      if (el.classList.contains("tools-bar__field--listen")) { hideEl(el, false); return; }\n'
+        '      hideEl(el, view !== "list");\n    });',
+    )
     if "data-tools-play-visible" not in markup and "tools-bar__batch" in markup:
-        extra = ' data-home-list-only hidden' if 'data-tools="home"' in markup else ""
         field = (
-            f'  <div class="tools-bar__field tools-bar__field--listen"{extra}>\n'
+            f'  <div class="tools-bar__field tools-bar__field--listen">\n'
             f'    <span class="tools-bar__label">{listen_page}</span>\n'
             f'    <div class="tools-bar__views" role="group" aria-label="{listen_page}">\n'
             f'      <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" '

@@ -127,5 +127,18 @@ const hikmet = fs.readFileSync(
 if (!hikmet.includes('data-story-tts data-tts-mode="listen"')) {
   throw new Error("AZ wisdom stories HTML must include Listen buttons");
 }
+if (/tools-bar__field--listen"[^>]*\bhidden\b/.test(hikmet)) {
+  throw new Error("toolbar Listen must not be hidden on category pages");
+}
+if (!hikmet.includes('class="story-tts cat-card__listen"')) {
+  throw new Error("category cards must include Listen buttons");
+}
+const home = fs.readFileSync(new URL("../az/index.html", import.meta.url), "utf8");
+if (/tools-bar__field--listen"[^>]*\bhidden\b/.test(home)) {
+  throw new Error("home toolbar Listen must not be hidden");
+}
+if (!src.includes('a.cat-card[data-stem]')) {
+  throw new Error("assets/site.js must mount Listen on story cards");
+}
 
 console.log("test_az_tts_browser.mjs: ok");

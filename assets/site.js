@@ -201,7 +201,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const siteScript = document.querySelector('script[src*="site.js"]');
     if (!siteScript || !siteScript.src) return;
     const assetsBase = siteScript.src.replace(/site\.js(?:\?[^#]*)?(?:#.*)?$/i, "");
-    const stamp = "20260823r";
+    const stamp = "20260823s";
 
     const loadScript = (src, marker) =>
       new Promise((resolve, reject) => {
@@ -296,11 +296,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const field = document.createElement("div");
       field.className = "tools-bar__field tools-bar__field--listen";
       if (bar.getAttribute("data-tools") === "home") {
-        field.setAttribute("data-home-list-only", "");
-        const homeView =
-          (document.documentElement && document.documentElement.getAttribute("data-home-view")) ||
-          "cards";
-        if (homeView !== "list") field.hidden = true;
+        field.hidden = false;
       }
       field.innerHTML = `
         <span class="tools-bar__label">${escListen(listenPage)}</span>
@@ -311,6 +307,22 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const batch = bar.querySelector(".tools-bar__batch");
       if (batch) bar.insertBefore(field, batch);
       else bar.appendChild(field);
+    });
+    document.querySelectorAll("a.cat-card[data-stem]").forEach((card) => {
+      if (card.querySelector("[data-story-tts]")) return;
+      const stem = (card.getAttribute("data-stem") || "").trim();
+      if (!stem) return;
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "story-tts cat-card__listen";
+      btn.setAttribute("data-story-tts", "");
+      btn.setAttribute("data-tts-mode", "listen");
+      btn.setAttribute("data-story-stem", stem);
+      btn.setAttribute("aria-pressed", "false");
+      btn.title = listen;
+      btn.setAttribute("aria-label", listen);
+      btn.innerHTML = STORY_ICONS.listen;
+      card.appendChild(btn);
     });
     if (typeof window.__birinciSyncPlayVisibleUi === "function") {
       window.__birinciSyncPlayVisibleUi();
@@ -2856,6 +2868,10 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         btn.setAttribute("aria-pressed", btn.getAttribute("data-home-view") === view ? "true" : "false");
       });
       bar.querySelectorAll("[data-home-list-only]").forEach((el) => {
+        if (el.classList.contains("tools-bar__field--listen")) {
+          setHidden(el, false);
+          return;
+        }
         setHidden(el, view !== "list");
       });
     };
@@ -3039,7 +3055,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     }
 
     const urlState = readUrlState();
-    let initialView = "cards";
+    let initialView = "list";
     // Prefer view already chosen by the inline bootstrap (avoids reset race).
     if (window.__birinciHomeView === "list" || window.__birinciHomeView === "cards") {
       initialView = window.__birinciHomeView;
