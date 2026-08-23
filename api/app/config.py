@@ -20,6 +20,7 @@ class Settings(BaseSettings):
     session_cookie: str = "birinci_session"
     csrf_cookie: str = "birinci_csrf"
     admin_email: str = ""
+    feedback_inbox: str = ""
     password_min_length: int = 10
 
 

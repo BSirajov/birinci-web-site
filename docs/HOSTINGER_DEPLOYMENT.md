@@ -172,7 +172,7 @@ Health check: `https://your-domain.tld/api/health`
 
 ## 7. Email (later)
 
-Until SMTP/Postmark is wired, verify/reset links go to console + `api/var/outbox/`. For production Phase 0, configure real transactional email and set inbox addresses for feedback.
+Until SMTP/Postmark is wired, verify/reset/feedback messages go to console + `api/var/outbox/`. Set `FEEDBACK_INBOX` (or `ADMIN_EMAIL`) so suggestion-form mail has a destination. Run `alembic upgrade head` so `comments`, `reactions`, and `feedback_messages` exist before going live.
 
 ---
 

@@ -4,8 +4,9 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-from sqlalchemy import JSON, DateTime, ForeignKey, String, create_engine, func
+from sqlalchemy import DateTime, ForeignKey, Index, String, Text, UniqueConstraint, create_engine, func
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship, sessionmaker
+from sqlalchemy.types import JSON
 
 from app.config import API_DIR, get_settings
 
@@ -31,7 +32,9 @@ class User(Base):
     created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now())
     updated_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now(), onupdate=func.now())
 
-    sessions: Mapped[list[Session]] = relationship(back_populates="user")
+    sessions: Mapped[list["Session"]] = relationship(back_populates="user")
+    comments: Mapped[list["Comment"]] = relationship(back_populates="user")
+    reactions: Mapped[list["Reaction"]] = relationship(back_populates="user")
 
 
 class Session(Base):
@@ -54,6 +57,63 @@ class UserPreference(Base):
     # JSON works on MySQL 5.7+ / MariaDB 10.2+ and SQLite.
     data: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict)
     updated_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now(), onupdate=func.now())
+
+
+class Comment(Base):
+    __tablename__ = "comments"
+    __table_args__ = (
+        Index("ix_comments_target", "locale", "target_type", "target_slug", "status"),
+        Index("ix_comments_user_id", "user_id"),
+        Index("ix_comments_parent", "parent_comment_id"),
+    )
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True)
+    user_id: Mapped[str] = mapped_column(ForeignKey("users.id"))
+    parent_comment_id: Mapped[str | None] = mapped_column(ForeignKey("comments.id"), nullable=True)
+    locale: Mapped[str] = mapped_column(String(8))
+    target_type: Mapped[str] = mapped_column(String(20))
+    target_slug: Mapped[str] = mapped_column(String(160))
+    body: Mapped[str] = mapped_column(Text)
+    status: Mapped[str] = mapped_column(String(20), default="pending")
+    created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now())
+    updated_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now(), onupdate=func.now())
+    edited_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+
+    user: Mapped["User"] = relationship(back_populates="comments")
+
+
+class Reaction(Base):
+    __tablename__ = "reactions"
+    __table_args__ = (
+        UniqueConstraint("user_id", "locale", "target_type", "target_slug", name="uq_reaction_target"),
+        Index("ix_reactions_target", "locale", "target_type", "target_slug"),
+    )
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True)
+    user_id: Mapped[str] = mapped_column(ForeignKey("users.id"), index=True)
+    locale: Mapped[str] = mapped_column(String(8))
+    target_type: Mapped[str] = mapped_column(String(20))
+    target_slug: Mapped[str] = mapped_column(String(160))
+    value: Mapped[str] = mapped_column(String(16))
+    created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now())
+    updated_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now(), onupdate=func.now())
+
+    user: Mapped["User"] = relationship(back_populates="reactions")
+
+
+class FeedbackMessage(Base):
+    __tablename__ = "feedback_messages"
+    __table_args__ = (Index("ix_feedback_created_at", "created_at"),)
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True)
+    user_id: Mapped[str | None] = mapped_column(ForeignKey("users.id"), nullable=True, index=True)
+    category: Mapped[str] = mapped_column(String(32))
+    body: Mapped[str] = mapped_column(Text)
+    contact_email: Mapped[str] = mapped_column(String(320))
+    locale: Mapped[str] = mapped_column(String(8))
+    page_url: Mapped[str | None] = mapped_column(String(500), nullable=True)
+    status: Mapped[str] = mapped_column(String(20), default="new")
+    created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now())
 
 
 def resolve_database_url(url: str) -> str:

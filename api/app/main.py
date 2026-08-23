@@ -7,7 +7,7 @@ from fastapi.staticfiles import StaticFiles
 
 from app.config import REPO_ROOT, get_settings
 from app.database import init_db
-from app.routers import auth, pages, preferences
+from app.routers import auth, comments, feedback, pages, preferences, reactions
 
 settings = get_settings()
 
@@ -29,6 +29,9 @@ app.add_middleware(
 app.include_router(auth.router)
 app.include_router(auth.avatars_router)
 app.include_router(preferences.router)
+app.include_router(comments.router)
+app.include_router(reactions.router)
+app.include_router(feedback.router)
 app.include_router(pages.router)
 init_db()
 

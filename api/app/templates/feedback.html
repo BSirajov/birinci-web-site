@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block main %}
+  <section class="account-card">
+    <h1>{{ s.feedback }}</h1>
+    <p class="account-lead">{{ s.feedback_lead }}</p>
+    <p class="account-msg" id="account-msg" hidden></p>
+    <form class="account-form" data-form="feedback" data-sent="{{ s.feedback_sent }}">
+      <label>
+        <span>{{ s.feedback_category }}</span>
+        <select name="category" required>
+          <option value="improvement">{{ s.feedback_improvement }}</option>
+          <option value="missing_feature">{{ s.feedback_missing }}</option>
+          <option value="technical_issue">{{ s.feedback_technical }}</option>
+          <option value="other">{{ s.feedback_other }}</option>
+        </select>
+      </label>
+      <label>
+        <span>{{ s.feedback_message }}</span>
+        <textarea name="body" rows="6" maxlength="4000" required></textarea>
+      </label>
+      <label>
+        <span>{{ s.email }}</span>
+        <input type="email" name="contact_email" autocomplete="email" required />
+      </label>
+      <label>
+        <span>{{ s.feedback_name }}</span>
+        <input type="text" name="name" maxlength="80" autocomplete="name" />
+      </label>
+      <label class="visually-hidden" aria-hidden="true">
+        <span>Website</span>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" />
+      </label>
+      <input type="hidden" name="locale" value="{{ lang }}" />
+      <input type="hidden" name="page_url" value="{{ page_url }}" />
+      <button type="submit" class="account-btn">{{ s.feedback_submit }}</button>
+    </form>
+    <p class="account-alt">
+      <a class="account-link" href="/{{ lang }}/index.html">{{ s.back }}</a>
+    </p>
+  </section>
+{% endblock %}

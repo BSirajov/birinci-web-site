@@ -63,7 +63,15 @@ def main() -> int:
     from sqlalchemy import inspect
 
     names = set(inspect(engine).get_table_names())
-    for required in ("users", "sessions", "user_preferences", "alembic_version"):
+    for required in (
+        "users",
+        "sessions",
+        "user_preferences",
+        "comments",
+        "reactions",
+        "feedback_messages",
+        "alembic_version",
+    ):
         assert required in names, f"missing table: {required}"
     print("tables present: ok")
 

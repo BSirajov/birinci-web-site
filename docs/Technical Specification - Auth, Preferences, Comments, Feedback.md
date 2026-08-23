@@ -1,6 +1,6 @@
 # Birİnci — Technical Specification: Auth, Preferences, Comments, Reactions & Feedback
 
-**Status:** Draft v4 (reactions added)  
+**Status:** Draft v4 (reactions added) — Phases 1–5 implemented in `api/` + site chrome (2026-08-23)  
 **Owner:** Bakhtiyar  
 **Date:** 2026-08-19  
 **Supersedes:** v3 in this folder; original `.docx` (auth/comments/analytics)

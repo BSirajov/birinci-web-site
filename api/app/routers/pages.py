@@ -27,6 +27,8 @@ def _ctx(request: Request, page: str, **extra) -> dict:
         "forgot": s["forgot"],
         "reset": s["reset"],
         "verify": s["verify"],
+        "feedback": s["feedback"],
+        "moderation": s["moderation"],
     }
     ctx = {"request": request, "s": s, "lang": lang, "page": page, "title": titles[page], "email": ""}
     ctx.update(extra)
@@ -66,3 +68,19 @@ def reset_page(request: Request) -> HTMLResponse:
 @router.get("/account/verify", response_class=HTMLResponse)
 def verify_page(request: Request) -> HTMLResponse:
     return _page(request, "form.html", "verify", token=request.query_params.get("token", ""))
+
+
+@router.get("/feedback", response_class=HTMLResponse)
+@router.get("/feedback/", response_class=HTMLResponse)
+def feedback_page(request: Request) -> HTMLResponse:
+    return _page(
+        request,
+        "feedback.html",
+        "feedback",
+        page_url=request.query_params.get("page", ""),
+    )
+
+
+@router.get("/account/moderation", response_class=HTMLResponse)
+def moderation_page(request: Request) -> HTMLResponse:
+    return _page(request, "moderation.html", "moderation")

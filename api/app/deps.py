@@ -47,3 +47,20 @@ def require_user(request: Request, db: DbSession) -> User:
     if user is None:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Not signed in.")
     return user
+
+
+def require_verified_user(request: Request, db: DbSession) -> User:
+    user = require_user(request, db)
+    if not user.is_verified:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Verify your email before commenting.",
+        )
+    return user
+
+
+def require_moderator(request: Request, db: DbSession) -> User:
+    user = require_user(request, db)
+    if user.role not in {"admin", "moderator"}:
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Moderator access required.")
+    return user

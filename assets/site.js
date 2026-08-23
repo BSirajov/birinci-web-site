@@ -4868,6 +4868,13 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           })
         )
       );
+    window.__birinciAuth = {
+      apiFetch,
+      postAuth,
+      t,
+      currentLang,
+      user: () => chromeUser,
+    };
     const uploadAvatar = (file) =>
       getCsrf().then((token) => {
         const body = new FormData();
@@ -5367,6 +5374,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         actions.insertBefore(box, actions.firstChild);
       }
       window.__birinciUser = chromeUser;
+      if (typeof window.__birinciRefreshEngage === "function") window.__birinciRefreshEngage();
       if (user) {
         const shown = user.display_name || user.email.split("@")[0];
         const esc = (value) =>
@@ -5848,6 +5856,20 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     initAccountEntry();
   } catch (err) {
     console.error("initAccountEntry failed", err);
+  }
+
+  try {
+    const current = document.querySelector('script[src*="site.js"]');
+    const src = ((current && current.getAttribute("src")) || "/assets/site.js").replace(/site\.js[^/]*$/, "engage.js?v=20260823k");
+    if (!document.querySelector("script[data-birinci-engage]")) {
+      const script = document.createElement("script");
+      script.src = src;
+      script.defer = true;
+      script.dataset.birinciEngage = "1";
+      document.body.appendChild(script);
+    }
+  } catch (err) {
+    console.error("engage.js load failed", err);
   }
 
   document.querySelectorAll(".category-layout").forEach((layout) => {

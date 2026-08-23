@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block main %}
+  <section class="account-card account-card--wide">
+    <h1>{{ s.moderation }}</h1>
+    <p class="account-lead">{{ s.moderation_lead }}</p>
+    <p class="account-msg" id="account-msg" hidden></p>
+    <div
+      id="moderation-queue"
+      data-empty="{{ s.moderation_empty }}"
+      data-approve="{{ s.moderation_approve }}"
+      data-reject="{{ s.moderation_reject }}"
+    ></div>
+    <p class="account-alt">
+      <a class="account-link" href="/account?lang={{ lang }}">{{ s.account }}</a>
+      ·
+      <a class="account-link" href="/{{ lang }}/index.html">{{ s.back }}</a>
+    </p>
+  </section>
+{% endblock %}

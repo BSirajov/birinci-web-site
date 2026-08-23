@@ -1,6 +1,6 @@
 # Birİnci API
 
-Phase 1–2: sign-up, login, email verify, password reset, session cookies, preferences.
+Phase 1–5: sign-up, login, email verify, password reset, session cookies, preferences, comments, reactions, and emailed feedback.
 
 ## Production architecture (Hostinger)
 
@@ -101,4 +101,4 @@ Applies migrations, registers a user, asserts `password_hash` is argon2-only, an
 - Avatars on VPS disk or object storage when you scale
 - Transactional email (verify, reset, feedback)
 - Backups + `alembic upgrade head` on deploy
-- Comments / reactions: later Alembic migrations (tech spec Phases 3–4)
+- Comments, reactions, and feedback use Alembic revision `0002_engagement`

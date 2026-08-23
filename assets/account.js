@@ -142,6 +142,7 @@
       else if (type === "login") req = post("/api/auth/login", body);
       else if (type === "forgot") req = post("/api/auth/password-reset/request", { email: body.email });
       else if (type === "reset") req = post("/api/auth/password-reset/confirm", { token: token, password: body.password });
+      else if (type === "feedback") req = post("/api/feedback", body);
       else return;
       req
         .then(function (data) {
@@ -153,6 +154,11 @@
         .then(function (data) {
           if (type === "register" || type === "login") {
             window.location.href = "/account?lang=" + encodeURIComponent(lang);
+            return;
+          }
+          if (type === "feedback") {
+            form.reset();
+            show(form.getAttribute("data-sent") || data.message || "Done.");
             return;
           }
           show(data.message || "Done.");
@@ -201,7 +207,7 @@
         .then(function (res) {
           return res.json().then(function (data) {
             if (!res.ok) throw new Error(data.detail || "Verification failed");
-            show("Email verified. You can now comment once comments are enabled.");
+            show("Email verified. You can now comment.");
           });
         })
         .catch(function (err) {
@@ -344,6 +350,16 @@
         "</dt><dd>" +
         esc((u.preferred_locale || "").toUpperCase()) +
         "</dd>";
+      if (u.role === "admin" || u.role === "moderator") {
+        var actions = document.querySelector(".account-actions");
+        if (actions) {
+          var link = document.createElement("a");
+          link.className = "account-link";
+          link.href = "/account/moderation?lang=" + encodeURIComponent(lang);
+          link.textContent = "Moderation";
+          actions.appendChild(link);
+        }
+      }
     });
     document.querySelector("[data-action='logout']").addEventListener("click", function () {
       post("/api/auth/logout", {})
@@ -383,5 +399,79 @@
           });
       });
     }
+  }
+
+  if (page === "feedback") {
+    loadMe().then(function (data) {
+      if (!data.user) return;
+      var emailField = document.querySelector("input[name='contact_email']");
+      var nameField = document.querySelector("input[name='name']");
+      if (emailField && !emailField.value) emailField.value = data.user.email || "";
+      if (nameField && !nameField.value) nameField.value = data.user.display_name || "";
+    });
+  }
+
+  if (page === "moderation") {
+    var queue = document.getElementById("moderation-queue");
+    function renderQueue(items) {
+      if (!queue) return;
+      if (!items.length) {
+        queue.innerHTML = "<p class=\"account-lead\">" + esc(queue.getAttribute("data-empty") || "") + "</p>";
+        return;
+      }
+      queue.innerHTML = items
+        .map(function (item) {
+          return (
+            '<article class="mod-item" data-id="' +
+            esc(item.id) +
+            '"><p class="mod-item__meta">' +
+            esc(item.locale) +
+            " · " +
+            esc(item.target_type) +
+            " · " +
+            esc(item.target_slug) +
+            " · " +
+            esc((item.author && item.author.display_name) || "") +
+            '</p><p class="mod-item__body">' +
+            esc(item.body) +
+            '</p><div class="account-confirm__actions"><button type="button" class="account-btn" data-mod="approve">' +
+            esc(queue.getAttribute("data-approve")) +
+            '</button><button type="button" class="account-btn account-btn--danger" data-mod="reject">' +
+            esc(queue.getAttribute("data-reject")) +
+            "</button></div></article>"
+          );
+        })
+        .join("");
+    }
+    function refreshQueue() {
+      fetch("/api/comments/moderation?status=pending", { credentials: "same-origin" })
+        .then(function (res) {
+          if (res.status === 401 || res.status === 403) {
+            window.location.href = "/account/login?lang=" + encodeURIComponent(lang);
+            return null;
+          }
+          return res.json();
+        })
+        .then(function (data) {
+          if (!data) return;
+          renderQueue(data.comments || []);
+        })
+        .catch(function (err) {
+          show(err.message, true);
+        });
+    }
+    if (queue) {
+      queue.addEventListener("click", function (ev) {
+        var btn = ev.target.closest("[data-mod]");
+        var item = ev.target.closest(".mod-item");
+        if (!btn || !item) return;
+        post("/api/comments/" + item.getAttribute("data-id") + "/moderate", { action: btn.getAttribute("data-mod") })
+          .then(refreshQueue)
+          .catch(function (err) {
+            show(err.message, true);
+          });
+      });
+    }
+    refreshQueue();
   }
 })();

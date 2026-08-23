@@ -9,7 +9,7 @@ from sqlalchemy.orm import Session as DbSession
 from app.avatars import AVATAR_MAX_BYTES, AVATAR_NAME_RE, avatar_path, delete_avatar_file, public_avatar_url, save_avatar
 from app.config import get_settings
 from app.database import Session as AuthSession
-from app.database import User, UserPreference, get_db
+from app.database import Comment, FeedbackMessage, Reaction, User, UserPreference, get_db
 from app.deps import client_ip, get_current_user, require_csrf, require_user
 from app.mail import send_password_reset, send_verification
 from app.rate_limit import limiter
@@ -280,6 +280,14 @@ def _purge_account(db: DbSession, user: User) -> None:
     user_id = user.id
     db.query(AuthSession).filter(AuthSession.user_id == user_id).delete(synchronize_session=False)
     db.query(UserPreference).filter(UserPreference.user_id == user_id).delete(synchronize_session=False)
+    db.query(Reaction).filter(Reaction.user_id == user_id).delete(synchronize_session=False)
+    comment_ids = [cid for (cid,) in db.query(Comment.id).filter(Comment.user_id == user_id).all()]
+    if comment_ids:
+        db.query(Comment).filter(Comment.parent_comment_id.in_(comment_ids)).delete(synchronize_session=False)
+        db.query(Comment).filter(Comment.id.in_(comment_ids)).delete(synchronize_session=False)
+    db.query(FeedbackMessage).filter(FeedbackMessage.user_id == user_id).update(
+        {FeedbackMessage.user_id: None}, synchronize_session=False
+    )
     db.delete(user)
     db.commit()
     delete_avatar_file(filename)
