@@ -23,7 +23,7 @@ from html_sitemap import write_html_sitemaps  # noqa: E402
 DISABLE_DISCOVERY_VIDEOS = True
 
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
-SITE_ASSET_VERSION = "20260823p"
+SITE_ASSET_VERSION = "20260823q"
 SITE_PUBLIC_ORIGIN = "https://birinci.cloud"
 LIVE_LANGS = ("az", "en", "ru", "ky")
 OG_IMAGE_URL = f"{SITE_PUBLIC_ORIGIN}/assets/pearl-hero.webp"
@@ -1609,27 +1609,21 @@ def write_lang_i18n_from_locale(lang: str) -> None:
     """Rebuild `{lang}/assets/i18n.js` from tools/locales/{lang}.json."""
     locale = _load_locale(lang)
     path = ROOT / lang / "assets" / "i18n.js"
-    show_audio = False
-    if path.is_file():
-        text = path.read_text(encoding="utf-8").strip()
-        if text.startswith(_I18N_ASSIGN_PREFIX):
-            raw = text[len(_I18N_ASSIGN_PREFIX) :].rstrip().rstrip(";")
-            try:
-                show_audio = bool(json.loads(raw).get("show_audio_controls"))
-            except json.JSONDecodeError:
-                pass
     ui = dict(locale.get("ui") or {})
     inventions = ui.get("inventions")
     if isinstance(inventions, dict):
         for dead in DEAD_INVENTION_VIDEO_KEYS:
             inventions.pop(dead, None)
     tts_voice = ""
+    show_audio = lang != "ky"
     show_discovery_listen = lang != "ky"
     try:
         langs = json.loads((ROOT / "languages.json").read_text(encoding="utf-8"))
         for row in langs.get("languages") or []:
             if isinstance(row, dict) and row.get("code") == lang:
                 tts_voice = str(row.get("tts_voice") or "")
+                if "show_audio_controls" in row:
+                    show_audio = bool(row.get("show_audio_controls"))
                 if "show_discovery_listen" in row:
                     show_discovery_listen = bool(row.get("show_discovery_listen"))
                 break

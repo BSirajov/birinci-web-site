@@ -98,6 +98,27 @@ for (const lang of locales) {
   if (!/Microsoft Edge/i.test(blob.ui.tts_az_unavailable_lead + blob.ui.tts_az_unavailable_recommend)) {
     throw new Error(`${lang} help text must name Microsoft Edge`);
   }
+  const expectStoryListen = lang !== "ky";
+  if (Boolean(blob.show_audio_controls) !== expectStoryListen) {
+    throw new Error(
+      `${lang} show_audio_controls should be ${expectStoryListen}, got ${blob.show_audio_controls}`
+    );
+  }
+}
+
+const langsJson = JSON.parse(
+  fs.readFileSync(new URL("../languages.json", import.meta.url), "utf8")
+);
+for (const row of langsJson.languages || []) {
+  const expect = row.code !== "ky";
+  if (Boolean(row.show_audio_controls) !== expect) {
+    throw new Error(
+      `languages.json ${row.code} show_audio_controls should be ${expect}`
+    );
+  }
+}
+if (!src.includes("const mountStoryTts = () =>")) {
+  throw new Error("assets/site.js must mount story Listen buttons");
 }
 
 console.log("test_az_tts_browser.mjs: ok");

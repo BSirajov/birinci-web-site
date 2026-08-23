@@ -11,7 +11,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   )
     .toLowerCase()
     .split(/[-_]/)[0];
-  const SHOW_AUDIO_CONTROLS = I18N.show_audio_controls !== false;
+  const SHOW_AUDIO_CONTROLS = I18N.show_audio_controls !== false && PAGE_LANG !== "ky";
   // No native Kyrgyz neural voice — keep Listen off on KY articles.
   const SHOW_DISCOVERY_LISTEN = I18N.show_discovery_listen !== false && PAGE_LANG !== "ky";
 
@@ -201,7 +201,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const siteScript = document.querySelector('script[src*="site.js"]');
     if (!siteScript || !siteScript.src) return;
     const assetsBase = siteScript.src.replace(/site\.js(?:\?[^#]*)?(?:#.*)?$/i, "");
-    const stamp = "20260823p";
+    const stamp = "20260823q";
 
     const loadScript = (src, marker) =>
       new Promise((resolve, reject) => {
@@ -2199,7 +2199,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const batchAllBtn = bar.querySelector('[data-home-batch="all"]');
     const batchRangeEl = bar.querySelector("[data-home-batch-range]");
     const viewBtns = Array.from(bar.querySelectorAll("[data-home-view]"));
-    const listOnly = Array.from(bar.querySelectorAll("[data-home-list-only]"));
     const assetVersion = listPanel.getAttribute("data-asset-version") || "";
     const viewStorageKey = "birinci-home-view";
     const batchSizeStorageKey = "birinci-home-batch-size";
@@ -2795,7 +2794,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       viewBtns.forEach((btn) => {
         btn.setAttribute("aria-pressed", btn.getAttribute("data-home-view") === view ? "true" : "false");
       });
-      listOnly.forEach((el) => {
+      bar.querySelectorAll("[data-home-list-only]").forEach((el) => {
         setHidden(el, view !== "list");
       });
     };
@@ -4404,6 +4403,67 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         <p class="story-tts__note" data-story-tts-note hidden></p>`;
     };
 
+    const storyTtsPairHtml = (stem) => {
+      const audioLabel = tUi("story_audio_label", "Səs");
+      const listen = tUi("listen", "Mətni dinlə");
+      const stop = tUi("stop", "Dayandır");
+      const stemAttr = stem ? ` data-story-stem="${escAttr(stem)}"` : "";
+      return `
+        <div class="story__action-group">
+          <span class="tools-bar__label">${escAttr(audioLabel)}</span>
+          <div class="tools-bar__views" role="group" aria-label="${escAttr(audioLabel)}">
+            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="listen"${stemAttr} aria-pressed="false" title="${escAttr(listen)}" aria-label="${escAttr(listen)}">${STORY_ICONS.listen}</button>
+            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="stop"${stemAttr} aria-pressed="true" title="${escAttr(stop)}" aria-label="${escAttr(stop)}">${STORY_ICONS.stop}</button>
+          </div>
+        </div>`;
+    };
+
+    const playVisiblePairHtml = () => {
+      const listen = tUi("listen_page", "Səhifəni dinlə");
+      const stop = tUi("stop", "Dayandır");
+      return `
+        <span class="tools-bar__label">${escAttr(listen)}</span>
+        <div class="tools-bar__views" role="group" aria-label="${escAttr(listen)}">
+          <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-tools-play-visible data-tts-mode="listen" aria-pressed="false" title="${escAttr(listen)}" aria-label="${escAttr(listen)}">${STORY_ICONS.listen}</button>
+          <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-tools-play-visible data-tts-mode="stop" aria-pressed="true" title="${escAttr(stop)}" aria-label="${escAttr(stop)}">${STORY_ICONS.stop}</button>
+        </div>`;
+    };
+
+    const mountStoryTts = () => {
+      if (!SHOW_AUDIO_CONTROLS) return;
+      document.querySelectorAll("article.story").forEach((story) => {
+        if (story.querySelector("[data-story-tts]")) return;
+        const actions = story.querySelector(".story__actions");
+        if (!actions) return;
+        const wrap = document.createElement("div");
+        wrap.innerHTML = storyTtsPairHtml(story.getAttribute("data-stem") || story.id || "").trim();
+        const group = wrap.firstElementChild;
+        if (!group) return;
+        const first = actions.querySelector(".story__action-group");
+        if (first) actions.insertBefore(group, first);
+        else actions.insertBefore(group, actions.firstChild);
+      });
+      document.querySelectorAll('[data-tools="category"], [data-tools="home"]').forEach((bar) => {
+        if (bar.querySelector("[data-tools-play-visible]")) return;
+        const field = document.createElement("div");
+        field.className = "tools-bar__field tools-bar__field--listen";
+        if (bar.getAttribute("data-tools") === "home") {
+          field.setAttribute("data-home-list-only", "");
+          const homeView =
+            (document.documentElement && document.documentElement.getAttribute("data-home-view")) ||
+            "cards";
+          if (homeView !== "list") field.hidden = true;
+        }
+        field.innerHTML = playVisiblePairHtml();
+        const batch = bar.querySelector(".tools-bar__batch");
+        if (batch) bar.insertBefore(field, batch);
+        else bar.appendChild(field);
+      });
+      if (typeof window.__birinciSyncPlayVisibleUi === "function") {
+        window.__birinciSyncPlayVisibleUi();
+      }
+    };
+
     const mountDiscoveryTts = () => {
       const isDiscoveries =
         document.body.classList.contains("page-inventions") ||
@@ -4430,9 +4490,16 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         title.appendChild(wrap);
       });
     };
+    mountStoryTts();
     mountDiscoveryTts();
-    if (SHOW_DISCOVERY_LISTEN && pageLocaleCode() === "az" && !browserSupportsAzTts()) {
-      showAzTtsHelp(document.querySelector("[data-discovery-tts]"));
+    const azTtsHelpAnchor = () =>
+      document.querySelector("[data-discovery-tts], [data-story-tts], [data-tools-play-visible]");
+    const shouldOfferAzTtsHelp = () =>
+      pageLocaleCode() === "az" &&
+      !browserSupportsAzTts() &&
+      (SHOW_DISCOVERY_LISTEN || SHOW_AUDIO_CONTROLS);
+    if (shouldOfferAzTtsHelp()) {
+      showAzTtsHelp(azTtsHelpAnchor());
     }
     try {
       window.speechSynthesis &&
@@ -4441,8 +4508,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           const panel = document.querySelector("[data-az-tts-help]");
           if (browserSupportsAzTts()) {
             if (panel) panel.hidden = true;
-          } else if (SHOW_DISCOVERY_LISTEN) {
-            showAzTtsHelp(document.querySelector("[data-discovery-tts]"));
+          } else if (shouldOfferAzTtsHelp()) {
+            showAzTtsHelp(azTtsHelpAnchor());
           }
         });
     } catch (_) {}
@@ -4450,6 +4517,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     document.addEventListener("click", (event) => {
       const playVisibleBtn = event.target.closest("[data-tools-play-visible]");
       if (playVisibleBtn) {
+        if (!SHOW_AUDIO_CONTROLS) return;
         event.preventDefault();
         event.stopPropagation();
         const mode = playVisibleBtn.getAttribute("data-tts-mode") || "listen";
@@ -4467,6 +4535,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       event.stopPropagation();
       if (Date.now() < ignoreClicksUntil) return;
       if (!SHOW_DISCOVERY_LISTEN && btn.hasAttribute("data-discovery-tts")) return;
+      if (!SHOW_AUDIO_CONTROLS && !btn.hasAttribute("data-discovery-tts")) return;
 
       if (btn.hasAttribute("data-discovery-tts") && !stemFor(btn) && !btn.closest("article.inventions-entry")) {
         const current = currentDiscoveryEntry();
