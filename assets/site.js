@@ -3,23 +3,40 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 (() => {
   const I18N = window.__BIRINCI_I18N__ || { lang: "az", ui: {}, js: {} };
   const LOCALE_TAG = I18N.lang || document.documentElement.lang || "az";
+  const PAGE_LANG = String(
+    I18N.lang ||
+      (document.body && document.body.getAttribute("data-lang")) ||
+      document.documentElement.lang ||
+      "az"
+  )
+    .toLowerCase()
+    .split(/[-_]/)[0];
   const SHOW_AUDIO_CONTROLS = I18N.show_audio_controls !== false;
+  // No native Kyrgyz neural voice — keep Listen off on KY articles.
+  const SHOW_DISCOVERY_LISTEN = I18N.show_discovery_listen !== false && PAGE_LANG !== "ky";
 
   const hideAudioChrome = (root = document) => {
-    if (SHOW_AUDIO_CONTROLS) return;
-    (root || document).querySelectorAll("[data-story-tts], [data-tools-play-visible], [data-story-tts-note], .story-tts__note").forEach((el) => {
-      // Discoveries listen stays visible even when story MP3 controls are gated.
-      if (
-        el.closest(
-          "[data-discovery-tts], .inventions-entry, .tools-bar--inventions, [data-tools='inventions']"
-        )
-      ) {
-        return;
-      }
-      const group = el.closest(".story__action-group, .tools-bar__field, .text-lightbox__tts");
-      if (group) group.hidden = true;
-      else el.hidden = true;
-    });
+    (root || document)
+      .querySelectorAll(
+        "[data-story-tts], [data-tools-play-visible], [data-story-tts-note], .story-tts__note, [data-discovery-tts], .inventions-entry__tts, .tools-bar__field--listen"
+      )
+      .forEach((el) => {
+        const isDiscovery = !!(
+          el.closest(
+            "[data-discovery-tts], .inventions-entry__tts, .tools-bar__field--listen, .inventions-entry, .tools-bar--inventions, [data-tools='inventions']"
+          )
+        );
+        if (isDiscovery) {
+          if (SHOW_DISCOVERY_LISTEN) return;
+        } else if (SHOW_AUDIO_CONTROLS) {
+          return;
+        }
+        const group = el.closest(
+          ".story__action-group, .tools-bar__field, .text-lightbox__tts, .inventions-entry__tts"
+        );
+        if (group) group.hidden = true;
+        else el.hidden = true;
+      });
   };
   const liveI18n = () => window.__BIRINCI_I18N__ || I18N;
   const tUi = (key, fallback) => {
@@ -184,7 +201,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const siteScript = document.querySelector('script[src*="site.js"]');
     if (!siteScript || !siteScript.src) return;
     const assetsBase = siteScript.src.replace(/site\.js(?:\?[^#]*)?(?:#.*)?$/i, "");
-    const stamp = "20260823m";
+    const stamp = "20260823n";
 
     const loadScript = (src, marker) =>
       new Promise((resolve, reject) => {
@@ -4262,7 +4279,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const isDiscoveries =
         document.body.classList.contains("page-inventions") ||
         document.body.classList.contains("inventions-preview-page");
-      if (!isDiscoveries) return;
+      if (!isDiscoveries || !SHOW_DISCOVERY_LISTEN) return;
       const bar = document.querySelector('[data-tools="inventions"], .tools-bar--inventions');
       if (bar && !bar.querySelector("[data-discovery-tts]")) {
         const field = document.createElement("div");
@@ -4305,6 +4322,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       event.preventDefault();
       event.stopPropagation();
       if (Date.now() < ignoreClicksUntil) return;
+      if (!SHOW_DISCOVERY_LISTEN && btn.hasAttribute("data-discovery-tts")) return;
 
       if (btn.hasAttribute("data-discovery-tts") && !stemFor(btn) && !btn.closest("article.inventions-entry")) {
         const current = currentDiscoveryEntry();

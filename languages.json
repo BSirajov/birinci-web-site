@@ -55,6 +55,7 @@
       "stories_ready": true,
       "nav_prefixes": ["ky", "kir"],
       "show_audio_controls": false,
+      "show_discovery_listen": false,
       "tts_voice": "kk-KZ-DauletNeural",
       "tts_dialogue_voice": "kk-KZ-AigulNeural",
       "tts_voice_note": "No Kyrgyz neural voice in Edge/Azure; Kazakh (closest Cyrillic Turkic) used for KY narration."
