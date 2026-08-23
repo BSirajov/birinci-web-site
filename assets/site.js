@@ -184,7 +184,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const siteScript = document.querySelector('script[src*="site.js"]');
     if (!siteScript || !siteScript.src) return;
     const assetsBase = siteScript.src.replace(/site\.js(?:\?[^#]*)?(?:#.*)?$/i, "");
-    const stamp = "20260823k";
+    const stamp = "20260823m";
 
     const loadScript = (src, marker) =>
       new Promise((resolve, reject) => {
@@ -3046,9 +3046,18 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
     const showNote = (btn, message) => {
       const root =
-        (btn && btn.closest(".story__actions, .text-lightbox__tts")) ||
+        (btn &&
+          btn.closest(
+            ".story__actions, .text-lightbox__tts, .inventions-entry__tts, .tools-bar__field--listen, article.inventions-entry"
+          )) ||
         (btn && btn.parentElement);
-      const note = root && root.querySelector("[data-story-tts-note]");
+      let note = root && root.querySelector("[data-story-tts-note]");
+      if (!note && root) {
+        note = document.createElement("p");
+        note.className = "story-tts__note";
+        note.setAttribute("data-story-tts-note", "");
+        root.appendChild(note);
+      }
       if (!note) return;
       note.hidden = !message;
       note.textContent = message || "";
@@ -3489,68 +3498,24 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       }
     };
 
-    const loadVoices = () =>
-      new Promise((resolve) => {
-        if (!window.speechSynthesis) {
-          resolve([]);
-          return;
-        }
-        const current = () => window.speechSynthesis.getVoices() || [];
-        const pageLang = String(
-          (document.body && document.body.getAttribute("data-lang")) ||
-            LOCALE_TAG ||
-            "az"
-        )
-          .toLowerCase()
-          .split(/[-_]/)[0];
-        const hasWantedVoice = (list) => {
-          if (pageLang !== "az") return list.length > 0;
-          return list.some((v) => {
-            const lang = String(v.lang || "").toLowerCase();
-            const name = String(v.name || "");
-            return (
-              /^az\b/.test(lang) ||
-              /babek|azərbaycan|azerbaijani/i.test(name)
-            );
-          });
-        };
-        const now = current();
-        if (hasWantedVoice(now)) {
-          resolve(now);
-          return;
-        }
-        let done = false;
-        const finish = () => {
-          if (done) return;
-          done = true;
-          try {
-            window.speechSynthesis.removeEventListener("voiceschanged", onChange);
-          } catch (_) {}
-          if (window.speechSynthesis.onvoiceschanged === onChange) {
-            window.speechSynthesis.onvoiceschanged = null;
-          }
-          resolve(current());
-        };
-        const onChange = () => {
-          if (hasWantedVoice(current())) finish();
-        };
-        try {
-          window.speechSynthesis.addEventListener("voiceschanged", onChange);
-        } catch (_) {
-          window.speechSynthesis.onvoiceschanged = onChange;
-        }
-        // Edge often exposes Babek as an online neural voice after the first
-        // local English voices appear. Wait so AZ does not lock onto those.
-        window.setTimeout(finish, 2200);
-      });
+    const currentVoices = () => {
+      if (!window.speechSynthesis) return [];
+      try {
+        return window.speechSynthesis.getVoices() || [];
+      } catch (_) {
+        return [];
+      }
+    };
 
     const warmVoices = () => {
-      if (!window.speechSynthesis) return;
-      try {
-        window.speechSynthesis.getVoices();
-      } catch (_) {}
+      currentVoices();
     };
-    document.addEventListener("pointerdown", warmVoices, { once: true, passive: true });
+    warmVoices();
+    document.addEventListener("pointerdown", warmVoices, { passive: true });
+    try {
+      window.speechSynthesis &&
+        window.speechSynthesis.addEventListener("voiceschanged", warmVoices);
+    } catch (_) {}
 
     const pageLocaleCode = () => {
       const raw = String(
@@ -4039,7 +4004,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       });
     };
 
-    const speakStory = async (btn, { fromQueue = false } = {}) => {
+    const speakStory = (btn, { fromQueue = false } = {}) => {
       if (!("speechSynthesis" in window) || typeof window.SpeechSynthesisUtterance !== "function") {
         showNote(btn, unsupportedMessage);
         if (fromQueue && queueActive && typeof window.__birinciQueueAdvance === "function") {
@@ -4058,22 +4023,24 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         return;
       }
 
-      const voices = await loadVoices();
-      const voice = pickVoice(voices);
-      if (!voice) {
-        if (fromQueue && queueActive) {
-          showNote(btn, noVoiceMessage);
-          if (typeof window.__birinciQueueAdvance === "function") window.__birinciQueueAdvance();
-          return;
-        }
-        stopSpeech();
-        showNote(btn, noVoiceMessage);
-        return;
+      // Speak in the same click turn. Waiting for online voices drops the
+      // user-gesture, and Chrome/Edge then cancel the utterance immediately.
+      const spec = localeSpeechSpec();
+      let voice = pickVoice(currentVoices());
+      if (voice && spec.reject && spec.reject(voice.lang || "", String(voice.name || "").toLowerCase())) {
+        voice = null;
       }
 
       if (!fromQueue) {
         clearQueue({ keepTrack: false });
-        closePlayer();
+        if (window.speechSynthesis && (window.speechSynthesis.speaking || window.speechSynthesis.paused)) {
+          suppressError = true;
+          window.speechSynthesis.cancel();
+          window.setTimeout(() => {
+            suppressError = false;
+          }, 120);
+        }
+        hidePlayerShell();
       } else {
         ensurePlayer();
         stopCurrentMedia();
@@ -4082,9 +4049,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       }
       markPlaying(btn, true);
       syncPlayVisibleButton();
+      showNote(btn, "");
 
       const token = ++speakToken;
-      const spec = localeSpeechSpec();
       const chunks = [];
       const CHUNK = 14000;
       if (text.length <= CHUNK) {
@@ -4104,17 +4071,13 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         }
       }
       let chunkIndex = 0;
-      const utteranceLang = () => {
-        const voiceLang = String((voice && voice.lang) || "");
-        if (voiceLang && !/^en\b/i.test(voiceLang)) return voiceLang;
-        return spec.bcp47;
-      };
+      let retriedWithoutVoice = false;
       const startSpeak = () => {
         if (token !== speakToken) return;
         const piece = chunks[chunkIndex] || text;
         utterance = new SpeechSynthesisUtterance(piece);
-        utterance.lang = utteranceLang();
-        utterance.voice = voice;
+        utterance.lang = spec.bcp47;
+        if (voice) utterance.voice = voice;
         utterance.rate = 1;
         utterance.pitch = 1;
 
@@ -4127,7 +4090,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           if (suppressError || token !== speakToken) return;
           if (chunkIndex + 1 < chunks.length) {
             chunkIndex += 1;
-            window.setTimeout(startSpeak, 40);
+            startSpeak();
             return;
           }
           if (fromQueue && queueActive && typeof window.__birinciQueueAdvance === "function") {
@@ -4138,8 +4101,19 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           hidePlayerShell();
           syncPlayVisibleButton();
         };
-        utterance.onerror = () => {
+        utterance.onerror = (event) => {
           if (suppressError || token !== speakToken) return;
+          const err = String((event && event.error) || "");
+          if (
+            voice &&
+            !retriedWithoutVoice &&
+            /voice-unavailable|language-unavailable|synthesis-failed|network|invalid-argument/i.test(err)
+          ) {
+            retriedWithoutVoice = true;
+            voice = null;
+            startSpeak();
+            return;
+          }
           if (fromQueue && queueActive) {
             showNote(btn, failedMessage);
             if (typeof window.__birinciQueueAdvance === "function") window.__birinciQueueAdvance();
@@ -4152,6 +4126,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         try {
           window.speechSynthesis.speak(utterance);
         } catch (err) {
+          if (voice && !retriedWithoutVoice) {
+            retriedWithoutVoice = true;
+            voice = null;
+            startSpeak();
+            return;
+          }
           if (fromQueue && queueActive && typeof window.__birinciQueueAdvance === "function") {
             window.__birinciQueueAdvance();
             return;
@@ -4161,7 +4141,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         }
       };
 
-      window.setTimeout(startSpeak, 60);
+      startSpeak();
     };
 
     const playQueueIndex = (index, { scroll = false, skipCount = 0 } = {}) => {
@@ -4274,7 +4254,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         <div class="tools-bar__views inventions-tts-pair" role="group" aria-label="${escAttr(listen)}">
           <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-discovery-tts data-tts-mode="listen"${stemAttr} aria-pressed="false" title="${escAttr(listen)}" aria-label="${escAttr(listen)}">${STORY_ICONS.listen}</button>
           <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-discovery-tts data-tts-mode="stop"${stemAttr} aria-pressed="true" title="${escAttr(stop)}" aria-label="${escAttr(stop)}">${STORY_ICONS.stop}</button>
-        </div>`;
+        </div>
+        <p class="story-tts__note" data-story-tts-note hidden></p>`;
     };
 
     const mountDiscoveryTts = () => {

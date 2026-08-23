@@ -414,3 +414,13 @@ body.page-inventions::after {
 .page-inventions .inventions-entry__tts .story-tts[aria-pressed="true"] {
   background: rgba(255, 255, 255, 0.22);
 }
+.page-inventions .inventions-entry__tts,
+.page-inventions .tools-bar__field--listen {
+  flex-wrap: wrap;
+}
+.page-inventions .inventions-entry__tts .story-tts__note,
+.page-inventions .tools-bar__field--listen .story-tts__note {
+  flex: 1 0 100%;
+  color: inherit;
+  text-align: right;
+}
