@@ -201,7 +201,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const siteScript = document.querySelector('script[src*="site.js"]');
     if (!siteScript || !siteScript.src) return;
     const assetsBase = siteScript.src.replace(/site\.js(?:\?[^#]*)?(?:#.*)?$/i, "");
-    const stamp = "20260823n";
+    const stamp = "20260823p";
 
     const loadScript = (src, marker) =>
       new Promise((resolve, reject) => {
@@ -3534,6 +3534,29 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         window.speechSynthesis.addEventListener("voiceschanged", warmVoices);
     } catch (_) {}
 
+    const hasAzVoice = (voices) =>
+      (Array.isArray(voices) ? voices : []).some((v) => {
+        const lang = String((v && v.lang) || "");
+        const name = String((v && v.name) || "");
+        return /^az\b/i.test(lang) || /babek|azerbaijani|azərbaycan/i.test(name);
+      });
+
+    const isDesktopEdge = () => {
+      const ua = String((window.navigator && window.navigator.userAgent) || "");
+      return /\bEdg\//.test(ua) && !/\bEdgA\/|\bEdgiOS\//.test(ua);
+    };
+
+    const hasSpeechSynthesis = () =>
+      typeof window.speechSynthesis === "object" &&
+      window.speechSynthesis &&
+      typeof window.SpeechSynthesisUtterance === "function";
+
+    const browserSupportsAzTts = () =>
+      hasAzVoice(currentVoices()) || isDesktopEdge();
+    window.__birinciHasAzVoice = hasAzVoice;
+    window.__birinciIsDesktopEdge = isDesktopEdge;
+    window.__birinciBrowserSupportsAzTts = browserSupportsAzTts;
+
     const pageLocaleCode = () => {
       const raw = String(
         (document.body && document.body.getAttribute("data-lang")) ||
@@ -4021,8 +4044,116 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       });
     };
 
+    const pageUrl = () => {
+      try {
+        return window.location.href;
+      } catch (_) {
+        return "";
+      }
+    };
+
+    const fillAzTtsHelp = (panel) => {
+      if (!panel || panel.dataset.bound === "1") return panel;
+      const url = pageUrl();
+      const esc = (value) =>
+        String(value || "")
+          .replace(/&/g, "&amp;")
+          .replace(/"/g, "&quot;")
+          .replace(/</g, "&lt;");
+      panel.dataset.bound = "1";
+      panel.className = "az-tts-help";
+      panel.setAttribute("data-az-tts-help", "");
+      panel.setAttribute("role", "status");
+      panel.setAttribute("aria-live", "polite");
+      panel.innerHTML = `
+        <p class="az-tts-help__title">${esc(tUi("tts_az_unavailable_title", "Azərbaycan dilində səsli oxuma bu brauzerdə əlçatan deyil"))}</p>
+        <p class="az-tts-help__lead">${esc(tUi("tts_az_unavailable_lead", "Bu brauzer Azərbaycan mətnini səsləndirə bilmir. Mətni dinləmək üçün səhifəni Microsoft Edge brauzerində açın."))}</p>
+        <p class="az-tts-help__recommend">${esc(tUi("tts_az_unavailable_recommend", "Microsoft Edge Azərbaycan nitq səsini (Babek) dəstəkləyir."))}</p>
+        <ol class="az-tts-help__steps">
+          <li>${esc(tUi("tts_az_unavailable_step1", "«Microsoft Edge-də aç» düyməsinə klikləyin. Düymə işləməsə, ünvanı kopyalayın."))}</li>
+          <li>${esc(tUi("tts_az_unavailable_step2", "Kompüterinizdə Microsoft Edge-i açın. Yoxdursa, microsoft.com/edge ünvanından yükləyin."))}</li>
+          <li>${esc(tUi("tts_az_unavailable_step3", "Ünvan sətrinə kopyaladığınız ünvanı yapışdırın və Enter basın."))}</li>
+        </ol>
+        <p class="az-tts-help__url" data-az-tts-url></p>
+        <div class="az-tts-help__actions">
+          <button type="button" class="az-tts-help__btn az-tts-help__btn--primary" data-az-open-edge>${esc(tUi("tts_az_open_edge", "Microsoft Edge-də aç"))}</button>
+          <button type="button" class="az-tts-help__btn" data-az-copy-url>${esc(tUi("tts_az_copy_url", "Səhifə ünvanını kopyala"))}</button>
+          <a class="az-tts-help__btn" data-az-download-edge href="https://www.microsoft.com/edge" target="_blank" rel="noopener noreferrer">${esc(tUi("tts_az_download_edge", "Microsoft Edge-i yüklə"))}</a>
+        </div>
+      `;
+      const urlEl = panel.querySelector("[data-az-tts-url]");
+      if (urlEl) urlEl.textContent = url;
+      const openBtn = panel.querySelector("[data-az-open-edge]");
+      const copyBtn = panel.querySelector("[data-az-copy-url]");
+      if (openBtn) {
+        openBtn.addEventListener("click", () => {
+          const href = pageUrl();
+          if (!href) return;
+          try {
+            window.location.href = `microsoft-edge:${href}`;
+          } catch (_) {}
+        });
+      }
+      if (copyBtn) {
+        copyBtn.addEventListener("click", () => {
+          const href = pageUrl();
+          const done = () => {
+            copyBtn.textContent = tUi("tts_az_copied", "Ünvan kopyalandı");
+          };
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(href).then(done).catch(() => {
+              try {
+                window.prompt(tUi("tts_az_copy_url", "Səhifə ünvanını kopyala"), href);
+              } catch (_) {}
+            });
+            return;
+          }
+          try {
+            window.prompt(tUi("tts_az_copy_url", "Səhifə ünvanını kopyala"), href);
+          } catch (_) {}
+        });
+      }
+      return panel;
+    };
+
+    const showAzTtsHelp = (btn) => {
+      let panel = document.querySelector("[data-az-tts-help]");
+      if (!panel) {
+        panel = document.createElement("aside");
+        const host =
+          document.querySelector(".tools-bar--inventions") ||
+          (btn && btn.closest(".tools-bar, article.inventions-entry")) ||
+          document.querySelector("main") ||
+          document.body;
+        if (host && host.classList && host.classList.contains("tools-bar")) {
+          host.insertAdjacentElement("afterend", panel);
+        } else if (host && host.parentNode) {
+          host.parentNode.insertBefore(panel, host.nextSibling);
+        } else {
+          document.body.appendChild(panel);
+        }
+      }
+      fillAzTtsHelp(panel);
+      panel.hidden = false;
+      panel.removeAttribute("hidden");
+      try {
+        panel.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      } catch (_) {}
+      return panel;
+    };
+
     const speakStory = (btn, { fromQueue = false } = {}) => {
-      if (!("speechSynthesis" in window) || typeof window.SpeechSynthesisUtterance !== "function") {
+      // Azerbaijani neural voices (Babek) are available in desktop Microsoft
+      // Edge. Chrome, Firefox, Safari, and mobile browsers typically have none.
+      if (pageLocaleCode() === "az" && !browserSupportsAzTts()) {
+        showAzTtsHelp(btn);
+        if (fromQueue && queueActive && typeof window.__birinciQueueAdvance === "function") {
+          window.__birinciQueueAdvance();
+        }
+        return;
+      }
+
+      if (!hasSpeechSynthesis()) {
         showNote(btn, unsupportedMessage);
         if (fromQueue && queueActive && typeof window.__birinciQueueAdvance === "function") {
           window.__birinciQueueAdvance();
@@ -4040,8 +4171,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         return;
       }
 
-      // Speak in the same click turn. Waiting for online voices drops the
-      // user-gesture, and Chrome/Edge then cancel the utterance immediately.
       const spec = localeSpeechSpec();
       let voice = pickVoice(currentVoices());
       if (voice && spec.reject && spec.reject(voice.lang || "", String(voice.name || "").toLowerCase())) {
@@ -4302,6 +4431,21 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       });
     };
     mountDiscoveryTts();
+    if (SHOW_DISCOVERY_LISTEN && pageLocaleCode() === "az" && !browserSupportsAzTts()) {
+      showAzTtsHelp(document.querySelector("[data-discovery-tts]"));
+    }
+    try {
+      window.speechSynthesis &&
+        window.speechSynthesis.addEventListener("voiceschanged", () => {
+          if (pageLocaleCode() !== "az") return;
+          const panel = document.querySelector("[data-az-tts-help]");
+          if (browserSupportsAzTts()) {
+            if (panel) panel.hidden = true;
+          } else if (SHOW_DISCOVERY_LISTEN) {
+            showAzTtsHelp(document.querySelector("[data-discovery-tts]"));
+          }
+        });
+    } catch (_) {}
 
     document.addEventListener("click", (event) => {
       const playVisibleBtn = event.target.closest("[data-tools-play-visible]");

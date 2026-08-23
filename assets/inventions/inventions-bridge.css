@@ -424,3 +424,74 @@ body.page-inventions::after {
   color: inherit;
   text-align: right;
 }
+
+.az-tts-help {
+  margin: 0.75rem 0 1.1rem;
+  padding: 1rem 1.15rem 1.1rem;
+  border: 1px solid rgba(0, 105, 180, 0.22);
+  border-radius: 14px;
+  background: linear-gradient(180deg, #f4fbff 0%, #eef6fc 100%);
+  color: var(--ink, #16324f);
+  box-shadow: 0 8px 24px rgba(0, 90, 154, 0.08);
+}
+.az-tts-help[hidden] {
+  display: none !important;
+}
+.az-tts-help__title {
+  margin: 0 0 0.45rem;
+  font-family: var(--font-display, Fraunces, Georgia, serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+.az-tts-help__lead,
+.az-tts-help__recommend,
+.az-tts-help__url {
+  margin: 0 0 0.45rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.az-tts-help__recommend {
+  font-weight: 700;
+}
+.az-tts-help__steps {
+  margin: 0.35rem 0 0.7rem;
+  padding-left: 1.25rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.az-tts-help__steps li + li {
+  margin-top: 0.28rem;
+}
+.az-tts-help__url {
+  word-break: break-all;
+  font-family: var(--font-ui, "Source Sans 3", "Segoe UI", sans-serif);
+  font-size: 0.82rem;
+  color: var(--ink-soft, #345f86);
+}
+.az-tts-help__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.az-tts-help__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.6rem;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid rgba(0, 105, 180, 0.28);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--nav-blue, #0069b4);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+.az-tts-help__btn--primary {
+  background: linear-gradient(135deg, var(--nav-blue, #0069b4), var(--blue-400, #2e9fd4));
+  border-color: transparent;
+  color: #fff;
+}
