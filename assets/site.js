@@ -11,9 +11,11 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   )
     .toLowerCase()
     .split(/[-_]/)[0];
-  const SHOW_AUDIO_CONTROLS = I18N.show_audio_controls !== false && PAGE_LANG !== "ky";
+  // Ignore stale i18n `show_audio_controls: false` from older Hostinger uploads.
+  // Listen stays on for AZ/EN/RU even when that flag is still false on the live site.
+  const SHOW_AUDIO_CONTROLS = PAGE_LANG !== "ky";
   // No native Kyrgyz neural voice — keep Listen off on KY articles.
-  const SHOW_DISCOVERY_LISTEN = I18N.show_discovery_listen !== false && PAGE_LANG !== "ky";
+  const SHOW_DISCOVERY_LISTEN = PAGE_LANG !== "ky";
 
   const hideAudioChrome = (root = document) => {
     (root || document)
@@ -201,7 +203,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const siteScript = document.querySelector('script[src*="site.js"]');
     if (!siteScript || !siteScript.src) return;
     const assetsBase = siteScript.src.replace(/site\.js(?:\?[^#]*)?(?:#.*)?$/i, "");
-    const stamp = "20260823s";
+    const stamp = "20260823t";
 
     const loadScript = (src, marker) =>
       new Promise((resolve, reject) => {

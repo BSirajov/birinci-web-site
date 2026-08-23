@@ -120,6 +120,9 @@ for (const row of langsJson.languages || []) {
 if (!src.includes("const mountStoryTts = () =>")) {
   throw new Error("assets/site.js must mount story Listen buttons");
 }
+if (!/const SHOW_AUDIO_CONTROLS = PAGE_LANG !== "ky"/.test(src)) {
+  throw new Error("story Listen must not be gated on stale show_audio_controls");
+}
 const hikmet = fs.readFileSync(
   new URL("../az/categories/hikmet-ve-heyat-dersleri.html", import.meta.url),
   "utf8"
