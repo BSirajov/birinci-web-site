@@ -17,6 +17,9 @@ ROOT = Path(r"c:\dev\birinci-web-site")
 REPORT = ROOT / "tools" / "_qa_report.txt"
 LANGS = ("az", "en", "ru", "ky")
 WIDTHS = (360, 390, 768, 1024, 1440)
+if str(ROOT / "tools") not in sys.path:
+    sys.path.insert(0, str(ROOT / "tools"))
+from chrome_restore import SITE_ASSET_VERSION  # noqa: E402
 
 lines: list[str] = []
 fails = 0
@@ -68,6 +71,14 @@ def structural() -> None:
         found = set(ver_re.findall((ROOT / "index.html").read_text(encoding="utf-8")))
         per_file_versions.append(("index.html", found))
         versions.update(found)
+    not_found = ROOT / "404.html"
+    if not_found.exists():
+        nf_vers = set(ver_re.findall(not_found.read_text(encoding="utf-8")))
+        check(
+            "404.html uses current CSS/JS asset stamp",
+            nf_vers == {SITE_ASSET_VERSION},
+            str(sorted(nf_vers)),
+        )
 
     top = versions.most_common(8)
     log(f"Asset CSS/JS ?v= frequency (top): {top}")
@@ -81,7 +92,7 @@ def structural() -> None:
     )
     check(
         "Dominant CSS/JS asset version is current pass stamp",
-        bool(top) and top[0][0] == "20260820y",
+        bool(top) and top[0][0] == SITE_ASSET_VERSION,
         str(top[:3]),
     )
 
@@ -147,6 +158,21 @@ def structural() -> None:
             if re.search(r"ocaq-video|Watch video|data-ocaq", t, re.I):
                 ocaq_hits.append(lang)
     check("No Ocaq/video launch controls on Discoveries", len(ocaq_hits) == 0, str(ocaq_hits))
+
+    css_url_re = re.compile(r"""url\(["']?([^"')]+)["']?\)""")
+    missing_css_urls = []
+    for css_path in (
+        ROOT / "assets" / "site.css",
+        ROOT / "assets" / "inventions" / "inventions-bridge.css",
+    ):
+        text = css_path.read_text(encoding="utf-8")
+        for raw in css_url_re.findall(text):
+            if raw.startswith(("http://", "https://", "data:", "fonts.css")):
+                continue
+            dest = (css_path.parent / raw.split("?")[0]).resolve()
+            if dest.suffix.lower() in {".png", ".jpg", ".jpeg", ".webp", ".svg", ".woff2"} and not dest.exists():
+                missing_css_urls.append(f"{css_path.name}:{raw}")
+    check("CSS image/font urls resolve on disk", not missing_css_urls, str(missing_css_urls[:8]))
 
     # RU/KY discoveries nav link present on home
     for lang in ("ru", "ky"):
@@ -261,6 +287,7 @@ def playwright_matrix() -> None:
                       const entryP = document.querySelector('.inventions-entry-section p');
                       const entryTitle = document.querySelector('.inventions-entry-title');
                       const catHead = document.querySelector('.inventions-category-head, .inventions-cards-head');
+                      const catCs = catHead && getComputedStyle(catHead);
                       return {
                         overflowX,
                         jumpFixed: jcs && jcs.position,
@@ -279,8 +306,9 @@ def playwright_matrix() -> None:
                         entryColor: entryP && getComputedStyle(entryP).color,
                         entryAlign: entryP && getComputedStyle(entryP).textAlign,
                         titleJC: entryTitle && getComputedStyle(entryTitle).justifyContent,
-                        catAlign: catHead && getComputedStyle(catHead).textAlign,
-                        catBg: catHead && getComputedStyle(catHead).backgroundColor,
+                        catAlign: catCs && catCs.textAlign,
+                        catBg: catCs && catCs.backgroundColor,
+                        catColor: catCs && catCs.color,
                       };
                     }"""
                 )
@@ -354,11 +382,11 @@ def playwright_matrix() -> None:
                             data["titleJC"] == "center",
                             data["titleJC"],
                         )
-                    if data["catBg"]:
+                    if data["catColor"]:
                         check(
-                            f"{label} category head has blue bg",
-                            data["catBg"] not in ("rgba(0, 0, 0, 0)", "transparent"),
-                            data["catBg"],
+                            f"{label} category head uses brand blue text",
+                            data["catColor"] in ("rgb(0, 105, 180)", "rgb(0, 90, 154)"),
+                            data["catColor"],
                         )
 
                 # Click smoke once per page at 1440

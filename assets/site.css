@@ -6,8 +6,8 @@
   --ink-soft: #345f86;
   --color-surface-news: #f5fbff;
   --color-site-bg-scrim: rgba(255, 255, 255, 0.07);
-  /* Authentic diaspora embroidery from DAAB (diaspor-body-top-bg.webp). */
-  --site-bg-image: url("diaspor-body-top-bg.webp");
+  /* Authentic diaspora embroidery from DAAB (diaspor-body-top-bg.png). */
+  --site-bg-image: url("diaspor-body-top-bg.png");
   --site-bg-position: top center;
   --site-bg-size: cover;
   --site-bg-repeat: no-repeat;
@@ -147,7 +147,7 @@ body::before {
       var(--color-site-bg-scrim, rgba(255, 255, 255, 0.07)),
       var(--color-site-bg-scrim, rgba(255, 255, 255, 0.07))
     ),
-    var(--site-bg-image, url("diaspor-body-top-bg.webp"));
+    var(--site-bg-image, url("diaspor-body-top-bg.png"));
   background-position: center, var(--site-bg-position, top center);
   background-size: 100% 100%, var(--site-bg-size, cover);
   background-repeat: no-repeat, var(--site-bg-repeat, no-repeat);

@@ -5,6 +5,7 @@ from __future__ import annotations
 import html
 import json
 import re
+from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -24,7 +25,7 @@ from i18n_config import rewrite_content_media_paths, story_illustrations_dir  # 
 DISABLE_DISCOVERY_VIDEOS = True
 
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
-SITE_ASSET_VERSION = "20260825w"
+SITE_ASSET_VERSION = "20260825x"
 SITE_PUBLIC_ORIGIN = "https://birinci.cloud"
 LIVE_LANGS = ("az", "en", "ru", "ky")
 OG_IMAGE_URL = f"{SITE_PUBLIC_ORIGIN}/assets/pearl-hero.webp"
@@ -626,7 +627,9 @@ def ensure_site_css_chrome(css: str) -> str:
             1,
         )
 
-    css = css.replace("diaspor-body-top-bg.png", "diaspor-body-top-bg.webp")
+    # Only the PNG exists on disk. Do not rewrite it to a missing WebP.
+    if (ROOT / "assets" / "diaspor-body-top-bg.png").is_file():
+        css = css.replace("diaspor-body-top-bg.webp", "diaspor-body-top-bg.png")
 
     if ".page-jump {" not in css:
         if not _BACK_TO_TOP_BLOCK_RE.search(css):
@@ -3230,7 +3233,7 @@ def write_public_seo_files() -> None:
         if cat.is_dir():
             for path in sorted(cat.glob("*.html")):
                 urls.append(_public_url(f"{lang}/categories/{path.name}"))
-    today = "2026-08-19"
+    today = datetime.now(timezone.utc).date().isoformat()
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
@@ -3333,6 +3336,7 @@ def apply_all_html() -> int:
                 path.write_text(new_html, encoding="utf-8")
                 n += 1
     write_root_home()
+    write_public_seo_files()
     n += 1
     return n
 
