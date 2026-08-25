@@ -25,10 +25,11 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools"))
+from i18n_config import story_illustrations_dir  # noqa: E402
 from stories_catalog import load_stories_catalog, stories_data_path  # noqa: E402
 
 DATA_JS = stories_data_path("az")
-ILLUSTRATIONS = ROOT / "az" / "illustrations"
+ILLUSTRATIONS = story_illustrations_dir("az")
 BRAND_COVER = ROOT / "assets" / "pearl-with-background-2.webp"
 OUT_DIR = ROOT / "docs" / "epub"
 

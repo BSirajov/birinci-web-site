@@ -6,7 +6,7 @@ in the repo root. Voice ID comes from --voice-id or ELEVENLABS_VOICE_ID.
 Never hardcode a key or voice ID.
 
 Writes {stem}.mp3 to --out (default %USERPROFILE%\\Downloads\\{lang}-mp3).
-Does not write into {lang}/audio/ unless --install-to-site is passed.
+Does not write into {lang}/wisdom-stories/audio/ unless --install-to-site is passed.
 
 Examples (PowerShell):
   $env:ELEVENLABS_API_KEY="..."
@@ -41,7 +41,7 @@ from docx import Document
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools"))
-from i18n_config import SUPPORTED_LANGS, language_by_code, locale_root, story_sources  # noqa: E402
+from i18n_config import SUPPORTED_LANGS, language_by_code, story_audio_dir, story_sources  # noqa: E402
 
 TTS_URL = "https://api.elevenlabs.io/v1/text-to-speech/{voice_id}"
 VOICE_LIBRARY_URL = "https://elevenlabs.io/app/voice-library"
@@ -404,7 +404,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument(
         "--install-to-site",
         action="store_true",
-        help="Also copy each MP3 to {lang}/audio/{stem}.mp3 (off by default).",
+        help="Also copy each MP3 to {lang}/wisdom-stories/audio/{stem}.mp3 (off by default).",
     )
     parser.add_argument(
         "--sleep",
@@ -424,7 +424,7 @@ def main() -> None:
     language_code = (args.language_code or default_language_code(lang)).strip()
     out_dir = Path(args.out) if args.out else default_out_dir(lang)
     out_dir = out_dir.expanduser()
-    site_audio = locale_root(lang) / "audio"
+    site_audio = story_audio_dir(lang)
 
     paths = discover_docx(lang)
     if args.stems:

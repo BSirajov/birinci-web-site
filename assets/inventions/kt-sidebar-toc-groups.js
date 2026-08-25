@@ -154,7 +154,11 @@
     var cards = document.querySelector(
       '.inventions-cards-category[data-cards-cat="' + slug + '"]'
     );
-    if (cards) cards.classList.toggle("is-collapsed", !open);
+    if (cards) {
+      cards.classList.toggle("is-collapsed", !open);
+      var cardToggle = cards.querySelector(".inventions-category-toggle");
+      if (cardToggle) cardToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    }
   }
 
   function syncAllMainCategoriesFromToc(root) {
@@ -581,6 +585,15 @@
 
   function bindPanelControls(widget) {
     if (!widget) return widget;
+
+    if (
+      (document.documentElement.getAttribute("data-kt-page-id") || "") ===
+      "discoveries-and-inventions"
+    ) {
+      var leftover = widget.querySelector(".widget-actions");
+      if (leftover && leftover.parentNode) leftover.parentNode.removeChild(leftover);
+      return widget;
+    }
 
     var actions = widget.querySelector(".widget-actions");
     if (actions && actions.querySelector('[data-toc-action="toggle-categories"]')) {

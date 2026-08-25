@@ -11,7 +11,9 @@
 | `languages.json` | Enabled languages, names, flags, TTS voices |
 | `flags/{code}.svg` | Mini flags for the language dropdown |
 | `tools/locales/{code}.json` | UI chrome + category titles |
-| `{code}/` | Generated locale trees (`i18n.js`, stories data, illustrations) |
+| `{code}/` | Generated locale trees (`i18n.js`, stories data) |
+| `{code}/wisdom-stories/` | Story Word sources, audio, and illustrations |
+| `{code}/discovery-articles/` | Discovery Word sources and audio |
 | `assets/site.js` | Shared site runtime |
 | `docs/i18n/translation_manifest.json` | Progress: text/audio/illustration |
 | `tools/i18n_config.py` | Loads `languages.json` for builds |
@@ -46,9 +48,9 @@ Kyrgyz (`ky`) has no Edge/Azure neural voice as of 2026-08. `generate_story_audi
 
 ## Illustration regen
 Place localized art at:
-- `en/illustrations/{stem}.webp`
-- `ru/illustrations/{stem}.webp`
-- `ky/illustrations/{stem}.webp`
+- `en/wisdom-stories/illustrations/{stem}.webp`
+- `ru/wisdom-stories/illustrations/{stem}.webp`
+- `ky/wisdom-stories/illustrations/{stem}.webp`
 
 Do **not** copy AZ WebPs. Mark `illustration_<lang>` in the manifest when done.
 

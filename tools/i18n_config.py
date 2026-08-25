@@ -95,16 +95,43 @@ def locale_root(lang: str) -> Path:
     return ROOT / lang
 
 
-def source_root() -> Path:
-    return ROOT / "source"
-
-
 def story_sources(lang: str) -> Path:
-    return source_root() / "stories" / lang
+    """Word sources + media for Wisdom Stories (not the public HTML routes)."""
+    return locale_root(lang) / "wisdom-stories"
 
 
 def discovery_sources(lang: str) -> Path:
-    return source_root() / "discoveries" / lang
+    """Word sources + media for Discovery Articles (not the public HTML routes)."""
+    return locale_root(lang) / "discovery-articles"
+
+
+def story_audio_dir(lang: str) -> Path:
+    return story_sources(lang) / "audio"
+
+
+def story_illustrations_dir(lang: str) -> Path:
+    return story_sources(lang) / "illustrations"
+
+
+def discovery_audio_dir(lang: str) -> Path:
+    return discovery_sources(lang) / "audio"
+
+
+# Bytecode HTML/JS still emits the old locale-root media prefixes.
+CONTENT_MEDIA_REPLACEMENTS = (
+    ("../discovery-audio/", "../discovery-articles/audio/"),
+    ("../audio/", "../wisdom-stories/audio/"),
+    ("../illustrations/", "../wisdom-stories/illustrations/"),
+    ('src="illustrations/', 'src="wisdom-stories/illustrations/'),
+    ('data-audio="audio/', 'data-audio="wisdom-stories/audio/'),
+    ("data-audio=`audio/", "data-audio=`wisdom-stories/audio/"),
+)
+
+
+def rewrite_content_media_paths(text: str) -> str:
+    for old, new in CONTENT_MEDIA_REPLACEMENTS:
+        text = text.replace(old, new)
+    return text
 
 
 def progress_manifest_path() -> Path:

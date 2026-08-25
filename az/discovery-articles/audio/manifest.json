@@ -1,0 +1,1212 @@
+{
+  "controlled-use-of-fire": {
+    "title": "Oddan nəzarətli istifadə",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "controlled-use-of-fire.mp3",
+    "bytes": 1949564,
+    "chars": 4350,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "agriculture-and-domestication": {
+    "title": "Əkinçilik və əhliləşdirmə",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "agriculture-and-domestication.mp3",
+    "bytes": 1818092,
+    "chars": 4000,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "the-wheel": {
+    "title": "Təkər",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "the-wheel.mp3",
+    "bytes": 1807004,
+    "chars": 3971,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "writing-systems": {
+    "title": "Yazı sistemləri",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "writing-systems.mp3",
+    "bytes": 1731980,
+    "chars": 3749,
+    "segments": 24,
+    "join": "ffmpeg+loudnorm"
+  },
+  "mathematics-and-the-concept-of-zero": {
+    "title": "Riyaziyyat və sıfır anlayışı",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "mathematics-and-the-concept-of-zero.mp3",
+    "bytes": 1782236,
+    "chars": 3875,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "paper": {
+    "title": "Kağız",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "paper.mp3",
+    "bytes": 1773164,
+    "chars": 3893,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "the-compass": {
+    "title": "Kompas",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "the-compass.mp3",
+    "bytes": 1557308,
+    "chars": 3375,
+    "segments": 24,
+    "join": "ffmpeg+loudnorm"
+  },
+  "gunpowder": {
+    "title": "Barıt",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "gunpowder.mp3",
+    "bytes": 1457228,
+    "chars": 3193,
+    "segments": 21,
+    "join": "ffmpeg+loudnorm"
+  },
+  "the-printing-press": {
+    "title": "Çap dəzgahı",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "the-printing-press.mp3",
+    "bytes": 1665884,
+    "chars": 3562,
+    "segments": 23,
+    "join": "ffmpeg+loudnorm"
+  },
+  "metallurgy": {
+    "title": "Metallurgiya",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "metallurgy.mp3",
+    "bytes": 1960796,
+    "chars": 4293,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "money-and-banking": {
+    "title": "Pul və bank işi",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "money-and-banking.mp3",
+    "bytes": 2035532,
+    "chars": 4584,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "pottery-and-ceramics": {
+    "title": "Dulusçuluq və keramika",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "pottery-and-ceramics.mp3",
+    "bytes": 1928252,
+    "chars": 4371,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "the-calendar": {
+    "title": "Təqvim",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "the-calendar.mp3",
+    "bytes": 1750268,
+    "chars": 3879,
+    "segments": 24,
+    "join": "ffmpeg+loudnorm"
+  },
+  "glassmaking": {
+    "title": "Şüşə istehsalı",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "glassmaking.mp3",
+    "bytes": 1780796,
+    "chars": 3905,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "the-sail": {
+    "title": "Yelkən",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "the-sail.mp3",
+    "bytes": 1714124,
+    "chars": 3808,
+    "segments": 24,
+    "join": "ffmpeg+loudnorm"
+  },
+  "domestication-of-the-horse": {
+    "title": "Atın əhliləşdirilməsi",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "domestication-of-the-horse.mp3",
+    "bytes": 1694108,
+    "chars": 3693,
+    "segments": 24,
+    "join": "ffmpeg+loudnorm"
+  },
+  "the-plough": {
+    "title": "Kotan",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "the-plough.mp3",
+    "bytes": 1493948,
+    "chars": 3216,
+    "segments": 22,
+    "join": "ffmpeg+loudnorm"
+  },
+  "aqueducts-and-irrigation": {
+    "title": "Akvaduklar və suvarma",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "aqueducts-and-irrigation.mp3",
+    "bytes": 1621820,
+    "chars": 3509,
+    "segments": 23,
+    "join": "ffmpeg+loudnorm"
+  },
+  "concrete": {
+    "title": "Beton",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "concrete.mp3",
+    "bytes": 1622972,
+    "chars": 3566,
+    "segments": 22,
+    "join": "ffmpeg+loudnorm"
+  },
+  "double-entry-bookkeeping": {
+    "title": "Mühasibat uçotunda ikili yazılış",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "double-entry-bookkeeping.mp3",
+    "bytes": 1668332,
+    "chars": 3646,
+    "segments": 23,
+    "join": "ffmpeg+loudnorm"
+  },
+  "the-scientific-method": {
+    "title": "Elmi metod",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "the-scientific-method.mp3",
+    "bytes": 1564652,
+    "chars": 3354,
+    "segments": 23,
+    "join": "ffmpeg+loudnorm"
+  },
+  "the-telescope": {
+    "title": "Teleskop",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "the-telescope.mp3",
+    "bytes": 1478828,
+    "chars": 3109,
+    "segments": 21,
+    "join": "ffmpeg+loudnorm"
+  },
+  "the-microscope": {
+    "title": "Mikroskop",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "the-microscope.mp3",
+    "bytes": 1543628,
+    "chars": 3364,
+    "segments": 22,
+    "join": "ffmpeg+loudnorm"
+  },
+  "newtonian-mechanics": {
+    "title": "Nyuton mexanikası",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "newtonian-mechanics.mp3",
+    "bytes": 1698428,
+    "chars": 3732,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "mechanical-clock": {
+    "title": "Mexaniki saat",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "mechanical-clock.mp3",
+    "bytes": 1912124,
+    "chars": 4269,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "algebra": {
+    "title": "Cəbr",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "algebra.mp3",
+    "bytes": 1761932,
+    "chars": 3924,
+    "segments": 23,
+    "join": "ffmpeg+loudnorm"
+  },
+  "optics-and-lenses": {
+    "title": "Optika və linzalar",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "optics-and-lenses.mp3",
+    "bytes": 1767548,
+    "chars": 3931,
+    "segments": 24,
+    "join": "ffmpeg+loudnorm"
+  },
+  "thermodynamics": {
+    "title": "Termodinamika",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "thermodynamics.mp3",
+    "bytes": 2043596,
+    "chars": 4544,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "statistics-and-probability": {
+    "title": "Statistika və ehtimal nəzəriyyəsi",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "statistics-and-probability.mp3",
+    "bytes": 2062460,
+    "chars": 4713,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "the-metric-system": {
+    "title": "Metrik sistem",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "the-metric-system.mp3",
+    "bytes": 2015084,
+    "chars": 4591,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "cartography": {
+    "title": "Xəritəçilik",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "cartography.mp3",
+    "bytes": 2063324,
+    "chars": 4702,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "steam-engine": {
+    "title": "Buxar mühərriki",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "steam-engine.mp3",
+    "bytes": 1597196,
+    "chars": 3405,
+    "segments": 24,
+    "join": "ffmpeg+loudnorm"
+  },
+  "electricity-generation-and-distribution": {
+    "title": "Elektrik enerjisinin istehsalı və paylanması",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "electricity-generation-and-distribution.mp3",
+    "bytes": 1763948,
+    "chars": 3820,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "electromagnetism": {
+    "title": "Elektromaqnetizm",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "electromagnetism.mp3",
+    "bytes": 1601660,
+    "chars": 3426,
+    "segments": 23,
+    "join": "ffmpeg+loudnorm"
+  },
+  "internal-combustion-engine": {
+    "title": "Daxiliyanma mühərriki",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "internal-combustion-engine.mp3",
+    "bytes": 1640972,
+    "chars": 3581,
+    "segments": 23,
+    "join": "ffmpeg+loudnorm"
+  },
+  "automobile": {
+    "title": "Avtomobil",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "automobile.mp3",
+    "bytes": 1638380,
+    "chars": 3490,
+    "segments": 24,
+    "join": "ffmpeg+loudnorm"
+  },
+  "airplane": {
+    "title": "Təyyarə",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "airplane.mp3",
+    "bytes": 1696556,
+    "chars": 3657,
+    "segments": 24,
+    "join": "ffmpeg+loudnorm"
+  },
+  "refrigeration": {
+    "title": "Soyutma texnologiyası",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "refrigeration.mp3",
+    "bytes": 1709228,
+    "chars": 3604,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "railroad": {
+    "title": "Dəmir yolu",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "railroad.mp3",
+    "bytes": 1835804,
+    "chars": 4009,
+    "segments": 24,
+    "join": "ffmpeg+loudnorm"
+  },
+  "electric-lighting": {
+    "title": "Elektrik işıqlandırması",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "electric-lighting.mp3",
+    "bytes": 1886348,
+    "chars": 4101,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "assembly-line-and-mass-production": {
+    "title": "Konveyer xətti və kütləvi istehsal",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "assembly-line-and-mass-production.mp3",
+    "bytes": 1908092,
+    "chars": 4292,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "air-conditioning": {
+    "title": "Kondisioner",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "air-conditioning.mp3",
+    "bytes": 1846892,
+    "chars": 4098,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "container-shipping": {
+    "title": "Konteynerlə daşımalar",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "container-shipping.mp3",
+    "bytes": 1880012,
+    "chars": 4119,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "waterwheel-and-windmill": {
+    "title": "Su çarxı və yel dəyirmanı",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "waterwheel-and-windmill.mp3",
+    "bytes": 1932140,
+    "chars": 4374,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "sewing-machine": {
+    "title": "Tikiş maşını",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "sewing-machine.mp3",
+    "bytes": 1821836,
+    "chars": 4039,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "elevator": {
+    "title": "Lift",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "elevator.mp3",
+    "bytes": 1872956,
+    "chars": 4169,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "high-speed-rail": {
+    "title": "Yüksəksürətli dəmir yolu",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "high-speed-rail.mp3",
+    "bytes": 2050076,
+    "chars": 4586,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "pipelines": {
+    "title": "Boru kəmərləri",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "pipelines.mp3",
+    "bytes": 1943804,
+    "chars": 4446,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "vaccination": {
+    "title": "Peyvəndləmə",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "vaccination.mp3",
+    "bytes": 1743356,
+    "chars": 3860,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "antibiotics": {
+    "title": "Antibiotiklər",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "antibiotics.mp3",
+    "bytes": 1680140,
+    "chars": 3644,
+    "segments": 23,
+    "join": "ffmpeg+loudnorm"
+  },
+  "germ-theory-of-disease": {
+    "title": "Xəstəliklərin mikrob nəzəriyyəsi",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "germ-theory-of-disease.mp3",
+    "bytes": 1698428,
+    "chars": 3675,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "anaesthesia": {
+    "title": "Anesteziya",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "anaesthesia.mp3",
+    "bytes": 1639676,
+    "chars": 3438,
+    "segments": 21,
+    "join": "ffmpeg+loudnorm"
+  },
+  "x-rays-and-medical-imaging": {
+    "title": "Rentgen şüaları və tibbi görüntüləmə",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "x-rays-and-medical-imaging.mp3",
+    "bytes": 1597484,
+    "chars": 3353,
+    "segments": 23,
+    "join": "ffmpeg+loudnorm"
+  },
+  "sanitation-and-clean-water-systems": {
+    "title": "Sanitariya və təmiz su sistemləri",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "sanitation-and-clean-water-systems.mp3",
+    "bytes": 1701740,
+    "chars": 3607,
+    "segments": 24,
+    "join": "ffmpeg+loudnorm"
+  },
+  "dna-structure-and-molecular-genetics": {
+    "title": "DNT-nin quruluşu və molekulyar genetika",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "dna-structure-and-molecular-genetics.mp3",
+    "bytes": 1857116,
+    "chars": 4018,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "human-genome-sequencing": {
+    "title": "İnsan genomunun sekvenslənməsi",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "human-genome-sequencing.mp3",
+    "bytes": 1724204,
+    "chars": 3714,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "crispr-gene-editing": {
+    "title": "CRISPR vasitəsilə gen redaktəsi",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "crispr-gene-editing.mp3",
+    "bytes": 1982540,
+    "chars": 4498,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "pasteurization": {
+    "title": "Pasterizasiya",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "pasteurization.mp3",
+    "bytes": 1832060,
+    "chars": 4049,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "mrna-vaccines": {
+    "title": "mRNT vaksinləri",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "mrna-vaccines.mp3",
+    "bytes": 2008316,
+    "chars": 4415,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "soap-and-hygiene": {
+    "title": "Sabun və gigiyena",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "soap-and-hygiene.mp3",
+    "bytes": 1918172,
+    "chars": 4261,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "blood-transfusion": {
+    "title": "Qan köçürülməsi",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "blood-transfusion.mp3",
+    "bytes": 2021420,
+    "chars": 4579,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "insulin": {
+    "title": "İnsulin",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "insulin.mp3",
+    "bytes": 2040860,
+    "chars": 4572,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "organ-transplantation": {
+    "title": "Orqan transplantasiyası",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "organ-transplantation.mp3",
+    "bytes": 2099036,
+    "chars": 4776,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "ivf": {
+    "title": "Ekstrakorporal mayalanma (IVF)",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "ivf.mp3",
+    "bytes": 1987436,
+    "chars": 4427,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "mri": {
+    "title": "Maqnit-rezonans tomoqrafiyası (MRT)",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "mri.mp3",
+    "bytes": 1871372,
+    "chars": 4092,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "oral-rehydration-therapy": {
+    "title": "Oral rehidratasiya terapiyası",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "oral-rehydration-therapy.mp3",
+    "bytes": 1852364,
+    "chars": 3995,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "the-periodic-table": {
+    "title": "Kimyəvi elementlərin dövri cədvəli",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "the-periodic-table.mp3",
+    "bytes": 1863596,
+    "chars": 4073,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "quantum-mechanics": {
+    "title": "Kvant mexanikası",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "quantum-mechanics.mp3",
+    "bytes": 1397324,
+    "chars": 3053,
+    "segments": 19,
+    "join": "ffmpeg+loudnorm"
+  },
+  "theory-of-relativity": {
+    "title": "Nisbilik nəzəriyyəsi",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "theory-of-relativity.mp3",
+    "bytes": 1838972,
+    "chars": 3986,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "nuclear-energy-and-nuclear-science": {
+    "title": "Nüvə enerjisi və nüvə elmi",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "nuclear-energy-and-nuclear-science.mp3",
+    "bytes": 1580060,
+    "chars": 3368,
+    "segments": 22,
+    "join": "ffmpeg+loudnorm"
+  },
+  "plastics-and-synthetic-materials": {
+    "title": "Plastiklər və sintetik materiallar",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "plastics-and-synthetic-materials.mp3",
+    "bytes": 2081612,
+    "chars": 4587,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "fertilisers-and-modern-agricultural-chemistry": {
+    "title": "Gübrələr və müasir kənd təsərrüfatı kimyası",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "fertilisers-and-modern-agricultural-chemistry.mp3",
+    "bytes": 1865756,
+    "chars": 4121,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "distillation": {
+    "title": "Distillə",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "distillation.mp3",
+    "bytes": 1881452,
+    "chars": 4163,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "portland-cement": {
+    "title": "Portland sementi",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "portland-cement.mp3",
+    "bytes": 1835948,
+    "chars": 3971,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "modern-steelmaking": {
+    "title": "Müasir polad istehsalı",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "modern-steelmaking.mp3",
+    "bytes": 1982396,
+    "chars": 4406,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "aluminium-production": {
+    "title": "Alüminium istehsalı",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "aluminium-production.mp3",
+    "bytes": 1958204,
+    "chars": 4326,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "industrial-catalysis": {
+    "title": "Sənaye katalizi",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "industrial-catalysis.mp3",
+    "bytes": 1985852,
+    "chars": 4399,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "spectroscopy": {
+    "title": "Spektroskopiya",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "spectroscopy.mp3",
+    "bytes": 1847180,
+    "chars": 3943,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "photovoltaic-cells": {
+    "title": "Fotovoltaik elementlər",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "photovoltaic-cells.mp3",
+    "bytes": 2047196,
+    "chars": 4477,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "telegraph": {
+    "title": "Teleqraf",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "telegraph.mp3",
+    "bytes": 1387244,
+    "chars": 2903,
+    "segments": 19,
+    "join": "ffmpeg+loudnorm"
+  },
+  "telephone": {
+    "title": "Telefon",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "telephone.mp3",
+    "bytes": 1383068,
+    "chars": 2945,
+    "segments": 19,
+    "join": "ffmpeg+loudnorm"
+  },
+  "radio": {
+    "title": "Radio",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "radio.mp3",
+    "bytes": 1452044,
+    "chars": 3088,
+    "segments": 21,
+    "join": "ffmpeg+loudnorm"
+  },
+  "transistor": {
+    "title": "Tranzistor",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "transistor.mp3",
+    "bytes": 1380764,
+    "chars": 2923,
+    "segments": 19,
+    "join": "ffmpeg+loudnorm"
+  },
+  "integrated-circuit-microchip": {
+    "title": "İnteqral sxem / mikroçip",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "integrated-circuit-microchip.mp3",
+    "bytes": 1358300,
+    "chars": 2883,
+    "segments": 19,
+    "join": "ffmpeg+loudnorm"
+  },
+  "computer": {
+    "title": "Kompüter",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "computer.mp3",
+    "bytes": 1614908,
+    "chars": 3467,
+    "segments": 23,
+    "join": "ffmpeg+loudnorm"
+  },
+  "internet": {
+    "title": "İnternet",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "internet.mp3",
+    "bytes": 1448300,
+    "chars": 3010,
+    "segments": 21,
+    "join": "ffmpeg+loudnorm"
+  },
+  "world-wide-web": {
+    "title": "Ümumdünya Veb Şəbəkəsi",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "world-wide-web.mp3",
+    "bytes": 1728812,
+    "chars": 3604,
+    "segments": 24,
+    "join": "ffmpeg+loudnorm"
+  },
+  "search-engines": {
+    "title": "Axtarış sistemləri",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "search-engines.mp3",
+    "bytes": 1826588,
+    "chars": 3927,
+    "segments": 24,
+    "join": "ffmpeg+loudnorm"
+  },
+  "satellite-technology": {
+    "title": "Peyk texnologiyası",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "satellite-technology.mp3",
+    "bytes": 1556732,
+    "chars": 3323,
+    "segments": 22,
+    "join": "ffmpeg+loudnorm"
+  },
+  "gps-global-positioning-system": {
+    "title": "GPS (Qlobal Mövqetəyinetmə Sistemi)",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "gps-global-positioning-system.mp3",
+    "bytes": 1506620,
+    "chars": 3188,
+    "segments": 20,
+    "join": "ffmpeg+loudnorm"
+  },
+  "semiconductor-technology": {
+    "title": "Yarımkeçirici texnologiyası",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "semiconductor-technology.mp3",
+    "bytes": 1673516,
+    "chars": 3579,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "laser": {
+    "title": "Lazer",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "laser.mp3",
+    "bytes": 1465148,
+    "chars": 3108,
+    "segments": 20,
+    "join": "ffmpeg+loudnorm"
+  },
+  "fibre-optic-communication": {
+    "title": "Fiber-optik rabitə",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "fibre-optic-communication.mp3",
+    "bytes": 1656956,
+    "chars": 3519,
+    "segments": 24,
+    "join": "ffmpeg+loudnorm"
+  },
+  "spaceflight": {
+    "title": "Kosmik uçuş",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "spaceflight.mp3",
+    "bytes": 1735148,
+    "chars": 3641,
+    "segments": 24,
+    "join": "ffmpeg+loudnorm"
+  },
+  "smartphones": {
+    "title": "Smartfonlar",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "smartphones.mp3",
+    "bytes": 1682588,
+    "chars": 3579,
+    "segments": 23,
+    "join": "ffmpeg+loudnorm"
+  },
+  "social-media-platforms": {
+    "title": "Sosial media platformaları",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "social-media-platforms.mp3",
+    "bytes": 1667468,
+    "chars": 3473,
+    "segments": 24,
+    "join": "ffmpeg+loudnorm"
+  },
+  "cloud-computing": {
+    "title": "Bulud hesablamaları",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "cloud-computing.mp3",
+    "bytes": 1722044,
+    "chars": 3746,
+    "segments": 24,
+    "join": "ffmpeg+loudnorm"
+  },
+  "photography": {
+    "title": "Fotoqrafiya",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "photography.mp3",
+    "bytes": 1901756,
+    "chars": 4023,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "television": {
+    "title": "Televiziya",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "television.mp3",
+    "bytes": 1648460,
+    "chars": 3537,
+    "segments": 24,
+    "join": "ffmpeg+loudnorm"
+  },
+  "public-key-cryptography": {
+    "title": "Açıq açarlı kriptoqrafiya",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "public-key-cryptography.mp3",
+    "bytes": 1832924,
+    "chars": 3995,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "email": {
+    "title": "Elektron poçt",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "email.mp3",
+    "bytes": 1649612,
+    "chars": 3475,
+    "segments": 23,
+    "join": "ffmpeg+loudnorm"
+  },
+  "cinema": {
+    "title": "Kino",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "cinema.mp3",
+    "bytes": 1562204,
+    "chars": 3274,
+    "segments": 22,
+    "join": "ffmpeg+loudnorm"
+  },
+  "recorded-sound": {
+    "title": "Səs yazısı",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "recorded-sound.mp3",
+    "bytes": 1770860,
+    "chars": 3877,
+    "segments": 24,
+    "join": "ffmpeg+loudnorm"
+  },
+  "the-bicycle": {
+    "title": "Velosiped",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "the-bicycle.mp3",
+    "bytes": 1784108,
+    "chars": 3886,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "washing-machine": {
+    "title": "Paltaryuyan maşın",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "washing-machine.mp3",
+    "bytes": 1750268,
+    "chars": 3845,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "electronic-payments": {
+    "title": "Elektron ödənişlər",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "electronic-payments.mp3",
+    "bytes": 1734716,
+    "chars": 3845,
+    "segments": 23,
+    "join": "ffmpeg+loudnorm"
+  },
+  "barcodes-and-qr-codes": {
+    "title": "Ştrixkodlar və QR-kodlar",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "barcodes-and-qr-codes.mp3",
+    "bytes": 1709516,
+    "chars": 3626,
+    "segments": 24,
+    "join": "ffmpeg+loudnorm"
+  },
+  "sms-and-instant-messaging": {
+    "title": "SMS və ani mesajlaşma",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "sms-and-instant-messaging.mp3",
+    "bytes": 1753868,
+    "chars": 3727,
+    "segments": 23,
+    "join": "ffmpeg+loudnorm"
+  },
+  "artificial-intelligence": {
+    "title": "Süni intellekt",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "artificial-intelligence.mp3",
+    "bytes": 1815500,
+    "chars": 3944,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "renewable-energy-technologies": {
+    "title": "Bərpa olunan enerji texnologiyaları",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "renewable-energy-technologies.mp3",
+    "bytes": 1873964,
+    "chars": 4087,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "battery-technology": {
+    "title": "Batareya texnologiyası",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "battery-technology.mp3",
+    "bytes": 1753868,
+    "chars": 3720,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "electric-vehicles": {
+    "title": "Elektrik nəqliyyat vasitələri",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "electric-vehicles.mp3",
+    "bytes": 1714268,
+    "chars": 3733,
+    "segments": 24,
+    "join": "ffmpeg+loudnorm"
+  },
+  "robotics": {
+    "title": "Robototexnika",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "robotics.mp3",
+    "bytes": 1675244,
+    "chars": 3509,
+    "segments": 24,
+    "join": "ffmpeg+loudnorm"
+  },
+  "3d-printing-additive-manufacturing": {
+    "title": "3D çap (additiv istehsal)",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "3d-printing-additive-manufacturing.mp3",
+    "bytes": 1675820,
+    "chars": 3525,
+    "segments": 23,
+    "join": "ffmpeg+loudnorm"
+  },
+  "blockchain": {
+    "title": "Blokçeyn",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "blockchain.mp3",
+    "bytes": 1689788,
+    "chars": 3628,
+    "segments": 24,
+    "join": "ffmpeg+loudnorm"
+  },
+  "quantum-computing": {
+    "title": "Kvant hesablamaları",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "quantum-computing.mp3",
+    "bytes": 1738172,
+    "chars": 3819,
+    "segments": 24,
+    "join": "ffmpeg+loudnorm"
+  },
+  "gene-therapy": {
+    "title": "Gen terapiyası",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "gene-therapy.mp3",
+    "bytes": 1802972,
+    "chars": 3967,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "cellular-agriculture": {
+    "title": "Hüceyrəvi kənd təsərrüfatı",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "cellular-agriculture.mp3",
+    "bytes": 1829180,
+    "chars": 4165,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "brain-computer-interfaces": {
+    "title": "Beyin, kompüter interfeysləri",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "brain-computer-interfaces.mp3",
+    "bytes": 1883900,
+    "chars": 4316,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "nuclear-fusion": {
+    "title": "Nüvə sintezi",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "nuclear-fusion.mp3",
+    "bytes": 1938908,
+    "chars": 4463,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  },
+  "carbon-capture": {
+    "title": "Karbon dioksidin tutulması",
+    "voice": "az-AZ-BabekNeural",
+    "prosody": "v2",
+    "file": "carbon-capture.mp3",
+    "bytes": 1803836,
+    "chars": 4105,
+    "segments": 25,
+    "join": "ffmpeg+loudnorm"
+  }
+}

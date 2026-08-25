@@ -224,7 +224,8 @@ body.inventions-preview-page {
   width: 0.45rem;
 }
 
-.inventions-category:not(.is-collapsed) .inventions-category-toggle__chevron {
+.inventions-category:not(.is-collapsed) .inventions-category-toggle__chevron,
+.inventions-cards-category:not(.is-collapsed) .inventions-category-toggle__chevron {
   margin-top: 0.12rem;
   transform: rotate(-135deg);
 }
@@ -244,7 +245,7 @@ body.inventions-preview-page {
 .inventions-entry {
   background: var(--white);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--radius-card, 24px) var(--radius-card, 24px) 12px 12px;
   margin: 0 0 16px;
   overflow: hidden;
   padding: 22px 22px 20px;
@@ -274,7 +275,7 @@ body.inventions-preview-page {
   column-gap: 0.55em;
   margin: -22px -22px 14px;
   padding: 16px 22px;
-  border-radius: 0;
+  border-radius: var(--radius-card, 24px) var(--radius-card, 24px) 0 0;
   background: linear-gradient(
     135deg,
     var(--blue-900, #06314e) 0%,

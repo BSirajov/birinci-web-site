@@ -50,11 +50,22 @@ except ImportError as exc:  # pragma: no cover
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from i18n_config import SUPPORTED_LANGS, TTS_DIALOGUE_VOICES, TTS_VOICES  # noqa: E402
+from i18n_config import (  # noqa: E402
+    SUPPORTED_LANGS,
+    TTS_DIALOGUE_VOICES,
+    TTS_VOICES,
+    story_audio_dir,
+)
 from stories_catalog import load_stories_catalog, stories_data_path  # noqa: E402
 
+_STORIES_PREFIX = "window.__BIRINCI_STORIES__ = "
+_STORY_ARTICLE_RE = re.compile(
+    r'<article\b(?=[^>]*\bclass="[^"]*\bstory\b)[^>]*>',
+    re.I,
+)
+
 DATA_JS = stories_data_path("az")
-AUDIO_DIR = ROOT / "az" / "audio"
+AUDIO_DIR = story_audio_dir("az")
 MANIFEST_JSON = AUDIO_DIR / "manifest.json"
 
 VOICE_FEMALE = "az-AZ-BanuNeural"
@@ -95,7 +106,7 @@ def configure_lang(lang: str) -> None:
         raise SystemExit(f"Unsupported lang {lang}")
     LANG = lang
     DATA_JS = stories_data_path(lang)
-    AUDIO_DIR = ROOT / lang / "audio"
+    AUDIO_DIR = story_audio_dir(lang)
     MANIFEST_JSON = AUDIO_DIR / "manifest.json"
     voice = TTS_VOICES.get(lang)
     if not voice:
@@ -184,6 +195,81 @@ def load_manifest(path: Path | None = None) -> dict[str, dict]:
     except json.JSONDecodeError:
         return {}
     return data if isinstance(data, dict) else {}
+
+
+def existing_audio_stems(lang: str | None = None) -> set[str]:
+    audio_dir = story_audio_dir(lang or LANG)
+    if not audio_dir.is_dir():
+        return set()
+    return {path.stem for path in audio_dir.glob("*.mp3") if path.is_file()}
+
+
+def _asset_version() -> str:
+    try:
+        from chrome_restore import SITE_ASSET_VERSION
+
+        return str(SITE_ASSET_VERSION)
+    except Exception:
+        return "20260823o"
+
+
+def _inject_article_audio(html: str, rel_prefix: str, version: str, stems: set[str]) -> str:
+    def repl(match: re.Match[str]) -> str:
+        tag = match.group(0)
+        stem_m = re.search(r'\bdata-stem="([^"]+)"', tag)
+        if not stem_m:
+            return tag
+        stem = stem_m.group(1)
+        if stem not in stems:
+            return re.sub(r'\s+data-audio="[^"]*"', "", tag)
+        attr = f' data-audio="{rel_prefix}{stem}.mp3?v={version}"'
+        if "data-audio=" in tag:
+            return re.sub(r'\s+data-audio="[^"]*"', attr, tag)
+        return tag[:-1] + attr + ">"
+
+    return _STORY_ARTICLE_RE.sub(repl, html)
+
+
+def link_story_audio(lang: str | None = None) -> tuple[int, int]:
+    """Mark hasAudio and attach data-audio for generated MP3s."""
+    lang = lang or LANG
+    stems = existing_audio_stems(lang)
+    data_path = stories_data_path(lang)
+    marked = 0
+    if data_path.is_file():
+        text = data_path.read_text(encoding="utf-8")
+        start = text.find(_STORIES_PREFIX)
+        if start >= 0:
+            payload_start = start + len(_STORIES_PREFIX)
+            blob, end = json.JSONDecoder().raw_decode(text, payload_start)
+            for cat in blob.get("categories") or []:
+                for story in cat.get("stories") or []:
+                    stem = story.get("stem")
+                    story["hasAudio"] = bool(stem and stem in stems)
+                    if story["hasAudio"]:
+                        marked += 1
+            suffix = text[end:]
+            if not suffix.startswith(";"):
+                suffix = ";" + suffix.lstrip()
+            data_path.write_text(
+                text[:start]
+                + _STORIES_PREFIX
+                + json.dumps(blob, ensure_ascii=False, separators=(", ", ": "))
+                + suffix,
+                encoding="utf-8",
+            )
+
+    version = _asset_version()
+    pages = 0
+    cat_dir = ROOT / lang / "categories"
+    if cat_dir.is_dir():
+        for path in sorted(cat_dir.glob("*.html")):
+            raw = path.read_text(encoding="utf-8")
+            new = _inject_article_audio(raw, "../wisdom-stories/audio/", version, stems)
+            if new != raw:
+                path.write_text(new, encoding="utf-8")
+                pages += 1
+    return marked, pages
 
 
 def stems_with_voice(voice: str) -> set[str]:
@@ -653,6 +739,9 @@ async def run(
         f"ffmpeg={'yes' if ffmpeg else 'no'}",
         flush=True,
     )
+    if not pilot:
+        marked, pages = link_story_audio(LANG)
+        print(f"linked hasAudio={marked} category_pages={pages}", flush=True)
     if failed:
         raise SystemExit("Failed stems: " + ", ".join(failed))
 
@@ -714,7 +803,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         "--pilot",
         action="store_true",
         help=(
-            "Write {lang}/audio/pilot/{stem}.mp3 (does not overwrite production). "
+            "Write {lang}/wisdom-stories/audio/pilot/{stem}.mp3 (does not overwrite production). "
             "With no stems, uses the 10-story listening set across az/en/ru."
         ),
     )

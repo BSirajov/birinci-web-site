@@ -12,13 +12,20 @@ from i18n_config import SUPPORTED_LANGS  # noqa: E402
 
 DEPLOY = ROOT / "deployment"
 LANGS = SUPPORTED_LANGS
-COPY_DIRS = ("assets", "categories", "illustrations")
+COPY_DIRS = ("assets", "categories")
+CONTENT_DIRS = ("wisdom-stories", "discovery-articles")
 OPTIONAL_PAGE_DIRS = ("about", "discoveries")
-OPTIONAL_DIRS = ("audio", "data")
+OPTIONAL_DIRS = ("data",)
 COPY_FILES = ("index.html", "sitemap.html")
 
-# ADİL PDF sources are local build inputs only — never publish them.
-IGNORE_PUBLISH = shutil.ignore_patterns("*.pdf", "*.PDF")
+# Word/PDF sources are local authoring inputs — never publish them.
+IGNORE_PUBLISH = shutil.ignore_patterns(
+    "*.pdf",
+    "*.PDF",
+    "*.docx",
+    "*.DOCX",
+    "Age10-14",
+)
 
 
 def copy_locale(lang: str) -> None:
@@ -34,13 +41,13 @@ def copy_locale(lang: str) -> None:
     for name in COPY_DIRS:
         src = src_root / name
         if not src.is_dir():
-            # Allow empty illustrations during locale rollout
-            if name == "illustrations":
-                (dst / name).mkdir(parents=True, exist_ok=True)
-                continue
             raise SystemExit(f"Missing required folder: {src}")
         ignore = IGNORE_PUBLISH if name == "assets" else None
         shutil.copytree(src, dst / name, ignore=ignore)
+    for name in CONTENT_DIRS:
+        src = src_root / name
+        if src.is_dir():
+            shutil.copytree(src, dst / name, ignore=IGNORE_PUBLISH)
     for name in OPTIONAL_PAGE_DIRS:
         src = src_root / name
         if src.is_dir():
@@ -78,11 +85,16 @@ def main() -> None:
 
     files = sum(1 for p in DEPLOY.rglob("*") if p.is_file())
     size_mb = sum(p.stat().st_size for p in DEPLOY.rglob("*") if p.is_file()) / (1024 * 1024)
-    pdfs = list(DEPLOY.rglob("*.pdf")) + list(DEPLOY.rglob("*.PDF"))
+    blocked = (
+        list(DEPLOY.rglob("*.pdf"))
+        + list(DEPLOY.rglob("*.PDF"))
+        + list(DEPLOY.rglob("*.docx"))
+        + list(DEPLOY.rglob("*.DOCX"))
+    )
     print(f"deployment: {DEPLOY} (local publish copy, not committed)")
     print(f"files={files} size_mb={size_mb:.1f}")
-    if pdfs:
-        raise SystemExit(f"Publish tree unexpectedly contains PDFs: {pdfs[:5]}")
+    if blocked:
+        raise SystemExit(f"Publish tree unexpectedly contains authoring files: {blocked[:5]}")
 
 
 if __name__ == "__main__":

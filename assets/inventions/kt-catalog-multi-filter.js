@@ -14,35 +14,54 @@
   var MAX_LIST_HEIGHT = 320;
 
   function lang() {
-    var root = document.documentElement;
-    return (
-      root.getAttribute("data-kt-lang") ||
-      root.lang ||
+    var raw = (
+      document.documentElement.getAttribute("data-kt-lang") ||
+      document.documentElement.lang ||
+      (document.body && document.body.getAttribute("data-lang")) ||
       "az"
-    ).indexOf("en") === 0
-      ? "en"
-      : "az";
+    ).toLowerCase();
+    if (raw.indexOf("en") === 0) return "en";
+    if (raw.indexOf("ru") === 0) return "ru";
+    if (raw.indexOf("ky") === 0) return "ky";
+    return "az";
   }
 
   function strings() {
-    if (lang() === "en") {
-      return {
+    var pack = {
+      en: {
         selectAll: "Select all",
         search: "Search options…",
         selected: function (n) {
           return n + " selected";
         },
         clear: "Clear filter",
-      };
-    }
-    return {
-      selectAll: "Hamısını seç",
-      search: "Seçimləri axtar…",
-      selected: function (n) {
-        return n + " seçilib";
       },
-      clear: "Filtri sil",
+      ru: {
+        selectAll: "Выбрать все",
+        search: "Поиск по списку…",
+        selected: function (n) {
+          return "Выбрано: " + n;
+        },
+        clear: "Сбросить фильтр",
+      },
+      ky: {
+        selectAll: "Баарын тандоо",
+        search: "Тизмеден издөө…",
+        selected: function (n) {
+          return n + " тандалды";
+        },
+        clear: "Фильтрди тазалоо",
+      },
+      az: {
+        selectAll: "Hamısını seç",
+        search: "Seçimləri axtar…",
+        selected: function (n) {
+          return n + " seçilib";
+        },
+        clear: "Filtri sil",
+      },
     };
+    return pack[lang()] || pack.az;
   }
 
   function parseOptions(select) {
@@ -545,7 +564,7 @@
     var scope = root || document;
     scope
       .querySelectorAll(
-        ".toolbar.catalog-toolbar .sel-wrap select[id], .tools-bar--inventions .sel-wrap select[id]"
+        ".toolbar.catalog-toolbar .sel-wrap select[id], .tools-bar--inventions .sel-wrap select[id], .tools-bar .sel-wrap select[id]"
       )
       .forEach(function (select) {
         enhanceSelect(select);

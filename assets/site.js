@@ -50,6 +50,484 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     return pack[key] || fallback || key;
   };
 
+  const readStoredBatchPref = ({ allKey, sizeKey, legacyKey, defaultSize = 12 } = {}) => {
+    let stored = "";
+    let allFlag = "";
+    try {
+      allFlag = localStorage.getItem(allKey) || "";
+      stored = localStorage.getItem(sizeKey) || "";
+      if (!stored) {
+        const legacy = localStorage.getItem(legacyKey) || "";
+        if (legacy && legacy !== "all") stored = legacy;
+        else if (legacy === "all") allFlag = allFlag || "1";
+      }
+    } catch (_) {}
+    const n = Number(stored);
+    const hasSize = Number.isFinite(n) && n > 0;
+    return {
+      batchSize: hasSize ? Math.floor(n) : defaultSize,
+      // Missing flag = first visit. Only "0" means the user chose a page size.
+      allMode: allFlag !== "0",
+    };
+  };
+
+  const writeStoredAllMode = (allKey, allMode) => {
+    try {
+      localStorage.setItem(allKey, allMode ? "1" : "0");
+    } catch (_) {}
+  };
+
+  const escapeStoryNav = (value) =>
+    String(value || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+
+  const storyNavGroupsFromCatalog = (catalog) =>
+    ((catalog && catalog.categories) || []).map((cat) => ({
+      slug: cat.slug,
+      title: cat.title,
+      stories: (cat.stories || []).map((story) => ({
+        stem: story.stem,
+        title: story.title,
+      })),
+    }));
+
+  const groupedStoryNavMarkup = (groups, options = {}) => {
+    const visible = options.visibleStems || null;
+    const hrefForStory =
+      options.hrefForStory ||
+      ((stem) => `#${stem}`);
+    const hrefForCategory =
+      options.hrefForCategory ||
+      ((group) => {
+        const first = (group.stories || []).find((story) => !visible || visible.has(story.stem));
+        return first ? hrefForStory(first.stem, group) : `#${group.slug}`;
+      });
+    return groups
+      .map((group, index) => {
+        const stories = group.stories || [];
+        const shown = stories.filter((story) => !visible || visible.has(story.stem));
+        if (!shown.length) return "";
+        const n = index + 1;
+        const catHref = hrefForCategory(group);
+        const catLabel = categoryTitleWithCount(group.title, stories.length);
+        let html = `<li class="inventions-toc-cat-row" data-toc-cat="${escapeStoryNav(
+          group.slug
+        )}"><span class="tl-date">§${n}</span><a href="${escapeStoryNav(catHref)}">${escapeStoryNav(
+          catLabel
+        )}</a></li>`;
+        shown.forEach((story, storyIndex) => {
+          const originalIndex = stories.findIndex((row) => row.stem === story.stem);
+          const num = `${n}.${(originalIndex >= 0 ? originalIndex : storyIndex) + 1}`;
+          html += `<li class="inventions-toc-entry" data-toc-entry="${escapeStoryNav(
+            story.stem
+          )}" data-toc-cat="${escapeStoryNav(group.slug)}" data-stem="${escapeStoryNav(
+            story.stem
+          )}" data-title="${escapeStoryNav(story.title)}"><span class="tl-date">${num}</span><a href="${escapeStoryNav(
+            hrefForStory(story.stem, group)
+          )}">${escapeStoryNav(story.title)}</a></li>`;
+        });
+        return html;
+      })
+      .join("");
+  };
+
+  const fillGroupedStoryNav = (list, options = {}) => {
+    if (!list) return;
+    const collapsed = new Set();
+    list.querySelectorAll(".toc-group[data-toc-cat]:not(.events-open)").forEach((group) => {
+      const slug = group.getAttribute("data-toc-cat");
+      if (slug) collapsed.add(slug);
+    });
+    const catalog = options.catalog || window.__BIRINCI_STORIES__;
+    let groups = storyNavGroupsFromCatalog(catalog);
+    if (!groups.length) {
+      const items = Array.from(list.querySelectorAll("li[data-stem]"));
+      if (!items.length) return;
+      groups = [
+        {
+          slug: options.fallbackSlug || "stories",
+          title: options.fallbackTitle || tUi("nav_stories_all", "Hekayələr"),
+          stories: items.map((item) => ({
+            stem: item.getAttribute("data-stem"),
+            title: item.getAttribute("data-title") || (item.querySelector("a") && item.querySelector("a").textContent) || "",
+          })),
+        },
+      ];
+    }
+    list.removeAttribute("data-kt-toc-groups");
+    list.innerHTML = groupedStoryNavMarkup(groups, options);
+    const api = window.KT_SIDEBAR_TOC_GROUPS;
+    if (api && typeof api.enhanceList === "function") api.enhanceList(list);
+    collapsed.forEach((slug) => {
+      const group = list.querySelector(`.toc-group[data-toc-cat="${cssEscapeAttr(slug)}"]`);
+      if (group && api && typeof api.setGroupExpanded === "function") {
+        api.setGroupExpanded(group, false);
+      }
+    });
+    const catalogGroups = storyNavGroupsFromCatalog(catalog);
+    const countGroups = catalogGroups.length ? catalogGroups : groups;
+    const total = countGroups.reduce((sum, group) => sum + ((group.stories || []).length), 0);
+    setWidgetHeadCount(list.closest(".sidebar-widget"), total);
+  };
+
+  const categoryTitleWithCount = (title, count) => {
+    const base = String(title || "").replace(/\s*\(\d+\)\s*$/, "").trim();
+    const n = Number(count);
+    if (!base || !Number.isFinite(n) || n < 0) return base;
+    return `${base} (${Math.floor(n)})`;
+  };
+
+  const setWidgetHeadCount = (widget, count) => {
+    if (!widget) return;
+    const title =
+      widget.querySelector(".widget-head__title") || widget.querySelector(".widget-head > span");
+    if (!title) return;
+    const n = Math.floor(Number(count));
+    if (!Number.isFinite(n) || n < 0) return;
+    let textNode = null;
+    for (let node = title.firstChild; node; node = node.nextSibling) {
+      if (node.nodeType === 3 && String(node.textContent || "").trim()) textNode = node;
+    }
+    if (!textNode) {
+      title.appendChild(document.createTextNode(""));
+      textNode = title.lastChild;
+    }
+    const base = String(textNode.textContent || "").replace(/\s*\(\d+\)\s*$/, "").replace(/\s+$/, "");
+    textNode.textContent = `${base} (${n})`;
+  };
+
+  const cssEscapeAttr = (value) =>
+    window.CSS && typeof window.CSS.escape === "function"
+      ? window.CSS.escape(value)
+      : String(value || "").replace(/\\/g, "\\\\").replace(/"/g, '\\"');
+
+  const storyCatalogNumbering = (catalog) => {
+    const byStem = new Map();
+    ((catalog && catalog.categories) || []).forEach((cat, catIndex) => {
+      (cat.stories || []).forEach((story, storyIndex) => {
+        byStem.set(story.stem, {
+          num: `${catIndex + 1}.${storyIndex + 1}`,
+          categoryIndex: catIndex + 1,
+          categorySlug: cat.slug,
+          categoryTitle: cat.title,
+        });
+      });
+    });
+    return byStem;
+  };
+
+  const groupStoriesByCategory = (stories, catalog) => {
+    const cats = (catalog && catalog.categories) || [];
+    const order = cats.map((cat) => cat.slug);
+    const titles = new Map(cats.map((cat) => [cat.slug, cat.title]));
+    const totals = new Map(cats.map((cat) => [cat.slug, (cat.stories || []).length]));
+    const buckets = new Map();
+    (stories || []).forEach((story) => {
+      const slug =
+        story.categorySlug ||
+        (story.dataset && story.dataset.categorySlug) ||
+        "stories";
+      if (!buckets.has(slug)) buckets.set(slug, []);
+      buckets.get(slug).push(story);
+    });
+    const slugs = order.filter((slug) => buckets.has(slug));
+    buckets.forEach((_, slug) => {
+      if (!slugs.includes(slug)) slugs.push(slug);
+    });
+    return slugs.map((slug) => {
+      const idx = order.indexOf(slug);
+      const n = idx >= 0 ? idx + 1 : slugs.indexOf(slug) + 1;
+      const first = buckets.get(slug)[0];
+      const title =
+        titles.get(slug) ||
+        (first && (first.categoryTitle || (first.dataset && first.dataset.categoryTitle))) ||
+        slug;
+      return {
+        slug,
+        title,
+        n,
+        stories: buckets.get(slug),
+        total: totals.get(slug) || buckets.get(slug).length,
+      };
+    });
+  };
+
+  const collectCollapsedStoryCategories = (root) => {
+    const collapsed = new Set();
+    (root || document).querySelectorAll(".inventions-category.is-collapsed[id]").forEach((cat) => {
+      collapsed.add(cat.id);
+    });
+    return collapsed;
+  };
+
+  const bindStoryCategoryToggles = (root) => {
+    const host = root || document;
+    const api = window.KT_SIDEBAR_TOC_GROUPS;
+    host.querySelectorAll(".inventions-category").forEach((cat) => {
+      if (cat.getAttribute("data-kt-cat-toggle")) return;
+      cat.setAttribute("data-kt-cat-toggle", "1");
+      const head = cat.querySelector(".inventions-category-head");
+      if (!head) return;
+      head.classList.add("inventions-category-head--collapsible");
+      let btn = head.querySelector(".inventions-category-toggle");
+      if (!btn) {
+        btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "inventions-category-toggle";
+        const chevron = document.createElement("span");
+        chevron.className = "inventions-category-toggle__chevron";
+        chevron.setAttribute("aria-hidden", "true");
+        btn.appendChild(chevron);
+        head.appendChild(btn);
+      }
+      btn.setAttribute("aria-expanded", cat.classList.contains("is-collapsed") ? "false" : "true");
+      btn.setAttribute(
+        "aria-label",
+        "Toggle " + (head.textContent || "category").replace(/\s+/g, " ").trim()
+      );
+      const togglePair = () => {
+        const next = cat.classList.contains("is-collapsed");
+        if (cat.id && api && typeof api.setGroupExpanded === "function") {
+          const group = document.querySelector(`.toc-group[data-toc-cat="${cssEscapeAttr(cat.id)}"]`);
+          if (group) {
+            api.setGroupExpanded(group, next);
+            return;
+          }
+        }
+        cat.classList.toggle("is-collapsed", !next);
+        btn.setAttribute("aria-expanded", next ? "true" : "false");
+      };
+      btn.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        togglePair();
+      });
+      head.addEventListener("click", (event) => {
+        if (event.target.closest("a, button")) return;
+        togglePair();
+      });
+    });
+    if (api && typeof api.syncAllMainCategoriesFromToc === "function") {
+      api.syncAllMainCategoriesFromToc(host);
+    }
+  };
+
+  const applyStoryTitleNumber = (titleEl, num, title) => {
+    if (!titleEl || !num) return;
+    const existing = titleEl.querySelector(".inventions-entry-num");
+    if (existing) {
+      existing.textContent = num;
+      const name = titleEl.querySelector(".inventions-entry-name");
+      if (name && title) name.textContent = title;
+      return;
+    }
+    const safeNum = String(num)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+    const safeTitle = String(title || titleEl.textContent || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+    titleEl.innerHTML = `<span class="inventions-entry-num" aria-hidden="true">${safeNum}</span><span class="inventions-entry-name">${safeTitle}</span>`;
+  };
+
+  const loadStoriesCatalog = (scriptUrl) => {
+    if (window.__BIRINCI_STORIES__) return Promise.resolve(window.__BIRINCI_STORIES__);
+    if (!scriptUrl) return Promise.resolve(null);
+    return new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = scriptUrl;
+      script.async = true;
+      script.onload = () => resolve(window.__BIRINCI_STORIES__ || null);
+      script.onerror = () => resolve(null);
+      document.head.appendChild(script);
+    });
+  };
+
+  const storyCategorySlugFromHref = (href) => {
+    const match = String(href || "").match(/([^/]+)\.html(?:[?#].*)?$/i);
+    return match ? decodeURIComponent(match[1]) : "";
+  };
+
+  const parseStoryCatParam = (params) => {
+    const raw = params && typeof params.get === "function" ? params.get("cat") || "" : "";
+    return String(raw)
+      .split(",")
+      .map((part) => part.trim())
+      .filter(Boolean);
+  };
+
+  const storyCategoriesForFilter = () => {
+    const cats = ((window.__BIRINCI_STORIES__ || {}).categories) || [];
+    if (cats.length) {
+      return cats.map((cat, index) => ({
+        slug: cat.slug,
+        title: cat.title,
+        label: `${index + 1}. ${cat.title}`,
+      }));
+    }
+    return Array.from(document.querySelectorAll(".cat-card[href], .cat-card[data-slug]"))
+      .map((card, index) => {
+        const slug = card.getAttribute("data-slug") || storyCategorySlugFromHref(card.getAttribute("href"));
+        const title =
+          card.getAttribute("data-title") ||
+          ((card.querySelector(".card-title, h2") || {}).textContent || "").trim() ||
+          slug;
+        return { slug, title, label: `${index + 1}. ${title}` };
+      })
+      .filter((row) => row.slug);
+  };
+
+  const activeStoryCategorySlugs = () => {
+    const api = window.KT_CATALOG_MULTI_FILTER;
+    if (api && typeof api.getActiveValues === "function") {
+      return api.getActiveValues("filterStoryCategory") || [];
+    }
+    const select = document.getElementById("filterStoryCategory");
+    return select && select.value ? [select.value] : [];
+  };
+
+  const storyCategoryPasses = (slug) => {
+    const api = window.KT_CATALOG_MULTI_FILTER;
+    if (api && typeof api.passesFilter === "function") {
+      return api.passesFilter("filterStoryCategory", slug);
+    }
+    const active = activeStoryCategorySlugs();
+    return !active.length || active.indexOf(String(slug || "")) >= 0;
+  };
+
+  const syncStoryCategoryFilterChrome = () => {
+    const label = tUi("category_filter", "Kateqoriya");
+    const clear = tUi("clear_filter", "Filtri sil");
+    const labelEl = document.getElementById("story-cat-label");
+    if (labelEl) labelEl.textContent = label;
+    const select = document.getElementById("filterStoryCategory");
+    if (select) {
+      const placeholder = select.querySelector('option[value=""]');
+      if (placeholder) placeholder.textContent = label;
+      select.setAttribute("aria-label", label);
+    }
+    const clearBtn = document.querySelector('.sel-clear[data-for="filterStoryCategory"]');
+    if (clearBtn) {
+      clearBtn.title = clear;
+      clearBtn.setAttribute("aria-label", clear);
+    }
+  };
+
+  const fillStoryCategorySelect = (select, selected) => {
+    if (!select) return;
+    const cats = storyCategoriesForFilter();
+    if (!cats.length) return;
+    const keep = Array.isArray(selected) ? selected.slice() : activeStoryCategorySlugs();
+    const label = tUi("category_filter", "Kateqoriya");
+    select.innerHTML =
+      `<option value="">${escapeStoryNav(label)}</option>` +
+      cats
+        .map(
+          (cat) =>
+            `<option value="${escapeStoryNav(cat.slug)}">${escapeStoryNav(cat.label)}</option>`
+        )
+        .join("");
+    const api = window.KT_CATALOG_MULTI_FILTER;
+    if (api && typeof api.refresh === "function" && api.enhanceSelect) {
+      api.enhanceSelect(select);
+      api.refresh(select.id);
+      if (keep.length) api.setActiveValues(select.id, keep, { silent: true });
+    } else if (keep.length === 1) {
+      select.value = keep[0];
+    }
+    syncStoryCategoryFilterChrome();
+  };
+
+  const bindStoryCategoryFilter = (bar, { initialSlugs, onChange } = {}) => {
+    if (!bar) return null;
+    let field = bar.querySelector("[data-story-cat-filter]");
+    if (!field) {
+      const label = tUi("category_filter", "Kateqoriya");
+      const clear = tUi("clear_filter", "Filtri sil");
+      field = document.createElement("div");
+      field.className = "tools-bar__field tools-bar__field--filter";
+      field.setAttribute("data-story-cat-filter", "");
+      field.innerHTML =
+        `<span class="tools-bar__label" id="story-cat-label">${escapeStoryNav(label)}</span>` +
+        `<div class="sel-wrap">` +
+        `<select id="filterStoryCategory" aria-labelledby="story-cat-label"><option value="">${escapeStoryNav(
+          label
+        )}</option></select>` +
+        `<button class="sel-clear" data-for="filterStoryCategory" title="${escapeStoryNav(
+          clear
+        )}" type="button" aria-label="${escapeStoryNav(clear)}">×</button>` +
+        `</div>`;
+      const search = bar.querySelector(".tools-bar__search");
+      if (search) search.after(field);
+      else bar.insertBefore(field, bar.firstChild);
+    }
+    const select = field.querySelector("#filterStoryCategory");
+    fillStoryCategorySelect(select, initialSlugs);
+    const api = window.KT_CATALOG_MULTI_FILTER;
+    if (api && typeof api.enhanceSelect === "function") {
+      api.enhanceSelect(select);
+      if (initialSlugs && initialSlugs.length) {
+        api.setActiveValues(select.id, initialSlugs, { silent: true });
+      }
+      const clearBtn = field.querySelector(".sel-clear");
+      if (clearBtn && clearBtn.getAttribute("data-kt-multi-clear") !== "1") {
+        clearBtn.setAttribute("data-kt-multi-clear", "1");
+        clearBtn.addEventListener("click", (event) => {
+          event.stopPropagation();
+          api.clear(select.id);
+        });
+      }
+    }
+    if (!select.dataset.storyCatBound) {
+      select.dataset.storyCatBound = "1";
+      select.addEventListener("change", () => {
+        if (typeof onChange === "function") onChange(activeStoryCategorySlugs());
+      });
+    }
+    window.__birinciRefreshStoryCategoryFilter = () => {
+      const current = activeStoryCategorySlugs();
+      fillStoryCategorySelect(
+        select,
+        current.length ? current : initialSlugs
+      );
+    };
+    return select;
+  };
+
+  const historyHref = () =>
+    String(window.location.pathname || "/") +
+    String(window.location.search || "") +
+    String(window.location.hash || "");
+
+  const pagePathKey = (pathname) => {
+    const path = String(pathname || "/").replace(/\\/g, "/");
+    const stripped = path.replace(/^\/(az|en|ru|ky)(?=\/|$)/i, "") || "/";
+    return stripped.replace(/\/index\.html$/i, "/").replace(/\/+$/, "") || "/";
+  };
+
+  const commitHistoryHref = (nextHref, { replace = false } = {}) => {
+    const next = String(nextHref || "");
+    if (!next || next === historyHref()) return false;
+    try {
+      if (replace) history.replaceState({ birinci: 1 }, "", next);
+      else history.pushState({ birinci: 1 }, "", next);
+      window.__birinciPageKey = pagePathKey(window.location.pathname);
+      return true;
+    } catch (_) {
+      return false;
+    }
+  };
+
+  window.__birinciHistoryHref = historyHref;
+  window.__birinciPagePathKey = pagePathKey;
+  window.__birinciCommitHistoryHref = commitHistoryHref;
+  window.__birinciPageKey = pagePathKey(window.location.pathname);
+
   const prefersReducedMotion = () => {
     try {
       return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -670,10 +1148,22 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const ctx = browseContext();
       syncLangHrefs();
       stashLangContext(ctx);
+      const code = (link.getAttribute("data-lang") || "").toLowerCase();
       try {
-        localStorage.setItem("birinci-lang", link.getAttribute("data-lang") || "");
+        localStorage.setItem("birinci-lang", code);
       } catch (_) {}
+      if (typeof window.__birinciSetLiveLang === "function") {
+        event.preventDefault();
+        closeMenu();
+        window.__birinciSetLiveLang(code).catch(() => {
+          if (modalHostOpen()) return;
+          window.location.href = link.href;
+        });
+      }
     });
+
+    window.__birinciSyncLangHrefs = syncLangHrefs;
+    window.__birinciHrefForLang = (code) => hrefForLang(code, browseContext());
 
     syncLangHrefs();
     window.addEventListener("hashchange", syncLangHrefs);
@@ -688,6 +1178,637 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     });
   };
   initLangSwitcher();
+
+  const LANG_META = {
+    az: { short: "AZ", title: "Azərbaycan" },
+    en: { short: "EN", title: "English" },
+    ru: { short: "RU", title: "Русский" },
+    ky: { short: "KY", title: "Кыргызча" },
+  };
+
+  const currentPageLang = () =>
+    (
+      (document.body && document.body.getAttribute("data-lang")) ||
+      document.documentElement.getAttribute("data-kt-lang") ||
+      document.documentElement.lang ||
+      "az"
+    )
+      .toLowerCase()
+      .slice(0, 2);
+
+  const normalizePageLang = (code) => {
+    const key = String(code || "").toLowerCase().slice(0, 2);
+    return LANG_META[key] ? key : currentPageLang();
+  };
+
+  const flagSrcFor = (code) => {
+    const sample = document.querySelector(".lang-switcher__flag");
+    const src = sample && sample.getAttribute("src");
+    if (src) return src.replace(/\/[a-z]{2}\.svg(?:\?.*)?$/i, "/" + code + ".svg");
+    return "/flags/" + code + ".svg";
+  };
+
+  const assetQuery = () => {
+    const tag = document.querySelector('script[src*="site.js"]');
+    const match = tag && tag.src && tag.src.match(/[?&]v=([^&#]+)/);
+    return match ? "?v=" + match[1] : "";
+  };
+
+  const langAssetUrl = (lang, file) => {
+    const path = String(location.pathname || "").replace(/\\/g, "/");
+    if (/\/(categories|discoveries|about|prominent-figures)\//i.test(path)) {
+      return new URL("../../" + lang + "/assets/" + file + assetQuery(), location.href).href;
+    }
+    return new URL("../" + lang + "/assets/" + file + assetQuery(), location.href).href;
+  };
+
+  const setSwitcherAppearance = (root, code) => {
+    if (!root) return;
+    const value = normalizePageLang(code);
+    const meta = LANG_META[value];
+    const toggle = root.querySelector(".lang-switcher__toggle");
+    const flag = toggle && toggle.querySelector(".lang-switcher__flag");
+    const name = toggle && toggle.querySelector(".lang-switcher__name");
+    if (toggle) toggle.title = meta.title;
+    if (flag) flag.src = flagSrcFor(value);
+    if (name) name.textContent = meta.short;
+    root.querySelectorAll("[data-lang]").forEach((opt) => {
+      opt.setAttribute("aria-selected", opt.getAttribute("data-lang") === value ? "true" : "false");
+    });
+    if (root.getAttribute("aria-label") != null) {
+      root.setAttribute("aria-label", tUi("lang_switcher_label", meta.title));
+    }
+  };
+
+  const syncAllLangSwitchers = (code) => {
+    document.querySelectorAll(".lang-switcher:not([data-pref-locale])").forEach((root) => {
+      setSwitcherAppearance(root, code);
+    });
+  };
+
+  const ignoreModalBackdrop = () => {
+    window.__birinciIgnoreModalBackdropUntil = Date.now() + 600;
+  };
+
+  const prefetchModalLangPacks = () => {
+    if (window.__birinciLangPrefetchStarted) return;
+    window.__birinciLangPrefetchStarted = true;
+    const current = currentPageLang();
+    Object.keys(LANG_META).forEach((code) => {
+      if (code === current) return;
+      try {
+        const href =
+          typeof window.__birinciHrefForLang === "function" ? window.__birinciHrefForLang(code) : "";
+        if (href) fetch(new URL(href, location.href).href, { credentials: "same-origin" });
+        fetch(langAssetUrl(code, "i18n.js"), { credentials: "same-origin" });
+      } catch (_) {}
+    });
+  };
+
+  const modalHostOpen = () =>
+    !!(
+      document.querySelector(".text-lightbox:not([hidden])") ||
+      document.querySelector(".inventions-article-modal:not([hidden])")
+    );
+
+  const replaceNodeInner = (target, source) => {
+    if (!target || !source) return;
+    target.innerHTML = source.innerHTML;
+  };
+
+  const copyMatchingText = (fromRoot, toRoot, selector, keyFn) => {
+    if (!fromRoot || !toRoot) return;
+    const fromMap = new Map();
+    fromRoot.querySelectorAll(selector).forEach((el) => {
+      const key = keyFn(el);
+      if (key) fromMap.set(key, el);
+    });
+    toRoot.querySelectorAll(selector).forEach((el) => {
+      const src = fromMap.get(keyFn(el));
+      if (!src) return;
+      if (el.tagName === "A" || src.tagName === "A") {
+        el.textContent = src.textContent;
+      } else {
+        el.innerHTML = src.innerHTML;
+      }
+      if (src.getAttribute && src.getAttribute("data-title") != null) {
+        el.setAttribute("data-title", src.getAttribute("data-title"));
+      }
+    });
+  };
+
+  const applyFetchedChrome = (doc) => {
+    if (!doc) return;
+    if (doc.title) document.title = doc.title;
+    const fromNav = doc.querySelector(".primary-nav");
+    const toNav = document.querySelector(".primary-nav");
+    if (fromNav && toNav) {
+      const copyLink = (fromSel, toSel) => {
+        const from = fromNav.querySelector(fromSel);
+        const to = toNav.querySelector(toSel);
+        if (!from || !to) return;
+        const href = from.getAttribute("href");
+        if (href) to.setAttribute("href", href);
+        const fromLabel = from.querySelector(":scope > span:not(.menu-icon)");
+        const toLabel = to.querySelector(":scope > span:not(.menu-icon)");
+        if (fromLabel && toLabel) toLabel.textContent = fromLabel.textContent;
+      };
+      copyLink("[data-nav-stories-all]", "[data-nav-stories-all]");
+      copyLink('a[href*="discoveries-and-inventions"]', 'a[href*="discoveries-and-inventions"]');
+      copyLink("[data-nav-sitemap]", "[data-nav-sitemap]");
+      const fromAbout = fromNav.querySelector(".nav-dropdown--about");
+      const toAbout = toNav.querySelector(".nav-dropdown--about");
+      if (fromAbout && toAbout) {
+        const fromSum = fromAbout.querySelector(".nav-dropdown__summary > span:not(.menu-icon)");
+        const toSum = toAbout.querySelector(".nav-dropdown__summary > span:not(.menu-icon)");
+        if (fromSum && toSum) toSum.textContent = fromSum.textContent;
+        const fromTitle = fromAbout.querySelector(".nav-dropdown-link-title");
+        const toTitle = toAbout.querySelector(".nav-dropdown-link-title");
+        if (fromTitle && toTitle) toTitle.textContent = fromTitle.textContent;
+        const fromHref = fromAbout.querySelector(".nav-dropdown-link");
+        const toHref = toAbout.querySelector(".nav-dropdown-link");
+        if (fromHref && toHref && fromHref.getAttribute("href")) {
+          toHref.setAttribute("href", fromHref.getAttribute("href"));
+        }
+      }
+      toNav.setAttribute("aria-label", tUi("main_menu", "Əsas menyu"));
+    }
+
+    const fromCrumbs = doc.querySelector(".breadcrumbs");
+    const toCrumbs = document.querySelector(".breadcrumbs");
+    if (fromCrumbs && toCrumbs) replaceNodeInner(toCrumbs, fromCrumbs);
+
+    const skip = document.querySelector(".skip-link");
+    const fromSkip = doc.querySelector(".skip-link");
+    if (skip && fromSkip) skip.textContent = fromSkip.textContent;
+
+    const fromFooter = doc.querySelector("#site-footer, footer.footer-pro, footer");
+    const toFooter = document.querySelector("#site-footer, footer.footer-pro, footer");
+    if (fromFooter && toFooter) {
+      const fromAbout = fromFooter.querySelector(".footer-about");
+      const toAbout = toFooter.querySelector(".footer-about");
+      if (fromAbout && toAbout) toAbout.textContent = fromAbout.textContent;
+      const fromContact = fromFooter.querySelector(".footer-contact__title");
+      const toContact = toFooter.querySelector(".footer-contact__title");
+      if (fromContact && toContact) toContact.textContent = fromContact.textContent;
+      const fromTag = fromFooter.querySelector(".footer-logo__tagline");
+      const toTag = toFooter.querySelector(".footer-logo__tagline");
+      if (fromTag && toTag) toTag.textContent = fromTag.textContent;
+    }
+
+    const fromSearch = doc.querySelector("#global-search");
+    const toSearch = document.querySelector("#global-search");
+    if (fromSearch && toSearch) {
+      const fromIndex = fromSearch.getAttribute("data-search-index");
+      if (fromIndex) toSearch.setAttribute("data-search-index", fromIndex);
+    }
+    const searchToggle = document.getElementById("global-search-toggle");
+    if (searchToggle) {
+      searchToggle.title = tUi("global_search_title_attr", "Axtar (Ctrl+K)");
+      searchToggle.setAttribute("aria-label", tUi("global_search_toggle", "Qlobal axtarış, Ctrl+K"));
+      const label = searchToggle.querySelector(".global-search-toggle__label");
+      if (label) label.textContent = tUi("search", "Axtar…");
+    }
+    const searchTitle = document.getElementById("global-search-title");
+    if (searchTitle) searchTitle.textContent = tUi("global_search", "Qlobal axtarış");
+    const searchInput = document.getElementById("global-search-input");
+    if (searchInput) searchInput.placeholder = tUi("search_stories_placeholder", "Bütün hekayələrdə axtar…");
+    document.querySelectorAll("[data-global-search-close]").forEach((el) => {
+      if (el.classList.contains("global-search__close")) {
+        el.setAttribute("aria-label", tUi("close", "Bağla"));
+      } else {
+        el.setAttribute("aria-label", tUi("close_search", "Axtarışı bağla"));
+      }
+    });
+
+    const jump = document.querySelector(".page-jump");
+    if (jump) {
+      jump.setAttribute("aria-label", tUi("skip_to_content", "Səhifə naviqasiyası"));
+      const top = jump.querySelector(".back-to-top");
+      const bottom = jump.querySelector(".go-to-bottom");
+      if (top) {
+        top.title = tUi("back_to_top", "Səhifənin yuxarısına qayıt");
+        top.setAttribute("aria-label", tUi("back_to_top", "Səhifənin yuxarısına qayıt"));
+      }
+      if (bottom) {
+        bottom.title = tUi("go_to_bottom", "Səhifənin aşağısına get");
+        bottom.setAttribute("aria-label", tUi("go_to_bottom", "Səhifənin aşağısına get"));
+      }
+    }
+
+    const navToggle = document.getElementById("nav-toggle");
+    if (navToggle) navToggle.setAttribute("aria-label", tUi("open_menu", "Menyunu aç"));
+
+    document.querySelectorAll("[data-tools-search]").forEach((el) => {
+      el.placeholder = tUi("search", "Axtar…");
+      el.setAttribute("aria-label", tUi("search_aria", "Axtar"));
+    });
+    const toolsCount = document.querySelector("[data-tools-count]");
+    const fromCount = doc.querySelector("[data-tools-count]");
+    if (toolsCount && fromCount) toolsCount.textContent = fromCount.textContent;
+    const hero = document.querySelector(".category-hero h1, .about-hero__title");
+    const fromHero = doc.querySelector(".category-hero h1, .about-hero__title");
+    if (hero && fromHero) hero.innerHTML = fromHero.innerHTML;
+    const lead = document.querySelector(".category-hero__lead");
+    const fromLead = doc.querySelector(".category-hero__lead");
+    if (lead && fromLead) lead.innerHTML = fromLead.innerHTML;
+
+    const isInventions = document.body.classList.contains("page-inventions");
+    const labelMap = [
+      ["#home-view-label", "view", "Görüntü"],
+      ["#tools-images-label", "images", "Şəkillər"],
+      ["#tools-texts-label", "texts", "Mətnlər"],
+      ["#tools-batch-label", isInventions ? "batch_articles" : "batch", isInventions ? "Məqalələrin sayı" : "Hekayələrin sayı"],
+      ["#tools-listen-page-label", "listen_page", "Səhifəni dinlə"],
+    ];
+    labelMap.forEach(([sel, key, fallback]) => {
+      const el = document.querySelector(sel);
+      if (el) el.textContent = tUi(key, fallback);
+    });
+    document.querySelectorAll("[data-home-view='cards']").forEach((btn) => {
+      btn.title = tUi("view_cards", "Təsnifatlı");
+      btn.setAttribute("aria-label", tUi("view_cards", "Təsnifatlı"));
+    });
+    document.querySelectorAll("[data-home-view='list']").forEach((btn) => {
+      btn.title = tUi("view_list", "Ardıcıl");
+      btn.setAttribute("aria-label", tUi("view_list", "Ardıcıl"));
+    });
+    document.querySelectorAll("[data-search-filter-clear]").forEach((btn) => {
+      btn.title = tUi("clear_search_filter", "Filtri təmizlə");
+      btn.setAttribute("aria-label", tUi("clear_search_filter", "Filtri təmizlə"));
+    });
+    const showLabel = tUi("show", "Göstər");
+    const hideLabel = tUi("hide", "Gizlət");
+    document.querySelectorAll("[data-images-mode='show'], [data-texts-mode='show']").forEach((btn) => {
+      btn.title = showLabel;
+      btn.setAttribute("aria-label", showLabel);
+    });
+    document.querySelectorAll("[data-images-mode='hide'], [data-texts-mode='hide']").forEach((btn) => {
+      btn.title = hideLabel;
+      btn.setAttribute("aria-label", hideLabel);
+    });
+    const batchTitles = {
+      dec: tUi("batch_dec", "Azalt"),
+      inc: tUi("batch_inc", "Artır"),
+      prev: tUi("batch_prev", "Əvvəlki"),
+      next: tUi("batch_next", "Növbəti"),
+      random: tUi("batch_random", "Təsadüfi"),
+      all: tUi("batch_all", "Hamısı"),
+    };
+    document.querySelectorAll("[data-home-batch]").forEach((btn) => {
+      const key = btn.getAttribute("data-home-batch");
+      const label = batchTitles[key];
+      if (!label) return;
+      btn.title = label;
+      btn.setAttribute("aria-label", label);
+    });
+    const batchCount = isInventions
+      ? tUi("batch_articles_count", "Məqalə sayı")
+      : tUi("batch_count", "Hekayə sayı");
+    document.querySelectorAll("[data-home-batch-size]").forEach((el) => {
+      el.title = batchCount;
+      el.setAttribute("aria-label", batchCount);
+    });
+    document.querySelectorAll(".tools-bar__batch-count .visually-hidden").forEach((el) => {
+      el.textContent = batchCount;
+    });
+  };
+
+  const applyFetchedStories = (doc) => {
+    if (!doc) return;
+    document.querySelectorAll("article.story").forEach((story) => {
+      const stem = (story.dataset.stem || story.id || "").trim();
+      if (!stem) return;
+      const src =
+        doc.getElementById(stem) ||
+        doc.querySelector('article.story[data-stem="' + stem + '"]');
+      if (!src) return;
+      const title = src.getAttribute("data-title") || "";
+      if (title) story.setAttribute("data-title", title);
+      const audio = src.getAttribute("data-audio");
+      if (audio) story.setAttribute("data-audio", audio);
+      else story.removeAttribute("data-audio");
+      const fromTitle = src.querySelector(".story__title, .card-title, h2");
+      const toTitle = story.querySelector(".story__title, .card-title, h2");
+      if (fromTitle && toTitle) toTitle.textContent = fromTitle.textContent;
+      const fromText = src.querySelector(".story__text, .card-text");
+      const toText = story.querySelector(".story__text, .card-text");
+      if (fromText && toText) toText.innerHTML = fromText.innerHTML;
+      const fromImg = src.querySelector(".story__figure img");
+      const toImg = story.querySelector(".story__figure img");
+      if (fromImg && toImg) {
+        toImg.alt = fromImg.alt || "";
+        const open = toImg.closest(".story__figure-open");
+        const fromOpen = fromImg.closest(".story__figure-open");
+        if (open && fromOpen) open.setAttribute("aria-label", fromOpen.getAttribute("aria-label") || "");
+      }
+    });
+    copyMatchingText(
+      doc,
+      document,
+      "[data-tools-cards] [data-stem], [data-tools-nav] [data-stem], .home-card[data-stem], [data-view='cards'] [data-stem]",
+      (el) => el.getAttribute("data-stem")
+    );
+    document.querySelectorAll("[data-tools-nav] li[data-stem] a, .story-nav li[data-stem] a").forEach((a) => {
+      const li = a.closest("[data-stem]");
+      if (li && li.getAttribute("data-title")) a.textContent = li.getAttribute("data-title");
+    });
+    document.querySelectorAll(".story-nav .toc-group[data-toc-cat] .toc-group__head a").forEach((a) => {
+      const group = a.closest("[data-toc-cat]");
+      const slug = group && group.getAttribute("data-toc-cat");
+      if (!slug) return;
+      const cat = ((window.__BIRINCI_STORIES__ || {}).categories || []).find((row) => row.slug === slug);
+      if (cat && cat.title) a.textContent = cat.title;
+    });
+    document.querySelectorAll(".story__action-group .tools-bar__label").forEach((label) => {
+      const group = label.closest(".story__action-group");
+      if (!group) return;
+      if (group.querySelector("[data-story-tts]")) {
+        label.textContent = tUi("story_audio_label", "Səsləndir");
+        const views = group.querySelector(".tools-bar__views");
+        if (views) views.setAttribute("aria-label", label.textContent);
+      } else if (group.querySelector("[data-images-mode]")) {
+        label.textContent = tUi("story_image_label", "Şəkil");
+      } else if (group.querySelector("[data-texts-mode]")) {
+        label.textContent = tUi("story_text_label", "Mətn");
+      }
+    });
+    document.querySelectorAll("[data-story-tts][data-tts-mode='listen']").forEach((btn) => {
+      btn.title = tUi("listen", "Mətni dinlə");
+      btn.setAttribute("aria-label", tUi("listen", "Mətni dinlə"));
+    });
+    document.querySelectorAll("[data-story-tts][data-tts-mode='stop']").forEach((btn) => {
+      btn.title = tUi("stop", "Dayandır");
+      btn.setAttribute("aria-label", tUi("stop", "Dayandır"));
+    });
+  };
+
+  const applyFetchedInventions = (doc) => {
+    if (!doc) return;
+    document.querySelectorAll(".inventions-entry").forEach((entry) => {
+      const src = doc.getElementById(entry.id);
+      if (!src) return;
+      const audio = src.getAttribute("data-audio");
+      if (audio) entry.setAttribute("data-audio", audio);
+      else entry.removeAttribute("data-audio");
+      entry.innerHTML = src.innerHTML;
+    });
+    document.querySelectorAll(".inventions-category").forEach((cat) => {
+      if (!cat.id) return;
+      const src = doc.getElementById(cat.id);
+      if (!src) return;
+      const fromHead = src.querySelector(".inventions-category-head");
+      const toHead = cat.querySelector(".inventions-category-head");
+      if (fromHead && toHead) {
+        const label = fromHead.textContent.replace(/\s+/g, " ").trim();
+        const toggle = toHead.querySelector(".inventions-category-toggle, button");
+        if (toggle) {
+          Array.from(toHead.childNodes).forEach((node) => {
+            if (node.nodeType === 3) node.textContent = node === toHead.firstChild ? label + " " : "";
+          });
+          if (![...toHead.childNodes].some((node) => node.nodeType === 3 && node.textContent.trim())) {
+            toHead.insertBefore(document.createTextNode(label + " "), toggle);
+          }
+          toggle.setAttribute("aria-label", "Toggle " + label);
+        } else {
+          toHead.textContent = label;
+        }
+      }
+      if (src.getAttribute("data-category")) {
+        cat.setAttribute("data-category", src.getAttribute("data-category"));
+      }
+    });
+    copyMatchingText(doc, document, ".inventions-toc-entry a, .inventions-toc-cat-row a", (el) => {
+      const row = el.closest("[data-toc-entry], [data-toc-cat]");
+      return (
+        (row && (row.getAttribute("data-toc-entry") || "cat:" + row.getAttribute("data-toc-cat"))) ||
+        el.getAttribute("href")
+      );
+    });
+    const fromCat = doc.getElementById("filterCategory");
+    const toCat = document.getElementById("filterCategory");
+    if (fromCat && toCat) {
+      Array.from(toCat.options).forEach((opt, i) => {
+        if (fromCat.options[i]) opt.textContent = fromCat.options[i].textContent;
+      });
+    }
+    const fromPeriod = doc.getElementById("filterPeriod");
+    const toPeriod = document.getElementById("filterPeriod");
+    if (fromPeriod && toPeriod) {
+      Array.from(toPeriod.options).forEach((opt, i) => {
+        if (fromPeriod.options[i]) opt.textContent = fromPeriod.options[i].textContent;
+      });
+    }
+    const fromTools = doc.querySelector(".tools-bar--inventions");
+    const toTools = document.querySelector(".tools-bar--inventions");
+    if (fromTools && toTools) {
+      const fromLabels = fromTools.querySelectorAll(".tools-bar__label");
+      const toLabels = toTools.querySelectorAll(".tools-bar__label");
+      toLabels.forEach((el, i) => {
+        if (fromLabels[i]) el.textContent = fromLabels[i].textContent;
+      });
+    }
+  };
+
+  const applyDocumentLangAttrs = (code) => {
+    document.documentElement.lang = code;
+    document.documentElement.setAttribute("lang", code);
+    document.documentElement.setAttribute("data-kt-lang", code);
+    if (document.body) document.body.setAttribute("data-lang", code);
+  };
+
+  const syncAudioChromeForLang = () => {
+    SHOW_AUDIO_CONTROLS = liveI18n().show_audio_controls !== false;
+    if (SHOW_AUDIO_CONTROLS) {
+      document.querySelectorAll(".story__action-group[hidden], .tools-bar__field[hidden], .text-lightbox__tts[hidden]").forEach((el) => {
+        if (el.querySelector("[data-story-tts], [data-tools-play-visible]")) {
+          if (
+            el.hasAttribute("data-inventions-list-only") &&
+            !document.body.classList.contains("inventions-view-list")
+          ) {
+            return;
+          }
+          el.hidden = false;
+          el.removeAttribute("hidden");
+        }
+      });
+      ensureStoryListenButtons(document);
+      ensurePageListenButtons();
+    } else {
+      hideAudioChrome(document);
+    }
+  };
+
+  let liveLangBusy = false;
+  const fetchParsedDocument = async (url) => {
+    const res = await fetch(url, { credentials: "same-origin" });
+    if (!res.ok) throw new Error("lang-page-" + res.status);
+    const html = await res.text();
+    return new DOMParser().parseFromString(html, "text/html");
+  };
+
+  const loadI18nForLang = async (lang) => {
+    const res = await fetch(langAssetUrl(lang, "i18n.js"), { credentials: "same-origin" });
+    if (!res.ok) throw new Error("lang-i18n-" + res.status);
+    const source = await res.text();
+    new Function(source)();
+  };
+
+  const escapeLiveHtml = (value) =>
+    String(value || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+
+  const applyStoriesFromCatalog = (catalog) => {
+    if (!catalog) return;
+    const byStem = new Map();
+    (catalog.categories || []).forEach((cat) => {
+      (cat.stories || []).forEach((story) => {
+        if (story && story.stem) byStem.set(story.stem, story);
+      });
+    });
+    document.querySelectorAll("article.story").forEach((el) => {
+      const stem = (el.dataset.stem || el.id || "").trim();
+      const story = byStem.get(stem);
+      if (!story) return;
+      if (story.title) {
+        el.setAttribute("data-title", story.title);
+        const title = el.querySelector(".story__title, .card-title, h2");
+        if (title) title.textContent = story.title;
+      }
+      const text = el.querySelector(".story__text, .card-text");
+      if (text && Array.isArray(story.paragraphs)) {
+        text.innerHTML = story.paragraphs
+          .map((p) => "<p>" + escapeLiveHtml(p) + "</p>")
+          .join("");
+      }
+    });
+    if (typeof window.__birinciRefreshStoryCategoryFilter === "function") {
+      window.__birinciRefreshStoryCategoryFilter();
+    } else {
+      syncStoryCategoryFilterChrome();
+    }
+    if (typeof window.__birinciOnStoriesCatalog === "function") {
+      window.__birinciOnStoriesCatalog(catalog);
+    } else if (typeof window.__birinciRefreshStoryNav === "function") {
+      window.__birinciRefreshStoryNav();
+    }
+    (catalog.categories || []).forEach((cat) => {
+      if (!cat.slug) return;
+      document.querySelectorAll('[data-cat="' + cat.slug + '"], [data-slug="' + cat.slug + '"]').forEach((card) => {
+        const title = card.querySelector(".card-title, h2, h3");
+        const blurb = card.querySelector(".card-blurb, .home-card__blurb, p");
+        if (title && cat.title) title.textContent = cat.title;
+        if (blurb && cat.blurb) blurb.textContent = cat.blurb;
+        if (cat.title) card.setAttribute("data-title", cat.title);
+      });
+    });
+  };
+
+  const setLiveLang = async (code, { fromHistory = false } = {}) => {
+    const next = normalizePageLang(code);
+    const prev = currentPageLang();
+    if (!next || (next === prev && !fromHistory)) {
+      syncAllLangSwitchers(next);
+      return;
+    }
+    if (liveLangBusy) return;
+    liveLangBusy = true;
+    try {
+      if (typeof window.__birinciSyncLangHrefs === "function") window.__birinciSyncLangHrefs();
+      const href =
+        (typeof window.__birinciHrefForLang === "function" && window.__birinciHrefForLang(next)) ||
+        "";
+      const target = href ? new URL(href, location.href) : null;
+      if (!target) throw new Error("lang-href");
+      const [doc] = await Promise.all([fetchParsedDocument(target.href), loadI18nForLang(next)]);
+      LOCALE_TAG = next;
+      SHOW_AUDIO_CONTROLS = (window.__BIRINCI_I18N__ || {}).show_audio_controls !== false;
+      window.__BIRINCI_STORIES__ = undefined;
+      if (typeof window.__birinciStopStoryTts === "function") window.__birinciStopStoryTts();
+      applyDocumentLangAttrs(next);
+      syncAllLangSwitchers(next);
+      const keepModal = modalHostOpen();
+      if (typeof window.__birinciRefreshTextLightbox === "function") {
+        window.__birinciRefreshTextLightbox(doc);
+      }
+      if (typeof window.__birinciRefreshArticleModal === "function") {
+        window.__birinciRefreshArticleModal(doc);
+      }
+      if (!fromHistory) {
+        const nextUrl = target.pathname + target.search + (location.hash || target.hash || "");
+        commitHistoryHref(nextUrl, { replace: true });
+      }
+      applyFetchedChrome(doc);
+      const liveBody = document.body.className || "";
+      if (
+        !keepModal &&
+        !/page-category|page-home|page-inventions|inventions-preview-page/.test(liveBody)
+      ) {
+        const fromMain = doc.getElementById("main");
+        const toMain = document.getElementById("main");
+        if (fromMain && toMain) toMain.innerHTML = fromMain.innerHTML;
+      }
+      applyFetchedStories(doc);
+      applyFetchedInventions(doc);
+      if (
+        document.body.classList.contains("page-home") ||
+        document.body.classList.contains("page-category")
+      ) {
+        try {
+          const storiesRes = await fetch(langAssetUrl(next, "stories-data.js"), {
+            credentials: "same-origin",
+          });
+          if (storiesRes.ok) {
+            new Function(await storiesRes.text())();
+            applyStoriesFromCatalog(window.__BIRINCI_STORIES__);
+          }
+        } catch (_) {}
+      }
+      syncAudioChromeForLang();
+      syncAllLangSwitchers(next);
+      try {
+        localStorage.setItem("birinci-lang", next);
+      } catch (_) {}
+      if (typeof window.__birinciRefreshTextLightbox === "function") {
+        window.__birinciRefreshTextLightbox(doc);
+      }
+      if (typeof window.__birinciRefreshArticleModal === "function") {
+        window.__birinciRefreshArticleModal(doc);
+      }
+      if (typeof window.__birinciRefreshInventionsAfterLang === "function") {
+        window.setTimeout(() => window.__birinciRefreshInventionsAfterLang(), 0);
+      }
+      if (keepModal) ignoreModalBackdrop();
+      document.dispatchEvent(new CustomEvent("birinci:lang-change", { detail: { lang: next, prev } }));
+      if (typeof window.__birinciSyncLangHrefs === "function") window.__birinciSyncLangHrefs();
+    } finally {
+      liveLangBusy = false;
+    }
+  };
+
+  window.__birinciSetLiveLang = setLiveLang;
+  window.__birinciCurrentLang = currentPageLang;
+  window.__birinciSyncAllLangSwitchers = syncAllLangSwitchers;
+  window.__birinciPrefetchModalLangPacks = prefetchModalLangPacks;
+
+  window.addEventListener("popstate", () => {
+    const path = String(location.pathname || "");
+    const key = pagePathKey(path);
+    const known = window.__birinciPageKey || key;
+    if (key !== known) {
+      window.__birinciPageKey = key;
+      window.location.reload();
+      return;
+    }
+    const match = path.match(/\/(az|en|ru|ky)(?:\/|$)/i);
+    const lang = match ? match[1].toLowerCase() : "";
+    if (lang && lang !== currentPageLang()) {
+      setLiveLang(lang, { fromHistory: true }).catch(() => {});
+    }
+  });
 
   // Restore approximate scroll after a language switch when no exact hash target applied.
   (function restoreGenericLangScroll() {
@@ -1544,23 +2665,48 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const legacyPageSizeStorageKey = "birinci-category-page-size";
 
     const allStories = Array.from(list.querySelectorAll(".story"));
-    allStories.sort((a, b) => localeCompareAz(a.dataset.title, b.dataset.title));
-    allStories.forEach((story) => list.appendChild(story));
+    const categorySection = (() => {
+      let section = list.querySelector(":scope > .inventions-category");
+      if (!section) {
+        section = document.createElement("section");
+        section.className = "inventions-category stories-category";
+        const head = document.createElement("h2");
+        head.className = "inventions-category-head";
+        const h1 = document.querySelector(".about-hero h1, .category-hero h1, h1");
+        head.textContent = ((h1 && h1.textContent) || "").trim();
+        section.appendChild(head);
+        list.insertBefore(section, list.firstChild);
+      }
+      allStories.forEach((story) => section.appendChild(story));
+      return section;
+    })();
     const allCards = cardGrid ? Array.from(cardGrid.querySelectorAll("[data-stem]")) : [];
     const cardsByStem = new Map(allCards.map((card) => [card.dataset.stem, card]));
     allCards.sort((a, b) => localeCompareAz(a.dataset.title, b.dataset.title));
     if (cardGrid) allCards.forEach((card) => cardGrid.appendChild(card));
-    if (navList) {
-      const navItems = Array.from(navList.querySelectorAll("li[data-stem]"));
-      navItems.sort((a, b) => localeCompareAz(a.dataset.title, b.dataset.title));
-      navItems.forEach((item) => navList.appendChild(item));
-    }
+    const currentCategorySlug = (() => {
+      try {
+        const path = window.location.pathname || "";
+        const match = path.match(/\/([^/]+)\.html$/i);
+        return match ? decodeURIComponent(match[1]) : "";
+      } catch (_) {
+        return "";
+      }
+    })();
+    if (currentCategorySlug) categorySection.id = currentCategorySlug;
+    bindStoryCategoryToggles(list);
+    const storiesCatalogUrl = (() => {
+      const tagged = document.querySelector('script[src*="site.js"]');
+      const src = tagged && tagged.getAttribute("src");
+      const ver = src && /[?&]v=([^&]+)/.exec(src);
+      return `../assets/stories-data.js${ver ? `?v=${ver[1]}` : ""}`;
+    })();
 
     let filtered = [];
     let batchSize = 12;
     let windowStart = 0;
     let randomStems = null;
-    let allMode = false;
+    let allMode = true;
     let pendingStem = null;
 
     const batchCap = () => {
@@ -1589,10 +2735,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     };
 
     const persistAllMode = () => {
-      try {
-        if (allMode) localStorage.setItem(batchAllStorageKey, "1");
-        else localStorage.removeItem(batchAllStorageKey);
-      } catch (_) {}
+      writeStoredAllMode(batchAllStorageKey, allMode);
     };
 
     const syncBatchUi = (visibleCount = 0) => {
@@ -1672,20 +2815,13 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     };
 
     const applyStoredBatchSize = () => {
-      let stored = "";
-      let storedAll = false;
-      try {
-        storedAll = localStorage.getItem(batchAllStorageKey) === "1";
-        stored = localStorage.getItem(batchSizeStorageKey) || "";
-        if (!stored) {
-          const legacy = localStorage.getItem(legacyPageSizeStorageKey) || "";
-          if (legacy && legacy !== "all") stored = legacy;
-          else if (legacy === "all") storedAll = true;
-        }
-      } catch (_) {}
-      const n = Number(stored);
-      batchSize = Number.isFinite(n) && n > 0 ? Math.floor(n) : 12;
-      allMode = !!storedAll;
+      const stored = readStoredBatchPref({
+        allKey: batchAllStorageKey,
+        sizeKey: batchSizeStorageKey,
+        legacyKey: legacyPageSizeStorageKey,
+      });
+      batchSize = stored.batchSize;
+      allMode = stored.allMode;
       if (batchSizeInput) batchSizeInput.value = String(batchSize);
       syncBatchUi(0);
     };
@@ -1780,17 +2916,32 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#39;");
 
-    const refreshSidebarNav = (visibleStories) => {
-      if (navList) {
-        navList.innerHTML = visibleStories
-          .map(
-            (s) =>
-              `<li data-stem="${escapeHtml(s.dataset.stem)}" data-title="${escapeHtml(s.dataset.title)}"><a href="#${escapeHtml(
-                s.dataset.stem
-              )}">${escapeHtml(s.dataset.title)}</a></li>`
-          )
-          .join("");
-      }
+    const refreshSidebarNav = () => {
+      if (!navList) return;
+      const q = searchInput.value.trim().toLocaleLowerCase(LOCALE_TAG);
+      const visibleStems = new Set(filtered.map((story) => story.dataset.stem));
+      const catalog = window.__BIRINCI_STORIES__;
+      ((catalog && catalog.categories) || []).forEach((cat) => {
+        if (cat.slug === currentCategorySlug) return;
+        (cat.stories || []).forEach((story) => {
+          const title = (story.title || "").toLocaleLowerCase(LOCALE_TAG);
+          if (!q || title.includes(q)) visibleStems.add(story.stem);
+        });
+      });
+      fillGroupedStoryNav(navList, {
+        catalog,
+        visibleStems,
+        fallbackSlug: currentCategorySlug || "stories",
+        fallbackTitle:
+          (document.querySelector(".about-hero h1, .category-hero h1, h1") || {}).textContent ||
+          tUi("nav_stories_all", "Hekayələr"),
+        hrefForStory: (stem, group) =>
+          group.slug === currentCategorySlug ? `#${stem}` : `${group.slug}.html#${stem}`,
+        hrefForCategory: (group) => {
+          if (group.slug === currentCategorySlug) return `#${group.slug}`;
+          return `${group.slug}.html`;
+        },
+      });
       const layout = document.querySelector(".category-layout");
       if (layout && typeof window.__birinciBindStorySidebar === "function") {
         window.__birinciBindStorySidebar(layout);
@@ -1798,6 +2949,87 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         layout.__birinciSidebar.refresh();
       }
     };
+    window.__birinciRefreshStoryNav = refreshSidebarNav;
+    window.__birinciRevealStory = (stem) => {
+      if (!stem) return;
+      pendingStem = stem;
+      applyCategoryView("list", { animate: false });
+      renderList();
+    };
+    const applyCatalogStoryOrder = () => {
+      const catalog = window.__BIRINCI_STORIES__;
+      if (!catalog) return;
+      const numbering = storyCatalogNumbering(catalog);
+      const cats = catalog.categories || [];
+      const catIndex = cats.findIndex((cat) => cat.slug === currentCategorySlug);
+      const order = new Map();
+      ((catIndex >= 0 ? cats[catIndex].stories : []) || []).forEach((story, index) => {
+        order.set(story.stem, index);
+      });
+      allStories.sort((a, b) => {
+        const ia = order.has(a.dataset.stem) ? order.get(a.dataset.stem) : 9999;
+        const ib = order.has(b.dataset.stem) ? order.get(b.dataset.stem) : 9999;
+        return ia - ib;
+      });
+      allStories.forEach((story) => {
+        const info = numbering.get(story.dataset.stem);
+        if (info) {
+          story.dataset.categorySlug = info.categorySlug || currentCategorySlug;
+          applyStoryTitleNumber(
+            story.querySelector(".story__title, .card-title"),
+            info.num,
+            story.dataset.title
+          );
+        }
+      });
+      if (currentCategorySlug) categorySection.id = currentCategorySlug;
+      const head = categorySection.querySelector(".inventions-category-head");
+      if (head) {
+        const cat = catIndex >= 0 ? cats[catIndex] : null;
+        const title =
+          (cat && cat.title) ||
+          (document.querySelector(".about-hero h1, .category-hero h1, h1") || {}).textContent ||
+          currentCategorySlug;
+        const n = catIndex >= 0 ? catIndex + 1 : 1;
+        const count =
+          (cat && cat.stories && cat.stories.length) || allStories.length || 0;
+        const label = categoryTitleWithCount(`${n}. ${String(title || "").trim()}`, count);
+        const toggle = head.querySelector(".inventions-category-toggle");
+        head.textContent = label;
+        if (toggle) head.appendChild(toggle);
+        categorySection.setAttribute("data-category", label);
+      }
+    };
+
+    window.__birinciOnStoriesCatalog = () => {
+      applyCatalogStoryOrder();
+      renderList();
+      refreshSidebarNav();
+      bindStoryCategoryToggles(list);
+    };
+    bindStoryCategoryFilter(bar, {
+      initialSlugs: currentCategorySlug ? [currentCategorySlug] : [],
+      onChange: (slugs) => {
+        if (slugs.length === 1 && slugs[0] === currentCategorySlug) return;
+        if (slugs.length === 1) {
+          window.location.assign(`${slugs[0]}.html`);
+          return;
+        }
+        const params = new URLSearchParams();
+        params.set("view", "list");
+        if (slugs.length) params.set("cat", slugs.join(","));
+        window.location.assign(`../index.html?${params.toString()}`);
+      },
+    });
+    loadStoriesCatalog(storiesCatalogUrl).then(() => {
+      applyCatalogStoryOrder();
+      if (typeof window.__birinciRefreshStoryCategoryFilter === "function") {
+        window.__birinciRefreshStoryCategoryFilter();
+      }
+      renderList();
+      refreshSidebarNav();
+      bindStoryCategoryToggles(list);
+    });
 
     const scrollToolsIntoView = () => {
       try {
@@ -1805,7 +3037,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       } catch (_) {}
     };
 
+    let applyingHistory = false;
     const writeCategoryUrlState = () => {
+      if (applyingHistory) return;
       try {
         const params = new URLSearchParams();
         const q = searchInput.value.trim();
@@ -1814,9 +3048,11 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         if (batchSize > 0) params.set("batch", String(batchSize));
         const url = new URL(window.location.href);
         url.search = params.toString();
-        const hash = (window.location.hash || "").replace(/^#/, "");
-        url.hash = hash;
-        history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+        url.hash = pendingStem || (window.location.hash || "").replace(/^#/, "");
+        const next = `${url.pathname}${url.search}${url.hash}`;
+        const prevHash = window.location.hash || "";
+        const nextHash = url.hash ? `#${String(url.hash).replace(/^#/, "")}` : "";
+        commitHistoryHref(next, { replace: prevHash === nextHash });
         window.__birinciListStart = windowStart;
       } catch (_) {}
     };
@@ -1893,10 +3129,10 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       allStories.forEach((story) => {
         story.hidden = !visibleSet.has(story.dataset.stem);
       });
-      visibleStories.forEach((story) => list.appendChild(story));
+      visibleStories.forEach((story) => categorySection.appendChild(story));
       allStories
         .filter((story) => !visibleSet.has(story.dataset.stem))
-        .forEach((story) => list.appendChild(story));
+        .forEach((story) => categorySection.appendChild(story));
       allCards.forEach((card) => {
         card.hidden = !visibleSet.has(card.dataset.stem);
       });
@@ -1916,7 +3152,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       if (typeof window.__birinciSetAllStoryTexts === "function") {
         window.__birinciSetAllStoryTexts(!document.body.classList.contains("texts-collapsed"));
       }
-      refreshSidebarNav(visibleStories);
+      refreshSidebarNav();
+      bindStoryCategoryToggles(list);
       if (countEl) countEl.textContent = String(total);
       if (empty) empty.hidden = total !== 0;
       if (typeof window.__birinciClearListenQueue === "function") {
@@ -2082,6 +3319,33 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     }
 
     renderList();
+
+    window.addEventListener("popstate", () => {
+      if (pagePathKey(window.location.pathname) !== (window.__birinciPageKey || pagePathKey(window.location.pathname))) {
+        return;
+      }
+      applyingHistory = true;
+      try {
+        const params = new URLSearchParams(window.location.search || "");
+        const qParam = String(params.get("q") || "").trim();
+        searchInput.value = qParam;
+        const batchParam = Number(params.get("batch") || "");
+        if (Number.isFinite(batchParam) && batchParam > 0) batchSize = Math.floor(batchParam);
+        const startParam = Number(params.get("start") || "");
+        windowStart = Number.isFinite(startParam) && startParam > 0 ? Math.floor(startParam) : 0;
+        let hash = "";
+        try {
+          hash = decodeURIComponent((window.location.hash || "").replace(/^#/, ""));
+        } catch (_) {
+          hash = (window.location.hash || "").replace(/^#/, "");
+        }
+        pendingStem = hash || null;
+        if (hash) applyCategoryView("list", { animate: false });
+        renderList();
+      } finally {
+        applyingHistory = false;
+      }
+    });
   };
 
   initCategoryTools();
@@ -2219,8 +3483,15 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       try {
         id = decodeURIComponent(raw);
       } catch (_) {}
-      const target = document.getElementById(id);
-      if (!target) return;
+      let target = document.getElementById(id);
+      if (!target && typeof window.__birinciRevealStory === "function" && id) {
+        event.preventDefault();
+        window.__birinciRevealStory(id);
+        target = document.getElementById(id);
+        if (!target) return;
+      } else if (!target) {
+        return;
+      }
       event.preventDefault();
       setActive(link);
       const html = document.documentElement;
@@ -2229,10 +3500,34 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       target.scrollIntoView({ block: "start", behavior: "auto" });
       html.style.scrollBehavior = prevBehavior;
       try {
-        history.pushState(null, "", `${window.location.pathname}${window.location.search}#${id}`);
+        commitHistoryHref(`${window.location.pathname}${window.location.search}#${id}`);
       } catch (_) {}
       if (mobileQuery.matches) closeMenu();
     });
+
+    const restoreHashTarget = () => {
+      let id = "";
+      try {
+        id = decodeURIComponent((window.location.hash || "").replace(/^#/, ""));
+      } catch (_) {
+        id = (window.location.hash || "").replace(/^#/, "");
+      }
+      if (!id) return;
+      let target = document.getElementById(id);
+      if (!target && typeof window.__birinciRevealStory === "function") {
+        window.__birinciRevealStory(id);
+        target = document.getElementById(id);
+      }
+      if (!target || !layout.contains(target)) return;
+      const html = document.documentElement;
+      const prevBehavior = html.style.scrollBehavior;
+      html.style.scrollBehavior = "auto";
+      target.scrollIntoView({ block: "start", behavior: "auto" });
+      html.style.scrollBehavior = prevBehavior;
+      const link = nav.querySelector(`a[href="#${id}"], a[href="#${encodeURIComponent(id)}"]`);
+      if (link) setActive(link);
+    };
+    window.addEventListener("popstate", restoreHashTarget);
 
     window.addEventListener("scroll", updateActive, { passive: true });
     window.addEventListener("resize", updateActive, { passive: true });
@@ -2289,7 +3584,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     let batchSize = 12;
     let windowStart = 0;
     let randomStems = null;
-    let allMode = false;
+    let allMode = true;
     let listRenderKey = "";
 
     const batchCap = () => {
@@ -2318,10 +3613,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     };
 
     const persistAllMode = () => {
-      try {
-        if (allMode) localStorage.setItem(batchAllStorageKey, "1");
-        else localStorage.removeItem(batchAllStorageKey);
-      } catch (_) {}
+      writeStoredAllMode(batchAllStorageKey, allMode);
     };
 
     const syncBatchUi = (visibleCount = 0) => {
@@ -2401,20 +3693,13 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     };
 
     const applyStoredBatchSize = () => {
-      let stored = "";
-      let storedAll = false;
-      try {
-        storedAll = localStorage.getItem(batchAllStorageKey) === "1";
-        stored = localStorage.getItem(batchSizeStorageKey) || "";
-        if (!stored) {
-          const legacy = localStorage.getItem(legacyPageSizeStorageKey) || "";
-          if (legacy && legacy !== "all") stored = legacy;
-          else if (legacy === "all") storedAll = true;
-        }
-      } catch (_) {}
-      const n = Number(stored);
-      batchSize = Number.isFinite(n) && n > 0 ? Math.floor(n) : 12;
-      allMode = !!storedAll;
+      const stored = readStoredBatchPref({
+        allKey: batchAllStorageKey,
+        sizeKey: batchSizeStorageKey,
+        legacyKey: legacyPageSizeStorageKey,
+      });
+      batchSize = stored.batchSize;
+      allMode = stored.allMode;
       if (batchSizeInput) batchSizeInput.value = String(batchSize);
       syncBatchUi(0);
     };
@@ -2449,24 +3734,35 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       return {
         view: params.get("view"),
         q: params.get("q"),
+        cat: parseStoryCatParam(params),
         stem: hash || null,
         start: params.get("start"),
         batch: params.get("batch"),
       };
     };
 
+    let applyingHistory = false;
     const writeUrlState = () => {
+      if (applyingHistory) return;
       try {
         const params = new URLSearchParams();
         if (view === "list") params.set("view", "list");
         const q = searchInput.value.trim();
         if (view === "list" && q) params.set("q", q);
+        const cats = activeStoryCategorySlugs();
+        if (cats.length) params.set("cat", cats.join(","));
         if (view === "list" && windowStart > 0) params.set("start", String(windowStart));
         if (view === "list" && batchSize > 0) params.set("batch", String(batchSize));
         const url = new URL(window.location.href);
         url.search = params.toString();
-        url.hash = pendingStem ? pendingStem : "";
-        history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+        if (view === "cards") url.hash = "";
+        else url.hash = pendingStem || (window.location.hash || "").replace(/^#/, "");
+        const next = `${url.pathname}${url.search}${url.hash}`;
+        const prev = new URL(historyHref(), window.location.href);
+        const navChanged =
+          (prev.searchParams.get("view") || "") !== (params.get("view") || "") ||
+          (prev.hash || "") !== (url.hash ? `#${String(url.hash).replace(/^#/, "")}` : "");
+        commitHistoryHref(next, { replace: !navChanged });
         window.__birinciListStart = windowStart;
       } catch (_) {
         /* file:// or sandboxed histories must not block view switching */
@@ -2547,8 +3843,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       items.forEach((item) => cardsList.appendChild(item));
       let visible = 0;
       items.forEach((item) => {
+        const slug = item.getAttribute("data-slug") || storyCategorySlugFromHref(item.getAttribute("href"));
         const hay = `${item.dataset.title || ""} ${item.dataset.blurb || ""}`.toLocaleLowerCase(LOCALE_TAG);
-        const show = !q || hay.includes(q);
+        const show = storyCategoryPasses(slug) && (!q || hay.includes(q));
         item.hidden = !show;
         if (show) visible += 1;
       });
@@ -2645,11 +3942,11 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         .join("");
     };
 
-    const storyArticleHtml = (story) => {
+    const storyArticleHtml = (story, numInfo) => {
       const audioAttr = story.hasAudio
-        ? ` data-audio="audio/${escapeHtml(story.stem)}.mp3?v=${escapeHtml(assetVersion)}"`
+        ? ` data-audio="wisdom-stories/audio/${escapeHtml(story.stem)}.mp3?v=${escapeHtml(assetVersion)}"`
         : "";
-      const audioLabel = escapeHtml(tUi("story_audio_label", "Səs"));
+      const audioLabel = escapeHtml(tUi("story_audio_label", "Səsləndir"));
       const imageLabel = escapeHtml(tUi("story_image_label", "Şəkil"));
       const textLabel = escapeHtml(tUi("story_text_label", "Mətn"));
       const audioToggle = SHOW_AUDIO_CONTROLS
@@ -2690,14 +3987,18 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         ? `
     <figure class="story__figure" id="figure-${escapeHtml(story.stem)}">
       <button type="button" class="story__figure-open" aria-label="${enlargeLabel}">
-        <img src="illustrations/${escapeHtml(story.stem)}.webp" alt="${figAlt}" loading="lazy" width="1536" height="1024" />
+        <img src="wisdom-stories/illustrations/${escapeHtml(story.stem)}.webp" alt="${figAlt}" loading="lazy" width="1536" height="1024" />
       </button>
     </figure>`
         : "";
+      const num = numInfo && numInfo.num;
+      const titleInner = num
+        ? `<span class="inventions-entry-num" aria-hidden="true">${escapeHtml(num)}</span><span class="inventions-entry-name">${escapeHtml(story.title)}</span>`
+        : escapeHtml(story.title);
       return `
-<article class="story news-card" id="${escapeHtml(story.stem)}" data-stem="${escapeHtml(story.stem)}" data-title="${escapeHtml(story.title)}"${audioAttr}>
+<article class="story news-card" id="${escapeHtml(story.stem)}" data-stem="${escapeHtml(story.stem)}" data-title="${escapeHtml(story.title)}" data-category-slug="${escapeHtml(story.categorySlug || "")}"${audioAttr}>
   <div class="card-header">
-    <h2 class="card-title story__title">${escapeHtml(story.title)}</h2>
+    <h2 class="card-title story__title">${titleInner}</h2>
   </div>
   <div class="card-body">
     <div class="story__content">
@@ -2728,20 +4029,36 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 </article>`.trim();
     };
 
-    const refreshSidebarNav = (items) => {
-      if (navList) {
-        navList.innerHTML = items
-          .map(
-            (s) =>
-              `<li data-stem="${escapeHtml(s.stem)}" data-title="${escapeHtml(s.title)}"><a href="#${escapeHtml(
-                s.stem
-              )}">${escapeHtml(s.title)}</a></li>`
-          )
-          .join("");
-      }
+    const refreshSidebarNav = () => {
+      if (!navList) return;
+      const visibleStems = new Set((filtered || []).map((story) => story.stem));
+      fillGroupedStoryNav(navList, {
+        visibleStems,
+        hrefForStory: (stem) => `#${stem}`,
+        hrefForCategory: (group) => `#${group.slug}`,
+      });
       if (typeof window.__birinciBindStorySidebar === "function") {
         const layout = listPanel.querySelector(".category-layout");
         if (layout) window.__birinciBindStorySidebar(layout);
+      }
+    };
+    window.__birinciRefreshStoryNav = refreshSidebarNav;
+    window.__birinciRevealStory = (stem) => {
+      if (!stem) return;
+      pendingStem = stem;
+      if (view !== "list") {
+        setView("list", { persist: true, animate: false, forceList: true });
+        return;
+      }
+      renderList({ force: true });
+    };
+    window.__birinciOnStoriesCatalog = (catalog) => {
+      allStories = flattenStories(catalog || window.__BIRINCI_STORIES__);
+      listRenderKey = "";
+      if (view === "list") renderList({ force: true });
+      else {
+        applyCards();
+        refreshSidebarNav();
       }
     };
 
@@ -2757,8 +4074,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       if (!storiesList) return;
       if (typeof window.__birinciStopStoryTts === "function") window.__birinciStopStoryTts();
       const q = searchInput.value.trim().toLocaleLowerCase(LOCALE_TAG);
-      filtered = (allStories || []).filter((story) => !q || story.hay.includes(q));
-      filtered.sort((a, b) => localeCompareAz(a.title, b.title));
+      filtered = (allStories || []).filter(
+        (story) => storyCategoryPasses(story.categorySlug) && (!q || story.hay.includes(q))
+      );
 
       const total = filtered.length;
       syncSearchFilterUi(searchInput.value.trim(), total);
@@ -2783,7 +4101,10 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
       if (pendingStem) {
         const idx = filtered.findIndex(
-          (story) => story.stem === pendingStem || story.stem === String(pendingStem)
+          (story) =>
+            story.stem === pendingStem ||
+            story.stem === String(pendingStem) ||
+            story.categorySlug === pendingStem
         );
         if (idx >= 0) {
           randomStems = null;
@@ -2823,29 +4144,67 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const reuseDom =
         !force &&
         nextKey === listRenderKey &&
-        storiesList.childElementCount === visibleStories.length;
+        storiesList.querySelectorAll("article.story").length === visibleStories.length;
 
       if (!reuseDom) {
+        const collapsed = q ? new Set() : collectCollapsedStoryCategories(storiesList);
+        if (pendingStem) {
+          const reveal = visibleStories.find(
+            (story) => story.stem === pendingStem || story.categorySlug === pendingStem
+          );
+          if (reveal) collapsed.delete(reveal.categorySlug);
+          collapsed.delete(pendingStem);
+        }
+        const catalog = window.__BIRINCI_STORIES__;
+        const numbering = storyCatalogNumbering(catalog);
+        const groups = groupStoriesByCategory(visibleStories, catalog);
         listRenderKey = nextKey;
-        storiesList.innerHTML = visibleStories.map(storyArticleHtml).join("");
+        storiesList.innerHTML = groups
+          .map((group) => {
+            const collapsedClass = collapsed.has(group.slug) ? " is-collapsed" : "";
+            return `<section class="inventions-category stories-category${collapsedClass}" id="${escapeHtml(
+              group.slug
+            )}" data-category="${escapeHtml(`${group.n}. ${group.title}`)}"><h2 class="inventions-category-head">${escapeHtml(
+              categoryTitleWithCount(`${group.n}. ${group.title}`, group.total)
+            )}</h2>${group.stories
+              .map((story) => storyArticleHtml(story, numbering.get(story.stem)))
+              .join("")}</section>`;
+          })
+          .join("");
         hideAudioChrome(storiesList);
+        ensureStoryListenButtons(storiesList);
         if (typeof window.__birinciSetAllStoryFigures === "function") {
           window.__birinciSetAllStoryFigures(!document.body.classList.contains("images-collapsed"));
         }
         if (typeof window.__birinciSetAllStoryTexts === "function") {
           window.__birinciSetAllStoryTexts(!document.body.classList.contains("texts-collapsed"));
         }
-        refreshSidebarNav(visibleStories);
         if (typeof window.__birinciClearListenQueue === "function") {
           window.__birinciClearListenQueue({ keepTrack: true });
         }
       }
+      refreshSidebarNav();
+      bindStoryCategoryToggles(storiesList);
       if (listEmpty) listEmpty.hidden = total !== 0;
       syncBatchUi(visibleStories.length);
       persistAllMode();
       writeUrlState();
       if (pendingStem) {
         const el = document.getElementById(pendingStem);
+        const cat =
+          el && el.classList.contains("inventions-category")
+            ? el
+            : el && el.closest(".inventions-category");
+        if (cat) {
+          cat.classList.remove("is-collapsed");
+          const api = window.KT_SIDEBAR_TOC_GROUPS;
+          const group =
+            cat.id &&
+            document.querySelector(`.toc-group[data-toc-cat="${cssEscapeAttr(cat.id)}"]`);
+          if (group && api && typeof api.setGroupExpanded === "function") {
+            api.setGroupExpanded(group, true);
+          }
+        }
         if (el) {
           window.requestAnimationFrame(() => {
             el.scrollIntoView({ block: "start", behavior: "auto" });
@@ -3088,12 +4447,49 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     }
     window.__birinciListStart = windowStart;
 
+    bindStoryCategoryFilter(bar, {
+      initialSlugs: urlState.cat,
+      onChange: () => {
+        pendingStem = null;
+        if (view === "cards") {
+          applyCards();
+          writeUrlState();
+        } else {
+          renderList({ resetWindow: true });
+        }
+      },
+    });
+
     try {
       setView(initialView, { persist: false, scrollTools: false, animate: false });
     } catch (_) {
       setHidden(cardsPanel, initialView !== "cards");
       setHidden(listPanel, initialView !== "list");
     }
+
+    window.addEventListener("popstate", () => {
+      if (pagePathKey(window.location.pathname) !== (window.__birinciPageKey || pagePathKey(window.location.pathname))) {
+        return;
+      }
+      const state = readUrlState();
+      applyingHistory = true;
+      try {
+        searchInput.value = state.q || "";
+        const batchFromUrl = Number(state.batch || "");
+        if (Number.isFinite(batchFromUrl) && batchFromUrl > 0) batchSize = Math.floor(batchFromUrl);
+        const startFromUrl = Number(state.start || "");
+        windowStart = Number.isFinite(startFromUrl) && startFromUrl > 0 ? Math.floor(startFromUrl) : 0;
+        pendingStem = state.stem || null;
+        const catApi = window.KT_CATALOG_MULTI_FILTER;
+        if (catApi && typeof catApi.setActiveValues === "function") {
+          catApi.setActiveValues("filterStoryCategory", state.cat || [], { silent: true });
+        }
+        const nextView = state.stem ? "list" : state.view === "list" ? "list" : "cards";
+        setView(nextView, { persist: false, scrollTools: false, animate: false });
+      } finally {
+        applyingHistory = false;
+      }
+    });
   };
 
   const initStoryTts = () => {
@@ -3186,9 +4582,10 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       if (discoveryName) return discoveryName.textContent.trim();
       const titleNode =
         story &&
-        (story.querySelector(".story__title, .card-title") || story.querySelector("h2"));
+        (story.querySelector(".story__title, .card-title, .inventions-entry-name") ||
+          story.querySelector("h2"));
       if (titleNode) return titleNode.textContent.trim();
-      return "Hekayə";
+      return story && story.classList.contains("inventions-entry") ? "Məqalə" : "Hekayə";
     };
 
     const escapeStem = (stem) =>
@@ -3203,7 +4600,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const esc = escapeStem(stem);
       document
         .querySelectorAll(
-          `[data-story-tts][data-story-stem="${esc}"], article.story[data-stem="${esc}"] [data-story-tts], article.story#${esc} [data-story-tts]`
+          `[data-story-tts][data-story-stem="${esc}"], article.story[data-stem="${esc}"] [data-story-tts], article.story#${esc} [data-story-tts], .inventions-entry#${esc} [data-article-tts]`
         )
         .forEach((el) => buttons.add(el));
       return buttons;
@@ -3329,12 +4726,19 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       }
     };
 
+    const notifyAudioPlayer = (detail) => {
+      try {
+        document.dispatchEvent(new CustomEvent("birinci:audio-player-change", { detail }));
+      } catch (_) {}
+    };
+
     const hidePlayerShell = () => {
       if (!playerShell) return;
       playerShell.hidden = true;
       playerShell.setAttribute("hidden", "");
       document.body.classList.remove("audio-player-open");
       syncAudioPlayerInset();
+      notifyAudioPlayer({ open: false, playing: false });
     };
 
     const showPlayerShell = () => {
@@ -3406,7 +4810,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       if (!stem) return null;
       const esc = escapeStem(stem);
       return document.querySelector(
-        `[data-story-tts][data-story-stem="${esc}"], article.story[data-stem="${esc}"] [data-story-tts], article.story#${esc} [data-story-tts]`
+        `[data-story-tts][data-story-stem="${esc}"], article.story[data-stem="${esc}"] [data-story-tts], article.story#${esc} [data-story-tts], .inventions-entry#${esc} [data-article-tts]`
       );
     };
 
@@ -3424,6 +4828,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       updatePlayButton(false);
       updateProgressUi();
       syncPlayVisibleButton();
+      notifyAudioPlayer({ open: false, playing: false, ended: true, stem });
     };
 
     const stopSpeech = () => {
@@ -3467,11 +4872,22 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       return false;
     };
 
-    const collectVisibleStems = () =>
-      Array.from(document.querySelectorAll("article.story"))
+    const collectVisibleStems = () => {
+      const stories = Array.from(document.querySelectorAll("article.story"))
         .filter((el) => !el.hidden && !el.closest("[hidden]"))
         .map((el) => (el.dataset.stem || el.id || "").trim())
         .filter(Boolean);
+      if (stories.length) return stories;
+      return Array.from(document.querySelectorAll(".inventions-entry"))
+        .filter(
+          (el) =>
+            !el.hidden &&
+            !el.classList.contains("is-hidden") &&
+            !el.classList.contains("is-batch-hidden")
+        )
+        .map((el) => (el.id || "").trim())
+        .filter(Boolean);
+    };
 
     const storyElForStem = (stem) => {
       if (!stem) return null;
@@ -3486,6 +4902,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const listenBtnForStem = (stem) => {
       const story = storyElForStem(stem);
       return (
+        (story && story.querySelector('[data-article-tts][data-tts-mode="listen"]')) ||
         (story && story.querySelector('[data-tts-mode="listen"]')) ||
         (story && story.querySelector("[data-story-tts]")) ||
         null
@@ -3499,7 +4916,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     };
 
     const highlightPlaying = (story, { scroll = false } = {}) => {
-      document.querySelectorAll("article.story.story--playing").forEach((el) => {
+      document.querySelectorAll("article.story.story--playing, .inventions-entry.story--playing").forEach((el) => {
         el.classList.remove("story--playing");
       });
       if (!story) return;
@@ -3516,7 +4933,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const listenOn = queueActive && (isActivelyPlaying() || isPausedPlayback());
       const base = tUi("listen_page", "Səhifəni dinlə");
       const stop = tUi("stop", "Dayandır");
-      const suffix = tUi("stories_count_suffix", "hekayə");
+      const suffix = document.body.classList.contains("page-inventions")
+        ? tUi("articles_count_suffix", "məqalə")
+        : tUi("stories_count_suffix", "hekayə");
       const listenLabel = stems.length ? `${base} · ${stems.length} ${suffix}` : base;
       document.querySelectorAll("[data-tools-play-visible]").forEach((btn) => {
         btn.disabled = stems.length === 0;
@@ -3777,6 +5196,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const title = ((story && story.dataset.title) || "").trim();
       const paras = textEl
         ? Array.from(textEl.querySelectorAll("p"))
+            .filter((p) => !p.classList.contains("story__source"))
             .map((p) => p.textContent.replace(/\s+/g, " ").trim())
             .filter(Boolean)
         : [];
@@ -3798,7 +5218,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
     const markPlaying = (btn, playing = true) => {
       activeBtn = btn;
-      activeStem = stemFor(btn);
+      const nextStem = stemFor(btn);
+      if (nextStem) activeStem = nextStem;
       startGuardUntil = Date.now() + 450;
       syncPlayingUi(btn, playing);
       showNote(btn, "");
@@ -4000,6 +5421,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           if (typeof window.__birinciQueueAdvance === "function") window.__birinciQueueAdvance();
           return;
         }
+        notifyAudioPlayer({ open: !playerShell.hidden, playing: false, ended: true, stem: activeStem });
         if (playerShell && playerShell.hidden) {
           syncPlayVisibleButton();
           return;
@@ -4028,7 +5450,11 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       markPlaying(btn, true);
       const start = audioPlayer.play();
       if (start && typeof start.catch === "function") {
-        start.catch(() => {
+        start.catch((err) => {
+          if (err && err.name === "NotAllowedError") {
+            updatePlayButton(false);
+            return;
+          }
           if (queueActive) {
             showNote(btn, audioFailedMessage);
             advanceQueue();
@@ -4073,7 +5499,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         return;
       }
 
-      const token = ++loadToken;
+      loadToken += 1;
       suppressError = true;
       stopAudioElement({ clearSrc: true });
       window.setTimeout(() => {
@@ -4084,33 +5510,11 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       markPlaying(btn, true);
       updatePlayButton(true);
 
-      // Load as a blob so seeking works even when the server lacks Range support.
-      fetchController = typeof AbortController === "function" ? new AbortController() : null;
-      const fetchOpts = fetchController ? { signal: fetchController.signal } : {};
-      fetch(absolute, fetchOpts)
-        .then((res) => {
-          if (!res.ok) throw new Error("audio fetch failed");
-          return res.blob();
-        })
-        .then((blob) => {
-          if (token !== loadToken) return;
-          revokeObjectUrl();
-          objectUrl = URL.createObjectURL(blob);
-          audioPlayer.src = objectUrl;
-          startPlayback(btn);
-        })
-        .catch((err) => {
-          if (fetchController && err && err.name === "AbortError") return;
-          if (token !== loadToken) return;
-          // Fallback: direct URL (may not seek on some local servers).
-          try {
-            audioPlayer.src = absolute;
-            startPlayback(btn);
-          } catch (_) {
-            closePlayer();
-            showNote(btn, audioFailedMessage);
-          }
-        });
+      // Play the MP3 URL in the same click turn. Fetching a blob first
+      // loses the user-gesture and Chrome/Edge block audio.play().
+      revokeObjectUrl();
+      audioPlayer.src = absolute;
+      startPlayback(btn);
     };
 
     const playAudioStory = (btn, src, story) => {
@@ -4324,6 +5728,23 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           clearActive();
           hidePlayerShell();
           syncPlayVisibleButton();
+          return;
+        }
+        const chunk = chunks[index];
+        utterance = new SpeechSynthesisUtterance(chunk);
+        utterance.lang = utteranceLangFor(voice);
+        utterance.voice = voice;
+        utterance.rate = 1;
+        utterance.pitch = 1;
+        utterance.onstart = () => {
+          if (token !== speakToken) return;
+          markPlaying(btn, true);
+          syncPlayVisibleButton();
+        };
+        utterance.onend = () => {
+          if (suppressError || token !== speakToken) return;
+          index += 1;
+          speakNext();
         };
         utterance.onerror = (event) => {
           if (suppressError || token !== speakToken) return;
@@ -4346,7 +5767,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           clearActive();
           showNote(btn, failedMessage);
         };
-
         try {
           window.speechSynthesis.speak(utterance);
         } catch (err) {
@@ -4364,6 +5784,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           showNote(btn, unsupportedMessage);
         }
       };
+      window.setTimeout(speakNext, 80);
+    };
 
       startSpeak();
     };
@@ -4416,6 +5838,15 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       playQueueIndex(0, { scroll: true });
     };
 
+    window.__birinciPlayStoredMp3 = ({ src, title, stem, btn }) => {
+      if (!src) return;
+      openPlayer({
+        btn: btn || null,
+        src,
+        title: title || "Məqalə",
+        stem: stem || "",
+      });
+    };
     window.__birinciPlayVisible = playVisible;
     window.__birinciQueueAdvance = advanceQueue;
     window.__birinciQueuePrev = () => {
@@ -4871,6 +6302,56 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     let ttsBtns = [];
     let ttsNote = null;
     let lastFocus = null;
+    let activeStem = "";
+
+    const syncLightboxLabels = () => {
+      if (!overlay) return;
+      const dialog = overlay.querySelector(".text-lightbox__dialog");
+      if (dialog) dialog.setAttribute("aria-label", tUi("lightbox_text", "Böyüdülmüş hekayə mətni"));
+      if (closeBtn) closeBtn.setAttribute("aria-label", tUi("close", "Bağla"));
+      const ttsWrap = overlay.querySelector(".text-lightbox__tts");
+      if (ttsWrap) {
+        const show = liveI18n().show_audio_controls !== false;
+        ttsWrap.hidden = !show;
+        if (show) ttsWrap.removeAttribute("hidden");
+        else ttsWrap.setAttribute("hidden", "");
+        const label = ttsWrap.querySelector(".tools-bar__label");
+        const views = ttsWrap.querySelector(".tools-bar__views");
+        const audio = tUi("story_audio_label", "Səsləndir");
+        if (label) label.textContent = audio;
+        if (views) views.setAttribute("aria-label", audio);
+      }
+      ttsBtns.forEach((el) => {
+        const mode = el.getAttribute("data-tts-mode");
+        if (mode === "stop") {
+          el.title = tUi("stop", "Dayandır");
+          el.setAttribute("aria-label", tUi("stop", "Dayandır"));
+        } else {
+          el.title = tUi("listen", "Mətni dinlə");
+          el.setAttribute("aria-label", tUi("listen", "Mətni dinlə"));
+        }
+      });
+    };
+
+    const fillFromStory = (story, textEl) => {
+      const titleNode =
+        story.querySelector(".story__title, .card-title") || story.querySelector("h2");
+      titleEl.textContent = titleNode ? titleNode.textContent.trim() : tUi("stories_nav", "Hekayə");
+      bodyEl.innerHTML = textEl.innerHTML;
+      activeStem = ((story.dataset.stem || story.id) || "").trim();
+      ttsBtns.forEach((el) => {
+        if (activeStem) el.setAttribute("data-story-stem", activeStem);
+        else el.removeAttribute("data-story-stem");
+        el.setAttribute("data-tts-state", "idle");
+        const mode = el.getAttribute("data-tts-mode");
+        el.setAttribute("aria-pressed", mode === "stop" ? "true" : "false");
+      });
+      if (ttsNote) {
+        ttsNote.hidden = true;
+        ttsNote.textContent = "";
+      }
+      refreshAzLexicon(bodyEl);
+    };
 
     const ensureOverlay = () => {
       if (overlay) return overlay;
@@ -4884,10 +6365,10 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           <div class="text-lightbox__header">
             <h2 class="text-lightbox__title"></h2>
           </div>
-          ${SHOW_AUDIO_CONTROLS ? `<div class="text-lightbox__tts">
+          <div class="text-lightbox__tts">
             <div class="story__action-group">
-              <span class="tools-bar__label">${tUi("story_audio_label", "Səs")}</span>
-              <div class="tools-bar__views" role="group" aria-label="${tUi("story_audio_label", "Səs")}">
+              <span class="tools-bar__label">${tUi("story_audio_label", "Səsləndir")}</span>
+              <div class="tools-bar__views" role="group" aria-label="${tUi("story_audio_label", "Səsləndir")}">
             <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-lightbox-tts data-tts-mode="listen" aria-pressed="false" title="${tUi("listen", "Mətni dinlə")}" aria-label="${tUi("listen", "Mətni dinlə")}">
               ${STORY_ICONS.listen}
             </button>
@@ -4897,7 +6378,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
               </div>
             </div>
             <p class="story-tts__note" data-story-tts-note hidden></p>
-          </div>` : ""}
+          </div>
           <div class="text-lightbox__body"></div>
         </div>
       `.trim();
@@ -4910,9 +6391,11 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         overlay.querySelector('[data-lightbox-tts][data-tts-mode="listen"]') || ttsBtns[0] || null;
       ttsNote = overlay.querySelector("[data-story-tts-note]");
       overlay.addEventListener("click", (event) => {
+        if (Date.now() < (window.__birinciIgnoreModalBackdropUntil || 0)) return;
         if (event.target === overlay) close();
       });
       if (closeBtn) closeBtn.addEventListener("click", close);
+      syncLightboxLabels();
       return overlay;
     };
 
@@ -4937,6 +6420,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       document.body.classList.remove("text-lightbox-open");
       if (titleEl) titleEl.textContent = "";
       if (bodyEl) bodyEl.innerHTML = "";
+      activeStem = "";
       resetTtsUi();
       if (lastFocus && typeof lastFocus.focus === "function") {
         try {
@@ -4950,23 +6434,10 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       if (!story || !textEl) return;
       ensureOverlay();
       lastFocus = document.activeElement;
-      const titleNode =
-        story.querySelector(".story__title, .card-title") ||
-        story.querySelector("h2");
-      titleEl.textContent = titleNode ? titleNode.textContent.trim() : "Hekayə";
-      bodyEl.innerHTML = textEl.innerHTML;
-      const stem = ((story.dataset.stem || story.id) || "").trim();
-      ttsBtns.forEach((el) => {
-        if (stem) el.setAttribute("data-story-stem", stem);
-        else el.removeAttribute("data-story-stem");
-        el.setAttribute("data-tts-state", "idle");
-        const mode = el.getAttribute("data-tts-mode");
-        el.setAttribute("aria-pressed", mode === "stop" ? "true" : "false");
-      });
-      if (ttsNote) {
-        ttsNote.hidden = true;
-        ttsNote.textContent = "";
-      }
+      prefetchModalLangPacks();
+      fillFromStory(story, textEl);
+      syncLightboxLabels();
+      const stem = activeStem;
       // Same tap that opens the overlay can land on the listen button (esp. mobile).
       if (typeof window.__birinciIgnoreStoryTtsClicks === "function") {
         window.__birinciIgnoreStoryTtsClicks(500);
@@ -4993,8 +6464,39 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       });
     };
 
+    window.__birinciRefreshTextLightbox = (doc) => {
+      if (!overlay || overlay.hidden || !activeStem) return;
+      overlay.hidden = false;
+      overlay.removeAttribute("hidden");
+      document.body.classList.add("text-lightbox-open");
+      const liveStory =
+        document.getElementById(activeStem) ||
+        document.querySelector('article.story[data-stem="' + activeStem + '"]');
+      const fetched =
+        doc &&
+        (doc.getElementById(activeStem) ||
+          doc.querySelector('article.story[data-stem="' + activeStem + '"]'));
+      if (fetched && liveStory && fetched !== liveStory) {
+        const fromTitle = fetched.querySelector(".story__title, .card-title, h2");
+        const toTitle = liveStory.querySelector(".story__title, .card-title, h2");
+        if (fromTitle && toTitle) toTitle.textContent = fromTitle.textContent;
+        const fromText = fetched.querySelector(".story__text, .card-text");
+        const toText = liveStory.querySelector(".story__text, .card-text");
+        if (fromText && toText) toText.innerHTML = fromText.innerHTML;
+        const title = fetched.getAttribute("data-title");
+        if (title) liveStory.setAttribute("data-title", title);
+        const audio = fetched.getAttribute("data-audio");
+        if (audio) liveStory.setAttribute("data-audio", audio);
+        else liveStory.removeAttribute("data-audio");
+      }
+      const story = fetched || liveStory;
+      const textEl = story && story.querySelector(".story__text, .story .card-text");
+      if (story && textEl) fillFromStory(story, textEl);
+      syncLightboxLabels();
+    };
+
     document.addEventListener("click", (event) => {
-      if (event.target.closest("button, a, input, select, textarea, label")) return;
+      if (event.target.closest("button, a, input, select, textarea, label, .story__actions")) return;
       const textEl = event.target.closest(".story__text, .story .card-text");
       if (!textEl) return;
       const story = textEl.closest("article.story");
@@ -6326,6 +7828,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     hideAudioChrome();
   } catch (err) {
     console.error("hideAudioChrome failed", err);
+  }
+  try {
+    ensurePageListenButtons();
+    ensureStoryListenButtons();
+  } catch (err) {
+    console.error("ensureAudioControls failed", err);
   }
   try {
     initStoryTts();

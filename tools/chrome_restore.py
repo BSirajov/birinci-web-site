@@ -17,13 +17,14 @@ if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 from brand_one_mark import ensure_brand_one_mark  # noqa: E402
 from html_sitemap import write_html_sitemaps  # noqa: E402
+from i18n_config import rewrite_content_media_paths, story_illustrations_dir  # noqa: E402
 
 # Discovery videos are off. chrome_restore still strips leftover Ocaq markup
 # if a bytecode rebuild re-emits it.
 DISABLE_DISCOVERY_VIDEOS = True
 
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
-SITE_ASSET_VERSION = "20260823t"
+SITE_ASSET_VERSION = "20260825b"
 SITE_PUBLIC_ORIGIN = "https://birinci.cloud"
 LIVE_LANGS = ("az", "en", "ru", "ky")
 OG_IMAGE_URL = f"{SITE_PUBLIC_ORIGIN}/assets/pearl-hero.webp"
@@ -631,6 +632,46 @@ def ensure_site_css_chrome(css: str) -> str:
             "}\n"
         )
 
+    if ".tools-bar__field--filter .kt-multi-filter__trigger" not in css:
+        css = css.rstrip() + (
+            "\n:is(.page-home, .page-category, .page-inventions) .tools-bar__field--filter {\n"
+            "  align-items: stretch;\n"
+            "  min-width: 12rem;\n"
+            "  max-width: 18rem;\n"
+            "  flex: 0 1 14rem;\n"
+            "}\n"
+        )
+
+    if ".story-nav .timeline-list > li.toc-group" not in css:
+        css = css.rstrip() + (
+            "\n.story-nav {\n"
+            "  --toc-group-expanded-max: none;\n"
+            "}\n"
+            ".story-nav .timeline-list > li.toc-group {\n"
+            "  display: block;\n"
+            "  flex-direction: unset;\n"
+            "  gap: unset;\n"
+            "  padding: 0;\n"
+            "  border-bottom: none;\n"
+            "}\n"
+            ".story-nav .toc-group.events-open .toc-group__body {\n"
+            "  max-height: none;\n"
+            "}\n"
+            ".story-nav .toc-group__head a,\n"
+            ".story-nav .toc-group__list a {\n"
+            "  padding-left: 6px;\n"
+            "}\n"
+            ".story-nav .toc-group__head a::before,\n"
+            ".story-nav .toc-group__list a::before {\n"
+            "  content: none;\n"
+            "  display: none;\n"
+            "}\n"
+            ".story-nav .toc-group.is-hidden,\n"
+            ".story-nav .inventions-toc-entry.is-hidden {\n"
+            "  display: none !important;\n"
+            "}\n"
+        )
+
     if '@import url("fonts.css")' not in css and "@import url('fonts.css')" not in css:
         css = '@import url("fonts.css");\n' + css
 
@@ -987,8 +1028,8 @@ _CATEGORY_HREF_RE = re.compile(
 )
 _I18N_ASSIGN_PREFIX = "window.__BIRINCI_I18N__ = "
 _SITE_RUNTIME_SCRIPTS_RE = re.compile(
-    r"[ \t]*<script src=\"[^\"]*i18n\.js\?v=[^\"]+\"[^>]*></script>\s*"
-    r"[ \t]*<script src=\"[^\"]*site\.js\?v=[^\"]+\"[^>]*></script>\s*",
+    r"(?:[ \t]*<script src=\"[^\"]*(?:i18n|tts-proxy|kt-sidebar-toc-groups|kt-catalog-multi-filter)\.js[^\"]*\"[^>]*></script>\s*)+"
+    r"[ \t]*<script src=\"[^\"]*assets/site\.js\?v=[^\"]+\"[^>]*></script>\s*",
     re.I,
 )
 _SITE_JS_ONLY_RE = re.compile(
@@ -1049,7 +1090,39 @@ def pin_asset_versions(html: str) -> str:
     return html
 
 
-def strip_data_audio(html: str) -> str:
+_STORY_TTS_GROUP_RE = re.compile(
+    r"[ \t]*<div class=\"story__action-group\">\s*"
+    r"<span class=\"tools-bar__label\">[^<]*</span>\s*"
+    r"<div class=\"tools-bar__views\"[^>]*>"
+    r"(?:(?!</div>).)*data-story-tts(?:(?!</div>).)*</div>\s*"
+    r"</div>\s*",
+    re.I | re.S,
+)
+_PAGE_LISTEN_FIELD_RE = re.compile(
+    r"[ \t]*<div class=\"tools-bar__field\"[^>]*>\s*"
+    r"<span class=\"tools-bar__label\"[^>]*id=\"tools-listen-page-label\""
+    r"[\s\S]*?</div>\s*</div>\s*",
+    re.I,
+)
+_STORY_TTS_NOTE_RE = re.compile(
+    r"[ \t]*<p class=\"story-tts__note\"[^>]*>[\s\S]*?</p>\s*",
+    re.I,
+)
+
+
+def strip_listen_chrome(html: str) -> str:
+    """Remove Wisdom Stories Listen / page-listen controls from markup."""
+    html = _STORY_TTS_GROUP_RE.sub("", html)
+    html = _PAGE_LISTEN_FIELD_RE.sub("", html)
+    html = _STORY_TTS_NOTE_RE.sub("", html)
+    return html
+
+
+def strip_data_audio(html: str, lang: str = "") -> str:
+    # AZ stories and Discoveries play pre-generated MP3s from
+    # az/wisdom-stories/audio/ and az/discovery-articles/audio/.
+    if lang == "az":
+        return html
     return _DATA_AUDIO_RE.sub("", html)
 
 
@@ -1234,6 +1307,46 @@ def fix_ky_illustration_prefix(html: str, lang: str) -> str:
     if lang != "ky":
         return html
     return html.replace("Иллюстрация:", "Сүрөт:")
+
+
+_INVENTION_CAPTION_RE = re.compile(
+    r"\s*<figcaption\b[^>]*\binventions-entry-icon-caption\b[^>]*>.*?</figcaption>",
+    re.I | re.S,
+)
+
+
+def strip_invention_icon_captions(html: str) -> str:
+    return _INVENTION_CAPTION_RE.sub("", html)
+
+
+_INVENTION_ARTICLE_RE = re.compile(
+    r'<article\b[^>]*\binventions-entry\b[^>]*>.*?</article>',
+    re.I | re.S,
+)
+_INVENTION_META_RE = re.compile(
+    r'\s*<p\b[^>]*\binventions-entry-meta\b[^>]*>.*?</p>',
+    re.I | re.S,
+)
+_INVENTION_FACTS_RE = re.compile(r'<div\b[^>]*\binventions-key-facts\b', re.I)
+
+
+def relocate_invention_period_lines(html: str) -> str:
+    def move_meta(match: re.Match[str]) -> str:
+        article = match.group(0)
+        meta_m = _INVENTION_META_RE.search(article)
+        facts_m = _INVENTION_FACTS_RE.search(article)
+        if not meta_m or not facts_m:
+            return article
+        if meta_m.start() < facts_m.start():
+            return article
+        meta = meta_m.group(0).strip()
+        without = article[: meta_m.start()] + article[meta_m.end() :]
+        facts_m = _INVENTION_FACTS_RE.search(without)
+        if not facts_m:
+            return article
+        return without[: facts_m.start()] + meta + without[facts_m.start() :]
+
+    return _INVENTION_ARTICLE_RE.sub(move_meta, html)
 
 
 def _public_url(rel_path: str) -> str:
@@ -1730,8 +1843,21 @@ def sync_site_js_i18n_blob(js: str, lang: str) -> str:
             inventions[key] = value
     if isinstance(locale.get("js"), dict):
         blob["js"] = locale["js"]
+    blob["show_audio_controls"] = _show_audio_controls_for(lang)
     dumped = json.dumps(blob, ensure_ascii=False, separators=(", ", ": "))
     return js[:start] + _I18N_ASSIGN_PREFIX + dumped + ";" + js[end:]
+
+
+def _show_audio_controls_for(lang: str) -> bool:
+    path = ROOT / "languages.json"
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return False
+    for item in data.get("languages") or []:
+        if isinstance(item, dict) and item.get("code") == lang:
+            return bool(item.get("show_audio_controls"))
+    return False
 
 
 def write_lang_i18n_from_locale(lang: str) -> None:
@@ -1790,21 +1916,87 @@ def ensure_shared_site_js_tags(markup: str, lang: str, rel_path: str = "") -> st
     rel_path = rel_path or infer_html_rel_path(markup, lang)
     if rel_path in ("", "index.html") or "page-root-home" in markup:
         i18n_src = f"az/assets/i18n.js?v={SITE_ASSET_VERSION}"
+        tts_src = f"assets/tts-proxy.js?v={SITE_ASSET_VERSION}"
         site_src = f"assets/site.js?v={SITE_ASSET_VERSION}"
     elif rel_path.count("/") <= 1:
         i18n_src = f"assets/i18n.js?v={SITE_ASSET_VERSION}"
+        tts_src = f"../assets/tts-proxy.js?v={SITE_ASSET_VERSION}"
         site_src = f"../assets/site.js?v={SITE_ASSET_VERSION}"
     else:
         i18n_src = f"../assets/i18n.js?v={SITE_ASSET_VERSION}"
+        tts_src = f"../../assets/tts-proxy.js?v={SITE_ASSET_VERSION}"
         site_src = f"../../assets/site.js?v={SITE_ASSET_VERSION}"
     block = (
         f'  <script src="{i18n_src}"></script>\n'
+        f'  <script src="{tts_src}"></script>\n'
         f'  <script src="{site_src}" defer></script>\n'
     )
     if _SITE_RUNTIME_SCRIPTS_RE.search(markup):
         return _SITE_RUNTIME_SCRIPTS_RE.sub(block, markup, count=1)
     if _SITE_JS_ONLY_RE.search(markup):
         return _SITE_JS_ONLY_RE.sub(block, markup, count=1)
+    return markup
+
+
+_STORY_KT_CSS_RE = re.compile(
+    r"[ \t]*<link rel=\"stylesheet\" href=\"[^\"]*assets/inventions/kt-tokens\.css[^\"]*\"\s*/>\s*"
+    r"(?:[ \t]*<link rel=\"stylesheet\" href=\"[^\"]*assets/inventions/kt-catalog-toolbar\.css[^\"]*\"\s*/>\s*)?"
+    r"[ \t]*<link rel=\"stylesheet\" href=\"[^\"]*assets/inventions/kt-sidebar-widget\.css[^\"]*\"\s*/>\s*",
+    re.I,
+)
+_STORY_KT_JS_RE = re.compile(
+    r"[ \t]*<script src=\"[^\"]*assets/inventions/kt-sidebar-toc-groups\.js[^\"]*\"[^>]*></script>\s*"
+    r"(?:[ \t]*<script src=\"[^\"]*assets/inventions/kt-catalog-multi-filter\.js[^\"]*\"[^>]*></script>\s*)?",
+    re.I,
+)
+
+
+_STORY_KT_ANY_CSS_RE = re.compile(
+    r"[ \t]*<link rel=\"stylesheet\" href=\"[^\"]*assets/inventions/kt-(?:tokens|sidebar-widget|catalog-toolbar)\.css[^\"]*\"\s*/>\s*",
+    re.I,
+)
+
+
+def ensure_story_sidebar_toc_assets(markup: str, lang: str = "", rel_path: str = "") -> str:
+    """Discovery TOC CSS/JS on Wisdom Stories list and category pages."""
+    rel_path = rel_path or infer_html_rel_path(markup, lang)
+    if "page-root-home" in markup or rel_path in ("", "index.html"):
+        markup = _STORY_KT_CSS_RE.sub("", markup)
+        markup = _STORY_KT_ANY_CSS_RE.sub("", markup)
+        markup = _STORY_KT_JS_RE.sub("", markup)
+        return markup
+    if 'class="page-home"' not in markup and 'class="page-category"' not in markup:
+        return markup
+    prefix = "../assets/inventions/" if rel_path.count("/") <= 1 else "../../assets/inventions/"
+    css = (
+        f'  <link rel="stylesheet" href="{prefix}kt-tokens.css?v={SITE_ASSET_VERSION}" />\n'
+        f'  <link rel="stylesheet" href="{prefix}kt-catalog-toolbar.css?v={SITE_ASSET_VERSION}" />\n'
+        f'  <link rel="stylesheet" href="{prefix}kt-sidebar-widget.css?v={SITE_ASSET_VERSION}" />\n'
+    )
+    js = (
+        f'  <script src="{prefix}kt-sidebar-toc-groups.js?v={SITE_ASSET_VERSION}" defer></script>\n'
+        f'  <script src="{prefix}kt-catalog-multi-filter.js?v={SITE_ASSET_VERSION}" defer></script>\n'
+    )
+    if _STORY_KT_CSS_RE.search(markup):
+        markup = _STORY_KT_CSS_RE.sub(css, markup, count=1)
+    elif "kt-tokens.css" not in markup:
+        markup = re.sub(
+            r'(<link rel="stylesheet" href="[^"]*assets/site\.css\?v=[^"]+"\s*/>\s*)',
+            r"\1" + css,
+            markup,
+            count=1,
+            flags=re.I,
+        )
+    if _STORY_KT_JS_RE.search(markup):
+        markup = _STORY_KT_JS_RE.sub(js, markup, count=1)
+    elif "kt-sidebar-toc-groups.js" not in markup:
+        markup = re.sub(
+            r'([ \t]*<script src="[^"]*assets/site\.js\?v=[^"]+"[^>]*></script>)',
+            js + r"\1",
+            markup,
+            count=1,
+            flags=re.I,
+        )
     return markup
 
 
@@ -1827,7 +2019,7 @@ def ensure_site_js_i18n_chrome(js: str) -> str:
         "        ? `\n"
         '    <figure class="story__figure" id="figure-${escapeHtml(story.stem)}">\n'
         '      <button type="button" class="story__figure-open" aria-label="${enlargeLabel}">\n'
-        '        <img src="illustrations/${escapeHtml(story.stem)}.webp" alt="${figAlt}" loading="lazy" width="1536" height="1024" />\n'
+        '        <img src="wisdom-stories/illustrations/${escapeHtml(story.stem)}.webp" alt="${figAlt}" loading="lazy" width="1536" height="1024" />\n'
     )
     if old_figure in js:
         js = js.replace(old_figure, new_figure, 1)
@@ -1951,6 +2143,69 @@ def hide_empty_top_nav(html: str) -> str:
     return html
 
 
+def ensure_stories_batch_default_all(html: str) -> str:
+    """First visit shows every story; All is the selected pager control."""
+    html = re.sub(
+        r'(class="tools-bar__view-btn tools-bar__view-btn--icon tools-bar__batch-all)(?! is-active)',
+        r"\1 is-active",
+        html,
+        count=1,
+    )
+    html = re.sub(
+        r'(data-home-batch="all"[^>]*?\saria-pressed=")false(")',
+        r"\1true\2",
+        html,
+        count=1,
+    )
+    old_fallback = (
+        "    var allMode = false;\n"
+        "    var pageSize = 12;\n"
+        "    try {\n"
+        '      allMode = localStorage.getItem("birinci-home-batch-all") === "1";\n'
+        "      raw = localStorage.getItem(\"birinci-home-batch-size\") || \"\";\n"
+        "      if (!raw) {\n"
+        '        var legacy = localStorage.getItem("birinci-home-page-size") || "";\n'
+        '        if (legacy && legacy !== "all") raw = legacy;\n'
+        '        else if (legacy === "all") allMode = true;\n'
+        "      }\n"
+        "    } catch (_) {}\n"
+    )
+    new_fallback = (
+        "    var allMode = true;\n"
+        "    var pageSize = 12;\n"
+        "    try {\n"
+        '      var allFlag = localStorage.getItem("birinci-home-batch-all") || "";\n'
+        '      raw = localStorage.getItem("birinci-home-batch-size") || "";\n'
+        "      if (!raw) {\n"
+        '        var legacy = localStorage.getItem("birinci-home-page-size") || "";\n'
+        '        if (legacy && legacy !== "all") raw = legacy;\n'
+        '        else if (legacy === "all") allFlag = allFlag || "1";\n'
+        "      }\n"
+        '      allMode = allFlag !== "0";\n'
+        "    } catch (_) {}\n"
+    )
+    if old_fallback in html:
+        html = html.replace(old_fallback, new_fallback, 1)
+    return html
+
+
+def ensure_site_js_batch_default_all(js: str) -> str:
+    old_read = (
+        "        storedAll = localStorage.getItem(batchAllStorageKey) === \"1\";\n"
+    )
+    if old_read in js and "allFlag !== \"0\"" not in js:
+        js = js.replace(
+            old_read,
+            "        storedAll = (localStorage.getItem(batchAllStorageKey) || \"\") !== \"0\";\n",
+        )
+    js = js.replace(
+        "        if (allMode) localStorage.setItem(batchAllStorageKey, \"1\");\n"
+        "        else localStorage.removeItem(batchAllStorageKey);\n",
+        "        localStorage.setItem(batchAllStorageKey, allMode ? \"1\" : \"0\");\n",
+    )
+    return js
+
+
 def patch_emitted_html(
     html: str, lang: str, *, inventions: bool = False, rel_path: str = ""
 ) -> str:
@@ -1974,13 +2229,18 @@ def patch_emitted_html(
         html = strip_unused_inventions_scripts(html)
         html = slim_discoveries_search(html)
         html = fix_ky_illustration_prefix(html, lang)
+        html = strip_invention_icon_captions(html)
+        html = relocate_invention_period_lines(html)
     html = strip_data_audio(html)
     html = ensure_story_listen_markup(html, lang)
     html = strip_google_fonts(html)
     html = strip_stories_json_refs(html)
     html = ensure_shared_site_js_tags(html, lang, rel_path)
+    html = ensure_story_sidebar_toc_assets(html, lang, rel_path)
+    html = ensure_stories_batch_default_all(html)
     html = pin_asset_versions(html)
     html = ensure_seo_head(html, lang, rel_path)
+    html = rewrite_content_media_paths(html)
     return html
 
 
@@ -2016,6 +2276,8 @@ def apply_shared_assets() -> None:
         rest = ensure_site_js_go_to_bottom(rest)
         rest = ensure_site_js_search(rest)
         rest = ensure_site_js_i18n_chrome(rest)
+        rest = ensure_site_js_batch_default_all(rest)
+        rest = rewrite_content_media_paths(rest)
         shared_path.write_text(rest, encoding="utf-8")
 
     for lang in LIVE_LANGS:
@@ -2513,6 +2775,7 @@ def write_root_home() -> None:
     html = strip_google_fonts(html)
     html = strip_stories_json_refs(html)
     html = ensure_shared_site_js_tags(html, "az", "index.html")
+    html = ensure_story_sidebar_toc_assets(html, "az", "index.html")
     html = pin_asset_versions(html)
     html = ensure_seo_head(html, "az", "index.html")
     (ROOT / "index.html").write_text(html, encoding="utf-8")
@@ -2520,6 +2783,8 @@ def write_root_home() -> None:
 
 def apply_story_audio_cleanup() -> None:
     for lang in LIVE_LANGS:
+        if lang == "az":
+            continue
         for rel in (
             Path(lang) / "assets" / "stories-data.js",
         ):
@@ -2530,9 +2795,6 @@ def apply_story_audio_cleanup() -> None:
             new = text.replace('"hasAudio": true', '"hasAudio": false')
             if new != text:
                 path.write_text(new, encoding="utf-8")
-    manifest = ROOT / "az" / "audio" / "manifest.json"
-    if manifest.is_file():
-        manifest.unlink()
     for lang in LIVE_LANGS:
         path = ROOT / lang / "data" / "stories.json"
         if path.is_file():
@@ -2550,6 +2812,8 @@ def apply_invention_source_bodies() -> None:
         markup = path.read_text(encoding="utf-8")
         new = slim_discoveries_search(markup)
         new = fix_ky_illustration_prefix(new, lang)
+        new = strip_invention_icon_captions(new)
+        new = relocate_invention_period_lines(new)
         if new != markup:
             path.write_text(new, encoding="utf-8")
 
@@ -2633,7 +2897,7 @@ def write_translation_manifest() -> None:
             for lang in LIVE_LANGS:
                 entry[f"text_{lang}"] = "done" if stem in present.get(lang, set()) else "pending"
                 entry[f"audio_{lang}"] = "pending"
-                illu = ROOT / lang / "illustrations" / f"{stem}.webp"
+                illu = story_illustrations_dir(lang) / f"{stem}.webp"
                 entry[f"illustration_{lang}"] = "done" if illu.is_file() else "pending"
             stems[stem] = entry
     dest = ROOT / "docs" / "i18n" / "translation_manifest.json"
