@@ -78,27 +78,7 @@
       <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-tools-play-visible data-tts-mode="stop" aria-pressed="true" title="Стоп" aria-label="Стоп"><svg class="tools-bar__glyph" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M3 3l18 18"/></svg></button>
     </div>
   </div>
-  <div class="tools-bar__field tools-bar__batch" data-inventions-list-only hidden>
-    <span class="tools-bar__label" id="tools-batch-label">Количество статей</span>
-    <div class="tools-bar__batch-controls" role="group" aria-labelledby="tools-batch-label">
-      <div class="tools-bar__stepper">
-        <button type="button" class="tools-bar__stepper-btn" data-home-batch="dec" title="Меньше" aria-label="Меньше">−</button>
-        <label class="tools-bar__batch-count">
-          <span class="visually-hidden">Число статей</span>
-          <input type="number" class="tools-bar__batch-input" data-home-batch-size min="1" max="9999" value="12" step="1" inputmode="numeric" aria-label="Число статей" title="Число статей"/>
-        </label>
-        <button type="button" class="tools-bar__stepper-btn" data-home-batch="inc" title="Больше" aria-label="Больше">+</button>
-      </div>
-      <div class="tools-bar__pager" role="navigation" aria-label="Страница">
-        <button type="button" class="tools-bar__pager-btn" data-home-batch="prev" title="Назад" aria-label="Назад"><svg class="tools-bar__glyph" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
-        <span class="tools-bar__batch-range" data-home-batch-range aria-live="polite"></span>
-        <button type="button" class="tools-bar__pager-btn" data-home-batch="next" title="Далее" aria-label="Далее"><svg class="tools-bar__glyph" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
-      </div>
-      <button type="button" class="tools-bar__icon-btn" data-home-batch="random" title="Случайно" aria-label="Случайно"><svg class="tools-bar__glyph" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="m21 3-7 7"/><path d="M4 20l7-7"/><path d="M16 16h5v5"/><path d="m21 21-6-6"/><path d="M4 4l5 5"/></svg></button>
-      <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon tools-bar__batch-all is-active" data-home-batch="all" title="Все" aria-label="Все" aria-pressed="true"><svg class="tools-bar__glyph" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="5" height="5" rx="1"/><rect x="9.5" y="3" width="5" height="5" rx="1"/><rect x="16" y="3" width="5" height="5" rx="1"/><rect x="3" y="9.5" width="5" height="5" rx="1"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><rect x="16" y="9.5" width="5" height="5" rx="1"/><rect x="3" y="16" width="5" height="5" rx="1"/><rect x="9.5" y="16" width="5" height="5" rx="1"/><rect x="16" y="16" width="5" height="5" rx="1"/></svg></button>
-    </div>
   </div>
-</div>
 <div class="charter-layout inventions-layout">
 <aside aria-label="Навигация по статьям" class="charter-sidebar toc-card">
 <div class="sidebar-widget events-open" id="inventionsArticlesWidget">

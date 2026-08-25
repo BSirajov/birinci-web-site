@@ -2,7 +2,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
 (() => {
   const I18N = window.__BIRINCI_I18N__ || { lang: "az", ui: {}, js: {} };
-  const LOCALE_TAG = I18N.lang || document.documentElement.lang || "az";
   const PAGE_LANG = String(
     I18N.lang ||
       (document.body && document.body.getAttribute("data-lang")) ||
@@ -11,11 +10,24 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   )
     .toLowerCase()
     .split(/[-_]/)[0];
+  const audioFlagsForLang = (code) => {
+    const lang = String(code || "az")
+      .toLowerCase()
+      .split(/[-_]/)[0];
+    const on = lang !== "ky";
+    return { stories: on, discoveries: on };
+  };
+  let LOCALE_TAG = I18N.lang || document.documentElement.lang || "az";
   // Ignore stale i18n `show_audio_controls: false` from older Hostinger uploads.
   // Listen stays on for AZ/EN/RU even when that flag is still false on the live site.
-  const SHOW_AUDIO_CONTROLS = PAGE_LANG !== "ky";
+  let SHOW_AUDIO_CONTROLS = audioFlagsForLang(PAGE_LANG).stories;
   // No native Kyrgyz neural voice — keep Listen off on KY articles.
-  const SHOW_DISCOVERY_LISTEN = PAGE_LANG !== "ky";
+  let SHOW_DISCOVERY_LISTEN = audioFlagsForLang(PAGE_LANG).discoveries;
+  const applyAudioFlags = (code) => {
+    const flags = audioFlagsForLang(code);
+    SHOW_AUDIO_CONTROLS = flags.stories;
+    SHOW_DISCOVERY_LISTEN = flags.discoveries;
+  };
 
   const hideAudioChrome = (root = document) => {
     (root || document)
@@ -48,33 +60,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   const tJs = (key, fallback) => {
     const pack = liveI18n().js || {};
     return pack[key] || fallback || key;
-  };
-
-  const readStoredBatchPref = ({ allKey, sizeKey, legacyKey, defaultSize = 12 } = {}) => {
-    let stored = "";
-    let allFlag = "";
-    try {
-      allFlag = localStorage.getItem(allKey) || "";
-      stored = localStorage.getItem(sizeKey) || "";
-      if (!stored) {
-        const legacy = localStorage.getItem(legacyKey) || "";
-        if (legacy && legacy !== "all") stored = legacy;
-        else if (legacy === "all") allFlag = allFlag || "1";
-      }
-    } catch (_) {}
-    const n = Number(stored);
-    const hasSize = Number.isFinite(n) && n > 0;
-    return {
-      batchSize: hasSize ? Math.floor(n) : defaultSize,
-      // Missing flag = first visit. Only "0" means the user chose a page size.
-      allMode: allFlag !== "0",
-    };
-  };
-
-  const writeStoredAllMode = (allKey, allMode) => {
-    try {
-      localStorage.setItem(allKey, allMode ? "1" : "0");
-    } catch (_) {}
   };
 
   const escapeStoryNav = (value) =>
@@ -810,9 +795,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-tools-play-visible data-tts-mode="listen" aria-pressed="false" title="${escListen(listenPage)}" aria-label="${escListen(listenPage)}">${STORY_ICONS.listen}</button>
           <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-tools-play-visible data-tts-mode="stop" aria-pressed="true" title="${escListen(stop)}" aria-label="${escListen(stop)}">${STORY_ICONS.stop}</button>
         </div>`;
-      const batch = bar.querySelector(".tools-bar__batch");
-      if (batch) bar.insertBefore(field, batch);
-      else bar.appendChild(field);
+      bar.appendChild(field);
     });
     document.querySelectorAll("a.cat-card[data-stem]").forEach((card) => {
       if (card.querySelector("[data-story-tts]")) return;
@@ -956,8 +939,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       let cat = String(params.get("cat") || "").trim();
       let period = String(params.get("period") || "").trim();
       let sort = String(params.get("sort") || "").trim();
-      let start = String(params.get("start") || "").trim();
-      let batch = String(params.get("batch") || "").trim();
       let tocCollapsed = [];
 
       if (isInventions && typeof window.__birinciInventionsContext === "function") {
@@ -972,14 +953,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
             if (Array.isArray(inv.tocCollapsed)) tocCollapsed = inv.tocCollapsed.slice();
           }
         } catch (_) {}
-      }
-
-      if (!start && window.__birinciListStart != null) {
-        start = String(window.__birinciListStart);
-      }
-      if (!batch) {
-        const batchInput = document.querySelector("[data-home-batch-size]");
-        if (batchInput && batchInput.value) batch = String(batchInput.value).trim();
       }
 
       const stem = resolveActiveAnchor() || decodeHash();
@@ -1002,8 +975,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         cat,
         period,
         sort,
-        start,
-        batch,
         stem,
         categoryId,
         tocCollapsed,
@@ -1033,8 +1004,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       if (ctx.cat) params.set("cat", ctx.cat);
       if (ctx.period) params.set("period", ctx.period);
       if (ctx.sort) params.set("sort", ctx.sort);
-      if (ctx.start && Number(ctx.start) > 0) params.set("start", String(ctx.start));
-      if (ctx.batch && Number(ctx.batch) > 0) params.set("batch", String(ctx.batch));
 
       const qs = params.toString();
       let hash = "";
@@ -1057,8 +1026,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
             cat: ctx.cat || "",
             period: ctx.period || "",
             view: ctx.view || "",
-            start: ctx.start || "",
-            batch: ctx.batch || "",
             sort: ctx.sort || "",
             ts: Date.now(),
           })
@@ -1451,7 +1418,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       ["#home-view-label", "view", "Görüntü"],
       ["#tools-images-label", "images", "Şəkillər"],
       ["#tools-texts-label", "texts", "Mətnlər"],
-      ["#tools-batch-label", isInventions ? "batch_articles" : "batch", isInventions ? "Məqalələrin sayı" : "Hekayələrin sayı"],
       ["#tools-listen-page-label", "listen_page", "Səhifəni dinlə"],
     ];
     labelMap.forEach(([sel, key, fallback]) => {
@@ -1479,31 +1445,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     document.querySelectorAll("[data-images-mode='hide'], [data-texts-mode='hide']").forEach((btn) => {
       btn.title = hideLabel;
       btn.setAttribute("aria-label", hideLabel);
-    });
-    const batchTitles = {
-      dec: tUi("batch_dec", "Azalt"),
-      inc: tUi("batch_inc", "Artır"),
-      prev: tUi("batch_prev", "Əvvəlki"),
-      next: tUi("batch_next", "Növbəti"),
-      random: tUi("batch_random", "Təsadüfi"),
-      all: tUi("batch_all", "Hamısı"),
-    };
-    document.querySelectorAll("[data-home-batch]").forEach((btn) => {
-      const key = btn.getAttribute("data-home-batch");
-      const label = batchTitles[key];
-      if (!label) return;
-      btn.title = label;
-      btn.setAttribute("aria-label", label);
-    });
-    const batchCount = isInventions
-      ? tUi("batch_articles_count", "Məqalə sayı")
-      : tUi("batch_count", "Hekayə sayı");
-    document.querySelectorAll("[data-home-batch-size]").forEach((el) => {
-      el.title = batchCount;
-      el.setAttribute("aria-label", batchCount);
-    });
-    document.querySelectorAll(".tools-bar__batch-count .visually-hidden").forEach((el) => {
-      el.textContent = batchCount;
     });
   };
 
@@ -1651,7 +1592,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   };
 
   const syncAudioChromeForLang = () => {
-    SHOW_AUDIO_CONTROLS = liveI18n().show_audio_controls !== false;
+    applyAudioFlags(liveI18n().lang || LOCALE_TAG || PAGE_LANG);
     if (SHOW_AUDIO_CONTROLS) {
       document.querySelectorAll(".story__action-group[hidden], .tools-bar__field[hidden], .text-lightbox__tts[hidden]").forEach((el) => {
         if (el.querySelector("[data-story-tts], [data-tools-play-visible]")) {
@@ -1667,9 +1608,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       });
       ensureStoryListenButtons(document);
       ensurePageListenButtons();
-    } else {
-      hideAudioChrome(document);
     }
+    hideAudioChrome(document);
   };
 
   let liveLangBusy = false;
@@ -1758,7 +1698,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       if (!target) throw new Error("lang-href");
       const [doc] = await Promise.all([fetchParsedDocument(target.href), loadI18nForLang(next)]);
       LOCALE_TAG = next;
-      SHOW_AUDIO_CONTROLS = (window.__BIRINCI_I18N__ || {}).show_audio_controls !== false;
+      applyAudioFlags(next);
       window.__BIRINCI_STORIES__ = undefined;
       if (typeof window.__birinciStopStoryTts === "function") window.__birinciStopStoryTts();
       applyDocumentLangAttrs(next);
@@ -2682,20 +2622,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const imagesBtns = Array.from(bar.querySelectorAll("[data-images-mode]"));
     const textsToggle = bar.querySelector("[data-tools-texts]");
     const textsBtns = Array.from(bar.querySelectorAll("[data-texts-mode]"));
-    const batchSizeInput = bar.querySelector("[data-home-batch-size]");
-    const batchDecBtn = bar.querySelector('[data-home-batch="dec"]');
-    const batchIncBtn = bar.querySelector('[data-home-batch="inc"]');
-    const batchPrevBtn = bar.querySelector('[data-home-batch="prev"]');
-    const batchNextBtn = bar.querySelector('[data-home-batch="next"]');
-    const batchRandomBtn = bar.querySelector('[data-home-batch="random"]');
-    const batchAllBtn = bar.querySelector('[data-home-batch="all"]');
-    const batchRangeEl = bar.querySelector("[data-home-batch-range]");
     const navList = document.querySelector("[data-tools-nav]");
     const countEl = document.querySelector("[data-tools-count]");
-    const batchSizeStorageKey = "birinci-category-batch-size";
-    const batchAllStorageKey = "birinci-category-batch-all";
-    // One-shot migration from the pre-pager page-size key; removed after read/persist.
-    const legacyPageSizeStorageKey = "birinci-category-page-size";
 
     const allStories = Array.from(list.querySelectorAll(".story"));
     const categorySection = (() => {
@@ -2736,146 +2664,18 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     })();
 
     let filtered = [];
-    let batchSize = 12;
-    let windowStart = 0;
-    let randomStems = null;
-    let allMode = true;
     let pendingStem = null;
     let lastShownCount = 0;
     let lastVisibleStems = new Set();
     let expandAllOnNextNav = false;
 
-    const batchCap = () => {
-      const n =
-        (filtered && filtered.length) ||
-        (allStories && allStories.length) ||
-        0;
-      return Math.max(1, n);
-    };
-
-    const inputRaw = () =>
-      batchSizeInput ? String(batchSizeInput.value || "").trim() : "";
-
-    const readBatchSize = () => {
-      const raw = inputRaw();
-      if (!raw) return batchSize || 12;
-      const n = Number(raw);
-      return Number.isFinite(n) && n > 0 ? Math.floor(n) : batchSize || 12;
-    };
-
-    const persistBatchSize = () => {
-      try {
-        localStorage.setItem(batchSizeStorageKey, String(batchSize));
-        localStorage.removeItem(legacyPageSizeStorageKey);
-      } catch (_) {}
-    };
-
-    const persistAllMode = () => {
-      writeStoredAllMode(batchAllStorageKey, allMode);
-    };
-
-    const syncBatchUi = (visibleCount = 0) => {
-      const total = (filtered && filtered.length) || 0;
-      const cap = batchCap();
-      if (batchSizeInput) {
-        batchSizeInput.min = "1";
-        batchSizeInput.max = String(cap);
-        batchSizeInput.value = String(batchSize);
-      }
-      const inRandom = !!(randomStems && randomStems.length);
-      const atStart = !inRandom && windowStart <= 0;
-      const atEnd = allMode || total === 0 || inRandom || windowStart + batchSize >= total;
-      if (batchDecBtn) batchDecBtn.disabled = total === 0 || batchSize <= 1;
-      if (batchIncBtn) batchIncBtn.disabled = total === 0 || batchSize >= cap;
-      if (batchPrevBtn) batchPrevBtn.disabled = total === 0 || allMode || (!inRandom && atStart);
-      if (batchNextBtn) batchNextBtn.disabled = total === 0 || allMode || inRandom || atEnd;
-      if (batchRandomBtn) batchRandomBtn.disabled = total === 0;
+    const syncPlayVisibleUi = (total = 0) => {
       bar.querySelectorAll("[data-tools-play-visible]").forEach((btn) => {
         btn.disabled = total === 0;
       });
       if (typeof window.__birinciSyncPlayVisibleUi === "function") {
         window.__birinciSyncPlayVisibleUi();
       }
-      if (batchAllBtn) {
-        const showingAll = allMode && !inRandom && total > 0;
-        batchAllBtn.disabled = !((allStories && allStories.length) || 0);
-        batchAllBtn.classList.toggle("is-active", showingAll);
-        batchAllBtn.setAttribute("aria-pressed", showingAll ? "true" : "false");
-        batchAllBtn.removeAttribute("aria-disabled");
-      }
-      if (batchRangeEl) {
-        if (total === 0) {
-          batchRangeEl.hidden = true;
-          batchRangeEl.textContent = "";
-        } else {
-          batchRangeEl.hidden = false;
-          batchRangeEl.removeAttribute("hidden");
-          if (inRandom) {
-            batchRangeEl.textContent = `${tUi("batch_random", "Təsadüfi")}·${visibleCount}/${total}`;
-          } else if (allMode) {
-            batchRangeEl.textContent = `1–${total}/${total}`;
-          } else {
-            const from = windowStart + 1;
-            const to = Math.max(from, windowStart + visibleCount);
-            batchRangeEl.textContent = `${from}–${to}/${total}`;
-          }
-        }
-      }
-    };
-
-    const applyPageSize = (n, { persist = true, render = false } = {}) => {
-      const cap = batchCap();
-      let size = Number(n);
-      if (!Number.isFinite(size) || size < 1) size = batchSize || 12;
-      size = Math.min(Math.floor(size), cap);
-      if (size < 1) size = 1;
-      batchSize = size;
-      allMode = false;
-      randomStems = null;
-      windowStart = 0;
-      if (batchSizeInput) batchSizeInput.value = String(batchSize);
-      if (persist) {
-        persistBatchSize();
-        persistAllMode();
-      }
-      if (render) {
-        pendingStem = null;
-        renderList();
-      } else {
-        syncBatchUi(0);
-      }
-    };
-
-    const commitBatchSize = ({ persist = true, render = false } = {}) => {
-      applyPageSize(readBatchSize(), { persist, render });
-    };
-
-    const applyStoredBatchSize = () => {
-      const stored = readStoredBatchPref({
-        allKey: batchAllStorageKey,
-        sizeKey: batchSizeStorageKey,
-        legacyKey: legacyPageSizeStorageKey,
-      });
-      batchSize = stored.batchSize;
-      allMode = stored.allMode;
-      if (batchSizeInput) batchSizeInput.value = String(batchSize);
-      syncBatchUi(0);
-    };
-
-    applyStoredBatchSize();
-
-    const pickRandomStems = (count) => {
-      const total = filtered.length;
-      if (!total) return [];
-      const n = Math.min(Math.max(1, count), total);
-      const idxs = Array.from({ length: total }, (_, i) => i);
-      for (let i = idxs.length - 1; i > 0; i -= 1) {
-        const j = Math.floor(Math.random() * (i + 1));
-        const tmp = idxs[i];
-        idxs[i] = idxs[j];
-        idxs[j] = tmp;
-      }
-      return idxs.slice(0, n).map((i) => filtered[i].dataset.stem);
     };
 
     const applyImagesState = (collapsed) => {
@@ -3079,10 +2879,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         const params = new URLSearchParams();
         const q = searchInput.value.trim();
         if (q) params.set("q", q);
-        if (!allMode) {
-          if (windowStart > 0) params.set("start", String(windowStart));
-          if (batchSize > 0) params.set("batch", String(batchSize));
-        }
         const url = new URL(window.location.href);
         url.search = params.toString();
         url.hash = pendingStem || (window.location.hash || "").replace(/^#/, "");
@@ -3090,7 +2886,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         const prevHash = window.location.hash || "";
         const nextHash = url.hash ? `#${String(url.hash).replace(/^#/, "")}` : "";
         commitHistoryHref(next, { replace: prevHash === nextHash });
-        window.__birinciListStart = windowStart;
       } catch (_) {}
     };
 
@@ -3105,62 +2900,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
       const total = filtered.length;
       syncSearchFilterUi(searchInput.value.trim(), total);
-      const cap = Math.max(1, total || 1);
-      let n = readBatchSize();
-      if (!Number.isFinite(n) || n < 1) n = batchSize || 12;
-      if (n > cap) n = cap;
-      batchSize = n;
-      if (batchSizeInput && String(batchSizeInput.value) !== String(n)) {
-        batchSizeInput.value = String(n);
-      }
-      if (!allMode) {
-        try {
-          localStorage.setItem(batchSizeStorageKey, String(n));
-        } catch (_) {}
-      }
-
-      if (resetWindow) {
-        windowStart = 0;
-        randomStems = null;
-      }
-
-      if (pendingStem) {
-        const idx = filtered.findIndex(
-          (story) => story.dataset.stem === pendingStem || story.dataset.stem === String(pendingStem)
-        );
-        if (idx >= 0) {
-          randomStems = null;
-          if (!allMode) {
-            windowStart = Math.floor(idx / batchSize) * batchSize;
-          }
-        }
-      }
-
-      let visibleStories = [];
-      if (total === 0) {
-        windowStart = 0;
-        randomStems = null;
-        visibleStories = [];
-      } else if (randomStems && randomStems.length) {
-        allMode = false;
-        const byStem = new Map(filtered.map((story) => [story.dataset.stem, story]));
-        visibleStories = randomStems.map((stem) => byStem.get(stem)).filter(Boolean);
-        if (!visibleStories.length) {
-          randomStems = null;
-          windowStart = 0;
-          visibleStories = filtered.slice(0, batchSize);
-        }
-      } else if (allMode) {
-        randomStems = null;
-        windowStart = 0;
-        visibleStories = filtered.slice();
-      } else {
-        randomStems = null;
-        const maxStart = Math.max(0, total - 1);
-        if (windowStart > maxStart) windowStart = Math.floor(maxStart / batchSize) * batchSize;
-        if (windowStart < 0) windowStart = 0;
-        visibleStories = filtered.slice(windowStart, windowStart + batchSize);
-      }
+      const visibleStories = filtered.slice();
 
       const visibleSet = new Set(visibleStories.map((s) => s.dataset.stem));
       allStories.forEach((story) => {
@@ -3208,8 +2948,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       if (typeof window.__birinciClearListenQueue === "function") {
         window.__birinciClearListenQueue({ keepTrack: true });
       }
-      syncBatchUi(visibleStories.length);
-      persistAllMode();
+      syncPlayVisibleUi(total);
       writeCategoryUrlState();
       if (pendingStem) {
         const el = document.getElementById(pendingStem);
@@ -3233,112 +2972,13 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       pendingStem = null;
       renderList({ resetWindow: true });
     });
-    if (batchSizeInput) {
-      batchSizeInput.addEventListener("change", () => {
-        commitBatchSize({ persist: true, render: true });
-      });
-      batchSizeInput.addEventListener("blur", () => {
-        commitBatchSize({ persist: true, render: true });
-      });
-      batchSizeInput.addEventListener("keydown", (event) => {
-        if (event.key !== "Enter") return;
-        event.preventDefault();
-        commitBatchSize({ persist: true, render: true });
-        batchSizeInput.blur();
-      });
-    }
-    const runBatchAction = (action) => {
-      if (action === "all") {
-        if (searchInput) searchInput.value = "";
-        const api = window.KT_CATALOG_MULTI_FILTER;
-        if (currentCategorySlug && api && typeof api.setActiveValues === "function") {
-          api.setActiveValues("filterStoryCategory", [currentCategorySlug], { silent: true });
-        }
-        allMode = true;
-        randomStems = null;
-        windowStart = 0;
-        expandAllOnNextNav = true;
-        persistBatchSize();
-        persistAllMode();
-        pendingStem = null;
-        renderList({ resetWindow: true });
-        scrollToolsIntoView();
-        return;
-      }
-      const total = filtered.length;
-      if (!total) {
-        randomStems = null;
-        windowStart = 0;
-        persistBatchSize();
-        persistAllMode();
-        renderList();
-        return;
-      }
-      if (action === "dec") {
-        applyPageSize(batchSize - 1, { persist: true, render: true });
-        scrollToolsIntoView();
-        return;
-      }
-      if (action === "inc") {
-        applyPageSize(batchSize + 1, { persist: true, render: true });
-        scrollToolsIntoView();
-        return;
-      }
-      if (action === "prev") {
-        allMode = false;
-        if (randomStems) {
-          randomStems = null;
-          windowStart = 0;
-        } else {
-          windowStart = Math.max(0, windowStart - batchSize);
-        }
-      } else if (action === "next") {
-        allMode = false;
-        randomStems = null;
-        if (windowStart + batchSize < total) {
-          windowStart += batchSize;
-        }
-      } else if (action === "random") {
-        allMode = false;
-        randomStems = pickRandomStems(batchSize);
-      } else {
-        return;
-      }
-      persistBatchSize();
-      persistAllMode();
-      pendingStem = null;
-      renderList();
-      scrollToolsIntoView();
-    };
-    if (batchDecBtn) batchDecBtn.addEventListener("click", () => runBatchAction("dec"));
-    if (batchIncBtn) batchIncBtn.addEventListener("click", () => runBatchAction("inc"));
-    if (batchPrevBtn) batchPrevBtn.addEventListener("click", () => runBatchAction("prev"));
-    if (batchNextBtn) batchNextBtn.addEventListener("click", () => runBatchAction("next"));
-    if (batchRandomBtn) batchRandomBtn.addEventListener("click", () => runBatchAction("random"));
-    if (batchAllBtn) batchAllBtn.addEventListener("click", () => runBatchAction("all"));
 
     try {
       const params = new URLSearchParams(window.location.search || "");
       const qParam = String(params.get("q") || "").trim();
       if (qParam) searchInput.value = qParam;
-      const batchParam = Number(params.get("batch") || "");
-      if (Number.isFinite(batchParam) && batchParam > 0) {
-        batchSize = Math.floor(batchParam);
-        allMode = false;
-        if (batchSizeInput) batchSizeInput.value = String(batchSize);
-        try {
-          localStorage.setItem(batchSizeStorageKey, String(batchSize));
-        } catch (_) {}
-      }
-      const startParam = Number(params.get("start") || "");
-      if (Number.isFinite(startParam) && startParam > 0) {
-        windowStart = Math.floor(startParam);
-        allMode = false;
-      }
-      window.__birinciListStart = windowStart;
       const hash = decodeURIComponent((window.location.hash || "").replace(/^#/, ""));
       if (hash) pendingStem = hash;
-      persistAllMode();
     } catch (_) {}
 
     if (cardGrid) {
@@ -3384,12 +3024,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         const params = new URLSearchParams(window.location.search || "");
         const qParam = String(params.get("q") || "").trim();
         searchInput.value = qParam;
-        const batchParam = Number(params.get("batch") || "");
-        if (Number.isFinite(batchParam) && batchParam > 0) batchSize = Math.floor(batchParam);
-        const startParam = Number(params.get("start") || "");
-        windowStart = Number.isFinite(startParam) && startParam > 0 ? Math.floor(startParam) : 0;
-        allMode = !params.has("batch") && !params.has("start");
-        randomStems = null;
         let hash = "";
         try {
           hash = decodeURIComponent((window.location.hash || "").replace(/^#/, ""));
@@ -3617,171 +3251,27 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const imagesBtns = Array.from(bar.querySelectorAll("[data-images-mode]"));
     const textsToggle = bar.querySelector("[data-tools-texts]");
     const textsBtns = Array.from(bar.querySelectorAll("[data-texts-mode]"));
-    const batchSizeInput = bar.querySelector("[data-home-batch-size]");
-    const batchDecBtn = bar.querySelector('[data-home-batch="dec"]');
-    const batchIncBtn = bar.querySelector('[data-home-batch="inc"]');
-    const batchPrevBtn = bar.querySelector('[data-home-batch="prev"]');
-    const batchNextBtn = bar.querySelector('[data-home-batch="next"]');
-    const batchRandomBtn = bar.querySelector('[data-home-batch="random"]');
-    const batchAllBtn = bar.querySelector('[data-home-batch="all"]');
-    const batchRangeEl = bar.querySelector("[data-home-batch-range]");
     const viewBtns = Array.from(bar.querySelectorAll("[data-home-view]"));
     const assetVersion = listPanel.getAttribute("data-asset-version") || "";
     const viewStorageKey = "birinci-home-view";
-    const batchSizeStorageKey = "birinci-home-batch-size";
-    const batchAllStorageKey = "birinci-home-batch-all";
-    const legacyPageSizeStorageKey = "birinci-home-page-size";
-    // One-shot migration from the pre-pager page-size key; removed after read/persist.
 
     let view = "cards";
     let allStories = null;
     let filtered = [];
     let loading = null;
     let pendingStem = null;
-    let batchSize = 12;
-    let windowStart = 0;
-    let randomStems = null;
-    let allMode = true;
     let listRenderKey = "";
     let lastShownCount = 0;
     let lastVisibleStems = new Set();
     let expandAllOnNextNav = false;
 
-    const batchCap = () => {
-      const n =
-        (filtered && filtered.length) ||
-        (allStories && allStories.length) ||
-        0;
-      return Math.max(1, n);
-    };
-
-    const inputRaw = () =>
-      batchSizeInput ? String(batchSizeInput.value || "").trim() : "";
-
-    const readBatchSize = () => {
-      const raw = inputRaw();
-      if (!raw) return batchSize || 12;
-      const n = Number(raw);
-      return Number.isFinite(n) && n > 0 ? Math.floor(n) : batchSize || 12;
-    };
-
-    const persistBatchSize = () => {
-      try {
-        localStorage.setItem(batchSizeStorageKey, String(batchSize));
-        localStorage.removeItem(legacyPageSizeStorageKey);
-      } catch (_) {}
-    };
-
-    const persistAllMode = () => {
-      writeStoredAllMode(batchAllStorageKey, allMode);
-    };
-
-    const syncBatchUi = (visibleCount = 0) => {
-      const total = (filtered && filtered.length) || 0;
-      const cap = batchCap();
-      if (batchSizeInput) {
-        batchSizeInput.min = "1";
-        batchSizeInput.max = String(cap);
-        batchSizeInput.value = String(batchSize);
-      }
-      const inRandom = !!(randomStems && randomStems.length);
-      const atStart = !inRandom && windowStart <= 0;
-      const atEnd = allMode || total === 0 || inRandom || windowStart + batchSize >= total;
-      if (batchDecBtn) batchDecBtn.disabled = total === 0 || batchSize <= 1;
-      if (batchIncBtn) batchIncBtn.disabled = total === 0 || batchSize >= cap;
-      if (batchPrevBtn) batchPrevBtn.disabled = total === 0 || allMode || (!inRandom && atStart);
-      if (batchNextBtn) batchNextBtn.disabled = total === 0 || allMode || inRandom || atEnd;
-      if (batchRandomBtn) batchRandomBtn.disabled = total === 0;
+    const syncPlayVisibleUi = (total = 0) => {
       bar.querySelectorAll("[data-tools-play-visible]").forEach((btn) => {
         btn.disabled = total === 0;
       });
       if (typeof window.__birinciSyncPlayVisibleUi === "function") {
         window.__birinciSyncPlayVisibleUi();
       }
-      if (batchAllBtn) {
-        const showingAll = allMode && !inRandom && total > 0;
-        batchAllBtn.disabled = !((allStories && allStories.length) || 0);
-        batchAllBtn.classList.toggle("is-active", showingAll);
-        batchAllBtn.setAttribute("aria-pressed", showingAll ? "true" : "false");
-        batchAllBtn.removeAttribute("aria-disabled");
-      }
-      if (batchRangeEl) {
-        if (total === 0) {
-          batchRangeEl.hidden = true;
-          batchRangeEl.textContent = "";
-        } else {
-          batchRangeEl.hidden = false;
-          batchRangeEl.removeAttribute("hidden");
-          if (inRandom) {
-            batchRangeEl.textContent = `${tUi("batch_random", "Təsadüfi")}·${visibleCount}/${total}`;
-          } else if (allMode) {
-            batchRangeEl.textContent = `1–${total}/${total}`;
-          } else {
-            const from = windowStart + 1;
-            const to = Math.max(from, windowStart + visibleCount);
-            batchRangeEl.textContent = `${from}–${to}/${total}`;
-          }
-        }
-      }
-    };
-
-    const applyPageSize = (n, { persist = true, render = false } = {}) => {
-      const cap = batchCap();
-      let size = Number(n);
-      if (!Number.isFinite(size) || size < 1) size = batchSize || 12;
-      size = Math.min(Math.floor(size), cap);
-      if (size < 1) size = 1;
-      batchSize = size;
-      if (batchSizeInput) batchSizeInput.value = String(batchSize);
-      if (view !== "list") {
-        if (persist) persistBatchSize();
-        return;
-      }
-      allMode = false;
-      randomStems = null;
-      windowStart = 0;
-      if (persist) {
-        persistBatchSize();
-        persistAllMode();
-      }
-      if (render) {
-        pendingStem = null;
-        renderList();
-      } else {
-        syncBatchUi(0);
-      }
-    };
-
-    const commitBatchSize = ({ persist = true, render = false } = {}) => {
-      applyPageSize(readBatchSize(), { persist, render });
-    };
-
-    const applyStoredBatchSize = () => {
-      const stored = readStoredBatchPref({
-        allKey: batchAllStorageKey,
-        sizeKey: batchSizeStorageKey,
-        legacyKey: legacyPageSizeStorageKey,
-      });
-      batchSize = stored.batchSize;
-      allMode = stored.allMode;
-      if (batchSizeInput) batchSizeInput.value = String(batchSize);
-      syncBatchUi(0);
-    };
-
-    applyStoredBatchSize();
-
-    const pickRandomStems = (count) => {
-      const total = filtered.length;
-      if (!total) return [];
-      const n = Math.min(Math.max(1, count), total);
-      const idxs = Array.from({ length: total }, (_, i) => i);
-      for (let i = idxs.length - 1; i > 0; i -= 1) {
-        const j = Math.floor(Math.random() * (i + 1));
-        const tmp = idxs[i];
-        idxs[i] = idxs[j];
-        idxs[j] = tmp;
-      }
-      return idxs.slice(0, n).map((i) => filtered[i].stem);
     };
 
     const escapeHtml = (value) =>
@@ -3800,8 +3290,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         q: params.get("q"),
         cat: parseStoryCatParam(params),
         stem: hash || null,
-        start: params.get("start"),
-        batch: params.get("batch"),
       };
     };
 
@@ -3815,8 +3303,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         if (view === "list" && q) params.set("q", q);
         const cats = activeStoryCategorySlugs();
         if (cats.length) params.set("cat", cats.join(","));
-        if (view === "list" && !allMode && windowStart > 0) params.set("start", String(windowStart));
-        if (view === "list" && !allMode && batchSize > 0) params.set("batch", String(batchSize));
         const url = new URL(window.location.href);
         url.search = params.toString();
         if (view === "cards") url.hash = "";
@@ -3827,7 +3313,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           (prev.searchParams.get("view") || "") !== (params.get("view") || "") ||
           (prev.hash || "") !== (url.hash ? `#${String(url.hash).replace(/^#/, "")}` : "");
         commitHistoryHref(next, { replace: !navChanged });
-        window.__birinciListStart = windowStart;
       } catch (_) {
         /* file:// or sandboxed histories must not block view switching */
       }
@@ -4171,69 +3656,11 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
       const total = filtered.length;
       syncSearchFilterUi(searchInput.value.trim(), total);
-      const cap = Math.max(1, total || 1);
-      let n = readBatchSize();
-      if (!Number.isFinite(n) || n < 1) n = batchSize || 12;
-      if (n > cap) n = cap;
-      batchSize = n;
-      if (batchSizeInput && String(batchSizeInput.value) !== String(n)) {
-        batchSizeInput.value = String(n);
-      }
-      if (!allMode) {
-        try {
-          localStorage.setItem(batchSizeStorageKey, String(n));
-        } catch (_) {}
-      }
-
-      if (resetWindow) {
-        windowStart = 0;
-        randomStems = null;
-      }
-
-      if (pendingStem) {
-        const idx = filtered.findIndex(
-          (story) =>
-            story.stem === pendingStem ||
-            story.stem === String(pendingStem) ||
-            story.categorySlug === pendingStem
-        );
-        if (idx >= 0) {
-          randomStems = null;
-          if (!allMode) {
-            windowStart = Math.floor(idx / batchSize) * batchSize;
-          }
-        }
-      }
-
-      let visibleStories = [];
-      if (total === 0) {
-        windowStart = 0;
-        randomStems = null;
-        visibleStories = [];
-      } else if (randomStems && randomStems.length) {
-        allMode = false;
-        const byStem = new Map(filtered.map((story) => [story.stem, story]));
-        visibleStories = randomStems.map((stem) => byStem.get(stem)).filter(Boolean);
-        if (!visibleStories.length) {
-          randomStems = null;
-          windowStart = 0;
-          visibleStories = filtered.slice(0, batchSize);
-        }
-      } else if (allMode) {
-        randomStems = null;
-        windowStart = 0;
-        visibleStories = filtered.slice();
-      } else {
-        randomStems = null;
-        const maxStart = Math.max(0, total - 1);
-        if (windowStart > maxStart) windowStart = Math.floor(maxStart / batchSize) * batchSize;
-        if (windowStart < 0) windowStart = 0;
-        visibleStories = filtered.slice(windowStart, windowStart + batchSize);
-      }
+      const visibleStories = filtered.slice();
 
       lastShownCount = visibleStories.length;
       lastVisibleStems = new Set(visibleStories.map((s) => s.stem));
-      const nextKey = `${visibleStories.map((s) => s.stem).join("\n")}|t${total}|a${allMode ? 1 : 0}|b${batchSize}`;
+      const nextKey = `${visibleStories.map((s) => s.stem).join("\n")}|t${total}`;
       const reuseDom =
         !force &&
         nextKey === listRenderKey &&
@@ -4280,8 +3707,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       refreshSidebarNav();
       bindStoryCategoryToggles(storiesList);
       if (listEmpty) listEmpty.hidden = total !== 0;
-      syncBatchUi(visibleStories.length);
-      persistAllMode();
+      syncPlayVisibleUi(total);
       writeUrlState();
       if (pendingStem) {
         const el = document.getElementById(pendingStem);
@@ -4407,8 +3833,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     bar.addEventListener("click", onViewButton);
 
     searchInput.addEventListener("input", () => {
-      windowStart = 0;
-      randomStems = null;
       if (view === "cards") {
         applyCards();
         writeUrlState();
@@ -4417,109 +3841,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       pendingStem = null;
       renderList({ resetWindow: true });
     });
-    if (batchSizeInput) {
-      batchSizeInput.addEventListener("change", () => {
-        commitBatchSize({ persist: true, render: true });
-      });
-      batchSizeInput.addEventListener("blur", () => {
-        commitBatchSize({ persist: true, render: true });
-      });
-      batchSizeInput.addEventListener("keydown", (event) => {
-        if (event.key !== "Enter") return;
-        event.preventDefault();
-        commitBatchSize({ persist: true, render: true });
-        batchSizeInput.blur();
-      });
-    }
-    const runBatchAction = (action) => {
-      const scrollHomeTools = () => {
-        if (typeof window.__birinciScrollHomeTools === "function") {
-          window.__birinciScrollHomeTools();
-        }
-      };
-      if (action === "all") {
-        clearStoryCatalogFilters(searchInput);
-        allMode = true;
-        randomStems = null;
-        windowStart = 0;
-        expandAllOnNextNav = true;
-        persistBatchSize();
-        persistAllMode();
-        pendingStem = null;
-        if (view === "cards") {
-          filtered = allStories || [];
-          lastVisibleStems = new Set((allStories || []).map((story) => story.stem));
-          lastShownCount = lastVisibleStems.size;
-          applyCards();
-          refreshSidebarNav();
-          syncBatchUi(lastShownCount);
-          writeUrlState();
-        } else {
-          renderList({ resetWindow: true, force: true });
-        }
-        scrollHomeTools();
-        return;
-      }
-      if (view !== "list") return;
-      const total = filtered.length;
-      if (!total) {
-        randomStems = null;
-        windowStart = 0;
-        persistBatchSize();
-        persistAllMode();
-        renderList();
-        return;
-      }
-      if (action === "dec") {
-        applyPageSize(batchSize - 1, { persist: true, render: true });
-        scrollHomeTools();
-        return;
-      }
-      if (action === "inc") {
-        applyPageSize(batchSize + 1, { persist: true, render: true });
-        scrollHomeTools();
-        return;
-      }
-      if (action === "prev") {
-        allMode = false;
-        if (randomStems) {
-          randomStems = null;
-          windowStart = 0;
-        } else {
-          windowStart = Math.max(0, windowStart - batchSize);
-        }
-      } else if (action === "next") {
-        allMode = false;
-        randomStems = null;
-        if (windowStart + batchSize < total) {
-          windowStart += batchSize;
-        }
-      } else if (action === "random") {
-        allMode = false;
-        randomStems = pickRandomStems(batchSize);
-      } else {
-        return;
-      }
-      persistBatchSize();
-      persistAllMode();
-      pendingStem = null;
-      renderList();
-      scrollHomeTools();
-    };
-    if (batchDecBtn) batchDecBtn.addEventListener("click", () => runBatchAction("dec"));
-    if (batchIncBtn) batchIncBtn.addEventListener("click", () => runBatchAction("inc"));
-    if (batchPrevBtn) {
-      batchPrevBtn.addEventListener("click", () => runBatchAction("prev"));
-    }
-    if (batchNextBtn) {
-      batchNextBtn.addEventListener("click", () => runBatchAction("next"));
-    }
-    if (batchRandomBtn) {
-      batchRandomBtn.addEventListener("click", () => runBatchAction("random"));
-    }
-    if (batchAllBtn) {
-      batchAllBtn.addEventListener("click", () => runBatchAction("all"));
-    }
 
     const urlState = readUrlState();
     let initialView = "list";
@@ -4539,22 +3860,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       pendingStem = urlState.stem;
     }
     if (urlState.q) searchInput.value = urlState.q;
-    const batchFromUrl = Number(urlState.batch || "");
-    if (Number.isFinite(batchFromUrl) && batchFromUrl > 0) {
-      batchSize = Math.floor(batchFromUrl);
-      allMode = false;
-      if (batchSizeInput) batchSizeInput.value = String(batchSize);
-      try {
-        localStorage.setItem(batchSizeStorageKey, String(batchSize));
-      } catch (_) {}
-    }
-    const startFromUrl = Number(urlState.start || "");
-    if (Number.isFinite(startFromUrl) && startFromUrl > 0) {
-      windowStart = Math.floor(startFromUrl);
-      allMode = false;
-    }
-    window.__birinciListStart = windowStart;
-    persistAllMode();
 
     bindStoryCategoryFilter(bar, {
       initialSlugs: urlState.cat,
@@ -4564,8 +3869,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           setView("list", { persist: true, forceList: true });
           return;
         }
-        windowStart = 0;
-        randomStems = null;
         if (view === "cards") {
           applyCards();
           writeUrlState();
@@ -4590,12 +3893,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       applyingHistory = true;
       try {
         searchInput.value = state.q || "";
-        const batchFromUrl = Number(state.batch || "");
-        if (Number.isFinite(batchFromUrl) && batchFromUrl > 0) batchSize = Math.floor(batchFromUrl);
-        const startFromUrl = Number(state.start || "");
-        windowStart = Number.isFinite(startFromUrl) && startFromUrl > 0 ? Math.floor(startFromUrl) : 0;
-        allMode = !state.batch && !state.start;
-        randomStems = null;
         pendingStem = state.stem || null;
         const catApi = window.KT_CATALOG_MULTI_FILTER;
         if (catApi && typeof catApi.setActiveValues === "function") {
@@ -4999,8 +4296,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         .filter(
           (el) =>
             !el.hidden &&
-            !el.classList.contains("is-hidden") &&
-            !el.classList.contains("is-batch-hidden")
+            !el.classList.contains("is-hidden")
         )
         .map((el) => (el.id || "").trim())
         .filter(Boolean);
@@ -6362,7 +5658,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
     const close = () => {
       if (!overlay || overlay.hidden) return;
-      // Keep sticky audio player running while the text overlay closes.
+      if (typeof window.__birinciStopStoryTts === "function") window.__birinciStopStoryTts();
       overlay.hidden = true;
       overlay.setAttribute("hidden", "");
       document.body.classList.remove("text-lightbox-open");

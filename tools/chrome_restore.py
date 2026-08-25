@@ -25,7 +25,7 @@ from i18n_config import rewrite_content_media_paths, story_illustrations_dir  # 
 DISABLE_DISCOVERY_VIDEOS = True
 
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
-SITE_ASSET_VERSION = "20260825x"
+SITE_ASSET_VERSION = "20260825ac"
 SITE_PUBLIC_ORIGIN = "https://birinci.cloud"
 LIVE_LANGS = ("az", "en", "ru", "ky")
 OG_IMAGE_URL = f"{SITE_PUBLIC_ORIGIN}/assets/pearl-hero.webp"
@@ -1368,7 +1368,7 @@ def ensure_story_listen_markup(markup: str, lang: str) -> str:
         '      if (el.classList.contains("tools-bar__field--listen")) { hideEl(el, false); return; }\n'
         '      hideEl(el, view !== "list");\n    });',
     )
-    if "data-tools-play-visible" not in markup and "tools-bar__batch" in markup:
+    if "data-tools-play-visible" not in markup:
         field = (
             f'  <div class="tools-bar__field tools-bar__field--listen">\n'
             f'    <span class="tools-bar__label">{listen_page}</span>\n'
@@ -1382,11 +1382,18 @@ def ensure_story_listen_markup(markup: str, lang: str) -> str:
             f"    </div>\n"
             f"  </div>\n"
         )
-        markup = markup.replace(
-            '<div class="tools-bar__field tools-bar__batch"',
-            field + '<div class="tools-bar__field tools-bar__batch"',
-            1,
-        )
+        if 'class="tools-bar__field tools-bar__batch"' in markup:
+            markup = markup.replace(
+                '<div class="tools-bar__field tools-bar__batch"',
+                field + '<div class="tools-bar__field tools-bar__batch"',
+                1,
+            )
+        else:
+            markup = markup.replace(
+                "</div>\n</div>\n    <script>",
+                field + "</div>\n    <script>",
+                1,
+            )
     return markup
 
 
@@ -2538,67 +2545,79 @@ def hide_empty_top_nav(html: str) -> str:
     return html
 
 
-def ensure_stories_batch_default_all(html: str) -> str:
-    """First visit shows every story; All is the selected pager control."""
-    html = re.sub(
-        r'(class="tools-bar__view-btn tools-bar__view-btn--icon tools-bar__batch-all)(?! is-active)',
-        r"\1 is-active",
-        html,
-        count=1,
-    )
-    html = re.sub(
-        r'(data-home-batch="all"[^>]*?\saria-pressed=")false(")',
-        r"\1true\2",
-        html,
-        count=1,
-    )
-    old_fallback = (
-        "    var allMode = false;\n"
-        "    var pageSize = 12;\n"
-        "    try {\n"
-        '      allMode = localStorage.getItem("birinci-home-batch-all") === "1";\n'
-        "      raw = localStorage.getItem(\"birinci-home-batch-size\") || \"\";\n"
-        "      if (!raw) {\n"
-        '        var legacy = localStorage.getItem("birinci-home-page-size") || "";\n'
-        '        if (legacy && legacy !== "all") raw = legacy;\n'
-        '        else if (legacy === "all") allMode = true;\n'
-        "      }\n"
-        "    } catch (_) {}\n"
-    )
-    new_fallback = (
-        "    var allMode = true;\n"
-        "    var pageSize = 12;\n"
-        "    try {\n"
-        '      var allFlag = localStorage.getItem("birinci-home-batch-all") || "";\n'
-        '      raw = localStorage.getItem("birinci-home-batch-size") || "";\n'
-        "      if (!raw) {\n"
-        '        var legacy = localStorage.getItem("birinci-home-page-size") || "";\n'
-        '        if (legacy && legacy !== "all") raw = legacy;\n'
-        '        else if (legacy === "all") allFlag = allFlag || "1";\n'
-        "      }\n"
-        '      allMode = allFlag !== "0";\n'
-        "    } catch (_) {}\n"
-    )
-    if old_fallback in html:
-        html = html.replace(old_fallback, new_fallback, 1)
+def _strip_balanced_div(html: str, open_at: int) -> str:
+    if open_at < 0 or not html.startswith("<div", open_at):
+        return html
+    depth = 0
+    pos = open_at
+    while pos < len(html):
+        if html.startswith("<div", pos):
+            depth += 1
+            gt = html.find(">", pos)
+            pos = len(html) if gt < 0 else gt + 1
+            continue
+        if html.startswith("</div>", pos):
+            depth -= 1
+            pos += 6
+            if depth == 0:
+                while pos < len(html) and html[pos] in " \t\r\n":
+                    pos += 1
+                return html[:open_at] + html[pos:]
+            continue
+        pos += 1
     return html
 
 
-def ensure_site_js_batch_default_all(js: str) -> str:
-    old_read = (
-        "        storedAll = localStorage.getItem(batchAllStorageKey) === \"1\";\n"
+def strip_pagination_control(html: str) -> str:
+    """Remove the stories/Discoveries batch pager and ignore leftover page-size prefs."""
+    marker = 'class="tools-bar__field tools-bar__batch"'
+    while True:
+        idx = html.find(marker)
+        if idx < 0:
+            break
+        open_at = html.rfind("<div", 0, idx + 1)
+        if open_at < 0:
+            break
+        html = _strip_balanced_div(html, open_at)
+    html = re.sub(
+        r"    var page = rows;\n"
+        r"    var sizeEl = document\.querySelector\('\[data-tools=\"home\"\] \[data-home-batch-size\]'\);"
+        r"[\s\S]*?    page = allMode \? rows : rows\.slice\(0, pageSize\);\n",
+        "    var page = rows;\n",
+        html,
+        count=1,
     )
-    if old_read in js and "allFlag !== \"0\"" not in js:
-        js = js.replace(
-            old_read,
-            "        storedAll = (localStorage.getItem(batchAllStorageKey) || \"\") !== \"0\";\n",
-        )
-    js = js.replace(
-        "        if (allMode) localStorage.setItem(batchAllStorageKey, \"1\");\n"
-        "        else localStorage.removeItem(batchAllStorageKey);\n",
-        "        localStorage.setItem(batchAllStorageKey, allMode ? \"1\" : \"0\");\n",
-    )
-    return js
+    return html
+
+
+_FIGURE_ARIA_AZ_RE = re.compile(r'aria-label="([^"]+) şəklini böyüt"')
+_FIGURE_ALT_AZ_RE = re.compile(r'alt="([^"]+) illüstrasiyası"')
+
+
+def _story_figure_i18n(lang: str) -> tuple[str, str]:
+    path = TOOLS / "locales" / f"{lang}.json"
+    enlarge = "{title} şəklini böyüt"
+    alt = "{title} illüstrasiyası"
+    if path.is_file():
+        data = json.loads(path.read_text(encoding="utf-8"))
+        ui = data.get("ui") or {}
+        enlarge = ui.get("enlarge_image") or enlarge
+        alt = ui.get("illustration_alt") or alt
+    return enlarge, alt
+
+
+def localize_story_figure_labels(markup: str, lang: str) -> str:
+    enlarge, alt = _story_figure_i18n(lang)
+
+    def aria_sub(match: re.Match[str]) -> str:
+        return f'aria-label="{enlarge.replace("{title}", match.group(1))}"'
+
+    def alt_sub(match: re.Match[str]) -> str:
+        return f'alt="{alt.replace("{title}", match.group(1))}"'
+
+    markup = _FIGURE_ARIA_AZ_RE.sub(aria_sub, markup)
+    markup = _FIGURE_ALT_AZ_RE.sub(alt_sub, markup)
+    return markup
 
 
 def patch_emitted_html(
@@ -2627,13 +2646,14 @@ def patch_emitted_html(
         html = strip_invention_icon_captions(html)
         html = relocate_invention_period_lines(html)
     html = strip_data_audio(html)
+    html = localize_story_figure_labels(html, lang)
     html = ensure_story_listen_markup(html, lang)
     html = strip_google_fonts(html)
     html = strip_stories_json_refs(html)
     html = ensure_shared_site_js_tags(html, lang, rel_path)
     html = ensure_story_sidebar_toc_assets(html, lang, rel_path)
     html = ensure_sidebar_expand_collapse_buttons(html, lang)
-    html = ensure_stories_batch_default_all(html)
+    html = strip_pagination_control(html)
     html = pin_asset_versions(html)
     html = ensure_seo_head(html, lang, rel_path)
     html = rewrite_content_media_paths(html)
@@ -2672,7 +2692,6 @@ def apply_shared_assets() -> None:
         rest = ensure_site_js_go_to_bottom(rest)
         rest = ensure_site_js_search(rest)
         rest = ensure_site_js_i18n_chrome(rest)
-        rest = ensure_site_js_batch_default_all(rest)
         rest = rewrite_content_media_paths(rest)
         shared_path.write_text(rest, encoding="utf-8")
 
@@ -3212,6 +3231,7 @@ def apply_invention_source_bodies() -> None:
         new = relocate_invention_period_lines(new)
         new = ensure_discoveries_hero_html(new, lang)
         new = ensure_sidebar_expand_collapse_buttons(new, lang)
+        new = strip_pagination_control(new)
         if new != markup:
             path.write_text(new, encoding="utf-8")
 

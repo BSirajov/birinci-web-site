@@ -46,10 +46,6 @@
   );
   var inventionsListState = {
     bound: false,
-    batchSize: 12,
-    windowStart: 0,
-    allMode: true,
-    randomIds: null,
   };
   var entries = Array.prototype.slice.call(document.querySelectorAll(".inventions-entry"));
   var categories = Array.prototype.slice.call(document.querySelectorAll(".inventions-category"));
@@ -143,7 +139,7 @@
   function annotateDiscoveriesCategoryCounts() {
     Array.prototype.forEach.call(document.querySelectorAll(".inventions-category"), function (cat) {
       var count = cat.querySelectorAll(
-        ".inventions-entry:not(.is-hidden):not(.is-batch-hidden)"
+        ".inventions-entry:not(.is-hidden)"
       ).length;
       setHeadingCountText(cat.querySelector(".inventions-category-head"), count);
       if (!cat.id) return;
@@ -162,7 +158,7 @@
     setWidgetHeadCount(
       widget,
       document.querySelectorAll(
-        ".inventions-layout .inventions-entry:not(.is-hidden):not(.is-batch-hidden)"
+        ".inventions-layout .inventions-entry:not(.is-hidden)"
       ).length
     );
   }
@@ -352,6 +348,7 @@
     return !!(el && el.value);
   }
 
+
   function clearInventionsCatalogFilters() {
     if (searchInput) searchInput.value = "";
     var mf = window.KT_CATALOG_MULTI_FILTER;
@@ -420,21 +417,8 @@
       if (periods.length) params.set("period", periods.join(","));
       else params.delete("period");
 
-      if (isInventionsListView() && !inventionsListState.allMode) {
-        if (inventionsListState.windowStart > 0) {
-          params.set("start", String(inventionsListState.windowStart));
-        } else {
-          params.delete("start");
-        }
-        if (inventionsListState.batchSize > 0) {
-          params.set("batch", String(inventionsListState.batchSize));
-        } else {
-          params.delete("batch");
-        }
-      } else {
-        params.delete("start");
-        params.delete("batch");
-      }
+      params.delete("start");
+      params.delete("batch");
 
       var hashId = "";
       if (typeof activeId === "string" && activeId) {
@@ -476,8 +460,6 @@
       q: String(params.get("q") || "").trim(),
       cat: parseCsvParam(params.get("cat")),
       period: parseCsvParam(params.get("period")),
-      start: String(params.get("start") || "").trim(),
-      batch: String(params.get("batch") || "").trim(),
     };
   }
 
@@ -643,90 +625,15 @@
     );
   }
 
-  function persistInventionsBatch() {
-    try {
-      localStorage.setItem(
-        "birinci-inventions-batch-size",
-        String(inventionsListState.batchSize)
-      );
-      localStorage.setItem(
-        "birinci-inventions-batch-all",
-        inventionsListState.allMode ? "1" : "0"
-      );
-    } catch (_) {}
-  }
-
-  function syncInventionsBatchUi(visibleCount) {
+  function syncInventionsPlayVisibleUi() {
     var bar = inventionsListBar();
     if (!bar) return;
     var total = filteredInventionEntries().length;
-    var cap = Math.max(1, total);
-    var sizeInput = bar.querySelector("[data-home-batch-size]");
-    var decBtn = bar.querySelector('[data-home-batch="dec"]');
-    var incBtn = bar.querySelector('[data-home-batch="inc"]');
-    var prevBtn = bar.querySelector('[data-home-batch="prev"]');
-    var nextBtn = bar.querySelector('[data-home-batch="next"]');
-    var randomBtn = bar.querySelector('[data-home-batch="random"]');
-    var allBtn = bar.querySelector('[data-home-batch="all"]');
-    var rangeEl = bar.querySelector("[data-home-batch-range]");
-    if (sizeInput) {
-      sizeInput.min = "1";
-      sizeInput.max = String(cap);
-      sizeInput.value = String(inventionsListState.batchSize);
-    }
-    var inRandom = !!(
-      inventionsListState.randomIds && inventionsListState.randomIds.length
-    );
-    var atStart = !inRandom && inventionsListState.windowStart <= 0;
-    var atEnd =
-      inventionsListState.allMode ||
-      total === 0 ||
-      inRandom ||
-      inventionsListState.windowStart + inventionsListState.batchSize >= total;
-    if (decBtn) decBtn.disabled = total === 0 || inventionsListState.batchSize <= 1;
-    if (incBtn) incBtn.disabled = total === 0 || inventionsListState.batchSize >= cap;
-    if (prevBtn) {
-      prevBtn.disabled =
-        total === 0 || inventionsListState.allMode || (!inRandom && atStart);
-    }
-    if (nextBtn) {
-      nextBtn.disabled = total === 0 || inventionsListState.allMode || inRandom || atEnd;
-    }
-    if (randomBtn) randomBtn.disabled = total === 0;
     bar.querySelectorAll("[data-tools-play-visible]").forEach(function (btn) {
       btn.disabled = total === 0;
     });
     if (typeof window.__birinciSyncPlayVisibleUi === "function") {
       window.__birinciSyncPlayVisibleUi();
-    }
-    if (allBtn) {
-      var showingAll = inventionsListState.allMode && !inRandom && total > 0;
-      allBtn.disabled = entries.length === 0;
-      allBtn.classList.toggle("is-active", showingAll);
-      allBtn.setAttribute("aria-pressed", showingAll ? "true" : "false");
-    }
-    if (rangeEl) {
-      if (total === 0) {
-        rangeEl.hidden = true;
-        rangeEl.textContent = "";
-      } else {
-        rangeEl.hidden = false;
-        rangeEl.removeAttribute("hidden");
-        if (inRandom) {
-          rangeEl.textContent =
-            tInvUi("batch_random", "Təsadüfi") +
-            "·" +
-            visibleCount +
-            "/" +
-            total;
-        } else if (inventionsListState.allMode) {
-          rangeEl.textContent = "1–" + total + "/" + total;
-        } else {
-          var from = inventionsListState.windowStart + 1;
-          var to = Math.max(from, inventionsListState.windowStart + visibleCount);
-          rangeEl.textContent = from + "–" + to + "/" + total;
-        }
-      }
     }
   }
 
@@ -736,8 +643,7 @@
       var entry = slug ? document.getElementById(slug) : null;
       var hidden =
         !entry ||
-        entry.classList.contains("is-hidden") ||
-        entry.classList.contains("is-batch-hidden");
+        entry.classList.contains("is-hidden");
       item.classList.toggle("is-hidden", hidden);
     });
     tocCats.forEach(function (item) {
@@ -757,60 +663,13 @@
 
   function applyInventionsListWindow() {
     syncInventionsListOnly();
-    var matched = filteredInventionEntries();
-    var total = matched.length;
-    var cap = Math.max(1, total);
-    if (inventionsListState.batchSize > cap) inventionsListState.batchSize = cap;
-    if (inventionsListState.windowStart >= total) {
-      inventionsListState.windowStart = Math.max(
-        0,
-        Math.floor(Math.max(0, total - 1) / inventionsListState.batchSize) *
-          inventionsListState.batchSize
-      );
-    }
-
-    var showSet = null;
     var visibleCount = 0;
-    if (
-      isInventionsListView() &&
-      inventionsListState.randomIds &&
-      inventionsListState.randomIds.length
-    ) {
-      showSet = Object.create(null);
-      inventionsListState.randomIds.forEach(function (id) {
-        showSet[id] = true;
-      });
-    } else if (isInventionsListView() && !inventionsListState.allMode) {
-      showSet = Object.create(null);
-      matched
-        .slice(
-          inventionsListState.windowStart,
-          inventionsListState.windowStart + inventionsListState.batchSize
-        )
-        .forEach(function (entry) {
-          showSet[entry.id] = true;
-        });
-    }
-
     entries.forEach(function (entry) {
-      var hide =
-        !!showSet &&
-        !entry.classList.contains("is-hidden") &&
-        !showSet[entry.id];
-      entry.classList.toggle("is-batch-hidden", hide);
-      if (!entry.classList.contains("is-hidden") && !hide) visibleCount += 1;
+      if (!entry.classList.contains("is-hidden")) visibleCount += 1;
     });
-
-    categories.forEach(function (cat) {
-      var visible = cat.querySelectorAll(
-        ".inventions-entry:not(.is-hidden):not(.is-batch-hidden)"
-      ).length;
-      cat.classList.toggle("is-batch-empty", visible === 0 && !!showSet);
-    });
-
     syncInventionsTocVisibility();
     annotateDiscoveriesCategoryCounts();
-    syncInventionsBatchUi(visibleCount);
+    syncInventionsPlayVisibleUi();
     setWidgetHeadCount(
       document.getElementById("inventionsArticlesWidget") ||
         document.querySelector(".charter-sidebar .sidebar-widget"),
@@ -821,17 +680,6 @@
 
   function revealInventionsEntry(id) {
     if (!id) return;
-    var matched = filteredInventionEntries();
-    var idx = -1;
-    matched.forEach(function (entry, i) {
-      if (entry.id === id) idx = i;
-    });
-    if (idx < 0) return;
-    inventionsListState.randomIds = null;
-    if (!inventionsListState.allMode) {
-      inventionsListState.windowStart =
-        Math.floor(idx / inventionsListState.batchSize) * inventionsListState.batchSize;
-    }
     applyInventionsListWindow();
   }
 
@@ -891,55 +739,11 @@
     } catch (_) {}
   }
 
-  function pickRandomInventionIds(count) {
-    var matched = filteredInventionEntries();
-    var total = matched.length;
-    if (!total) return [];
-    var n = Math.min(Math.max(1, count), total);
-    var idxs = matched.map(function (_, i) {
-      return i;
-    });
-    for (var i = idxs.length - 1; i > 0; i -= 1) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var tmp = idxs[i];
-      idxs[i] = idxs[j];
-      idxs[j] = tmp;
-    }
-    return idxs.slice(0, n).map(function (i) {
-      return matched[i].id;
-    });
-  }
-
   function bindInventionsListTools() {
     if (!isDiscoveriesPage() || inventionsListState.bound) return;
     var bar = inventionsListBar();
     if (!bar) return;
     inventionsListState.bound = true;
-
-    var sizeInput = bar.querySelector("[data-home-batch-size]");
-    try {
-      var allFlag = localStorage.getItem("birinci-inventions-batch-all") || "";
-      var stored = localStorage.getItem("birinci-inventions-batch-size") || "";
-      var n = Number(stored);
-      if (Number.isFinite(n) && n > 0) inventionsListState.batchSize = Math.floor(n);
-      inventionsListState.allMode = allFlag !== "0";
-    } catch (_) {}
-
-    var urlState = readInventionsUrlState();
-    if (urlState.batch) {
-      var urlSize = Number(urlState.batch);
-      if (Number.isFinite(urlSize) && urlSize > 0) {
-        inventionsListState.batchSize = Math.floor(urlSize);
-        inventionsListState.allMode = false;
-      }
-    }
-    if (urlState.start) {
-      var urlStart = Number(urlState.start);
-      if (Number.isFinite(urlStart) && urlStart >= 0) {
-        inventionsListState.windowStart = Math.floor(urlStart);
-        inventionsListState.allMode = false;
-      }
-    }
 
     var imagesCollapsed = false;
     var textsCollapsed = false;
@@ -961,89 +765,6 @@
       });
     });
 
-    function commitSize(raw, persist) {
-      if (!isInventionsListView()) return;
-      var cap = Math.max(1, filteredInventionEntries().length);
-      var size = Number(raw);
-      if (!Number.isFinite(size) || size < 1) size = inventionsListState.batchSize || 12;
-      inventionsListState.batchSize = Math.min(Math.floor(size), cap);
-      inventionsListState.allMode = false;
-      inventionsListState.randomIds = null;
-      inventionsListState.windowStart = 0;
-      if (persist) persistInventionsBatch();
-      applyInventionsListWindow();
-    }
-
-    if (sizeInput) {
-      sizeInput.addEventListener("change", function () {
-        commitSize(sizeInput.value, true);
-      });
-      sizeInput.addEventListener("keydown", function (event) {
-        if (event.key === "Enter") {
-          event.preventDefault();
-          commitSize(sizeInput.value, true);
-        }
-      });
-    }
-
-    bar.querySelectorAll("[data-home-batch]").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        var action = btn.getAttribute("data-home-batch");
-        if (action !== "all" && !isInventionsListView()) return;
-        var cap = Math.max(1, filteredInventionEntries().length);
-        if (action === "dec") {
-          commitSize(inventionsListState.batchSize - 1, true);
-          return;
-        }
-        if (action === "inc") {
-          commitSize(inventionsListState.batchSize + 1, true);
-          return;
-        }
-        if (action === "prev") {
-          if (inventionsListState.randomIds) inventionsListState.randomIds = null;
-          inventionsListState.allMode = false;
-          inventionsListState.windowStart = Math.max(
-            0,
-            inventionsListState.windowStart - inventionsListState.batchSize
-          );
-          persistInventionsBatch();
-          applyInventionsListWindow();
-          return;
-        }
-        if (action === "next") {
-          inventionsListState.randomIds = null;
-          inventionsListState.allMode = false;
-          inventionsListState.windowStart = Math.min(
-            Math.max(0, cap - 1),
-            inventionsListState.windowStart + inventionsListState.batchSize
-          );
-          persistInventionsBatch();
-          applyInventionsListWindow();
-          return;
-        }
-        if (action === "random") {
-          inventionsListState.allMode = false;
-          inventionsListState.randomIds = pickRandomInventionIds(
-            inventionsListState.batchSize
-          );
-          persistInventionsBatch();
-          applyInventionsListWindow();
-          return;
-        }
-        if (action === "all") {
-          clearInventionsCatalogFilters();
-          inventionsListState.allMode = true;
-          inventionsListState.randomIds = null;
-          inventionsListState.windowStart = 0;
-          persistInventionsBatch();
-          applyFilters();
-          if (window.KT_SIDEBAR_TOC_GROUPS && window.KT_SIDEBAR_TOC_GROUPS.expandAll && widget) {
-            window.KT_SIDEBAR_TOC_GROUPS.expandAll(widget);
-          }
-        }
-      });
-    });
-
     applyInventionsListWindow();
   }
 
@@ -1060,11 +781,6 @@
 
   function applyFilters(options) {
     if (!searchInput) return;
-    var resetWindow = !!(options && options.resetWindow);
-    if (resetWindow) {
-      inventionsListState.randomIds = null;
-      inventionsListState.windowStart = 0;
-    }
     var q = normalize(searchInput.value);
     var filtering = !!(
       q ||
@@ -1406,22 +1122,6 @@
     try {
       var urlState = readInventionsUrlState();
       applyInventionsUrlState(urlState);
-      if (urlState.batch) {
-        var urlSize = Number(urlState.batch);
-        if (Number.isFinite(urlSize) && urlSize > 0) {
-          inventionsListState.batchSize = Math.floor(urlSize);
-        }
-      }
-      if (urlState.start) {
-        var urlStart = Number(urlState.start);
-        if (Number.isFinite(urlStart) && urlStart >= 0) {
-          inventionsListState.windowStart = Math.floor(urlStart);
-        }
-      } else {
-        inventionsListState.windowStart = 0;
-      }
-      inventionsListState.allMode = !urlState.batch && !urlState.start;
-      inventionsListState.randomIds = null;
       applyFilters();
       var hash = "";
       try {
@@ -1763,7 +1463,6 @@
   function stopArticleModalSpeech() {
     articleModal.tts.token += 1;
     articleModal.tts.speaking = false;
-    var wasMp3 = !!articleModal.tts.usingMp3;
     articleModal.tts.usingMp3 = false;
     try {
       if (window.speechSynthesis) window.speechSynthesis.cancel();
@@ -1776,7 +1475,7 @@
       } catch (_) {}
       articleModal.tts.audio = null;
     }
-    if (wasMp3 && typeof window.__birinciStopStoryTts === "function") {
+    if (typeof window.__birinciStopStoryTts === "function") {
       window.__birinciStopStoryTts();
     }
     syncArticleModalListenButton(false);
@@ -3160,6 +2859,20 @@
     applyInventionsListWindow();
   }
 
+  function selectDiscoveriesCategoryFromCards(catId) {
+    var cat = catId ? document.getElementById(catId) : null;
+    var value = cat ? String(cat.getAttribute("data-category") || "") : "";
+    if (!value) return;
+    var mf = window.KT_CATALOG_MULTI_FILTER;
+    if (mf && typeof mf.setActiveValues === "function") {
+      mf.setActiveValues("filterCategory", [value]);
+    } else if (filterCategory) {
+      filterCategory.value = value;
+      applyFilters({ resetWindow: true });
+    }
+    setInventionsView("list");
+  }
+
   function enhanceCardCategoryToggles() {
     if (!isDiscoveriesPage() || !cardsHost) return;
     Array.prototype.forEach.call(
@@ -3199,7 +2912,8 @@
         });
         head.addEventListener("click", function (e) {
           if (e.target.closest("a, button")) return;
-          togglePair();
+          e.preventDefault();
+          selectDiscoveriesCategoryFromCards(catId);
         });
       }
     );
