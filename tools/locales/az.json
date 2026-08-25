@@ -37,6 +37,13 @@
     "site_description": "Birİnci — ibrətamiz deyimlər və hekayələr toplusu.",
     "stories_nav": "Hekayələr",
     "stories_nav_open": "Hekayələr menyusunu aç",
+    "stories_summary_title": "Xülasə",
+    "stories_summary_p1": "Bu səhifədə təqdim olunan hikmətli hekayələr, pritçalar və ibrətamiz əhvalatlar ən mühüm insani dəyərlərə — xeyirxahlıq və mərhəmətə, ədalət və məsuliyyətə, dürüstlük və etimada, sevgi və dostluğa, səbir və bağışlamağa, minnətdarlıq və ətrafdakılara hörmətə həsr olunmuş süjetlər toplusudur. Bir-biri ilə sıx bağlı olan bu mövzular gündəlik hadisələrə yeni baxış bucağından yanaşmağa, öz əməllərimiz barədə düşünməyə və mühüm həyat dərsləri çıxarmağa kömək edir.",
+    "stories_summary_p2": "Hekayələrin əsasını xalq rəvayətləri, ədəbi süjetlər, tarixi hadisələr və açıq mənbələrdəki materiallar təşkil edir. Mətnlərin bəziləri daha aydın və müasir dildə təqdim olunması üçün uyğunlaşdırılıb. Onların məqsədi təsvir edilən hadisələri sənədli şəkildə təsdiqləmək və ya ayrı-ayrı mədəni ənənələri hərtərəfli təqdim etmək deyil, oxucunu düşünməyə və mənəvi dəyərləri dərk etməyə təşviq etməkdir.",
+    "expand_all": "Hamısını aç",
+    "collapse_all": "Hamısını yığ",
+    "expand_all_aria": "Bütün kateqoriyaları aç",
+    "collapse_all_aria": "Bütün kateqoriyaları yığ",
     "no_matching_category": "Uyğun kateqoriya tapılmadı.",
     "no_matching_story": "Uyğun hekayə tapılmadı.",
     "categories_heading": "Kateqoriyalar",
@@ -209,6 +216,9 @@
     },
     "inventions": {
       "page_title": "Kəşf və ixtiralar",
+      "summary_title": "Xülasə",
+      "overview_button": "Kateqoriyalar üzrə icmal",
+      "references_button": "İstinadlar",
       "page_description": "Bu səhifədə bəşəriyyətin elm, mədəniyyət və mənəvi irsi haqqında məlumatlar təqdim olunur. Niyyətimiz bu dəyərli irsi qoruyub gələcək nəsillərə çatdırmaqdır.",
       "card_description": "Odun əhliləşdirilməsindən süni intellektə qədər insanlığın qət etdiyi yolu əks etdirən maraqlı məqalələr toplusu. Bu məqalələr kəşf və ixtiraların necə ərsəyə gəldiyini, elmə təsirini və gündəlik həyatımızı necə dəyişdiyini izah edir.",
       "crumb": "Kəşf və ixtiralar"

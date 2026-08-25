@@ -37,6 +37,13 @@
     "site_description": "Birİnci — a collection of edifying sayings and stories.",
     "stories_nav": "Stories",
     "stories_nav_open": "Open stories menu",
+    "stories_summary_title": "Summary",
+    "stories_summary_p1": "The wisdom stories, parables, and instructive tales presented on this page form a collection devoted to essential human values: kindness and compassion, justice and responsibility, honesty and trust, love and friendship, patience and forgiveness, gratitude and respect for others. These interconnected themes encourage readers to view everyday situations from new perspectives, reflect on their actions, and draw meaningful life lessons.",
+    "stories_summary_p2": "The stories draw on folk traditions, literary narratives, historical episodes, and materials from publicly available sources. Some have been adapted for clearer, more contemporary presentation. They are intended to inspire reflection and moral awareness, not to serve as documentary evidence of the events described or as a comprehensive representation of particular cultural traditions.",
+    "expand_all": "Expand All",
+    "collapse_all": "Collapse All",
+    "expand_all_aria": "Expand all categories",
+    "collapse_all_aria": "Collapse all categories",
     "no_matching_category": "No matching category.",
     "no_matching_story": "No matching story.",
     "categories_heading": "Categories",
@@ -209,6 +216,9 @@
     },
     "inventions": {
       "page_title": "Discoveries and Inventions",
+      "summary_title": "Summary",
+      "overview_button": "Overview by Category",
+      "references_button": "References",
       "page_description": "This page presents information about humanity’s scientific, cultural, and moral heritage. Our aim is to preserve this valuable heritage and pass it on to future generations.",
       "card_description": "A collection of engaging articles tracing humanity’s path from the taming of fire to artificial intelligence. These articles explain how discoveries and inventions came about, their impact on science, and how they have changed everyday life.",
       "crumb": "Discoveries and inventions"

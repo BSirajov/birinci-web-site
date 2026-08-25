@@ -52,9 +52,9 @@ body.inventions-preview-page {
 
 .inventions-hero-wrap {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 28px;
-  align-items: start;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  align-items: stretch;
   padding: 28px 24px 36px;
 }
 

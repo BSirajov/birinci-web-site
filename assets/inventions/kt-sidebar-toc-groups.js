@@ -432,6 +432,69 @@
     return space >= 0 ? text.slice(space + 1).trim() : text;
   }
 
+  function tocActionCopy() {
+    var ui = (global.__BIRINCI_I18N__ && global.__BIRINCI_I18N__.ui) || {};
+    var lang = (
+      (global.__BIRINCI_I18N__ && global.__BIRINCI_I18N__.lang) ||
+      document.documentElement.lang ||
+      "en"
+    )
+      .toLowerCase()
+      .split(/[-_]/)[0];
+    var fallbacks = {
+      az: {
+        expand: "Hamısını aç",
+        collapse: "Hamısını yığ",
+        expandAria: "Bütün kateqoriyaları aç",
+        collapseAria: "Bütün kateqoriyaları yığ",
+      },
+      en: {
+        expand: "Expand All",
+        collapse: "Collapse All",
+        expandAria: "Expand all categories",
+        collapseAria: "Collapse all categories",
+      },
+      ru: {
+        expand: "Развернуть все",
+        collapse: "Свернуть все",
+        expandAria: "Развернуть все категории",
+        collapseAria: "Свернуть все категории",
+      },
+      ky: {
+        expand: "Бардыгын ачуу",
+        collapse: "Бардыгын жыйноо",
+        expandAria: "Бардык категорияларды жайып көрсөтүү",
+        collapseAria: "Бардык категорияларды жыйноо",
+      },
+    };
+    var pack = fallbacks[lang] || fallbacks.en;
+    return {
+      expand: ui.expand_all || pack.expand,
+      collapse: ui.collapse_all || pack.collapse,
+      expandAria: ui.expand_all_aria || pack.expandAria,
+      collapseAria: ui.collapse_all_aria || pack.collapseAria,
+    };
+  }
+
+  function applyTocActionLabels(actions) {
+    if (!actions) return;
+    var copy = tocActionCopy();
+    var expandBtn = actions.querySelector('[data-toc-action="expand-all"]');
+    var collapseBtn = actions.querySelector('[data-toc-action="collapse-all"]');
+    if (expandBtn) {
+      var expandLabel = expandBtn.querySelector(".widget-action-btn__label");
+      if (expandLabel) expandLabel.textContent = copy.expand;
+      expandBtn.setAttribute("aria-label", copy.expandAria);
+      expandBtn.setAttribute("title", copy.expandAria);
+    }
+    if (collapseBtn) {
+      var collapseLabel = collapseBtn.querySelector(".widget-action-btn__label");
+      if (collapseLabel) collapseLabel.textContent = copy.collapse;
+      collapseBtn.setAttribute("aria-label", copy.collapseAria);
+      collapseBtn.setAttribute("title", copy.collapseAria);
+    }
+  }
+
   function getGroupsInWidget(widget, level) {
     var list = widget && widget.querySelector(".timeline-list");
     if (!list) return [];
@@ -552,18 +615,12 @@
   function wireTocActionButtons(widget, actions) {
     if (!widget || !actions) return;
 
-    var label = panelLabel(widget);
+    applyTocActionLabels(actions);
     var expandBtn = actions.querySelector('[data-toc-action="expand-all"]');
     var collapseBtn = actions.querySelector('[data-toc-action="collapse-all"]');
 
     if (expandBtn && !expandBtn.getAttribute("data-kt-toc-bound")) {
       expandBtn.setAttribute("data-kt-toc-bound", "1");
-      if (!expandBtn.getAttribute("aria-label")) {
-        expandBtn.setAttribute(
-          "aria-label",
-          "Expand all " + label.toLowerCase() + " sections"
-        );
-      }
       expandBtn.addEventListener("click", function () {
         expandAll(widget);
       });
@@ -571,12 +628,6 @@
 
     if (collapseBtn && !collapseBtn.getAttribute("data-kt-toc-bound")) {
       collapseBtn.setAttribute("data-kt-toc-bound", "1");
-      if (!collapseBtn.getAttribute("aria-label")) {
-        collapseBtn.setAttribute(
-          "aria-label",
-          "Collapse all " + label.toLowerCase() + " sections"
-        );
-      }
       collapseBtn.addEventListener("click", function () {
         collapseAll(widget);
       });
@@ -586,41 +637,54 @@
   function bindPanelControls(widget) {
     if (!widget) return widget;
 
-    if (
-      (document.documentElement.getAttribute("data-kt-page-id") || "") ===
-      "discoveries-and-inventions"
-    ) {
-      var leftover = widget.querySelector(".widget-actions");
-      if (leftover && leftover.parentNode) leftover.parentNode.removeChild(leftover);
-      return widget;
-    }
-
     var actions = widget.querySelector(".widget-actions");
     if (actions && actions.querySelector('[data-toc-action="toggle-categories"]')) {
       return wireTocSidebarControls(widget);
     }
 
     if (!actions) {
+      var copy = tocActionCopy();
       var label = panelLabel(widget);
       actions = document.createElement("div");
       actions.className = "widget-actions";
       actions.setAttribute("role", "group");
       actions.setAttribute("aria-label", label + " section controls");
 
+      var views = document.createElement("div");
+      views.className = "widget-actions__views";
+      views.setAttribute("role", "group");
+
       var expandBtn = document.createElement("button");
       expandBtn.type = "button";
       expandBtn.className = "widget-action-btn";
       expandBtn.setAttribute("data-toc-action", "expand-all");
-      expandBtn.textContent = "Expand all";
+      expandBtn.setAttribute("data-bulk-action", "expand");
+      var expandIcon = document.createElement("span");
+      expandIcon.className = "widget-action-btn__icon";
+      expandIcon.setAttribute("aria-hidden", "true");
+      var expandLabel = document.createElement("span");
+      expandLabel.className = "widget-action-btn__label";
+      expandLabel.textContent = copy.expand;
+      expandBtn.appendChild(expandIcon);
+      expandBtn.appendChild(expandLabel);
 
       var collapseBtn = document.createElement("button");
       collapseBtn.type = "button";
       collapseBtn.className = "widget-action-btn";
       collapseBtn.setAttribute("data-toc-action", "collapse-all");
-      collapseBtn.textContent = "Collapse all";
+      collapseBtn.setAttribute("data-bulk-action", "collapse");
+      var collapseIcon = document.createElement("span");
+      collapseIcon.className = "widget-action-btn__icon";
+      collapseIcon.setAttribute("aria-hidden", "true");
+      var collapseLabel = document.createElement("span");
+      collapseLabel.className = "widget-action-btn__label";
+      collapseLabel.textContent = copy.collapse;
+      collapseBtn.appendChild(collapseIcon);
+      collapseBtn.appendChild(collapseLabel);
 
-      actions.appendChild(expandBtn);
-      actions.appendChild(collapseBtn);
+      views.appendChild(expandBtn);
+      views.appendChild(collapseBtn);
+      actions.appendChild(views);
 
       var body = widget.querySelector(".widget-body");
       if (!body) return widget;

@@ -852,8 +852,8 @@
   left: 0;
   z-index: 10050;
   width: 100%;
-  min-width: 240px;
-  max-width: min(360px, 92vw);
+  min-width: 280px;
+  max-width: min(440px, 92vw);
   pointer-events: none;
   visibility: hidden;
   opacity: 0;
@@ -967,6 +967,7 @@
 .kt-multi-filter__option-text{
   flex: 1 1 auto;
   min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .kt-multi-filter__item--all .kt-multi-filter__option-text{
@@ -990,8 +991,8 @@
   }
 
   .kt-multi-filter__panel{
-    min-width: min(100%, 240px);
-    max-width: min(100vw - 16px, 360px);
+    min-width: min(100%, 280px);
+    max-width: min(100vw - 16px, 440px);
   }
 }
 

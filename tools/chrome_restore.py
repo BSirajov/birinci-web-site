@@ -24,7 +24,7 @@ from i18n_config import rewrite_content_media_paths, story_illustrations_dir  # 
 DISABLE_DISCOVERY_VIDEOS = True
 
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
-SITE_ASSET_VERSION = "20260825b"
+SITE_ASSET_VERSION = "20260825w"
 SITE_PUBLIC_ORIGIN = "https://birinci.cloud"
 LIVE_LANGS = ("az", "en", "ru", "ky")
 OG_IMAGE_URL = f"{SITE_PUBLIC_ORIGIN}/assets/pearl-hero.webp"
@@ -113,6 +113,13 @@ STORY_I18N_UI_KEYS = (
     "pref_verified",
     "pref_unverified",
     "pref_locale",
+    "expand_all",
+    "collapse_all",
+    "expand_all_aria",
+    "collapse_all_aria",
+    "stories_summary_title",
+    "stories_summary_p1",
+    "stories_summary_p2",
 )
 
 # Top navbar stubs with no content yet — remove until sections are ready.
@@ -143,6 +150,37 @@ BACK_TO_TOP = {
     "en": "Back to top",
     "ru": "Наверх",
     "ky": "Барактын башына кайтуу",
+}
+
+SIDEBAR_EXPAND_ALL = {
+    "az": "Hamısını aç",
+    "en": "Expand All",
+    "ru": "Развернуть все",
+    "ky": "Бардыгын ачуу",
+}
+SIDEBAR_COLLAPSE_ALL = {
+    "az": "Hamısını yığ",
+    "en": "Collapse All",
+    "ru": "Свернуть все",
+    "ky": "Бардыгын жыйноо",
+}
+SIDEBAR_EXPAND_ALL_ARIA = {
+    "az": "Bütün kateqoriyaları aç",
+    "en": "Expand all categories",
+    "ru": "Развернуть все категории",
+    "ky": "Бардык категорияларды жайып көрсөтүү",
+}
+SIDEBAR_COLLAPSE_ALL_ARIA = {
+    "az": "Bütün kateqoriyaları yığ",
+    "en": "Collapse all categories",
+    "ru": "Свернуть все категории",
+    "ky": "Бардык категорияларды жыйноо",
+}
+SIDEBAR_ACTIONS_ARIA = {
+    "az": "Bölmə idarəsi",
+    "en": "Section controls",
+    "ru": "Управление разделами",
+    "ky": "Бөлүм башкаруусу",
 }
 
 NAV_STORIES_ALL = {
@@ -519,6 +557,41 @@ _DISCOVERIES_PANEL_RE = re.compile(
     r"[ \t]*<aside class=\"about-hero__panel\"[\s\S]*?</aside>\s*",
     re.I,
 )
+_CONCLUSION_SECTION_RE = re.compile(
+    r"\s*<section\b[^>]*\bid=[\"']concluding-note[\"'][^>]*>[\s\S]*?</section>",
+    re.I,
+)
+_CONCLUSION_TOC_RE = re.compile(
+    r"[ \t]*<li class=\"inventions-toc-extra\"[^>]*>\s*"
+    r"<span class=\"tl-date\">[^<]*</span>\s*"
+    r"<a href=\"#concluding-note\">[\s\S]*?</a>\s*</li>\s*",
+    re.I,
+)
+_HERO_PILLS_RE = re.compile(
+    r"[ \t]*<(?:nav|span) class=\"inventions-hero-pills\"[\s\S]*?</(?:nav|span)>\s*",
+    re.I,
+)
+_TOC_OVERVIEW_RE = re.compile(
+    r"[ \t]*<li class=\"inventions-toc-extra\"[^>]*>\s*"
+    r"<span class=\"tl-date\">[^<]*</span>\s*"
+    r"<a href=\"#overview-by-category\">[\s\S]*?</a>\s*</li>\s*",
+    re.I,
+)
+_TOC_REFERENCES_RE = re.compile(
+    r"[ \t]*<li class=\"inventions-toc-extra\"[^>]*>\s*"
+    r"<span class=\"tl-date\">[^<]*</span>\s*"
+    r"<a href=\"#references\">[\s\S]*?</a>\s*</li>\s*",
+    re.I,
+)
+_TOC_REF_ROW_RE = re.compile(
+    r"[ \t]*<li class=\"inventions-toc-ref-row\"[^>]*>[\s\S]*?</li>\s*",
+    re.I,
+)
+_PANEL_PARAS_RE = re.compile(r"<p\b[^>]*>([\s\S]*?)</p>", re.I)
+_ABOUT_HERO_CLOSE_RE = re.compile(
+    r"(<header class=\"about-hero\">[\s\S]*?</section>\s*)(</div>\s*</header>)",
+    re.I,
+)
 _HERO_H1_RE = re.compile(
     r'(<h1 class="about-hero__title" id="about-hero-title">)([\s\S]*?)(</h1>)',
     re.I,
@@ -584,26 +657,53 @@ def ensure_site_css_chrome(css: str) -> str:
     if ".nav-dropdown--literature > .nav-dropdown-panel > .nav-dropdown-link {" not in css:
         css = css.rstrip() + "\n" + _LIT_PANEL_LINK_CSS.strip() + "\n"
 
+    if ".page-home:not(.page-root-home) .about-hero__panel" not in css:
+        css = css.rstrip() + (
+            "\n.page-home:not(.page-root-home) .about-hero__panel {\n"
+            "  width: 100%;\n"
+            "  max-width: none;\n"
+            "  justify-self: stretch;\n"
+            "}\n"
+            ".page-home:not(.page-root-home) .about-panel__lead + .about-panel__lead {\n"
+            "  margin-top: 0.7rem;\n"
+            "}\n"
+        )
+
     if ".page-home:not(.page-root-home) .about-hero__wrap" not in css:
         css = css.rstrip() + (
             "\n.page-home:not(.page-root-home) .about-hero__wrap,\n"
-            ".page-inventions .about-hero__wrap,\n"
+            ".page-about .about-hero__wrap,\n"
             ".page-sitemap .about-hero__wrap {\n"
             "  grid-template-columns: 1fr;\n"
             "}\n"
         )
-    elif ".page-inventions .about-hero__wrap" not in css:
-        css = css.replace(
-            ".page-home:not(.page-root-home) .about-hero__wrap {\n"
-            "  grid-template-columns: 1fr;\n"
-            "}",
-            ".page-home:not(.page-root-home) .about-hero__wrap,\n"
-            ".page-inventions .about-hero__wrap,\n"
-            ".page-sitemap .about-hero__wrap {\n"
-            "  grid-template-columns: 1fr;\n"
-            "}",
-            1,
-        )
+    css = css.replace(
+        ".page-home:not(.page-root-home) .about-hero__wrap,\n"
+        ".page-inventions .about-hero__wrap,\n"
+        ".page-sitemap .about-hero__wrap {\n"
+        "  grid-template-columns: 1fr;\n"
+        "}",
+        ".page-home:not(.page-root-home) .about-hero__wrap,\n"
+        ".page-about .about-hero__wrap,\n"
+        ".page-sitemap .about-hero__wrap {\n"
+        "  grid-template-columns: 1fr;\n"
+        "}",
+        1,
+    )
+    css = css.replace(
+        ".page-home:not(.page-root-home) .about-hero__wrap,\n"
+        ".page-inventions .about-hero__wrap,\n"
+        ".page-about .about-hero__wrap,\n"
+        ".page-sitemap .about-hero__wrap {\n"
+        "  grid-template-columns: 1fr;\n"
+        "}",
+        ".page-home:not(.page-root-home) .about-hero__wrap,\n"
+        ".page-about .about-hero__wrap,\n"
+        ".page-sitemap .about-hero__wrap {\n"
+        "  grid-template-columns: 1fr;\n"
+        "}",
+        1,
+    )
 
     if ".page-home .about-hero" not in css:
         css = re.sub(
@@ -669,6 +769,38 @@ def ensure_site_css_chrome(css: str) -> str:
             ".story-nav .toc-group.is-hidden,\n"
             ".story-nav .inventions-toc-entry.is-hidden {\n"
             "  display: none !important;\n"
+            "}\n"
+        )
+
+    if ".story-nav .widget-actions {" not in css:
+        css = css.rstrip() + (
+            "\n.story-nav .widget-actions {\n"
+            "  flex: 0 0 auto;\n"
+            "  align-items: center;\n"
+            "  background: #f4f8fc;\n"
+            "  border-bottom: 1px solid rgba(0, 45, 82, 0.08);\n"
+            "  display: flex;\n"
+            "  flex-wrap: wrap;\n"
+            "  gap: 8px;\n"
+            "  justify-content: flex-end;\n"
+            "  padding: 8px 16px;\n"
+            "}\n"
+        )
+
+    if ".story-nav .sidebar-widget:not(.events-open) .widget-actions" not in css:
+        css = css.rstrip() + (
+            "\n@media (max-width: 1060px) {\n"
+            "  .story-nav .sidebar-widget:not(.events-open) .widget-actions {\n"
+            "    max-height: 0;\n"
+            "    padding-top: 0;\n"
+            "    padding-bottom: 0;\n"
+            "    overflow: hidden;\n"
+            "    border-bottom-width: 0;\n"
+            "  }\n"
+            "  .story-nav .sidebar-widget.events-open .widget-actions {\n"
+            "    max-height: 88px;\n"
+            "    padding: 8px 16px;\n"
+            "  }\n"
             "}\n"
         )
 
@@ -1498,11 +1630,140 @@ def _strip_hero_hearth_panel(html: str) -> str:
     return _DISCOVERIES_PANEL_RE.sub("", html, count=1)
 
 
+_SUMMARY_TITLE_FALLBACK = {
+    "az": "Xülasə",
+    "en": "Summary",
+    "ru": "Краткое содержание",
+    "ky": "Корутунду",
+}
+_SECTION_PILL_FALLBACK = {
+    "az": {
+        "overview_button": "Kateqoriyalar üzrə icmal",
+        "references_button": "İstinadlar",
+        "pills_label": "Səhifə bölmələri",
+    },
+    "en": {
+        "overview_button": "Overview by Category",
+        "references_button": "References",
+        "pills_label": "Page sections",
+    },
+    "ru": {
+        "overview_button": "Обзор по категориям",
+        "references_button": "Источники и литература",
+        "pills_label": "Разделы страницы",
+    },
+    "ky": {
+        "overview_button": "Категориялар боюнча сереп",
+        "references_button": "Булактар жана адабияттар",
+        "pills_label": "Барак бөлүмдөрү",
+    },
+}
+
+
+def _discoveries_summary_title(lang: str) -> str:
+    inv = _load_locale(lang).get("ui", {}).get("inventions", {})
+    return inv.get("summary_title") or _SUMMARY_TITLE_FALLBACK.get(lang) or "Summary"
+
+
+def _discoveries_section_labels(lang: str) -> dict:
+    inv = _load_locale(lang).get("ui", {}).get("inventions", {})
+    fallback = _SECTION_PILL_FALLBACK.get(lang) or _SECTION_PILL_FALLBACK["en"]
+    return {
+        "overview": inv.get("overview_button") or fallback["overview_button"],
+        "references": inv.get("references_button") or fallback["references_button"],
+        "nav": fallback["pills_label"],
+    }
+
+
+def _extract_summary_paragraphs(markup: str) -> list[str]:
+    section = _CONCLUSION_SECTION_RE.search(markup)
+    source = section.group(0) if section else None
+    if not source:
+        panel = _DISCOVERIES_PANEL_RE.search(markup)
+        source = panel.group(0) if panel else ""
+    paras = []
+    for match in _PANEL_PARAS_RE.finditer(source):
+        text = _HERO_PILLS_RE.sub("", match.group(1)).strip()
+        if text:
+            paras.append(text)
+    return paras
+
+
+def _build_discoveries_hero_pills(lang: str) -> str:
+    labels = _discoveries_section_labels(lang)
+    return (
+        f'<span class="inventions-hero-pills" aria-label="{html.escape(labels["nav"])}">'
+        f'<a class="inventions-hero-link" href="#overview-by-category" data-inventions-section="overview-by-category">{html.escape(labels["overview"])}</a>'
+        f'<a class="inventions-hero-link" href="#references" data-inventions-section="references">{html.escape(labels["references"])}</a>'
+        "</span>"
+    )
+
+
+def _build_discoveries_summary_panel(lang: str, paragraphs: list[str]) -> str:
+    label = html.escape(_discoveries_summary_title(lang))
+    pills = _build_discoveries_hero_pills(lang)
+    leads = []
+    for index, para in enumerate(paragraphs):
+        if index == len(paragraphs) - 1:
+            leads.append(f'        <p class="about-panel__lead">{para} {pills}</p>\n')
+        else:
+            leads.append(f'        <p class="about-panel__lead">{para}</p>\n')
+    return (
+        f'    <aside class="about-hero__panel" id="page-summary" aria-label="{label}">\n'
+        '      <div class="about-panel">\n'
+        f"{''.join(leads)}"
+        "      </div>\n"
+        "    </aside>\n"
+    )
+
+
+def _hide_discoveries_page_sections(markup: str) -> str:
+    if 'id="overview-by-category"' in markup and 'id="overview-by-category" hidden' not in markup:
+        markup = markup.replace(
+            '<div id="overview-by-category">',
+            '<div id="overview-by-category" class="inventions-section-source" hidden>',
+            1,
+        )
+    if re.search(
+        r'<section\b[^>]*\bid=["\']references["\'](?![^>]*\bhidden\b)',
+        markup,
+        flags=re.I,
+    ):
+        markup = re.sub(
+            r'<section class="inventions-references" id="references">',
+            '<section class="inventions-references inventions-section-source" id="references" hidden>',
+            markup,
+            count=1,
+            flags=re.I,
+        )
+    return markup
+
+
 def ensure_discoveries_hero_html(markup: str, lang: str) -> str:
-    """Keep the discoveries title; drop the hearth-of-knowledge side panel."""
+    """Keep the discoveries title and place the page summary beside it."""
     if "inventions-page-body" not in markup and "inventions-entry" not in markup:
         return markup
+    paragraphs = _extract_summary_paragraphs(markup)
+    markup = _CONCLUSION_SECTION_RE.sub("", markup, count=1)
+    markup = _CONCLUSION_TOC_RE.sub("", markup)
+    markup = _TOC_OVERVIEW_RE.sub("", markup)
+    markup = _TOC_REFERENCES_RE.sub("", markup)
+    markup = _TOC_REF_ROW_RE.sub("", markup)
+    markup = _HERO_PILLS_RE.sub("", markup)
     markup = _strip_hero_hearth_panel(markup)
+    markup = _hide_discoveries_page_sections(markup)
+    if paragraphs:
+        panel = _build_discoveries_summary_panel(lang, paragraphs)
+        if _ABOUT_HERO_CLOSE_RE.search(markup):
+            markup = _ABOUT_HERO_CLOSE_RE.sub(rf"\1{panel}\2", markup, count=1)
+        else:
+            markup = re.sub(
+                r'(<header class="hero page-hero"><div class="hero-wrap shell(?: inventions-hero-wrap)?">)([\s\S]*?</section>)\s*(</div></header>)',
+                rf'<header class="hero page-hero"><div class="hero-wrap shell inventions-hero-wrap">\2\n{panel}</div></header>',
+                markup,
+                count=1,
+                flags=re.I,
+            )
     title = (
         _load_locale(lang).get("ui", {}).get("inventions", {}).get("page_title") or ""
     )
@@ -1533,9 +1794,38 @@ def _about_title_html(title: str) -> str:
     return html.escape(title)
 
 
+def _stories_summary_title(lang: str) -> str:
+    ui = _load_locale(lang).get("ui", {})
+    return ui.get("stories_summary_title") or _SUMMARY_TITLE_FALLBACK.get(lang) or "Summary"
+
+
+def _build_stories_summary_panel(lang: str) -> str:
+    ui = _load_locale(lang).get("ui", {})
+    label = html.escape(_stories_summary_title(lang))
+    paragraphs = [
+        ui.get("stories_summary_p1") or "",
+        ui.get("stories_summary_p2") or "",
+    ]
+    leads = "".join(
+        f'        <p class="about-panel__lead">{html.escape(para)}</p>\n'
+        for para in paragraphs
+        if para
+    )
+    if not leads:
+        return ""
+    return (
+        f'    <aside class="about-hero__panel" id="page-summary" aria-label="{label}">\n'
+        '      <div class="about-panel">\n'
+        f"{leads}"
+        "      </div>\n"
+        "    </aside>\n"
+    )
+
+
 def build_stories_hero_html(lang: str) -> str:
     data = _load_locale(lang)
     page_title = data.get("nav_stories_label", "İbrətamiz hekayələr")
+    panel = _build_stories_summary_panel(lang)
     return (
         f'<header class="about-hero">\n'
         f'  <div class="about-hero__wrap">\n'
@@ -1543,6 +1833,7 @@ def build_stories_hero_html(lang: str) -> str:
         f'      <h1 class="about-hero__title" id="about-hero-title">'
         f"{_about_title_html(page_title)}</h1>\n"
         f"    </section>\n"
+        f"{panel}"
         f"  </div>\n"
         f"</header>"
     )
@@ -2000,6 +2291,107 @@ def ensure_story_sidebar_toc_assets(markup: str, lang: str = "", rel_path: str =
     return markup
 
 
+_STORY_WIDGET_INSERT_RE = re.compile(
+    r'(<aside class="story-nav sidebar"[^>]*>\s*<div class="sidebar-widget">\s*'
+    r'<div class="widget-head">[\s\S]*?</div>)\s*'
+    r'(<div class="widget-body")',
+    re.I,
+)
+_DISC_WIDGET_INSERT_RE = re.compile(
+    r'(<div class="sidebar-widget[^"]*" id="inventionsArticlesWidget">\s*'
+    r'<div class="widget-head">[\s\S]*?</div>)\s*'
+    r'(<div class="widget-body")',
+    re.I,
+)
+_EXPAND_BTN_RE = re.compile(
+    r'(<button\b[^>]*data-toc-action="expand-all"[^>]*>)([\s\S]*?)(</button>)',
+    re.I,
+)
+_COLLAPSE_BTN_RE = re.compile(
+    r'(<button\b[^>]*data-toc-action="collapse-all"[^>]*>)([\s\S]*?)(</button>)',
+    re.I,
+)
+_BTN_LABEL_RE = re.compile(
+    r'(<span\b[^>]*class="[^"]*widget-action-btn__label[^"]*"[^>]*>)([\s\S]*?)(</span>)',
+    re.I,
+)
+
+
+def _sidebar_expand_collapse_html(lang: str) -> str:
+    expand = html.escape(SIDEBAR_EXPAND_ALL.get(lang, SIDEBAR_EXPAND_ALL["en"]))
+    collapse = html.escape(SIDEBAR_COLLAPSE_ALL.get(lang, SIDEBAR_COLLAPSE_ALL["en"]))
+    expand_aria = html.escape(SIDEBAR_EXPAND_ALL_ARIA.get(lang, SIDEBAR_EXPAND_ALL_ARIA["en"]))
+    collapse_aria = html.escape(SIDEBAR_COLLAPSE_ALL_ARIA.get(lang, SIDEBAR_COLLAPSE_ALL_ARIA["en"]))
+    actions_aria = html.escape(SIDEBAR_ACTIONS_ARIA.get(lang, SIDEBAR_ACTIONS_ARIA["en"]))
+    return (
+        f'<div class="widget-actions" role="group" aria-label="{actions_aria}">'
+        f'<div class="widget-actions__views" role="group">'
+        f'<button type="button" class="widget-action-btn" data-toc-action="expand-all" '
+        f'data-bulk-action="expand" aria-label="{expand_aria}" title="{expand_aria}">'
+        f'<span class="widget-action-btn__icon" aria-hidden="true"></span>'
+        f'<span class="widget-action-btn__label">{expand}</span></button>'
+        f'<button type="button" class="widget-action-btn" data-toc-action="collapse-all" '
+        f'data-bulk-action="collapse" aria-label="{collapse_aria}" title="{collapse_aria}">'
+        f'<span class="widget-action-btn__icon" aria-hidden="true"></span>'
+        f'<span class="widget-action-btn__label">{collapse}</span></button>'
+        f"</div></div>"
+    )
+
+
+def _relabel_toc_action_button(markup: str, pattern: re.Pattern, label: str, aria: str) -> str:
+    def repl(match: re.Match) -> str:
+        open_tag, inner, close = match.group(1), match.group(2), match.group(3)
+        if re.search(r'\baria-label="', open_tag, re.I):
+            open_tag = re.sub(r'aria-label="[^"]*"', f'aria-label="{aria}"', open_tag, count=1, flags=re.I)
+        else:
+            open_tag = open_tag[:-1] + f' aria-label="{aria}">'
+        if re.search(r'\btitle="', open_tag, re.I):
+            open_tag = re.sub(r'title="[^"]*"', f'title="{aria}"', open_tag, count=1, flags=re.I)
+        else:
+            open_tag = open_tag[:-1] + f' title="{aria}">'
+        if _BTN_LABEL_RE.search(inner):
+            inner = _BTN_LABEL_RE.sub(rf"\1{label}\3", inner, count=1)
+        elif "<span" not in inner:
+            inner = label
+        return open_tag + inner + close
+
+    return pattern.sub(repl, markup)
+
+
+def ensure_sidebar_expand_collapse_buttons(markup: str, lang: str) -> str:
+    """Expand All / Collapse All under the left-hand item-list header."""
+    is_stories = 'class="page-home"' in markup or 'class="page-category"' in markup
+    is_discoveries = (
+        'id="inventionsArticlesWidget"' in markup
+        or 'data-kt-page-id="discoveries-and-inventions"' in markup
+    )
+    if not is_stories and not is_discoveries:
+        return markup
+
+    expand = html.escape(SIDEBAR_EXPAND_ALL.get(lang, SIDEBAR_EXPAND_ALL["en"]))
+    collapse = html.escape(SIDEBAR_COLLAPSE_ALL.get(lang, SIDEBAR_COLLAPSE_ALL["en"]))
+    expand_aria = html.escape(SIDEBAR_EXPAND_ALL_ARIA.get(lang, SIDEBAR_EXPAND_ALL_ARIA["en"]))
+    collapse_aria = html.escape(SIDEBAR_COLLAPSE_ALL_ARIA.get(lang, SIDEBAR_COLLAPSE_ALL_ARIA["en"]))
+    actions = _sidebar_expand_collapse_html(lang)
+
+    if is_stories and 'class="story-nav sidebar"' in markup:
+        if 'data-toc-action="expand-all"' not in markup:
+            markup = _STORY_WIDGET_INSERT_RE.sub(rf"\1\n            {actions}\n            \2", markup, count=1)
+        markup = _relabel_toc_action_button(markup, _EXPAND_BTN_RE, expand, expand_aria)
+        markup = _relabel_toc_action_button(markup, _COLLAPSE_BTN_RE, collapse, collapse_aria)
+
+    if is_discoveries:
+        if (
+            'id="inventionsArticlesWidget"' in markup
+            and 'data-toc-action="expand-all"' not in markup
+        ):
+            markup = _DISC_WIDGET_INSERT_RE.sub(rf"\1\n{actions}\n\2", markup, count=1)
+        markup = _relabel_toc_action_button(markup, _EXPAND_BTN_RE, expand, expand_aria)
+        markup = _relabel_toc_action_button(markup, _COLLAPSE_BTN_RE, collapse, collapse_aria)
+
+    return markup
+
+
 def ensure_site_js_i18n_chrome(js: str) -> str:
     old_figure = (
         '      const figureHtml = story.hasImage\n'
@@ -2237,6 +2629,7 @@ def patch_emitted_html(
     html = strip_stories_json_refs(html)
     html = ensure_shared_site_js_tags(html, lang, rel_path)
     html = ensure_story_sidebar_toc_assets(html, lang, rel_path)
+    html = ensure_sidebar_expand_collapse_buttons(html, lang)
     html = ensure_stories_batch_default_all(html)
     html = pin_asset_versions(html)
     html = ensure_seo_head(html, lang, rel_path)
@@ -2814,6 +3207,8 @@ def apply_invention_source_bodies() -> None:
         new = fix_ky_illustration_prefix(new, lang)
         new = strip_invention_icon_captions(new)
         new = relocate_invention_period_lines(new)
+        new = ensure_discoveries_hero_html(new, lang)
+        new = ensure_sidebar_expand_collapse_buttons(new, lang)
         if new != markup:
             path.write_text(new, encoding="utf-8")
 

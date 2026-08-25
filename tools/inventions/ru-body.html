@@ -1,5 +1,12 @@
 <div class="inventions-page-body">
-<header class="hero page-hero"><div class="hero-wrap shell"><section><h1 aria-describedby="page-hero-subtitle">Открытия и изобретения</h1><p class="page-hero-subtitle" id="page-hero-subtitle" role="doc-subtitle">Понятный путеводитель по великим идеям, изменившим науку, повседневную жизнь и способы передачи знаний — с историческим контекстом и проверяемыми источниками.</p></section></div></header>
+<header class="hero page-hero"><div class="hero-wrap shell inventions-hero-wrap"><section><h1 aria-describedby="page-hero-subtitle">Открытия и изобретения</h1><p class="page-hero-subtitle" id="page-hero-subtitle" role="doc-subtitle">Понятный путеводитель по великим идеям, изменившим науку, повседневную жизнь и способы передачи знаний — с историческим контекстом и проверяемыми источниками.</p></section>
+    <aside class="about-hero__panel" id="page-summary" aria-label="Краткое содержание">
+      <div class="about-panel">
+        <p class="about-panel__lead">Представленные на этой странице изобретения, открытия и инновации не являются полной историей науки и техники. Это отобранный справочный обзор ключевых вех, совокупное влияние которых изменило условия выживания человека, накопление знаний, производство, здравоохранение, связь, мобильность и повседневную жизнь. Многие из этих достижений тесно взаимосвязаны: электричество, электромагнетизм, полупроводники, компьютеры, интернет и искусственный интеллект образуют непрерывную цепь современной технологической трансформации; микробная теория заболеваний, микроскопия, вакцинация, антибиотики и раскрытие структуры ДНК образуют другую важнейшую цепь — в медицине.</p>
+        <p class="about-panel__lead">Мультимедийные и внешние ресурсы, приведённые в этом документе — материалы архива Нобелевской премии, Smithsonian Institution, NASA, WHO, Our World in Data, BBC, PBS, MIT OpenCourseWare, TED и ведущих академических издательств, — предназначены для читателей, желающих глубже изучить отдельные темы. Они служат отправной точкой для дальнейшего изучения, а не исчерпывающей библиографией. <span class="inventions-hero-pills" aria-label="Разделы страницы"><a class="inventions-hero-link" href="#overview-by-category" data-inventions-section="overview-by-category">Обзор по категориям</a><a class="inventions-hero-link" href="#references" data-inventions-section="references">Источники и литература</a></span></p>
+      </div>
+    </aside>
+</div></header>
 <div aria-label="Фильтры каталога" class="tools-bar tools-bar--inventions" data-tools="inventions">
 <div class="tools-bar__search">
 <label class="tools-bar__search-field">
@@ -64,6 +71,13 @@
       <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-texts-mode="hide" aria-pressed="false" title="Скрыть" aria-label="Скрыть"><svg class="tools-bar__glyph" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M9 13h6"/><path d="M9 17h6"/><path d="M5 5l14 14"/></svg></button>
     </div>
   </div>
+  <div class="tools-bar__field" data-inventions-list-only hidden>
+    <span class="tools-bar__label" id="tools-listen-page-label">Слушать страницу</span>
+    <div class="tools-bar__views" role="group" aria-labelledby="tools-listen-page-label">
+      <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-tools-play-visible data-tts-mode="listen" aria-pressed="false" title="Слушать страницу" aria-label="Слушать страницу"><svg class="tools-bar__glyph" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg></button>
+      <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-tools-play-visible data-tts-mode="stop" aria-pressed="true" title="Стоп" aria-label="Стоп"><svg class="tools-bar__glyph" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M3 3l18 18"/></svg></button>
+    </div>
+  </div>
   <div class="tools-bar__field tools-bar__batch" data-inventions-list-only hidden>
     <span class="tools-bar__label" id="tools-batch-label">Количество статей</span>
     <div class="tools-bar__batch-controls" role="group" aria-labelledby="tools-batch-label">
@@ -84,13 +98,6 @@
       <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon tools-bar__batch-all is-active" data-home-batch="all" title="Все" aria-label="Все" aria-pressed="true"><svg class="tools-bar__glyph" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="5" height="5" rx="1"/><rect x="9.5" y="3" width="5" height="5" rx="1"/><rect x="16" y="3" width="5" height="5" rx="1"/><rect x="3" y="9.5" width="5" height="5" rx="1"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><rect x="16" y="9.5" width="5" height="5" rx="1"/><rect x="3" y="16" width="5" height="5" rx="1"/><rect x="9.5" y="16" width="5" height="5" rx="1"/><rect x="16" y="16" width="5" height="5" rx="1"/></svg></button>
     </div>
   </div>
-  <div class="tools-bar__field" data-inventions-list-only hidden>
-    <span class="tools-bar__label" id="tools-listen-page-label">Слушать страницу</span>
-    <div class="tools-bar__views" role="group" aria-labelledby="tools-listen-page-label">
-      <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-tools-play-visible data-tts-mode="listen" aria-pressed="false" title="Слушать страницу" aria-label="Слушать страницу"><svg class="tools-bar__glyph" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg></button>
-      <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-tools-play-visible data-tts-mode="stop" aria-pressed="true" title="Стоп" aria-label="Стоп"><svg class="tools-bar__glyph" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M3 3l18 18"/></svg></button>
-    </div>
-  </div>
 </div>
 <div class="charter-layout inventions-layout">
 <aside aria-label="Навигация по статьям" class="charter-sidebar toc-card">
@@ -99,6 +106,7 @@
 <h2 class="widget-head__title"><span aria-hidden="true" class="widget-head__icon">📚</span> Статьи</h2>
 <button aria-controls="inventionsArticlesWidgetBody" aria-expanded="true" aria-label="Переключить меню статей" class="events-menu-toggle" type="button"><span></span><span></span><span></span></button>
 </div>
+<div class="widget-actions" role="group" aria-label="Управление разделами"><div class="widget-actions__views" role="group"><button type="button" class="widget-action-btn" data-toc-action="expand-all" data-bulk-action="expand" aria-label="Развернуть все категории" title="Развернуть все категории"><span class="widget-action-btn__icon" aria-hidden="true"></span><span class="widget-action-btn__label">Развернуть все</span></button><button type="button" class="widget-action-btn" data-toc-action="collapse-all" data-bulk-action="collapse" aria-label="Свернуть все категории" title="Свернуть все категории"><span class="widget-action-btn__icon" aria-hidden="true"></span><span class="widget-action-btn__label">Свернуть все</span></button></div></div>
 <div class="widget-body" id="inventionsArticlesWidgetBody">
 <ul class="timeline-list" id="inventionsTocList">
 <li class="inventions-toc-cat-row" data-toc-cat="1-foundational-civilisational-innovations"><span class="tl-date">§1</span><a href="#1-foundational-civilisational-innovations">Основы цивилизации</a></li>
@@ -229,19 +237,6 @@
 <li class="inventions-toc-entry" data-toc-entry="brain-computer-interfaces" data-toc-cat="7-emerging-and-transformative-technologies"><span class="tl-date">7.11</span><a href="#brain-computer-interfaces">Интерфейсы «мозг — компьютер»</a></li>
 <li class="inventions-toc-entry" data-toc-entry="nuclear-fusion" data-toc-cat="7-emerging-and-transformative-technologies"><span class="tl-date">7.12</span><a href="#nuclear-fusion">Термоядерный синтез</a></li>
 <li class="inventions-toc-entry" data-toc-entry="carbon-capture" data-toc-cat="7-emerging-and-transformative-technologies"><span class="tl-date">7.13</span><a href="#carbon-capture">Улавливание углерода</a></li>
-<li class="inventions-toc-extra"><span class="tl-date">⊕</span><a href="#overview-by-category">Обзор по категориям</a></li>
-<li class="inventions-toc-extra"><span class="tl-date">⊕</span><a href="#concluding-note">Заключение</a></li>
-<li class="inventions-toc-extra"><span class="tl-date">⊕</span><a href="#references">Источники и литература</a></li>
-<li class="inventions-toc-ref-row"><span class="tl-date">↳</span><a href="#a-books-and-major-scholarly-works">Книги и основные научные труды</a></li>
-<li class="inventions-toc-ref-row"><span class="tl-date">↳</span><a href="#b-peer-reviewed-articles-and-original-scientific-papers">Рецензируемые статьи и оригинальные научные работы</a></li>
-<li class="inventions-toc-ref-row"><span class="tl-date">↳</span><a href="#c-institutional-and-government-publications-and-reports">Публикации и отчёты государственных и иных учреждений</a></li>
-<li class="inventions-toc-ref-row"><span class="tl-date">↳</span><a href="#d-museum-archive-and-library-resources">Музейные, архивные и библиотечные ресурсы</a></li>
-<li class="inventions-toc-ref-row"><span class="tl-date">↳</span><a href="#e-documentary-films-and-broadcast-media">Документальные фильмы и вещательные СМИ</a></li>
-<li class="inventions-toc-ref-row"><span class="tl-date">↳</span><a href="#f-online-video-lectures-ted-talks-and-educational-series">Онлайн-видеолекции, TED Talks и образовательные серии</a></li>
-<li class="inventions-toc-ref-row"><span class="tl-date">↳</span><a href="#g-space-agencies-physics-laboratories-and-major-scientific-resources">Космические агентства, физические лаборатории и крупные научные ресурсы</a></li>
-<li class="inventions-toc-ref-row"><span class="tl-date">↳</span><a href="#h-professional-societies-standards-bodies-and-academic-databases">Профессиональные общества, органы стандартизации и академические базы данных</a></li>
-<li class="inventions-toc-ref-row"><span class="tl-date">↳</span><a href="#i-data-visualisation-mapping-and-infrastructure-resources">Ресурсы по визуализации данных, картографии и инфраструктуре</a></li>
-<li class="inventions-toc-ref-row"><span class="tl-date">↳</span><a href="#j-press-popular-science-and-general-reference">Пресса, научно-популярные и общие справочные источники</a></li>
 </ul>
 </div>
 </div>
@@ -6365,7 +6360,7 @@
 </ol></div>
 </div>
 </article></section>
-<div id="overview-by-category">
+<div id="overview-by-category" class="inventions-section-source" hidden>
 <div class="inventions-table-wrap">
 <h2>Обзор по категориям</h2>
 <table class="inventions-data-table">
@@ -6373,11 +6368,7 @@
 <tbody><tr><td>Основополагающие цивилизационные инновации</td><td>9</td><td>Управляемое использование огня, земледелие, колесо, письменность, математика, бумага, компас, порох, печатный станок</td></tr><tr><td>Знания, наука и измерения</td><td>4</td><td>Научный метод, телескоп, микроскоп, ньютоновская механика</td></tr><tr><td>Промышленность, энергия и транспорт</td><td>7</td><td>Паровая машина, электричество, электромагнетизм, двигатель внутреннего сгорания, автомобиль, самолёт, холодильная техника</td></tr><tr><td>Медицина, биология и общественное здоровье</td><td>9</td><td>Вакцинация, антибиотики, микробная теория, анестезия, рентгеновские лучи, санитария, ДНК, геном, CRISPR</td></tr><tr><td>Физика, химия и материаловедение</td><td>6</td><td>Периодическая таблица, квантовая механика, теория относительности, ядерная энергия, пластмассы, удобрения</td></tr><tr><td>Цифровые, космические и коммуникационные технологии</td><td>17</td><td>Телеграф, телефон, радио, транзистор, интегральная схема, компьютер, интернет, веб, поиск, спутники, GPS, полупроводники, лазер, оптоволокно, космические полёты, смартфоны, социальные платформы</td></tr><tr><td>Новые и трансформирующие технологии</td><td>8</td><td>Искусственный интеллект, возобновляемая энергетика, аккумуляторы, электромобили, робототехника, 3D-печать, блокчейн, облачные вычисления</td></tr></tbody>
 </table>
 </div></div>
-<section class="inventions-conclusion" id="concluding-note">
-<h2>Заключение</h2>
-<p>Представленные изобретения, открытия и инновации не являются полной историей науки и техники. Это отобранный справочный обзор ключевых вех, совокупное влияние которых изменило условия выживания человека, накопление знаний, производство, здравоохранение, связь, мобильность и повседневную жизнь. Многие из этих достижений тесно взаимосвязаны: электричество, электромагнетизм, полупроводники, компьютеры, интернет и искусственный интеллект образуют непрерывную цепь современной технологической трансформации; микробная теория заболеваний, микроскопия, вакцинация, антибиотики и раскрытие структуры ДНК образуют другую важнейшую цепь — в медицине.</p><p>Мультимедийные и внешние ресурсы, приведённые в этом документе — материалы архива Нобелевской премии, Smithsonian Institution, NASA, WHO, Our World in Data, BBC, PBS, MIT OpenCourseWare, TED и ведущих академических издательств, — предназначены для читателей, желающих глубже изучить отдельные темы. Они служат отправной точкой для дальнейшего изучения, а не исчерпывающей библиографией.</p>
-</section>
-<section class="inventions-references" id="references">
+<section class="inventions-references inventions-section-source" id="references" hidden>
 <h2>Источники и литература</h2>
 <p class="inventions-references-intro">Ниже источники сгруппированы по типам и внутри каждой группы расположены в алфавитном порядке. Перечень включает основные научные и институциональные материалы, использованные при подготовке документа, а также мультимедийные и онлайн-ресурсы, указанные в отдельных статьях. Для интернет-источников приводятся организация, название и URL. Там, где это важно, указаны дата публикации или дата обращения. Оформление унифицировано в адаптированном стиле, сочетающем элементы Chicago и APA и подходящем для многопрофильного справочного документа.</p>
 <div class="inventions-references-group" id="a-books-and-major-scholarly-works"><h3>A. Книги и основные научные труды</h3><ol class="inventions-bibliography">

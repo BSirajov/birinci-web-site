@@ -7,7 +7,7 @@
 
   var instances = Object.create(null);
   var openId = null;
-  var SEARCH_MIN = 12;
+  var SEARCH_MIN = 1;
   var PANEL_GAP = 6;
   var VIEWPORT_PAD = 8;
   var MIN_PANEL_HEIGHT = 120;
@@ -306,8 +306,8 @@
     var rect = trigger.getBoundingClientRect();
     if (!rect.width && !rect.height) return;
 
-    var width = Math.max(Math.round(rect.width), 240);
-    var maxWidth = Math.min(360, window.innerWidth - VIEWPORT_PAD * 2);
+    var width = Math.max(Math.round(rect.width), 280);
+    var maxWidth = Math.min(440, window.innerWidth - VIEWPORT_PAD * 2);
     width = Math.min(width, maxWidth);
 
     var left = rect.left;
@@ -652,7 +652,7 @@
 
   function boot() {
     enhanceAll();
-    document.querySelectorAll(".toolbar .sel-clear[data-for]").forEach(function (btn) {
+    document.querySelectorAll(".toolbar .sel-clear[data-for], .tools-bar .sel-clear[data-for]").forEach(function (btn) {
       if (btn.getAttribute("data-kt-multi-clear") === "1") return;
       btn.setAttribute("data-kt-multi-clear", "1");
       btn.addEventListener("click", function (e) {
