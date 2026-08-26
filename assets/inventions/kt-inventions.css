@@ -723,7 +723,7 @@ body.inventions-view-cards .inventions-cards {
   display: block;
 }
 
-body.inventions-view-cards .charter-layout.inventions-layout {
+.page-inventions.inventions-view-cards .charter-layout.inventions-layout {
   display: none;
 }
 

@@ -214,17 +214,32 @@ body.page-inventions::after {
   gap: 0.28rem;
   padding: 0.5rem 0.75rem 0.55rem;
 }
-.page-inventions .tools-bar__search input,
-.page-inventions .tools-bar__field--filter .sel-wrap select,
-.page-inventions .tools-bar__field--filter .kt-multi-filter__trigger,
-.page-inventions .tools-bar__views {
+:is(.page-home, .page-category, .page-inventions) .tools-bar__search input,
+:is(.page-home, .page-category, .page-inventions) .tools-bar__field--filter .sel-wrap select,
+:is(.page-home, .page-category, .page-inventions) .tools-bar__field--filter .kt-multi-filter__trigger,
+:is(.page-home, .page-category, .page-inventions) .tools-bar__views {
   min-height: 2.25rem;
   box-sizing: border-box;
 }
-.page-inventions .tools-bar__field--filter .sel-wrap select,
-.page-inventions .tools-bar__field--filter .kt-multi-filter__trigger {
-  padding-top: 0.2rem;
-  padding-bottom: 0.2rem;
+:is(.page-home, .page-category, .page-inventions) .tools-bar__field--filter .sel-wrap {
+  width: 100%;
+}
+:is(.page-home, .page-category, .page-inventions) .tools-bar__field--filter .kt-multi-filter {
+  min-width: 0;
+  width: 100%;
+}
+:is(.page-home, .page-category, .page-inventions) .tools-bar__field--filter .sel-wrap select,
+:is(.page-home, .page-category, .page-inventions) .tools-bar__field--filter .kt-multi-filter__trigger {
+  width: 100%;
+  min-width: 0;
+  padding: 0.2rem 2rem 0.2rem 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+.tools-bar.tools-bar--dense .tools-bar__field--filter .sel-wrap select,
+.tools-bar.tools-bar--dense .tools-bar__field--filter .kt-multi-filter__trigger,
+.tools-bar.tools-bar--dense .tools-bar__views {
+  min-height: 2.05rem;
 }
 
 .page-inventions.inventions-view-list .inventions-entry--figure-hidden .inventions-entry-visual-media,

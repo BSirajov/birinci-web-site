@@ -25,7 +25,7 @@ from i18n_config import rewrite_content_media_paths, story_illustrations_dir  # 
 DISABLE_DISCOVERY_VIDEOS = True
 
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
-SITE_ASSET_VERSION = "20260825ac"
+SITE_ASSET_VERSION = "20260826a16"
 SITE_PUBLIC_ORIGIN = "https://birinci.cloud"
 LIVE_LANGS = ("az", "en", "ru", "ky")
 OG_IMAGE_URL = f"{SITE_PUBLIC_ORIGIN}/assets/pearl-hero.webp"
@@ -612,7 +612,24 @@ _OCAQ_I18N_RE = re.compile(
 )
 
 
+_SITEMAP_CSS_MARKER = "/* Human sitemap */"
+
+
+def ensure_sitemap_page_css(css: str) -> str:
+    if _SITEMAP_CSS_MARKER in css:
+        return css
+    snippet_path = TOOLS / "sitemap-page.css"
+    if not snippet_path.is_file():
+        return css
+    snippet = snippet_path.read_text(encoding="utf-8").rstrip()
+    marker = ".page-sitemap .about-hero__wrap {\n  grid-template-columns: 1fr;\n}"
+    if marker in css:
+        return css.replace(marker, marker + "\n" + snippet, 1)
+    return css.rstrip() + "\n\n" + snippet + "\n"
+
+
 def ensure_site_css_chrome(css: str) -> str:
+    css = ensure_sitemap_page_css(css)
     css = ensure_brand_one_mark(css) if ".brand::before" not in css or "brand-one.webp" not in css else css
 
     if "body.audio-player-open .page-jump" not in css:
@@ -1368,6 +1385,12 @@ def ensure_story_listen_markup(markup: str, lang: str) -> str:
         '      if (el.classList.contains("tools-bar__field--listen")) { hideEl(el, false); return; }\n'
         '      hideEl(el, view !== "list");\n    });',
     )
+    markup = markup.replace(
+        "    window.__birinciHomeView = view;\n",
+        "    document.body.classList.toggle(\"inventions-view-cards\", view === \"cards\");\n"
+        "    document.body.classList.toggle(\"inventions-view-list\", view === \"list\");\n"
+        "    window.__birinciHomeView = view;\n",
+    )
     if "data-tools-play-visible" not in markup:
         field = (
             f'  <div class="tools-bar__field tools-bar__field--listen">\n'
@@ -1632,6 +1655,30 @@ def ensure_footer_qr_html(markup: str, lang: str, *, rel_path: str = "") -> str:
         f'width="88" height="88" decoding="async" /></a>\n          '
     )
     return _FOOTER_ABOUT_COL_RE.sub(rf"\1\n          {block}\2", markup, count=1)
+
+
+_FOOTER_CONTACT_URL_RE = re.compile(
+    r'\s*<a class="footer-contact__url" href="https://birinci\.cloud"[^>]*>birinci\.cloud</a>',
+    re.I,
+)
+_FOOTER_WEBSITE_LABEL_RE = re.compile(
+    r"(<a class=\"footer-contact__link\" href=\"https://birinci\.cloud\"[^>]*>"
+    r"[\s\S]*?menu-icon--website[\s\S]*?</span>)\s*"
+    r'<span class="footer-contact__label">[^<]*</span>',
+    re.I,
+)
+
+
+def ensure_footer_contact_html(markup: str) -> str:
+    if "footer-col--contact" not in markup:
+        return markup
+    markup = _FOOTER_CONTACT_URL_RE.sub("", markup)
+    if _FOOTER_WEBSITE_LABEL_RE.search(markup):
+        markup = _FOOTER_WEBSITE_LABEL_RE.sub(
+            r'\1\n                <span class="footer-contact__value">birinci.cloud</span>',
+            markup,
+        )
+    return markup
 
 
 def _strip_hero_hearth_panel(html: str) -> str:
@@ -2044,26 +2091,183 @@ def _replace_balanced_details(html: str, class_name: str, replacement: str) -> s
     return html
 
 
+_LIT_MEGA_TOGGLE_ICON = (
+    '<span class="menu-icon menu-icon--layers" aria-hidden="true" '
+    'style="--icon-from:#38bdf8;--icon-to:#0369a1;--icon-glow:#7dd3fc">'
+    '<svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" '
+    'fill="none" stroke="#fff" stroke-width="2.15" stroke-linecap="round" '
+    'stroke-linejoin="round"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/>'
+    '<path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/>'
+    '<path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg></span>'
+)
+
+_CAT_CARD_NAV_RE = re.compile(
+    r'<a class="cat-card page-card" href="categories/([^"]+)" '
+    r'data-title="([^"]*)" data-blurb="([^"]*)"[^>]*>'
+    r'(.*?)'
+    r"</a>",
+    re.S,
+)
+_MENU_ICON_RE = re.compile(
+    r'(<span class="menu-icon menu-icon--[^"]+" aria-hidden="true"[^>]*>[\s\S]*?</span>)',
+    re.I,
+)
+_LITERATURE_MEGA_CACHE: dict[str, str] = {}
+
+
+def _load_locale_nav_copy(lang: str) -> dict[str, str]:
+    path = TOOLS / "locales" / f"{lang}.json"
+    if path.is_file():
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+            return {
+                "label": data.get("nav_stories_label") or NAV_LITERATURE_LABEL.get(lang, ""),
+                "desc": data.get("nav_stories_desc") or "",
+                "all": data.get("nav_stories_all") or NAV_STORIES_ALL.get(lang, ""),
+                "by_category": data.get("nav_stories_by_category")
+                or NAV_STORIES_BY_CATEGORY.get(lang, ""),
+            }
+        except json.JSONDecodeError:
+            pass
+    return {
+        "label": NAV_LITERATURE_LABEL.get(lang, NAV_LITERATURE_LABEL["en"]),
+        "desc": "",
+        "all": NAV_STORIES_ALL.get(lang, NAV_STORIES_ALL["en"]),
+        "by_category": NAV_STORIES_BY_CATEGORY.get(lang, NAV_STORIES_BY_CATEGORY["en"]),
+    }
+
+
+def _category_nav_href(source: str, slug_file: str, lang: str) -> str:
+    if "page-category" in source or re.search(
+        r'data-lang-page="categories/', source
+    ):
+        return slug_file
+    if re.search(r'href="\.\./(?:about|categories|discoveries)/', source):
+        return f"../categories/{slug_file}"
+    if "page-root-home" in source:
+        return f"{lang}/categories/{slug_file}"
+    return f"categories/{slug_file}"
+
+
+def _literature_mega_grid(lang: str, source: str) -> str:
+    cache_key = f"{lang}:{_category_nav_href(source, 'x.html', lang).rsplit('/', 1)[0]}"
+    if cache_key in _LITERATURE_MEGA_CACHE:
+        return _LITERATURE_MEGA_CACHE[cache_key]
+
+    index_path = ROOT / lang / "index.html"
+    if not index_path.is_file():
+        return ""
+    index_html = index_path.read_text(encoding="utf-8")
+    cards = []
+    for match in _CAT_CARD_NAV_RE.finditer(index_html):
+        slug_file, title, blurb, body = match.groups()
+        icon_m = _MENU_ICON_RE.search(body)
+        icon = icon_m.group(1) if icon_m else ""
+        href = _category_nav_href(source, slug_file, lang)
+        cards.append(
+            f'<a class="nav-dropdown-link" href="{html.escape(href, quote=True)}">'
+            f"{icon}"
+            f'<span class="nav-dropdown-link-copy">'
+            f'<span class="nav-dropdown-link-title">{html.escape(title)}</span>'
+            f'<span class="nav-dropdown-link-desc">{html.escape(blurb)}</span>'
+            f"</span></a>"
+        )
+    if not cards:
+        return ""
+
+    cols: list[list[str]] = [[], [], []]
+    for i, card in enumerate(cards):
+        cols[i % 3].append(card)
+    col_html = "".join(
+        f'<div class="nav-mega-col"><div class="nav-mega-links">{"".join(col)}</div></div>'
+        for col in cols
+        if col
+    )
+    grid = f'<div class="nav-mega-grid">{col_html}</div>'
+    _LITERATURE_MEGA_CACHE[cache_key] = grid
+    return grid
+
+
+def _literature_book_icon(lang: str) -> str:
+    index_path = ROOT / lang / "index.html"
+    if index_path.is_file():
+        m = _LIT_BOOK_ICON_RE.search(index_path.read_text(encoding="utf-8"))
+        if m:
+            return m.group(1)
+    return (
+        '<span class="menu-icon menu-icon--book" aria-hidden="true" '
+        'style="--icon-from:#10b981;--icon-to:#059669;--icon-glow:#34d399">'
+        '<svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" '
+        'fill="none" stroke="#fff" stroke-width="2.15" stroke-linecap="round" '
+        'stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg></span>'
+    )
+
+
+def _build_literature_nav_dropdown(source: str, lang: str) -> str:
+    copy = _load_locale_nav_copy(lang)
+    label = html.escape(copy["label"])
+    all_label = html.escape(copy["all"])
+    by_cat = html.escape(copy["by_category"])
+    desc = html.escape(copy["desc"])
+    all_href = html.escape(_stories_all_href(source, lang), quote=True)
+    mega = _literature_mega_grid(lang, source)
+    book_icon = _literature_book_icon(lang)
+    all_link = (
+        f'<a class="nav-dropdown-link" href="{all_href}" data-nav-stories-all>{_ICON_LIST}'
+        f'<span class="nav-dropdown-link-copy">'
+        f'<span class="nav-dropdown-link-title">{all_label}</span>'
+        f"</span></a>\n          "
+    )
+    mega_block = ""
+    if mega:
+        mega_block = (
+            f'{all_link}<div class="nav-dropdown--nested nav-dropdown--has-mega" data-nav-branch="stories">\n'
+            f'            <button type="button" class="nav-dropdown-toggle" aria-expanded="false" '
+            f'aria-controls="literature-mega-panel" data-nav-mega-toggle>\n'
+            f"              {_LIT_MEGA_TOGGLE_ICON}\n"
+            f'              <span class="nav-dropdown-toggle__copy">\n'
+            f'                <span class="nav-dropdown-link-title">{by_cat}</span>\n'
+            f'                <span class="nav-dropdown-link-desc">{desc}</span>\n'
+            f"              </span>\n"
+            f'              <span class="nav-dropdown-caret" aria-hidden="true"></span>\n'
+            f"            </button>\n"
+            f'            <div class="nav-dropdown-panel nav-dropdown-panel--mega" id="literature-mega-panel">\n'
+            f"              {mega}\n"
+            f"            </div>\n"
+            f"          </div>"
+        )
+    else:
+        mega_block = (
+            f'<a class="nav-dropdown-link" href="{all_href}" data-nav-stories-all>{_ICON_LIST}'
+            f'<span class="nav-dropdown-link-copy">'
+            f'<span class="nav-dropdown-link-title">{all_label}</span>'
+            f"</span></a>"
+        )
+    return (
+        f'<details class="nav-dropdown nav-dropdown--literature">\n'
+        f'        <summary class="nav-dropdown__summary">\n'
+        f"          {book_icon}\n"
+        f"          <span>{label}</span>\n"
+        f"        </summary>\n"
+        f'        <div class="nav-dropdown-panel">\n'
+        f"          {mega_block}\n"
+        f"        </div>\n"
+        f"      </details>"
+    )
+
+
 def ensure_literature_submenu(source: str, lang: str) -> str:
     """Stories top-nav is a single link to the full collection (no submenu)."""
-    label = html.escape(NAV_LITERATURE_LABEL.get(lang) or NAV_LITERATURE_LABEL["en"])
+    copy = _load_locale_nav_copy(lang)
+    label = html.escape(copy["label"] or NAV_LITERATURE_LABEL.get(lang) or NAV_LITERATURE_LABEL["en"])
     href = html.escape(_stories_all_href(source, lang), quote=True)
+    book_icon = _literature_book_icon(lang)
+    link = (
+        f'<a class="primary-nav__link" href="{href}" '
+        f'data-nav-stories-all>{book_icon}<span>{label}</span></a>'
+    )
 
     if "nav-dropdown--literature" in source:
-        block_m = re.search(
-            rf"<details\b[^>]*\bnav-dropdown--literature\b[\s\S]*?</details>",
-            source,
-            re.I,
-        )
-        icon = _ICON_LIST
-        if block_m:
-            icon_m = _LIT_BOOK_ICON_RE.search(block_m.group(0))
-            if icon_m:
-                icon = icon_m.group(1)
-        link = (
-            f'<a class="primary-nav__link" href="{href}" '
-            f'data-nav-stories-all>{icon}<span>{label}</span></a>'
-        )
         source = _replace_balanced_details(source, "nav-dropdown--literature", link)
         return ensure_literature_nav_label(source, lang)
 
@@ -2073,7 +2277,171 @@ def ensure_literature_submenu(source: str, lang: str) -> str:
             source,
             count=1,
         )
+    elif 'data-nav-stories-all' not in source:
+        plain = re.search(
+            r'<a class="primary-nav__link" href="[^"]*" data-nav-stories-all>[\s\S]*?</a>',
+            source,
+            re.I,
+        )
+        if not plain:
+            nav_m = re.search(r'(<nav class="primary-nav"[^>]*>)', source, re.I)
+            if nav_m:
+                source = source[: nav_m.end()] + "\n      " + link + source[nav_m.end() :]
     return ensure_literature_nav_label(source, lang)
+
+
+_STORIES_INVENTIONS_CSS_MARKER = "kt-inventions.css"
+_STORIES_INVENTIONS_CSS_LINK = (
+    '  <link rel="stylesheet" href="{prefix}inventions/kt-inventions.css?v={ver}" />\n'
+    '  <link rel="stylesheet" href="{prefix}inventions/inventions-bridge.css?v={ver}" />\n'
+)
+
+
+def _asset_prefix_for_html(html: str) -> str:
+    if re.search(r'href="\.\./\.\./assets/', html):
+        return "../../assets/"
+    if re.search(r'href="\.\./assets/', html):
+        return "../assets/"
+    return "assets/"
+
+
+_HOME_STORIES_LAYOUT_CLASS = (
+    "charter-layout inventions-layout stories-layout category-layout home-stories-layout"
+)
+_CATEGORY_STORIES_LAYOUT_CLASS = "charter-layout inventions-layout stories-layout category-layout"
+
+
+def normalize_stories_layout_classes(html: str) -> str:
+    """Idempotently fix duplicated layout class strings from older chrome_restore runs."""
+    html = re.sub(
+        r'class="[^"]*\bhome-stories-layout\b[^"]*"',
+        f'class="{_HOME_STORIES_LAYOUT_CLASS}"',
+        html,
+    )
+    html = re.sub(
+        r'class="[^"]*\bcategory-layout\b[^"]*"(?=[^>]*>[\s\S]*?(?:story-nav|data-stories-list|category-main))',
+        lambda m: (
+            f'class="{_HOME_STORIES_LAYOUT_CLASS}"'
+            if "home-stories-layout" in m.group(0)
+            else f'class="{_CATEGORY_STORIES_LAYOUT_CLASS}"'
+        ),
+        html,
+    )
+    html = re.sub(
+        r'class="(?![^"]*charter-sidebar)[^"]*\bstory-nav sidebar\b[^"]*"',
+        'class="charter-sidebar toc-card story-nav sidebar"',
+        html,
+    )
+    html = re.sub(
+        r'class="charter-layout inventions-layout stories-layout"(?![^"]*\bcategory-layout\b)',
+        f'class="{_HOME_STORIES_LAYOUT_CLASS}"',
+        html,
+    )
+    html = re.sub(
+        r'class="category-layout"(?![^"]*\bcharter-layout\b)',
+        f'class="{_CATEGORY_STORIES_LAYOUT_CLASS}"',
+        html,
+    )
+    return html
+
+
+def normalize_home_page_body_wrappers(html: str) -> str:
+    """Collapse stacked inventions-page-body wrappers and extra closing divs before </main>."""
+    if "page-home__content" not in html:
+        return html
+    html = re.sub(
+        r"(<main\b[^>]*>\s*)(?:<div class=\"inventions-page-body stories-page-body\">\s*)+",
+        r'\1<div class="inventions-page-body stories-page-body">',
+        html,
+        count=1,
+        flags=re.I,
+    )
+    html = re.sub(
+        r"(?:\s*</div>\s*)+(?=</main>)",
+        "\n  </div>\n  </div>\n",
+        html,
+        count=1,
+        flags=re.I,
+    )
+    return html
+
+
+def ensure_stories_inventions_chrome(html: str) -> str:
+    """Align wisdom stories pages with discoveries catalog layout and toolbar."""
+    is_home = 'class="page-home"' in html
+    is_category = 'class="page-category"' in html
+    if not is_home and not is_category:
+        return html
+
+    if _STORIES_INVENTIONS_CSS_MARKER not in html:
+        prefix = _asset_prefix_for_html(html)
+        insert = _STORIES_INVENTIONS_CSS_LINK.format(prefix=prefix, ver=SITE_ASSET_VERSION)
+        html = re.sub(
+            r'(<link rel="stylesheet" href="[^"]*kt-sidebar-widget\.css[^"]*" />\s*)',
+            rf"\1{insert}",
+            html,
+            count=1,
+        )
+
+    html = normalize_stories_layout_classes(html)
+    html = normalize_home_page_body_wrappers(html)
+    html = html.replace('class="home-stories-main"', 'class="inventions-stack stories-stack"')
+    html = html.replace('class="category-main"', 'class="inventions-stack stories-stack category-main"')
+
+    html = html.replace(
+        'class="tools-bar" data-tools="home"',
+        'class="tools-bar tools-bar--inventions" data-tools="home"',
+    )
+    html = html.replace(
+        'class="tools-bar tools-bar--dense" data-tools="category"',
+        'class="tools-bar tools-bar--inventions tools-bar--dense" data-tools="category"',
+    )
+
+    html = re.sub(
+        r'(<div class="tools-bar__field"(?:[^>]*data-home-list-only[^>]*)>)',
+        lambda m: m.group(1).replace(">", ' data-inventions-list-only>') if "data-inventions-list-only" not in m.group(1) else m.group(1),
+        html,
+    )
+
+    if is_category and "data-inventions-list-only" not in html:
+        html = re.sub(
+            r'(<div class="tools-bar__field">\s*<span class="tools-bar__label" id="tools-images-label")',
+            r'<div class="tools-bar__field" data-inventions-list-only hidden>\1',
+            html,
+            count=1,
+        )
+        html = re.sub(
+            r'(<div class="tools-bar__field">\s*<span class="tools-bar__label" id="tools-texts-label")',
+            r'<div class="tools-bar__field" data-inventions-list-only hidden>\1',
+            html,
+            count=1,
+        )
+        html = re.sub(
+            r'(<div class="tools-bar__field">\s*<span class="tools-bar__label" id="tools-listen-page-label")',
+            r'<div class="tools-bar__field" data-inventions-list-only hidden>\1',
+            html,
+            count=1,
+        )
+
+    if is_home and "inventions-page-body" not in html:
+        html = re.sub(
+            r'(<div class="page-home__content">)',
+            r'<div class="inventions-page-body stories-page-body">\1',
+            html,
+            count=1,
+        )
+        html = re.sub(
+            r"(?:\s*</div>\s*)+(?=</main>)",
+            "\n  </div>\n  </div>\n",
+            html,
+            count=1,
+            flags=re.I,
+        )
+
+    if is_home:
+        html = normalize_home_page_body_wrappers(html)
+
+    return html
 
 
 def ensure_literature_nav_label(source: str, lang: str) -> str:
@@ -2384,7 +2752,9 @@ def ensure_sidebar_expand_collapse_buttons(markup: str, lang: str) -> str:
     collapse_aria = html.escape(SIDEBAR_COLLAPSE_ALL_ARIA.get(lang, SIDEBAR_COLLAPSE_ALL_ARIA["en"]))
     actions = _sidebar_expand_collapse_html(lang)
 
-    if is_stories and 'class="story-nav sidebar"' in markup:
+    if is_stories and (
+        'class="story-nav sidebar"' in markup or 'class="charter-sidebar' in markup
+    ):
         if 'data-toc-action="expand-all"' not in markup:
             markup = _STORY_WIDGET_INSERT_RE.sub(rf"\1\n            {actions}\n            \2", markup, count=1)
         markup = _relabel_toc_action_button(markup, _EXPAND_BTN_RE, expand, expand_aria)
@@ -2629,8 +2999,10 @@ def patch_emitted_html(
     html = ensure_page_jump_html(html, lang)
     html = ensure_literature_submenu(html, lang)
     html = ensure_literature_nav_label(html, lang)
+    html = ensure_stories_inventions_chrome(html)
     html = ensure_footer_about_html(html, lang)
     html = ensure_footer_qr_html(html, lang, rel_path=rel_path)
+    html = ensure_footer_contact_html(html)
     html = ensure_brand_home_href(html)
     html = ensure_breadcrumb_home_href(html)
     html = ensure_stories_hero_html(html, lang)

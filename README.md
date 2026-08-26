@@ -24,6 +24,8 @@ python tools/build_website.py --lang all
 python tools/build_deployment.py
 ```
 
+**Discoveries is dev-only.** `build_deployment.py` leaves the section out of the publish tree: it skips `{lang}/discoveries/` and `{lang}/discovery-articles/`, then removes the nav link, the home card, the sitemap chapter and the `sitemap.xml` entries from the copies. The build fails if any route to the section survives. The locale trees keep everything, so serving `az/`, `en/`, `ru/` or `ky/` locally still gives the full section. To publish it, add `--with-discoveries` (or set `BIRINCI_PUBLISH_DISCOVERIES=1`).
+
 **Local TTS proxy (AZ / KY story listen):** `python tools/tts_proxy_server.py` → `http://127.0.0.1:8767/api/az-tts` and `/api/ky-tts`. Kyrgyz uses Kazakh neural voice (`kk-KZ-DauletNeural`) because Edge TTS has no `ky-KG` voice.
 
 

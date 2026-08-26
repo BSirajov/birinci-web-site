@@ -126,6 +126,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const slug = group.getAttribute("data-toc-cat");
       if (slug) collapsed.add(slug);
     });
+    if (options.syncRoot) {
+      collectCollapsedStoryCategories(options.syncRoot).forEach((slug) => collapsed.add(slug));
+    }
     const catalog = options.catalog || window.__BIRINCI_STORIES__;
     let groups = storyNavGroupsFromCatalog(catalog);
     if (!groups.length) {
@@ -692,7 +695,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const siteScript = document.querySelector('script[src*="site.js"]');
     if (!siteScript || !siteScript.src) return;
     const assetsBase = siteScript.src.replace(/site\.js(?:\?[^#]*)?(?:#.*)?$/i, "");
-    const stamp = "20260823t";
+    const stampMatch = siteScript.src.match(/[?&]v=([^&#]+)/i);
+    const stamp = stampMatch ? decodeURIComponent(stampMatch[1]) : "1";
 
     const loadScript = (src, marker) =>
       new Promise((resolve, reject) => {
@@ -2360,6 +2364,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     }
   };
   markCurrentPrimaryNav();
+  window.__birinciMarkCurrentPrimaryNav = markCurrentPrimaryNav;
+  window.addEventListener("popstate", markCurrentPrimaryNav);
+  document.addEventListener("birinci:lang-change", markCurrentPrimaryNav);
 
   const backToTop = document.getElementById("back-to-top");
   if (backToTop) {
@@ -2604,6 +2611,19 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           btn.setAttribute("aria-pressed", btn.getAttribute("data-home-view") === next ? "true" : "false");
         });
         document.body.classList.toggle("category-view-cards", next === "cards");
+        document.body.classList.toggle("inventions-view-cards", next === "cards");
+        document.body.classList.toggle("inventions-view-list", next === "list");
+        bar.querySelectorAll("[data-inventions-list-only], [data-home-list-only]").forEach((el) => {
+          if (el.classList.contains("tools-bar__field--listen")) {
+            el.hidden = next !== "list";
+            if (next === "list") el.removeAttribute("hidden");
+            else el.setAttribute("hidden", "");
+            return;
+          }
+          el.hidden = next !== "list";
+          if (next === "list") el.removeAttribute("hidden");
+          else el.setAttribute("hidden", "");
+        });
       };
       if (animate) runViewTransition(apply);
       else apply();
@@ -2756,16 +2776,14 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       if (!navList) return;
       const visibleStems =
         lastVisibleStems.size
-          ? lastVisibleStems
-          : new Set(
-              (filtered || []).map((story) => story.dataset.stem)
-            );
-      const catalog = window.__BIRINCI_STORIES__;
+          ? new Set(lastVisibleStems)
+          : new Set((filtered || []).map((story) => story.dataset.stem));
       fillGroupedStoryNav(navList, {
-        catalog,
+        catalog: window.__BIRINCI_STORIES__,
         visibleStems,
         shownCount: lastShownCount,
         expandAll: expandAllOnNextNav,
+        syncRoot: list,
         fallbackSlug: currentCategorySlug || "stories",
         fallbackTitle:
           (document.querySelector(".about-hero h1, .category-hero h1, h1") || {}).textContent ||
@@ -3048,7 +3066,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
   /**
    * DAAB News-style sidebar: sticky TOC, scroll-spy, mobile accordion.
-   * (No dual-panel scroll sync — it fought page scroll.)
+   * Scroll-spy keeps the left list in sync with the right-hand stories;
+   * scrolling either panel updates the other (desktop list view).
    */
   const bindStorySidebarLayout = (layout) => {
     if (!layout) return null;
@@ -3057,14 +3076,20 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       return layout.__birinciSidebar;
     }
 
-    const nav = layout.querySelector(".story-nav.sidebar");
+    const nav = layout.querySelector(".charter-sidebar, .story-nav.sidebar");
     if (!nav) return null;
     const widget = nav.querySelector(".sidebar-widget");
+    const widgetBody = nav.querySelector(".widget-body");
     const toggle = nav.querySelector(".events-menu-toggle");
     const mobileQuery = window.matchMedia("(max-width: 1060px)");
 
     let links = [];
     let cards = [];
+    let lastActiveLink = null;
+    let programmaticLock = false;
+    let lockTimer = null;
+    let sidebarScrollSilent = false;
+    let sidebarScrollRaf = 0;
 
     const closeMenu = () => {
       if (!widget || !toggle) return;
@@ -3077,12 +3102,208 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
     };
 
-    const setActive = (activeLink) => {
+    const stickyScrollOffset = () => {
+      const root = document.documentElement;
+      const style = window.getComputedStyle(root);
+      let stack = parseFloat(style.getPropertyValue("--kt-sticky-top-stack"));
+      if (!Number.isFinite(stack) || stack <= 0) {
+        stack = parseFloat(style.getPropertyValue("--kt-nav-height"));
+        if (!Number.isFinite(stack) || stack <= 0) {
+          const navStrip = document.querySelector(".nav-strip");
+          stack = navStrip ? navStrip.getBoundingClientRect().height : 86;
+        }
+        const crumbsH = parseFloat(style.getPropertyValue("--kt-breadcrumbs-height"));
+        if (Number.isFinite(crumbsH) && crumbsH > 0) {
+          stack += crumbsH;
+        } else {
+          const crumbs = document.getElementById("kt-breadcrumbs");
+          if (crumbs) stack += crumbs.getBoundingClientRect().height;
+        }
+      }
+      let gap = parseFloat(style.getPropertyValue("--kt-scroll-anchor-gap"));
+      if (!Number.isFinite(gap) || gap <= 0) gap = 20;
+      return Math.ceil(stack) + gap;
+    };
+
+    const isStoryVisible = (el) => {
+      if (!el || el.hidden) return false;
+      if (el.classList.contains("is-hidden")) return false;
+      if (el.offsetParent === null) return false;
+      const style = window.getComputedStyle(el);
+      if (style.display === "none" || style.visibility === "hidden") return false;
+      if (el.closest(".inventions-category.is-collapsed, .stories-category.is-collapsed")) return false;
+      return el.getBoundingClientRect().height > 0;
+    };
+
+    const scrollSidebarLinkIntoView = (link) => {
+      if (!widgetBody || mobileQuery.matches || !link) return;
+      const row = link.closest("li") || link;
+      const bodyRect = widgetBody.getBoundingClientRect();
+      const rowRect = row.getBoundingClientRect();
+      const pad = 10;
+      let delta = 0;
+      if (rowRect.top < bodyRect.top + pad) {
+        delta = rowRect.top - bodyRect.top - pad;
+      } else if (rowRect.bottom > bodyRect.bottom - pad) {
+        delta = rowRect.bottom - bodyRect.bottom + pad;
+      }
+      if (!delta) return;
+      sidebarScrollSilent = true;
+      widgetBody.scrollTop += delta;
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          sidebarScrollSilent = false;
+        });
+      });
+    };
+
+    const resolveStoryTarget = (link) => {
+      if (!link) return null;
+      const raw = (link.getAttribute("href") || "").slice(1);
+      let id = raw;
+      try {
+        id = decodeURIComponent(raw);
+      } catch (_) {}
+      if (!id) return null;
+      let target = document.getElementById(id);
+      if (!target && typeof window.__birinciRevealStory === "function") {
+        window.__birinciRevealStory(id);
+        target = document.getElementById(id);
+      }
+      if (!target || !layout.contains(target)) return null;
+      return { id, target, link };
+    };
+
+    const scrollMainToStory = (link, options = {}) => {
+      const resolved = resolveStoryTarget(link);
+      if (!resolved) return false;
+      const { id, target } = resolved;
+      expandStoryContext(link, target);
+      setActive(link, { skipSidebarScroll: true, force: !!options.force });
+
+      const scrollTarget =
+        target.querySelector(".card-header, .story__title, .inventions-category-head, h2, h1") ||
+        target;
+      const root = document.documentElement;
+      const prevBehavior = root.style.scrollBehavior;
+      root.style.scrollBehavior = "auto";
+      const top =
+        scrollTarget.getBoundingClientRect().top +
+        (window.pageYOffset || root.scrollTop || 0) -
+        stickyScrollOffset();
+      window.scrollTo({ top: Math.max(0, Math.round(top)), left: 0, behavior: "auto" });
+      root.style.scrollBehavior = prevBehavior;
+
+      try {
+        commitHistoryHref(`${window.location.pathname}${window.location.search}#${id}`);
+      } catch (_) {}
+      return true;
+    };
+
+    const isSidebarLinkVisible = (link) => {
+      const li = link.closest("li");
+      if (!li || li.classList.contains("is-hidden")) return false;
+      const groupBody = li.closest(".toc-group__body");
+      if (groupBody) {
+        const group = groupBody.closest(".toc-group");
+        if (group && !group.classList.contains("events-open")) return false;
+      }
+      if (li.offsetParent === null) return false;
+      const rect = li.getBoundingClientRect();
+      if (rect.height <= 0) return false;
+      if (!widgetBody) return true;
+      const bodyRect = widgetBody.getBoundingClientRect();
+      return rect.bottom > bodyRect.top && rect.top < bodyRect.bottom;
+    };
+
+    const pickActiveLinkFromSidebar = () => {
+      if (!widgetBody) return null;
+      const bodyRect = widgetBody.getBoundingClientRect();
+      const anchor = bodyRect.top + 16;
+      const visibleLinks = links.filter(isSidebarLinkVisible);
+      if (!visibleLinks.length) return null;
+      let active = null;
+      for (let i = 0; i < visibleLinks.length; i += 1) {
+        const li = visibleLinks[i].closest("li");
+        if (!li) continue;
+        const top = li.getBoundingClientRect().top;
+        if (top <= anchor + 2) {
+          active = visibleLinks[i];
+        } else if (active) {
+          break;
+        }
+      }
+      return active || visibleLinks[0];
+    };
+
+    const updateActiveFromSidebarScroll = () => {
+      if (sidebarScrollSilent || programmaticLock || mobileQuery.matches || !widgetBody) return;
+      const link = pickActiveLinkFromSidebar();
+      if (!link || link === lastActiveLink) return;
+      programmaticLock = true;
+      scrollMainToStory(link, { force: true });
+      clearTimeout(lockTimer);
+      lockTimer = setTimeout(() => {
+        programmaticLock = false;
+        updateActive(true);
+      }, 500);
+    };
+
+    const scheduleSidebarScrollSync = () => {
+      if (sidebarScrollRaf) return;
+      sidebarScrollRaf = window.requestAnimationFrame(() => {
+        sidebarScrollRaf = 0;
+        updateActiveFromSidebarScroll();
+      });
+    };
+
+    const expandStoryContext = (link, targetEl) => {
+      const li = link && link.closest("li");
+      const tocApi = window.KT_SIDEBAR_TOC_GROUPS;
+      if (li && tocApi && typeof tocApi.expandGroupContaining === "function") {
+        tocApi.expandGroupContaining(li);
+        return;
+      }
+      const el = targetEl || (link && document.getElementById((link.getAttribute("href") || "").slice(1)));
+      const cat = el && el.closest(".inventions-category, .stories-category");
+      if (!cat) return;
+      cat.classList.remove("is-collapsed");
+      const catToggle = cat.querySelector(".inventions-category-toggle");
+      if (catToggle) catToggle.setAttribute("aria-expanded", "true");
+    };
+
+    const lockSpy = (ms = 900) => {
+      programmaticLock = true;
+      clearTimeout(lockTimer);
+      lockTimer = setTimeout(() => {
+        programmaticLock = false;
+        updateActive(true);
+      }, ms);
+    };
+
+    const setActive = (activeLink, options = {}) => {
+      const force = !!options.force;
+      const skipSidebarScroll = !!options.skipSidebarScroll;
+
+      if (!force && activeLink === lastActiveLink) {
+        if (options.forceSidebarScroll && activeLink) scrollSidebarLinkIntoView(activeLink);
+        return;
+      }
+      lastActiveLink = activeLink;
+
       links.forEach((link) => {
         const on = link === activeLink;
         link.classList.toggle("is-active", on);
         link.classList.toggle("tl-active", on);
+        if (on) link.setAttribute("aria-current", "true");
+        else link.removeAttribute("aria-current");
       });
+
+      if (activeLink) {
+        expandStoryContext(activeLink);
+        if (!skipSidebarScroll) scrollSidebarLinkIntoView(activeLink);
+      }
+
       if (typeof window.__birinciSetDeepCrumb !== "function") return;
       if (!activeLink) {
         let hash = "";
@@ -3115,21 +3336,43 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       window.__birinciSetDeepCrumb({ id, title });
     };
 
-    const updateActive = () => {
-      if (!cards.length) {
-        setActive(null);
-        return;
-      }
-      const mid = window.scrollY + window.innerHeight * 0.35;
+    const pickActiveStory = () => {
+      const visible = cards.filter((entry) => isStoryVisible(entry.el));
+      if (!visible.length) return null;
+      const offset = stickyScrollOffset();
       let active = null;
-      for (let i = cards.length - 1; i >= 0; i -= 1) {
-        const top = cards[i].el.getBoundingClientRect().top + window.scrollY;
-        if (top <= mid) {
-          active = cards[i].link;
+      for (let i = 0; i < visible.length; i += 1) {
+        const top = visible[i].el.getBoundingClientRect().top;
+        if (top - offset <= 2) {
+          active = visible[i].link;
+        } else if (active) {
           break;
         }
       }
-      setActive(active);
+      return active || visible[0].link;
+    };
+
+    const updateActive = (force = false, options = {}) => {
+      if (programmaticLock && !force) return;
+      if (!cards.length) {
+        setActive(null, { force, skipSidebarScroll: true });
+        return;
+      }
+      setActive(pickActiveStory(), {
+        force,
+        skipSidebarScroll: options.skipSidebarScroll === true,
+      });
+    };
+
+    let resizeTimer = null;
+    const handleLayoutResize = () => {
+      sidebarScrollSilent = true;
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        sidebarScrollSilent = false;
+        if (mobileQuery.matches) closeMenu();
+        updateActive(true, { skipSidebarScroll: true });
+      }, 120);
     };
 
     const refresh = () => {
@@ -3163,36 +3406,31 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       if (event.key === "Escape") closeMenu();
     });
     mobileQuery.addEventListener("change", () => {
-      if (!mobileQuery.matches) closeMenu();
+      closeMenu();
+      programmaticLock = false;
+      clearTimeout(lockTimer);
+      sidebarScrollSilent = true;
+      window.requestAnimationFrame(() => {
+        sidebarScrollSilent = false;
+        updateActive(true, { skipSidebarScroll: true });
+      });
     });
 
     nav.addEventListener("click", (event) => {
       const link = event.target.closest('a[href^="#"]');
       if (!link || !nav.contains(link)) return;
-      const raw = (link.getAttribute("href") || "").slice(1);
-      let id = raw;
-      try {
-        id = decodeURIComponent(raw);
-      } catch (_) {}
-      let target = document.getElementById(id);
-      if (!target && typeof window.__birinciRevealStory === "function" && id) {
-        event.preventDefault();
-        window.__birinciRevealStory(id);
-        target = document.getElementById(id);
-        if (!target) return;
-      } else if (!target) {
+      const resolved = resolveStoryTarget(link);
+      if (!resolved) {
+        const raw = (link.getAttribute("href") || "").slice(1);
+        if (raw && typeof window.__birinciRevealStory === "function") {
+          event.preventDefault();
+          window.__birinciRevealStory(raw);
+        }
         return;
       }
       event.preventDefault();
-      setActive(link);
-      const html = document.documentElement;
-      const prevBehavior = html.style.scrollBehavior;
-      html.style.scrollBehavior = "auto";
-      target.scrollIntoView({ block: "start", behavior: "auto" });
-      html.style.scrollBehavior = prevBehavior;
-      try {
-        commitHistoryHref(`${window.location.pathname}${window.location.search}#${id}`);
-      } catch (_) {}
+      lockSpy();
+      scrollMainToStory(link);
       if (mobileQuery.matches) closeMenu();
     });
 
@@ -3210,18 +3448,35 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         target = document.getElementById(id);
       }
       if (!target || !layout.contains(target)) return;
-      const html = document.documentElement;
-      const prevBehavior = html.style.scrollBehavior;
-      html.style.scrollBehavior = "auto";
-      target.scrollIntoView({ block: "start", behavior: "auto" });
-      html.style.scrollBehavior = prevBehavior;
       const link = nav.querySelector(`a[href="#${id}"], a[href="#${encodeURIComponent(id)}"]`);
-      if (link) setActive(link);
+      expandStoryContext(link, target);
+      if (link) scrollMainToStory(link, { force: true });
+      else {
+        programmaticLock = true;
+        const scrollTarget =
+          target.querySelector(".card-header, .story__title, .inventions-category-head, h2, h1") ||
+          target;
+        const root = document.documentElement;
+        const prevBehavior = root.style.scrollBehavior;
+        root.style.scrollBehavior = "auto";
+        const top =
+          scrollTarget.getBoundingClientRect().top +
+          (window.pageYOffset || root.scrollTop || 0) -
+          stickyScrollOffset();
+        window.scrollTo({ top: Math.max(0, Math.round(top)), left: 0, behavior: "auto" });
+        root.style.scrollBehavior = prevBehavior;
+      }
+      lockSpy();
     };
     window.addEventListener("popstate", restoreHashTarget);
 
-    window.addEventListener("scroll", updateActive, { passive: true });
-    window.addEventListener("resize", updateActive, { passive: true });
+    window.addEventListener("scroll", () => updateActive(false, { skipSidebarScroll: false }), {
+      passive: true,
+    });
+    window.addEventListener("resize", handleLayoutResize, { passive: true });
+    if (widgetBody) {
+      widgetBody.addEventListener("scroll", scheduleSidebarScrollSync, { passive: true });
+    }
 
     const api = { refresh, closeMenu, updateActive };
     layout.__birinciSidebar = api;
@@ -3610,11 +3865,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         visibleStems,
         shownCount: lastShownCount,
         expandAll: expandAllOnNextNav,
+        syncRoot: storiesList,
         hrefForStory: (stem) => `#${stem}`,
         hrefForCategory: (group) => `#${group.slug}`,
       });
       if (typeof window.__birinciBindStorySidebar === "function") {
-        const layout = listPanel.querySelector(".category-layout");
+        const layout = listPanel.querySelector(".charter-layout.stories-layout, .category-layout");
         if (layout) window.__birinciBindStorySidebar(layout);
       }
     };
@@ -3639,7 +3895,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     };
 
     const bindHomeNav = () => {
-      const layout = listPanel.querySelector(".category-layout");
+      const layout = listPanel.querySelector(".charter-layout.stories-layout, .category-layout");
       if (!layout) return;
       if (typeof window.__birinciBindStorySidebar === "function") {
         window.__birinciBindStorySidebar(layout);
@@ -3749,7 +4005,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       viewBtns.forEach((btn) => {
         btn.setAttribute("aria-pressed", btn.getAttribute("data-home-view") === view ? "true" : "false");
       });
-      bar.querySelectorAll("[data-home-list-only]").forEach((el) => {
+      document.body.classList.toggle("inventions-view-cards", view === "cards");
+      document.body.classList.toggle("inventions-view-list", view === "list");
+      bar.querySelectorAll("[data-inventions-list-only], [data-home-list-only]").forEach((el) => {
         if (el.classList.contains("tools-bar__field--listen")) {
           setHidden(el, false);
           return;
@@ -7108,7 +7366,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     console.error("initAccountEntry failed", err);
   }
 
-  document.querySelectorAll(".category-layout").forEach((layout) => {
+  document.querySelectorAll(".category-layout, .charter-layout.stories-layout").forEach((layout) => {
     try {
       bindStorySidebarLayout(layout);
     } catch (err) {
