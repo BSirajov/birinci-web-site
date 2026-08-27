@@ -1273,13 +1273,19 @@ body.global-search-open { overflow: hidden; }
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
-  background:
-    radial-gradient(ellipse 70% 80% at 12% 20%, rgba(78, 180, 238, 0.28), transparent 60%),
-    radial-gradient(ellipse 55% 70% at 88% 10%, rgba(0, 105, 180, 0.18), transparent 58%),
-    radial-gradient(ellipse 40% 50% at 70% 85%, rgba(201, 155, 59, 0.14), transparent 55%),
-    linear-gradient(135deg, rgba(217, 240, 255, 0.75), rgba(245, 251, 255, 0.35) 55%, rgba(255, 255, 255, 0.15));
-  border: 1px solid rgba(158, 214, 245, 0.55);
-  box-shadow: 0 24px 60px rgba(0, 78, 140, 0.1);
+  background-color: var(--color-surface-news, #f5fbff);
+  background-image:
+    linear-gradient(
+      0deg,
+      var(--color-site-bg-scrim, rgba(255, 255, 255, 0.07)),
+      var(--color-site-bg-scrim, rgba(255, 255, 255, 0.07))
+    ),
+    var(--site-bg-image, url("diaspor-body-top-bg.png"));
+  background-position: center, var(--site-bg-position, top center);
+  background-size: 100% 100%, var(--site-bg-size, cover);
+  background-repeat: no-repeat;
+  border: 1px solid var(--line-10);
+  box-shadow: none;
 }
 .intro__atmosphere::after {
   content: "";
@@ -1325,19 +1331,9 @@ body.global-search-open { overflow: hidden; }
   margin: 0 auto;
   width: min(100%, 26rem);
   aspect-ratio: 3 / 2;
-  overflow: hidden;
-  border-radius: 50%;
-  background: #f5fbff;
-  box-shadow: 0 10px 20px rgba(0, 78, 140, 0.16);
+  overflow: visible;
+  background: transparent;
   animation: intro-fade 900ms var(--ease-outro) both 160ms;
-}
-.intro__visual::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(245, 251, 255, 0.12);
-  z-index: 0;
-  pointer-events: none;
 }
 .intro__visual img {
   position: relative;
@@ -1345,7 +1341,7 @@ body.global-search-open { overflow: hidden; }
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   background: transparent;
 }
@@ -1432,11 +1428,109 @@ body.global-search-open { overflow: hidden; }
     0 1px 0 rgba(255, 255, 255, 0.78) inset,
     0 6px 16px rgba(0, 78, 140, 0.08);
 }
+/* Root home: hero grid + responsive copy (all locales). */
+.page-root-home .intro {
+  overflow-x: clip;
+  overflow-y: visible;
+}
+.page-root-home .intro__content {
+  grid-template-columns: minmax(0, 1fr) minmax(min(100%, 14rem), 1.05fr);
+}
+.page-root-home .intro__copy {
+  display: contents;
+}
+.page-root-home .intro__brand,
+.page-root-home .intro__tagline,
+.page-root-home .intro__lead,
+.page-root-home .intro__visual,
+.page-root-home .intro__source {
+  min-width: 0;
+}
+.page-root-home .intro__brand,
+.page-root-home .intro__tagline {
+  grid-column: 1;
+  justify-self: stretch;
+  width: 100%;
+  text-align: center;
+}
+.page-root-home .intro__tagline {
+  white-space: normal;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+.page-root-home .intro__lead {
+  grid-column: 1;
+  justify-self: stretch;
+  width: 100%;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+.page-root-home .intro__brand { grid-row: 1; }
+.page-root-home .intro__tagline { grid-row: 2; }
+.page-root-home .intro__lead { grid-row: 3; }
+.page-root-home .intro__visual {
+  grid-column: 2;
+  grid-row: 1 / 4;
+}
+.page-root-home .intro__source {
+  grid-column: 1 / -1;
+  grid-row: 4;
+  align-items: center;
+  justify-self: center;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 0.85rem;
+  box-sizing: border-box;
+}
+.page-root-home .intro__source-ornament {
+  align-self: center;
+  width: min(11.5rem, 72%);
+}
+.page-root-home .intro__source-text {
+  max-width: 100%;
+  box-sizing: border-box;
+  white-space: nowrap;
+  font-size: clamp(0.62rem, 0.72rem + 0.35vw, 0.84rem);
+}
+@media (min-width: 901px) {
+  .page-root-home .intro__tagline {
+    white-space: nowrap;
+    text-wrap: nowrap;
+  }
+}
 @media (max-width: 900px) {
   .intro__content {
     grid-template-columns: 1fr;
     padding: 0.85rem 1.2rem 0.75rem;
     gap: 0.45rem;
+  }
+  .page-root-home .intro__content {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.55rem;
+  }
+  .page-root-home .intro__brand { order: 1; }
+  .page-root-home .intro__tagline { order: 2; }
+  .page-root-home .intro__visual {
+    order: 3;
+    width: min(88%, 20rem);
+    margin-inline: auto;
+  }
+  .page-root-home .intro__lead { order: 4; }
+  .page-root-home .intro__source {
+    order: 5;
+    margin-top: 0.55rem;
+    overflow-x: visible;
+  }
+  .page-root-home .intro__source-text {
+    white-space: normal;
+    text-wrap: pretty;
+    text-align: center;
+    font-size: clamp(0.68rem, 2.8vw, 0.8rem);
+    padding-inline: 0.65rem;
   }
   .intro__tagline {
     white-space: normal;
@@ -1445,6 +1539,11 @@ body.global-search-open { overflow: hidden; }
     text-align: start;
     text-justify: auto;
     hyphens: manual;
+  }
+  .page-root-home .intro__lead {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
   }
   .intro__visual {
     margin: 0;
@@ -1457,6 +1556,26 @@ body.global-search-open { overflow: hidden; }
     right: 1.25rem;
     bottom: 0.35rem;
     height: auto;
+  }
+}
+@media (max-width: 520px) {
+  .page-root-home .intro {
+    padding-inline: 0.85rem;
+  }
+  .page-root-home .intro__content {
+    padding-inline: 0.85rem;
+    border-radius: 22px;
+  }
+  .page-root-home .intro__brand {
+    font-size: clamp(2.15rem, 11vw, 2.85rem);
+  }
+  .page-root-home .intro__tagline {
+    font-size: clamp(0.86rem, 3.8vw, 1rem);
+    margin-bottom: 0.45rem;
+  }
+  .page-root-home .intro__lead {
+    font-size: clamp(0.8rem, 3.4vw, 0.9rem);
+    line-height: 1.55;
   }
 }
 
@@ -1566,10 +1685,10 @@ body.global-search-open { overflow: hidden; }
   text-rendering: optimizeLegibility;
   font-feature-settings: "kern" 1, "liga" 1;
 }
-:is(.page-home, .page-category) .tools-bar {
+:is(.page-home, .page-category, .page-inventions) .tools-bar {
   flex-wrap: nowrap;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   gap: var(--space-2);
   margin: 0 0 var(--space-5);
   padding: 0.55rem 0.65rem 0.6rem;
@@ -1585,7 +1704,8 @@ body.global-search-open { overflow: hidden; }
 /* Category tools stay one row on desktop; stack only on small screens. */
 .tools-bar.tools-bar--dense {
   flex-wrap: nowrap;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
   gap: 0.4rem;
   padding: 0.5rem 0.55rem 0.55rem;
 }
@@ -1710,7 +1830,7 @@ body.global-search-open { overflow: hidden; }
   width: 0.7rem;
   height: 0.7rem;
 }
-:is(.page-home, .page-category) .tools-bar__views {
+:is(.page-home, .page-category, .page-inventions) .tools-bar__views {
   padding: 0.15rem;
   border: 1px solid var(--line-14);
   background: rgba(229, 244, 251, 0.7);
@@ -1719,7 +1839,7 @@ body.global-search-open { overflow: hidden; }
 .tools-bar.tools-bar--dense .tools-bar__views {
   padding: 0.1rem;
 }
-:is(.page-home, .page-category) .tools-bar__view-btn {
+:is(.page-home, .page-category, .page-inventions) .tools-bar__view-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1735,19 +1855,19 @@ body.global-search-open { overflow: hidden; }
   padding: 0.2rem 0.45rem;
   font-size: 0.78rem;
 }
-:is(.page-home, .page-category) .tools-bar__view-btn:hover {
+:is(.page-home, .page-category, .page-inventions) .tools-bar__view-btn:hover {
   color: var(--nav-blue-deep);
 }
-:is(.page-home, .page-category) .tools-bar__view-btn[aria-pressed="true"] {
+:is(.page-home, .page-category, .page-inventions) .tools-bar__view-btn[aria-pressed="true"] {
   background: linear-gradient(135deg, var(--nav-blue), var(--blue-400));
   color: #fff;
   box-shadow: 0 4px 12px rgba(0, 90, 154, 0.22);
 }
-:is(.page-home, .page-category) .tools-bar__view-btn--icon {
+:is(.page-home, .page-category, .page-inventions) .tools-bar__view-btn--icon {
   min-width: 2.1rem;
   padding-inline: 0.42rem;
 }
-:is(.page-home, .page-category) .tools-bar__glyph {
+:is(.page-home, .page-category, .page-inventions) .tools-bar__glyph {
   display: block;
   flex: 0 0 auto;
 }
@@ -1933,6 +2053,114 @@ body.global-search-open { overflow: hidden; }
   display: none !important;
 }
 
+/* Wisdom stories toolbar — search + category share one row; view/images/text share another. */
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions {
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row,
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__control-row {
+  flex: 1 1 100%;
+  justify-content: center;
+}
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row {
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem 0.42rem;
+  min-width: 0;
+  margin-inline: auto;
+}
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions {
+  --tools-bar-pill-offset: calc(0.72rem * 1.2 + 0.28rem);
+}
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--dense.tools-bar--inventions {
+  --tools-bar-pill-offset: calc(0.65rem * 1.15 + 0.18rem);
+}
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row,
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__control-row {
+  align-items: flex-start;
+}
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row > .tools-bar__search,
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row > .tools-bar__field--filter {
+  margin-top: var(--tools-bar-pill-offset);
+}
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__control-row > .tools-bar__field,
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__control-row > [data-home-list-only],
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__control-row > [data-inventions-list-only] {
+  align-self: flex-start;
+}
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row > .tools-bar__search {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: none;
+  width: auto;
+}
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row > .tools-bar__field--filter {
+  flex: 0 1 auto;
+  flex-direction: row;
+  align-items: center;
+  gap: 0;
+  min-width: 5.5rem;
+  max-width: 11rem;
+  width: auto;
+}
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row > .tools-bar__field--filter .tools-bar__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row > .tools-bar__field--filter .sel-wrap,
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row > .tools-bar__field--filter .kt-multi-filter {
+  min-width: 0;
+  width: 100%;
+}
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row .tools-bar__search input,
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row .tools-bar__field--filter .sel-wrap select,
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row .tools-bar__field--filter .kt-multi-filter__trigger {
+  min-height: 2.25rem;
+  box-sizing: border-box;
+}
+.tools-bar.tools-bar--dense.tools-bar--inventions > .tools-bar__search-row .tools-bar__search input,
+.tools-bar.tools-bar--dense.tools-bar--inventions > .tools-bar__search-row .tools-bar__field--filter .sel-wrap select,
+.tools-bar.tools-bar--dense.tools-bar--inventions > .tools-bar__search-row .tools-bar__field--filter .kt-multi-filter__trigger {
+  min-height: 2.05rem;
+}
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__control-row {
+  display: flex;
+  flex: 0 1 auto;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.28rem 0.42rem;
+  min-width: 0;
+  margin-inline: auto;
+}
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__control-row {
+  align-items: flex-start;
+}
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__field {
+  align-items: center;
+}
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__views {
+  justify-content: center;
+}
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__control-row > .tools-bar__field,
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__control-row > [data-home-list-only],
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__control-row > [data-inventions-list-only] {
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
 /* Tools bar responsive: tablet — wrap before horizontal clip. */
 @media (max-width: 1180px) {
   :is(.page-home, .page-category) .tools-bar,
@@ -1952,13 +2180,110 @@ body.global-search-open { overflow: hidden; }
   .tools-bar.tools-bar--dense .tools-bar__stepper {
     flex-wrap: wrap;
   }
+  /* Wisdom stories: search + category on one row; view + images + text on the next. */
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions {
+    flex-wrap: wrap;
+    gap: 0.4rem 0.45rem;
+    justify-content: center;
+    align-items: center;
+  }
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row {
+    flex: 1 1 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0.28rem 0.38rem;
+    min-width: 0;
+    max-width: none;
+    width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row,
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__control-row {
+    align-items: flex-start;
+  }
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row::-webkit-scrollbar {
+    display: none;
+  }
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row > .tools-bar__search {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: none;
+    width: auto;
+  }
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row > .tools-bar__field--filter {
+    flex: 0 0 auto;
+    min-width: 5rem;
+    max-width: 9.5rem;
+  }
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__control-row {
+    flex: 1 1 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.22rem 0.32rem;
+    min-width: 0;
+    overflow-x: visible;
+    overscroll-behavior-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__control-row {
+    align-items: flex-start;
+  }
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__control-row::-webkit-scrollbar {
+    display: none;
+  }
+  /* View / Images / Text — stay on one row; compact sizing from tablet down. */
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__control-row {
+    width: 100%;
+    max-width: 100%;
+  }
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row .tools-bar__field,
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row > [data-home-list-only],
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row > [data-inventions-list-only] {
+    flex: 0 1 auto;
+    min-width: 0;
+    gap: 0.2rem;
+  }
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row .tools-bar__label {
+    font-size: 0.62rem;
+    letter-spacing: 0.03em;
+    padding-inline: 0;
+    line-height: 1.15;
+    white-space: nowrap;
+  }
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row .tools-bar__views {
+    min-height: 0;
+    padding: 0.1rem;
+    gap: 0.1rem;
+  }
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row .tools-bar__view-btn,
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row .tools-bar__view-btn--icon {
+    min-width: 1.78rem;
+    min-height: 1.72rem;
+    padding: 0.16rem 0.3rem;
+    font-size: 0.74rem;
+  }
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row .tools-bar__glyph {
+    width: 14px;
+    height: 14px;
+  }
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__field--listen,
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__field:has([data-tools-play-visible]) {
+    flex: 1 1 100%;
+  }
 }
 
 /* Tools bar responsive: mobile — keep compact controls; pack several per row. */
 @media (max-width: 760px) {
   .tools-bar,
   .page-category .tools-bar,
-  :is(.page-home, .page-category) .tools-bar {
+  :is(.page-home, .page-category, .page-inventions) .tools-bar {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
@@ -1977,12 +2302,42 @@ body.global-search-open { overflow: hidden; }
   .tools-bar.tools-bar--dense > .tools-bar__search {
     display: flex;
     flex-direction: column;
-    flex: 1 1 100%;
+    flex: 1 1 0;
     grid-column: unset;
     max-width: none;
     min-width: 0;
-    width: 100%;
+    width: auto;
     margin-top: 0;
+  }
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions {
+    --tools-bar-pill-offset: calc(0.58rem * 1.2 + 0.18rem);
+  }
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row > .tools-bar__search,
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row > .tools-bar__field--filter {
+    margin-top: var(--tools-bar-pill-offset);
+  }
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row {
+    flex: 1 1 100%;
+    flex-wrap: nowrap;
+    gap: 0.22rem 0.28rem;
+    overflow-x: auto;
+  }
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row > .tools-bar__search {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row > .tools-bar__field--filter {
+    flex: 0 0 auto;
+    min-width: 4.75rem;
+    max-width: 8.5rem;
+  }
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row .tools-bar__search input,
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row .tools-bar__field--filter .kt-multi-filter__trigger,
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row .tools-bar__field--filter .sel-wrap select {
+    min-height: 2.05rem;
+    padding-top: 0.28rem;
+    padding-bottom: 0.28rem;
+    font-size: 0.82rem;
   }
   .tools-bar__search-chip {
     width: auto;
@@ -2023,17 +2378,17 @@ body.global-search-open { overflow: hidden; }
     min-width: 4.5rem;
   }
   .tools-bar__views,
-  :is(.page-home, .page-category) .tools-bar__views {
+  :is(.page-home, .page-category, .page-inventions) .tools-bar__views {
     width: auto;
     justify-content: center;
   }
   .tools-bar__view-btn,
-  :is(.page-home, .page-category) .tools-bar__view-btn {
+  :is(.page-home, .page-category, .page-inventions) .tools-bar__view-btn {
     flex: 0 0 auto;
     min-width: 2.2rem;
     min-height: 2.35rem;
   }
-  :is(.page-home, .page-category) .tools-bar__view-btn--icon {
+  :is(.page-home, .page-category, .page-inventions) .tools-bar__view-btn--icon {
     min-width: 2.2rem;
     padding-inline: 0.4rem;
   }
@@ -2048,16 +2403,80 @@ body.global-search-open { overflow: hidden; }
     width: auto;
     min-width: 0;
   }
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions {
+    justify-content: center;
+    align-items: center;
+    padding: 0.45rem 0.48rem 0.5rem;
+    gap: 0.38rem;
+  }
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row,
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__control-row {
+    justify-content: center;
+    align-items: flex-start;
+  }
+  /* View / Images / Text — tighter pack at phone widths. */
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__control-row {
+    flex: 1 1 100%;
+    flex-wrap: nowrap;
+    gap: 0.16rem 0.22rem;
+    overflow-x: visible;
+  }
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row .tools-bar__field,
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row > [data-home-list-only],
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row > [data-inventions-list-only] {
+    gap: 0.14rem;
+  }
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row .tools-bar__label {
+    font-size: 0.56rem;
+    letter-spacing: 0.025em;
+  }
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row .tools-bar__views {
+    padding: 0.06rem;
+    gap: 0.06rem;
+  }
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row .tools-bar__view-btn,
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row .tools-bar__view-btn--icon {
+    min-width: 1.62rem;
+    min-height: 1.62rem;
+    padding: 0.12rem 0.22rem;
+    font-size: 0.7rem;
+  }
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row .tools-bar__glyph {
+    width: 13px;
+    height: 13px;
+  }
+}
+@media (max-width: 480px) {
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions {
+    padding-inline: 0.38rem;
+  }
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__control-row {
+    gap: 0.12rem 0.16rem;
+  }
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row .tools-bar__view-btn,
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row .tools-bar__view-btn--icon {
+    min-width: 1.52rem;
+    min-height: 1.56rem;
+    padding: 0.1rem 0.18rem;
+  }
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row .tools-bar__glyph {
+    width: 12px;
+    height: 12px;
+  }
 }
 
 @media (pointer: coarse) {
   .global-search-toggle {
     min-height: 2.75rem;
   }
-  :is(.page-home, .page-category) .tools-bar__batch [data-home-batch],
-  :is(.page-home, .page-category) .tools-bar__batch-input,
-  :is(.page-home, .page-category) .tools-bar__view-btn {
+  :is(.page-home, .page-category, .page-inventions) .tools-bar__batch [data-home-batch],
+  :is(.page-home, .page-category, .page-inventions) .tools-bar__batch-input,
+  :is(.page-home, .page-category, .page-inventions) .tools-bar__view-btn {
     min-height: 2.45rem;
+  }
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row .tools-bar__view-btn,
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row .tools-bar__view-btn--icon {
+    min-height: 1.85rem;
   }
 }
 .story.story--text-hidden .story__text {
@@ -2117,9 +2536,9 @@ body.global-search-open { overflow: hidden; }
   padding-inline: 0;
 }
 .page-home .charter-layout.stories-layout {
-  max-width: var(--max-wide);
-  margin: 0 auto;
-  padding: 0 1.25rem 2rem;
+  max-width: none;
+  margin: 0;
+  padding: 0 0 2rem;
   display: grid;
   grid-template-columns: minmax(240px, 300px) minmax(0, 1fr);
   gap: 1.75rem;
@@ -2597,7 +3016,7 @@ body.global-search-open { overflow: hidden; }
   grid-column: 1;
 }
 
-.category-page { padding: 1.25rem 0 3rem; }
+.category-page { padding: 0; }
 .category-hero {
   width: 100%;
   margin: 0;
@@ -3338,7 +3757,8 @@ body.text-lightbox-open {
   text-align: center;
 }
 @media (max-width: 760px) {
-  .story__actions {
+  .story__actions,
+  .page-inventions .story__actions {
     float: none;
     clear: both;
     width: 100%;
@@ -3347,11 +3767,12 @@ body.text-lightbox-open {
     justify-content: flex-start;
   }
   .story__actions .tools-bar__views,
-  .text-lightbox__tts .tools-bar__views {
+  .text-lightbox__tts .tools-bar__views,
+  .page-inventions .story__actions .tools-bar__views {
     width: auto;
   }
-  :is(.page-home, .page-category) .story__actions .tools-bar__view-btn,
-  :is(.page-home, .page-category) .text-lightbox__tts .tools-bar__view-btn {
+  :is(.page-home, .page-category, .page-inventions) .story__actions .tools-bar__view-btn,
+  :is(.page-home, .page-category, .page-inventions) .text-lightbox__tts .tools-bar__view-btn {
     flex: 0 0 auto;
     min-height: 2.45rem;
     padding: 0.35rem 0.55rem;
@@ -3375,8 +3796,8 @@ body.text-lightbox-open {
   width: auto;
   gap: 0.45rem;
 }
-:is(.page-home, .page-category) .story__actions .tools-bar__view-btn,
-:is(.page-home, .page-category) .text-lightbox__tts .tools-bar__view-btn {
+:is(.page-home, .page-category, .page-inventions) .story__actions .tools-bar__view-btn,
+:is(.page-home, .page-category, .page-inventions) .text-lightbox__tts .tools-bar__view-btn {
   flex: 0 0 auto;
 }
 .story-tts {
@@ -4166,24 +4587,34 @@ body.audio-player-open .text-lightbox {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background:
-    radial-gradient(ellipse 55% 70% at 18% 12%, rgba(255, 255, 255, 0.72), transparent 62%),
-    radial-gradient(ellipse 40% 50% at 88% 8%, rgba(78, 180, 238, 0.16), transparent 62%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0));
+  background-color: var(--color-surface-news, #f5fbff);
+  background-image:
+    linear-gradient(
+      0deg,
+      var(--color-site-bg-scrim, rgba(255, 255, 255, 0.07)),
+      var(--color-site-bg-scrim, rgba(255, 255, 255, 0.07))
+    ),
+    var(--site-bg-image, url("diaspor-body-top-bg.png"));
+  background-position: center, var(--site-bg-position, top center);
+  background-size: 100% 100%, var(--site-bg-size, cover);
+  background-repeat: no-repeat;
+}
+@media (prefers-reduced-transparency: reduce) {
+  .page-about .about-hero::before,
+  .page-inventions .about-hero::before,
+  .page-home .about-hero::before,
+  .intro__atmosphere {
+    background-image: linear-gradient(
+      180deg,
+      #f8fcff 0%,
+      var(--color-surface-news, #f5fbff) 100%
+    );
+  }
 }
 .page-about .about-hero::after,
 .page-inventions .about-hero::after,
 .page-home .about-hero::after {
-  content: "";
-  position: absolute;
-  right: clamp(-1.5rem, 4vw, 1rem);
-  top: 0.4rem;
-  width: min(14rem, 38vw);
-  height: min(14rem, 38vw);
-  z-index: 0;
-  pointer-events: none;
-  background: url("pearl.webp") center / contain no-repeat;
-  opacity: 0.1;
+  content: none;
 }
 .page-about .about-hero__wrap,
 .page-inventions .about-hero__wrap,
@@ -4217,7 +4648,7 @@ body.audio-player-open .text-lightbox {
   color: var(--ink);
 }
 .page-about .about-hero__title span,
-.page-inventions .about-hero__title,
+.page-inventions .about-hero__title span,
 .page-home .about-hero__title span {
   background: linear-gradient(135deg, var(--nav-blue) 10%, var(--blue-400) 55%, #2e9fd4 100%);
   -webkit-background-clip: text;
@@ -4274,7 +4705,7 @@ body.audio-player-open .text-lightbox {
   margin: 0;
   font-family: var(--font-ui);
   font-size: 0.8125rem;
-  line-height: 1.48;
+  line-height: 1.36;
   color: var(--ink-soft);
   text-wrap: pretty;
 }
@@ -4494,6 +4925,11 @@ body.audio-player-open .text-lightbox {
     max-width: 640px;
     justify-self: center;
   }
+  .page-home:not(.page-root-home) .about-hero__panel {
+    max-width: none;
+    justify-self: stretch;
+    margin-inline: 0;
+  }
   .page-about .about-core {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -4505,6 +4941,9 @@ body.audio-player-open .text-lightbox {
     grid-template-columns: 1fr;
     padding: 0.85rem 1.2rem 0.75rem;
     gap: 0.45rem;
+  }
+  .page-home:not(.page-root-home) .about-hero__wrap {
+    padding-inline: 0;
   }
   .page-about .about-main {
     padding-left: 18px;
@@ -4523,6 +4962,9 @@ body.audio-player-open .text-lightbox {
 .page-home .about-hero__wrap {
     gap: 0.45rem;
     padding: 0.85rem 1.2rem 0.75rem;
+  }
+  .page-home:not(.page-root-home) .about-hero__wrap {
+    padding-inline: 0;
   }
   .page-about .about-hero__panel,
 .page-inventions .about-hero__panel,
@@ -4582,10 +5024,27 @@ body.audio-player-open .text-lightbox {
   display: block;
   -webkit-line-clamp: unset;
   overflow: visible;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+.page-root-home .root-entry-card .card-title {
+  overflow-wrap: break-word;
 }
 @media (max-width: 920px) {
   .page-root-home .root-entry__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 620px) {
+  .page-root-home .root-entry {
+    padding-inline: 0.85rem;
+    padding-bottom: 2.25rem;
+  }
+  .page-root-home .root-entry__grid {
     grid-template-columns: 1fr;
+  }
+  .page-root-home .root-entry-card.cat-card.page-card {
+    padding: 16px 14px 14px;
   }
 }
 .nav-dropdown--literature > .nav-dropdown-panel > .nav-dropdown-link {
@@ -4605,12 +5064,221 @@ body.audio-player-open .text-lightbox {
   justify-self: stretch;
 }
 .page-home:not(.page-root-home) .about-panel__lead + .about-panel__lead {
-  margin-top: 0.7rem;
+  margin-top: 0.45rem;
 }
-.page-home:not(.page-root-home) .about-hero__wrap,
 .page-about .about-hero__wrap,
 .page-sitemap .about-hero__wrap {
   grid-template-columns: 1fr;
+}
+
+/* Wisdom stories — title, summary, toolbar, and list share one content column. */
+.page-home:not(.page-root-home),
+.page-category {
+  --stories-gutter: 1.25rem;
+  --stories-content-max: var(--max);
+  --stories-hero-gap: clamp(0.75rem, 2.5vw, 1.75rem);
+  --stories-hero-cols: minmax(0, 1fr) minmax(18rem, 1.15fr);
+}
+.page-home:not(.page-root-home) .page-home__content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: stretch;
+  width: min(100%, var(--stories-content-max));
+  max-width: var(--stories-content-max);
+  margin-inline: auto;
+  padding-inline: var(--stories-gutter);
+  box-sizing: border-box;
+}
+.page-home:not(.page-root-home) .about-hero__wrap {
+  padding-inline: 0;
+  align-items: center;
+  justify-items: center;
+  gap: 0.65rem;
+  grid-template-columns: 1fr;
+}
+.page-home:not(.page-root-home) .about-hero__copy {
+  grid-column: 1;
+  text-align: center;
+  width: 100%;
+}
+.page-home:not(.page-root-home) .about-hero__panel {
+  grid-column: 1;
+  grid-row: auto;
+  width: 100%;
+  max-width: 42rem;
+  justify-self: center;
+}
+.page-home:not(.page-root-home) .about-hero__copy,
+.page-home:not(.page-root-home) .about-hero__title {
+  text-align: center;
+}
+.page-home:not(.page-root-home) .about-panel__lead {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+.page-home:not(.page-root-home) .about-hero,
+.page-home:not(.page-root-home) #kateqoriyalar.home-browser {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  padding-inline: 0;
+}
+.page-home:not(.page-root-home) #kateqoriyalar.home-browser {
+  padding-top: 0.75rem;
+  padding-bottom: 4.5rem;
+}
+.page-home:not(.page-root-home) #kateqoriyalar.home-browser > .tools-bar {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+}
+.page-home:not(.page-root-home) .about-hero__panel {
+  width: 100%;
+  box-sizing: border-box;
+}
+.page-home:not(.page-root-home) [data-view="list"] {
+  width: 100%;
+  display: block;
+}
+.page-home:not(.page-root-home) [data-view="list"] > .charter-layout {
+  grid-column: auto;
+  width: 100%;
+  min-width: 0;
+  margin-inline: auto;
+}
+.page-home:not(.page-root-home) .charter-layout.stories-layout,
+.page-home:not(.page-root-home) .home-stories-layout {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  padding-inline: 0;
+  box-sizing: border-box;
+}
+.page-home:not(.page-root-home) .charter-layout.stories-layout > .charter-sidebar,
+.page-home:not(.page-root-home) .charter-layout.stories-layout > .story-nav.sidebar,
+.page-home:not(.page-root-home) .charter-layout.stories-layout > .inventions-stack,
+.page-home:not(.page-root-home) .charter-layout.stories-layout > .stories-stack {
+  justify-self: stretch;
+  width: 100%;
+  min-width: 0;
+}
+/* Discoveries — centered hero/toolbar; catalog keeps inventions width */
+.page-inventions {
+  --stories-gutter: 1.25rem;
+  --stories-content-max: var(--inventions-content-max, 1220px);
+}
+.page-inventions .page-home__content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: stretch;
+  width: min(100%, var(--stories-content-max));
+  max-width: var(--stories-content-max);
+  margin-inline: auto;
+  padding-inline: var(--stories-gutter);
+  padding-bottom: 4.5rem;
+  box-sizing: border-box;
+}
+.page-inventions .about-hero__wrap {
+  padding-inline: 0;
+  align-items: center;
+  justify-items: center;
+  gap: 0.65rem;
+  grid-template-columns: 1fr;
+}
+.page-inventions .about-hero__copy {
+  grid-column: 1;
+  text-align: center;
+  width: 100%;
+}
+.page-inventions .about-hero__panel {
+  grid-column: 1;
+  grid-row: auto;
+  width: 100%;
+  max-width: 42rem;
+  justify-self: center;
+  box-sizing: border-box;
+}
+.page-inventions .about-hero__copy,
+.page-inventions .about-hero__title {
+  text-align: center;
+}
+.page-inventions .about-hero__title {
+  color: #000;
+}
+.page-inventions .about-panel__lead {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+.page-inventions .about-hero {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  padding-inline: 0;
+}
+.page-inventions .page-home__content > .tools-bar {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+}
+.page-inventions .charter-layout.stories-layout,
+.page-inventions .charter-layout.inventions-layout {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  padding-inline: 0;
+  box-sizing: border-box;
+}
+.page-inventions .charter-layout.stories-layout > .charter-sidebar,
+.page-inventions .charter-layout.stories-layout > .charter-stack,
+.page-inventions .charter-layout.stories-layout > .inventions-stack {
+  justify-self: stretch;
+  width: 100%;
+  min-width: 0;
+}
+.page-category {
+  --stories-content-max: var(--max-wide);
+}
+.page-category .category-page {
+  width: min(100%, var(--stories-content-max));
+  max-width: var(--stories-content-max);
+  margin-inline: auto;
+  padding: 1.25rem var(--stories-gutter) 3rem;
+  box-sizing: border-box;
+}
+.page-category .category-layout {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  padding-inline: 0;
+  box-sizing: border-box;
+}
+.page-category .category-layout > .story-nav.sidebar,
+.page-category .category-layout > .category-main {
+  justify-self: stretch;
+  width: 100%;
+  min-width: 0;
+}
+.page-category .category-hero,
+.page-category .category-hero h1,
+.page-category .category-hero__lead {
+  text-align: center;
+}
+.page-category .category-layout > .category-hero {
+  justify-self: center;
+  text-align: center;
+}
+.page-category .category-layout > .tools-bar {
+  justify-self: center;
+}
+:is(.page-home, .page-category, .page-inventions) .story__actions {
+  justify-content: center;
+}
+@media (max-width: 1060px) {
+  .page-home:not(.page-root-home) .about-hero__panel {
+    max-width: none;
+  }
 }
 /* Human sitemap */
 .page-sitemap .sitemap-page {
@@ -5416,12 +6084,6 @@ body.audio-player-open .text-lightbox {
     padding: 8px 16px;
   }
 }
-:is(.page-home, .page-category, .page-inventions) .tools-bar__field--filter {
-  align-items: stretch;
-  min-width: 12rem;
-  max-width: 18rem;
-  flex: 0 1 14rem;
-}
 
 /* In-page search hits (Word-style yellow). */
 mark.search-hit {
@@ -5551,76 +6213,4 @@ mark.search-hit {
     transition: none;
     transform: none;
   }
-}
-:is(.page-home, .page-category, .page-inventions) .tools-bar__field--filter {
-  align-items: stretch;
-  min-width: 12rem;
-  max-width: 18rem;
-  flex: 0 1 14rem;
-}
-:is(.page-home, .page-category, .page-inventions) .tools-bar__field--filter {
-  align-items: stretch;
-  min-width: 12rem;
-  max-width: 18rem;
-  flex: 0 1 14rem;
-}
-:is(.page-home, .page-category, .page-inventions) .tools-bar__field--filter {
-  align-items: stretch;
-  min-width: 12rem;
-  max-width: 18rem;
-  flex: 0 1 14rem;
-}
-:is(.page-home, .page-category, .page-inventions) .tools-bar__field--filter {
-  align-items: stretch;
-  min-width: 12rem;
-  max-width: 18rem;
-  flex: 0 1 14rem;
-}
-:is(.page-home, .page-category, .page-inventions) .tools-bar__field--filter {
-  align-items: stretch;
-  min-width: 12rem;
-  max-width: 18rem;
-  flex: 0 1 14rem;
-}
-:is(.page-home, .page-category, .page-inventions) .tools-bar__field--filter {
-  align-items: stretch;
-  min-width: 12rem;
-  max-width: 18rem;
-  flex: 0 1 14rem;
-}
-:is(.page-home, .page-category, .page-inventions) .tools-bar__field--filter {
-  align-items: stretch;
-  min-width: 12rem;
-  max-width: 18rem;
-  flex: 0 1 14rem;
-}
-:is(.page-home, .page-category, .page-inventions) .tools-bar__field--filter {
-  align-items: stretch;
-  min-width: 12rem;
-  max-width: 18rem;
-  flex: 0 1 14rem;
-}
-:is(.page-home, .page-category, .page-inventions) .tools-bar__field--filter {
-  align-items: stretch;
-  min-width: 12rem;
-  max-width: 18rem;
-  flex: 0 1 14rem;
-}
-:is(.page-home, .page-category, .page-inventions) .tools-bar__field--filter {
-  align-items: stretch;
-  min-width: 12rem;
-  max-width: 18rem;
-  flex: 0 1 14rem;
-}
-:is(.page-home, .page-category, .page-inventions) .tools-bar__field--filter {
-  align-items: stretch;
-  min-width: 12rem;
-  max-width: 18rem;
-  flex: 0 1 14rem;
-}
-:is(.page-home, .page-category, .page-inventions) .tools-bar__field--filter {
-  align-items: stretch;
-  min-width: 12rem;
-  max-width: 18rem;
-  flex: 0 1 14rem;
 }

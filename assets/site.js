@@ -476,9 +476,14 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           clear
         )}" type="button" aria-label="${escapeStoryNav(clear)}">×</button>` +
         `</div>`;
-      const search = bar.querySelector(".tools-bar__search");
-      if (search) search.after(field);
-      else bar.insertBefore(field, bar.firstChild);
+      ensureStoryToolsSearchRow(bar);
+      const searchRow = bar.querySelector(":scope > .tools-bar__search-row");
+      if (searchRow) searchRow.appendChild(field);
+      else {
+        const search = bar.querySelector(".tools-bar__search");
+        if (search) search.after(field);
+        else bar.insertBefore(field, bar.firstChild);
+      }
     }
     const select = field.querySelector("#filterStoryCategory");
     fillStoryCategorySelect(select, initialSlugs);
@@ -510,8 +515,102 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         current.length ? current : initialSlugs
       );
     };
+    ensureStoryToolsSearchRow(bar);
+    ensureStoryToolsControlRow(bar);
     return select;
   };
+
+  const isStoryCategoryFilter = (el) =>
+    !!(
+      el &&
+      el.nodeType === 1 &&
+      (el.matches("[data-story-cat-filter]") ||
+        (el.classList.contains("tools-bar__field--filter") &&
+          el.querySelector("#filterStoryCategory")))
+    );
+
+  const isInventionsFilterField = (el) =>
+    !!(
+      el &&
+      el.nodeType === 1 &&
+      el.classList.contains("tools-bar__field--filter") &&
+      el.querySelector("#filterCategory, #filterPeriod")
+    );
+
+  const TOOLBAR_CONTROL_SELECTORS =
+    "[data-home-view], [data-inventions-view], [data-tools-images], [data-tools-texts]";
+
+  const isStoryToolsControlChild = (el) => {
+    if (!el || el.nodeType !== 1) return false;
+    if (
+      el.classList.contains("tools-bar__search") ||
+      el.classList.contains("tools-bar__search-row") ||
+      el.classList.contains("tools-bar__control-row") ||
+      el.classList.contains("tools-bar__field--listen")
+    ) {
+      return false;
+    }
+    if (el.querySelector("[data-tools-play-visible]")) return false;
+    if (isStoryCategoryFilter(el) || isInventionsFilterField(el)) return false;
+    if (el.matches("[data-home-list-only], [data-inventions-list-only]")) {
+      return !!el.querySelector(TOOLBAR_CONTROL_SELECTORS);
+    }
+    if (el.classList.contains("tools-bar__field")) {
+      return !!el.querySelector(TOOLBAR_CONTROL_SELECTORS);
+    }
+    return false;
+  };
+
+  const ensureStoryToolsSearchRow = (bar) => {
+    if (!bar || !bar.classList.contains("tools-bar--inventions")) return;
+    const search =
+      bar.querySelector(":scope > .tools-bar__search") ||
+      bar.querySelector(":scope > .tools-bar__control-row > .tools-bar__search");
+    const filters = Array.from(
+      bar.querySelectorAll(
+        ":scope > [data-story-cat-filter], :scope > .tools-bar__field--filter, :scope > .tools-bar__control-row > [data-story-cat-filter], :scope > .tools-bar__control-row > .tools-bar__field--filter"
+      )
+    ).filter((el) => isStoryCategoryFilter(el) || isInventionsFilterField(el));
+    if (!search && !filters.length) return;
+
+    let row = bar.querySelector(":scope > .tools-bar__search-row");
+    if (!row) {
+      row = document.createElement("div");
+      row.className = "tools-bar__search-row";
+      row.setAttribute("role", "group");
+      const anchor = search || filters[0] || bar.firstChild;
+      bar.insertBefore(row, anchor);
+    }
+    if (search && search.parentElement !== row) row.appendChild(search);
+    filters.forEach((field) => {
+      if (field.parentElement !== row) row.appendChild(field);
+    });
+  };
+
+  const ensureStoryToolsControlRow = (bar) => {
+    if (!bar || !bar.classList.contains("tools-bar--inventions")) return;
+    ensureStoryToolsSearchRow(bar);
+    const existing = bar.querySelector(":scope > .tools-bar__control-row");
+    const controls = Array.from(bar.children).filter(isStoryToolsControlChild);
+    if (!controls.length) return;
+    const row =
+      existing ||
+      (() => {
+        const el = document.createElement("div");
+        el.className = "tools-bar__control-row";
+        el.setAttribute("role", "group");
+        return el;
+      })();
+    if (!existing) {
+      bar.insertBefore(row, controls[0]);
+    }
+    controls.forEach((el) => {
+      if (el.parentElement !== row) row.appendChild(el);
+    });
+  };
+
+  window.__birinciEnsureStoryToolsSearchRow = ensureStoryToolsSearchRow;
+  window.__birinciEnsureStoryToolsControlRow = ensureStoryToolsControlRow;
 
   const historyHref = () =>
     String(window.location.pathname || "/") +
@@ -767,7 +866,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const listen = tUi("listen", "Mətni dinlə");
     const stop = tUi("stop", "Dayandır");
     const audioLabel = tUi("story_audio_label", "Səs");
-    const listenPage = tUi("listen_page", "Səhifəni dinlə");
     document.querySelectorAll("article.story").forEach((story) => {
       const actions = story.querySelector(".story__actions");
       if (!actions || actions.querySelector("[data-story-tts]")) return;
@@ -786,20 +884,33 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       if (first) actions.insertBefore(group, first);
       else actions.insertBefore(group, actions.firstChild);
     });
-    document.querySelectorAll('[data-tools="category"], [data-tools="home"]').forEach((bar) => {
-      if (bar.querySelector("[data-tools-play-visible]")) return;
-      const field = document.createElement("div");
-      field.className = "tools-bar__field tools-bar__field--listen";
-      if (bar.getAttribute("data-tools") === "home") {
-        field.hidden = false;
-      }
-      field.innerHTML = `
-        <span class="tools-bar__label">${escListen(listenPage)}</span>
-        <div class="tools-bar__views" role="group" aria-label="${escListen(listenPage)}">
-          <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-tools-play-visible data-tts-mode="listen" aria-pressed="false" title="${escListen(listenPage)}" aria-label="${escListen(listenPage)}">${STORY_ICONS.listen}</button>
-          <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-tools-play-visible data-tts-mode="stop" aria-pressed="true" title="${escListen(stop)}" aria-label="${escListen(stop)}">${STORY_ICONS.stop}</button>
-        </div>`;
-      bar.appendChild(field);
+    const stripToolsBarListenPage = () => {
+      document.querySelectorAll('[data-tools="home"], [data-tools="category"]').forEach((bar) => {
+        bar.querySelectorAll("[data-tools-play-visible]").forEach((btn) => {
+          let field = btn.closest(".tools-bar__field");
+          if (!field || !bar.contains(field)) return;
+          const outer =
+            field.parentElement &&
+            field.parentElement !== bar &&
+            field.parentElement.classList.contains("tools-bar__field")
+              ? field.parentElement
+              : null;
+          if (
+            outer &&
+            outer.querySelector(TOOLBAR_CONTROL_SELECTORS)
+          ) {
+            field.remove();
+          } else if (outer && outer.querySelector("[data-tools-play-visible]")) {
+            outer.remove();
+          } else {
+            field.remove();
+          }
+        });
+      });
+    };
+    stripToolsBarListenPage();
+    document.querySelectorAll('[data-tools="category"], [data-tools="home"], [data-tools="inventions"]').forEach((bar) => {
+      ensureStoryToolsControlRow(bar);
     });
     document.querySelectorAll("a.cat-card[data-stem]").forEach((card) => {
       if (card.querySelector("[data-story-tts]")) return;
@@ -1301,6 +1412,74 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     });
   };
 
+  const setControlTooltip = (el, text) => {
+    if (!el || !text) return;
+    el.title = text;
+    el.setAttribute("aria-label", text);
+  };
+
+  const syncToolsBarTooltips = () => {
+    const labelMap = [
+      ["#home-view-label", "view", "Görüntü"],
+      ["#inv-view-label", "view", "Görüntü"],
+      ["#tools-images-label", "images", "Şəkillər"],
+      ["#tools-texts-label", "texts", "Mətnlər"],
+      ["#tools-listen-page-label", "listen_page", "Səhifəni dinlə"],
+    ];
+    labelMap.forEach(([sel, key, fallback]) => {
+      const el = document.querySelector(sel);
+      if (el) el.textContent = tUi(key, fallback);
+    });
+
+    document
+      .querySelectorAll("[data-home-view='cards'], [data-inventions-view='cards']")
+      .forEach((btn) => {
+        setControlTooltip(btn, tUi("view_cards", "Təsnifatlı"));
+      });
+    document
+      .querySelectorAll("[data-home-view='list'], [data-inventions-view='list']")
+      .forEach((btn) => {
+        setControlTooltip(btn, tUi("view_list", "Ardıcıl"));
+      });
+    document.querySelectorAll("[data-search-filter-clear]").forEach((btn) => {
+      setControlTooltip(btn, tUi("clear_search_filter", "Filtri təmizlə"));
+    });
+    document.querySelectorAll("[data-search-field-clear]").forEach((btn) => {
+      setControlTooltip(btn, tUi("clear_search", "Axtarışı təmizlə"));
+    });
+    document.querySelectorAll(".sel-clear").forEach((btn) => {
+      setControlTooltip(btn, tUi("clear_filter", "Filtri sil"));
+    });
+    document.querySelectorAll("[data-images-mode='show']").forEach((btn) => {
+      setControlTooltip(btn, tUi("show_image", "Şəkli göstər"));
+    });
+    document.querySelectorAll("[data-images-mode='hide']").forEach((btn) => {
+      setControlTooltip(btn, tUi("hide_image", "Şəkli gizlət"));
+    });
+    document.querySelectorAll("[data-texts-mode='show']").forEach((btn) => {
+      setControlTooltip(btn, tUi("show_text", "Mətni göstər"));
+    });
+    document.querySelectorAll("[data-texts-mode='hide']").forEach((btn) => {
+      setControlTooltip(btn, tUi("hide_text", "Mətni gizlət"));
+    });
+    document
+      .querySelectorAll(
+        '[data-tts-mode="listen"], [data-story-tts][data-tts-mode="listen"], [data-discovery-tts][data-tts-mode="listen"], [data-article-tts][data-tts-mode="listen"]'
+      )
+      .forEach((btn) => {
+        setControlTooltip(btn, tUi("listen", "Mətni dinlə"));
+      });
+    document
+      .querySelectorAll(
+        '[data-tts-mode="stop"], [data-story-tts][data-tts-mode="stop"], [data-discovery-tts][data-tts-mode="stop"], [data-article-tts][data-tts-mode="stop"]'
+      )
+      .forEach((btn) => {
+        setControlTooltip(btn, tUi("stop", "Dayandır"));
+      });
+  };
+
+  window.__birinciSyncToolsBarTooltips = syncToolsBarTooltips;
+
   const applyFetchedChrome = (doc) => {
     if (!doc) return;
     if (doc.title) document.title = doc.title;
@@ -1417,39 +1596,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const fromLead = doc.querySelector(".category-hero__lead");
     if (lead && fromLead) lead.innerHTML = fromLead.innerHTML;
 
-    const isInventions = document.body.classList.contains("page-inventions");
-    const labelMap = [
-      ["#home-view-label", "view", "Görüntü"],
-      ["#tools-images-label", "images", "Şəkillər"],
-      ["#tools-texts-label", "texts", "Mətnlər"],
-      ["#tools-listen-page-label", "listen_page", "Səhifəni dinlə"],
-    ];
-    labelMap.forEach(([sel, key, fallback]) => {
-      const el = document.querySelector(sel);
-      if (el) el.textContent = tUi(key, fallback);
-    });
-    document.querySelectorAll("[data-home-view='cards']").forEach((btn) => {
-      btn.title = tUi("view_cards", "Təsnifatlı");
-      btn.setAttribute("aria-label", tUi("view_cards", "Təsnifatlı"));
-    });
-    document.querySelectorAll("[data-home-view='list']").forEach((btn) => {
-      btn.title = tUi("view_list", "Ardıcıl");
-      btn.setAttribute("aria-label", tUi("view_list", "Ardıcıl"));
-    });
-    document.querySelectorAll("[data-search-filter-clear]").forEach((btn) => {
-      btn.title = tUi("clear_search_filter", "Filtri təmizlə");
-      btn.setAttribute("aria-label", tUi("clear_search_filter", "Filtri təmizlə"));
-    });
-    const showLabel = tUi("show", "Göstər");
-    const hideLabel = tUi("hide", "Gizlət");
-    document.querySelectorAll("[data-images-mode='show'], [data-texts-mode='show']").forEach((btn) => {
-      btn.title = showLabel;
-      btn.setAttribute("aria-label", showLabel);
-    });
-    document.querySelectorAll("[data-images-mode='hide'], [data-texts-mode='hide']").forEach((btn) => {
-      btn.title = hideLabel;
-      btn.setAttribute("aria-label", hideLabel);
-    });
+    syncToolsBarTooltips();
   };
 
   const applyFetchedStories = (doc) => {
@@ -1501,7 +1648,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     document.querySelectorAll(".story__action-group .tools-bar__label").forEach((label) => {
       const group = label.closest(".story__action-group");
       if (!group) return;
-      if (group.querySelector("[data-story-tts]")) {
+      if (group.querySelector("[data-story-tts], [data-discovery-tts], [data-article-tts]")) {
         label.textContent = tUi("story_audio_label", "Səsləndir");
         const views = group.querySelector(".tools-bar__views");
         if (views) views.setAttribute("aria-label", label.textContent);
@@ -2368,22 +2515,71 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   window.addEventListener("popstate", markCurrentPrimaryNav);
   document.addEventListener("birinci:lang-change", markCurrentPrimaryNav);
 
+  const scrollPageToTop = () => {
+    const html = document.documentElement;
+    html.classList.add("no-smooth-scroll");
+    html.scrollTop = 0;
+    if (document.body) document.body.scrollTop = 0;
+    window.scrollTo(0, 0);
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+    requestAnimationFrame(() => {
+      html.classList.remove("no-smooth-scroll");
+    });
+  };
+
   const backToTop = document.getElementById("back-to-top");
   if (backToTop) {
     backToTop.addEventListener("click", (event) => {
       event.preventDefault();
       event.stopPropagation();
-      const html = document.documentElement;
-      html.classList.add("no-smooth-scroll");
-      html.scrollTop = 0;
-      if (document.body) document.body.scrollTop = 0;
-      window.scrollTo(0, 0);
-      history.replaceState(null, "", window.location.pathname + window.location.search);
-      requestAnimationFrame(() => {
-        html.classList.remove("no-smooth-scroll");
-      });
+      scrollPageToTop();
     });
   }
+
+  const initHeaderBlankScrollToTop = () => {
+    const header = document.querySelector(".site-header");
+    if (!header || header.dataset.blankScrollTop === "1") return;
+    header.dataset.blankScrollTop = "1";
+
+    const interactiveSelector = [
+      "a",
+      "button",
+      "input",
+      "select",
+      "textarea",
+      "summary",
+      "label",
+      '[role="button"]',
+      '[role="menuitem"]',
+      '[role="option"]',
+      ".brand",
+      ".nav-toggle",
+      ".lang-switcher",
+      ".global-search-toggle",
+      ".global-search",
+    ].join(", ");
+
+    const isBlankHeaderClick = (event) => {
+      if (!header.contains(event.target)) return false;
+      if (event.target.closest(interactiveSelector)) return false;
+      if (header.classList.contains("is-nav-open") && event.target.closest(".primary-nav")) {
+        return false;
+      }
+      if (event.target.closest(".nav-dropdown-panel, .nav-dropdown-panel--mega")) {
+        return false;
+      }
+      return true;
+    };
+
+    header.addEventListener("click", (event) => {
+      if (event.defaultPrevented || event.button !== 0) return;
+      if (!isBlankHeaderClick(event)) return;
+      event.preventDefault();
+      event.stopPropagation();
+      scrollPageToTop();
+    });
+  };
+  initHeaderBlankScrollToTop();
 
 
   const goToBottom = document.getElementById("go-to-bottom");
@@ -2580,6 +2776,15 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   const localeCompareAz = (a, b) =>
     String(a || "").localeCompare(String(b || ""), LOCALE_TAG, { sensitivity: "base" });
 
+  const primeStoryToolsBarLayout = () => {
+    document
+      .querySelectorAll('[data-tools="home"], [data-tools="category"], [data-tools="inventions"]')
+      .forEach((bar) => {
+        ensureStoryToolsSearchRow(bar);
+        ensureStoryToolsControlRow(bar);
+      });
+  };
+
   const initCategoryTools = () => {
     if (!document.body.classList.contains("page-category")) return;
     const bar = document.querySelector('[data-tools="category"]');
@@ -2614,12 +2819,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         document.body.classList.toggle("inventions-view-cards", next === "cards");
         document.body.classList.toggle("inventions-view-list", next === "list");
         bar.querySelectorAll("[data-inventions-list-only], [data-home-list-only]").forEach((el) => {
-          if (el.classList.contains("tools-bar__field--listen")) {
-            el.hidden = next !== "list";
-            if (next === "list") el.removeAttribute("hidden");
-            else el.setAttribute("hidden", "");
-            return;
-          }
           el.hidden = next !== "list";
           if (next === "list") el.removeAttribute("hidden");
           else el.setAttribute("hidden", "");
@@ -3057,6 +3256,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     });
   };
 
+  primeStoryToolsBarLayout();
   initCategoryTools();
   try {
     mountStoryTts();
@@ -3488,6 +3688,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
   const initHomeViews = () => {
     if (!document.body.classList.contains("page-home")) return;
+    primeStoryToolsBarLayout();
     const bar = document.querySelector('[data-tools="home"]');
     const cardsPanel = document.querySelector('[data-view="cards"]');
     const listPanel = document.querySelector('[data-view="list"]');
@@ -4008,10 +4209,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       document.body.classList.toggle("inventions-view-cards", view === "cards");
       document.body.classList.toggle("inventions-view-list", view === "list");
       bar.querySelectorAll("[data-inventions-list-only], [data-home-list-only]").forEach((el) => {
-        if (el.classList.contains("tools-bar__field--listen")) {
-          setHidden(el, false);
-          return;
-        }
         setHidden(el, view !== "list");
       });
     };
@@ -4272,7 +4469,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const esc = escapeStem(stem);
       document
         .querySelectorAll(
-          `[data-story-tts][data-story-stem="${esc}"], article.story[data-stem="${esc}"] [data-story-tts], article.story#${esc} [data-story-tts], .inventions-entry#${esc} [data-article-tts]`
+          `[data-story-tts][data-story-stem="${esc}"], article.story[data-stem="${esc}"] [data-story-tts], article.story#${esc} [data-story-tts], .inventions-entry#${esc} [data-story-tts], .inventions-entry#${esc} [data-article-tts]`
         )
         .forEach((el) => buttons.add(el));
       return buttons;
@@ -7325,6 +7522,11 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     initHomeViews();
   } catch (err) {
     console.error("initHomeViews failed", err);
+  }
+  try {
+    syncToolsBarTooltips();
+  } catch (err) {
+    console.error("syncToolsBarTooltips failed", err);
   }
   try {
     hideAudioChrome();

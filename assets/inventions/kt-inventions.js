@@ -840,15 +840,8 @@
   }
 
   function searchFieldClearLabel() {
-    var lang = (
-      document.documentElement.getAttribute("data-kt-lang") ||
-      document.documentElement.lang ||
-      "az"
-    ).toLowerCase();
-    if (lang.indexOf("en") === 0) return "Clear search";
-    if (lang.indexOf("ru") === 0) return "Очистить поиск";
-    if (lang.indexOf("ky") === 0) return "Издөөнү тазалоо";
-    return "Axtarışı təmizlə";
+    var ui = (window.__BIRINCI_I18N__ && window.__BIRINCI_I18N__.ui) || {};
+    return ui.clear_search || ui.clear_search_filter || "Axtarışı təmizlə";
   }
 
   function getSearchFieldClearBtn() {
@@ -1425,17 +1418,19 @@
     stripListenGroups(clone);
     relocateEntryBelowImageBlocks(clone);
     wrap.appendChild(clone);
-    insertArticleModalListenButton(wrap);
+    placeEntryActions(clone);
     return wrap;
   }
 
   function articleModalListenButton() {
     var group = articleModal.tts.activeGroup;
     if (group && group.isConnected) {
-      return group.querySelector('[data-article-tts][data-tts-mode="listen"]');
+      return group.querySelector('[data-story-tts][data-tts-mode="listen"], [data-article-tts][data-tts-mode="listen"]');
     }
     return articleModal.bodyEl
-      ? articleModal.bodyEl.querySelector('[data-article-tts][data-tts-mode="listen"]')
+      ? articleModal.bodyEl.querySelector(
+          '[data-story-tts][data-tts-mode="listen"], [data-article-tts][data-tts-mode="listen"]'
+        )
       : null;
   }
 
@@ -1454,10 +1449,14 @@
   }
 
   function syncArticleModalListenButton(speaking) {
-    var groups = document.querySelectorAll(".inventions-article-listen");
-    Array.prototype.forEach.call(groups, function (group) {
-      setListenGroupState(group, !!(speaking && group === articleModal.tts.activeGroup));
-    });
+    var scope = articleModal.overlay || document;
+    Array.prototype.forEach.call(
+      scope.querySelectorAll(".story__actions .story__action-group"),
+      function (group) {
+        if (!group.querySelector("[data-story-tts], [data-article-tts]")) return;
+        setListenGroupState(group, !!(speaking && group === articleModal.tts.activeGroup));
+      }
+    );
   }
 
   function stopArticleModalSpeech() {
@@ -2079,17 +2078,17 @@
   function listenGroupLabels() {
     var i18n = window.__BIRINCI_I18N__ || {};
     var ui = i18n.ui || {};
-    var modal = articleModalLabels();
     return {
-      audio: ui.story_audio_label || modal.listen,
-      listen: ui.listen || modal.listen,
-      stop: ui.stop || modal.stop,
+      audio: ui.story_audio_label || "Səs",
+      listen: ui.listen || "Mətni dinlə",
+      stop: ui.stop || "Dayandır",
     };
   }
 
   function stripListenGroups(root) {
     if (!root || !root.querySelectorAll) return;
     Array.prototype.forEach.call(root.querySelectorAll(".inventions-article-listen"), function (el) {
+      if (el.closest(".story__actions")) return;
       if (el.parentNode) el.parentNode.removeChild(el);
     });
   }
@@ -2097,6 +2096,124 @@
   function storyIcon(name, fallback) {
     var pack = window.__BIRINCI_STORY_ICONS__ || {};
     return pack[name] || fallback || "";
+  }
+
+  function entryActionLabels() {
+    var ui = (window.__BIRINCI_I18N__ && window.__BIRINCI_I18N__.ui) || {};
+    return {
+      audio: ui.story_audio_label || "Səs",
+      image: ui.story_image_label || "Şəkil",
+      text: ui.story_text_label || "Mətn",
+      listen: ui.listen || "Mətni dinlə",
+      stop: ui.stop || "Dayandır",
+      showImage: ui.show_image || "Şəkli göstər",
+      hideImage: ui.hide_image || "Şəkli gizlət",
+      showText: ui.show_text || "Mətni göstər",
+      hideText: ui.hide_text || "Mətni gizlət",
+    };
+  }
+
+  function appendStoryActionGroup(parent, labelText, buttonsHtml) {
+    var group = document.createElement("div");
+    group.className = "story__action-group";
+    var label = document.createElement("span");
+    label.className = "tools-bar__label";
+    label.textContent = labelText;
+    var views = document.createElement("div");
+    views.className = "tools-bar__views";
+    views.setAttribute("role", "group");
+    views.setAttribute("aria-label", labelText);
+    views.innerHTML = buttonsHtml;
+    group.appendChild(label);
+    group.appendChild(views);
+    parent.appendChild(group);
+    return group;
+  }
+
+  function buildEntryActionsBar(entry) {
+    var labels = entryActionLabels();
+    var stem = entry && entry.id ? entry.id : "";
+    var stemAttr = stem ? ' data-story-stem="' + stem.replace(/"/g, "&quot;") + '"' : "";
+    var actions = document.createElement("div");
+    actions.className = "story__actions inventions-entry-actions";
+
+    if (articleModalSpeechLang().ui !== "ky") {
+      appendStoryActionGroup(
+        actions,
+        labels.audio,
+        '<button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-discovery-tts data-tts-mode="listen"' +
+          stemAttr +
+          ' aria-pressed="false" title="' +
+          labels.listen.replace(/"/g, "&quot;") +
+          '" aria-label="' +
+          labels.listen.replace(/"/g, "&quot;") +
+          '">' +
+          storyIcon("listen", LISTEN_ICON) +
+          '</button><button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-discovery-tts data-tts-mode="stop"' +
+          stemAttr +
+          ' aria-pressed="true" title="' +
+          labels.stop.replace(/"/g, "&quot;") +
+          '" aria-label="' +
+          labels.stop.replace(/"/g, "&quot;") +
+          '">' +
+          storyIcon("stop", STOP_ICON) +
+          "</button>"
+      );
+    }
+
+    appendStoryActionGroup(
+      actions,
+      labels.image,
+      '<button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-images-mode="show" aria-pressed="true" title="' +
+        labels.showImage.replace(/"/g, "&quot;") +
+        '" aria-label="' +
+        labels.showImage.replace(/"/g, "&quot;") +
+        '">' +
+        storyIcon("eye", EYE_ICON) +
+        '</button><button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-images-mode="hide" aria-pressed="false" title="' +
+        labels.hideImage.replace(/"/g, "&quot;") +
+        '" aria-label="' +
+        labels.hideImage.replace(/"/g, "&quot;") +
+        '">' +
+        storyIcon("eye-off", EYE_OFF_ICON) +
+        "</button>"
+    );
+
+    appendStoryActionGroup(
+      actions,
+      labels.text,
+      '<button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-texts-mode="show" aria-pressed="true" title="' +
+        labels.showText.replace(/"/g, "&quot;") +
+        '" aria-label="' +
+        labels.showText.replace(/"/g, "&quot;") +
+        '">' +
+        storyIcon("text", TEXT_ICON) +
+        '</button><button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-texts-mode="hide" aria-pressed="false" title="' +
+        labels.hideText.replace(/"/g, "&quot;") +
+        '" aria-label="' +
+        labels.hideText.replace(/"/g, "&quot;") +
+        '">' +
+        storyIcon("text-off", TEXT_OFF_ICON) +
+        "</button>"
+    );
+
+    var note = document.createElement("p");
+    note.className = "story-tts__note";
+    note.setAttribute("data-story-tts-note", "");
+    note.hidden = true;
+    actions.appendChild(note);
+    return actions;
+  }
+
+  function entryActionsNeedRefresh(actions) {
+    if (!actions) return true;
+    if (actions.querySelector(".inventions-article-listen, [data-article-tts]")) return true;
+    if (!actions.querySelector(".story-tts__note")) return true;
+    if (!actions.querySelector("[data-texts-mode]")) return true;
+    var wantsAudio = articleModalSpeechLang().ui !== "ky";
+    if (wantsAudio && !actions.querySelector("[data-story-tts]")) return true;
+    if (!wantsAudio && actions.querySelector("[data-story-tts]")) return true;
+    return false;
   }
 
   function bindInventionsEntryActionClicks() {
@@ -2142,188 +2259,21 @@
   function placeEntryActions(entry) {
     if (!entry) return null;
     bindInventionsEntryActionClicks();
-    Array.prototype.forEach.call(entry.querySelectorAll(".inventions-article-listen"), function (el) {
-      if (!el.closest(".inventions-entry-actions") && el.parentNode) {
-        el.parentNode.removeChild(el);
-      }
-    });
-    var existing = entry.querySelector(".inventions-entry-actions");
-    if (existing) {
-      Array.prototype.forEach.call(existing.querySelectorAll(".story__action-group"), function (el) {
-        if (el.querySelector("[data-story-tts]") && !el.querySelector("[data-article-tts]")) {
-          if (el.parentNode) el.parentNode.removeChild(el);
-        }
-      });
-      placeEntryActionsBar(entry, existing);
-      return existing;
+    stripListenGroups(entry);
+    var existing = entry.querySelector(".inventions-entry-actions, .story__actions");
+    if (existing && entryActionsNeedRefresh(existing)) {
+      existing.remove();
+      existing = null;
     }
-
-    var i18n = (window.__BIRINCI_I18N__ && window.__BIRINCI_I18N__.ui) || {};
-    var labels = listenGroupLabels();
-    var imageLabel = i18n.story_image_label || i18n.images || "Şəkil";
-    var textLabel = i18n.story_text_label || i18n.texts || "Mətn";
-    var showImage = i18n.show_image || i18n.show || "Şəkli göstər";
-    var hideImage = i18n.hide_image || i18n.hide || "Şəkli gizlət";
-    var showText = i18n.show_text || i18n.show || "Mətni göstər";
-    var hideText = i18n.hide_text || i18n.hide || "Mətni gizlət";
-    var allowAudio = articleModalSpeechLang().ui !== "ky";
-    var actions = document.createElement("div");
-    actions.className = "story__actions inventions-entry-actions";
-
-    if (allowAudio) {
-      var listen = document.createElement("div");
-      listen.className = "story__action-group inventions-article-listen";
-      listen.innerHTML =
-        '<span class="tools-bar__label"></span>' +
-        '<div class="tools-bar__views" role="group">' +
-        '<button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-article-tts data-tts-mode="listen" aria-pressed="false" data-tts-state="idle"></button>' +
-        '<button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-article-tts data-tts-mode="stop" aria-pressed="true" data-tts-state="idle"></button>' +
-        "</div>";
-      var listenLabel = listen.querySelector(".tools-bar__label");
-      var listenViews = listen.querySelector(".tools-bar__views");
-      var listenBtn = listen.querySelector('[data-tts-mode="listen"]');
-      var stopBtn = listen.querySelector('[data-tts-mode="stop"]');
-      var spec = articleModalSpeechLang();
-      listenLabel.textContent = labels.audio;
-      listenViews.setAttribute("aria-label", labels.audio);
-      listenBtn.innerHTML = storyIcon("listen", LISTEN_ICON);
-      listenBtn.setAttribute("title", labels.listen);
-      listenBtn.setAttribute("aria-label", labels.listen);
-      listenBtn.setAttribute("data-tts-prefer-male", spec.ui === "az" ? "true" : "false");
-      listenBtn.setAttribute("data-tts-lang", spec.bcp);
-      stopBtn.innerHTML = storyIcon("stop", STOP_ICON);
-      stopBtn.setAttribute("title", labels.stop);
-      stopBtn.setAttribute("aria-label", labels.stop);
-      listen.addEventListener("click", function (event) {
-        var btn = event.target.closest("[data-article-tts]");
-        if (!btn) return;
-        event.preventDefault();
-        event.stopPropagation();
-        var mode = btn.getAttribute("data-tts-mode") || "listen";
-        if (mode === "stop") {
-          if (articleModal.tts.speaking && articleModal.tts.activeGroup === listen) {
-            stopArticleModalSpeech();
-          }
-          return;
-        }
-        if (articleModal.tts.speaking && articleModal.tts.activeGroup === listen) return;
-        if (articleModal.tts.speaking) stopArticleModalSpeech();
-        articleModal.tts.activeGroup = listen;
-        var nameEl = entry.querySelector(".inventions-entry-name");
-        startArticleSpeech(entry, nameEl ? nameEl.textContent.trim() : "");
-      });
-      actions.appendChild(listen);
-    }
-
-    var imageGroup = document.createElement("div");
-    imageGroup.className = "story__action-group";
-    imageGroup.innerHTML =
-      '<span class="tools-bar__label"></span>' +
-      '<div class="tools-bar__views" role="group">' +
-      '<button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-images-mode="show" aria-pressed="true"></button>' +
-      '<button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-images-mode="hide" aria-pressed="false"></button>' +
-      "</div>";
-    imageGroup.querySelector(".tools-bar__label").textContent = imageLabel;
-    imageGroup.querySelector(".tools-bar__views").setAttribute("aria-label", imageLabel);
-    var showImgBtn = imageGroup.querySelector('[data-images-mode="show"]');
-    var hideImgBtn = imageGroup.querySelector('[data-images-mode="hide"]');
-    showImgBtn.innerHTML = storyIcon("eye", EYE_ICON);
-    hideImgBtn.innerHTML = storyIcon("eye-off", EYE_OFF_ICON);
-    showImgBtn.setAttribute("title", showImage);
-    showImgBtn.setAttribute("aria-label", showImage);
-    hideImgBtn.setAttribute("title", hideImage);
-    hideImgBtn.setAttribute("aria-label", hideImage);
-    actions.appendChild(imageGroup);
-
-    var textGroup = document.createElement("div");
-    textGroup.className = "story__action-group";
-    textGroup.innerHTML =
-      '<span class="tools-bar__label"></span>' +
-      '<div class="tools-bar__views" role="group">' +
-      '<button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-texts-mode="show" aria-pressed="true"></button>' +
-      '<button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-texts-mode="hide" aria-pressed="false"></button>' +
-      "</div>";
-    textGroup.querySelector(".tools-bar__label").textContent = textLabel;
-    textGroup.querySelector(".tools-bar__views").setAttribute("aria-label", textLabel);
-    var showTextBtn = textGroup.querySelector('[data-texts-mode="show"]');
-    var hideTextBtn = textGroup.querySelector('[data-texts-mode="hide"]');
-    showTextBtn.innerHTML = storyIcon("text", TEXT_ICON);
-    hideTextBtn.innerHTML = storyIcon("text-off", TEXT_OFF_ICON);
-    showTextBtn.setAttribute("title", showText);
-    showTextBtn.setAttribute("aria-label", showText);
-    hideTextBtn.setAttribute("title", hideText);
-    hideTextBtn.setAttribute("aria-label", hideText);
-    actions.appendChild(textGroup);
-
+    var actions = existing || buildEntryActionsBar(entry);
     placeEntryActionsBar(entry, actions);
     setInventionsEntryFigure(entry, !entry.classList.contains("inventions-entry--figure-hidden"));
     setInventionsEntryText(entry, !entry.classList.contains("inventions-entry--text-hidden"));
     return actions;
   }
 
-  function placeListenGroup(root, onListen) {
-    if (!root || articleModalSpeechLang().ui === "ky") return null;
-    var existing = root.querySelector(".inventions-article-listen");
-    if (existing) return existing;
-    var labels = listenGroupLabels();
-    var spec = articleModalSpeechLang();
-    var group = document.createElement("div");
-    group.className = "story__action-group inventions-article-listen";
-    group.innerHTML =
-      '<span class="tools-bar__label"></span>' +
-      '<div class="tools-bar__views" role="group">' +
-      '<button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon inventions-article-modal__listen" data-article-tts data-tts-mode="listen" aria-pressed="false" data-tts-state="idle"></button>' +
-      '<button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-article-tts data-tts-mode="stop" aria-pressed="true" data-tts-state="idle"></button>' +
-      "</div>";
-    var labelEl = group.querySelector(".tools-bar__label");
-    var views = group.querySelector(".tools-bar__views");
-    var listenBtn = group.querySelector('[data-tts-mode="listen"]');
-    var stopBtn = group.querySelector('[data-tts-mode="stop"]');
-    labelEl.textContent = labels.audio;
-    views.setAttribute("aria-label", labels.audio);
-    listenBtn.innerHTML = LISTEN_ICON;
-    listenBtn.setAttribute("title", labels.listen);
-    listenBtn.setAttribute("aria-label", labels.listen);
-    listenBtn.setAttribute("data-tts-prefer-male", spec.ui === "az" ? "true" : "false");
-    listenBtn.setAttribute("data-tts-lang", spec.bcp);
-    stopBtn.innerHTML = STOP_ICON;
-    stopBtn.setAttribute("title", labels.stop);
-    stopBtn.setAttribute("aria-label", labels.stop);
-
-    var actions = root.querySelector(".inventions-entry-actions");
-    if (actions) {
-      actions.insertBefore(group, actions.firstChild);
-    } else {
-      var copy = root.querySelector(".inventions-entry-visual-copy");
-      var entry = root.querySelector(".inventions-entry") || root;
-      if (copy) {
-        var bar = document.createElement("div");
-        bar.className = "story__actions inventions-entry-actions";
-        bar.appendChild(group);
-        copy.insertBefore(bar, copy.firstChild);
-      } else {
-        entry.insertBefore(group, entry.firstChild);
-      }
-    }
-
-    group.addEventListener("click", function (event) {
-      var btn = event.target.closest("[data-article-tts]");
-      if (!btn) return;
-      event.preventDefault();
-      event.stopPropagation();
-      var mode = btn.getAttribute("data-tts-mode") || "listen";
-      if (mode === "stop") {
-        if (articleModal.tts.speaking && articleModal.tts.activeGroup === group) {
-          stopArticleModalSpeech();
-        }
-        return;
-      }
-      if (articleModal.tts.speaking && articleModal.tts.activeGroup === group) return;
-      if (articleModal.tts.speaking) stopArticleModalSpeech();
-      articleModal.tts.activeGroup = group;
-      onListen();
-    });
-    return group;
+  function placeListenGroup() {
+    return null;
   }
 
   function insertArticleModalListenButton(root) {
@@ -2403,7 +2353,7 @@
 
   function syncArticleModalChrome() {
     var labels = articleModalLabels();
-    var listenLabels = listenGroupLabels();
+    var actionLabels = entryActionLabels();
     if (articleModal.dialog) {
       articleModal.dialog.setAttribute("aria-label", labels.dialog);
     }
@@ -2411,21 +2361,51 @@
       articleModal.closeBtn.setAttribute("aria-label", labels.close);
     }
     Array.prototype.forEach.call(
-      (articleModal.overlay || document).querySelectorAll(".inventions-article-listen"),
+      (articleModal.overlay || document).querySelectorAll(
+        ".story__actions .story__action-group"
+      ),
       function (group) {
         var labelEl = group.querySelector(".tools-bar__label");
         var views = group.querySelector(".tools-bar__views");
-        var listenBtn = group.querySelector('[data-tts-mode="listen"]');
-        var stopBtn = group.querySelector('[data-tts-mode="stop"]');
-        if (labelEl) labelEl.textContent = listenLabels.audio;
-        if (views) views.setAttribute("aria-label", listenLabels.audio);
-        if (listenBtn) {
-          listenBtn.setAttribute("title", listenLabels.listen);
-          listenBtn.setAttribute("aria-label", listenLabels.listen);
+        if (group.querySelector("[data-story-tts], [data-article-tts]")) {
+          if (labelEl) labelEl.textContent = actionLabels.audio;
+          if (views) views.setAttribute("aria-label", actionLabels.audio);
+          var listenBtn = group.querySelector('[data-tts-mode="listen"]');
+          var stopBtn = group.querySelector('[data-tts-mode="stop"]');
+          if (listenBtn) {
+            listenBtn.setAttribute("title", actionLabels.listen);
+            listenBtn.setAttribute("aria-label", actionLabels.listen);
+          }
+          if (stopBtn) {
+            stopBtn.setAttribute("title", actionLabels.stop);
+            stopBtn.setAttribute("aria-label", actionLabels.stop);
+          }
+          return;
         }
-        if (stopBtn) {
-          stopBtn.setAttribute("title", listenLabels.stop);
-          stopBtn.setAttribute("aria-label", listenLabels.stop);
+        if (group.querySelector("[data-images-mode]")) {
+          if (labelEl) labelEl.textContent = actionLabels.image;
+          if (views) views.setAttribute("aria-label", actionLabels.image);
+          group.querySelectorAll("[data-images-mode='show']").forEach(function (btn) {
+            btn.setAttribute("title", actionLabels.showImage);
+            btn.setAttribute("aria-label", actionLabels.showImage);
+          });
+          group.querySelectorAll("[data-images-mode='hide']").forEach(function (btn) {
+            btn.setAttribute("title", actionLabels.hideImage);
+            btn.setAttribute("aria-label", actionLabels.hideImage);
+          });
+          return;
+        }
+        if (group.querySelector("[data-texts-mode]")) {
+          if (labelEl) labelEl.textContent = actionLabels.text;
+          if (views) views.setAttribute("aria-label", actionLabels.text);
+          group.querySelectorAll("[data-texts-mode='show']").forEach(function (btn) {
+            btn.setAttribute("title", actionLabels.showText);
+            btn.setAttribute("aria-label", actionLabels.showText);
+          });
+          group.querySelectorAll("[data-texts-mode='hide']").forEach(function (btn) {
+            btn.setAttribute("title", actionLabels.hideText);
+            btn.setAttribute("aria-label", actionLabels.hideText);
+          });
         }
       }
     );
@@ -2698,6 +2678,9 @@
     hideDiscoveriesSectionSources();
     pruneDiscoveriesExtraNav();
     window.__birinciRefreshArticleModal();
+    if (typeof window.__birinciSyncToolsBarTooltips === "function") {
+      window.__birinciSyncToolsBarTooltips();
+    }
   };
 
   hideDiscoveriesSectionSources();

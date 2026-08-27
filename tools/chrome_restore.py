@@ -25,7 +25,7 @@ from i18n_config import rewrite_content_media_paths, story_illustrations_dir  # 
 DISABLE_DISCOVERY_VIDEOS = True
 
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
-SITE_ASSET_VERSION = "20260826a16"
+SITE_ASSET_VERSION = "20260827c2"
 SITE_PUBLIC_ORIGIN = "https://birinci.cloud"
 LIVE_LANGS = ("az", "en", "ru", "ky")
 OG_IMAGE_URL = f"{SITE_PUBLIC_ORIGIN}/assets/pearl-hero.webp"
@@ -299,6 +299,68 @@ DISCOVERIES_HERO = {
     "ky": (
         "Бул баракта адамзаттын илимий, маданий жана адеп-ахлактык мурасы жөнүндө маалымат "
         "берилет. Максатыбыз — бул баалуу мурасты сактоо жана келечек муундарга жеткирүү."
+    ),
+}
+
+DISCOVERIES_SUMMARY = {
+    "az": (
+        "Bu səhifədə təqdim olunan ixtiralar, kəşflər və yeniliklər elm və texnologiyanın "
+        "tam tarixi deyil. Onlar insanın yaşamağını, bilikini, istehsalını, sağlamlığını, "
+        "ünsiyyətini, hərəkətini və gündəlik həyatını dəyişən mərhələlərin seçilmiş arayışıdır. "
+        "Bir çoxu bir-biri ilə sıx bağlıdır: elektrik, elektromaqnitlik, yarımkeçiricilər, "
+        "kompüterlər, internet və süni intellekt müasir texnoloji dönüşün vahid zəncirini təşkil "
+        "edir; xəstəliklərin mikrob nəzəriyyəsi, mikroskopiya, peyvənd, antibiotiklər və DNT "
+        "quruluşu isə tibbdə başqa bir zəncir əmələ gətirir.",
+        "Sənəd boyu göstərilən multimedia və xarici mənbələr — Nobel mükafatı arxivi, "
+        "Smithsonian İnstitutu, NASA, ÜST, Our World in Data, BBC, PBS, MIT OpenCourseWare, TED "
+        "və aparıcı akademik nəşriyyatlardan — mövzunu daha dərindən öyrənmək istəyənlər "
+        "üçündür. Onlar tükəndirici biblioqrafiya deyil, başlanğıc nöqtəsidir.",
+    ),
+    "en": (
+        "The inventions, discoveries, and innovations presented on this page do not constitute "
+        "a complete history of science and technology. Rather, they form a curated reference of "
+        "milestones whose cumulative effects reshaped human survival, knowledge, production, "
+        "health, communication, mobility, and everyday life. Many are deeply interconnected: "
+        "electricity, electromagnetism, semiconductors, computers, the internet, and artificial "
+        "intelligence form one continuous chain of modern technological transformation; the germ "
+        "theory of disease, microscopy, vaccination, antibiotics, and DNA structure form another "
+        "in medicine.",
+        "The multimedia and external resources listed throughout this document — drawn from the "
+        "Nobel Prize archive, Smithsonian Institution, NASA, WHO, Our World in Data, BBC, PBS, "
+        "MIT OpenCourseWare, TED, and leading academic publishers — are intended to support "
+        "readers who wish to explore any topic in greater depth. They represent a starting point "
+        "rather than an exhaustive bibliography.",
+    ),
+    "ru": (
+        "Представленные на этой странице изобретения, открытия и инновации не являются полной "
+        "историей науки и техники. Это отобранный справочный обзор ключевых вех, совокупное "
+        "влияние которых изменило условия выживания человека, накопление знаний, производство, "
+        "здравоохранение, связь, мобильность и повседневную жизнь. Многие из этих достижений "
+        "тесно взаимосвязаны: электричество, электромагнетизм, полупроводники, компьютеры, "
+        "интернет и искусственный интеллект образуют непрерывную цепь современной технологической "
+        "трансформации; микробная теория заболеваний, микроскопия, вакцинация, антибиотики и "
+        "раскрытие структуры ДНК образуют другую важнейшую цепь — в медицине.",
+        "Мультимедийные и внешние ресурсы, приведённые в этом документе — материалы архива "
+        "Нобелевской премии, Smithsonian Institution, NASA, WHO, Our World in Data, BBC, PBS, "
+        "MIT OpenCourseWare, TED и ведущих академических издательств, — предназначены для "
+        "читателей, желающих глубже изучить отдельные темы. Они служат отправной точкой для "
+        "дальнейшего изучения, а не исчерпывающей библиографией.",
+    ),
+    "ky": (
+        "Бул баракта берилген ойлоп табуулар, ачылыштар жана инновациялар илим менен "
+        "технологиянын толук тарыхы эмес. Алар адамзаттын жашап калуусун, билим топтоону, "
+        "өндүрүштү, саламаттыкты сактоону, байланышты, мобилдүүлүктү жана күнүмдүк жашоону "
+        "өзгөрткөн негизги этаптардын тандалган маалымдамасы. Көптөгөн жетишкендиктер "
+        "бири-бири менен терең байланышкан: электр энергиясы, электромагнетизм, жарым өткөргүчтөр, "
+        "компьютерлер, интернет жана жасалма интеллект заманбап технологиялык өзгөрүүнүн "
+        "үзгүлтүксүз чынжырын түзөт; оорулардын микроб теориясы, микроскопия, вакцинация, "
+        "антибиотиктер жана ДНК түзүлүшүнүн ачылышы медицинадагы дагы бир маанилүү чынжырды "
+        "түзөт.",
+        "Бул документте көрсөтүлгөн мультимедиялык жана тышкы ресурстар — Нобель сыйлыгынын "
+        "архиви, Smithsonian Institution, NASA, WHO, Our World in Data, BBC, PBS, MIT "
+        "OpenCourseWare, TED жана алдыңкы академиялык басмалардын материалдары — ар бир теманы "
+        "тереңирээк изилдөөнү каалаган окурмандар үчүн берилген. Алар толук библиография эмес, "
+        "андан ары изилдөөгө баштапкы багыт болуп саналат.",
     ),
 }
 
@@ -1262,8 +1324,32 @@ _STORY_TTS_NOTE_RE = re.compile(
 )
 
 
+def strip_tools_bar_listen_page(markup: str) -> str:
+    """Remove Listen-to-page controls from Wisdom Stories toolbar markup."""
+    patterns = (
+        re.compile(
+            r'[ \t]*<div class="tools-bar__field tools-bar__field--listen"[^>]*>[\s\S]*?</div>\s*',
+            re.I,
+        ),
+        re.compile(
+            r'[ \t]*<div class="tools-bar__field"[^>]*>\s*'
+            r'<div class="tools-bar__field"[^>]*>[\s\S]*?id="tools-listen-page-label"[\s\S]*?</div>\s*</div>\s*',
+            re.I,
+        ),
+        _PAGE_LISTEN_FIELD_RE,
+    )
+    for pattern in patterns:
+        markup = pattern.sub("", markup)
+    markup = markup.replace(
+        '      if (el.classList.contains("tools-bar__field--listen")) { hideEl(el, false); return; }\n',
+        "",
+    )
+    return markup
+
+
 def strip_listen_chrome(html: str) -> str:
     """Remove Wisdom Stories Listen / page-listen controls from markup."""
+    html = strip_tools_bar_listen_page(html)
     html = _STORY_TTS_GROUP_RE.sub("", html)
     html = _PAGE_LISTEN_FIELD_RE.sub("", html)
     html = _STORY_TTS_NOTE_RE.sub("", html)
@@ -1293,6 +1379,52 @@ _STOP_ICON = (
     '<path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>'
     '<path d="M3 3l18 18"/></svg>'
 )
+_EYE_ICON = (
+    '<svg class="tools-bar__glyph" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" '
+    'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
+    '<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/>'
+    '<circle cx="12" cy="12" r="3"/></svg>'
+)
+_EYE_OFF_ICON = (
+    '<svg class="tools-bar__glyph" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" '
+    'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
+    '<path d="M3 3l18 18"/>'
+    '<path d="M10.6 10.6a3 3 0 0 0 4.2 4.2"/>'
+    '<path d="M9.9 5.1A11 11 0 0 1 12 5c6.5 0 10 7 10 7a19 19 0 0 1-3.2 4.1"/>'
+    '<path d="M6.1 6.1C3.6 7.8 2 12 2 12s3.5 7 10 7c1.6 0 3.1-.3 4.4-.9"/></svg>'
+)
+_TEXT_ICON = (
+    '<svg class="tools-bar__glyph" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" '
+    'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
+    '<path d="M7 3h7l5 5v13H7z"/>'
+    '<path d="M14 3v5h5"/>'
+    '<path d="M9 13h6"/>'
+    '<path d="M9 17h6"/></svg>'
+)
+_TEXT_OFF_ICON = (
+    '<svg class="tools-bar__glyph" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" '
+    'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
+    '<path d="M7 3h7l5 5v13H7z"/>'
+    '<path d="M14 3v5h5"/>'
+    '<path d="M9 13h6"/>'
+    '<path d="M9 17h6"/>'
+    '<path d="M5 5l14 14"/></svg>'
+)
+_TOOLBAR_AFTER_VIEW_RE = re.compile(
+    r'(<button[^>]*\bdata-home-view="list"[^>]*>[\s\S]*?</button>\s*</div>\s*</div>\s*)'
+    r'(\n</div>)',
+    re.I,
+)
+_TOOLBAR_AFTER_INVENTIONS_VIEW_RE = re.compile(
+    r'(<button[^>]*\bdata-inventions-view="list"[^>]*>[\s\S]*?</button>\s*</div>\s*</div>\s*)'
+    r'(\n</div>)',
+    re.I,
+)
+_TOOLBAR_BEFORE_CHARTER_RE = re.compile(
+    r'(<button[^>]*\bdata-inventions-view="list"[^>]*>[\s\S]*?</button>\s*</div>)'
+    r'(\s*(?=<div class="charter-layout inventions-layout))',
+    re.I,
+)
 _STORY_ACTIONS_OPEN = '<div class="story__actions">'
 _CAT_STORY_CARD_RE = re.compile(
     r'(<a class="cat-card page-card"[^>]*\bdata-stem="([^"]+)"[^>]*>)(.*?)(</a>)',
@@ -1318,6 +1450,118 @@ def _inject_card_listen_buttons(markup: str, listen: str) -> str:
     return _CAT_STORY_CARD_RE.sub(repl, markup)
 
 
+def _story_toolbar_labels(lang: str) -> dict[str, str]:
+    loc = _load_locale(lang)
+    ui = loc.get("ui") if isinstance(loc.get("ui"), dict) else {}
+    return {
+        "images": str(ui.get("images") or "Images"),
+        "texts": str(ui.get("texts") or "Texts"),
+        "show_image": str(ui.get("show_image") or "Show image"),
+        "hide_image": str(ui.get("hide_image") or "Hide image"),
+        "show_text": str(ui.get("show_text") or "Show text"),
+        "hide_text": str(ui.get("hide_text") or "Hide text"),
+    }
+
+
+def _story_toolbar_list_controls_html(labels: dict[str, str]) -> str:
+    images = html.escape(labels["images"])
+    texts = html.escape(labels["texts"])
+    show_image = html.escape(labels["show_image"])
+    hide_image = html.escape(labels["hide_image"])
+    show_text = html.escape(labels["show_text"])
+    hide_text = html.escape(labels["hide_text"])
+    return (
+        f'\n  <div class="tools-bar__field" data-home-list-only hidden data-inventions-list-only>\n'
+        f'    <span class="tools-bar__label" id="tools-images-label">{images}</span>\n'
+        f'    <div class="tools-bar__views tools-bar__images-toggle" role="group" '
+        f'aria-labelledby="tools-images-label" data-tools-images>\n'
+        f'      <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" '
+        f'data-images-mode="show" aria-pressed="true" title="{show_image}" aria-label="{show_image}">'
+        f"{_EYE_ICON}</button>\n"
+        f'      <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" '
+        f'data-images-mode="hide" aria-pressed="false" title="{hide_image}" aria-label="{hide_image}">'
+        f"{_EYE_OFF_ICON}</button>\n"
+        f"    </div>\n"
+        f"  </div>\n"
+        f'  <div class="tools-bar__field" data-home-list-only hidden data-inventions-list-only>\n'
+        f'    <span class="tools-bar__label" id="tools-texts-label">{texts}</span>\n'
+        f'    <div class="tools-bar__views tools-bar__texts-toggle" role="group" '
+        f'aria-labelledby="tools-texts-label" data-tools-texts>\n'
+        f'      <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" '
+        f'data-texts-mode="show" aria-pressed="true" title="{show_text}" aria-label="{show_text}">'
+        f"{_TEXT_ICON}</button>\n"
+        f'      <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" '
+        f'data-texts-mode="hide" aria-pressed="false" title="{hide_text}" aria-label="{hide_text}">'
+        f"{_TEXT_OFF_ICON}</button>\n"
+        f"    </div>\n"
+        f"  </div>\n"
+    )
+
+
+def _inventions_toolbar_list_controls_html(labels: dict[str, str]) -> str:
+    images = html.escape(labels["images"])
+    texts = html.escape(labels["texts"])
+    show_image = html.escape(labels["show_image"])
+    hide_image = html.escape(labels["hide_image"])
+    show_text = html.escape(labels["show_text"])
+    hide_text = html.escape(labels["hide_text"])
+    return (
+        f'\n  <div class="tools-bar__field" data-inventions-list-only hidden>\n'
+        f'    <span class="tools-bar__label" id="tools-images-label">{images}</span>\n'
+        f'    <div class="tools-bar__views tools-bar__images-toggle" role="group" '
+        f'aria-labelledby="tools-images-label" data-tools-images>\n'
+        f'      <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" '
+        f'data-images-mode="show" aria-pressed="true" title="{show_image}" aria-label="{show_image}">'
+        f"{_EYE_ICON}</button>\n"
+        f'      <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" '
+        f'data-images-mode="hide" aria-pressed="false" title="{hide_image}" aria-label="{hide_image}">'
+        f"{_EYE_OFF_ICON}</button>\n"
+        f"    </div>\n"
+        f"  </div>\n"
+        f'  <div class="tools-bar__field" data-inventions-list-only hidden>\n'
+        f'    <span class="tools-bar__label" id="tools-texts-label">{texts}</span>\n'
+        f'    <div class="tools-bar__views tools-bar__texts-toggle" role="group" '
+        f'aria-labelledby="tools-texts-label" data-tools-texts>\n'
+        f'      <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" '
+        f'data-texts-mode="show" aria-pressed="true" title="{show_text}" aria-label="{show_text}">'
+        f"{_TEXT_ICON}</button>\n"
+        f'      <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" '
+        f'data-texts-mode="hide" aria-pressed="false" title="{hide_text}" aria-label="{hide_text}">'
+        f"{_TEXT_OFF_ICON}</button>\n"
+        f"    </div>\n"
+        f"  </div>\n"
+    )
+
+
+def ensure_story_toolbar_list_controls(markup: str, lang: str) -> str:
+    """Restore Images / Text toolbar toggles when missing from static HTML."""
+    if 'id="tools-images-label"' in markup:
+        return markup
+    if 'data-tools="home"' not in markup and 'data-tools="category"' not in markup:
+        return markup
+    block = _story_toolbar_list_controls_html(_story_toolbar_labels(lang))
+    new, count = _TOOLBAR_AFTER_VIEW_RE.subn(r"\1" + block + r"\2", markup, count=1)
+    return new if count else markup
+
+
+def ensure_inventions_toolbar_list_controls(markup: str, lang: str) -> str:
+    """Restore Images / Text toggles on Discoveries catalog toolbar (list view)."""
+    if 'id="tools-images-label"' in markup:
+        return markup
+    if 'data-tools="inventions"' not in markup:
+        return markup
+    block = _inventions_toolbar_list_controls_html(_story_toolbar_labels(lang))
+    new, count = _TOOLBAR_AFTER_INVENTIONS_VIEW_RE.subn(r"\1" + block + r"\2", markup, count=1)
+    if count:
+        return new
+    new, count = _TOOLBAR_BEFORE_CHARTER_RE.subn(
+        r"\1" + block + r"\n</div>\n</div>\n\2",
+        markup,
+        count=1,
+    )
+    return new if count else markup
+
+
 def _story_listen_labels(lang: str) -> dict[str, str]:
     loc = _load_locale(lang)
     ui = loc.get("ui") if isinstance(loc.get("ui"), dict) else {}
@@ -1337,7 +1581,6 @@ def ensure_story_listen_markup(markup: str, lang: str) -> str:
     audio = html.escape(labels["audio"])
     listen = html.escape(labels["listen"])
     stop = html.escape(labels["stop"])
-    listen_page = html.escape(labels["listen_page"])
     group = (
         f'          <div class="story__action-group">\n'
         f'            <span class="tools-bar__label">{audio}</span>\n'
@@ -1367,56 +1610,7 @@ def ensure_story_listen_markup(markup: str, lang: str) -> str:
             pieces.append("\n" + group)
         cursor = insert_at
     markup = "".join(pieces)
-    # Listen used to be list-only on the home page (`hidden` + data-home-list-only).
-    # Always show the toolbar control in both cards and list views.
-    markup = re.sub(
-        r'<div class="tools-bar__field tools-bar__field--listen"[^>]*>',
-        '<div class="tools-bar__field tools-bar__field--listen">',
-        markup,
-    )
     markup = _inject_card_listen_buttons(markup, listen)
-    markup = markup.replace(
-        'v = localStorage.getItem("birinci-home-view") || "";',
-        'v = localStorage.getItem("birinci-home-view") || "list";',
-    )
-    markup = markup.replace(
-        'document.querySelectorAll("[data-home-list-only]").forEach(function (el) {\n      hideEl(el, view !== "list");\n    });',
-        'document.querySelectorAll("[data-home-list-only]").forEach(function (el) {\n'
-        '      if (el.classList.contains("tools-bar__field--listen")) { hideEl(el, false); return; }\n'
-        '      hideEl(el, view !== "list");\n    });',
-    )
-    markup = markup.replace(
-        "    window.__birinciHomeView = view;\n",
-        "    document.body.classList.toggle(\"inventions-view-cards\", view === \"cards\");\n"
-        "    document.body.classList.toggle(\"inventions-view-list\", view === \"list\");\n"
-        "    window.__birinciHomeView = view;\n",
-    )
-    if "data-tools-play-visible" not in markup:
-        field = (
-            f'  <div class="tools-bar__field tools-bar__field--listen">\n'
-            f'    <span class="tools-bar__label">{listen_page}</span>\n'
-            f'    <div class="tools-bar__views" role="group" aria-label="{listen_page}">\n'
-            f'      <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" '
-            f'data-tools-play-visible data-tts-mode="listen" aria-pressed="false" title="{listen_page}" '
-            f'aria-label="{listen_page}">{_LISTEN_ICON}</button>\n'
-            f'      <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" '
-            f'data-tools-play-visible data-tts-mode="stop" aria-pressed="true" title="{stop}" '
-            f'aria-label="{stop}">{_STOP_ICON}</button>\n'
-            f"    </div>\n"
-            f"  </div>\n"
-        )
-        if 'class="tools-bar__field tools-bar__batch"' in markup:
-            markup = markup.replace(
-                '<div class="tools-bar__field tools-bar__batch"',
-                field + '<div class="tools-bar__field tools-bar__batch"',
-                1,
-            )
-        else:
-            markup = markup.replace(
-                "</div>\n</div>\n    <script>",
-                field + "</div>\n    <script>",
-                1,
-            )
     return markup
 
 
@@ -1695,7 +1889,7 @@ _SUMMARY_TITLE_FALLBACK = {
 }
 _SECTION_PILL_FALLBACK = {
     "az": {
-        "overview_button": "Kateqoriyalar üzrə icmal",
+        "overview_button": "Kateqoriyalar üzrə cədvəl",
         "references_button": "İstinadlar",
         "pills_label": "Səhifə bölmələri",
     },
@@ -1730,6 +1924,13 @@ def _discoveries_section_labels(lang: str) -> dict:
         "references": inv.get("references_button") or fallback["references_button"],
         "nav": fallback["pills_label"],
     }
+
+
+def _discoveries_summary_paragraphs(lang: str, markup: str = "") -> list[str]:
+    canonical = [p for p in DISCOVERIES_SUMMARY.get(lang, ()) if p]
+    if canonical:
+        return canonical
+    return _extract_summary_paragraphs(markup)
 
 
 def _extract_summary_paragraphs(markup: str) -> list[str]:
@@ -1800,7 +2001,7 @@ def ensure_discoveries_hero_html(markup: str, lang: str) -> str:
     """Keep the discoveries title and place the page summary beside it."""
     if "inventions-page-body" not in markup and "inventions-entry" not in markup:
         return markup
-    paragraphs = _extract_summary_paragraphs(markup)
+    paragraphs = _discoveries_summary_paragraphs(lang, markup)
     markup = _CONCLUSION_SECTION_RE.sub("", markup, count=1)
     markup = _CONCLUSION_TOC_RE.sub("", markup)
     markup = _TOC_OVERVIEW_RE.sub("", markup)
@@ -2345,6 +2546,102 @@ def normalize_stories_layout_classes(html: str) -> str:
     return html
 
 
+def fix_home_section_structure(html: str) -> str:
+    """Ensure the home tools-bar closes before cards/list views; drop duplicate closes."""
+    if 'id="kateqoriyalar"' not in html or 'data-tools="home"' not in html:
+        return html
+
+    def _close_tools_bar(match: re.Match[str]) -> str:
+        body = match.group(1)
+        opens = len(re.findall(r"<div\b", body, re.I))
+        closes = body.count("</div>")
+        missing = max(0, opens - closes)
+        return body + ("</div>\n" * missing)
+
+    html = re.sub(
+        r'(<div class="tools-bar tools-bar--inventions" data-tools="home"[^>]*>[\s\S]*?)'
+        r"(?=\s*<script>\s*\(function \(\)|\s*<div data-view=)",
+        _close_tools_bar,
+        html,
+        count=1,
+        flags=re.I,
+    )
+    html = re.sub(
+        r"(</div>\s*\n(?:</div>\s*\n)+)(?:</div>\s*\n)+(?=\s*<script>|\s*<div data-view=)",
+        r"\1",
+        html,
+        count=1,
+        flags=re.I,
+    )
+    return html
+
+
+def fix_discoveries_tools_bar_closure(html: str) -> str:
+    """Close tools-bar before charter-layout (repairs a bad div-stripping pass)."""
+    if 'data-tools="inventions"' not in html or "charter-layout inventions-layout" not in html:
+        return html
+
+    bar_m = re.search(r'<div class="tools-bar tools-bar--inventions"[^>]*>', html, re.I)
+    charter_m = re.search(r'<div class="charter-layout inventions-layout', html, re.I)
+    if not bar_m or not charter_m or charter_m.start() <= bar_m.start():
+        return html
+
+    chunk = html[bar_m.start() : charter_m.start()]
+    opens = len(re.findall(r"<div\b", chunk, re.I))
+    closes = chunk.count("</div>")
+    missing = opens - closes
+    if missing <= 0:
+        return html
+
+    insert = "</div>\n" * missing
+    return html[: charter_m.start()] + insert + html[charter_m.start() :]
+
+
+def ensure_discoveries_page_layout(html: str) -> str:
+    """Match wisdom stories shell: inventions-page-body > page-home__content > hero, toolbar, catalog."""
+    if "inventions-page-body" not in html:
+        return html
+    if 'class="page-inventions"' not in html and 'data-kt-page-id="discoveries-and-inventions"' not in html:
+        return html
+
+    if "stories-page-body" not in html:
+        html = html.replace(
+            'class="inventions-page-body"',
+            'class="inventions-page-body stories-page-body"',
+            1,
+        )
+
+    if "page-home__content" not in html:
+        html = re.sub(
+            r'(<div class="inventions-page-body stories-page-body">)',
+            r'\1<div class="page-home__content">',
+            html,
+            count=1,
+        )
+
+    html = fix_discoveries_tools_bar_closure(html)
+
+    html = re.sub(
+        r'(<div class="charter-layout inventions-layout)(?![^"]*\bstories-layout\b)',
+        r"\1 stories-layout",
+        html,
+        count=1,
+    )
+
+    if "page-home__content" in html and not re.search(
+        r"</div>\s*</div>\s*</div>\s*</div>\s*</main>", html, re.I
+    ):
+        html = re.sub(
+            r"(\n</div>\s*\n</div>\s*\n</div>)\s*\n\s*</main>",
+            r"\1\n  </div>\n</main>",
+            html,
+            count=1,
+            flags=re.I,
+        )
+
+    return html
+
+
 def normalize_home_page_body_wrappers(html: str) -> str:
     """Collapse stacked inventions-page-body wrappers and extra closing divs before </main>."""
     if "page-home__content" not in html:
@@ -2416,13 +2713,11 @@ def ensure_stories_inventions_chrome(html: str) -> str:
             html,
             count=1,
         )
-        html = re.sub(
-            r'(<div class="tools-bar__field">\s*<span class="tools-bar__label" id="tools-listen-page-label")',
-            r'<div class="tools-bar__field" data-inventions-list-only hidden>\1',
-            html,
-            count=1,
-        )
 
+    html = strip_tools_bar_listen_page(html)
+    lang_match = re.search(r'<html[^>]*\blang="([a-z]{2})"', html, re.I)
+    if lang_match:
+        html = ensure_story_toolbar_list_controls(html, lang_match.group(1))
     if is_home and "inventions-page-body" not in html:
         html = re.sub(
             r'(<div class="page-home__content">)',
@@ -2439,6 +2734,7 @@ def ensure_stories_inventions_chrome(html: str) -> str:
         )
 
     if is_home:
+        html = fix_home_section_structure(html)
         html = normalize_home_page_body_wrappers(html)
 
     return html
@@ -3011,6 +3307,7 @@ def patch_emitted_html(
         if DISABLE_DISCOVERY_VIDEOS:
             html = strip_ocaq_videos(html)
         html = ensure_discoveries_hero_html(html, lang)
+        html = ensure_discoveries_page_layout(html)
         html = ensure_discoveries_heading_order(html)
         html = strip_unused_inventions_scripts(html)
         html = slim_discoveries_search(html)
@@ -3020,6 +3317,9 @@ def patch_emitted_html(
     html = strip_data_audio(html)
     html = localize_story_figure_labels(html, lang)
     html = ensure_story_listen_markup(html, lang)
+    html = strip_tools_bar_listen_page(html)
+    html = ensure_story_toolbar_list_controls(html, lang)
+    html = ensure_inventions_toolbar_list_controls(html, lang)
     html = strip_google_fonts(html)
     html = strip_stories_json_refs(html)
     html = ensure_shared_site_js_tags(html, lang, rel_path)

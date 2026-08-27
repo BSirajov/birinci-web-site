@@ -66,6 +66,7 @@
     "search_filter_label": "Поиск",
     "search_results_count": "{n} результатов",
     "clear_search_filter": "Сбросить фильтр",
+    "clear_search": "Очистить поиск",
     "category_filter": "Категория",
     "clear_filter": "Сбросить фильтр",
     "view": "Вид",

@@ -66,6 +66,7 @@
     "search_filter_label": "Axtarış",
     "search_results_count": "{n} nəticə",
     "clear_search_filter": "Filtri təmizlə",
+    "clear_search": "Axtarışı təmizlə",
     "category_filter": "Kateqoriya",
     "clear_filter": "Filtri sil",
     "view": "Görüntü",
@@ -206,7 +207,7 @@
     "inventions": {
       "page_title": "Kəşf və ixtiralar",
       "summary_title": "Xülasə",
-      "overview_button": "Kateqoriyalar üzrə icmal",
+      "overview_button": "Kateqoriyalar üzrə cədvəl",
       "references_button": "İstinadlar",
       "page_description": "Bu səhifədə bəşəriyyətin elm, mədəniyyət və mənəvi irsi haqqında məlumatlar təqdim olunur. Niyyətimiz bu dəyərli irsi qoruyub gələcək nəsillərə çatdırmaqdır.",
       "card_description": "Odun əhliləşdirilməsindən süni intellektə qədər insanlığın qət etdiyi yolu əks etdirən maraqlı məqalələr toplusu. Bu məqalələr kəşf və ixtiraların necə ərsəyə gəldiyini, elmə təsirini və gündəlik həyatımızı necə dəyişdiyini izah edir.",
