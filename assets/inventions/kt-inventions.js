@@ -284,25 +284,28 @@
   }
 
   function stickyScrollOffset() {
-    var root = document.documentElement;
-    var style = window.getComputedStyle(root);
-    var stack = parseFloat(style.getPropertyValue("--kt-sticky-top-stack"));
-    if (!isFinite(stack) || stack <= 0) {
-      stack = parseFloat(style.getPropertyValue("--kt-nav-height"));
-      if (!isFinite(stack) || stack <= 0) {
-        var nav = document.querySelector(".nav-strip");
-        stack = nav ? nav.getBoundingClientRect().height : 86;
-      }
-      var crumbsH = parseFloat(style.getPropertyValue("--kt-breadcrumbs-height"));
-      if (isFinite(crumbsH) && crumbsH > 0) {
-        stack += crumbsH;
+    // Prefer live sticky chrome (header + breadcrumbs) — matches --sticky-stack-bottom.
+    var headerEl = document.querySelector(".site-header");
+    var crumbsEl = document.querySelector(".breadcrumbs");
+    var stack = 0;
+    if (headerEl) stack = Math.max(stack, headerEl.getBoundingClientRect().bottom);
+    if (crumbsEl) stack = Math.max(stack, crumbsEl.getBoundingClientRect().bottom);
+    if (stack <= 0) {
+      var root = document.documentElement;
+      var style = window.getComputedStyle(root);
+      var cssStack = parseFloat(style.getPropertyValue("--sticky-stack-bottom"));
+      if (isFinite(cssStack) && cssStack > 0) {
+        stack = cssStack;
       } else {
-        var crumbs = document.getElementById("kt-breadcrumbs");
-        if (crumbs) stack += crumbs.getBoundingClientRect().height;
+        var headerH = parseFloat(style.getPropertyValue("--header-h")) || 68;
+        var crumbH = parseFloat(style.getPropertyValue("--breadcrumb-h")) || 43;
+        stack = headerH + crumbH;
       }
     }
-    var gap = parseFloat(style.getPropertyValue("--kt-scroll-anchor-gap"));
-    if (!isFinite(gap) || gap <= 0) gap = 20;
+    var gap = parseFloat(
+      window.getComputedStyle(document.documentElement).getPropertyValue("--kt-scroll-anchor-gap")
+    );
+    if (!isFinite(gap) || gap <= 0) gap = 16;
     return Math.ceil(stack) + gap;
   }
 
@@ -1027,17 +1030,43 @@
       return Pos.scrollToAnchor(id, false);
     }
 
-    var root = document.documentElement;
-    var prevBehavior = root.style.scrollBehavior;
-    var top =
-      target.getBoundingClientRect().top +
-      (window.pageYOffset || root.scrollTop || 0) -
-      stickyScrollOffset();
+    if (typeof window.__birinciSyncStickyChrome === "function") {
+      window.__birinciSyncStickyChrome();
+    }
 
-    root.style.scrollBehavior = "auto";
-    window.scrollTo({ top: Math.max(0, Math.round(top)), left: 0, behavior: "auto" });
-    window.requestAnimationFrame(function () {
+    var align = function () {
+      var el = resolveScrollTarget(id);
+      if (!el) return;
+      var root = document.documentElement;
+      var prevBehavior = root.style.scrollBehavior;
+      root.style.scrollBehavior = "auto";
+      var offset = stickyScrollOffset();
+      var y =
+        el.getBoundingClientRect().top +
+        (window.pageYOffset || root.scrollTop || 0) -
+        offset;
+      window.scrollTo(0, Math.max(0, Math.round(y)));
+      // Second pass: deep breadcrumb / sticky heights can change after setActive.
+      var topAfter = el.getBoundingClientRect().top;
+      if (Math.abs(topAfter - offset) > 2) {
+        window.scrollTo(
+          0,
+          Math.max(
+            0,
+            Math.round(
+              el.getBoundingClientRect().top +
+                (window.pageYOffset || root.scrollTop || 0) -
+                stickyScrollOffset()
+            )
+          )
+        );
+      }
       root.style.scrollBehavior = prevBehavior;
+    };
+
+    align();
+    window.requestAnimationFrame(function () {
+      window.requestAnimationFrame(align);
     });
     return true;
   }
@@ -1058,6 +1087,7 @@
 
     window.requestAnimationFrame(function () {
       window.requestAnimationFrame(function () {
+        jumpToTarget(id);
         setActive(id, { force: true, forceSidebarScroll: true });
       });
     });

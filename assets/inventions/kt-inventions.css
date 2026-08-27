@@ -4,17 +4,12 @@
  */
 
 body.inventions-preview-page {
-  scroll-padding-top: calc(
-    var(--kt-sticky-top-stack, var(--kt-nav-height, 86px)) +
-      var(--kt-scroll-anchor-gap, 1.25rem)
-  );
+  scroll-padding-top: calc(var(--sticky-stack-bottom, 7rem) + 16px);
 }
 
 .inventions-preview-page .toc-card {
   position: sticky;
-  top: calc(
-    var(--kt-sticky-top-stack, var(--kt-nav-height, 86px)) + 16px
-  );
+  top: calc(var(--sticky-stack-bottom, 7rem) + 16px);
 }
 
 .inventions-preview-banner {
@@ -160,10 +155,7 @@ body.inventions-preview-page {
 
 .inventions-category {
   margin-bottom: 40px;
-  scroll-margin-top: calc(
-    var(--kt-sticky-top-stack, var(--kt-nav-height, 86px)) +
-      var(--kt-scroll-anchor-gap, 1.25rem)
-  );
+  scroll-margin-top: calc(var(--sticky-stack-bottom, 7rem) + 16px);
 }
 
 .inventions-category-head {
@@ -178,6 +170,7 @@ body.inventions-preview-page {
   margin: 0 0 14px;
   padding: 16px 20px;
   text-align: center;
+  scroll-margin-top: calc(var(--sticky-stack-bottom, 7rem) + 16px);
 }
 
 .inventions-category-head--collapsible {
@@ -249,18 +242,12 @@ body.inventions-preview-page {
   margin: 0 0 16px;
   overflow: hidden;
   padding: 22px 22px 20px;
-  scroll-margin-top: calc(
-    var(--kt-sticky-top-stack, var(--kt-nav-height, 86px)) +
-      var(--kt-scroll-anchor-gap, 1.25rem)
-  );
+  scroll-margin-top: calc(var(--sticky-stack-bottom, 7rem) + 16px);
 }
 
 .inventions-entry-title,
 .inventions-category-head {
-  scroll-margin-top: calc(
-    var(--kt-sticky-top-stack, var(--kt-nav-height, 86px)) +
-      var(--kt-scroll-anchor-gap, 1.25rem)
-  );
+  scroll-margin-top: calc(var(--sticky-stack-bottom, 7rem) + 16px);
 }
 
 .inventions-entry:last-child {

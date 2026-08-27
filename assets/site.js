@@ -1988,6 +1988,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       root.style.setProperty("--breadcrumb-h", `${Math.ceil(crumbs.getBoundingClientRect().height)}px`);
     }
   };
+  window.__birinciSyncStickyChrome = syncStickyChrome;
 
   /**
    * Append the active story / discovery article to the sticky breadcrumb trail.
@@ -2522,6 +2523,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     if (document.body) document.body.scrollTop = 0;
     window.scrollTo(0, 0);
     history.replaceState(null, "", window.location.pathname + window.location.search);
+    if (typeof window.__birinciClearDeepCrumb === "function") {
+      window.__birinciClearDeepCrumb();
+    }
     requestAnimationFrame(() => {
       html.classList.remove("no-smooth-scroll");
     });
@@ -3266,11 +3270,13 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
   /**
    * DAAB News-style sidebar: sticky TOC, scroll-spy, mobile accordion.
-   * Scroll-spy keeps the left list in sync with the right-hand stories;
-   * scrolling either panel updates the other (desktop list view).
+   * Main-page scroll updates the TOC highlight; clicking a TOC item scrolls
+   * the story into view. Sidebar list scrolling does not drive the page.
    */
   const bindStorySidebarLayout = (layout) => {
     if (!layout) return null;
+    // Discoveries uses kt-inventions.js scroll-spy; avoid a second sidebar→main sync.
+    if (document.body.classList.contains("page-inventions")) return null;
     if (layout.__birinciSidebar) {
       layout.__birinciSidebar.refresh();
       return layout.__birinciSidebar;
@@ -3289,7 +3295,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     let programmaticLock = false;
     let lockTimer = null;
     let sidebarScrollSilent = false;
-    let sidebarScrollRaf = 0;
 
     const closeMenu = () => {
       if (!widget || !toggle) return;
@@ -3303,26 +3308,84 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     };
 
     const stickyScrollOffset = () => {
-      const root = document.documentElement;
-      const style = window.getComputedStyle(root);
-      let stack = parseFloat(style.getPropertyValue("--kt-sticky-top-stack"));
-      if (!Number.isFinite(stack) || stack <= 0) {
-        stack = parseFloat(style.getPropertyValue("--kt-nav-height"));
-        if (!Number.isFinite(stack) || stack <= 0) {
-          const navStrip = document.querySelector(".nav-strip");
-          stack = navStrip ? navStrip.getBoundingClientRect().height : 86;
-        }
-        const crumbsH = parseFloat(style.getPropertyValue("--kt-breadcrumbs-height"));
-        if (Number.isFinite(crumbsH) && crumbsH > 0) {
-          stack += crumbsH;
+      // Prefer live sticky chrome (header + breadcrumbs) — matches --sticky-stack-bottom.
+      const headerEl = document.querySelector(".site-header");
+      const crumbsEl = document.querySelector(".breadcrumbs");
+      let stack = 0;
+      if (headerEl) stack = Math.max(stack, headerEl.getBoundingClientRect().bottom);
+      if (crumbsEl) stack = Math.max(stack, crumbsEl.getBoundingClientRect().bottom);
+      if (stack <= 0) {
+        const root = document.documentElement;
+        const style = window.getComputedStyle(root);
+        const cssStack = parseFloat(style.getPropertyValue("--sticky-stack-bottom"));
+        if (Number.isFinite(cssStack) && cssStack > 0) {
+          stack = cssStack;
         } else {
-          const crumbs = document.getElementById("kt-breadcrumbs");
-          if (crumbs) stack += crumbs.getBoundingClientRect().height;
+          const headerH = parseFloat(style.getPropertyValue("--header-h")) || 68;
+          const crumbH = parseFloat(style.getPropertyValue("--breadcrumb-h")) || 43;
+          stack = headerH + crumbH;
         }
       }
-      let gap = parseFloat(style.getPropertyValue("--kt-scroll-anchor-gap"));
-      if (!Number.isFinite(gap) || gap <= 0) gap = 20;
+      let gap = parseFloat(
+        window.getComputedStyle(document.documentElement).getPropertyValue("--kt-scroll-anchor-gap")
+      );
+      if (!Number.isFinite(gap) || gap <= 0) gap = 16;
       return Math.ceil(stack) + gap;
+    };
+
+    const storyHeaderEl = (storyEl) =>
+      (storyEl &&
+        (storyEl.querySelector(".card-header") ||
+          storyEl.querySelector(".story__title, .card-title, h2, h1"))) ||
+      storyEl;
+
+    const scrollMainToStory = (link, options = {}) => {
+      const resolved = resolveStoryTarget(link);
+      if (!resolved) return false;
+      const { id, target } = resolved;
+      expandStoryContext(link, target);
+      setActive(link, { skipSidebarScroll: true, force: !!options.force });
+      if (typeof syncStickyChrome === "function") syncStickyChrome();
+
+      const alignStoryHeader = () => {
+        const scrollTarget = storyHeaderEl(target);
+        if (!scrollTarget) return;
+        const root = document.documentElement;
+        const prevBehavior = root.style.scrollBehavior;
+        root.style.scrollBehavior = "auto";
+        const offset = stickyScrollOffset();
+        const y =
+          scrollTarget.getBoundingClientRect().top +
+          (window.pageYOffset || root.scrollTop || 0) -
+          offset;
+        window.scrollTo(0, Math.max(0, Math.round(y)));
+        // Second pass: breadcrumb depth / sticky heights can change after setActive.
+        const topAfter = scrollTarget.getBoundingClientRect().top;
+        if (Math.abs(topAfter - offset) > 2) {
+          window.scrollTo(
+            0,
+            Math.max(
+              0,
+              Math.round(
+                scrollTarget.getBoundingClientRect().top +
+                  (window.pageYOffset || root.scrollTop || 0) -
+                  stickyScrollOffset()
+              )
+            )
+          );
+        }
+        root.style.scrollBehavior = prevBehavior;
+      };
+
+      alignStoryHeader();
+      requestAnimationFrame(() => {
+        requestAnimationFrame(alignStoryHeader);
+      });
+
+      try {
+        commitHistoryHref(`${window.location.pathname}${window.location.search}#${id}`);
+      } catch (_) {}
+      return true;
     };
 
     const isStoryVisible = (el) => {
@@ -3374,88 +3437,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       return { id, target, link };
     };
 
-    const scrollMainToStory = (link, options = {}) => {
-      const resolved = resolveStoryTarget(link);
-      if (!resolved) return false;
-      const { id, target } = resolved;
-      expandStoryContext(link, target);
-      setActive(link, { skipSidebarScroll: true, force: !!options.force });
-
-      const scrollTarget =
-        target.querySelector(".card-header, .story__title, .inventions-category-head, h2, h1") ||
-        target;
-      const root = document.documentElement;
-      const prevBehavior = root.style.scrollBehavior;
-      root.style.scrollBehavior = "auto";
-      const top =
-        scrollTarget.getBoundingClientRect().top +
-        (window.pageYOffset || root.scrollTop || 0) -
-        stickyScrollOffset();
-      window.scrollTo({ top: Math.max(0, Math.round(top)), left: 0, behavior: "auto" });
-      root.style.scrollBehavior = prevBehavior;
-
-      try {
-        commitHistoryHref(`${window.location.pathname}${window.location.search}#${id}`);
-      } catch (_) {}
-      return true;
-    };
-
-    const isSidebarLinkVisible = (link) => {
-      const li = link.closest("li");
-      if (!li || li.classList.contains("is-hidden")) return false;
-      const groupBody = li.closest(".toc-group__body");
-      if (groupBody) {
-        const group = groupBody.closest(".toc-group");
-        if (group && !group.classList.contains("events-open")) return false;
-      }
-      if (li.offsetParent === null) return false;
-      const rect = li.getBoundingClientRect();
-      if (rect.height <= 0) return false;
-      if (!widgetBody) return true;
-      const bodyRect = widgetBody.getBoundingClientRect();
-      return rect.bottom > bodyRect.top && rect.top < bodyRect.bottom;
-    };
-
-    const pickActiveLinkFromSidebar = () => {
-      if (!widgetBody) return null;
-      const bodyRect = widgetBody.getBoundingClientRect();
-      const anchor = bodyRect.top + 16;
-      const visibleLinks = links.filter(isSidebarLinkVisible);
-      if (!visibleLinks.length) return null;
-      let active = null;
-      for (let i = 0; i < visibleLinks.length; i += 1) {
-        const li = visibleLinks[i].closest("li");
-        if (!li) continue;
-        const top = li.getBoundingClientRect().top;
-        if (top <= anchor + 2) {
-          active = visibleLinks[i];
-        } else if (active) {
-          break;
-        }
-      }
-      return active || visibleLinks[0];
-    };
-
-    const updateActiveFromSidebarScroll = () => {
-      if (sidebarScrollSilent || programmaticLock || mobileQuery.matches || !widgetBody) return;
-      const link = pickActiveLinkFromSidebar();
-      if (!link || link === lastActiveLink) return;
-      programmaticLock = true;
-      scrollMainToStory(link, { force: true });
-      clearTimeout(lockTimer);
-      lockTimer = setTimeout(() => {
-        programmaticLock = false;
-        updateActive(true);
-      }, 500);
-    };
-
-    const scheduleSidebarScrollSync = () => {
-      if (sidebarScrollRaf) return;
-      sidebarScrollRaf = window.requestAnimationFrame(() => {
-        sidebarScrollRaf = 0;
-        updateActiveFromSidebarScroll();
-      });
-    };
+    // Intentionally no sidebar→main sync on TOC scroll. Browsing the list must
+    // not jump the page (or yank the list back via scroll-spy). Clicks still
+    // call scrollMainToStory; main→sidebar spy keeps the highlight in sync.
 
     const expandStoryContext = (link, targetEl) => {
       const li = link && link.closest("li");
@@ -3674,9 +3658,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       passive: true,
     });
     window.addEventListener("resize", handleLayoutResize, { passive: true });
-    if (widgetBody) {
-      widgetBody.addEventListener("scroll", scheduleSidebarScrollSync, { passive: true });
-    }
 
     const api = { refresh, closeMenu, updateActive };
     layout.__birinciSidebar = api;

@@ -13,7 +13,7 @@ from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 
-ROOT = Path(r"c:\dev\birinci-web-site")
+ROOT = Path(__file__).resolve().parents[1]
 REPORT = ROOT / "tools" / "_qa_report.txt"
 LANGS = ("az", "en", "ru", "ky")
 WIDTHS = (360, 390, 768, 1024, 1440)
@@ -194,24 +194,24 @@ def structural() -> None:
         ),
     )
     check(
-        "body > .page-jump keeps fixed",
-        bool(re.search(r"body\s*>\s*\.page-jump\s*\{[^}]*position:\s*fixed", site, re.S)),
+        ".page-jump keeps position:fixed",
+        bool(re.search(r"\.page-jump\s*\{[^}]*position:\s*fixed", site, re.S)),
     )
     check(
-        "story body uses Source Sans 3 token (--font-ui)",
+        "story body uses --font-body token",
         bool(
             re.search(
-                r"\.story__text,\s*\.story \.card-text\s*\{[^}]*font-family:\s*var\(--font-ui\)",
+                r"\.story__text,\s*\.story \.card-text\s*\{[^}]*font-family:\s*var\(--font-body\)",
                 site,
                 re.S,
             )
         ),
     )
     check(
-        "story body color is black",
+        "story body color uses --ink-soft",
         bool(
             re.search(
-                r"\.story__text,\s*\.story \.card-text\s*\{[^}]*color:\s*#000",
+                r"\.story__text,\s*\.story \.card-text\s*\{[^}]*color:\s*var\(--ink-soft\)",
                 site,
                 re.S,
             )
@@ -344,13 +344,13 @@ def playwright_matrix() -> None:
 
                 if label == "category" and w == 1440 and data["storyColor"]:
                     check(
-                        "story body is black",
-                        data["storyColor"] == "rgb(0, 0, 0)",
+                        "story body uses ink-soft color",
+                        data["storyColor"] in ("rgb(52, 95, 134)", "rgba(52, 95, 134, 1)"),
                         data["storyColor"],
                     )
                     check(
-                        "story body Source Sans 3",
-                        "Source Sans 3" in (data["storyFont"] or ""),
+                        "story body uses Source Serif 4",
+                        "Source Serif 4" in (data["storyFont"] or ""),
                         data["storyFont"],
                     )
                     if data["storyLH"] and data["storyFS"]:
@@ -358,8 +358,8 @@ def playwright_matrix() -> None:
                             data["storyFS"].replace("px", "")
                         )
                         check(
-                            "story line-height ~1.3",
-                            1.25 <= ratio <= 1.35,
+                            "story line-height ~1.55",
+                            1.50 <= ratio <= 1.60,
                             f"ratio={ratio:.3f}",
                         )
 
@@ -421,6 +421,12 @@ def crumbs_expected(label: str) -> bool:
 
 
 def main() -> int:
+    if sys.platform == "win32":
+        for stream in (sys.stdout, sys.stderr):
+            try:
+                stream.reconfigure(encoding="utf-8")
+            except Exception:
+                pass
     log(f"Birİnci Full Site QA — {datetime.now(timezone.utc).isoformat()}")
     log(f"Root: {ROOT}")
     structural()

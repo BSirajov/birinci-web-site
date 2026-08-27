@@ -1304,6 +1304,49 @@ def pin_asset_versions(html: str) -> str:
     return html
 
 
+_HOME_VIEW_TOGGLE_RE = re.compile(
+    r"\n\s*document\.body\.classList\.toggle\(\"inventions-view-cards\", view === \"cards\"\);\s*"
+    r"\n\s*document\.body\.classList\.toggle\(\"inventions-view-list\", view === \"list\"\);\s*",
+    re.I,
+)
+
+
+def dedupe_home_apply_view(html: str) -> str:
+    """Strip duplicated inventions-view toggles from home inline applyView()."""
+    if 'function applyView(view' not in html:
+        return html
+    while _HOME_VIEW_TOGGLE_RE.search(html):
+        html = _HOME_VIEW_TOGGLE_RE.sub("\n", html)
+    html = re.sub(
+        r"(?m)^document\.body\.classList\.toggle\(\"inventions-view-cards\", view === \"cards\"\);\s*\n"
+        r"\s*document\.body\.classList\.toggle\(\"inventions-view-list\", view === \"list\"\);\s*\n",
+        "",
+        html,
+    )
+    html = re.sub(
+        r"function applyView\(view\)\s*\{",
+        'function applyView(view, opts) {\n    opts = opts || {};',
+        html,
+        count=1,
+    )
+    if 'document.documentElement.setAttribute("data-home-view"' not in html:
+        html = html.replace(
+            "    window.__birinciHomeView = view;\n    try {\n"
+            '      localStorage.setItem("birinci-home-view", view);',
+            "    window.__birinciHomeView = view;\n    try {\n"
+            '      document.documentElement.setAttribute("data-home-view", view);\n'
+            "    } catch (_) {}\n    try {\n"
+            '      localStorage.setItem("birinci-home-view", view);',
+        )
+    html = html.replace(
+        '    if (view === "list" && prev !== "list") scrollHomeToolsIntoView();',
+        "    if (opts.scroll !== false && view === \"list\" && prev && prev !== \"list\") {\n"
+        "      scrollHomeToolsIntoView();\n"
+        "    }",
+    )
+    return html
+
+
 _STORY_TTS_GROUP_RE = re.compile(
     r"[ \t]*<div class=\"story__action-group\">\s*"
     r"<span class=\"tools-bar__label\">[^<]*</span>\s*"
@@ -3327,6 +3370,8 @@ def patch_emitted_html(
     html = ensure_sidebar_expand_collapse_buttons(html, lang)
     html = strip_pagination_control(html)
     html = pin_asset_versions(html)
+    if rel_path.endswith("/index.html") and 'class="page-home"' in html:
+        html = dedupe_home_apply_view(html)
     html = ensure_seo_head(html, lang, rel_path)
     html = rewrite_content_media_paths(html)
     return html
@@ -4012,6 +4057,9 @@ def apply_all_html() -> int:
         disc = base / "discoveries" / "discoveries-and-inventions.html"
         if disc.is_file():
             paths.append(disc)
+        prominent = base / "prominent-figures" / "index.html"
+        if prominent.is_file():
+            paths.append(prominent)
         cat = base / "categories"
         if cat.is_dir():
             paths.extend(sorted(cat.glob("*.html")))
