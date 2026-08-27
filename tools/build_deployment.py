@@ -174,6 +174,25 @@ def find_discovery_leaks(tree: Path) -> list[tuple[str, str]]:
     return leaks
 
 
+def reset_deploy_dir(path: Path) -> None:
+    """Remove a prior publish tree; on Windows keep the folder if it is locked open."""
+    if not path.exists():
+        path.mkdir(parents=True, exist_ok=True)
+        return
+    try:
+        shutil.rmtree(path)
+    except OSError:
+        for child in path.iterdir():
+            if child.is_dir():
+                shutil.rmtree(child, ignore_errors=True)
+            else:
+                try:
+                    child.unlink()
+                except OSError:
+                    pass
+    path.mkdir(parents=True, exist_ok=True)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -189,9 +208,7 @@ def main() -> None:
         PUBLISH_DISCOVERIES_ENV, ""
     ).strip().lower() in {"1", "true", "yes", "on"}
 
-    if DEPLOY.exists():
-        shutil.rmtree(DEPLOY)
-    DEPLOY.mkdir(parents=True)
+    reset_deploy_dir(DEPLOY)
 
     for name in ("index.html", "robots.txt", "sitemap.xml", "404.html"):
         src = ROOT / name
