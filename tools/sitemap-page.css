@@ -214,7 +214,7 @@
   text-decoration: none;
 }
 .page-sitemap .sitemap-section__more::after {
-  content: "â†’";
+  content: "\2192";
   font-size: 1rem;
   transition: transform var(--duration) var(--ease-outro);
 }
@@ -557,7 +557,7 @@
   transition: background var(--duration) var(--ease-outro), color var(--duration) var(--ease-outro);
 }
 .page-sitemap .sitemap-links a::after {
-  content: "â€º";
+  content: "\203A";
   flex: 0 0 auto;
   color: var(--blue-mid);
   font-size: 1.05rem;
