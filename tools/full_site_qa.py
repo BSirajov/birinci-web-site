@@ -51,6 +51,12 @@ def file_hash(path: Path) -> str:
 
 def structural() -> None:
     log("=== Structural / cache / deploy ===")
+    pyc = ROOT / "tools" / "_bytecode_backup" / "build_website.cpython-314.pyc"
+    check(
+        "build_website CPython 3.14 bytecode backup present",
+        pyc.is_file(),
+        str(pyc.relative_to(ROOT)) if pyc.is_file() else "missing tools/_bytecode_backup/build_website.cpython-314.pyc",
+    )
     # Asset version drift on live locale HTML (exclude deployment for primary)
     # Only stylesheet/script cache-bust under /assets/ (ignore icons & YouTube)
     ver_re = re.compile(

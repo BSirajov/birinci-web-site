@@ -67,7 +67,6 @@ def main() -> None:
 
     src = Image.open(SRC).convert("RGBA")
     sizes_png = {
-        "favicon-16.png": 16,
         "favicon-32.png": 32,
         "favicon-48.png": 48,
         "favicon.png": 192,

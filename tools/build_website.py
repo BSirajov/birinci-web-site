@@ -41,7 +41,24 @@ from i18n_config import (  # noqa: E402
 )
 
 
+def _require_build_prereqs() -> None:
+    """Fail fast if the recovered 3.14 bytecode (or matching Python) is missing."""
+    if sys.version_info[:2] != (3, 14):
+        raise SystemExit(
+            "build_website requires Python 3.14 "
+            f"(found {sys.version_info.major}.{sys.version_info.minor}). "
+            "The recovered builder is CPython 3.14 bytecode under "
+            "tools/_bytecode_backup/."
+        )
+    if not any(pyc.is_file() for pyc in _CANDIDATES):
+        raise FileNotFoundError(
+            "Missing build_website bytecode backup under tools/_bytecode_backup "
+            "(expected build_website.cpython-314.pyc)."
+        )
+
+
 def _bootstrap() -> None:
+    _require_build_prereqs()
     for pyc in _CANDIDATES:
         if not pyc.is_file():
             continue

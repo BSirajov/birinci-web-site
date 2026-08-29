@@ -25,7 +25,7 @@ from i18n_config import rewrite_content_media_paths, story_illustrations_dir  # 
 DISABLE_DISCOVERY_VIDEOS = True
 
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
-SITE_ASSET_VERSION = "20260827c2"
+SITE_ASSET_VERSION = "20260829h7"
 SITE_PUBLIC_ORIGIN = "https://birinci.cloud"
 LIVE_LANGS = ("az", "en", "ru", "ky")
 OG_IMAGE_URL = f"{SITE_PUBLIC_ORIGIN}/assets/pearl-hero.webp"
@@ -1904,9 +1904,92 @@ _FOOTER_WEBSITE_LABEL_RE = re.compile(
     r'<span class="footer-contact__label">[^<]*</span>',
     re.I,
 )
+_FOOTER_WEBSITE_LI_RE = re.compile(
+    r'(<li>\s*<a class="footer-contact__link" href="https://birinci\.cloud"[^>]*>'
+    r"[\s\S]*?</a>\s*</li>)",
+    re.I,
+)
+_FOOTER_EMAIL_LI = (
+    "            <li>\n"
+    '              <a class="footer-contact__link" href="mailto:info@birinci.cloud">\n'
+    '                <span class="menu-icon menu-icon--mail" aria-hidden="true" '
+    'style="--icon-from:#a855f7;--icon-to:#7c3aed;--icon-glow:#d8b4fe">'
+    '<svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" '
+    'fill="none" stroke="#fff" stroke-width="2.15" stroke-linecap="round" '
+    'stroke-linejoin="round">'
+    '<rect width="20" height="16" x="2" y="4" rx="2"/>'
+    '<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>'
+    "</svg></span>\n"
+    '                <span class="footer-contact__value">info@birinci.cloud</span>\n'
+    "              </a>\n"
+    "            </li>"
+)
+_FOOTER_CONTACT_TITLE_FALLBACKS = {
+    "az": {"website": "Veb sayt", "email": "E-poçt"},
+    "en": {"website": "Website", "email": "Email"},
+    "ru": {"website": "Сайт", "email": "Эл. почта"},
+    "ky": {"website": "Веб-сайт", "email": "Электрондук почта"},
+}
+_FOOTER_CONTACT_LINK_RE = re.compile(
+    r'(<a class="footer-contact__link" href="([^"]*)"[^>]*>)([\s\S]*?)(</a>)',
+    re.I,
+)
 
 
-def ensure_footer_contact_html(markup: str) -> str:
+def _footer_contact_titles(lang: str) -> tuple[str, str]:
+    fallback = _FOOTER_CONTACT_TITLE_FALLBACKS.get(lang) or _FOOTER_CONTACT_TITLE_FALLBACKS["en"]
+    try:
+        ui = (_load_locale(lang).get("ui") or {})
+    except (OSError, json.JSONDecodeError, TypeError):
+        ui = {}
+    return (
+        str(ui.get("footer_website") or fallback["website"]),
+        str(ui.get("footer_email") or fallback["email"]),
+    )
+
+
+def _set_or_replace_title(tag: str, title: str) -> str:
+    escaped = html.escape(title, quote=True)
+    if re.search(r"\btitle=", tag, re.I):
+        return re.sub(r'\btitle="[^"]*"', f'title="{escaped}"', tag, count=1, flags=re.I)
+    if tag.endswith("/>"):
+        return tag[:-2] + f' title="{escaped}"/>'
+    if tag.endswith(">"):
+        return tag[:-1] + f' title="{escaped}">'
+    return tag
+
+
+def _apply_footer_contact_titles(markup: str, website: str, email: str) -> str:
+    def repl(match: re.Match[str]) -> str:
+        href = match.group(2) or ""
+        if href.lower().startswith("mailto:"):
+            title = email
+        elif "birinci.cloud" in href.lower():
+            title = website
+        else:
+            return match.group(0)
+        open_tag = _set_or_replace_title(match.group(1), title)
+        inner = match.group(3)
+        inner = re.sub(
+            r'<span class="menu-icon[^"]*"[^>]*>',
+            lambda sm: _set_or_replace_title(sm.group(0), title),
+            inner,
+            count=1,
+            flags=re.I,
+        )
+        inner = re.sub(
+            r'<span class="footer-contact__value"[^>]*>',
+            lambda sm: _set_or_replace_title(sm.group(0), title),
+            inner,
+            count=1,
+            flags=re.I,
+        )
+        return open_tag + inner + match.group(4)
+
+    return _FOOTER_CONTACT_LINK_RE.sub(repl, markup)
+
+
+def ensure_footer_contact_html(markup: str, lang: str = "az") -> str:
     if "footer-col--contact" not in markup:
         return markup
     markup = _FOOTER_CONTACT_URL_RE.sub("", markup)
@@ -1915,7 +1998,17 @@ def ensure_footer_contact_html(markup: str) -> str:
             r'\1\n                <span class="footer-contact__value">birinci.cloud</span>',
             markup,
         )
-    return markup
+    if "mailto:info@birinci.cloud" not in markup:
+        match = _FOOTER_WEBSITE_LI_RE.search(markup)
+        if match:
+            markup = (
+                markup[: match.end()]
+                + "\n"
+                + _FOOTER_EMAIL_LI
+                + markup[match.end() :]
+            )
+    website, email = _footer_contact_titles(lang)
+    return _apply_footer_contact_titles(markup, website, email)
 
 
 def _strip_hero_hearth_panel(html: str) -> str:
@@ -2124,19 +2217,31 @@ def _build_stories_summary_panel(lang: str) -> str:
 
 
 def build_stories_hero_html(lang: str) -> str:
+    """Wisdom stories home hero — same .intro layout as root home, with wisdom.webp."""
     data = _load_locale(lang)
+    ui = data.get("ui", {})
     page_title = data.get("nav_stories_label", "İbrətamiz hekayələr")
-    panel = _build_stories_summary_panel(lang)
+    lead = ui.get("stories_summary_p1") or data.get("nav_stories_desc") or ""
+    source = ui.get("intro_source") or ui.get("story_source") or ""
+    alt = html.escape(page_title)
     return (
-        f'<header class="about-hero">\n'
-        f'  <div class="about-hero__wrap">\n'
-        f'    <section class="about-hero__copy">\n'
-        f'      <h1 class="about-hero__title" id="about-hero-title">'
+        '<section class="intro">\n'
+        '    <div class="intro__atmosphere" aria-hidden="true"></div>\n'
+        '    <div class="intro__content">\n'
+        '      <div class="intro__copy">\n'
+        f'        <h1 class="intro__brand" id="about-hero-title">'
         f"{_about_title_html(page_title)}</h1>\n"
-        f"    </section>\n"
-        f"{panel}"
-        f"  </div>\n"
-        f"</header>"
+        f'        <p class="intro__lead">{html.escape(lead)}</p>\n'
+        '        <p class="intro__source">'
+        '<span class="intro__source-ornament" aria-hidden="true"></span>'
+        f'<span class="intro__source-text">{html.escape(source)}</span></p>\n'
+        "      </div>\n"
+        '      <div class="intro__visual">\n'
+        f'        <img src="../assets/wisdom.webp?v={SITE_ASSET_VERSION}" '
+        f'alt="{alt}" width="1128" height="1177" decoding="async" />\n'
+        "      </div>\n"
+        "    </div>\n"
+        "  </section>"
     )
 
 
@@ -2211,7 +2316,7 @@ _ABOUT_HERO_RE = re.compile(
 
 
 def ensure_stories_hero_html(html: str, lang: str) -> str:
-    """Replace legacy .intro hero on stories home with discoveries-style about-hero."""
+    """Keep stories home hero as root-style .intro with wisdom.webp."""
     if "page-root-home" in html:
         return html
     if 'class="page-home"' not in html or 'id="kateqoriyalar"' not in html:
@@ -3329,6 +3434,80 @@ def localize_story_figure_labels(markup: str, lang: str) -> str:
     return markup
 
 
+_LANG_SWITCHER_META = {
+    "az": ("AZ", "Azərbaycan"),
+    "en": ("EN", "English"),
+    "ru": ("RU", "Русский"),
+    "ky": ("KY", "Кыргызча"),
+}
+_LANG_SWITCHER_NAV_RE = re.compile(
+    r'<nav\s+class="lang-switcher(?:\s+lang-switcher--pills)?"[^>]*>[\s\S]*?</nav>',
+    re.I,
+)
+
+
+def _rel_depth_prefix(rel_path: str) -> str:
+    parts = Path(str(rel_path).replace("\\", "/")).parts
+    depth = max(0, len(parts) - 1)
+    return "../" * depth
+
+
+def _sibling_lang_href(rel_path: str, target_lang: str) -> str:
+    parts = list(Path(str(rel_path).replace("\\", "/")).parts)
+    if not parts or parts[0] not in LIVE_LANGS:
+        return f"../{target_lang}/index.html"
+    rest = "/".join(parts[1:])
+    return f"{_rel_depth_prefix(rel_path)}{target_lang}/{rest}"
+
+
+def ensure_lang_switcher_dropdown(markup: str, lang: str, rel_path: str = "") -> str:
+    """Restore the classic header language dropdown (toggle + menu)."""
+    if not _LANG_SWITCHER_NAV_RE.search(markup):
+        return markup
+    code = (lang or "az").lower()[:2]
+    if code not in LIVE_LANGS:
+        code = "az"
+    label = "Language"
+    try:
+        label = str((_load_locale(code).get("ui") or {}).get("lang_switcher_label") or label)
+    except (OSError, json.JSONDecodeError, TypeError, KeyError):
+        pass
+    prefix = _rel_depth_prefix(rel_path) if rel_path else "../"
+    short, title = _LANG_SWITCHER_META[code]
+    options: list[str] = []
+    for other in LIVE_LANGS:
+        o_short, o_title = _LANG_SWITCHER_META[other]
+        href = _sibling_lang_href(rel_path, other) if rel_path else f"{prefix}{other}/index.html"
+        flag = f"{prefix}flags/{other}.svg"
+        selected = "true" if other == code else "false"
+        options.append(
+            f'<a class="lang-switcher__option" role="option" href="{html.escape(href, quote=True)}" '
+            f'hreflang="{other}" data-lang="{other}" aria-selected="{selected}" '
+            f'title="{html.escape(o_title)}">'
+            f'<img class="lang-switcher__flag" src="{html.escape(flag, quote=True)}" '
+            f'alt="" width="20" height="14" decoding="async" /><span>{o_short}</span></a>'
+        )
+    flag_cur = f"{prefix}flags/{code}.svg"
+    nav = (
+        f'<nav class="lang-switcher" aria-label="{html.escape(label)}">'
+        f'<button type="button" class="lang-switcher__toggle" aria-expanded="false" '
+        f'aria-haspopup="listbox" aria-controls="lang-switcher-menu" title="{html.escape(title)}">'
+        f'<img class="lang-switcher__flag" src="{html.escape(flag_cur, quote=True)}" '
+        f'alt="" width="20" height="14" decoding="async" />'
+        f'<span class="lang-switcher__name">{short}</span>'
+        f'<span class="lang-switcher__caret" aria-hidden="true"></span></button>'
+        f'<div class="lang-switcher__menu" id="lang-switcher-menu" role="listbox" '
+        f'popover="manual" hidden>'
+        + "".join(options)
+        + "</div></nav>"
+    )
+    return _LANG_SWITCHER_NAV_RE.sub(nav, markup, count=1)
+
+
+# Back-compat alias (pills belong on story headers, not the top nav)
+ensure_lang_switcher_pills = ensure_lang_switcher_dropdown
+
+
 def patch_emitted_html(
     html: str, lang: str, *, inventions: bool = False, rel_path: str = ""
 ) -> str:
@@ -3339,9 +3518,10 @@ def patch_emitted_html(
     html = ensure_literature_submenu(html, lang)
     html = ensure_literature_nav_label(html, lang)
     html = ensure_stories_inventions_chrome(html)
+    html = ensure_lang_switcher_dropdown(html, lang, rel_path=rel_path)
     html = ensure_footer_about_html(html, lang)
     html = ensure_footer_qr_html(html, lang, rel_path=rel_path)
-    html = ensure_footer_contact_html(html)
+    html = ensure_footer_contact_html(html, lang)
     html = ensure_brand_home_href(html)
     html = ensure_breadcrumb_home_href(html)
     html = ensure_stories_hero_html(html, lang)
@@ -3665,6 +3845,16 @@ _ROOT_ENTRY_SCRIPT = """\
     setAttr(backTop, "aria-label", ui.back_to_top);
     setText(document.querySelector(".footer-logo__tagline"), L.hero_lead);
     setText(document.querySelector(".footer-contact__title"), ui.footer_contact);
+    document.querySelectorAll(".footer-contact__link").forEach(function (link) {
+      var href = link.getAttribute("href") || "";
+      var tip = "";
+      if (href.indexOf("mailto:") === 0) tip = ui.footer_email;
+      else if (href.indexOf("birinci.cloud") !== -1) tip = ui.footer_website;
+      if (!tip) return;
+      setAttr(link, "title", tip);
+      setAttr(link.querySelector(".menu-icon"), "title", tip);
+      setAttr(link.querySelector(".footer-contact__value"), "title", tip);
+    });
     var meta = document.querySelector('meta[name="description"]');
     if (meta && L.meta_description) meta.setAttribute("content", L.meta_description);
     if (L.meta_description) {

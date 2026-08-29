@@ -13,7 +13,7 @@ Examples:
   python tools/generate_story_audio.py --all
   python tools/generate_story_audio.py friend-of-god
   python tools/generate_story_audio.py --all --force
-  python tools/generate_story_audio.py the-value-of-your-family --force
+  python tools/generate_story_audio.py value-of-your-family --force
   python tools/generate_story_audio.py friend-of-god --voice az-AZ-BanuNeural --force
   python tools/generate_story_audio.py --pilot
   python tools/generate_story_audio.py --pilot --lang az
@@ -87,15 +87,15 @@ LANG = "az"
 # Listening-test set. --pilot with no stems uses these.
 PILOT_STEMS = (
     "friend-of-god",
-    "the-elephant-and-the-rope",
-    "a-mothers-love",
+    "elephant-and-the-rope",
+    "mothers-love",
     "baklava",
     "gossip",
     "hold-my-hand",
-    "the-silent-corridor",
+    "silent-corridor",
     "weeds-must-be-pulled-from-the-root",
     "everyone-has-work-to-do",
-    "a-glass-of-milk",
+    "glass-of-milk",
 )
 PILOT_LANGS = ("az", "en", "ru")
 
@@ -155,7 +155,7 @@ _SOURCE_RE = re.compile(
 _AUTHOR_SOURCE_STEMS = {
     "everyone-has-work-to-do",
     "weeds-must-be-pulled-from-the-root",
-    "the-silent-corridor",
+    "silent-corridor",
 }
 
 # MPEG-2 Layer III, 24 kHz, 48 kbps, mono — matches edge-tts outputFormat.
@@ -331,7 +331,7 @@ def is_dialogue(text: str) -> bool:
     s = text.strip()
     if not s:
         return False
-    # Only line-initial markers. Mid-sentence em-dashes are narrative (e.g. a-mothers-love).
+    # Only line-initial markers. Mid-sentence em-dashes are narrative (e.g. mothers-love).
     if s.startswith(("—", "–", "«", "\"", "“", "„")):
         return True
     if re.match(r"^-\s+\S", s):

@@ -19,6 +19,8 @@ Shared runtime JS is `assets/site.js`. Per-locale strings are `{lang}/assets/i18
 
 ## Build
 
+Requires **Python 3.14** (recovered builder is CPython 3.14 bytecode in `tools/_bytecode_backup/`).
+
 ```bash
 python tools/build_website.py --lang all
 python tools/build_deployment.py
@@ -41,20 +43,18 @@ Chrome and version policy live in `tools/chrome_restore.py`. The website builder
 tools/locales/             UI strings
 tools/inventions/          Discoveries HTML bodies
 tools/chrome_restore.py    Durable chrome / SEO / i18n
-tools/optional/            EPUB and ElevenLabs helpers
+tools/optional/            ElevenLabs and other helpers
 docs/                      QA and i18n notes
 assets/                    Shared CSS, fonts, icons, site.js
 az/ en/ ru/ ky/            Locale trees (HTML routes stay {lang}/…)
 index.html                 Root home
 {lang}/sitemap.html        Human sitemap (also in the top nav)
 deployment/                Generated publish tree (not in git)
-samples/                   Local design experiments (not in git)
 ```
 
 ## Optional
 
 ```bash
-python tools/optional/build_kindle_epub.py --pilot
 python tools/optional/elevenlabs_stories_to_mp3.py --lang ky --limit 2
 python tools/vendor_google_fonts.py
 ```

@@ -12,10 +12,11 @@ FONTS_DIR = ROOT / "assets" / "fonts"
 CSS_PATH = ROOT / "assets" / "fonts.css"
 
 # Variable ranges cover the weights used in site.css.
+# Source Serif 4 includes Cyrillic (needed for KY/RU display titles; Fraunces is Latin-only).
 CSS_URL = (
     "https://fonts.googleapis.com/css2"
     "?family=Fraunces:opsz,wght@9..144,500..700"
-    "&family=Source+Serif+4:opsz,wght@8..60,400..600"
+    "&family=Source+Serif+4:opsz,wght@8..60,400..700"
     "&family=Source+Sans+3:wght@400..700"
     "&display=swap"
 )

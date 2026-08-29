@@ -64,7 +64,7 @@ _SOURCE_RE = re.compile(
 _AUTHOR_SOURCE_STEMS = {
     "everyone-has-work-to-do",
     "weeds-must-be-pulled-from-the-root",
-    "the-silent-corridor",
+    "silent-corridor",
 }
 _SENTENCE_SPLIT_RE = re.compile(r"(?<=[.!?…])\s+")
 _ALLOWED_ENV_KEYS = ("ELEVENLABS_API_KEY", "ELEVENLABS_VOICE_ID")
