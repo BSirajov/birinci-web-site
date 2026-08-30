@@ -22,6 +22,17 @@
   let activeTrigger = null;
   let pinned = false;
   let pack = null;
+  let listenersBound = false;
+
+  const isAzUiLang = () => {
+    const lang = String(
+      (document.body && document.body.getAttribute("data-lang")) ||
+        document.documentElement.getAttribute("data-kt-lang") ||
+        document.documentElement.lang ||
+        ""
+    ).toLowerCase();
+    return lang === "az" || lang.startsWith("az-");
+  };
 
   const lowerAz = (value) => {
     try {
@@ -308,7 +319,7 @@
   };
 
   const openNote = (trigger, { pin = false } = {}) => {
-    if (!pack) return;
+    if (!pack || !isAzUiLang()) return;
     const lemmaId = trigger.getAttribute("data-lex");
     const entry = pack.entries && pack.entries[lemmaId];
     if (!entry) return;
@@ -388,9 +399,26 @@
     nodes.forEach((node) => wrapTextNode(node, formToId));
   };
 
+  const clear = (root) => {
+    closeNote();
+    const scope =
+      root ||
+      document.querySelector(".story-list") ||
+      document.querySelector("[data-stories-list]") ||
+      document.querySelector(".category-main") ||
+      document.querySelector("main") ||
+      document.body;
+    if (scope) unwrap(scope);
+    document.documentElement.setAttribute("data-az-lexicon", "off");
+  };
+
   const refresh = (root) => {
     closeNote();
     if (!pack) return;
+    if (!isAzUiLang()) {
+      clear(root);
+      return;
+    }
     const scope =
       root ||
       document.querySelector(".story-list") ||
@@ -408,12 +436,14 @@
   };
 
   const onPointerOver = (event) => {
+    if (!isAzUiLang()) return;
     const trigger = event.target.closest && event.target.closest(".az-lex");
     if (!trigger || event.pointerType === "touch") return;
     scheduleOpen(trigger);
   };
 
   const onPointerOut = (event) => {
+    if (!isAzUiLang()) return;
     const trigger = event.target.closest && event.target.closest(".az-lex");
     if (!trigger || event.pointerType === "touch") return;
     const related = event.relatedTarget;
@@ -426,12 +456,14 @@
   };
 
   const onFocusIn = (event) => {
+    if (!isAzUiLang()) return;
     const trigger = event.target.closest && event.target.closest(".az-lex");
     if (!trigger) return;
     openNote(trigger, { pin: true });
   };
 
   const onFocusOut = (event) => {
+    if (!isAzUiLang()) return;
     const trigger = event.target.closest && event.target.closest(".az-lex");
     if (!trigger) return;
     const related = event.relatedTarget;
@@ -442,6 +474,10 @@
   };
 
   const onClick = (event) => {
+    if (!isAzUiLang()) {
+      if (noteEl && noteEl.classList.contains("is-open")) closeNote();
+      return;
+    }
     const trigger = event.target.closest && event.target.closest(".az-lex");
     if (trigger) {
       if (trigger.closest("a.cat-card, a.page-card, a.inventions-card, a.primary-nav__link")) {
@@ -471,6 +507,10 @@
   };
 
   const boot = () => {
+    if (!isAzUiLang()) {
+      clear();
+      return 0;
+    }
     pack = window.__BIRINCI_AZ_POPUP__;
     if (!pack || !pack.formToId || !pack.entries) {
       throw new Error("popup-data-missing");
@@ -482,15 +522,19 @@
       entries: pack.entries,
       source: "Azərbaycan dilinin izahlı lüğəti (popup-data.js)",
     };
-    document.addEventListener("pointerover", onPointerOver, true);
-    document.addEventListener("pointerout", onPointerOut, true);
-    document.addEventListener("focusin", onFocusIn);
-    document.addEventListener("focusout", onFocusOut);
-    document.addEventListener("click", onClick, true);
-    document.addEventListener("keydown", onKeyDown);
-    window.addEventListener("scroll", onScrollOrResize, true);
-    window.addEventListener("resize", onScrollOrResize);
+    if (!listenersBound) {
+      document.addEventListener("pointerover", onPointerOver, true);
+      document.addEventListener("pointerout", onPointerOut, true);
+      document.addEventListener("focusin", onFocusIn);
+      document.addEventListener("focusout", onFocusOut);
+      document.addEventListener("click", onClick, true);
+      document.addEventListener("keydown", onKeyDown);
+      window.addEventListener("scroll", onScrollOrResize, true);
+      window.addEventListener("resize", onScrollOrResize);
+      listenersBound = true;
+    }
     window.__birinciRefreshAzLexicon = refresh;
+    window.__birinciClearAzLexicon = clear;
     window.__birinciCloseAzLexicon = closeNote;
     refresh();
     return pack.count || 0;

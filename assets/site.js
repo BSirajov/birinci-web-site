@@ -775,15 +775,56 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   window.__birinciClearSearchHighlights = clearSearchHighlights;
   window.__birinciApplySearchHighlights = applySearchHighlights;
 
+  const isAzUiLang = () => {
+    // Fail closed: only enable when the active UI language is explicitly Azerbaijani.
+    const lang = String(
+      (document.body && document.body.getAttribute("data-lang")) ||
+        document.documentElement.getAttribute("data-kt-lang") ||
+        document.documentElement.lang ||
+        ""
+    ).toLowerCase();
+    return lang === "az" || lang.startsWith("az-");
+  };
+
   const isAzStoryLexiconPage = () => {
     const body = document.body;
     if (!body) return false;
     return body.classList.contains("page-category") || body.classList.contains("page-home");
   };
 
+  const shouldUseAzLexicon = () => isAzUiLang() && isAzStoryLexiconPage();
+
+  const clearAzLexiconMarks = (root) => {
+    if (typeof window.__birinciClearAzLexicon === "function") {
+      try {
+        window.__birinciClearAzLexicon(root || null);
+      } catch (_) {}
+      return;
+    }
+    if (typeof window.__birinciCloseAzLexicon === "function") {
+      try {
+        window.__birinciCloseAzLexicon();
+      } catch (_) {}
+    }
+    const scope = root || document.body;
+    if (!scope || !scope.querySelectorAll) return;
+    scope.querySelectorAll("span.az-lex").forEach((span) => {
+      const parent = span.parentNode;
+      if (!parent) return;
+      while (span.firstChild) parent.insertBefore(span.firstChild, span);
+      parent.removeChild(span);
+      try {
+        parent.normalize();
+      } catch (_) {}
+    });
+  };
+
   const refreshAzLexicon = (root) => {
+    if (!shouldUseAzLexicon()) {
+      clearAzLexiconMarks(root);
+      return;
+    }
     if (typeof window.__birinciRefreshAzLexicon !== "function") return;
-    if (!isAzStoryLexiconPage()) return;
     try {
       window.__birinciRefreshAzLexicon(root || null);
     } catch (_) {}
@@ -795,12 +836,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   };
 
   const initAzLexicon = () => {
-    const lang = String(
-      document.documentElement.lang || document.body.getAttribute("data-lang") || ""
-    ).toLowerCase();
-    if (lang !== "az" && !lang.startsWith("az-")) return;
-    // Sticky-note underlines on AZ wisdom-story home + category pages only.
-    if (!isAzStoryLexiconPage()) return;
+    // Sticky-note underlines: Azerbaijani wisdom-story home + category pages only.
+    // Never mark EN / RU / KY (including after live language switch away from AZ).
+    if (!shouldUseAzLexicon()) {
+      clearAzLexiconMarks();
+      return;
+    }
 
     const siteScript = document.querySelector('script[src*="site.js"]');
     if (!siteScript || !siteScript.src) return;
@@ -847,6 +888,25 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         document.documentElement.setAttribute("data-az-lexicon", "error");
       });
   };
+
+  const syncAzLexiconForLang = () => {
+    if (shouldUseAzLexicon()) {
+      if (typeof window.__birinciRefreshAzLexicon === "function") {
+        const root =
+          document.querySelector(".story-list") ||
+          document.querySelector("[data-stories-list]") ||
+          document.querySelector(".category-main") ||
+          document.querySelector("main") ||
+          document.body;
+        refreshAzLexicon(root);
+      } else {
+        initAzLexicon();
+      }
+      return;
+    }
+    clearAzLexiconMarks();
+  };
+  window.__birinciSyncAzLexiconForLang = syncAzLexiconForLang;
 
   const bindSearchFilterClear = (searchInput) => {
     const wrap = searchInput && searchInput.closest(".tools-bar__search");
@@ -2313,6 +2373,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       }
       if (keepModal) ignoreModalBackdrop();
       document.dispatchEvent(new CustomEvent("birinci:lang-change", { detail: { lang: next, prev } }));
+      syncAzLexiconForLang();
       if (typeof window.__birinciSyncLangHrefs === "function") window.__birinciSyncLangHrefs();
       if (typeof window.__birinciRefreshStoryLangSwitchers === "function") {
         window.__birinciRefreshStoryLangSwitchers();
