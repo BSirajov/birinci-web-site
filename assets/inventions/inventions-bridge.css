@@ -27,15 +27,7 @@
 
 /* Same diaspora embroidery as Stories pages (URL relative to this stylesheet). */
 body.page-inventions {
-  background-color: var(--color-surface-news, #f5fbff);
-}
-body.page-inventions::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  pointer-events: none;
-  background-color: var(--color-surface-news, #f5fbff);
+  background-color: transparent;
   background-image:
     linear-gradient(
       0deg,
@@ -48,7 +40,7 @@ body.page-inventions::before {
   background-repeat: no-repeat, no-repeat;
   background-attachment: fixed, fixed;
 }
-body.page-inventions::after {
+body.page-inventions::before {
   content: "";
   position: fixed;
   inset: 0;
@@ -59,17 +51,22 @@ body.page-inventions::after {
   mask-image: linear-gradient(to bottom, #000 0%, transparent 42%);
   -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 42%);
 }
+body.page-inventions::after {
+  display: none;
+  content: none;
+}
 @media (max-width: 1060px) {
-  body.page-inventions::before {
+  body.page-inventions {
     background-attachment: scroll, scroll;
   }
 }
 @media (max-width: 900px) {
-  body.page-inventions::before,
-  body.page-inventions::after {
+  body.page-inventions {
+    background-attachment: scroll, scroll;
+  }
+  body.page-inventions::before {
     position: absolute;
     min-height: 100%;
-    background-attachment: scroll, scroll;
   }
 }
 
@@ -805,13 +802,13 @@ body.inventions-article-modal-open {
 
 html[data-kt-page-id="discoveries-and-inventions"] .inventions-category-head,
 html[data-kt-page-id="discoveries-and-inventions"] .inventions-cards-head {
-  background: none;
-  background-color: transparent;
+  background: var(--nav-blue-soft, #dff2ff);
+  background-color: var(--nav-blue-soft, #dff2ff);
   background-image: none;
-  border-bottom: 0;
-  border-radius: 0;
-  color: var(--blue-700, #0069b4);
-  padding: 0.35rem 0 0.65rem;
+  border-bottom: 3px solid var(--blue-400, #4eb4ee);
+  border-radius: 12px;
+  color: var(--blue-900, #06314e);
+  padding: 16px 20px;
   text-align: left;
 }
 

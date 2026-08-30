@@ -1,0 +1,5 @@
+# Site tooling (QA, chrome restore helpers, publish policy tests).
+# API deps live in api/requirements.txt.
+pytest>=8.0,<9
+# Optional: full browser matrix — pip install playwright && playwright install chromium
+playwright>=1.40,<2

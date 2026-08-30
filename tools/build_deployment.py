@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
 import re
 import shutil
 import sys
@@ -13,6 +12,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 from i18n_config import SUPPORTED_LANGS  # noqa: E402
+from publish_policy import (  # noqa: E402
+    PUBLISH_DISCOVERIES_ENV,
+    publish_discoveries_enabled,
+)
 
 DEPLOY = ROOT / "deployment"
 LANGS = SUPPORTED_LANGS
@@ -26,7 +29,6 @@ COPY_FILES = ("index.html", "sitemap.html")
 # unless asked for it. The locale trees themselves always keep the section, so
 # development keeps serving it from az/, en/, ru/, ky/ as usual.
 DISCOVERY_LOCALE_DIRS = ("discoveries", "discovery-articles")
-PUBLISH_DISCOVERIES_ENV = "BIRINCI_PUBLISH_DISCOVERIES"
 
 # Word/PDF sources are local authoring inputs — never publish them.
 IGNORE_PUBLISH = shutil.ignore_patterns(
@@ -204,9 +206,10 @@ def main() -> None:
         ),
     )
     args = parser.parse_args()
-    publish_discoveries = args.with_discoveries or os.environ.get(
-        PUBLISH_DISCOVERIES_ENV, ""
-    ).strip().lower() in {"1", "true", "yes", "on"}
+    # CLI --with-discoveries forces on; otherwise honor BIRINCI_PUBLISH_DISCOVERIES.
+    publish_discoveries = publish_discoveries_enabled(
+        flag=True if args.with_discoveries else None
+    )
 
     reset_deploy_dir(DEPLOY)
 

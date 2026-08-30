@@ -64,6 +64,10 @@
     return pack[lang()] || pack.az;
   }
 
+  function visibleCatalogLabel(text) {
+    return String(text || "").replace(/^(?:§\s*)?\d+(?:\.\d+)*\.?\s+/, "").trim();
+  }
+
   function parseOptions(select) {
     var placeholder = "";
     var options = [];
@@ -72,7 +76,10 @@
         if (!placeholder) placeholder = opt.textContent.trim();
         return;
       }
-      options.push({ value: opt.value, label: opt.textContent.trim() });
+      options.push({
+        value: opt.value,
+        label: visibleCatalogLabel(opt.textContent) || opt.textContent.trim(),
+      });
     });
     return { placeholder: placeholder || select.getAttribute("aria-label") || "Filter", options: options };
   }

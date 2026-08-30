@@ -54,15 +54,21 @@ Place localized art at:
 
 Do **not** copy AZ WebPs. Mark `illustration_<lang>` in the manifest when done.
 
-## Status (2026-08-18)
+## Status (2026-08-30)
 
 | Phase | Status |
 |-------|--------|
 | A — Shell / builder / switcher | **Done** (AZ, EN, RU, KY) |
 | B — Translate 250×N | AZ/EN/RU/KY **250 / 250** in `stories-data.js` |
 | B2 — Illustrations | Locale folders ready; do not copy AZ art into other langs blindly |
-| C — Audio | AZ/EN/RU present for narrated stems; KY follows content readiness |
+| C — Audio | **AZ 250/250** MP3s (`audio_az=done` in manifest); EN/RU/KY story listen off / no MP3s yet |
 | D — Deploy | `python tools/build_deployment.py` writes a local `deployment/` copy (not in git) |
-| E — Discoveries | AZ/EN/RU/KY live (121 articles); videos stripped from UI |
+| E — Discoveries | Locale trees live (121 articles); default publish + XML sitemap hide Discoveries |
+
+Regenerate progress tracking after audio/illustration changes:
+
+```bash
+python -c "import sys; sys.path.insert(0,'tools'); from chrome_restore import write_translation_manifest; write_translation_manifest()"
+```
 
 Open `index.html` → language chooser, or go directly to `/en/`, `/ru/`, or `/ky/`.

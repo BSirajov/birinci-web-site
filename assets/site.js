@@ -18,6 +18,21 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     return { stories: on, discoveries: on };
   };
   let LOCALE_TAG = I18N.lang || document.documentElement.lang || "az";
+  const catalogLocale = String(LOCALE_TAG || "az")
+    .toLowerCase()
+    .split(/[-_]/)[0] || "az";
+  const catalogCollator = (() => {
+    try {
+      return new Intl.Collator(catalogLocale, { sensitivity: "base" });
+    } catch (_) {
+      return new Intl.Collator("en", { sensitivity: "base" });
+    }
+  })();
+  const compareCatalogTitles = (a, b) =>
+    catalogCollator.compare(String(a || ""), String(b || ""));
+  const NUMBERED_LABEL_RE = /^(?:§\s*)?\d+(?:\.\d+)*\.?\s+/;
+  const visibleCatalogLabel = (text) =>
+    String(text || "").replace(NUMBERED_LABEL_RE, "").trim();
   // Ignore stale i18n `show_audio_controls: false` from older Hostinger uploads.
   // Listen stays on for AZ/EN/RU even when that flag is still false on the live site.
   let SHOW_AUDIO_CONTROLS = audioFlagsForLang(PAGE_LANG).stories;
@@ -73,10 +88,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     ((catalog && catalog.categories) || []).map((cat) => ({
       slug: cat.slug,
       title: cat.title,
-      stories: (cat.stories || []).map((story) => ({
-        stem: story.stem,
-        title: story.title,
-      })),
+      stories: (cat.stories || [])
+        .map((story) => ({
+          stem: story.stem,
+          title: story.title,
+        }))
+        .sort((a, b) => compareCatalogTitles(a.title, b.title)),
     }));
 
   const groupedStoryNavMarkup = (groups, options = {}) => {
@@ -91,26 +108,23 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         return first ? hrefForStory(first.stem, group) : `#${group.slug}`;
       });
     return groups
-      .map((group, index) => {
+      .map((group) => {
         const stories = group.stories || [];
         const shown = stories.filter((story) => !visible || visible.has(story.stem));
         if (!shown.length) return "";
-        const n = index + 1;
         const catHref = hrefForCategory(group);
-        const catLabel = categoryTitleWithCount(group.title, shown.length);
+        const catLabel = categoryTitleWithCount(visibleCatalogLabel(group.title), shown.length);
         let html = `<li class="inventions-toc-cat-row" data-toc-cat="${escapeStoryNav(
           group.slug
-        )}"><span class="tl-date">§${n}</span><a href="${escapeStoryNav(catHref)}">${escapeStoryNav(
+        )}"><a href="${escapeStoryNav(catHref)}">${escapeStoryNav(
           catLabel
         )}</a></li>`;
-        shown.forEach((story, storyIndex) => {
-          const originalIndex = stories.findIndex((row) => row.stem === story.stem);
-          const num = `${n}.${(originalIndex >= 0 ? originalIndex : storyIndex) + 1}`;
+        shown.forEach((story) => {
           html += `<li class="inventions-toc-entry" data-toc-entry="${escapeStoryNav(
             story.stem
           )}" data-toc-cat="${escapeStoryNav(group.slug)}" data-stem="${escapeStoryNav(
             story.stem
-          )}" data-title="${escapeStoryNav(story.title)}"><span class="tl-date">${num}</span><a href="${escapeStoryNav(
+          )}" data-title="${escapeStoryNav(story.title)}"><a href="${escapeStoryNav(
             hrefForStory(story.stem, group)
           )}">${escapeStoryNav(story.title)}</a></li>`;
         });
@@ -177,7 +191,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   };
 
   const categoryTitleWithCount = (title, count) => {
-    const base = String(title || "").replace(/\s*\(\d+\)\s*$/, "").trim();
+    const base = visibleCatalogLabel(String(title || "").replace(/\s*\(\d+\)\s*$/, ""));
     const n = Number(count);
     if (!base || !Number.isFinite(n) || n < 0) return base;
     return `${base} (${Math.floor(n)})`;
@@ -252,7 +266,15 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         slug,
         title,
         n,
-        stories: buckets.get(slug),
+        stories: buckets
+          .get(slug)
+          .slice()
+          .sort((a, b) =>
+            compareCatalogTitles(
+              a.title || (a.dataset && a.dataset.title) || "",
+              b.title || (b.dataset && b.dataset.title) || ""
+            )
+          ),
         total: totals.get(slug) || buckets.get(slug).length,
       };
     });
@@ -318,24 +340,13 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     }
   };
 
-  const applyStoryTitleNumber = (titleEl, num, title) => {
-    if (!titleEl || !num) return;
-    const existing = titleEl.querySelector(".inventions-entry-num");
-    if (existing) {
-      existing.textContent = num;
-      const name = titleEl.querySelector(".inventions-entry-name");
-      if (name && title) name.textContent = title;
-      return;
-    }
-    const safeNum = String(num)
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;");
-    const safeTitle = String(title || titleEl.textContent || "")
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;");
-    titleEl.innerHTML = `<span class="inventions-entry-num" aria-hidden="true">${safeNum}</span><span class="inventions-entry-name">${safeTitle}</span>`;
+  const applyStoryTitleNumber = (titleEl, _num, title) => {
+    if (!titleEl) return;
+    const next = visibleCatalogLabel(title || titleEl.textContent || "");
+    if (!next) return;
+    const name = titleEl.querySelector(".inventions-entry-name");
+    if (name) name.textContent = next;
+    else titleEl.textContent = next;
   };
 
   const loadStoriesCatalog = (scriptUrl) => {
@@ -2408,14 +2419,14 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const titleForEl = (el) => {
       if (!el) return "";
       const dataTitle = el.getAttribute("data-title");
-      if (dataTitle && dataTitle.trim()) return dataTitle.trim();
+      if (dataTitle && dataTitle.trim()) return visibleCatalogLabel(dataTitle);
       const name = el.querySelector(".inventions-entry-name");
-      if (name && name.textContent.trim()) return name.textContent.trim();
+      if (name && name.textContent.trim()) return visibleCatalogLabel(name.textContent);
       const catHead = el.querySelector(".inventions-category-head");
-      if (catHead && catHead.textContent.trim()) return catHead.textContent.trim();
+      if (catHead && catHead.textContent.trim()) return visibleCatalogLabel(catHead.textContent);
       const heading = el.querySelector("h1, h2, .story__title, .story-title");
-      if (heading && heading.textContent.trim()) return heading.textContent.trim();
-      return (el.id || "").replace(/[-_]+/g, " ").trim();
+      if (heading && heading.textContent.trim()) return visibleCatalogLabel(heading.textContent);
+      return visibleCatalogLabel((el.id || "").replace(/[-_]+/g, " "));
     };
 
     const storiesSectionLabel = () => {
@@ -2534,7 +2545,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     };
 
     const setDeepCrumb = (id, title, kind) => {
-      const cleanTitle = String(title || "").trim();
+      const cleanTitle = visibleCatalogLabel(title);
       const cleanId = String(id || "").trim();
       if (!cleanId || !cleanTitle) {
         clearDeepCrumb();
@@ -3016,17 +3027,69 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     let index = null;
     let loading = null;
     let lastQuery = "";
-    let loadedUrl = "";
 
     const searchLang = () =>
       (window.__BIRINCI_I18N__ && window.__BIRINCI_I18N__.lang) || LOCALE_TAG || "az";
-    const currentSearchUrl = () => root.getAttribute("data-search-index") || "";
-    const countStatus = (n) => `${n} ${tUi("stories_count_suffix", "hekayə")}`;
-    const resetIndex = () => {
-      index = null;
-      loading = null;
-      loadedUrl = "";
-      window.__BIRINCI_SEARCH__ = undefined;
+    const countStatus = (rows) => {
+      const list = Array.isArray(rows) ? rows : [];
+      const byLang = {};
+      LANG_ORDER.forEach((lang) => {
+        byLang[lang] = 0;
+      });
+      list.forEach((row) => {
+        const lang = normalizePageLang(row && row.lang);
+        if (byLang[lang] != null) byLang[lang] += 1;
+      });
+      const parts = LANG_ORDER.map((lang) => {
+        const short = (LANG_META[lang] && LANG_META[lang].short) || String(lang).toUpperCase();
+        return `${short} (${byLang[lang]})`;
+      });
+      return `${list.length} ${tUi("stories_count_suffix", "hekayə")} - ${parts.join(", ")}`;
+    };
+
+    const parseSearchIndexSource = (source) => {
+      const prev = window.__BIRINCI_SEARCH__;
+      try {
+        new Function(source)();
+        return Array.isArray(window.__BIRINCI_SEARCH__) ? window.__BIRINCI_SEARCH__.slice() : [];
+      } finally {
+        window.__BIRINCI_SEARCH__ = prev;
+      }
+    };
+
+    const loadLangSearchIndex = async (lang) => {
+      const res = await fetch(langAssetUrl(lang, "search-index.js"), { credentials: "same-origin" });
+      if (!res.ok) throw new Error("fetch-failed:" + lang);
+      const rows = parseSearchIndexSource(await res.text());
+      return rows.map((row) => Object.assign({}, row, { lang }));
+    };
+
+    const hrefForSearchResult = (row) => {
+      const lang = normalizePageLang(row.lang || searchLang());
+      const slug = encodeURIComponent(row.slug || "");
+      const stem = encodeURIComponent(row.stem || "");
+      const path = String(location.pathname || "").replace(/\\/g, "/");
+      let base;
+      if (/\/(categories|discoveries|about|prominent-figures)\//i.test(path)) {
+        base = `../../${lang}/categories/${slug}.html`;
+      } else if (document.body.classList.contains("page-root-home")) {
+        base = `${lang}/categories/${slug}.html`;
+      } else {
+        base = `../${lang}/categories/${slug}.html`;
+      }
+      return `${base}#${stem}`;
+    };
+
+    const queryVariants = (query) => {
+      const raw = query.trim();
+      if (!raw) return [];
+      const variants = new Set([raw.toLowerCase()]);
+      LANG_ORDER.forEach((lang) => {
+        try {
+          variants.add(raw.toLocaleLowerCase(lang));
+        } catch (_) {}
+      });
+      return [...variants].filter(Boolean);
     };
 
     const closeSearch = () => {
@@ -3044,41 +3107,28 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     };
 
     const ensureIndex = () => {
-      const url = currentSearchUrl();
-      if (loadedUrl && url && loadedUrl !== url) resetIndex();
-      if (index && loadedUrl === url) {
-        if (status && !lastQuery) status.textContent = countStatus(index.length);
+      if (index) {
+        if (status && !lastQuery) status.textContent = countStatus(index);
         return Promise.resolve(index);
       }
       if (loading) return loading;
-      if (!url) return null;
       if (status) status.textContent = tJs("index_loading", "İndeks yüklənir…");
-      loadedUrl = url;
-      loading = new Promise((resolve, reject) => {
-        const script = document.createElement("script");
-        script.src = url;
-        script.async = true;
-        script.onload = () => {
-          if (Array.isArray(window.__BIRINCI_SEARCH__)) resolve(window.__BIRINCI_SEARCH__);
-          else reject(new Error("empty-index"));
-        };
-        script.onerror = () => reject(new Error("script-error"));
-        document.head.appendChild(script);
-      })
-        .then((rows) => {
-          index = rows || [];
-          if (status) status.textContent = lastQuery ? status.textContent : countStatus(index.length);
+      loading = Promise.all(LANG_ORDER.map((lang) => loadLangSearchIndex(lang)))
+        .then((chunks) => {
+          index = chunks.flat();
+          if (status) status.textContent = lastQuery ? status.textContent : countStatus(index);
           if (lastQuery) render(lastQuery);
+          return index;
         })
         .catch(() => {
           index = [];
-          loadedUrl = "";
           if (status) {
             status.textContent = tJs("index_failed", "Axtarış indeksi yüklənmədi.").replace(
               /\{lang\}/g,
               searchLang()
             );
           }
+          return index;
         })
         .finally(() => {
           loading = null;
@@ -3088,41 +3138,50 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
     const render = (query) => {
       lastQuery = query;
-      const q = query.trim().toLocaleLowerCase(searchLang());
+      const variants = queryVariants(query);
+      const highlightQ = variants[0] || "";
       results.innerHTML = "";
-      if (!q) {
-        if (status) status.textContent = index ? countStatus(index.length) : "";
+      if (!variants.length) {
+        if (status) status.textContent = index ? countStatus(index) : "";
         return;
       }
       if (!index) {
         if (status) status.textContent = tJs("index_loading", "İndeks yüklənir…");
         return;
       }
-      const matches = index.filter((row) => row.hay.includes(q)).slice(0, 40);
+      const current = normalizePageLang(searchLang());
+      const matches = index
+        .filter((row) => {
+          const hay = row.hay || "";
+          return variants.some((q) => hay.includes(q));
+        })
+        .sort((a, b) => {
+          const aCur = a.lang === current ? 0 : 1;
+          const bCur = b.lang === current ? 0 : 1;
+          if (aCur !== bCur) return aCur - bCur;
+          return LANG_ORDER.indexOf(a.lang) - LANG_ORDER.indexOf(b.lang);
+        })
+        .slice(0, 40);
       if (status) {
         status.textContent = matches.length
           ? tJs("results_n", "{n} nəticə").replace(/\{n\}/g, String(matches.length))
           : tJs("no_match", "Uyğun hekayə tapılmadı.");
       }
-      const onRoot = document.body.classList.contains("page-root-home");
-      const inCategories = window.location.pathname.includes("/categories/");
-      const homeListBase = onRoot
-        ? `${searchLang()}/index.html`
-        : inCategories
-          ? "../index.html"
-          : "index.html";
       matches.forEach((row) => {
         const a = document.createElement("a");
         a.className = "global-search__item";
-        a.href = `${homeListBase}?view=list#${encodeURIComponent(row.stem)}`;
+        a.href = hrefForSearchResult(row);
         a.innerHTML =
           `<span class="global-search__item-title"></span>` +
           `<span class="global-search__item-meta"></span>`;
         a.querySelector(".global-search__item-title").textContent = row.title;
-        a.querySelector(".global-search__item-meta").textContent = row.category;
-        if (q) {
-          applySearchHighlights(a.querySelector(".global-search__item-title"), q);
-          applySearchHighlights(a.querySelector(".global-search__item-meta"), q);
+        const langMeta = LANG_META[row.lang] || LANG_META.en;
+        a.querySelector(".global-search__item-meta").textContent = langMeta
+          ? `${langMeta.short} · ${row.category}`
+          : row.category;
+        if (highlightQ) {
+          applySearchHighlights(a.querySelector(".global-search__item-title"), highlightQ);
+          applySearchHighlights(a.querySelector(".global-search__item-meta"), highlightQ);
         }
         a.addEventListener("click", closeSearch);
         results.appendChild(a);
@@ -3139,14 +3198,10 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       );
     }
 
-
     if (typeof MutationObserver === "function") {
       new MutationObserver(() => {
-        const url = currentSearchUrl();
-        if (!url || url === loadedUrl) return;
-        resetIndex();
-        results.innerHTML = "";
-        if (!root.hidden) ensureIndex();
+        if (root.hidden || !index) return;
+        render(input.value);
       }).observe(root, { attributes: true, attributeFilter: ["data-search-index"] });
     }
 
@@ -3172,8 +3227,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
   initGlobalSearch();
 
-  const localeCompareAz = (a, b) =>
-    String(a || "").localeCompare(String(b || ""), LOCALE_TAG, { sensitivity: "base" });
+  const localeCompareAz = (a, b) => compareCatalogTitles(a, b);
 
   const primeStoryToolsBarLayout = () => {
     document
@@ -3256,6 +3310,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         section.appendChild(head);
         list.insertBefore(section, list.firstChild);
       }
+      allStories.sort((a, b) =>
+        compareCatalogTitles(a.dataset.title || "", b.dataset.title || "")
+      );
       allStories.forEach((story) => section.appendChild(story));
       return section;
     })();
@@ -3413,25 +3470,19 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const numbering = storyCatalogNumbering(catalog);
       const cats = catalog.categories || [];
       const catIndex = cats.findIndex((cat) => cat.slug === currentCategorySlug);
-      const order = new Map();
-      ((catIndex >= 0 ? cats[catIndex].stories : []) || []).forEach((story, index) => {
-        order.set(story.stem, index);
-      });
-      allStories.sort((a, b) => {
-        const ia = order.has(a.dataset.stem) ? order.get(a.dataset.stem) : 9999;
-        const ib = order.has(b.dataset.stem) ? order.get(b.dataset.stem) : 9999;
-        return ia - ib;
-      });
+      allStories.sort((a, b) =>
+        compareCatalogTitles(a.dataset.title || "", b.dataset.title || "")
+      );
       allStories.forEach((story) => {
         const info = numbering.get(story.dataset.stem);
         if (info) {
           story.dataset.categorySlug = info.categorySlug || currentCategorySlug;
-          applyStoryTitleNumber(
-            story.querySelector(".story__title, .card-title"),
-            info.num,
-            story.dataset.title
-          );
         }
+        applyStoryTitleNumber(
+          story.querySelector(".story__title, .card-title"),
+          null,
+          story.dataset.title
+        );
       });
       if (currentCategorySlug) categorySection.id = currentCategorySlug;
       const head = categorySection.querySelector(".inventions-category-head");
@@ -3441,10 +3492,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           (cat && cat.title) ||
           (document.querySelector(".about-hero h1, .category-hero h1, h1") || {}).textContent ||
           currentCategorySlug;
-        const n = catIndex >= 0 ? catIndex + 1 : 1;
         const count =
           (cat && cat.stories && cat.stories.length) || allStories.length || 0;
-        const label = categoryTitleWithCount(`${n}. ${String(title || "").trim()}`, count);
+        const label = categoryTitleWithCount(visibleCatalogLabel(title), count);
         const toggle = head.querySelector(".inventions-category-toggle");
         head.textContent = label;
         if (toggle) head.appendChild(toggle);
@@ -4532,10 +4582,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       </button>
     </figure>`
         : "";
-      const num = numInfo && numInfo.num;
-      const titleInner = num
-        ? `<span class="inventions-entry-num" aria-hidden="true">${escapeHtml(num)}</span><span class="inventions-entry-name">${escapeHtml(story.title)}</span>`
-        : escapeHtml(story.title);
+      const titleInner = escapeHtml(story.title);
       const langNav =
         typeof window.__birinciBuildStoryLangNavHtml === "function"
           ? window.__birinciBuildStoryLangNavHtml(story.stem, currentPageLang())
@@ -4665,8 +4712,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
             const collapsedClass = collapsed.has(group.slug) ? " is-collapsed" : "";
             return `<section class="inventions-category stories-category${collapsedClass}" id="${escapeHtml(
               group.slug
-            )}" data-category="${escapeHtml(`${group.n}. ${group.title}`)}"><h2 class="inventions-category-head">${escapeHtml(
-              categoryTitleWithCount(`${group.n}. ${group.title}`, group.stories.length)
+            )}" data-category="${escapeHtml(group.title)}"><h2 class="inventions-category-head">${escapeHtml(
+              categoryTitleWithCount(visibleCatalogLabel(group.title), group.stories.length)
             )}</h2>${group.stories
               .map((story) => storyArticleHtml(story, numbering.get(story.stem)))
               .join("")}</section>`;
@@ -6323,6 +6370,16 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
     const textOf = (el) => normalize(el ? el.textContent : "");
 
+    main.querySelectorAll(".sitemap-block--discoveries .sitemap-block__heading a, .sitemap-block--discoveries h3").forEach((el) => {
+      const next = visibleCatalogLabel(el.textContent);
+      if (next) el.textContent = next;
+    });
+    main.querySelectorAll(".sitemap-block--stories .sitemap-links").forEach((list) => {
+      const items = Array.from(list.children);
+      items.sort((a, b) => compareCatalogTitles(a.textContent || "", b.textContent || ""));
+      items.forEach((li) => list.appendChild(li));
+    });
+
     const apply = () => {
       const q = normalize(input.value.trim());
       let shown = 0;
@@ -6727,6 +6784,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     };
 
     document.addEventListener("click", (event) => {
+      if (document.body.classList.contains("dev-story-edit")) return;
+      if (event.target.closest("[contenteditable='true'], [contenteditable='']")) return;
       if (event.target.closest("button, a, input, select, textarea, label, .story__actions")) return;
       const textEl = event.target.closest(".story__text, .story .card-text");
       if (!textEl) return;
@@ -8076,6 +8135,259 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   } catch (err) {
     console.error("initStoryTts failed", err);
   }
+  const initDevStoryEditor = () => {
+    const host = (location.hostname || "").toLowerCase();
+    const isLocal =
+      host === "localhost" ||
+      host === "127.0.0.1" ||
+      host === "[::1]" ||
+      host === "::1";
+    if (!isLocal) return;
+
+    const API = "http://127.0.0.1:8768";
+    const force =
+      /(?:^|[?&])edit=1(?:&|$)/.test(location.search) ||
+      localStorage.getItem("birinci-dev-story-edit") === "1";
+
+    const pageLang = () =>
+      (
+        (document.body && document.body.getAttribute("data-lang")) ||
+        document.documentElement.getAttribute("data-kt-lang") ||
+        document.documentElement.lang ||
+        "az"
+      )
+        .toLowerCase()
+        .slice(0, 2);
+
+    const panel = document.createElement("aside");
+    panel.className = "dev-story-edit-panel";
+    panel.hidden = true;
+    panel.innerHTML = `
+      <p class="dev-story-edit-panel__title">Dev story edit</p>
+      <div class="dev-story-edit-panel__row">
+        <button type="button" data-dev-edit-toggle aria-pressed="false">Edit off</button>
+        <button type="button" data-dev-edit-save-focused disabled>Save story</button>
+      </div>
+      <p class="dev-story-edit-panel__status" data-dev-edit-status>Checking local API…</p>
+    `;
+    document.body.appendChild(panel);
+
+    const toggleBtn = panel.querySelector("[data-dev-edit-toggle]");
+    const saveBtn = panel.querySelector("[data-dev-edit-save-focused]");
+    const statusEl = panel.querySelector("[data-dev-edit-status]");
+    let apiReady = false;
+    let editOn = false;
+    let activeStory = null;
+
+    const setStatus = (msg, kind) => {
+      if (!statusEl) return;
+      statusEl.textContent = msg || "";
+      statusEl.classList.toggle("is-error", kind === "error");
+      statusEl.classList.toggle("is-ok", kind === "ok");
+    };
+
+    const storyEls = () => Array.from(document.querySelectorAll("article.story[data-stem], article.story[id]"));
+
+    const readStory = (story) => {
+      const stem = story.getAttribute("data-stem") || story.id || "";
+      const titleEl = story.querySelector(".story__title, .card-title, h2");
+      const textEl = story.querySelector(".story__text, .card-text");
+      if (!stem || !titleEl || !textEl) return null;
+      const nameEl = titleEl.querySelector(".inventions-entry-name");
+      const title = ((nameEl || titleEl).textContent || "").replace(/\s+/g, " ").trim();
+      const moralEl = textEl.querySelector(".story__moral");
+      const sourceEl = textEl.querySelector(".story__source");
+      const body = Array.from(textEl.querySelectorAll("p"))
+        .filter((p) => p !== moralEl && p !== sourceEl)
+        .map((p) => (p.textContent || "").replace(/\s+/g, " ").trim())
+        .filter(Boolean);
+      const moral = ((moralEl && moralEl.textContent) || "").replace(/\s+/g, " ").trim();
+      return { stem, title, body, moral, titleEl, textEl, moralEl };
+    };
+
+    const markEditable = (on) => {
+      storyEls().forEach((story) => {
+        const data = readStory(story);
+        if (!data) return;
+        data.titleEl.contentEditable = on ? "true" : "false";
+        data.titleEl.spellcheck = true;
+        Array.from(data.textEl.querySelectorAll("p")).forEach((p) => {
+          if (p.classList.contains("story__source")) {
+            p.contentEditable = "false";
+            return;
+          }
+          p.contentEditable = on ? "true" : "false";
+          p.spellcheck = true;
+        });
+        let save = story.querySelector("[data-dev-story-save]");
+        if (on) {
+          if (!save) {
+            const actions = story.querySelector(".story__actions");
+            save = document.createElement("button");
+            save.type = "button";
+            save.className = "tools-bar__view-btn story__dev-save";
+            save.setAttribute("data-dev-story-save", "1");
+            save.textContent = "Save";
+            save.title = "Save title, body, and moral to DOCX + site files";
+            if (actions) actions.appendChild(save);
+            else story.querySelector(".card-header")?.appendChild(save);
+          }
+        } else if (save) {
+          save.remove();
+        }
+      });
+    };
+
+    const setEditMode = (on) => {
+      editOn = !!on && apiReady;
+      document.body.classList.toggle("dev-story-edit", editOn);
+      if (toggleBtn) {
+        toggleBtn.setAttribute("aria-pressed", editOn ? "true" : "false");
+        toggleBtn.textContent = editOn ? "Edit on" : "Edit off";
+      }
+      if (saveBtn) saveBtn.disabled = !editOn;
+      markEditable(editOn);
+      localStorage.setItem("birinci-dev-story-edit", editOn ? "1" : "0");
+      setStatus(
+        editOn
+          ? "Click a story title or paragraph, then Save. Writes DOCX + HTML + catalog."
+          : apiReady
+            ? "API ready. Turn Edit on to change stories."
+            : "Start: python tools/dev_story_edit_server.py",
+        apiReady ? "ok" : "error"
+      );
+    };
+
+    const saveStory = async (story) => {
+      const data = readStory(story);
+      if (!data) {
+        setStatus("Could not read story fields.", "error");
+        return;
+      }
+      if (!data.moral) {
+        setStatus("Moral paragraph missing (needs Moral:/İbrət:/Мораль:/Сабак:).", "error");
+        return;
+      }
+      setStatus(`Saving ${data.stem}…`);
+      try {
+        const res = await fetch(`${API}/api/dev/save-story`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            lang: pageLang(),
+            stem: data.stem,
+            title: data.title,
+            body: data.body,
+            moral: data.moral,
+          }),
+        });
+        const json = await res.json().catch(() => ({}));
+        if (!res.ok || !json.ok) {
+          throw new Error((json && json.error) || res.statusText || "save failed");
+        }
+        story.setAttribute("data-title", data.title);
+        const card = document.querySelector(
+          `a.cat-card[href="#${CSS.escape(data.stem)}"], a.cat-card[data-stem="${CSS.escape(data.stem)}"]`
+        );
+        if (card) {
+          card.setAttribute("data-title", data.title);
+          card.setAttribute("data-blurb", data.body[0] || data.title);
+          const cardTitle = card.querySelector(".card-title");
+          const cardDesc = card.querySelector(".card-desc");
+          if (cardTitle) cardTitle.textContent = data.title;
+          if (cardDesc) cardDesc.textContent = data.body[0] || data.title;
+        }
+        const toc = document.querySelector(`li[data-stem="${CSS.escape(data.stem)}"] a`);
+        if (toc) toc.textContent = data.title;
+        if (window.__BIRINCI_STORIES__) {
+          (window.__BIRINCI_STORIES__.categories || []).forEach((cat) => {
+            (cat.stories || []).forEach((row) => {
+              if (row.stem === data.stem) {
+                row.title = data.title;
+                row.paragraphs = data.body.concat([
+                  data.moral,
+                  (row.paragraphs && row.paragraphs[row.paragraphs.length - 1]) || "",
+                ]);
+              }
+            });
+          });
+        }
+        setStatus(`Saved ${data.stem} → ${json.docx}`, "ok");
+      } catch (err) {
+        setStatus(String((err && err.message) || err), "error");
+      }
+    };
+
+    panel.addEventListener("click", (event) => {
+      const t = event.target;
+      if (t.closest("[data-dev-edit-toggle]")) {
+        setEditMode(!editOn);
+        return;
+      }
+      if (t.closest("[data-dev-edit-save-focused]")) {
+        const story =
+          activeStory ||
+          (document.activeElement && document.activeElement.closest("article.story"));
+        if (story) saveStory(story);
+        else setStatus("Focus a story field first.", "error");
+      }
+    });
+
+    document.addEventListener("click", (event) => {
+      const save = event.target.closest("[data-dev-story-save]");
+      if (!save) return;
+      event.preventDefault();
+      event.stopPropagation();
+      const story = save.closest("article.story");
+      if (story) saveStory(story);
+    });
+
+    document.addEventListener("focusin", (event) => {
+      const story = event.target.closest && event.target.closest("article.story");
+      if (story) activeStory = story;
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (!editOn) return;
+      if ((event.ctrlKey || event.metaKey) && String(event.key).toLowerCase() === "s") {
+        const story =
+          (document.activeElement && document.activeElement.closest("article.story")) ||
+          activeStory;
+        if (!story) return;
+        event.preventDefault();
+        saveStory(story);
+      }
+    });
+
+    const ping = () =>
+      fetch(`${API}/api/dev/ping`, { method: "GET" })
+        .then((r) => (r.ok ? r.json() : Promise.reject()))
+        .then(() => {
+          apiReady = true;
+          panel.hidden = false;
+          setEditMode(force || localStorage.getItem("birinci-dev-story-edit") === "1");
+        })
+        .catch(() => {
+          apiReady = false;
+          panel.hidden = false;
+          setEditMode(false);
+          setStatus("Edit API offline. Run: python tools/dev_story_edit_server.py", "error");
+        });
+
+    ping();
+    // Re-apply editable flags when home list re-renders stories.
+    const root = document.getElementById("stories-list") || document.querySelector("main");
+    if (root && typeof MutationObserver === "function") {
+      let timer = 0;
+      const obs = new MutationObserver(() => {
+        if (!editOn) return;
+        window.clearTimeout(timer);
+        timer = window.setTimeout(() => markEditable(true), 80);
+      });
+      obs.observe(root, { childList: true, subtree: true });
+    }
+  };
+
   try {
     initAboutValuesHighlight();
   } catch (err) {
@@ -8098,6 +8410,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     initAccountEntry();
   } catch (err) {
     console.error("initAccountEntry failed", err);
+  }
+
+  try {
+    initDevStoryEditor();
+  } catch (err) {
+    console.error("initDevStoryEditor failed", err);
   }
 
   document.querySelectorAll(".category-layout, .charter-layout.stories-layout").forEach((layout) => {

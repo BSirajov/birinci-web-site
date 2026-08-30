@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import html
 import json
+import locale
 import re
 from pathlib import Path
 
@@ -90,8 +91,45 @@ def _sitemap_copy(lang: str) -> dict:
     return pack
 
 
+_NUM_PREFIX_RE = re.compile(r"^(?:§\s*)?\d+(?:\.\d+)*\.?\s+")
+_LOCALE_CANDIDATES = {
+    "az": ("az_AZ.UTF-8", "az_AZ", "az", "Azerbaijani_Azerbaijan.1254"),
+    "en": ("en_US.UTF-8", "en_US", "en", "English_United States.1252"),
+    "ru": ("ru_RU.UTF-8", "ru_RU", "ru", "Russian_Russia.1251"),
+    "ky": ("ky_KG.UTF-8", "ky_KG", "ky", "Kyrgyz_Kyrgyzstan.1251", "ru_RU.UTF-8"),
+}
+
+
 def _esc(text: str) -> str:
     return html.escape(str(text or ""), quote=False)
+
+
+def _visible_label(text: str) -> str:
+    return _NUM_PREFIX_RE.sub("", str(text or "")).strip()
+
+
+def _locale_sort_titles(items: list, lang: str, key=lambda item: item.get("title") or "") -> list:
+    titles = list(items)
+    old = locale.setlocale(locale.LC_COLLATE, None)
+    applied = False
+    for cand in _LOCALE_CANDIDATES.get(lang, _LOCALE_CANDIDATES["en"]):
+        try:
+            locale.setlocale(locale.LC_COLLATE, cand)
+            applied = True
+            break
+        except locale.Error:
+            continue
+    try:
+        if applied:
+            titles.sort(key=lambda item: locale.strxfrm(str(key(item) or "")))
+        else:
+            titles.sort(key=lambda item: str(key(item) or "").casefold())
+    finally:
+        try:
+            locale.setlocale(locale.LC_COLLATE, old)
+        except locale.Error:
+            pass
+    return titles
 
 
 def _count_label(template: str, n: int) -> str:
@@ -153,11 +191,14 @@ def _story_categories(lang: str) -> list[dict]:
     rows = []
     for slug, meta in (loc.get("categories") or {}).items():
         blob = by_slug.get(slug) or {}
-        stories = [
-            {"stem": story.get("stem"), "title": story.get("title")}
-            for story in (blob.get("stories") or [])
-            if story.get("stem") and story.get("title")
-        ]
+        stories = _locale_sort_titles(
+            [
+                {"stem": story.get("stem"), "title": story.get("title")}
+                for story in (blob.get("stories") or [])
+                if story.get("stem") and story.get("title")
+            ],
+            lang,
+        )
         rows.append(
             {
                 "slug": slug,
@@ -286,13 +327,12 @@ def build_sitemap_inner_html(lang: str) -> str:
     for chapter in chapters:
         n = len(chapter["entries"])
         href = f"{disc_href}#{chapter['id']}"
-        num = chapter["title"].split(".", 1)[0].strip()
         disc_blocks.append(
             '<article class="sitemap-block sitemap-block--discoveries">'
             '<div class="sitemap-block__top">'
-            f'<span class="sitemap-orb sitemap-orb--discoveries sitemap-orb--num" aria-hidden="true">{_esc(num)}</span>'
+            f"{_orb_icon('discoveries', 18)}"
             '<div class="sitemap-block__heading">'
-            f"<h3><a href=\"{html.escape(href, quote=True)}\">{_esc(chapter['title'])}</a></h3>"
+            f"<h3><a href=\"{html.escape(href, quote=True)}\">{_esc(_visible_label(chapter['title']))}</a></h3>"
             "</div>"
             f'<span class="sitemap-block__count">{_esc(_count_label(copy["articles_count"], n))}</span>'
             "</div>"

@@ -96,9 +96,11 @@ Applies migrations, registers a user, asserts `password_hash` is argon2-only, an
 ## Production checklist (short)
 
 - Hostinger MySQL `DATABASE_URL` — do not use SQLite in production
-- Strong `SECRET_KEY`; `DEBUG=false`; `COOKIE_SECURE=true` behind HTTPS
+- `APP_ENV=production` with strong `SECRET_KEY`; `DEBUG=false`; `COOKIE_SECURE=true` behind HTTPS
+- The API **refuses to start** in production if those are still weak/default (see `app.config.assert_runtime_safe`)
 - Nginx (or Hostinger proxy) same-origin `/api` → VPS uvicorn
 - Avatars on VPS disk or object storage when you scale
 - Transactional email (verify, reset, feedback)
 - Backups + `alembic upgrade head` on deploy
 - Comments / reactions: later Alembic migrations (tech spec Phases 3–4)
+- Keep site `AUTH_UI_ENABLED=false` until the above and SMTP/`/api` proxy are ready

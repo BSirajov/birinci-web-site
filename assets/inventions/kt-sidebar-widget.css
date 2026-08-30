@@ -375,6 +375,23 @@
   padding: 6px 0;
 }
 
+.toc-group[data-toc-cat] > .toc-group__head {
+  background: var(--nav-blue-soft, #dff2ff);
+  border-radius: 10px;
+  padding: 6px 8px;
+}
+
+.timeline-list .inventions-toc-cat-row > .tl-date,
+.timeline-list .inventions-toc-entry > .tl-date,
+.toc-group[data-toc-cat] > .toc-group__head > .tl-date {
+  display: none;
+}
+
+.timeline-list > li.inventions-toc-entry,
+.timeline-list > li.inventions-toc-ref-row {
+  padding-inline-start: var(--nested-story-indent, 1rem);
+}
+
 .toc-group__head .tl-date {
   flex-shrink: 0;
   padding-top: 2px;
@@ -455,7 +472,8 @@
 .toc-group__list {
   list-style: none;
   margin: 0;
-  padding: 0 0 6px;
+  /* Extra 6px offsets .story-nav link negative margin so the visual inset stays 1rem. */
+  padding: 0 0 6px calc(var(--nested-story-indent, 1rem) + 6px);
 }
 
 .toc-group__list > li {
@@ -465,18 +483,16 @@
   font-size: 14px;
   gap: 10px;
   line-height: 1.3;
-  padding: 5px 0 5px 6px;
+  padding: 5px 0;
 }
 
 .toc-group__list > li.inventions-toc-entry,
 .toc-group__list > li.research-toc-entry {
   font-weight: 400;
-  padding-left: 10px;
 }
 
 .toc-group__list > li.inventions-toc-ref-row {
   font-weight: 400;
-  padding-left: 10px;
 }
 
 .toc-group__list > li.inventions-toc-entry a,

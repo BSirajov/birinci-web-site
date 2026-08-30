@@ -22,6 +22,163 @@
     );
   }
 
+  function pageCatalogLocale() {
+    return (
+      (document.body && document.body.getAttribute("data-lang")) ||
+      document.documentElement.getAttribute("data-kt-lang") ||
+      document.documentElement.lang ||
+      "en"
+    )
+      .toLowerCase()
+      .slice(0, 2);
+  }
+
+  function discoveriesTitleCollator() {
+    try {
+      return new Intl.Collator(pageCatalogLocale(), {
+        sensitivity: "base",
+        numeric: true,
+      });
+    } catch (_) {
+      return new Intl.Collator("en", { sensitivity: "base", numeric: true });
+    }
+  }
+
+  function discoveriesEntryName(entry) {
+    if (!entry) return "";
+    var nameEl = entry.querySelector(".inventions-entry-name");
+    if (nameEl && nameEl.textContent) return nameEl.textContent.trim();
+    if (entry.getAttribute("data-title")) {
+      return String(entry.getAttribute("data-title") || "").trim();
+    }
+    return String(entry.id || "").replace(/-/g, " ");
+  }
+
+  function discoveriesCategoryPrefix(cat) {
+    if (!cat) return "";
+    var fromData = String(cat.getAttribute("data-category") || "").match(/^(\d+)/);
+    if (fromData) return fromData[1];
+    var head = cat.querySelector(".inventions-category-head");
+    var fromHead = head && String(head.textContent || "").match(/^(\d+)/);
+    return fromHead ? fromHead[1] : "";
+  }
+
+  function sortDiscoveriesArticlesAlphabetically() {
+    if (!isDiscoveriesPage()) return;
+    var collator = discoveriesTitleCollator();
+    Array.prototype.forEach.call(
+      document.querySelectorAll(".inventions-category"),
+      function (cat) {
+        var articles = Array.prototype.slice.call(
+          cat.querySelectorAll(":scope > .inventions-entry")
+        );
+        if (articles.length < 2) return;
+        articles.sort(function (a, b) {
+          return collator.compare(discoveriesEntryName(a), discoveriesEntryName(b));
+        });
+        var prefix = discoveriesCategoryPrefix(cat);
+        articles.forEach(function (entry, index) {
+          cat.appendChild(entry);
+          var numEl = entry.querySelector(".inventions-entry-num");
+          if (numEl && prefix) numEl.textContent = prefix + "." + (index + 1);
+        });
+      }
+    );
+  }
+
+  function sortDiscoveriesTocAlphabetically() {
+    if (!isDiscoveriesPage()) return;
+    var list = document.getElementById("inventionsTocList");
+    if (!list) return;
+    var collator = discoveriesTitleCollator();
+
+    function tocLabel(li) {
+      var link = li.querySelector("a");
+      return link && link.textContent ? link.textContent.trim() : "";
+    }
+
+    function renumberBucket(bucket, prefix) {
+      bucket.forEach(function (li, index) {
+        var tl = li.querySelector(".tl-date");
+        if (tl && prefix) tl.textContent = prefix + "." + (index + 1);
+      });
+    }
+
+    // Already grouped by sidebar enhancer.
+    var groups = list.querySelectorAll(".toc-group[data-toc-cat]");
+    if (groups.length) {
+      Array.prototype.forEach.call(groups, function (group) {
+        var body =
+          group.querySelector(".toc-group__list") ||
+          group.querySelector(".toc-group__body");
+        if (!body) return;
+        var bucket = Array.prototype.slice.call(
+          body.querySelectorAll(":scope > .inventions-toc-entry, :scope > li.inventions-toc-entry")
+        );
+        if (!bucket.length) {
+          bucket = Array.prototype.slice.call(body.children).filter(function (li) {
+            return (
+              li.classList.contains("inventions-toc-entry") ||
+              li.getAttribute("data-toc-entry")
+            );
+          });
+        }
+        if (bucket.length < 2) return;
+        bucket.sort(function (a, b) {
+          return collator.compare(tocLabel(a), tocLabel(b));
+        });
+        var dateEl = group.querySelector(".toc-group__head .tl-date, .tl-date");
+        var prefixMatch = dateEl && String(dateEl.textContent || "").match(/(\d+)/);
+        var prefix = prefixMatch ? prefixMatch[1] : "";
+        bucket.forEach(function (li) {
+          body.appendChild(li);
+        });
+        renumberBucket(bucket, prefix);
+      });
+      return;
+    }
+
+    // Flat TOC list (pre-enhance).
+    var children = Array.prototype.slice.call(list.children);
+    var ordered = [];
+    var i = 0;
+    while (i < children.length) {
+      var item = children[i];
+      if (item.classList.contains("inventions-toc-cat-row")) {
+        ordered.push(item);
+        i += 1;
+        var catId = item.getAttribute("data-toc-cat") || "";
+        var bucket = [];
+        while (
+          i < children.length &&
+          children[i].classList.contains("inventions-toc-entry") &&
+          (children[i].getAttribute("data-toc-cat") || "") === catId
+        ) {
+          bucket.push(children[i]);
+          i += 1;
+        }
+        bucket.sort(function (a, b) {
+          return collator.compare(tocLabel(a), tocLabel(b));
+        });
+        var catDate = item.querySelector(".tl-date");
+        var catPrefixMatch =
+          catDate && String(catDate.textContent || "").match(/(\d+)/);
+        var catPrefix = catPrefixMatch ? catPrefixMatch[1] : "";
+        renumberBucket(bucket, catPrefix);
+        Array.prototype.push.apply(ordered, bucket);
+      } else {
+        ordered.push(item);
+        i += 1;
+      }
+    }
+    ordered.forEach(function (el) {
+      list.appendChild(el);
+    });
+  }
+
+  sortDiscoveriesArticlesAlphabetically();
+  sortDiscoveriesTocAlphabetically();
+
   if (window.KT_SIDEBAR_TOC_GROUPS) {
     window.KT_SIDEBAR_TOC_GROUPS.enhance();
     if (widget) {
@@ -88,8 +245,12 @@
     setMainCategoryExpanded(document.getElementById(catId), expanded);
   }
 
+  function visibleCatalogLabel(text) {
+    return String(text || "").replace(/^(?:§\s*)?\d+(?:\.\d+)*\.?\s+/, "").trim();
+  }
+
   function categoryTitleWithCount(title, count) {
-    var base = String(title || "").replace(/\s*\(\d+\)\s*$/, "").trim();
+    var base = visibleCatalogLabel(String(title || "").replace(/\s*\(\d+\)\s*$/, ""));
     var n = Number(count);
     if (!base || !isFinite(n) || n < 0) return base;
     return base + " (" + Math.floor(n) + ")";
@@ -251,7 +412,38 @@
     return m ? m[1] : "";
   }
 
+  function stripVisibleCatalogNumbers() {
+    document.querySelectorAll("#filterCategory option").forEach(function (opt) {
+      if (!opt.value) return;
+      var next = visibleCatalogLabel(opt.textContent);
+      if (next) opt.textContent = next;
+    });
+    document.querySelectorAll(".inventions-category-head, .inventions-cards-head").forEach(function (head) {
+      var btn = head.querySelector(".inventions-category-toggle");
+      var text = "";
+      var node = head.firstChild;
+      while (node) {
+        if (node.nodeType === 3) text += node.textContent;
+        node = node.nextSibling;
+      }
+      text = visibleCatalogLabel(text.replace(/\s+/g, " "));
+      if (!text) text = visibleCatalogLabel(head.textContent);
+      if (!text) return;
+      if (btn) {
+        head.textContent = text;
+        head.appendChild(btn);
+      } else {
+        head.textContent = text;
+      }
+    });
+    document.querySelectorAll(".inventions-toc-cat-row > a, .toc-group[data-toc-cat] > .toc-group__head > a").forEach(function (link) {
+      var next = visibleCatalogLabel(link.textContent);
+      if (next) link.textContent = next;
+    });
+  }
+
   function enrichEntryMetadata() {
+    stripVisibleCatalogNumbers();
     categories.forEach(function (cat) {
       var num = categoryNumberFromTitle(cat.getAttribute("data-category"));
       if (num) cat.setAttribute("data-category", num);
@@ -2455,10 +2647,10 @@
   }
 
   function sectionModalTitle(source, opener) {
-    if (!source) return opener && opener.textContent ? opener.textContent.trim() : "";
+    if (!source) return opener && opener.textContent ? visibleCatalogLabel(opener.textContent) : "";
     var heading = source.querySelector("h2");
-    if (heading && heading.textContent) return heading.textContent.trim();
-    if (opener && opener.textContent) return opener.textContent.trim();
+    if (heading && heading.textContent) return visibleCatalogLabel(heading.textContent);
+    if (opener && opener.textContent) return visibleCatalogLabel(opener.textContent);
     return "";
   }
 
@@ -2534,6 +2726,7 @@
     if (nameEl && nameEl.textContent) title = nameEl.textContent.trim();
     else if (titleEl && titleEl.textContent) title = titleEl.textContent.trim();
     else if (entry.getAttribute("data-title")) title = entry.getAttribute("data-title").trim();
+    title = visibleCatalogLabel(title);
     articleModal.entryId = entry.id || entry.getAttribute("data-article-stem") || "";
     if (articleModal.titleEl) articleModal.titleEl.textContent = title;
     if (articleModal.bodyEl) {
@@ -2755,7 +2948,6 @@
         cat.querySelectorAll(".inventions-entry"),
         function (entry) {
           var nameEl = entry.querySelector(".inventions-entry-name");
-          var numEl = entry.querySelector(".inventions-entry-num");
           var summaryEl = entry.querySelector(".inventions-entry-visual-summary");
           var imgEl = entry.querySelector(".inventions-entry-icon img");
           var card = document.createElement("a");
@@ -2775,12 +2967,6 @@
           var body = document.createElement("div");
           body.className = "inventions-card__body";
           body.setAttribute("data-article-read", "");
-          if (numEl) {
-            var num = document.createElement("p");
-            num.className = "inventions-card__num";
-            num.textContent = numEl.textContent;
-            body.appendChild(num);
-          }
           var title = document.createElement("h3");
           title.className = "inventions-card__title";
           title.textContent = nameEl ? nameEl.textContent : entry.id;

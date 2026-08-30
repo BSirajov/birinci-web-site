@@ -18,14 +18,19 @@ if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 from brand_one_mark import ensure_brand_one_mark  # noqa: E402
 from html_sitemap import write_html_sitemaps  # noqa: E402
-from i18n_config import rewrite_content_media_paths, story_illustrations_dir  # noqa: E402
+from i18n_config import (  # noqa: E402
+    rewrite_content_media_paths,
+    story_audio_dir,
+    story_illustrations_dir,
+)
+from publish_policy import publish_discoveries_enabled  # noqa: E402
 
 # Discovery videos are off. chrome_restore still strips leftover Ocaq markup
 # if a bytecode rebuild re-emits it.
 DISABLE_DISCOVERY_VIDEOS = True
 
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
-SITE_ASSET_VERSION = "20260829h7"
+SITE_ASSET_VERSION = "20260830p"
 SITE_PUBLIC_ORIGIN = "https://birinci.cloud"
 LIVE_LANGS = ("az", "en", "ru", "ky")
 OG_IMAGE_URL = f"{SITE_PUBLIC_ORIGIN}/assets/pearl-hero.webp"
@@ -996,7 +1001,7 @@ _OLD_GLOBAL_SEARCH_CORE = """    let index = null;
       }
 """
 
-_NEW_GLOBAL_SEARCH_CORE = r"""    let index = null;
+_MID_GLOBAL_SEARCH_CORE = r"""    let index = null;
     let loading = null;
     let lastQuery = "";
     let loadedUrl = "";
@@ -1089,6 +1094,197 @@ _NEW_GLOBAL_SEARCH_CORE = r"""    let index = null;
       }
 """
 
+_NEW_GLOBAL_SEARCH_CORE = r"""    let index = null;
+    let loading = null;
+    let lastQuery = "";
+
+    const searchLang = () =>
+      (window.__BIRINCI_I18N__ && window.__BIRINCI_I18N__.lang) || LOCALE_TAG || "az";
+    const countStatus = (rows) => {
+      const list = Array.isArray(rows) ? rows : [];
+      const byLang = {};
+      LANG_ORDER.forEach((lang) => {
+        byLang[lang] = 0;
+      });
+      list.forEach((row) => {
+        const lang = normalizePageLang(row && row.lang);
+        if (byLang[lang] != null) byLang[lang] += 1;
+      });
+      const parts = LANG_ORDER.map((lang) => {
+        const short = (LANG_META[lang] && LANG_META[lang].short) || String(lang).toUpperCase();
+        return `${short} (${byLang[lang]})`;
+      });
+      return `${list.length} ${tUi("stories_count_suffix", "hekayə")} - ${parts.join(", ")}`;
+    };
+
+    const parseSearchIndexSource = (source) => {
+      const prev = window.__BIRINCI_SEARCH__;
+      try {
+        new Function(source)();
+        return Array.isArray(window.__BIRINCI_SEARCH__) ? window.__BIRINCI_SEARCH__.slice() : [];
+      } finally {
+        window.__BIRINCI_SEARCH__ = prev;
+      }
+    };
+
+    const loadLangSearchIndex = async (lang) => {
+      const res = await fetch(langAssetUrl(lang, "search-index.js"), { credentials: "same-origin" });
+      if (!res.ok) throw new Error("fetch-failed:" + lang);
+      const rows = parseSearchIndexSource(await res.text());
+      return rows.map((row) => Object.assign({}, row, { lang }));
+    };
+
+    const hrefForSearchResult = (row) => {
+      const lang = normalizePageLang(row.lang || searchLang());
+      const slug = encodeURIComponent(row.slug || "");
+      const stem = encodeURIComponent(row.stem || "");
+      const path = String(location.pathname || "").replace(/\\/g, "/");
+      let base;
+      if (/\/(categories|discoveries|about|prominent-figures)\//i.test(path)) {
+        base = `../../${lang}/categories/${slug}.html`;
+      } else if (document.body.classList.contains("page-root-home")) {
+        base = `${lang}/categories/${slug}.html`;
+      } else {
+        base = `../${lang}/categories/${slug}.html`;
+      }
+      return `${base}#${stem}`;
+    };
+
+    const queryVariants = (query) => {
+      const raw = query.trim();
+      if (!raw) return [];
+      const variants = new Set([raw.toLowerCase()]);
+      LANG_ORDER.forEach((lang) => {
+        try {
+          variants.add(raw.toLocaleLowerCase(lang));
+        } catch (_) {}
+      });
+      return [...variants].filter(Boolean);
+    };
+
+    const closeSearch = () => {
+      root.hidden = true;
+      toggle.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("global-search-open");
+    };
+
+    const openSearch = () => {
+      root.hidden = false;
+      toggle.setAttribute("aria-expanded", "true");
+      document.body.classList.add("global-search-open");
+      window.setTimeout(() => input.focus(), 20);
+      ensureIndex();
+    };
+
+    const ensureIndex = () => {
+      if (index) {
+        if (status && !lastQuery) status.textContent = countStatus(index);
+        return Promise.resolve(index);
+      }
+      if (loading) return loading;
+      if (status) status.textContent = tJs("index_loading", "İndeks yüklənir…");
+      loading = Promise.all(LANG_ORDER.map((lang) => loadLangSearchIndex(lang)))
+        .then((chunks) => {
+          index = chunks.flat();
+          if (status) status.textContent = lastQuery ? status.textContent : countStatus(index);
+          if (lastQuery) render(lastQuery);
+          return index;
+        })
+        .catch(() => {
+          index = [];
+          if (status) {
+            status.textContent = tJs("index_failed", "Axtarış indeksi yüklənmədi.").replace(
+              /\{lang\}/g,
+              searchLang()
+            );
+          }
+          return index;
+        })
+        .finally(() => {
+          loading = null;
+        });
+      return loading;
+    };
+
+    const render = (query) => {
+      lastQuery = query;
+      const variants = queryVariants(query);
+      const highlightQ = variants[0] || "";
+      results.innerHTML = "";
+      if (!variants.length) {
+        if (status) status.textContent = index ? countStatus(index) : "";
+        return;
+      }
+      if (!index) {
+        if (status) status.textContent = tJs("index_loading", "İndeks yüklənir…");
+        return;
+      }
+      const current = normalizePageLang(searchLang());
+      const matches = index
+        .filter((row) => {
+          const hay = row.hay || "";
+          return variants.some((q) => hay.includes(q));
+        })
+        .sort((a, b) => {
+          const aCur = a.lang === current ? 0 : 1;
+          const bCur = b.lang === current ? 0 : 1;
+          if (aCur !== bCur) return aCur - bCur;
+          return LANG_ORDER.indexOf(a.lang) - LANG_ORDER.indexOf(b.lang);
+        })
+        .slice(0, 40);
+      if (status) {
+        status.textContent = matches.length
+          ? tJs("results_n", "{n} nəticə").replace(/\{n\}/g, String(matches.length))
+          : tJs("no_match", "Uyğun hekayə tapılmadı.");
+      }
+"""
+
+_OLD_GLOBAL_SEARCH_RESULTS = r"""      const onRoot = document.body.classList.contains("page-root-home");
+      const inCategories = window.location.pathname.includes("/categories/");
+      const homeListBase = onRoot
+        ? `${searchLang()}/index.html`
+        : inCategories
+          ? "../index.html"
+          : "index.html";
+      matches.forEach((row) => {
+        const a = document.createElement("a");
+        a.className = "global-search__item";
+        a.href = `${homeListBase}?view=list#${encodeURIComponent(row.stem)}`;
+        a.innerHTML =
+          `<span class="global-search__item-title"></span>` +
+          `<span class="global-search__item-meta"></span>`;
+        a.querySelector(".global-search__item-title").textContent = row.title;
+        a.querySelector(".global-search__item-meta").textContent = row.category;
+        if (q) {
+          applySearchHighlights(a.querySelector(".global-search__item-title"), q);
+          applySearchHighlights(a.querySelector(".global-search__item-meta"), q);
+        }
+        a.addEventListener("click", closeSearch);
+        results.appendChild(a);
+      });
+"""
+
+_NEW_GLOBAL_SEARCH_RESULTS = r"""      matches.forEach((row) => {
+        const a = document.createElement("a");
+        a.className = "global-search__item";
+        a.href = hrefForSearchResult(row);
+        a.innerHTML =
+          `<span class="global-search__item-title"></span>` +
+          `<span class="global-search__item-meta"></span>`;
+        a.querySelector(".global-search__item-title").textContent = row.title;
+        const langMeta = LANG_META[row.lang] || LANG_META.en;
+        a.querySelector(".global-search__item-meta").textContent = langMeta
+          ? `${langMeta.short} · ${row.category}`
+          : row.category;
+        if (highlightQ) {
+          applySearchHighlights(a.querySelector(".global-search__item-title"), highlightQ);
+          applySearchHighlights(a.querySelector(".global-search__item-meta"), highlightQ);
+        }
+        a.addEventListener("click", closeSearch);
+        results.appendChild(a);
+      });
+"""
+
 _OLD_GLOBAL_SEARCH_KBD = """      toggle.title = \"Axtar (⌘K)\";
       toggle.setAttribute(\"aria-label\", \"Qlobal axtarış, Command+K\");
 """
@@ -1101,6 +1297,16 @@ _NEW_GLOBAL_SEARCH_KBD = """      toggle.title = tUi(\"global_search_title_attr\
 """
 
 _GLOBAL_SEARCH_OBSERVER = """
+    if (typeof MutationObserver === \"function\") {
+      new MutationObserver(() => {
+        if (root.hidden || !index) return;
+        render(input.value);
+      }).observe(root, { attributes: true, attributeFilter: [\"data-search-index\"] });
+    }
+
+"""
+
+_OLD_GLOBAL_SEARCH_OBSERVER = """
     if (typeof MutationObserver === \"function\") {
       new MutationObserver(() => {
         const url = currentSearchUrl();
@@ -1145,6 +1351,12 @@ def _replace_i18n_index_failed(js: str, lang: str) -> str:
 def ensure_site_js_search(js: str) -> str:
     if _OLD_GLOBAL_SEARCH_CORE in js:
         js = js.replace(_OLD_GLOBAL_SEARCH_CORE, _NEW_GLOBAL_SEARCH_CORE, 1)
+    if _MID_GLOBAL_SEARCH_CORE in js:
+        js = js.replace(_MID_GLOBAL_SEARCH_CORE, _NEW_GLOBAL_SEARCH_CORE, 1)
+    if _OLD_GLOBAL_SEARCH_RESULTS in js:
+        js = js.replace(_OLD_GLOBAL_SEARCH_RESULTS, _NEW_GLOBAL_SEARCH_RESULTS, 1)
+    if _OLD_GLOBAL_SEARCH_OBSERVER in js:
+        js = js.replace(_OLD_GLOBAL_SEARCH_OBSERVER, _GLOBAL_SEARCH_OBSERVER, 1)
     if _OLD_GLOBAL_SEARCH_KBD in js:
         js = js.replace(_OLD_GLOBAL_SEARCH_KBD, _NEW_GLOBAL_SEARCH_KBD, 1)
     needle = '    toggle.addEventListener("click", () => {'
@@ -1177,16 +1389,16 @@ def ensure_site_js_search(js: str) -> str:
         '      const inCategories = window.location.pathname.includes("/categories/");\n'
         '      const homeListBase = inCategories ? "../index.html" : "index.html";\n'
     )
-    new_home = (
-        '      const onRoot = document.body.classList.contains("page-root-home");\n'
-        '      const inCategories = window.location.pathname.includes("/categories/");\n'
-        '      const homeListBase = onRoot\n'
-        '        ? `${searchLang()}/index.html`\n'
-        '        : inCategories\n'
-        '          ? "../index.html"\n'
-        '          : "index.html";\n'
-    )
-    if old_home in js:
+    if old_home in js and "hrefForSearchResult" not in js:
+        new_home = (
+            '      const onRoot = document.body.classList.contains("page-root-home");\n'
+            '      const inCategories = window.location.pathname.includes("/categories/");\n'
+            '      const homeListBase = onRoot\n'
+            '        ? `${searchLang()}/index.html`\n'
+            '        : inCategories\n'
+            '          ? "../index.html"\n'
+            '          : "index.html";\n'
+        )
         js = js.replace(old_home, new_home, 1)
     return js
 
@@ -1930,10 +2142,22 @@ _FOOTER_CONTACT_TITLE_FALLBACKS = {
     "ru": {"website": "Сайт", "email": "Эл. почта"},
     "ky": {"website": "Веб-сайт", "email": "Электрондук почта"},
 }
+_FOOTER_STUB_LABEL_FALLBACKS = {
+    "az": {"phone": "Telefon", "address": "Ünvan"},
+    "en": {"phone": "Telephone", "address": "Address"},
+    "ru": {"phone": "Телефон", "address": "Адрес"},
+    "ky": {"phone": "Телефон", "address": "Дарек"},
+}
 _FOOTER_CONTACT_LINK_RE = re.compile(
     r'(<a class="footer-contact__link" href="([^"]*)"[^>]*>)([\s\S]*?)(</a>)',
     re.I,
 )
+_FOOTER_LOGO_BLOCK_RE = re.compile(
+    r'<(?:a|div)\s+class="footer-logo"(?:\s+href="[^"]*")?\s*>([\s\S]*?)</(?:a|div)>',
+    re.I,
+)
+_FOOTER_PHONE_ICON = """<span class="menu-icon menu-icon--phone" aria-hidden="true" style="--icon-from:#22c55e;--icon-to:#15803d;--icon-glow:#86efac"><svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>"""
+_FOOTER_ADDRESS_ICON = """<span class="menu-icon menu-icon--map-pin" aria-hidden="true" style="--icon-from:#f43f5e;--icon-to:#be123c;--icon-glow:#fda4af"><svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>"""
 
 
 def _footer_contact_titles(lang: str) -> tuple[str, str]:
@@ -1945,6 +2169,53 @@ def _footer_contact_titles(lang: str) -> tuple[str, str]:
     return (
         str(ui.get("footer_website") or fallback["website"]),
         str(ui.get("footer_email") or fallback["email"]),
+    )
+
+
+def _footer_stub_labels(lang: str) -> tuple[str, str]:
+    fallback = _FOOTER_STUB_LABEL_FALLBACKS.get(lang) or _FOOTER_STUB_LABEL_FALLBACKS["en"]
+    try:
+        ui = (_load_locale(lang).get("ui") or {})
+    except (OSError, json.JSONDecodeError, TypeError):
+        ui = {}
+    return (
+        str(ui.get("footer_phone") or fallback["phone"]),
+        str(ui.get("footer_address") or fallback["address"]),
+    )
+
+
+def locale_home_href(html: str) -> str:
+    """Locale home from a page under {lang}/… (not site-root chooser)."""
+    if "../../assets/" in html:
+        return "../index.html"
+    return "index.html"
+
+
+def ensure_footer_logo_link(markup: str) -> str:
+    """Footer brand mark is always a home link (same as AZ/EN)."""
+    if "footer-logo" not in markup:
+        return markup
+    href = locale_home_href(markup)
+    if "page-root-home" in markup:
+        href = "index.html"
+
+    def repl(match: re.Match[str]) -> str:
+        return f'<a class="footer-logo" href="{href}">{match.group(1)}</a>'
+
+    return _FOOTER_LOGO_BLOCK_RE.sub(repl, markup, count=1)
+
+
+def _footer_phone_address_stubs(lang: str) -> str:
+    phone, address = _footer_stub_labels(lang)
+    return (
+        "            <li>\n"
+        f"              {_FOOTER_PHONE_ICON}\n"
+        f'              <span class="footer-contact__label">{html.escape(phone)}</span>\n'
+        "            </li>\n"
+        "            <li>\n"
+        f"              {_FOOTER_ADDRESS_ICON}\n"
+        f'              <span class="footer-contact__label">{html.escape(address)}</span>\n'
+        "            </li>\n"
     )
 
 
@@ -2007,6 +2278,49 @@ def ensure_footer_contact_html(markup: str, lang: str = "az") -> str:
                 + _FOOTER_EMAIL_LI
                 + markup[match.end() :]
             )
+    if "menu-icon--phone" not in markup:
+        match = _FOOTER_WEBSITE_LI_RE.search(markup)
+        if match:
+            markup = (
+                markup[: match.start()]
+                + _footer_phone_address_stubs(lang)
+                + markup[match.start() :]
+            )
+    elif "menu-icon--map-pin" not in markup:
+        # Phone present but address stub missing — insert address after phone li.
+        phone_li = re.search(
+            r'(<li>\s*<span class="menu-icon menu-icon--phone"[\s\S]*?</li>)',
+            markup,
+            re.I,
+        )
+        if phone_li:
+            _phone, address = _footer_stub_labels(lang)
+            address_li = (
+                "\n            <li>\n"
+                f"              {_FOOTER_ADDRESS_ICON}\n"
+                f'              <span class="footer-contact__label">{html.escape(address)}</span>\n'
+                "            </li>"
+            )
+            markup = (
+                markup[: phone_li.end()] + address_li + markup[phone_li.end() :]
+            )
+    else:
+        # Keep stub labels in sync with locale strings.
+        phone, address = _footer_stub_labels(lang)
+        markup = re.sub(
+            r'(menu-icon--phone[\s\S]*?<span class="footer-contact__label">)[^<]*(</span>)',
+            rf"\g<1>{html.escape(phone)}\2",
+            markup,
+            count=1,
+            flags=re.I,
+        )
+        markup = re.sub(
+            r'(menu-icon--map-pin[\s\S]*?<span class="footer-contact__label">)[^<]*(</span>)',
+            rf"\g<1>{html.escape(address)}\2",
+            markup,
+            count=1,
+            flags=re.I,
+        )
     website, email = _footer_contact_titles(lang)
     return _apply_footer_contact_titles(markup, website, email)
 
@@ -2093,6 +2407,43 @@ def _build_discoveries_hero_pills(lang: str) -> str:
     )
 
 
+def build_discoveries_hero_html(lang: str, paragraphs: list[str] | None = None) -> str:
+    """Discoveries hero — same .intro composition as Wisdom Stories home."""
+    data = _load_locale(lang)
+    inv = data.get("ui", {}).get("inventions", {})
+    title = inv.get("page_title") or {
+        "az": "Kəşf və ixtiralar",
+        "en": "Discoveries and Inventions",
+        "ru": "Открытия и изобретения",
+        "ky": "Ачылыштар жана ойлоп табуулар",
+    }.get(lang, "Discoveries and Inventions")
+    paras = [p for p in (paragraphs or _discoveries_summary_paragraphs(lang)) if p]
+    leads = "".join(
+        f'        <p class="intro__lead">{html.escape(para)}</p>\n' for para in paras
+    )
+    pills = _build_discoveries_hero_pills(lang)
+    alt = html.escape(title)
+    img = f"../../assets/inventions/icons/discovery.webp?v={SITE_ASSET_VERSION}"
+    return (
+        '<section class="intro">\n'
+        '    <div class="intro__atmosphere" aria-hidden="true"></div>\n'
+        '    <div class="intro__content">\n'
+        '      <div class="intro__copy">\n'
+        f'        <h1 class="intro__brand" id="about-hero-title">'
+        f"{_about_title_html(title)}</h1>\n"
+        f"{leads}"
+        '        <p class="intro__source">'
+        '<span class="intro__source-ornament" aria-hidden="true"></span>'
+        f'<span class="intro__source-text">{pills}</span></p>\n'
+        "      </div>\n"
+        '      <div class="intro__visual">\n'
+        f'        <img src="{img}" alt="{alt}" width="1024" height="512" decoding="async" />\n'
+        "      </div>\n"
+        "    </div>\n"
+        "  </section>"
+    )
+
+
 def _build_discoveries_summary_panel(lang: str, paragraphs: list[str]) -> str:
     label = html.escape(_discoveries_summary_title(lang))
     pills = _build_discoveries_hero_pills(lang)
@@ -2134,7 +2485,7 @@ def _hide_discoveries_page_sections(markup: str) -> str:
 
 
 def ensure_discoveries_hero_html(markup: str, lang: str) -> str:
-    """Keep the discoveries title and place the page summary beside it."""
+    """Keep discoveries hero as Wisdom-style .intro with title, summary, and visual."""
     if "inventions-page-body" not in markup and "inventions-entry" not in markup:
         return markup
     paragraphs = _discoveries_summary_paragraphs(lang, markup)
@@ -2146,27 +2497,25 @@ def ensure_discoveries_hero_html(markup: str, lang: str) -> str:
     markup = _HERO_PILLS_RE.sub("", markup)
     markup = _strip_hero_hearth_panel(markup)
     markup = _hide_discoveries_page_sections(markup)
-    if paragraphs:
-        panel = _build_discoveries_summary_panel(lang, paragraphs)
-        if _ABOUT_HERO_CLOSE_RE.search(markup):
-            markup = _ABOUT_HERO_CLOSE_RE.sub(rf"\1{panel}\2", markup, count=1)
-        else:
-            markup = re.sub(
-                r'(<header class="hero page-hero"><div class="hero-wrap shell(?: inventions-hero-wrap)?">)([\s\S]*?</section>)\s*(</div></header>)',
-                rf'<header class="hero page-hero"><div class="hero-wrap shell inventions-hero-wrap">\2\n{panel}</div></header>',
-                markup,
-                count=1,
-                flags=re.I,
-            )
+    hero = build_discoveries_hero_html(lang, paragraphs)
+    if _INTRO_RE.search(markup):
+        markup = _INTRO_RE.sub(hero, markup, count=1)
+    elif _ABOUT_HERO_RE.search(markup):
+        markup = _ABOUT_HERO_RE.sub(hero, markup, count=1)
+    else:
+        markup = re.sub(
+            r'(<header class="hero page-hero"><div class="hero-wrap shell(?: inventions-hero-wrap)?">)([\s\S]*?</section>)\s*(</div></header>)',
+            hero,
+            markup,
+            count=1,
+            flags=re.I,
+        )
     title = (
         _load_locale(lang).get("ui", {}).get("inventions", {}).get("page_title") or ""
     )
     if not title:
         return markup
-    title_html = _about_title_html(title)
     escaped = html.escape(title)
-    if _HERO_H1_RE.search(markup):
-        markup = _HERO_H1_RE.sub(rf"\1{title_html}\3", markup, count=1)
     if _DOC_TITLE_RE.search(markup):
         markup = _DOC_TITLE_RE.sub(rf"\1{escaped}\3", markup, count=1)
     if _CRUMB_CURRENT_RE.search(markup):
@@ -2237,8 +2586,8 @@ def build_stories_hero_html(lang: str) -> str:
         f'<span class="intro__source-text">{html.escape(source)}</span></p>\n'
         "      </div>\n"
         '      <div class="intro__visual">\n'
-        f'        <img src="../assets/wisdom.webp?v={SITE_ASSET_VERSION}" '
-        f'alt="{alt}" width="1128" height="1177" decoding="async" />\n'
+        f'        <img src="../assets/inventions/icons/wisdom.webp?v={SITE_ASSET_VERSION}" '
+        f'alt="{alt}" width="1774" height="887" decoding="async" />\n'
         "      </div>\n"
         "    </div>\n"
         "  </section>"
@@ -3522,6 +3871,7 @@ def patch_emitted_html(
     html = ensure_footer_about_html(html, lang)
     html = ensure_footer_qr_html(html, lang, rel_path=rel_path)
     html = ensure_footer_contact_html(html, lang)
+    html = ensure_footer_logo_link(html)
     html = ensure_brand_home_href(html)
     html = ensure_breadcrumb_home_href(html)
     html = ensure_stories_hero_html(html, lang)
@@ -3845,6 +4195,13 @@ _ROOT_ENTRY_SCRIPT = """\
     setAttr(backTop, "aria-label", ui.back_to_top);
     setText(document.querySelector(".footer-logo__tagline"), L.hero_lead);
     setText(document.querySelector(".footer-contact__title"), ui.footer_contact);
+    document.querySelectorAll(".footer-contact li").forEach(function (li) {
+      if (li.querySelector(".footer-contact__link")) return;
+      var label = li.querySelector(".footer-contact__label");
+      if (!label) return;
+      if (li.querySelector(".menu-icon--phone")) setText(label, ui.footer_phone);
+      if (li.querySelector(".menu-icon--map-pin")) setText(label, ui.footer_address);
+    });
     document.querySelectorAll(".footer-contact__link").forEach(function (link) {
       var href = link.getAttribute("href") || "";
       var tip = "";
@@ -4143,7 +4500,15 @@ def apply_invention_source_bodies() -> None:
             path.write_text(new, encoding="utf-8")
 
 
-def write_public_seo_files() -> None:
+def write_public_seo_files(*, include_discoveries: bool | None = None) -> None:
+    """Write root sitemap.xml, robots.txt, and 404.html.
+
+    Discoveries URLs are omitted by default so the repo sitemap matches the
+    default Hostinger publish policy (see tools/publish_policy.py). Set
+    BIRINCI_PUBLISH_DISCOVERIES=1 or pass include_discoveries=True when
+    Discoveries is intentionally public.
+    """
+    with_discoveries = publish_discoveries_enabled(flag=include_discoveries)
     urls = [_public_url("index.html")]
     for lang in LIVE_LANGS:
         urls.append(_public_url(f"{lang}/index.html"))
@@ -4153,9 +4518,10 @@ def write_public_seo_files() -> None:
         sitemap = ROOT / lang / "sitemap.html"
         if sitemap.is_file():
             urls.append(_public_url(f"{lang}/sitemap.html"))
-        disc = ROOT / lang / "discoveries" / "discoveries-and-inventions.html"
-        if disc.is_file():
-            urls.append(_public_url(f"{lang}/discoveries/discoveries-and-inventions.html"))
+        if with_discoveries:
+            disc = ROOT / lang / "discoveries" / "discoveries-and-inventions.html"
+            if disc.is_file():
+                urls.append(_public_url(f"{lang}/discoveries/discoveries-and-inventions.html"))
         cat = ROOT / lang / "categories"
         if cat.is_dir():
             for path in sorted(cat.glob("*.html")):
@@ -4221,7 +4587,8 @@ def write_translation_manifest() -> None:
             entry: dict[str, str] = {}
             for lang in LIVE_LANGS:
                 entry[f"text_{lang}"] = "done" if stem in present.get(lang, set()) else "pending"
-                entry[f"audio_{lang}"] = "pending"
+                audio = story_audio_dir(lang) / f"{stem}.mp3"
+                entry[f"audio_{lang}"] = "done" if audio.is_file() else "pending"
                 illu = story_illustrations_dir(lang) / f"{stem}.webp"
                 entry[f"illustration_{lang}"] = "done" if illu.is_file() else "pending"
             stems[stem] = entry
@@ -4263,7 +4630,10 @@ def apply_all_html() -> int:
                 markup, lang, inventions=inventions, rel_path=rel
             )
             if new_html != markup:
-                path.write_text(new_html, encoding="utf-8")
+                try:
+                    path.write_text(new_html, encoding="utf-8", newline="\n")
+                except OSError:
+                    path.write_bytes(new_html.encode("utf-8"))
                 n += 1
     write_root_home()
     write_public_seo_files()

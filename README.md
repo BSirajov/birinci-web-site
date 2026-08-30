@@ -26,9 +26,13 @@ python tools/build_website.py --lang all
 python tools/build_deployment.py
 ```
 
-**Discoveries is dev-only.** `build_deployment.py` leaves the section out of the publish tree: it skips `{lang}/discoveries/` and `{lang}/discovery-articles/`, then removes the nav link, the home card, the sitemap chapter and the `sitemap.xml` entries from the copies. The build fails if any route to the section survives. The locale trees keep everything, so serving `az/`, `en/`, `ru/` or `ky/` locally still gives the full section. To publish it, add `--with-discoveries` (or set `BIRINCI_PUBLISH_DISCOVERIES=1`).
+**CI:** GitHub Actions (`.github/workflows/site-qa.yml`) runs on push/PR: publish-policy tests, API pytest, `build_deployment.py`, and `python tools/full_site_qa.py --structural`. Tool pins: `tools/requirements.txt`. For a full local browser matrix (optional): `pip install -r tools/requirements.txt && playwright install chromium`, then `python tools/full_site_qa.py`.
+
+**Discoveries is dev-only by default.** `build_deployment.py` leaves the section out of the publish tree: it skips `{lang}/discoveries/` and `{lang}/discovery-articles/`, then removes the nav link, the home card, the sitemap chapter and the `sitemap.xml` entries from the copies. The root `sitemap.xml` also omits Discoveries unless you opt in (same flag), so accidentally uploading the repo root does not advertise unpublished URLs. The locale trees keep everything, so serving `az/`, `en/`, `ru/` or `ky/` locally still gives the full section. To publish it, add `--with-discoveries` (or set `BIRINCI_PUBLISH_DISCOVERIES=1`) and regenerate SEO with that env set.
 
 **Local TTS proxy (AZ / KY story listen):** `python tools/tts_proxy_server.py` → `http://127.0.0.1:8767/api/az-tts` and `/api/ky-tts`. Kyrgyz uses Kazakh neural voice (`kk-KZ-DauletNeural`) because Edge TTS has no `ky-KG` voice.
+
+**Local story text edit (dev only):** double-click `start-story-edit.bat` (or run `python tools/dev_story_edit_server.py` yourself). That starts the edit API on `http://127.0.0.1:8768`, serves the site on `http://127.0.0.1:8765`, and opens an English Wisdom category page with `?edit=1`. Use the **Dev story edit** panel (bottom-right) to turn editing on, change a story title/body/moral, then **Save** (or Ctrl+S). Saves update the language DOCX plus category HTML, `stories-data.js`, and `search-index.js`. Never enable this against production hosting.
 
 
 Serve `deployment/` (or a locale folder) for a local preview. Hard-refresh after an asset-version bump (`tools/chrome_restore.py` → `SITE_ASSET_VERSION`).
@@ -44,7 +48,7 @@ tools/locales/             UI strings
 tools/inventions/          Discoveries HTML bodies
 tools/chrome_restore.py    Durable chrome / SEO / i18n
 tools/optional/            ElevenLabs and other helpers
-docs/                      QA and i18n notes
+docs/                      QA checklist, Hostinger deploy, i18n notes
 assets/                    Shared CSS, fonts, icons, site.js
 az/ en/ ru/ ky/            Locale trees (HTML routes stay {lang}/…)
 index.html                 Root home

@@ -102,7 +102,8 @@ def structural() -> None:
         str(top[:3]),
     )
 
-    # Critical shared assets: live vs deployment
+    # Critical shared assets: live vs deployment (deployment/ is gitignored;
+    # CI rebuilds it before this script. Local runs without a publish tree skip.)
     critical = [
         "assets/site.css",
         "assets/site.js",
@@ -110,20 +111,27 @@ def structural() -> None:
         "assets/inventions/inventions-bridge.css",
         "assets/inventions/kt-tokens.css",
     ]
-    for rel in critical:
-        src = ROOT / rel
-        dep = ROOT / "deployment" / rel
-        if not src.exists():
-            check(f"Source exists {rel}", False)
-            continue
-        if not dep.exists():
-            check(f"Deployment mirror exists {rel}", False)
-            continue
-        check(
-            f"deployment matches {rel}",
-            file_hash(src) == file_hash(dep),
-            f"src={file_hash(src)} dep={file_hash(dep)}",
+    deploy_root = ROOT / "deployment"
+    if not deploy_root.is_dir():
+        warn(
+            "deployment/ missing — skip publish-tree hash checks "
+            "(run: python tools/build_deployment.py)"
         )
+    else:
+        for rel in critical:
+            src = ROOT / rel
+            dep = deploy_root / rel
+            if not src.exists():
+                check(f"Source exists {rel}", False)
+                continue
+            if not dep.exists():
+                check(f"Deployment mirror exists {rel}", False)
+                continue
+            check(
+                f"deployment matches {rel}",
+                file_hash(src) == file_hash(dep),
+                f"src={file_hash(src)} dep={file_hash(dep)}",
+            )
 
     # Landmarks + page-jump on sample pages
     samples = [
@@ -179,6 +187,74 @@ def structural() -> None:
             if dest.suffix.lower() in {".png", ".jpg", ".jpeg", ".webp", ".svg", ".woff2"} and not dest.exists():
                 missing_css_urls.append(f"{css_path.name}:{raw}")
     check("CSS image/font urls resolve on disk", not missing_css_urls, str(missing_css_urls[:8]))
+
+    # Public XML sitemap must match default Discoveries publish policy
+    from publish_policy import publish_discoveries_enabled  # noqa: E402
+
+    sm = ROOT / "sitemap.xml"
+    if sm.is_file():
+        sm_text = sm.read_text(encoding="utf-8", errors="replace")
+        disc_locs = len(re.findall(r"/discoveries/", sm_text))
+        want_disc = publish_discoveries_enabled()
+        check(
+            "repo sitemap.xml Discoveries locs match publish policy",
+            (disc_locs > 0) == want_disc,
+            f"discoveries_locs={disc_locs} publish_discoveries={want_disc}",
+        )
+        dep_sm = ROOT / "deployment" / "sitemap.xml"
+        if dep_sm.is_file():
+            dep_disc = len(re.findall(r"/discoveries/", dep_sm.read_text(encoding="utf-8", errors="replace")))
+            check(
+                "deployment sitemap.xml Discoveries locs match publish policy",
+                (dep_disc > 0) == want_disc,
+                f"discoveries_locs={dep_disc} publish_discoveries={want_disc}",
+            )
+
+    # translation_manifest audio_* must match MP3s on disk
+    import json
+    from i18n_config import story_audio_dir  # noqa: E402
+
+    man_path = ROOT / "docs" / "i18n" / "translation_manifest.json"
+    if man_path.is_file():
+        stems = (json.loads(man_path.read_text(encoding="utf-8")).get("stems") or {})
+        drift = []
+        for stem, entry in stems.items():
+            for lang in LANGS:
+                key = f"audio_{lang}"
+                marked = entry.get(key) == "done"
+                on_disk = (story_audio_dir(lang) / f"{stem}.mp3").is_file()
+                if marked != on_disk:
+                    drift.append(f"{stem}:{lang}:manifest={'done' if marked else 'pending'} disk={'yes' if on_disk else 'no'}")
+        check(
+            "translation_manifest audio flags match story MP3s on disk",
+            not drift,
+            f"drifts={len(drift)} sample={drift[:5]}",
+        )
+
+    # Footer structure parity: linked logo + hidden phone/address stubs
+    for lang in LANGS:
+        home = ROOT / lang / "index.html"
+        if not home.is_file():
+            continue
+        ft = home.read_text(encoding="utf-8", errors="replace")
+        fm = re.search(r"<footer\b[\s\S]*?</footer>", ft, re.I)
+        footer = fm.group(0) if fm else ""
+        check(
+            f"{lang} footer logo is home link",
+            bool(re.search(r'<a class="footer-logo" href="[^"]*index\.html"', footer)),
+        )
+        check(
+            f"{lang} footer has phone+address stubs and website+email links",
+            all(
+                s in footer
+                for s in (
+                    "menu-icon--phone",
+                    "menu-icon--map-pin",
+                    "menu-icon--website",
+                    "mailto:info@birinci.cloud",
+                )
+            ),
+        )
 
     # RU/KY discoveries nav link present on home
     for lang in ("ru", "ky"):
@@ -391,7 +467,12 @@ def playwright_matrix() -> None:
                     if data["catColor"]:
                         check(
                             f"{label} category head uses brand blue text",
-                            data["catColor"] in ("rgb(0, 105, 180)", "rgb(0, 90, 154)"),
+                            data["catColor"]
+                            in (
+                                "rgb(0, 105, 180)",
+                                "rgb(0, 90, 154)",
+                                "rgb(6, 49, 78)",  # --blue-900 on soft panel
+                            ),
                             data["catColor"],
                         )
 
@@ -426,7 +507,17 @@ def crumbs_expected(label: str) -> bool:
     return label not in ("home", "home-ky")  # root-ish homes may still have crumbs; check anyway soft
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
+    import argparse
+
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--structural",
+        action="store_true",
+        help="Run filesystem/SEO/chrome checks only (skip Playwright matrix). Preferred for CI.",
+    )
+    args = parser.parse_args(argv)
+
     if sys.platform == "win32":
         for stream in (sys.stdout, sys.stderr):
             try:
@@ -435,8 +526,14 @@ def main() -> int:
                 pass
     log(f"Birİnci Full Site QA — {datetime.now(timezone.utc).isoformat()}")
     log(f"Root: {ROOT}")
+    if args.structural:
+        log("Mode: structural only (Playwright skipped)")
     structural()
-    playwright_matrix()
+    if not args.structural:
+        playwright_matrix()
+    else:
+        log("=== Playwright matrix ===")
+        log("[SKIP] Playwright matrix (--structural)")
     log("=== Summary ===")
     log(f"FAIL={fails} WARN={warns}")
     log(

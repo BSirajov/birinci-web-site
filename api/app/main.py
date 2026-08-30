@@ -5,15 +5,16 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 
-from app.config import REPO_ROOT, get_settings
+from app.config import REPO_ROOT, assert_runtime_safe, get_settings
 from app.database import init_db
 from app.routers import auth, pages, preferences
 
-settings = get_settings()
+settings = assert_runtime_safe(get_settings())
 
 
 @asynccontextmanager
 async def lifespan(_app: FastAPI):
+    assert_runtime_safe()
     init_db()
     yield
 
