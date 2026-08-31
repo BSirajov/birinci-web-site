@@ -1,5 +1,6 @@
-"""Post-build CSS: pearlescent \"1\" mark left of the pearl logo (header + footer).
+"""Post-build CSS: pearlescent \"1\" marks flanking the pearl logo (header + footer).
 
+Left mark is the original numeral; right mark is a horizontal mirror.
 The website builder rewrites assets/site.css from bytecode. Re-apply this after
 sync_shared_assets so the mark survives rebuilds.
 """
@@ -39,16 +40,27 @@ BRAND_BLOCK = """\
   margin-inline-end: -4px;
   background: url("brand-one.webp") center / contain no-repeat;
 }
+.brand::after {
+  content: "";
+  order: 3;
+  flex: 0 0 auto;
+  width: calc(var(--brand-mark) * 0.58);
+  height: var(--brand-mark);
+  margin-inline-start: -4px;
+  margin-inline-end: 0.35rem;
+  background: url("brand-one.webp") center / contain no-repeat;
+  transform: scaleX(-1);
+}
 .brand__logo {
   order: 2;
   width: var(--brand-mark);
   height: var(--brand-mark);
   object-fit: contain;
   flex: 0 0 auto;
-  margin-inline-end: 0.35rem;
+  margin-inline-end: 0;
 }
 .brand__name {
-  order: 3;
+  order: 4;
   color: #fff;
   white-space: nowrap;
 }
@@ -79,6 +91,17 @@ FOOTER_LOGO_BLOCK = """\
   margin-inline-end: -6px;
   background: url("brand-one.webp") center / contain no-repeat;
 }
+.footer-logo::after {
+  content: "";
+  order: 3;
+  flex: 0 0 auto;
+  width: 36px;
+  height: 72px;
+  margin-inline-start: -6px;
+  margin-inline-end: 0;
+  background: url("brand-one.webp") center / contain no-repeat;
+  transform: scaleX(-1);
+}
 .footer-logo__img {
   order: 2;
   width: 72px;
@@ -86,7 +109,7 @@ FOOTER_LOGO_BLOCK = """\
   object-fit: contain;
 }
 .footer-logo__text {
-  order: 3;
+  order: 4;
   flex: 1 0 100%;
   display: flex;
   flex-direction: column;

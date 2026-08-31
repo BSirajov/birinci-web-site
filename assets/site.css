@@ -730,16 +730,27 @@ body.global-search-open { overflow: hidden; }
   margin-inline-end: -4px;
   background: url("brand-one.webp") center / contain no-repeat;
 }
+.brand::after {
+  content: "";
+  order: 3;
+  flex: 0 0 auto;
+  width: calc(var(--brand-mark) * 0.58);
+  height: var(--brand-mark);
+  margin-inline-start: -4px;
+  margin-inline-end: 0.35rem;
+  background: url("brand-one.webp") center / contain no-repeat;
+  transform: scaleX(-1);
+}
 .brand__logo {
   order: 2;
   width: var(--brand-mark);
   height: var(--brand-mark);
   object-fit: contain;
   flex: 0 0 auto;
-  margin-inline-end: 0.35rem;
+  margin-inline-end: 0;
 }
 .brand__name {
-  order: 3;
+  order: 4;
   color: #fff;
   white-space: nowrap;
 }
@@ -2066,11 +2077,10 @@ body.global-search-open { overflow: hidden; }
   min-width: 7.5rem;
   max-width: 14rem;
   align-self: flex-start;
-  /* Match sibling fields' label row so the input top-aligns with controls */
-  margin-top: calc(0.72rem * 1.2 + 0.28rem);
+  margin-top: 0;
 }
 .tools-bar.tools-bar--dense > .tools-bar__search {
-  margin-top: calc(0.65rem * 1.15 + 0.18rem);
+  margin-top: 0;
 }
 :is(.page-home, .page-category, .page-inventions) .tools-bar__search-field {
   position: relative;
@@ -2404,7 +2414,7 @@ body.global-search-open { overflow: hidden; }
   display: flex;
   flex: 0 1 auto;
   flex-wrap: nowrap;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   gap: 0.14rem 0.18rem;
   min-width: 0;
@@ -2413,23 +2423,109 @@ body.global-search-open { overflow: hidden; }
   margin-inline: 0;
 }
 :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions {
-  --tools-bar-pill-offset: calc(0.72rem * 1.2 + 0.28rem);
+  --tools-bar-label-h: calc(0.72rem * 1.2);
+  --tools-bar-label-gap: 0.28rem;
+  --tools-bar-pill-height: 2.25rem;
 }
 :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--dense.tools-bar--inventions {
-  --tools-bar-pill-offset: calc(0.65rem * 1.15 + 0.18rem);
+  --tools-bar-label-h: calc(0.68rem * 1.2);
+  --tools-bar-label-gap: 0.22rem;
+  --tools-bar-pill-height: 2.05rem;
 }
 :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row,
 :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__control-row {
   align-items: flex-start;
 }
-:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row > .tools-bar__search,
-:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row > .tools-bar__field--filter {
-  margin-top: var(--tools-bar-pill-offset);
+/* One shared column: label row + pill row. Tops of all pills then match. */
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row > .tools-bar__search {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  align-self: flex-start;
+  gap: 0.35rem;
+  margin-top: 0 !important;
+  min-height: 0;
 }
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row > .tools-bar__field--filter,
 :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__control-row > .tools-bar__field,
 :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__control-row > [data-home-list-only],
-:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__control-row > [data-inventions-list-only] {
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__control-row > [data-inventions-list-only],
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row > .tools-bar__search > .tools-bar__search-field {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
   align-self: flex-start;
+  gap: var(--tools-bar-label-gap);
+  margin-top: 0 !important;
+  min-height: calc(var(--tools-bar-label-h) + var(--tools-bar-label-gap) + var(--tools-bar-pill-height));
+}
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__label,
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__search-field > .visually-hidden {
+  position: static !important;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100% !important;
+  height: var(--tools-bar-label-h) !important;
+  min-height: var(--tools-bar-label-h);
+  max-height: var(--tools-bar-label-h);
+  margin: 0 !important;
+  padding: 0 0.1rem !important;
+  overflow: visible !important;
+  clip: auto !important;
+  clip-path: none !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1;
+  color: rgba(52, 95, 134, 0.78);
+  text-align: center;
+}
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--dense.tools-bar--inventions .tools-bar__label,
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--dense.tools-bar--inventions .tools-bar__search-field > .visually-hidden {
+  font-size: 0.68rem;
+}
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__search-field {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--tools-bar-label-gap);
+  width: 100%;
+}
+/* Keep Search / Category / View / Images / Texts pills the same height and top-aligned. */
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__search input,
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__field--filter .sel-wrap,
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__field--filter .sel-wrap select,
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__field--filter .kt-multi-filter,
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__field--filter .kt-multi-filter__trigger,
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__views {
+  height: var(--tools-bar-pill-height);
+  min-height: var(--tools-bar-pill-height);
+  max-height: var(--tools-bar-pill-height);
+  box-sizing: border-box;
+}
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__views {
+  align-items: stretch;
+  padding: 0.12rem;
+}
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__view-btn,
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__view-btn--icon {
+  min-height: 0;
+  height: 100%;
+  align-self: stretch;
+}
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__field--filter .kt-multi-filter__trigger {
+  display: flex;
+  align-items: center;
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: 1.2;
 }
 :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row > .tools-bar__search {
   flex: 0 0 auto;
@@ -2454,23 +2550,12 @@ body.global-search-open { overflow: hidden; }
 }
 :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row > .tools-bar__field--filter {
   flex: 0 1 auto;
-  flex-direction: row;
-  align-items: center;
-  gap: 0;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--tools-bar-label-gap);
   min-width: 5.5rem;
   max-width: 11rem;
   width: auto;
-}
-:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row > .tools-bar__field--filter .tools-bar__label {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
 }
 :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row > .tools-bar__field--filter .sel-wrap,
 :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row > .tools-bar__field--filter .kt-multi-filter {
@@ -2480,13 +2565,17 @@ body.global-search-open { overflow: hidden; }
 :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row .tools-bar__search input,
 :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row .tools-bar__field--filter .sel-wrap select,
 :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row .tools-bar__field--filter .kt-multi-filter__trigger {
-  min-height: 2.25rem;
+  height: var(--tools-bar-pill-height);
+  min-height: var(--tools-bar-pill-height);
+  max-height: var(--tools-bar-pill-height);
   box-sizing: border-box;
 }
 .tools-bar.tools-bar--dense.tools-bar--inventions > .tools-bar__search-row .tools-bar__search input,
 .tools-bar.tools-bar--dense.tools-bar--inventions > .tools-bar__search-row .tools-bar__field--filter .sel-wrap select,
 .tools-bar.tools-bar--dense.tools-bar--inventions > .tools-bar__search-row .tools-bar__field--filter .kt-multi-filter__trigger {
-  min-height: 2.05rem;
+  height: var(--tools-bar-pill-height);
+  min-height: var(--tools-bar-pill-height);
+  max-height: var(--tools-bar-pill-height);
 }
 :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__control-row {
   display: flex;
@@ -2605,24 +2694,29 @@ body.global-search-open { overflow: hidden; }
   :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row > [data-inventions-list-only] {
     flex: 0 1 auto;
     min-width: 0;
-    gap: 0.2rem;
+    gap: var(--tools-bar-label-gap);
   }
-  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row .tools-bar__label {
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row .tools-bar__label,
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__search-field > .visually-hidden {
     font-size: 0.62rem;
     letter-spacing: 0.03em;
-    padding-inline: 0;
-    line-height: 1.15;
+    padding-inline: 0.1rem !important;
+    line-height: 1;
     white-space: nowrap;
+    height: var(--tools-bar-label-h) !important;
   }
   :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row .tools-bar__views {
-    min-height: 0;
+    height: var(--tools-bar-pill-height);
+    min-height: var(--tools-bar-pill-height);
+    max-height: var(--tools-bar-pill-height);
     padding: 0.1rem;
     gap: 0.1rem;
   }
   :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row .tools-bar__view-btn,
   :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row .tools-bar__view-btn--icon {
     min-width: 1.78rem;
-    min-height: 1.72rem;
+    min-height: 0;
+    height: 100%;
     padding: 0.16rem 0.3rem;
     font-size: 0.74rem;
   }
@@ -2779,11 +2873,13 @@ body.global-search-open { overflow: hidden; }
     margin-top: 0;
   }
   :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions {
-    --tools-bar-pill-offset: calc(0.58rem * 1.2 + 0.18rem);
+    --tools-bar-label-h: calc(0.62rem * 1.15);
+    --tools-bar-label-gap: 0.2rem;
+    --tools-bar-pill-height: 2.05rem;
   }
   :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row > .tools-bar__search,
   :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row > .tools-bar__field--filter {
-    margin-top: var(--tools-bar-pill-offset);
+    margin-top: 0 !important;
   }
   :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row {
     flex: 0 1 auto;
@@ -2825,9 +2921,11 @@ body.global-search-open { overflow: hidden; }
   :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row .tools-bar__search input,
   :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row .tools-bar__field--filter .kt-multi-filter__trigger,
   :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row .tools-bar__field--filter .sel-wrap select {
-    min-height: 2.05rem;
-    padding-top: 0.28rem;
-    padding-bottom: 0.28rem;
+    height: var(--tools-bar-pill-height);
+    min-height: var(--tools-bar-pill-height);
+    max-height: var(--tools-bar-pill-height);
+    padding-top: 0;
+    padding-bottom: 0;
     font-size: 0.82rem;
   }
   .tools-bar__search-chip {
@@ -5059,6 +5157,17 @@ body.audio-player-open .text-lightbox {
   margin-inline-end: -6px;
   background: url("brand-one.webp") center / contain no-repeat;
 }
+.footer-logo::after {
+  content: "";
+  order: 3;
+  flex: 0 0 auto;
+  width: 36px;
+  height: 72px;
+  margin-inline-start: -6px;
+  margin-inline-end: 0;
+  background: url("brand-one.webp") center / contain no-repeat;
+  transform: scaleX(-1);
+}
 .footer-logo__img {
   order: 2;
   width: 72px;
@@ -5066,7 +5175,7 @@ body.audio-player-open .text-lightbox {
   object-fit: contain;
 }
 .footer-logo__text {
-  order: 3;
+  order: 4;
   flex: 1 0 100%;
   display: flex;
   flex-direction: column;
@@ -6716,9 +6825,13 @@ body.audio-player-open .text-lightbox {
   padding-left: 6px;
 }
 .story-nav .toc-group__head a::before,
-.story-nav .toc-group__list a::before {
+.story-nav .toc-group__list a::before,
+.story-nav .timeline-list > li.inventions-toc-entry > a::before {
   content: none;
   display: none;
+}
+.story-nav .timeline-list > li.inventions-toc-entry > a {
+  padding-left: 6px;
 }
 .story-nav .toc-group.is-hidden,
 .story-nav .inventions-toc-entry.is-hidden {
@@ -6730,10 +6843,55 @@ body.audio-player-open .text-lightbox {
   background: #f4f8fc;
   border-bottom: 1px solid rgba(0, 45, 82, 0.08);
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 8px;
-  justify-content: flex-end;
+  justify-content: center;
   padding: 8px 16px;
+  min-width: 0;
+}
+.story-nav .widget-actions__views {
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+.story-nav .widget-action-btn {
+  flex: 1 1 auto;
+  width: auto;
+  min-width: min-content;
+  max-width: 100%;
+  white-space: nowrap;
+}
+.story-nav .widget-action-btn__label {
+  flex: 0 1 auto;
+  min-width: 0;
+  white-space: nowrap;
+  text-align: center;
+}
+.story-nav .widget-actions[hidden],
+.story-nav .widget-actions.is-hidden {
+  display: none !important;
+}
+body.story-expand-collapse-on .story-nav .widget-actions {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  justify-content: center !important;
+  max-height: none !important;
+  overflow: visible !important;
+  padding: 8px 16px !important;
+  border-bottom-width: 1px !important;
+}
+@media (max-width: 720px) {
+  .story-nav .widget-action-btn {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: min-content;
+    white-space: nowrap;
+  }
 }
 @media (max-width: 1060px) {
   .story-nav .sidebar-widget:not(.events-open) .widget-actions {
@@ -6744,7 +6902,7 @@ body.audio-player-open .text-lightbox {
     border-bottom-width: 0;
   }
   .story-nav .sidebar-widget.events-open .widget-actions {
-    max-height: 88px;
+    max-height: none;
     padding: 8px 16px;
   }
 }

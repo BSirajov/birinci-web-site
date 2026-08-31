@@ -213,6 +213,7 @@
       }
       finishSelectionChange(state);
       renderList(state);
+      closePanel(state);
     });
     var allText = document.createElement("span");
     allText.className = "kt-multi-filter__option-text";

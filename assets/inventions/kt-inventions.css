@@ -698,6 +698,38 @@ body.inventions-preview-page {
   display: none;
 }
 
+/* Select All unchecked: flat A–Z list (no category headings / article numbers). */
+body.inventions-category-flat .inventions-flat-list {
+  margin: 0;
+}
+body.inventions-category-flat .inventions-flat-list .inventions-category-head,
+body.inventions-category-flat .inventions-flat-list .inventions-entry-num {
+  display: none !important;
+}
+body.inventions-toc-flat #inventionsTocList > .toc-group.is-flat-hidden {
+  display: none !important;
+}
+body.inventions-toc-flat .inventions-flat-toc {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+body.inventions-toc-flat .inventions-flat-toc[hidden] {
+  display: none !important;
+}
+body.inventions-toc-flat .inventions-flat-toc__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+body.inventions-toc-flat .inventions-flat-toc__list .inventions-toc-entry {
+  list-style: none;
+}
+body.inventions-toc-flat .inventions-flat-toc__list .tl-date {
+  display: none !important;
+}
+
 .inventions-cards {
   display: none;
   min-width: 0;

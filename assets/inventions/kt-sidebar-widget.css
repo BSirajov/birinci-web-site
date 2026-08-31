@@ -90,16 +90,23 @@
   background: #f4f8fc;
   border-bottom: 1px solid rgba(0, 45, 82, 0.08);
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 8px;
-  justify-content: flex-end;
+  justify-content: center;
+  min-width: 0;
   padding: 8px 16px;
 }
 
 .widget-actions__views {
-  display: inline-flex;
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: nowrap;
   align-items: stretch;
   gap: 0.15rem;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
   padding: 0.15rem;
   border: 1px solid rgba(0, 105, 180, 0.16);
   border-radius: 999px;
@@ -114,15 +121,19 @@
   color: var(--ink);
   cursor: pointer;
   display: inline-flex;
+  flex: 1 1 auto;
   font-family: var(--font-sans);
   font-size: 12px;
   font-weight: 600;
   gap: 6px;
   justify-content: center;
   line-height: 1.2;
+  max-width: 100%;
+  min-width: min-content;
   padding: 6px 12px;
   transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
   white-space: nowrap;
+  width: auto;
 }
 
 .widget-action-btn__icon {
@@ -158,7 +169,8 @@
 .widget-action-btn__label {
   flex: 0 1 auto;
   min-width: 0;
-  text-align: left;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .widget-action-btn:hover,
@@ -333,17 +345,19 @@
   }
 
   .widget-actions {
-    justify-content: stretch;
+    justify-content: center;
     padding: 8px 12px;
   }
 
   .widget-action-btn {
-    flex: 1 1 calc(50% - 4px);
+    flex: 1 1 auto;
     font-size: 12px;
     min-height: 40px;
+    min-width: min-content;
     padding: 8px 10px;
     text-align: center;
-    white-space: normal;
+    white-space: nowrap;
+    width: auto;
   }
 
   .timeline-list li {
@@ -512,6 +526,21 @@
 
 .toc-group.is-hidden {
   display: none !important;
+}
+
+.charter-sidebar .sidebar-widget .widget-actions[hidden],
+.charter-sidebar .sidebar-widget .widget-actions.is-hidden {
+  display: none !important;
+}
+
+body.catalog-expand-collapse-on .charter-sidebar .sidebar-widget .widget-actions:not([hidden]):not(.is-hidden) {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  justify-content: center !important;
+  max-height: none !important;
+  overflow: visible !important;
+  padding: 8px 16px !important;
+  border-bottom-width: 1px !important;
 }
 
 /* Compact panel variant: header + actions only (e.g. main-column Articles controls) */

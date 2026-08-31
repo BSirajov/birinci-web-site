@@ -299,6 +299,7 @@
 
   function annotateDiscoveriesCategoryCounts() {
     Array.prototype.forEach.call(document.querySelectorAll(".inventions-category"), function (cat) {
+      if (cat.getAttribute("data-flat-list") === "1") return;
       var count = cat.querySelectorAll(
         ".inventions-entry:not(.is-hidden)"
       ).length;
@@ -543,6 +544,241 @@
     return !!(el && el.value);
   }
 
+  function categoryFilterNoneSelected() {
+    var mf = window.KT_CATALOG_MULTI_FILTER;
+    if (!mf || typeof mf.isActive !== "function") return false;
+    return (
+      !!mf.isActive("filterCategory") &&
+      !(mf.getActiveValues("filterCategory") || []).length
+    );
+  }
+
+  function periodFilterNoneSelected() {
+    var mf = window.KT_CATALOG_MULTI_FILTER;
+    if (!mf || typeof mf.isActive !== "function") return false;
+    return (
+      !!mf.isActive("filterPeriod") &&
+      !(mf.getActiveValues("filterPeriod") || []).length
+    );
+  }
+
+  function discoveriesFlatFilterMode() {
+    return categoryFilterNoneSelected() || periodFilterNoneSelected();
+  }
+
+  function categoryFilterSelectAllOn() {
+    var mf = window.KT_CATALOG_MULTI_FILTER;
+    if (!mf || typeof mf.isActive !== "function") return true;
+    return !mf.isActive("filterCategory");
+  }
+
+  function periodFilterSelectAllOn() {
+    var mf = window.KT_CATALOG_MULTI_FILTER;
+    if (!mf || typeof mf.isActive !== "function") return true;
+    return !mf.isActive("filterPeriod");
+  }
+
+  function discoveriesExpandCollapseShouldShow() {
+    // Flat list (Select All unchecked on Category or Period) → hide
+    if (discoveriesFlatFilterMode()) return false;
+    // Category Select All on → category groups on screen → show
+    if (categoryFilterSelectAllOn()) return true;
+    var activeCats = activeFilterValues("filterCategory") || [];
+    if (activeCats.length >= 2) return true;
+    if (activeCats.length === 1) return false;
+    // Category idle: Period Select All or 2+ periods still leave category groups
+    if (periodFilterSelectAllOn()) return true;
+    var activePeriods = activeFilterValues("filterPeriod") || [];
+    return activePeriods.length >= 2;
+  }
+
+  function syncDiscoveriesExpandCollapseChrome() {
+    if (!isDiscoveriesPage()) return;
+    var show = discoveriesExpandCollapseShouldShow();
+    document.body.classList.toggle("catalog-expand-collapse-on", show);
+    Array.prototype.forEach.call(
+      document.querySelectorAll(".charter-sidebar .sidebar-widget .widget-actions"),
+      function (actions) {
+        if (
+          !actions.querySelector(
+            '[data-toc-action="expand-all"], [data-toc-action="collapse-all"], [data-toc-action="toggle-categories"]'
+          )
+        ) {
+          return;
+        }
+        if (show) {
+          actions.hidden = false;
+          actions.removeAttribute("hidden");
+          actions.classList.remove("is-hidden");
+          actions.setAttribute("aria-hidden", "false");
+        } else {
+          actions.hidden = true;
+          actions.setAttribute("hidden", "");
+          actions.classList.add("is-hidden");
+          actions.setAttribute("aria-hidden", "true");
+        }
+      }
+    );
+  }
+
+  function compareInventionTitles(a, b) {
+    return discoveriesTitleCollator().compare(String(a || ""), String(b || ""));
+  }
+
+  function ensureFlatListHost() {
+    var stack = document.querySelector(".inventions-stack");
+    if (!stack) return null;
+    var host = document.getElementById("inventions-flat-list");
+    if (!host) {
+      host = document.createElement("section");
+      host.id = "inventions-flat-list";
+      host.className = "inventions-category inventions-flat-list";
+      host.setAttribute("data-flat-list", "1");
+      host.hidden = true;
+      stack.insertBefore(host, stack.firstChild);
+    }
+    return host;
+  }
+
+  function rememberEntryHomes() {
+    entries.forEach(function (entry) {
+      if (!entry.__ktHomeCat) {
+        entry.__ktHomeCat = entry.closest(".inventions-category:not([data-flat-list])");
+      }
+    });
+  }
+
+  function restoreEntriesToCategories() {
+    entries.forEach(function (entry) {
+      var home = entry.__ktHomeCat;
+      if (home && entry.parentNode !== home) home.appendChild(entry);
+    });
+  }
+
+  function applyDiscoveriesFlatCategoryMode(enabled) {
+    var host = ensureFlatListHost();
+    document.body.classList.toggle("inventions-category-flat", !!enabled);
+    rememberEntryHomes();
+
+    if (!enabled) {
+      restoreEntriesToCategories();
+      if (host) {
+        host.hidden = true;
+        host.setAttribute("hidden", "");
+      }
+      return;
+    }
+
+    var visible = entries.filter(function (entry) {
+      return !entry.classList.contains("is-hidden");
+    });
+    visible.sort(function (a, b) {
+      return compareInventionTitles(discoveriesEntryName(a), discoveriesEntryName(b));
+    });
+
+    if (host) {
+      host.hidden = false;
+      host.removeAttribute("hidden");
+      host.classList.remove("is-hidden");
+      visible.forEach(function (entry) {
+        host.appendChild(entry);
+      });
+    }
+    categories.forEach(function (cat) {
+      if (cat.getAttribute("data-flat-list") === "1") return;
+      cat.classList.add("is-hidden");
+    });
+  }
+
+  function ensureFlatTocHost() {
+    var list = document.getElementById("inventionsTocList");
+    if (!list) return null;
+    var host = list.querySelector("[data-flat-toc]");
+    if (!host) {
+      host = document.createElement("li");
+      host.className = "inventions-flat-toc";
+      host.setAttribute("data-flat-toc", "1");
+      host.hidden = true;
+      var inner = document.createElement("ul");
+      inner.className = "inventions-flat-toc__list";
+      host.appendChild(inner);
+      list.insertBefore(host, list.firstChild);
+    }
+    return host;
+  }
+
+  function liveTocGroups() {
+    return Array.prototype.slice.call(
+      document.querySelectorAll("#inventionsTocList > .toc-group")
+    );
+  }
+
+  function liveTocEntries() {
+    return Array.prototype.slice.call(
+      document.querySelectorAll("#inventionsTocList .toc-group .inventions-toc-entry")
+    );
+  }
+
+  function applyDiscoveriesFlatToc(enabled) {
+    var host = ensureFlatTocHost();
+    var list = host && host.querySelector(".inventions-flat-toc__list");
+    document.body.classList.toggle("inventions-toc-flat", !!enabled);
+
+    if (!enabled) {
+      if (host) {
+        host.hidden = true;
+        host.setAttribute("hidden", "");
+        if (list) list.innerHTML = "";
+      }
+      liveTocGroups().forEach(function (item) {
+        item.classList.remove("is-flat-hidden");
+      });
+      return;
+    }
+
+    if (!host || !list) return;
+    host.hidden = false;
+    host.removeAttribute("hidden");
+    list.innerHTML = "";
+
+    var rows = liveTocEntries()
+      .filter(function (item) {
+        return !item.classList.contains("is-hidden");
+      })
+      .map(function (item) {
+        var a = item.querySelector("a");
+        return {
+          title: ((a && a.textContent) || item.getAttribute("data-title") || "").trim(),
+          href: (a && a.getAttribute("href")) || "",
+          stem: item.getAttribute("data-toc-entry") || "",
+        };
+      })
+      .sort(function (a, b) {
+        return compareInventionTitles(a.title, b.title);
+      });
+
+    rows.forEach(function (row) {
+      var li = document.createElement("li");
+      li.className = "inventions-toc-entry";
+      li.setAttribute("data-toc-entry", row.stem);
+      li.setAttribute("data-stem", row.stem);
+      li.setAttribute("data-title", row.title);
+      var a = document.createElement("a");
+      a.href = row.href || ("#" + row.stem);
+      a.textContent = row.title;
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        scrollToSection(row.stem);
+      });
+      li.appendChild(a);
+      list.appendChild(li);
+    });
+
+    liveTocGroups().forEach(function (item) {
+      item.classList.add("is-flat-hidden");
+    });
+  }
+
 
   function clearInventionsCatalogFilters() {
     if (searchInput) searchInput.value = "";
@@ -563,13 +799,25 @@
 
   function itemMatches(el, q) {
     var mf = window.KT_CATALOG_MULTI_FILTER;
+    var cardsView = !isInventionsListView();
+    var skipCategory = cardsView || categoryFilterNoneSelected();
+    var skipPeriod = cardsView || periodFilterNoneSelected();
     if (mf) {
-      if (!mf.passesFilter("filterCategory", el.getAttribute("data-category") || ""))
+      if (
+        !skipCategory &&
+        !mf.passesFilter("filterCategory", el.getAttribute("data-category") || "")
+      ) {
         return false;
-      if (!mf.passesFilter("filterPeriod", el.getAttribute("data-period") || ""))
+      }
+      if (
+        !skipPeriod &&
+        !mf.passesFilter("filterPeriod", el.getAttribute("data-period") || "")
+      ) {
         return false;
+      }
     } else {
       if (
+        !skipCategory &&
         filterCategory &&
         filterCategory.value &&
         el.getAttribute("data-category") !== filterCategory.value
@@ -577,6 +825,7 @@
         return false;
       }
       if (
+        !skipPeriod &&
         filterPeriod &&
         filterPeriod.value &&
         el.getAttribute("data-period") !== filterPeriod.value
@@ -850,6 +1099,10 @@
       if (!entry.classList.contains("is-hidden")) visibleCount += 1;
     });
     syncInventionsTocVisibility();
+    var flatMode =
+      isDiscoveriesPage() && isInventionsListView() && discoveriesFlatFilterMode();
+    applyDiscoveriesFlatToc(flatMode);
+    syncDiscoveriesExpandCollapseChrome();
     annotateDiscoveriesCategoryCounts();
     syncInventionsPlayVisibleUi();
     setWidgetHeadCount(
@@ -963,11 +1216,17 @@
 
   function applyFilters(options) {
     if (!searchInput) return;
+    var flatMode =
+      isDiscoveriesPage() && isInventionsListView() && discoveriesFlatFilterMode();
+    if (!flatMode) {
+      applyDiscoveriesFlatCategoryMode(false);
+    }
+
     var q = normalize(searchInput.value);
     var filtering = !!(
       q ||
-      filterIsActive("filterCategory") ||
-      filterIsActive("filterPeriod")
+      (filterIsActive("filterCategory") && !categoryFilterNoneSelected()) ||
+      (filterIsActive("filterPeriod") && !periodFilterNoneSelected())
     );
 
     entries.forEach(function (entry) {
@@ -976,6 +1235,7 @@
     });
 
     categories.forEach(function (cat) {
+      if (cat.getAttribute("data-flat-list") === "1") return;
       var visible = cat.querySelectorAll(".inventions-entry:not(.is-hidden)").length;
       cat.classList.toggle("is-hidden", filtering && visible === 0);
       // Filtering should reveal matching articles even if the category was collapsed.
@@ -983,6 +1243,10 @@
         syncCategoryPair(cat.id, true);
       }
     });
+
+    if (flatMode) {
+      applyDiscoveriesFlatCategoryMode(true);
+    }
 
     var visibleCount = entries.filter(function (entry) {
       return !entry.classList.contains("is-hidden");
@@ -993,6 +1257,7 @@
 
     updateFilterStyles();
     syncToolbarFilterBadge();
+    syncDiscoveriesExpandCollapseChrome();
     updateActiveFromScroll(true);
     writeInventionsUrlState();
     if (window.KT_SIDEBAR_TOC_GROUPS && widget) {
@@ -3044,7 +3309,7 @@
     ) {
       window.KT_SIDEBAR_TOC_GROUPS.syncAllMainCategoriesFromToc();
     }
-    applyInventionsListWindow();
+    applyFilters();
   }
   window.__birinciSetInventionsView = setInventionsView;
 

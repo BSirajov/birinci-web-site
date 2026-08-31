@@ -107,6 +107,28 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         const first = (group.stories || []).find((story) => !visible || visible.has(story.stem));
         return first ? hrefForStory(first.stem, group) : `#${group.slug}`;
       });
+    if (options.flat) {
+      const flat = [];
+      (groups || []).forEach((group) => {
+        (group.stories || []).forEach((story) => {
+          if (visible && !visible.has(story.stem)) return;
+          flat.push({ stem: story.stem, title: story.title, group });
+        });
+      });
+      flat.sort((a, b) => compareCatalogTitles(a.title, b.title));
+      return flat
+        .map(
+          (story) =>
+            `<li class="inventions-toc-entry" data-toc-entry="${escapeStoryNav(
+              story.stem
+            )}" data-stem="${escapeStoryNav(story.stem)}" data-title="${escapeStoryNav(
+              story.title
+            )}"><a href="${escapeStoryNav(hrefForStory(story.stem, story.group))}">${escapeStoryNav(
+              story.title
+            )}</a></li>`
+        )
+        .join("");
+    }
     return groups
       .map((group) => {
         const stories = group.stories || [];
@@ -166,6 +188,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     if (api && typeof api.bindPanelControls === "function") {
       api.bindPanelControls(list.closest(".sidebar-widget"));
     }
+    syncStoryExpandCollapseChrome();
     if (options.expandAll && api && typeof api.expandAll === "function") {
       api.expandAll(list.closest(".sidebar-widget"));
     } else {
@@ -238,19 +261,24 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
   const groupStoriesByCategory = (stories, catalog) => {
     const cats = (catalog && catalog.categories) || [];
-    const order = cats.map((cat) => cat.slug);
+    const order = cats.map((cat) => cat.slug).filter(Boolean);
     const titles = new Map(cats.map((cat) => [cat.slug, cat.title]));
+    titles.set(STORY_UNCATEGORIZED_SLUG, uncategorizedStoriesLabel());
     const totals = new Map(cats.map((cat) => [cat.slug, (cat.stories || []).length]));
     const buckets = new Map();
     (stories || []).forEach((story) => {
-      const slug =
+      const raw =
         story.categorySlug ||
         (story.dataset && story.dataset.categorySlug) ||
-        "stories";
+        "";
+      const slug = String(raw).trim() || STORY_UNCATEGORIZED_SLUG;
       if (!buckets.has(slug)) buckets.set(slug, []);
       buckets.get(slug).push(story);
     });
     const slugs = order.filter((slug) => buckets.has(slug));
+    if (buckets.has(STORY_UNCATEGORIZED_SLUG) && !slugs.includes(STORY_UNCATEGORIZED_SLUG)) {
+      slugs.push(STORY_UNCATEGORIZED_SLUG);
+    }
     buckets.forEach((_, slug) => {
       if (!slugs.includes(slug)) slugs.push(slug);
     });
@@ -261,7 +289,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const title =
         titles.get(slug) ||
         (first && (first.categoryTitle || (first.dataset && first.dataset.categoryTitle))) ||
-        slug;
+        (slug === STORY_UNCATEGORIZED_SLUG ? uncategorizedStoriesLabel() : slug);
       return {
         slug,
         title,
@@ -377,24 +405,37 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
   const storyCategoriesForFilter = () => {
     const cats = ((window.__BIRINCI_STORIES__ || {}).categories) || [];
+    let rows;
     if (cats.length) {
-      return cats.map((cat, index) => ({
+      rows = cats.map((cat, index) => ({
         slug: cat.slug,
         title: cat.title,
         label: `${index + 1}. ${cat.title}`,
       }));
+    } else {
+      rows = Array.from(document.querySelectorAll(".cat-card[href], .cat-card[data-slug]"))
+        .map((card, index) => {
+          const slug = card.getAttribute("data-slug") || storyCategorySlugFromHref(card.getAttribute("href"));
+          const title =
+            card.getAttribute("data-title") ||
+            ((card.querySelector(".card-title, h2") || {}).textContent || "").trim() ||
+            slug;
+          return { slug, title, label: `${index + 1}. ${title}` };
+        })
+        .filter((row) => row.slug);
     }
-    return Array.from(document.querySelectorAll(".cat-card[href], .cat-card[data-slug]"))
-      .map((card, index) => {
-        const slug = card.getAttribute("data-slug") || storyCategorySlugFromHref(card.getAttribute("href"));
-        const title =
-          card.getAttribute("data-title") ||
-          ((card.querySelector(".card-title, h2") || {}).textContent || "").trim() ||
-          slug;
-        return { slug, title, label: `${index + 1}. ${title}` };
-      })
-      .filter((row) => row.slug);
+    const uncatLabel = uncategorizedStoriesLabel();
+    if (!rows.some((row) => row.slug === STORY_UNCATEGORIZED_SLUG)) {
+      rows.push({
+        slug: STORY_UNCATEGORIZED_SLUG,
+        title: uncatLabel,
+        label: uncatLabel,
+      });
+    }
+    return rows;
   };
+
+  const STORY_UNCATEGORIZED_SLUG = "__uncategorized__";
 
   const activeStoryCategorySlugs = () => {
     const api = window.KT_CATALOG_MULTI_FILTER;
@@ -405,10 +446,38 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     return select && select.value ? [select.value] : [];
   };
 
+  /** True when Category multi-filter is active but no category boxes are checked (Select All unchecked). */
+  const storyCategoryFilterNoneSelected = () => {
+    const api = window.KT_CATALOG_MULTI_FILTER;
+    if (api && typeof api.isActive === "function" && typeof api.getActiveValues === "function") {
+      return (
+        !!api.isActive("filterStoryCategory") &&
+        !(api.getActiveValues("filterStoryCategory") || []).length
+      );
+    }
+    return false;
+  };
+
+  const isStoryUncategorizedSlug = (slug) => {
+    const s = String(slug || "").trim();
+    return !s || s === STORY_UNCATEGORIZED_SLUG;
+  };
+
+  const uncategorizedStoriesLabel = () =>
+    tUi("uncategorized_stories", "Kateqoriyasız");
+
   const storyCategoryPasses = (slug) => {
     const api = window.KT_CATALOG_MULTI_FILTER;
-    if (api && typeof api.passesFilter === "function") {
-      return api.passesFilter("filterStoryCategory", slug);
+    if (api && typeof api.isActive === "function") {
+      if (!api.isActive("filterStoryCategory")) return true;
+      const active = api.getActiveValues("filterStoryCategory") || [];
+      // Select All unchecked: list view uses a dedicated uncategorized render path;
+      // category cards stay hidden (they all have real slugs).
+      if (!active.length) return isStoryUncategorizedSlug(slug);
+      if (active.indexOf(STORY_UNCATEGORIZED_SLUG) >= 0 && isStoryUncategorizedSlug(slug)) {
+        return true;
+      }
+      return active.indexOf(String(slug || "")) >= 0;
     }
     const active = activeStoryCategorySlugs();
     return !active.length || active.indexOf(String(slug || "")) >= 0;
@@ -424,6 +493,65 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       if (select) select.value = "";
     }
   };
+
+  /**
+   * Expand/Collapse when category groups are on screen:
+   * - Select All (all categories) → show
+   * - 2+ individual categories → show
+   * - flat list (Select All unchecked) or a single category → hide
+   */
+  const storyExpandCollapseShouldShow = () => {
+    if (storyCategoryFilterNoneSelected()) return false;
+    const active = (activeStoryCategorySlugs() || []).filter(
+      (slug) => slug && slug !== STORY_UNCATEGORIZED_SLUG
+    );
+    const api = window.KT_CATALOG_MULTI_FILTER;
+    const selectAllOn =
+      api && typeof api.isActive === "function" && !api.isActive("filterStoryCategory");
+    if (selectAllOn) return true;
+    if (active.length >= 2) return true;
+    const listRoot =
+      document.querySelector('[data-view="list"]:not([hidden])') ||
+      document.querySelector(".home-stories-layout, .page-home .stories-layout");
+    if (!listRoot) return false;
+    return listRoot.querySelectorAll("section.stories-category, .stories-category").length >= 2;
+  };
+
+  const syncStoryExpandCollapseChrome = () => {
+    const show = storyExpandCollapseShouldShow();
+    document.body.classList.toggle("story-expand-collapse-on", show);
+    document.querySelectorAll(".story-nav .sidebar-widget").forEach((widget) => {
+      const actions = widget.querySelector(".widget-actions");
+      if (!actions) return;
+      if (
+        !actions.querySelector(
+          '[data-toc-action="expand-all"], [data-toc-action="collapse-all"], [data-toc-action="toggle-categories"]'
+        )
+      ) {
+        return;
+      }
+      if (show) {
+        actions.hidden = false;
+        actions.removeAttribute("hidden");
+        actions.classList.remove("is-hidden");
+        actions.setAttribute("aria-hidden", "false");
+      } else {
+        actions.hidden = true;
+        actions.setAttribute("hidden", "");
+        actions.classList.add("is-hidden");
+        actions.setAttribute("aria-hidden", "true");
+      }
+    });
+  };
+
+  if (!window.__birinciStoryExpandCollapseFilterBound) {
+    window.__birinciStoryExpandCollapseFilterBound = true;
+    document.addEventListener("kt-catalog-filter-change", (event) => {
+      const id = event && event.detail && event.detail.id;
+      if (id && id !== "filterStoryCategory") return;
+      window.requestAnimationFrame(() => syncStoryExpandCollapseChrome());
+    });
+  }
 
   const syncStoryCategoryFilterChrome = () => {
     const label = tUi("category_filter", "Kateqoriya");
@@ -477,6 +605,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       field = document.createElement("div");
       field.className = "tools-bar__field tools-bar__field--filter";
       field.setAttribute("data-story-cat-filter", "");
+      field.setAttribute("data-home-list-only", "");
       field.innerHTML =
         `<span class="tools-bar__label" id="story-cat-label">${escapeStoryNav(label)}</span>` +
         `<div class="sel-wrap">` +
@@ -495,6 +624,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         if (search) search.after(field);
         else bar.insertBefore(field, bar.firstChild);
       }
+    } else {
+      field.setAttribute("data-home-list-only", "");
     }
     const select = field.querySelector("#filterStoryCategory");
     fillStoryCategorySelect(select, initialSlugs);
@@ -528,6 +659,14 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     };
     ensureStoryToolsSearchRow(bar);
     ensureStoryToolsControlRow(bar);
+    // Category filter is list-view only (cards show the category grid).
+    const homeView =
+      window.__birinciHomeView ||
+      document.documentElement.getAttribute("data-home-view") ||
+      "cards";
+    field.hidden = homeView !== "list";
+    if (homeView !== "list") field.setAttribute("hidden", "");
+    else field.removeAttribute("hidden");
     return select;
   };
 
@@ -3517,6 +3656,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       } else if (layout && layout.__birinciSidebar) {
         layout.__birinciSidebar.refresh();
       }
+      syncStoryExpandCollapseChrome();
     };
     window.__birinciRefreshStoryNav = refreshSidebarNav;
     window.__birinciRevealStory = (stem) => {
@@ -4473,9 +4613,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       items.forEach((item) => cardsList.appendChild(item));
       let visible = 0;
       items.forEach((item) => {
-        const slug = item.getAttribute("data-slug") || storyCategorySlugFromHref(item.getAttribute("href"));
         const hay = `${item.dataset.title || ""} ${item.dataset.blurb || ""}`.toLocaleLowerCase(LOCALE_TAG);
-        const show = storyCategoryPasses(slug) && (!q || hay.includes(q));
+        // Card view has no Category dropdown — show all categories (search only).
+        const show = !q || hay.includes(q);
         item.hidden = !show;
         if (show) visible += 1;
       });
@@ -4508,20 +4648,31 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
     const flattenStories = (catalog) => {
       const rows = [];
+      const seen = new Set();
+      const pushStory = (story, categoryTitle, categorySlug) => {
+        const stem = story && story.stem;
+        if (!stem || seen.has(stem)) return;
+        seen.add(stem);
+        rows.push({
+          stem,
+          title: story.title,
+          paragraphs: story.paragraphs || [],
+          categoryTitle: categoryTitle || "",
+          categorySlug: categorySlug || "",
+          hasAudio: !!story.hasAudio,
+          hasImage: !!story.hasImage,
+          hay: `${story.title || ""} ${(story.paragraphs || []).join(" ")}`.toLocaleLowerCase(LOCALE_TAG),
+        });
+      };
       (catalog.categories || []).forEach((cat) => {
         (cat.stories || []).forEach((story) => {
-          rows.push({
-            stem: story.stem,
-            title: story.title,
-            paragraphs: story.paragraphs || [],
-            categoryTitle: cat.title,
-            categorySlug: cat.slug,
-            hasAudio: !!story.hasAudio,
-            hasImage: !!story.hasImage,
-            hay: `${story.title || ""} ${(story.paragraphs || []).join(" ")}`.toLocaleLowerCase(LOCALE_TAG),
-          });
+          pushStory(story, cat.title || "", cat.slug || "");
         });
       });
+      const orphans = []
+        .concat(catalog.uncategorized || [])
+        .concat(catalog.stories || []);
+      orphans.forEach((story) => pushStory(story, "", ""));
       return rows;
     };
 
@@ -4689,11 +4840,13 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         lastVisibleStems.size
           ? lastVisibleStems
           : new Set((filtered || []).map((story) => story.stem));
+      const flat = storyCategoryFilterNoneSelected();
       fillGroupedStoryNav(navList, {
         visibleStems,
         shownCount: lastShownCount,
-        expandAll: expandAllOnNextNav,
+        expandAll: expandAllOnNextNav || flat,
         syncRoot: storiesList,
+        flat,
         hrefForStory: (stem) => `#${stem}`,
         hrefForCategory: (group) => `#${group.slug}`,
       });
@@ -4701,6 +4854,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         const layout = listPanel.querySelector(".charter-layout.stories-layout, .category-layout");
         if (layout) window.__birinciBindStorySidebar(layout);
       }
+      syncStoryExpandCollapseChrome();
     };
     window.__birinciRefreshStoryNav = refreshSidebarNav;
     window.__birinciRevealStory = (stem) => {
@@ -4738,9 +4892,29 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       if (!storiesList) return;
       if (typeof window.__birinciStopStoryTts === "function") window.__birinciStopStoryTts();
       const q = searchInput.value.trim().toLocaleLowerCase(LOCALE_TAG);
-      filtered = (allStories || []).filter(
-        (story) => storyCategoryPasses(story.categorySlug) && (!q || story.hay.includes(q))
-      );
+      const noneSelected = storyCategoryFilterNoneSelected();
+      if (noneSelected) {
+        // Select All unchecked → uncategorized stories (no category), A–Z by title.
+        // If the catalog has no uncategorized stories yet, fall back to a flat A–Z
+        // list of all stories so this mode does not blank the page.
+        const orphans = (allStories || []).filter((story) =>
+          isStoryUncategorizedSlug(story.categorySlug)
+        );
+        const pool = orphans.length ? orphans : allStories || [];
+        filtered = pool
+          .filter((story) => !q || story.hay.includes(q))
+          .slice()
+          .sort((a, b) => compareCatalogTitles(a.title, b.title))
+          .map((story) => ({
+            ...story,
+            categorySlug: STORY_UNCATEGORIZED_SLUG,
+            categoryTitle: uncategorizedStoriesLabel(),
+          }));
+      } else {
+        filtered = (allStories || []).filter(
+          (story) => storyCategoryPasses(story.categorySlug) && (!q || story.hay.includes(q))
+        );
+      }
 
       const total = filtered.length;
       syncSearchFilterUi(searchInput.value.trim(), total);
@@ -4748,7 +4922,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
       lastShownCount = visibleStories.length;
       lastVisibleStems = new Set(visibleStories.map((s) => s.stem));
-      const nextKey = `${visibleStories.map((s) => s.stem).join("\n")}|t${total}`;
+      const nextKey = `${visibleStories.map((s) => s.stem).join("\n")}|t${total}|u${
+        noneSelected ? 1 : 0
+      }`;
       const reuseDom =
         !force &&
         nextKey === listRenderKey &&
@@ -4756,7 +4932,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
       if (!reuseDom) {
         const collapsed =
-          expandAllOnNextNav || q ? new Set() : collectCollapsedStoryCategories(storiesList);
+          expandAllOnNextNav || q || noneSelected
+            ? new Set()
+            : collectCollapsedStoryCategories(storiesList);
         if (pendingStem) {
           const reveal = visibleStories.find(
             (story) => story.stem === pendingStem || story.categorySlug === pendingStem
@@ -4765,21 +4943,28 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           collapsed.delete(pendingStem);
         }
         const catalog = window.__BIRINCI_STORIES__;
-        const numbering = storyCatalogNumbering(catalog);
-        const groups = groupStoriesByCategory(visibleStories, catalog);
+        const numbering = noneSelected ? new Map() : storyCatalogNumbering(catalog);
         listRenderKey = nextKey;
-        storiesList.innerHTML = groups
-          .map((group) => {
-            const collapsedClass = collapsed.has(group.slug) ? " is-collapsed" : "";
-            return `<section class="inventions-category stories-category${collapsedClass}" id="${escapeHtml(
-              group.slug
-            )}" data-category="${escapeHtml(group.title)}"><h2 class="inventions-category-head">${escapeHtml(
-              categoryTitleWithCount(visibleCatalogLabel(group.title), group.stories.length)
-            )}</h2>${group.stories
-              .map((story) => storyArticleHtml(story, numbering.get(story.stem)))
-              .join("")}</section>`;
-          })
-          .join("");
+        if (noneSelected) {
+          // Flat list: story titles only — no category section headings.
+          storiesList.innerHTML = visibleStories
+            .map((story) => storyArticleHtml(story, null))
+            .join("");
+        } else {
+          const groups = groupStoriesByCategory(visibleStories, catalog);
+          storiesList.innerHTML = groups
+            .map((group) => {
+              const collapsedClass = collapsed.has(group.slug) ? " is-collapsed" : "";
+              return `<section class="inventions-category stories-category${collapsedClass}" id="${escapeHtml(
+                group.slug
+              )}" data-category="${escapeHtml(group.title)}"><h2 class="inventions-category-head">${escapeHtml(
+                categoryTitleWithCount(visibleCatalogLabel(group.title), group.stories.length)
+              )}</h2>${group.stories
+                .map((story) => storyArticleHtml(story, numbering.get(story.stem)))
+                .join("")}</section>`;
+            })
+            .join("");
+        }
         hideAudioChrome(storiesList);
         ensureStoryListenButtons(storiesList);
         if (typeof window.__birinciSetAllStoryFigures === "function") {
@@ -4847,7 +5032,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       });
       document.body.classList.toggle("inventions-view-cards", view === "cards");
       document.body.classList.toggle("inventions-view-list", view === "list");
-      bar.querySelectorAll("[data-inventions-list-only], [data-home-list-only]").forEach((el) => {
+      bar.querySelectorAll("[data-inventions-list-only], [data-home-list-only], [data-story-cat-filter]").forEach((el) => {
         setHidden(el, view !== "list");
       });
     };
@@ -4960,16 +5145,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       initialSlugs: urlState.cat,
       onChange: (slugs) => {
         pendingStem = slugs && slugs.length === 1 ? slugs[0] : null;
-        if (view === "cards" && slugs && slugs.length) {
+        // Category filter is list-only; always refresh the story list.
+        if (view !== "list") {
           setView("list", { persist: true, forceList: true });
           return;
         }
-        if (view === "cards") {
-          applyCards();
-          writeUrlState();
-        } else {
-          renderList({ resetWindow: true, force: true });
-        }
+        renderList({ resetWindow: true, force: true });
       },
     });
 
