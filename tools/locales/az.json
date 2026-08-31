@@ -217,9 +217,8 @@
     "sitemap": {
       "nav_item": "Sayt xəritəsi",
       "page_title": "Sayt xəritəsi",
-      "page_description": "Birİnci-nin bütün açıq səhifələri — ibrətamiz hekayələr, kəşf və ixtiralar, haqqımızda — bir yerdə.",
-      "kicker": "Naviqasiya",
-      "lead": "Aşağıda saytın canlı bölmələri, hekayə kateqoriyaları və kəşf fəsilləri toplanıb. Hər keçid sizi birbaşa həmin səhifəyə və ya məqaləyə aparır.",
+      "page_description": "Birİnci-nin bütün açıq səhifələri — ibrətamiz hekayələr və haqqımızda — bir yerdə.",
+      "lead": "Bu səhifə Birİnci ocağının canlı yollarını bir yerdə göstərir: mövzular üzrə ibrətamiz hekayələr, eləcə də missiya, baxış və dəyərlərimizi ifadə edən səhifələr. Hər keçid sizi birbaşa həmin bölməyə və ya hekayəyə aparır.",
       "jump_label": "Bu səhifədə",
       "overview_title": "Əsas bölmələr",
       "home_title": "Ana səhifə",
@@ -236,7 +235,7 @@
       "articles_count": "{n} məqalə",
       "browse_chapter": "Fəslə keç",
       "search_label": "Bu səhifədə axtar",
-      "search_placeholder": "Hekayə, kəşf və bölmələrdə axtar…",
+      "search_placeholder": "Hekayə və bölmələrdə axtar…",
       "search_no_match": "Bu səhifədə uyğun nəticə yoxdur."
     },
     "auth_forgot": "Şifrəni unutmusunuz?",

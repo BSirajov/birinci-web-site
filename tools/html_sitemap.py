@@ -65,11 +65,10 @@ def _sitemap_copy(lang: str) -> dict:
         "nav_item": "Sitemap",
         "page_title": "Sitemap",
         "page_description": "",
-        "kicker": "",
         "lead": "",
         "jump_label": "On this page",
         "search_label": "Search this page",
-        "search_placeholder": "Search stories, discoveries, and sections…",
+        "search_placeholder": "Search stories and sections…",
         "search_no_match": "No matching items on this page.",
         "overview_title": "Main sections",
         "home_title": loc.get("home_crumb", "Home"),
@@ -158,7 +157,9 @@ def _title_html(title: str) -> str:
     parts = str(title or "").rsplit(" ", 1)
     if len(parts) == 2:
         return f"{_esc(parts[0])} <span>{_esc(parts[1])}</span>"
-    return _esc(title)
+    if title:
+        return f"<span>{_esc(title)}</span>"
+    return ""
 
 
 def _invention_chapters(lang: str) -> list[dict]:
@@ -392,16 +393,23 @@ def build_sitemap_inner_html(lang: str) -> str:
         f"</div>"
     )
 
+    title = copy["page_title"]
+    title_alt = html.escape(title, quote=True)
     return (
         '<div class="sitemap-page">\n'
-        '  <header class="about-hero">\n'
-        '    <div class="about-hero__wrap">\n'
-        '      <section class="about-hero__copy">\n'
-        f'        <h1 class="about-hero__title" id="about-hero-title">{_title_html(copy["page_title"])}</h1>\n'
-        f'        <p class="about-hero__lead">{_esc(copy["lead"])}</p>\n'
-        "      </section>\n"
+        '  <section class="intro">\n'
+        '    <div class="intro__atmosphere" aria-hidden="true"></div>\n'
+        '    <div class="intro__content">\n'
+        '      <div class="intro__copy">\n'
+        f'        <h1 class="intro__brand" id="about-hero-title">{_title_html(title)}</h1>\n'
+        f'        <p class="intro__tagline">{_esc(copy.get("lead", ""))}</p>\n'
+        "      </div>\n"
+        '      <div class="intro__visual">\n'
+        '        <img src="../assets/Sitemap.webp?v=20260831ai" '
+        f'alt="{title_alt}" width="1536" height="1024" decoding="async" />\n'
+        "      </div>\n"
         "    </div>\n"
-        "  </header>\n"
+        "  </section>\n"
         f"  {jump}\n"
         f"  {search}\n"
         '  <div class="sitemap-main">\n'
