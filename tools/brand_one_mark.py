@@ -1,8 +1,7 @@
-"""Post-build CSS: pearlescent \"1\" marks flanking the pearl logo (header + footer).
+"""Post-build CSS: pearl logo only (no flanking \"1\" marks) for header + footer.
 
-Left mark is the original numeral; right mark is a horizontal mirror.
-The website builder rewrites assets/site.css from bytecode. Re-apply this after
-sync_shared_assets so the mark survives rebuilds.
+The website builder may rewrite assets/site.css from bytecode. Re-apply this after
+sync_shared_assets so the pearl-only brand survives rebuilds.
 """
 from __future__ import annotations
 
@@ -31,36 +30,16 @@ BRAND_BLOCK = """\
   letter-spacing: -0.01em;
   white-space: nowrap;
 }
-.brand::before {
-  content: "";
-  order: 1;
-  flex: 0 0 auto;
-  width: calc(var(--brand-mark) * 0.58);
-  height: var(--brand-mark);
-  margin-inline-end: -4px;
-  background: url("brand-one.webp") center / contain no-repeat;
-}
-.brand::after {
-  content: "";
-  order: 3;
-  flex: 0 0 auto;
-  width: calc(var(--brand-mark) * 0.58);
-  height: var(--brand-mark);
-  margin-inline-start: -4px;
-  margin-inline-end: 0.35rem;
-  background: url("brand-one.webp") center / contain no-repeat;
-  transform: scaleX(-1);
-}
 .brand__logo {
-  order: 2;
+  order: 1;
   width: var(--brand-mark);
   height: var(--brand-mark);
   object-fit: contain;
   flex: 0 0 auto;
-  margin-inline-end: 0;
+  margin-inline-end: 0.35rem;
 }
 .brand__name {
-  order: 4;
+  order: 2;
   color: #fff;
   white-space: nowrap;
 }
@@ -82,34 +61,14 @@ FOOTER_LOGO_BLOCK = """\
   pointer-events: none;
   cursor: default;
 }
-.footer-logo::before {
-  content: "";
-  order: 1;
-  flex: 0 0 auto;
-  width: 36px;
-  height: 72px;
-  margin-inline-end: -6px;
-  background: url("brand-one.webp") center / contain no-repeat;
-}
-.footer-logo::after {
-  content: "";
-  order: 3;
-  flex: 0 0 auto;
-  width: 36px;
-  height: 72px;
-  margin-inline-start: -6px;
-  margin-inline-end: 0;
-  background: url("brand-one.webp") center / contain no-repeat;
-  transform: scaleX(-1);
-}
 .footer-logo__img {
-  order: 2;
+  order: 1;
   width: 72px;
   height: 72px;
   object-fit: contain;
 }
 .footer-logo__text {
-  order: 4;
+  order: 2;
   flex: 1 0 100%;
   display: flex;
   flex-direction: column;
@@ -145,7 +104,7 @@ _MQ_1400_BRAND_RE = re.compile(
 
 
 def ensure_brand_one_mark(css: str) -> str:
-    """Inject / restore header + footer brand-one mark rules into site.css text."""
+    """Restore pearl-only brand/footer logo rules (no brand-one.webp marks)."""
     if not _BRAND_RE.search(css):
         raise ValueError("Could not find .brand block in site.css")
     css = _BRAND_RE.sub(BRAND_BLOCK.rstrip("\n"), css, count=1)

@@ -30,7 +30,7 @@ from publish_policy import publish_discoveries_enabled  # noqa: E402
 DISABLE_DISCOVERY_VIDEOS = True
 
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
-SITE_ASSET_VERSION = "20260831ah"
+SITE_ASSET_VERSION = "20260831ai"
 SITE_PUBLIC_ORIGIN = "https://birinci.cloud"
 LIVE_LANGS = ("az", "en", "ru", "ky")
 OG_IMAGE_URL = f"{SITE_PUBLIC_ORIGIN}/assets/pearl-hero.webp"
@@ -697,9 +697,14 @@ def ensure_sitemap_page_css(css: str) -> str:
 
 def ensure_site_css_chrome(css: str) -> str:
     css = ensure_sitemap_page_css(css)
+    # Keep pearl-only brand (strip any reintroduced brand-one flanking marks).
     css = (
         ensure_brand_one_mark(css)
-        if ".brand::after" not in css or "brand-one.webp" not in css or "scaleX(-1)" not in css
+        if ".brand::before" in css
+        or ".brand::after" in css
+        or ".footer-logo::before" in css
+        or ".footer-logo::after" in css
+        or "brand-one.webp" in css
         else css
     )
 
