@@ -402,10 +402,10 @@ def build_sitemap_inner_html(lang: str) -> str:
         '    <div class="intro__content">\n'
         '      <div class="intro__copy">\n'
         f'        <h1 class="intro__brand" id="about-hero-title">{_title_html(title)}</h1>\n'
-        f'        <p class="intro__tagline">{_esc(copy.get("lead", ""))}</p>\n'
+        f'        <p class="intro__lead">{_esc(copy.get("lead", ""))}</p>\n'
         "      </div>\n"
         '      <div class="intro__visual">\n'
-        '        <img src="../assets/Sitemap.webp?v=20260831ai" '
+        '        <img src="../assets/Sitemap.webp?v=20260901a" '
         f'alt="{title_alt}" width="1536" height="1024" decoding="async" />\n'
         "      </div>\n"
         "    </div>\n"
