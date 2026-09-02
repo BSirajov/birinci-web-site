@@ -1584,6 +1584,164 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     return path + "?view=list" + hash;
   };
 
+  const hrefForStoryCompare = (stem) => {
+    const cur = currentPageLang();
+    const path = String(location.pathname || "").replace(/\\/g, "/");
+    let base = "stories/compare.html";
+    if (/\/(categories|discoveries|about|prominent-figures)\//i.test(path)) {
+      base = "../stories/compare.html";
+    } else if (/\/stories\//i.test(path)) {
+      base = "compare.html";
+    }
+    return (
+      base +
+      "?stem=" +
+      encodeURIComponent(stem) +
+      "&from=" +
+      encodeURIComponent(cur)
+    );
+  };
+
+  const closeStoryCompareOverlay = () => {
+    const overlay = document.getElementById("story-compare-overlay");
+    if (!overlay) return;
+    const previouslyFocused = overlay._birinciPrevFocus;
+    overlay.remove();
+    document.body.classList.remove("story-compare-open");
+    document.documentElement.classList.remove("story-compare-open");
+    try {
+      if (previouslyFocused && typeof previouslyFocused.focus === "function") {
+        previouslyFocused.focus();
+      }
+    } catch (_) {}
+  };
+
+  const openStoryCompareWindow = (href, stem) => {
+    const url = new URL(href, window.location.href);
+    if (stem) url.searchParams.set("stem", stem);
+    url.searchParams.set("_t", String(Date.now()));
+    try {
+      if (stem) sessionStorage.setItem("birinci-compare-stem", stem);
+      sessionStorage.setItem("birinci-compare-from", currentPageLang());
+    } catch (_) {}
+    const absolute = url.href;
+    const title = tUi("multilingual_view", "Multilingual View");
+    const closeLabel = tUi("close", "Bağla");
+
+    // In-page overlay (no popup address bar / browser download control).
+    closeStoryCompareOverlay();
+    const overlay = document.createElement("div");
+    overlay.id = "story-compare-overlay";
+    overlay.className = "story-compare-overlay";
+    overlay.setAttribute("role", "dialog");
+    overlay.setAttribute("aria-modal", "true");
+    overlay.setAttribute("aria-label", title);
+    overlay._birinciPrevFocus = document.activeElement;
+    overlay.innerHTML =
+      '<div class="story-compare-overlay__chrome">' +
+      '<p class="story-compare-overlay__title">' +
+      title +
+      "</p>" +
+      '<button type="button" class="story-compare-overlay__close" data-story-compare-close aria-label="' +
+      closeLabel +
+      '">&times;</button>' +
+      "</div>" +
+      '<iframe class="story-compare-overlay__frame" title="' +
+      title +
+      '" src="' +
+      absolute.replace(/"/g, "&quot;") +
+      '"></iframe>';
+
+    const onKey = (event) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeStoryCompareOverlay();
+      }
+    };
+    overlay._birinciOnKey = onKey;
+    document.addEventListener("keydown", onKey);
+    const originalRemove = overlay.remove.bind(overlay);
+    overlay.remove = () => {
+      document.removeEventListener("keydown", onKey);
+      originalRemove();
+    };
+
+    overlay.addEventListener("click", (event) => {
+      if (event.target.closest("[data-story-compare-close]")) {
+        event.preventDefault();
+        closeStoryCompareOverlay();
+      }
+    });
+
+    document.body.appendChild(overlay);
+    document.body.classList.add("story-compare-open");
+    document.documentElement.classList.add("story-compare-open");
+    const closeBtn = overlay.querySelector("[data-story-compare-close]");
+    if (closeBtn) closeBtn.focus();
+    return true;
+  };
+
+  const storyMultilingualIconHtml = () => {
+    let srcWebp = "/assets/language-globe-turk-plus.webp" + assetQuery();
+    let srcPng = "/assets/language-globe-turk-plus.png" + assetQuery();
+    try {
+      const tag = document.querySelector('script[src*="site.js"]');
+      if (tag && tag.src) {
+        srcWebp = new URL("language-globe-turk-plus.webp" + assetQuery(), tag.src).href;
+        srcPng = new URL("language-globe-turk-plus.png" + assetQuery(), tag.src).href;
+      }
+    } catch (_) {}
+    return (
+      '<picture class="story-multilingual-btn__picture">' +
+      '<source type="image/webp" srcset="' +
+      srcWebp +
+      '" />' +
+      '<img class="story-multilingual-btn__icon" src="' +
+      srcPng +
+      '" alt="" width="28" height="28" decoding="async" draggable="false" />' +
+      "</picture>"
+    );
+  };
+
+  const buildStoryMultilingualBtnHtml = (stem) => {
+    const title = tUi("multilingual_view_title", "Open this story in Multilingual View");
+    return (
+      '<a class="story-multilingual-btn" href="' +
+      hrefForStoryCompare(stem) +
+      '" data-story-multilingual data-stem="' +
+      stem +
+      '" title="' +
+      title +
+      '" aria-label="' +
+      title +
+      '">' +
+      storyMultilingualIconHtml() +
+      "</a>"
+    );
+  };
+
+  const ensureStoryMultilingualBtn = (story) => {
+    if (!story || !story.classList || !story.classList.contains("story")) return;
+    const header = story.querySelector(".card-header");
+    if (!header) return;
+    const stem = (story.getAttribute("data-stem") || story.id || "").trim();
+    if (!stem) return;
+    const href = hrefForStoryCompare(stem);
+    const title = tUi("multilingual_view_title", "Open this story in Multilingual View");
+    const existing = header.querySelector("[data-story-multilingual]");
+    if (existing) {
+      existing.setAttribute("href", href);
+      existing.setAttribute("data-stem", stem);
+      existing.removeAttribute("target");
+      existing.removeAttribute("rel");
+      existing.setAttribute("title", title);
+      existing.setAttribute("aria-label", title);
+      existing.innerHTML = storyMultilingualIconHtml();
+      return;
+    }
+    header.insertAdjacentHTML("afterbegin", buildStoryMultilingualBtnHtml(stem));
+  };
+
   const buildStoryLangNavHtml = (stem, currentLang) => {
     const cur = normalizePageLang(currentLang || currentPageLang());
     const label = tUi("lang_switcher_label", "Language");
@@ -1642,19 +1800,56 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         const code = link.getAttribute("data-lang");
         if (code) link.setAttribute("href", hrefForStoryLang(code, stem));
       });
+      ensureStoryMultilingualBtn(story);
       return;
     }
     const html = buildStoryLangNavHtml(stem, cur);
     if (existing) existing.outerHTML = html;
     else header.insertAdjacentHTML("beforeend", html);
+    ensureStoryMultilingualBtn(story);
   };
 
   const refreshAllStoryLangSwitchers = () => {
-    document.querySelectorAll("article.story").forEach(ensureStoryLangSwitcher);
+    document.querySelectorAll("article.story").forEach((story) => {
+      ensureStoryLangSwitcher(story);
+      ensureStoryMultilingualBtn(story);
+    });
   };
 
   const initStoryLangSwitchers = () => {
     refreshAllStoryLangSwitchers();
+    // Capture phase so Multilingual View always wins over text-lightbox / other
+    // document click handlers (those are active when Dev Edit mode is off).
+    document.addEventListener(
+      "click",
+      (event) => {
+        if (document.body.classList.contains("dev-story-edit")) return;
+        const raw = event.target;
+        const el =
+          raw && typeof raw.closest === "function"
+            ? raw
+            : raw && raw.parentElement
+              ? raw.parentElement
+              : null;
+        const compareBtn =
+          el && el.closest && el.closest("a.story-multilingual-btn[data-story-multilingual]");
+        if (!compareBtn) return;
+        const stem = (compareBtn.getAttribute("data-stem") || "").trim();
+        const href =
+          compareBtn.getAttribute("href") ||
+          (stem ? hrefForStoryCompare(stem) : "");
+        if (!href && !stem) return;
+        const openHref = href || hrefForStoryCompare(stem);
+        try {
+          if (stem) sessionStorage.setItem("birinci-compare-stem", stem);
+          sessionStorage.setItem("birinci-compare-from", currentPageLang());
+        } catch (_) {}
+        event.preventDefault();
+        event.stopPropagation();
+        openStoryCompareWindow(openHref, stem);
+      },
+      true
+    );
     document.addEventListener("click", (event) => {
       const link = event.target.closest("a.story-lang-switcher__pill[data-lang]");
       if (!link) return;
@@ -1715,6 +1910,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   initStoryLangSwitchers();
   window.__birinciRefreshStoryLangSwitchers = refreshAllStoryLangSwitchers;
   window.__birinciBuildStoryLangNavHtml = buildStoryLangNavHtml;
+  window.__birinciBuildStoryMultilingualBtnHtml = buildStoryMultilingualBtnHtml;
+  window.__birinciHrefForStoryCompare = hrefForStoryCompare;
 
   const syncAllLangSwitchers = (code) => {
     document.querySelectorAll(".lang-switcher:not([data-pref-locale])").forEach((root) => {
@@ -4799,9 +4996,14 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         typeof window.__birinciBuildStoryLangNavHtml === "function"
           ? window.__birinciBuildStoryLangNavHtml(story.stem, currentPageLang())
           : "";
+      const multilingualBtn =
+        typeof window.__birinciBuildStoryMultilingualBtnHtml === "function"
+          ? window.__birinciBuildStoryMultilingualBtnHtml(story.stem)
+          : "";
       return `
 <article class="story news-card" id="${escapeHtml(story.stem)}" data-stem="${escapeHtml(story.stem)}" data-title="${escapeHtml(story.title)}" data-category-slug="${escapeHtml(story.categorySlug || "")}"${audioAttr}>
   <div class="card-header">
+    ${multilingualBtn}
     <h2 class="card-title story__title">${titleInner}</h2>
     ${langNav}
   </div>
@@ -7027,6 +7229,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
     document.addEventListener("click", (event) => {
       if (document.body.classList.contains("dev-story-edit")) return;
+      if (event.target.closest("a.story-multilingual-btn, [data-story-multilingual]")) return;
       if (event.target.closest("[contenteditable='true'], [contenteditable='']")) return;
       if (event.target.closest("button, a, input, select, textarea, label, .story__actions")) return;
       const textEl = event.target.closest(".story__text, .story .card-text");
@@ -8490,6 +8693,10 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       if (saveBtn) saveBtn.disabled = !editOn;
       markEditable(editOn);
       localStorage.setItem("birinci-dev-story-edit", editOn ? "1" : "0");
+      // Multilingual View is independent of Edit mode — keep buttons present either way.
+      if (typeof window.__birinciRefreshStoryLangSwitchers === "function") {
+        window.__birinciRefreshStoryLangSwitchers();
+      }
       setStatus(
         editOn
           ? "Click a story title or paragraph, then Save. Writes DOCX + HTML + catalog."

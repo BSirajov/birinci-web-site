@@ -21,7 +21,7 @@ DEPLOY = ROOT / "deployment"
 LANGS = SUPPORTED_LANGS
 COPY_DIRS = ("assets", "categories")
 CONTENT_DIRS = ("wisdom-stories", "discovery-articles")
-OPTIONAL_PAGE_DIRS = ("about", "discoveries")
+OPTIONAL_PAGE_DIRS = ("about", "discoveries", "stories")
 OPTIONAL_DIRS = ("data",)
 COPY_FILES = ("index.html", "sitemap.html")
 
