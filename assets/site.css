@@ -4347,8 +4347,9 @@ body.story-compare-open {
   border-radius: 10px;
   pointer-events: none;
 }
-.story.story--figure-hidden .story__figure,
-body.images-collapsed .story .story__figure {
+/* Per-story class only — body.images-collapsed must not force-hide, or the
+   in-story Show Image control cannot reveal an individual illustration. */
+.story.story--figure-hidden .story__figure {
   display: none !important;
 }
 
