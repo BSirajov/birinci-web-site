@@ -1,0 +1,48 @@
+---
+description: Keep Discoveries hidden in production; available only in local/dev trees
+alwaysApply: true
+---
+
+# Discoveries: production hidden, development available
+
+Discoveries and Inventions is **dev-only by default**. Do not ship it to production unless the user explicitly opts in.
+
+## Environments
+
+| Environment | Discoveries |
+|-------------|-------------|
+| Local / development (`az/`, `en/`, `ru/`, `ky/` trees, local servers) | Keep pages, nav, assets, and tooling available for development and testing |
+| Production publish tree (`deployment/`, Hostinger upload) | Hide all Discoveries artifacts by default |
+
+## Production requirements
+
+When building or advising on production:
+
+1. Run `python tools/build_deployment.py` **without** `--with-discoveries` and **without** `BIRINCI_PUBLISH_DISCOVERIES=1`.
+2. Confirm `deployment/` has no `{lang}/discoveries/` or `{lang}/discovery-articles/`, no Discoveries nav/home/sitemap entry points, and no Discoveries URLs in `deployment/sitemap.xml`.
+3. Upload **only** `deployment/` contents — never raw locale trees or the repo root as the live site.
+4. Do not “fix” a failed default build by adding `--with-discoveries`; fix leak scrubbing instead (e.g. `tools/build_deployment.py` `hide_discoveries`).
+
+## Development requirements
+
+- Leave Discoveries intact in locale source trees and local tooling.
+- Do not delete or gut Discoveries content from `az|en|ru|ky` just to satisfy production policy.
+- Local preview of Discoveries is expected and encouraged.
+
+## Explicit publish opt-in only
+
+Publish Discoveries only when the user clearly asks, then:
+
+```bash
+set BIRINCI_PUBLISH_DISCOVERIES=1
+python tools/build_deployment.py --with-discoveries
+```
+
+(and regenerate public SEO the same way — see `docs/HOSTINGER_DEPLOYMENT.md`).
+
+## Policy source of truth
+
+- `tools/publish_policy.py`
+- `tools/build_deployment.py`
+- `docs/HOSTINGER_DEPLOYMENT.md`
+- README “Discoveries is dev-only by default”

@@ -139,6 +139,58 @@ def hide_discoveries_sitemap(xml: str) -> str:
     )
 
 
+def hide_discoveries_i18n(js: str) -> str:
+    """Drop Discoveries hrefs from locale i18n payloads in the publish tree."""
+    prefix = "window.__BIRINCI_I18N__ = "
+    if not js.startswith(prefix):
+        return js
+    raw = js[len(prefix) :].strip()
+    if raw.endswith(";"):
+        raw = raw[:-1]
+    try:
+        data = json.loads(raw)
+    except json.JSONDecodeError:
+        return js
+    changed = False
+    top_nav = data.get("top_nav")
+    if isinstance(top_nav, list):
+        filtered = [
+            item
+            for item in top_nav
+            if not (
+                isinstance(item, dict)
+                and any(
+                    marker in str(item.get("href") or "")
+                    for marker in DISCOVERY_LEAK_MARKERS
+                )
+            )
+        ]
+        if len(filtered) != len(top_nav):
+            data["top_nav"] = filtered
+            changed = True
+    for entry in (data.get("root_entries") or {}).values() if isinstance(data.get("root_entries"), dict) else ():
+        if not isinstance(entry, dict):
+            continue
+        for key in ("discoveries_label", "discoveries_href"):
+            if key in entry:
+                entry.pop(key, None)
+                changed = True
+        cards = entry.get("cards")
+        if isinstance(cards, dict) and "discoveries" in cards:
+            cards.pop("discoveries", None)
+            changed = True
+    if not changed:
+        # Still rewrite if any leak marker remains (defensive string scrub).
+        payload = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
+        if not any(marker in payload for marker in DISCOVERY_LEAK_MARKERS):
+            return js
+    payload = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
+    for marker in DISCOVERY_LEAK_MARKERS:
+        if marker in payload:
+            payload = payload.replace(marker, "#")
+    return f"{prefix}{payload};\n"
+
+
 def hide_discoveries(tree: Path) -> int:
     """Remove every public entry point to Discoveries from a publish tree."""
     edited = 0
@@ -147,6 +199,12 @@ def hide_discoveries(tree: Path) -> int:
         updated = hide_discoveries_html(text)
         if updated != text:
             path.write_text(updated, encoding="utf-8")
+            edited += 1
+    for path in sorted(tree.rglob("i18n.js")):
+        text = path.read_text(encoding="utf-8")
+        updated = hide_discoveries_i18n(text)
+        if updated != text:
+            path.write_text(updated, encoding="utf-8", newline="\n")
             edited += 1
     sitemap = tree / "sitemap.xml"
     if sitemap.is_file():
