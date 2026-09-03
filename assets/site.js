@@ -44,6 +44,23 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     SHOW_DISCOVERY_LISTEN = flags.discoveries;
   };
 
+  // Wisdom illustrations default to hidden. One-time migration overrides older
+  // sessions that stored "show" ("0") before this product default.
+  const IMAGES_COLLAPSED_KEY = "birinci-images-collapsed";
+  const IMAGES_COLLAPSED_DEFAULT_V2 = "birinci-images-collapsed-default-v2";
+  const readImagesCollapsedPref = () => {
+    try {
+      if (localStorage.getItem(IMAGES_COLLAPSED_DEFAULT_V2) !== "1") {
+        localStorage.setItem(IMAGES_COLLAPSED_DEFAULT_V2, "1");
+        localStorage.setItem(IMAGES_COLLAPSED_KEY, "1");
+        return true;
+      }
+      const stored = localStorage.getItem(IMAGES_COLLAPSED_KEY);
+      if (stored != null) return stored === "1";
+    } catch (_) {}
+    return true;
+  };
+
   const hideAudioChrome = (root = document) => {
     (root || document)
       .querySelectorAll(
@@ -1539,6 +1556,54 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     return match ? "?v=" + match[1] : "";
   };
 
+  const languageGlobeUrls = (lang) => {
+    const code = normalizePageLang(lang || currentPageLang());
+    const fileBase = "language-globe-turk-plus-" + code.toUpperCase();
+    const q = assetQuery();
+    let webp = "/assets/" + fileBase + ".webp" + q;
+    let png = "/assets/" + fileBase + ".png" + q;
+    try {
+      const tag = document.querySelector('script[src*="site.js"]');
+      if (tag && tag.src) {
+        webp = new URL(fileBase + ".webp" + q, tag.src).href;
+        png = new URL(fileBase + ".png" + q, tag.src).href;
+      }
+    } catch (_) {}
+    return { webp, png, code };
+  };
+
+  const applyLanguageGlobeIcons = (lang) => {
+    const urls = languageGlobeUrls(lang);
+    document.querySelectorAll(".story-multilingual-btn").forEach((btn) => {
+      btn.setAttribute("data-globe-lang", urls.code);
+      const source = btn.querySelector("source[type='image/webp']");
+      const img = btn.querySelector("img.story-multilingual-btn__icon");
+      if (source) source.setAttribute("srcset", urls.webp);
+      if (img) {
+        img.setAttribute("src", urls.png);
+        img.setAttribute("data-globe-lang", urls.code);
+      }
+    });
+    // Keep the multilingual overlay toolbar globe in sync with the page language.
+    const frame = document.querySelector("#story-compare-overlay iframe.story-compare-overlay__frame");
+    if (frame) {
+      try {
+        frame.contentWindow.postMessage(
+          { type: "birinci:lang-globe", lang: urls.code },
+          "*"
+        );
+      } catch (_) {}
+      try {
+        const doc = frame.contentDocument;
+        const globe = doc && doc.querySelector(".sc-toolbar__globe");
+        if (globe) {
+          globe.setAttribute("src", urls.webp);
+          globe.setAttribute("data-globe-lang", urls.code);
+        }
+      } catch (_) {}
+    }
+  };
+
   const langAssetUrl = (lang, file) => {
     const path = String(location.pathname || "").replace(/\\/g, "/");
     if (/\/(categories|discoveries|about|prominent-figures)\//i.test(path)) {
@@ -1676,40 +1741,46 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     document.body.appendChild(overlay);
     document.body.classList.add("story-compare-open");
     document.documentElement.classList.add("story-compare-open");
+    const frame = overlay.querySelector("iframe.story-compare-overlay__frame");
+    if (frame) {
+      const pushGlobeLang = () => {
+        applyLanguageGlobeIcons(currentPageLang());
+      };
+      frame.addEventListener("load", pushGlobeLang);
+      // In case the frame is already cached/complete.
+      window.setTimeout(pushGlobeLang, 0);
+    }
     const closeBtn = overlay.querySelector("[data-story-compare-close]");
     if (closeBtn) closeBtn.focus();
     return true;
   };
 
   const storyMultilingualIconHtml = () => {
-    let srcWebp = "/assets/language-globe-turk-plus.webp" + assetQuery();
-    let srcPng = "/assets/language-globe-turk-plus.png" + assetQuery();
-    try {
-      const tag = document.querySelector('script[src*="site.js"]');
-      if (tag && tag.src) {
-        srcWebp = new URL("language-globe-turk-plus.webp" + assetQuery(), tag.src).href;
-        srcPng = new URL("language-globe-turk-plus.png" + assetQuery(), tag.src).href;
-      }
-    } catch (_) {}
+    const urls = languageGlobeUrls(currentPageLang());
     return (
       '<picture class="story-multilingual-btn__picture">' +
       '<source type="image/webp" srcset="' +
-      srcWebp +
+      urls.webp +
       '" />' +
       '<img class="story-multilingual-btn__icon" src="' +
-      srcPng +
-      '" alt="" width="28" height="28" decoding="async" draggable="false" />' +
+      urls.png +
+      '" alt="" width="28" height="28" decoding="async" draggable="false" data-globe-lang="' +
+      urls.code +
+      '" />' +
       "</picture>"
     );
   };
 
   const buildStoryMultilingualBtnHtml = (stem) => {
     const title = tUi("multilingual_view_title", "Open this story in Multilingual View");
+    const urls = languageGlobeUrls(currentPageLang());
     return (
       '<a class="story-multilingual-btn" href="' +
       hrefForStoryCompare(stem) +
       '" data-story-multilingual data-stem="' +
       stem +
+      '" data-globe-lang="' +
+      urls.code +
       '" title="' +
       title +
       '" aria-label="' +
@@ -1732,6 +1803,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     if (existing) {
       existing.setAttribute("href", href);
       existing.setAttribute("data-stem", stem);
+      existing.setAttribute("data-globe-lang", languageGlobeUrls(currentPageLang()).code);
       existing.removeAttribute("target");
       existing.removeAttribute("rel");
       existing.setAttribute("title", title);
@@ -1818,6 +1890,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
   const initStoryLangSwitchers = () => {
     refreshAllStoryLangSwitchers();
+    applyLanguageGlobeIcons(currentPageLang());
     // Capture phase so Multilingual View always wins over text-lightbox / other
     // document click handlers (those are active when Dev Edit mode is off).
     document.addEventListener(
@@ -2709,6 +2782,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       }
       if (keepModal) ignoreModalBackdrop();
       document.dispatchEvent(new CustomEvent("birinci:lang-change", { detail: { lang: next, prev } }));
+      applyLanguageGlobeIcons(next);
       syncAzLexiconForLang();
       if (typeof window.__birinciSyncLangHrefs === "function") window.__birinciSyncLangHrefs();
       if (typeof window.__birinciRefreshStoryLangSwitchers === "function") {
@@ -3766,16 +3840,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         });
       }
       try {
-        localStorage.setItem("birinci-images-collapsed", collapsed ? "1" : "0");
+        localStorage.setItem(IMAGES_COLLAPSED_KEY, collapsed ? "1" : "0");
       } catch (_) {}
     };
 
     if (imagesToggle && imagesBtns.length) {
-      let collapsed = false;
-      try {
-        collapsed = localStorage.getItem("birinci-images-collapsed") === "1";
-      } catch (_) {}
-      applyImagesState(collapsed);
+      applyImagesState(readImagesCollapsedPref());
       imagesBtns.forEach((btn) => {
         btn.addEventListener("click", () => {
           applyImagesState(btn.getAttribute("data-images-mode") === "hide");
@@ -4752,16 +4822,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         });
       }
       try {
-        localStorage.setItem("birinci-images-collapsed", collapsed ? "1" : "0");
+        localStorage.setItem(IMAGES_COLLAPSED_KEY, collapsed ? "1" : "0");
       } catch (_) {}
     };
 
     if (imagesToggle && imagesBtns.length) {
-      let collapsed = false;
-      try {
-        collapsed = localStorage.getItem("birinci-images-collapsed") === "1";
-      } catch (_) {}
-      applyImagesState(collapsed);
+      applyImagesState(readImagesCollapsedPref());
       imagesBtns.forEach((btn) => {
         btn.addEventListener("click", () => {
           applyImagesState(btn.getAttribute("data-images-mode") === "hide");
@@ -4968,10 +5034,10 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           <div class="story__action-group">
             <span class="tools-bar__label">${imageLabel}</span>
             <div class="tools-bar__views" role="group" aria-label="${imageLabel}">
-            <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-images-mode="show" aria-pressed="true" aria-controls="figure-${escapeHtml(story.stem)}" title="${escapeHtml(tUi("show_image", "Şəkli göstər"))}" aria-label="${escapeHtml(tUi("show_image", "Şəkli göstər"))}">
+            <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-images-mode="show" aria-pressed="false" aria-controls="figure-${escapeHtml(story.stem)}" title="${escapeHtml(tUi("show_image", "Şəkli göstər"))}" aria-label="${escapeHtml(tUi("show_image", "Şəkli göstər"))}">
               ${STORY_ICONS.eye}
             </button>
-            <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-images-mode="hide" aria-pressed="false" aria-controls="figure-${escapeHtml(story.stem)}" title="${escapeHtml(tUi("hide_image", "Şəkli gizlət"))}" aria-label="${escapeHtml(tUi("hide_image", "Şəkli gizlət"))}">
+            <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-images-mode="hide" aria-pressed="true" aria-controls="figure-${escapeHtml(story.stem)}" title="${escapeHtml(tUi("hide_image", "Şəkli gizlət"))}" aria-label="${escapeHtml(tUi("hide_image", "Şəkli gizlət"))}">
               ${STORY_ICONS["eye-off"]}
             </button>
             </div>
@@ -5001,7 +5067,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           ? window.__birinciBuildStoryMultilingualBtnHtml(story.stem)
           : "";
       return `
-<article class="story news-card" id="${escapeHtml(story.stem)}" data-stem="${escapeHtml(story.stem)}" data-title="${escapeHtml(story.title)}" data-category-slug="${escapeHtml(story.categorySlug || "")}"${audioAttr}>
+<article class="story news-card${story.hasImage ? " story--figure-hidden" : ""}" id="${escapeHtml(story.stem)}" data-stem="${escapeHtml(story.stem)}" data-title="${escapeHtml(story.title)}" data-category-slug="${escapeHtml(story.categorySlug || "")}"${audioAttr}>
   <div class="card-header">
     ${multilingualBtn}
     <h2 class="card-title story__title">${titleInner}</h2>
@@ -7275,7 +7341,10 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       setFigureState(story, btn.getAttribute("data-images-mode") === "show");
     });
 
-    setAllFigures(!document.body.classList.contains("images-collapsed"));
+    const imagesCollapsed =
+      document.body.classList.contains("images-collapsed") || readImagesCollapsedPref();
+    if (imagesCollapsed) document.body.classList.add("images-collapsed");
+    setAllFigures(!imagesCollapsed);
   };
 
   const initStoryTextToggle = () => {
@@ -8184,7 +8253,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       home_view: localStorage.getItem(prefKeys.home_view) || "list",
       category_view: localStorage.getItem(prefKeys.category_view) || "list",
       inventions_view: localStorage.getItem(prefKeys.inventions_view) || "list",
-      images_collapsed: localStorage.getItem(prefKeys.images_collapsed) === "1",
+      images_collapsed: readImagesCollapsedPref(),
       texts_collapsed: localStorage.getItem(prefKeys.texts_collapsed) === "1",
     });
 

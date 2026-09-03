@@ -4347,8 +4347,9 @@ body.story-compare-open {
   border-radius: 10px;
   pointer-events: none;
 }
-.story.story--figure-hidden .story__figure {
-  display: none;
+.story.story--figure-hidden .story__figure,
+body.images-collapsed .story .story__figure {
+  display: none !important;
 }
 
 .illustration-lightbox {

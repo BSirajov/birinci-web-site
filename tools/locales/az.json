@@ -110,7 +110,10 @@
     "multilingual_view": "Çoxdilli görünüş",
     "multilingual_view_title": "Bu hekayəni çoxdilli görünüşdə aç",
     "multilingual_langs_label": "Dillər",
+    "multilingual_content_label": "Görünüş",
+    "multilingual_illustrations_label": "İllüstrasiyalar",
     "multilingual_need_one": "Ən azı bir dil görünən qalsın.",
+    "multilingual_need_content": "Ən azı mətn və ya illüstrasiyalardan biri görünməlidir.",
     "multilingual_missing": "Bu hekayə tapılmadı.",
     "multilingual_loading": "Yüklənir…",
     "sign_in": "Daxil ol",
@@ -247,7 +250,15 @@
     "auth_forgot": "Şifrəni unutmusunuz?",
     "footer_email": "E-poçt",
     "footer_email_url": "mailto:info@birinci.cloud",
-    "footer_email_address": "info@birinci.cloud"
+    "footer_email_address": "info@birinci.cloud",
+    "multilingual_prev_story": "Əvvəlki hekayə",
+    "multilingual_next_story": "Növbəti hekayə",
+    "multilingual_story_number": "Hekayə nömrəsi",
+    "multilingual_invalid_story_number": "Düzgün hekayə nömrəsi daxil edin.",
+    "multilingual_story_out_of_range": "Hekayə nömrəsi 1 ilə ",
+    "multilingual_first_story": "Birinci hekayə",
+    "multilingual_last_story": "Son hekayə",
+    "multilingual_story_number_tip": "Cari hekayə / ümumi — keçmək üçün nömrə daxil edin"
   },
   "js": {
     "index_loading": "İndeks yüklənir…",

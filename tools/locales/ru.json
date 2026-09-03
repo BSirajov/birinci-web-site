@@ -110,7 +110,10 @@
     "multilingual_view": "Многоязычный вид",
     "multilingual_view_title": "Открыть этот рассказ в многоязычном виде",
     "multilingual_langs_label": "Языки",
+    "multilingual_content_label": "Отображение",
+    "multilingual_illustrations_label": "Иллюстрации",
     "multilingual_need_one": "Оставьте видимым хотя бы один язык.",
+    "multilingual_need_content": "Должен быть виден хотя бы текст или иллюстрации.",
     "multilingual_missing": "Этот рассказ не найден.",
     "multilingual_loading": "Загрузка…",
     "sign_in": "Войти",
@@ -247,7 +250,15 @@
     "auth_forgot": "Забыли пароль?",
     "footer_email": "Эл. почта",
     "footer_email_url": "mailto:info@birinci.cloud",
-    "footer_email_address": "info@birinci.cloud"
+    "footer_email_address": "info@birinci.cloud",
+    "multilingual_prev_story": "Предыдущий рассказ",
+    "multilingual_next_story": "Следующий рассказ",
+    "multilingual_story_number": "Номер рассказа",
+    "multilingual_invalid_story_number": "Введите корректный номер рассказа.",
+    "multilingual_story_out_of_range": "Номер рассказа должен быть от 1 до ",
+    "multilingual_first_story": "Первый рассказ",
+    "multilingual_last_story": "Последний рассказ",
+    "multilingual_story_number_tip": "Текущий рассказ / всего — введите номер для перехода"
   },
   "js": {
     "index_loading": "Загрузка индекса…",

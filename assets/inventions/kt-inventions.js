@@ -1180,10 +1180,14 @@
     if (!bar) return;
     inventionsListState.bound = true;
 
-    var imagesCollapsed = false;
+    var imagesCollapsed = true;
     var textsCollapsed = false;
     try {
-      imagesCollapsed = localStorage.getItem("birinci-images-collapsed") === "1";
+      if (localStorage.getItem("birinci-images-collapsed-default-v2") !== "1") {
+        localStorage.setItem("birinci-images-collapsed-default-v2", "1");
+        localStorage.setItem("birinci-images-collapsed", "1");
+      }
+      imagesCollapsed = localStorage.getItem("birinci-images-collapsed") !== "0";
       textsCollapsed = localStorage.getItem("birinci-texts-collapsed") === "1";
     } catch (_) {}
     applyInventionsImagesState(imagesCollapsed);
@@ -1206,8 +1210,12 @@
   window.__birinciRefreshInventionsListTools = function () {
     if (!isDiscoveriesPage()) return;
     try {
+      if (localStorage.getItem("birinci-images-collapsed-default-v2") !== "1") {
+        localStorage.setItem("birinci-images-collapsed-default-v2", "1");
+        localStorage.setItem("birinci-images-collapsed", "1");
+      }
       applyInventionsImagesState(
-        localStorage.getItem("birinci-images-collapsed") === "1"
+        localStorage.getItem("birinci-images-collapsed") !== "0"
       );
       applyInventionsTextsState(localStorage.getItem("birinci-texts-collapsed") === "1");
     } catch (_) {}

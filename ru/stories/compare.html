@@ -10,21 +10,32 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700;8..60,800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../assets/story-compare.css?v=20260903b" />
+  <link rel="stylesheet" href="../../assets/story-compare.css?v=20260903ad" />
 </head>
-<body class="sc-page" data-lang="ru">
+<body class="sc-page" data-lang="ru" data-sc-show-text="true" data-sc-show-illus="false">
   <header class="sc-toolbar">
     <div class="sc-toolbar__brand-wrap">
-      <img class="sc-toolbar__globe" src="../../assets/language-globe-turk-plus.webp?v=20260903b" alt="" width="40" height="40" decoding="async" draggable="false" tabindex="0" title="Show full-size brand icon" />
+      <img class="sc-toolbar__globe" data-globe-lang="ru" src="../../assets/language-globe-turk-plus-RU.webp?v=20260903ad" alt="" width="40" height="40" decoding="async" draggable="false" tabindex="0" title="Show full-size brand icon" />
       <h1 class="sc-toolbar__brand" id="sc-brand"></h1>
     </div>
+    <div class="sc-toolbar__group sc-pager-group story__action-group">
+      <span class="tools-bar__label" id="sc-pager-label">Рассказы</span>
+      <nav class="sc-pager" id="sc-pager" aria-label="Навигация по рассказам" hidden>
+      <button type="button" class="sc-pager__btn" id="sc-pager-first" aria-label="Первый рассказ" title="Первый рассказ" disabled>&lt;&lt;</button>
+      <button type="button" class="sc-pager__btn" id="sc-pager-prev" aria-label="Предыдущий рассказ" title="Предыдущий рассказ" disabled>&lt;</button>
+      <input class="sc-pager__status" id="sc-pager-num" type="text" size="11" inputmode="numeric" autocomplete="off" spellcheck="false" value="" disabled aria-label="Номер рассказа" title="Текущий рассказ / всего — введите номер для перехода" />
+      <button type="button" class="sc-pager__btn" id="sc-pager-next" aria-label="Следующий рассказ" title="Следующий рассказ" disabled>&gt;</button>
+      <button type="button" class="sc-pager__btn" id="sc-pager-last" aria-label="Последний рассказ" title="Последний рассказ" disabled>&gt;&gt;</button>
+      </nav>
+    </div>
+    <div class="sc-views" id="sc-views" role="group" aria-label="Отображение"></div>
     <div class="sc-langs" id="sc-langs" role="group" aria-label="Языки"></div>
   </header>
   <p class="sc-status" id="sc-status">Загрузка…</p>
   <div class="sc-scroll" id="sc-scroll">
     <div class="sc-grid" id="sc-grid" style="--sc-cols: 2"></div>
   </div>
-  <script src="../assets/i18n.js?v=20260903b"></script>
-  <script src="../../assets/story-compare.js?v=20260903b"></script>
+  <script src="../assets/i18n.js?v=20260903l"></script>
+  <script src="../../assets/story-compare.js?v=20260903ad"></script>
 </body>
 </html>

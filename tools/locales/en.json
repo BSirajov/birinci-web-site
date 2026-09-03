@@ -110,7 +110,10 @@
     "multilingual_view": "Multilingual View",
     "multilingual_view_title": "Open this story in Multilingual View",
     "multilingual_langs_label": "Languages",
+    "multilingual_content_label": "Display",
+    "multilingual_illustrations_label": "Illustrations",
     "multilingual_need_one": "Keep at least one language visible.",
+    "multilingual_need_content": "Keep at least one of text or illustrations visible.",
     "multilingual_missing": "This story could not be found.",
     "multilingual_loading": "Loading…",
     "sign_in": "Sign in",
@@ -247,7 +250,15 @@
     "auth_forgot": "Forgot password?",
     "footer_email": "Email",
     "footer_email_url": "mailto:info@birinci.cloud",
-    "footer_email_address": "info@birinci.cloud"
+    "footer_email_address": "info@birinci.cloud",
+    "multilingual_prev_story": "Previous story",
+    "multilingual_next_story": "Next story",
+    "multilingual_story_number": "Story number",
+    "multilingual_invalid_story_number": "Enter a valid story number.",
+    "multilingual_story_out_of_range": "Story number must be between 1 and ",
+    "multilingual_first_story": "First story",
+    "multilingual_last_story": "Last story",
+    "multilingual_story_number_tip": "Current story / total — enter a number to jump"
   },
   "js": {
     "index_loading": "Loading index…",
