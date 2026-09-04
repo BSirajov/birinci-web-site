@@ -2186,6 +2186,22 @@ body.global-search-open { overflow: hidden; }
   color: #fff;
   box-shadow: 0 4px 12px rgba(0, 90, 154, 0.22);
 }
+:is(.page-home, .page-category, .page-inventions) .tools-bar__view-btn:disabled,
+:is(.page-home, .page-category, .page-inventions) .tools-bar__view-btn[aria-disabled="true"],
+.story__actions .tools-bar__view-btn:disabled,
+.story__actions .tools-bar__view-btn[aria-disabled="true"] {
+  opacity: 0.42;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+  pointer-events: none;
+}
+:is(.page-home, .page-category, .page-inventions) .tools-bar__view-btn:disabled:hover,
+:is(.page-home, .page-category, .page-inventions) .tools-bar__view-btn[aria-disabled="true"]:hover,
+.story__actions .tools-bar__view-btn:disabled:hover,
+.story__actions .tools-bar__view-btn[aria-disabled="true"]:hover {
+  color: inherit;
+}
 :is(.page-home, .page-category, .page-inventions) .tools-bar__view-btn--icon {
   min-width: 2.1rem;
   padding-inline: 0.42rem;

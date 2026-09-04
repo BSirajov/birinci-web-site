@@ -1176,6 +1176,170 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     });
   };
 
+  const setMediaToggleDisabled = (btn, disabled) => {
+    if (!btn) return;
+    btn.disabled = !!disabled;
+    btn.setAttribute("aria-disabled", disabled ? "true" : "false");
+  };
+
+  const storyHasImageControls = (story) =>
+    !!(
+      story &&
+      (story.querySelector(".story__figure") || story.querySelector("[data-images-mode]"))
+    );
+
+  const isStoryTextVisible = (story) =>
+    !!(story && !story.classList.contains("story--text-hidden"));
+
+  const isStoryFigureVisible = (story) =>
+    !!(
+      story &&
+      storyHasImageControls(story) &&
+      !story.classList.contains("story--figure-hidden")
+    );
+
+  /** Hide figure only when text (or ensureOther) keeps content on screen. */
+  const canCollapseStoryFigure = (story) => isStoryTextVisible(story);
+
+  /** Hide text only when a visible illustration remains (stories without images stay text-on). */
+  const canCollapseStoryText = (story) =>
+    storyHasImageControls(story) ? isStoryFigureVisible(story) : false;
+
+  const syncStoryMediaGuards = (story) => {
+    if (!story) return;
+    setMediaToggleDisabled(
+      story.querySelector('[data-images-mode="hide"]'),
+      !canCollapseStoryFigure(story)
+    );
+    setMediaToggleDisabled(
+      story.querySelector('[data-texts-mode="hide"]'),
+      !canCollapseStoryText(story)
+    );
+  };
+
+  const syncAllStoryMediaGuards = () => {
+    document.querySelectorAll("article.story").forEach(syncStoryMediaGuards);
+  };
+
+  const syncGlobalMediaGuards = (imagesBtns, textsBtns) => {
+    const imagesCollapsed = document.body.classList.contains("images-collapsed");
+    const textsCollapsed = document.body.classList.contains("texts-collapsed");
+    (imagesBtns || []).forEach((btn) => {
+      if (btn.getAttribute("data-images-mode") === "hide") {
+        // Illustration-only: cannot turn images off until text is shown.
+        setMediaToggleDisabled(btn, textsCollapsed);
+      }
+    });
+    (textsBtns || []).forEach((btn) => {
+      if (btn.getAttribute("data-texts-mode") === "hide") {
+        // Text-only: cannot turn text off until images are shown.
+        setMediaToggleDisabled(btn, imagesCollapsed);
+      }
+    });
+  };
+
+  /**
+   * Atomically set global Text/Image visibility. At least one channel stays on.
+   * Prefer keeping text if a caller asks to clear both.
+   */
+  const applyGlobalMediaVisibility = (
+    imagesVisible,
+    textsVisible,
+    imagesBtns,
+    textsBtns,
+    opts = {}
+  ) => {
+    let showImages = !!imagesVisible;
+    let showTexts = !!textsVisible;
+    if (!showImages && !showTexts) showTexts = true;
+
+    const prevImages = !document.body.classList.contains("images-collapsed");
+    const prevTexts = !document.body.classList.contains("texts-collapsed");
+
+    document.body.classList.toggle("images-collapsed", !showImages);
+    document.body.classList.toggle("texts-collapsed", !showTexts);
+
+    (imagesBtns || []).forEach((btn) => {
+      const mode = btn.getAttribute("data-images-mode");
+      const pressed = showImages ? mode === "show" : mode === "hide";
+      btn.setAttribute("aria-pressed", pressed ? "true" : "false");
+    });
+    (textsBtns || []).forEach((btn) => {
+      const mode = btn.getAttribute("data-texts-mode");
+      const pressed = showTexts ? mode === "show" : mode === "hide";
+      btn.setAttribute("aria-pressed", pressed ? "true" : "false");
+    });
+
+    try {
+      localStorage.setItem(IMAGES_COLLAPSED_KEY, showImages ? "0" : "1");
+      localStorage.setItem("birinci-texts-collapsed", showTexts ? "0" : "1");
+    } catch (_) {}
+
+    const syncFigures =
+      opts.forceAll || showImages !== prevImages || (!showImages && !showTexts);
+    const syncTexts =
+      opts.forceAll || showTexts !== prevTexts || (!showImages && !showTexts);
+
+    if (syncFigures) {
+      if (typeof window.__birinciSetAllStoryFigures === "function") {
+        window.__birinciSetAllStoryFigures(showImages);
+      } else {
+        document.querySelectorAll("article.story").forEach((story) => {
+          if (!showImages && !isStoryTextVisible(story)) {
+            story.classList.remove("story--text-hidden");
+            setStoryModePressed(story, "data-texts-mode", true);
+          }
+          if (storyHasImageControls(story)) {
+            story.classList.toggle("story--figure-hidden", !showImages);
+            setStoryModePressed(story, "data-images-mode", showImages);
+          }
+          syncStoryMediaGuards(story);
+        });
+      }
+    }
+    if (syncTexts) {
+      if (typeof window.__birinciSetAllStoryTexts === "function") {
+        window.__birinciSetAllStoryTexts(showTexts);
+      } else {
+        document.querySelectorAll("article.story").forEach((story) => {
+          if (!showTexts) {
+            if (!storyHasImageControls(story)) {
+              syncStoryMediaGuards(story);
+              return;
+            }
+            if (!isStoryFigureVisible(story)) {
+              story.classList.remove("story--figure-hidden");
+              setStoryModePressed(story, "data-images-mode", true);
+            }
+          }
+          story.classList.toggle("story--text-hidden", !showTexts);
+          setStoryModePressed(story, "data-texts-mode", showTexts);
+          syncStoryMediaGuards(story);
+        });
+      }
+    }
+
+    syncGlobalMediaGuards(imagesBtns, textsBtns);
+    syncAllStoryMediaGuards();
+    return { imagesVisible: showImages, textsVisible: showTexts };
+  };
+
+  const readTextsCollapsedPref = () => {
+    try {
+      return localStorage.getItem("birinci-texts-collapsed") === "1";
+    } catch (_) {
+      return false;
+    }
+  };
+
+  /** Never start with both media channels off. */
+  const resolveInitialMediaCollapsed = () => {
+    let imagesCollapsed = readImagesCollapsedPref();
+    let textsCollapsed = readTextsCollapsedPref();
+    if (imagesCollapsed && textsCollapsed) textsCollapsed = false;
+    return { imagesCollapsed, textsCollapsed };
+  };
+
   const initLangSwitcher = () => {
     const root = document.querySelector(".lang-switcher");
     const toggle = root && root.querySelector(".lang-switcher__toggle");
@@ -3825,65 +3989,53 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     };
 
     const applyImagesState = (collapsed) => {
-      document.body.classList.toggle("images-collapsed", collapsed);
-      imagesBtns.forEach((btn) => {
-        const mode = btn.getAttribute("data-images-mode");
-        const pressed = collapsed ? mode === "hide" : mode === "show";
-        btn.setAttribute("aria-pressed", pressed ? "true" : "false");
-      });
-      if (typeof window.__birinciSetAllStoryFigures === "function") {
-        window.__birinciSetAllStoryFigures(!collapsed);
-      } else {
-        document.querySelectorAll("article.story").forEach((story) => {
-          story.classList.toggle("story--figure-hidden", collapsed);
-          setStoryModePressed(story, "data-images-mode", !collapsed);
-        });
-      }
-      try {
-        localStorage.setItem(IMAGES_COLLAPSED_KEY, collapsed ? "1" : "0");
-      } catch (_) {}
+      const showImages = !collapsed;
+      const showTexts = !document.body.classList.contains("texts-collapsed");
+      if (!showImages && !showTexts) return;
+      applyGlobalMediaVisibility(showImages, showTexts, imagesBtns, textsBtns);
     };
-
-    if (imagesToggle && imagesBtns.length) {
-      applyImagesState(readImagesCollapsedPref());
-      imagesBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          applyImagesState(btn.getAttribute("data-images-mode") === "hide");
-        });
-      });
-    }
 
     const applyTextsState = (collapsed) => {
-      document.body.classList.toggle("texts-collapsed", collapsed);
-      textsBtns.forEach((btn) => {
-        const mode = btn.getAttribute("data-texts-mode");
-        const pressed = collapsed ? mode === "hide" : mode === "show";
-        btn.setAttribute("aria-pressed", pressed ? "true" : "false");
-      });
-      if (typeof window.__birinciSetAllStoryTexts === "function") {
-        window.__birinciSetAllStoryTexts(!collapsed);
-      } else {
-        document.querySelectorAll("article.story").forEach((story) => {
-          story.classList.toggle("story--text-hidden", collapsed);
-          setStoryModePressed(story, "data-texts-mode", !collapsed);
-        });
-      }
-      try {
-        localStorage.setItem("birinci-texts-collapsed", collapsed ? "1" : "0");
-      } catch (_) {}
+      const showTexts = !collapsed;
+      const showImages = !document.body.classList.contains("images-collapsed");
+      if (!showImages && !showTexts) return;
+      applyGlobalMediaVisibility(showImages, showTexts, imagesBtns, textsBtns);
     };
 
-    if (textsToggle && textsBtns.length) {
-      let textsCollapsed = false;
-      try {
-        textsCollapsed = localStorage.getItem("birinci-texts-collapsed") === "1";
-      } catch (_) {}
-      applyTextsState(textsCollapsed);
-      textsBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          applyTextsState(btn.getAttribute("data-texts-mode") === "hide");
+    if ((imagesToggle && imagesBtns.length) || (textsToggle && textsBtns.length)) {
+      const initial = resolveInitialMediaCollapsed();
+      applyGlobalMediaVisibility(
+        !initial.imagesCollapsed,
+        !initial.textsCollapsed,
+        imagesBtns,
+        textsBtns,
+        { forceAll: true }
+      );
+      imagesBtns.forEach((btn) => {
+        btn.addEventListener("click", (event) => {
+          if (btn.disabled || btn.getAttribute("aria-disabled") === "true") {
+            event.preventDefault();
+            event.stopPropagation();
+            return;
+          }
+          const hide = btn.getAttribute("data-images-mode") === "hide";
+          if (hide && document.body.classList.contains("texts-collapsed")) return;
+          applyImagesState(hide);
         });
       });
+      textsBtns.forEach((btn) => {
+        btn.addEventListener("click", (event) => {
+          if (btn.disabled || btn.getAttribute("aria-disabled") === "true") {
+            event.preventDefault();
+            event.stopPropagation();
+            return;
+          }
+          const hide = btn.getAttribute("data-texts-mode") === "hide";
+          if (hide && document.body.classList.contains("images-collapsed")) return;
+          applyTextsState(hide);
+        });
+      });
+      syncGlobalMediaGuards(imagesBtns, textsBtns);
     }
 
     const escapeHtml = (value) =>
@@ -4807,65 +4959,53 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     };
 
     const applyImagesState = (collapsed) => {
-      document.body.classList.toggle("images-collapsed", collapsed);
-      imagesBtns.forEach((btn) => {
-        const mode = btn.getAttribute("data-images-mode");
-        const pressed = collapsed ? mode === "hide" : mode === "show";
-        btn.setAttribute("aria-pressed", pressed ? "true" : "false");
-      });
-      if (typeof window.__birinciSetAllStoryFigures === "function") {
-        window.__birinciSetAllStoryFigures(!collapsed);
-      } else {
-        document.querySelectorAll("article.story").forEach((story) => {
-          story.classList.toggle("story--figure-hidden", collapsed);
-          setStoryModePressed(story, "data-images-mode", !collapsed);
-        });
-      }
-      try {
-        localStorage.setItem(IMAGES_COLLAPSED_KEY, collapsed ? "1" : "0");
-      } catch (_) {}
+      const showImages = !collapsed;
+      const showTexts = !document.body.classList.contains("texts-collapsed");
+      if (!showImages && !showTexts) return;
+      applyGlobalMediaVisibility(showImages, showTexts, imagesBtns, textsBtns);
     };
-
-    if (imagesToggle && imagesBtns.length) {
-      applyImagesState(readImagesCollapsedPref());
-      imagesBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          applyImagesState(btn.getAttribute("data-images-mode") === "hide");
-        });
-      });
-    }
 
     const applyTextsState = (collapsed) => {
-      document.body.classList.toggle("texts-collapsed", collapsed);
-      textsBtns.forEach((btn) => {
-        const mode = btn.getAttribute("data-texts-mode");
-        const pressed = collapsed ? mode === "hide" : mode === "show";
-        btn.setAttribute("aria-pressed", pressed ? "true" : "false");
-      });
-      if (typeof window.__birinciSetAllStoryTexts === "function") {
-        window.__birinciSetAllStoryTexts(!collapsed);
-      } else {
-        document.querySelectorAll("article.story").forEach((story) => {
-          story.classList.toggle("story--text-hidden", collapsed);
-          setStoryModePressed(story, "data-texts-mode", !collapsed);
-        });
-      }
-      try {
-        localStorage.setItem("birinci-texts-collapsed", collapsed ? "1" : "0");
-      } catch (_) {}
+      const showTexts = !collapsed;
+      const showImages = !document.body.classList.contains("images-collapsed");
+      if (!showImages && !showTexts) return;
+      applyGlobalMediaVisibility(showImages, showTexts, imagesBtns, textsBtns);
     };
 
-    if (textsToggle && textsBtns.length) {
-      let textsCollapsed = false;
-      try {
-        textsCollapsed = localStorage.getItem("birinci-texts-collapsed") === "1";
-      } catch (_) {}
-      applyTextsState(textsCollapsed);
-      textsBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          applyTextsState(btn.getAttribute("data-texts-mode") === "hide");
+    if ((imagesToggle && imagesBtns.length) || (textsToggle && textsBtns.length)) {
+      const initial = resolveInitialMediaCollapsed();
+      applyGlobalMediaVisibility(
+        !initial.imagesCollapsed,
+        !initial.textsCollapsed,
+        imagesBtns,
+        textsBtns,
+        { forceAll: true }
+      );
+      imagesBtns.forEach((btn) => {
+        btn.addEventListener("click", (event) => {
+          if (btn.disabled || btn.getAttribute("aria-disabled") === "true") {
+            event.preventDefault();
+            event.stopPropagation();
+            return;
+          }
+          const hide = btn.getAttribute("data-images-mode") === "hide";
+          if (hide && document.body.classList.contains("texts-collapsed")) return;
+          applyImagesState(hide);
         });
       });
+      textsBtns.forEach((btn) => {
+        btn.addEventListener("click", (event) => {
+          if (btn.disabled || btn.getAttribute("aria-disabled") === "true") {
+            event.preventDefault();
+            event.stopPropagation();
+            return;
+          }
+          const hide = btn.getAttribute("data-texts-mode") === "hide";
+          if (hide && document.body.classList.contains("images-collapsed")) return;
+          applyTextsState(hide);
+        });
+      });
+      syncGlobalMediaGuards(imagesBtns, textsBtns);
     }
 
     const applyCards = () => {
@@ -7317,24 +7457,39 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   };
 
   const initStoryFigureToggle = () => {
-    const setFigureState = (story, visible) => {
-      if (!story) return;
+    const setFigureState = (story, visible, opts = {}) => {
+      if (!story) return false;
+      if (!visible) {
+        if (!isStoryTextVisible(story)) {
+          if (opts.ensureOther) {
+            story.classList.remove("story--text-hidden");
+            setStoryModePressed(story, "data-texts-mode", true);
+          } else {
+            syncStoryMediaGuards(story);
+            return false;
+          }
+        }
+      }
       story.classList.toggle("story--figure-hidden", !visible);
       setStoryModePressed(story, "data-images-mode", visible);
+      syncStoryMediaGuards(story);
+      return true;
     };
 
     const setAllFigures = (visible) => {
       document.querySelectorAll("article.story").forEach((story) => {
-        setFigureState(story, visible);
+        setFigureState(story, visible, { ensureOther: !visible });
       });
+      syncAllStoryMediaGuards();
     };
 
     window.__birinciSetStoryFigure = setFigureState;
     window.__birinciSetAllStoryFigures = setAllFigures;
+    window.__birinciSyncStoryMediaGuards = syncAllStoryMediaGuards;
 
     document.addEventListener("click", (event) => {
       const btn = event.target.closest("[data-images-mode]");
-      if (!btn || btn.closest("[data-tools]")) return;
+      if (!btn || btn.closest("[data-tools]") || btn.disabled) return;
       const story = btn.closest("article.story");
       if (!story) return;
       event.preventDefault();
@@ -7342,22 +7497,41 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     });
 
     const imagesCollapsed =
-      document.body.classList.contains("images-collapsed") || readImagesCollapsedPref();
+      document.body.classList.contains("images-collapsed") ||
+      resolveInitialMediaCollapsed().imagesCollapsed;
     if (imagesCollapsed) document.body.classList.add("images-collapsed");
     setAllFigures(!imagesCollapsed);
   };
 
   const initStoryTextToggle = () => {
-    const setTextState = (story, visible) => {
-      if (!story) return;
+    const setTextState = (story, visible, opts = {}) => {
+      if (!story) return false;
+      if (!visible) {
+        if (!storyHasImageControls(story)) {
+          syncStoryMediaGuards(story);
+          return false;
+        }
+        if (!isStoryFigureVisible(story)) {
+          if (opts.ensureOther) {
+            story.classList.remove("story--figure-hidden");
+            setStoryModePressed(story, "data-images-mode", true);
+          } else {
+            syncStoryMediaGuards(story);
+            return false;
+          }
+        }
+      }
       story.classList.toggle("story--text-hidden", !visible);
       setStoryModePressed(story, "data-texts-mode", visible);
+      syncStoryMediaGuards(story);
+      return true;
     };
 
     const setAllTexts = (visible) => {
       document.querySelectorAll("article.story").forEach((story) => {
-        setTextState(story, visible);
+        setTextState(story, visible, { ensureOther: !visible });
       });
+      syncAllStoryMediaGuards();
     };
 
     window.__birinciSetStoryText = setTextState;
@@ -7365,14 +7539,24 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
     document.addEventListener("click", (event) => {
       const btn = event.target.closest("[data-texts-mode]");
-      if (!btn || btn.closest("[data-tools]")) return;
+      if (!btn || btn.closest("[data-tools]") || btn.disabled) return;
       const story = btn.closest("article.story");
       if (!story) return;
       event.preventDefault();
       setTextState(story, btn.getAttribute("data-texts-mode") === "show");
     });
 
-    setAllTexts(!document.body.classList.contains("texts-collapsed"));
+    const textsCollapsed =
+      document.body.classList.contains("texts-collapsed") ||
+      resolveInitialMediaCollapsed().textsCollapsed;
+    if (textsCollapsed && document.body.classList.contains("images-collapsed")) {
+      document.body.classList.remove("texts-collapsed");
+      setAllTexts(true);
+    } else {
+      if (textsCollapsed) document.body.classList.add("texts-collapsed");
+      setAllTexts(!textsCollapsed);
+    }
+    syncAllStoryMediaGuards();
   };
 
   try {
