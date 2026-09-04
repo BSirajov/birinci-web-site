@@ -129,6 +129,17 @@ def hide_discoveries_html(html: str) -> str:
     html = _SITEMAP_SECTION_RE.sub("", html, count=1)
     if 'id="root-entry-i18n"' in html:
         html = strip_root_entry_i18n(html)
+    # After Discoveries is removed, center the remaining Wisdom + About cards.
+    if (
+        'data-root-entry="discoveries"' not in html
+        and 'class="cat-grid root-entry__grid"' in html
+        and "root-entry__grid--centered-pair" not in html
+    ):
+        html = html.replace(
+            'class="cat-grid root-entry__grid"',
+            'class="cat-grid root-entry__grid root-entry__grid--centered-pair"',
+            1,
+        )
     return html
 
 

@@ -5892,6 +5892,13 @@ body.audio-player-open .text-lightbox {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: stretch;
 }
+/* Production omits Discoveries: keep Wisdom + About centered as a pair. */
+.page-root-home .root-entry__grid--centered-pair,
+.page-root-home .root-entry__grid:not(:has([data-root-entry="discoveries"])) {
+  grid-template-columns: repeat(2, minmax(16rem, 24rem));
+  justify-content: center;
+  justify-items: stretch;
+}
 .page-root-home .root-entry-card.cat-card.page-card {
   min-height: 0;
   height: auto;
@@ -5912,13 +5919,19 @@ body.audio-player-open .text-lightbox {
   .page-root-home .root-entry__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  .page-root-home .root-entry__grid--centered-pair,
+  .page-root-home .root-entry__grid:not(:has([data-root-entry="discoveries"])) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 @media (max-width: 620px) {
   .page-root-home .root-entry {
     padding-inline: 0.85rem;
     padding-bottom: 2.25rem;
   }
-  .page-root-home .root-entry__grid {
+  .page-root-home .root-entry__grid,
+  .page-root-home .root-entry__grid--centered-pair,
+  .page-root-home .root-entry__grid:not(:has([data-root-entry="discoveries"])) {
     grid-template-columns: 1fr;
   }
   .page-root-home .root-entry-card.cat-card.page-card {
