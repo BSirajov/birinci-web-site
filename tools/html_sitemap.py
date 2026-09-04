@@ -405,7 +405,7 @@ def build_sitemap_inner_html(lang: str) -> str:
         f'        <p class="intro__lead">{_esc(copy.get("lead", ""))}</p>\n'
         "      </div>\n"
         '      <div class="intro__visual">\n'
-        '        <img src="../assets/Sitemap.webp?v=20260901a" '
+        '        <img src="../assets/sitemap.webp?v=20260901a" '
         f'alt="{title_alt}" width="1536" height="1024" decoding="async" />\n'
         "      </div>\n"
         "    </div>\n"

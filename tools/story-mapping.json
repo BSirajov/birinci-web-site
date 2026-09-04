@@ -1010,6 +1010,14 @@
       "new_image_file": "mercedes.png"
     },
     {
+      "az_stem": "Mihrimah sultan və Memar Sinan",
+      "story_file": "Mihrimah sultan və Memar Sinan.docx",
+      "image_file": "Mihrimah sultan və Memar Sinan.png",
+      "en_stem": "mihrimah-sultan-and-architect-sinan",
+      "new_story_file": "mihrimah-sultan-and-architect-sinan.docx",
+      "new_image_file": "mihrimah-sultan-and-architect-sinan.png"
+    },
+    {
       "az_stem": "Milçək çini qablar dükanında",
       "story_file": "Milçək çini qablar dükanında.docx",
       "image_file": "Milçək çini qablar dükanında.png",
@@ -1560,14 +1568,6 @@
       "en_stem": "to-be-alone",
       "new_story_file": "to-be-alone.docx",
       "new_image_file": "to-be-alone.png"
-    },
-    {
-      "az_stem": "Utandım vallah",
-      "story_file": "Utandım vallah.docx",
-      "image_file": "Utandım vallah.png",
-      "en_stem": "i-was-so-embarrassed",
-      "new_story_file": "i-was-so-embarrassed.docx",
-      "new_image_file": "i-was-so-embarrassed.png"
     },
     {
       "az_stem": "Uzaq duracağınız ifadələr",

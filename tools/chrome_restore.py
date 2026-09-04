@@ -5,6 +5,7 @@ from __future__ import annotations
 import html
 import json
 import re
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -25,12 +26,77 @@ from i18n_config import (  # noqa: E402
 )
 from publish_policy import publish_discoveries_enabled  # noqa: E402
 
+
+def write_text_resilient(
+    path: Path | str,
+    text: str,
+    *,
+    encoding: str = "utf-8",
+    newline: str | None = None,
+    attempts: int = 6,
+) -> int:
+    """Write text with retries for transient Windows OSError (errno 22 / locks)."""
+    target = Path(path)
+    data = text if isinstance(text, str) else str(text)
+    raw = data.encode(encoding)
+    last: BaseException | None = None
+    for attempt in range(max(1, attempts)):
+        try:
+            open_kw: dict = {"mode": "w", "encoding": encoding}
+            if newline is not None:
+                open_kw["newline"] = newline
+            with target.open(**open_kw) as handle:
+                handle.write(data)
+            return len(data)
+        except OSError as exc:
+            last = exc
+        try:
+            with target.open("wb") as handle:
+                handle.write(raw)
+            return len(data)
+        except OSError as exc:
+            last = exc
+        time.sleep(min(0.05 * (2**attempt), 1.0))
+    raise OSError(
+        f"Failed writing {target} after {attempts} attempts: {last}"
+    ) from last
+
+
+def install_resilient_path_writes() -> None:
+    """Patch Path.write_text so bytecode builds survive transient Windows locks."""
+    current = Path.write_text
+    if getattr(current, "_birinci_resilient", False):
+        return
+
+    def resilient(
+        self: Path,
+        data: str,
+        encoding: str = "utf-8",
+        errors: str = "strict",
+        newline: str | None = None,
+    ) -> int:
+        if errors != "strict":
+            # Rare path — still retry around the original implementation.
+            last: BaseException | None = None
+            for attempt in range(6):
+                try:
+                    return current(self, data, encoding=encoding, errors=errors, newline=newline)
+                except OSError as exc:
+                    last = exc
+                    time.sleep(min(0.05 * (2**attempt), 1.0))
+            raise OSError(f"Failed writing {self} after retries: {last}") from last
+        return write_text_resilient(self, data, encoding=encoding, newline=newline)
+
+    resilient._birinci_resilient = True  # type: ignore[attr-defined]
+    Path.write_text = resilient  # type: ignore[method-assign]
+
+
 # Discovery videos are off. chrome_restore still strips leftover Ocaq markup
 # if a bytecode rebuild re-emits it.
 DISABLE_DISCOVERY_VIDEOS = True
 
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
-SITE_ASSET_VERSION = "20260903ak"
+SITE_ASSET_VERSION = "20260904mp3enru"
 SITE_PUBLIC_ORIGIN = "https://birinci.cloud"
 LIVE_LANGS = ("az", "en", "ru", "ky")
 OG_IMAGE_URL = f"{SITE_PUBLIC_ORIGIN}/assets/pearl-hero.webp"
@@ -1621,9 +1687,9 @@ def strip_listen_chrome(html: str) -> str:
 
 
 def strip_data_audio(html: str, lang: str = "") -> str:
-    # AZ stories and Discoveries play pre-generated MP3s from
-    # az/wisdom-stories/audio/ and az/discovery-articles/audio/.
-    if lang == "az":
+    # AZ/EN/RU story MP3s live under {lang}/wisdom-stories/audio/.
+    # KY has no story listen / MP3s — strip any leftover data-audio.
+    if lang in ("az", "en", "ru"):
         return html
     return _DATA_AUDIO_RE.sub("", html)
 
@@ -1837,10 +1903,27 @@ def _story_listen_labels(lang: str) -> dict[str, str]:
     }
 
 
+_CAT_CARD_LISTEN_RE = re.compile(
+    r"<button\b[^>]*\bcat-card__listen\b[^>]*>[\s\S]*?</button>",
+    re.I,
+)
+
+
+def strip_story_listen_chrome(markup: str) -> str:
+    """Remove per-story / category-card Listen controls (keep Discoveries alone)."""
+    markup = _STORY_TTS_GROUP_RE.sub("", markup)
+    markup = _CAT_CARD_LISTEN_RE.sub("", markup)
+    return markup
+
+
 def ensure_story_listen_markup(markup: str, lang: str) -> str:
-    """Bake Listen buttons into static story HTML so they show without JS."""
+    """Bake Listen buttons into static story HTML so they show without JS.
+
+    AZ keeps MP3 playback. EN/RU keep Listen even without MP3s (browser TTS).
+    KY still hides story audio controls (no reliable native voice).
+    """
     if lang == "ky":
-        return markup
+        return strip_story_listen_chrome(markup)
     labels = _story_listen_labels(lang)
     audio = html.escape(labels["audio"])
     listen = html.escape(labels["listen"])
@@ -1868,11 +1951,23 @@ def ensure_story_listen_markup(markup: str, lang: str) -> str:
             break
         insert_at = start + len(_STORY_ACTIONS_OPEN)
         next_text = markup.find('<div class="story__text', insert_at)
-        body = markup[insert_at:next_text] if next_text >= 0 else markup[insert_at : insert_at + 2500]
+        end_at = next_text if next_text >= 0 else insert_at + 2500
+        body = markup[insert_at:end_at]
+        # Builder may already emit a TTS group with different attribute order;
+        # keep a single group and only inject when none is present.
+        tts_groups = list(_STORY_TTS_GROUP_RE.finditer(body))
+        if len(tts_groups) > 1:
+            for match in reversed(tts_groups[1:]):
+                body = body[: match.start()] + body[match.end() :]
         pieces.append(markup[cursor:insert_at])
-        if 'data-story-tts data-tts-mode' not in body:
+        # Notes use data-story-tts-note; only skip inject when a real Listen control exists.
+        if not tts_groups and 'data-tts-mode="listen"' not in body:
             pieces.append("\n" + group)
-        cursor = insert_at
+        if body != markup[insert_at:end_at]:
+            pieces.append(body)
+            cursor = end_at
+        else:
+            cursor = insert_at
     markup = "".join(pieces)
     markup = _inject_card_listen_buttons(markup, listen)
     return markup
@@ -1996,6 +2091,12 @@ def _hreflang_pairs(rel_path: str) -> list[tuple[str, str]]:
     return pairs
 
 
+_CATEGORY_SLUG_RE = re.compile(
+    r'/(?:az|en|ru|ky)/categories/([^/"\s?]+\.html)',
+    re.I,
+)
+
+
 def infer_html_rel_path(html: str, lang: str, *, inventions: bool = False) -> str:
     if "page-root-home" in html:
         return "index.html"
@@ -2008,12 +2109,42 @@ def infer_html_rel_path(html: str, lang: str, *, inventions: bool = False) -> st
         return f"{lang}/sitemap.html"
     if "page-about" in html:
         return f"{lang}/about/mission-vision-values.html"
+    # Category pages must win over page-home heuristics and generic fallbacks.
+    if 'class="page-category"' in html or "page-category" in html:
+        cat = _CATEGORY_HREF_RE.search(html)
+        if cat:
+            return f"{lang}/categories/{cat.group(1)}"
+        canon = _CATEGORY_SLUG_RE.search(html)
+        if canon:
+            return f"{lang}/categories/{canon.group(1)}"
+        # Nested under {lang}/categories/ — keep asset depth correct even
+        # when the slug is unknown (build overlays should pass rel_path).
+        return f"{lang}/categories/index.html"
     if "page-home" in html:
         return f"{lang}/index.html"
     cat = _CATEGORY_HREF_RE.search(html)
     if cat:
         return f"{lang}/categories/{cat.group(1)}"
     return f"{lang}/index.html"
+
+
+def _html_asset_depth(markup: str, rel_path: str = "") -> int:
+    """Return ../ count from this HTML file up to the repo root."""
+    if "page-root-home" in markup or rel_path in ("", "index.html"):
+        return 0
+    if rel_path:
+        parts = Path(str(rel_path).replace("\\", "/")).parts
+        return max(0, len(parts) - 1)
+    # Infer nested depth from body classes when rel_path is missing/wrong.
+    if (
+        'class="page-category"' in markup
+        or "page-category" in markup
+        or 'class="page-about"' in markup
+        or "page-inventions" in markup
+        or "page-sitemap" in markup
+    ):
+        return 2
+    return 1
 
 
 def ensure_seo_head(markup: str, lang: str, rel_path: str = "") -> str:
@@ -2532,11 +2663,48 @@ def ensure_discoveries_hero_html(markup: str, lang: str) -> str:
     return markup
 
 
+def build_about_hero_html(lang: str) -> str:
+    """About hero — same .intro composition as Wisdom / Sitemap."""
+    data = _load_locale(lang)
+    about = data.get("ui", {}).get("about", {})
+    page_title = about.get("page_title") or about.get("nav_item") or "About"
+    lead = about.get("card_description") or about.get("page_description") or ""
+    alt = html.escape(page_title)
+    img = f"../../assets/mission.webp?v={SITE_ASSET_VERSION}"
+    return (
+        '<section class="intro">\n'
+        '    <div class="intro__atmosphere" aria-hidden="true"></div>\n'
+        '    <div class="intro__content">\n'
+        '      <div class="intro__copy">\n'
+        f'        <h1 class="intro__brand" id="about-hero-title">'
+        f"{_about_title_html(page_title)}</h1>\n"
+        f'        <p class="intro__lead">{html.escape(lead, quote=False)}</p>\n'
+        "      </div>\n"
+        '      <div class="intro__visual">\n'
+        f'        <img src="{img}" alt="{alt}" width="1536" height="1024" decoding="async" />\n'
+        "      </div>\n"
+        "    </div>\n"
+        "  </section>"
+    )
+
+
 def ensure_about_hero_html(html: str, lang: str) -> str:
-    """Keep the Mission title; drop the hearth-of-knowledge side panel."""
+    """Mission / Vision / Values hero uses the shared Wisdom-style .intro."""
     if "page-about" not in html and "about-page" not in html:
         return html
-    return _strip_hero_hearth_panel(html)
+    html = _strip_hero_hearth_panel(html)
+    hero = build_about_hero_html(lang)
+    if _ABOUT_HERO_RE.search(html):
+        html = _ABOUT_HERO_RE.sub(hero, html, count=1)
+    elif _INTRO_RE.search(html):
+        html = _INTRO_RE.sub(hero, html, count=1)
+    elif '<div class="about-page">' in html:
+        html = html.replace(
+            '<div class="about-page">',
+            f'<div class="about-page">\n  {hero}\n',
+            1,
+        )
+    return html
 
 
 def _about_title_html(title: str) -> str:
@@ -3171,20 +3339,34 @@ def normalize_home_page_body_wrappers(html: str) -> str:
 
 def ensure_stories_inventions_chrome(html: str) -> str:
     """Align wisdom stories pages with discoveries catalog layout and toolbar."""
-    is_home = 'class="page-home"' in html
-    is_category = 'class="page-category"' in html
+    is_home = 'class="page-home"' in html or 'class="page-home ' in html
+    is_category = 'class="page-category"' in html or 'class="page-category ' in html
     if not is_home and not is_category:
         return html
 
     if _STORIES_INVENTIONS_CSS_MARKER not in html:
         prefix = _asset_prefix_for_html(html)
         insert = _STORIES_INVENTIONS_CSS_LINK.format(prefix=prefix, ver=SITE_ASSET_VERSION)
-        html = re.sub(
-            r'(<link rel="stylesheet" href="[^"]*kt-sidebar-widget\.css[^"]*" />\s*)',
-            rf"\1{insert}",
-            html,
-            count=1,
-        )
+        # page_shell may not yet include toolkit CSS; fall back through known anchors.
+        inserted = False
+        for pattern in (
+            r'(<link rel="stylesheet" href="[^"]*kt-sidebar-widget\.css[^"]*"\s*/>\s*)',
+            r'(<link rel="stylesheet" href="[^"]*kt-catalog-toolbar\.css[^"]*"\s*/>\s*)',
+            r'(<link rel="stylesheet" href="[^"]*kt-tokens\.css[^"]*"\s*/>\s*)',
+            r'(<link rel="stylesheet" href="[^"]*site\.css[^"]*"\s*/>\s*)',
+        ):
+            html, count = re.subn(pattern, rf"\1{insert}", html, count=1)
+            if count:
+                inserted = True
+                break
+        if not inserted:
+            html = re.sub(
+                r"(</head>)",
+                insert + r"\1",
+                html,
+                count=1,
+                flags=re.I,
+            )
 
     html = normalize_stories_layout_classes(html)
     html = normalize_home_page_body_wrappers(html)
@@ -3385,15 +3567,18 @@ def split_site_js_i18n(js: str) -> tuple[str, str]:
 
 def ensure_shared_site_js_tags(markup: str, lang: str, rel_path: str = "") -> str:
     rel_path = rel_path or infer_html_rel_path(markup, lang)
-    if rel_path in ("", "index.html") or "page-root-home" in markup:
+    depth = _html_asset_depth(markup, rel_path)
+    if depth <= 0:
         i18n_src = f"az/assets/i18n.js?v={SITE_ASSET_VERSION}"
         tts_src = f"assets/tts-proxy.js?v={SITE_ASSET_VERSION}"
         site_src = f"assets/site.js?v={SITE_ASSET_VERSION}"
-    elif rel_path.count("/") <= 1:
+    elif depth == 1:
         i18n_src = f"assets/i18n.js?v={SITE_ASSET_VERSION}"
         tts_src = f"../assets/tts-proxy.js?v={SITE_ASSET_VERSION}"
         site_src = f"../assets/site.js?v={SITE_ASSET_VERSION}"
     else:
+        # Nested pages ({lang}/categories|about|discoveries/...): i18n is
+        # per-language under {lang}/assets/, shared JS under /assets/.
         i18n_src = f"../assets/i18n.js?v={SITE_ASSET_VERSION}"
         tts_src = f"../../assets/tts-proxy.js?v={SITE_ASSET_VERSION}"
         site_src = f"../../assets/site.js?v={SITE_ASSET_VERSION}"
@@ -3438,7 +3623,8 @@ def ensure_story_sidebar_toc_assets(markup: str, lang: str = "", rel_path: str =
         return markup
     if 'class="page-home"' not in markup and 'class="page-category"' not in markup:
         return markup
-    prefix = "../assets/inventions/" if rel_path.count("/") <= 1 else "../../assets/inventions/"
+    depth = _html_asset_depth(markup, rel_path)
+    prefix = "../assets/inventions/" if depth <= 1 else "../../assets/inventions/"
     css = (
         f'  <link rel="stylesheet" href="{prefix}kt-tokens.css?v={SITE_ASSET_VERSION}" />\n'
         f'  <link rel="stylesheet" href="{prefix}kt-catalog-toolbar.css?v={SITE_ASSET_VERSION}" />\n'
@@ -3896,7 +4082,7 @@ def patch_emitted_html(
         html = fix_ky_illustration_prefix(html, lang)
         html = strip_invention_icon_captions(html)
         html = relocate_invention_period_lines(html)
-    html = strip_data_audio(html)
+    html = strip_data_audio(html, lang)
     html = localize_story_figure_labels(html, lang)
     html = ensure_story_listen_markup(html, lang)
     html = strip_tools_bar_listen_page(html)
@@ -3953,18 +4139,23 @@ def apply_shared_assets() -> None:
 
     for lang in LIVE_LANGS:
         loc_path = ROOT / lang / "assets" / "site.js"
-        i18n_path = ROOT / lang / "assets" / "i18n.js"
         if loc_path.is_file():
+            # Prefer extracting an embedded blob when present, then always fall
+            # through to locale JSON so truncated stubs cannot leave i18n.js missing.
             js = loc_path.read_text(encoding="utf-8")
             js = _replace_i18n_index_failed(js, lang)
             js = sync_site_js_i18n_blob(js, lang)
             i18n_line, _rest = split_site_js_i18n(js)
             if i18n_line:
+                i18n_path = ROOT / lang / "assets" / "i18n.js"
                 i18n_path.parent.mkdir(parents=True, exist_ok=True)
                 i18n_path.write_text(i18n_line, encoding="utf-8")
-            loc_path.unlink()
-        else:
-            write_lang_i18n_from_locale(lang)
+            loc_path.unlink(missing_ok=True)
+        # Locale JSON is authoritative — always (re)write {lang}/assets/i18n.js.
+        write_lang_i18n_from_locale(lang)
+        leftover = ROOT / lang / "assets" / "site.js"
+        if leftover.is_file():
+            leftover.unlink(missing_ok=True)
 
 _BREADCRUMBS_RE = re.compile(
     r"[ \t]*<nav class=\"breadcrumbs\"[\s\S]*?</nav>\s*",
@@ -4470,8 +4661,10 @@ def write_root_home() -> None:
 
 
 def apply_story_audio_cleanup() -> None:
+    # Only KY keeps hasAudio forced off (no story MP3 / listen chrome).
+    # EN/RU hasAudio is owned by generate_story_audio.link_story_audio.
     for lang in LIVE_LANGS:
-        if lang == "az":
+        if lang != "ky":
             continue
         for rel in (
             Path(lang) / "assets" / "stories-data.js",
@@ -4639,10 +4832,7 @@ def apply_all_html() -> int:
                 markup, lang, inventions=inventions, rel_path=rel
             )
             if new_html != markup:
-                try:
-                    path.write_text(new_html, encoding="utf-8", newline="\n")
-                except OSError:
-                    path.write_bytes(new_html.encode("utf-8"))
+                write_text_resilient(path, new_html, encoding="utf-8", newline="\n")
                 n += 1
     write_root_home()
     write_public_seo_files()

@@ -62,6 +62,50 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   };
 
   const hideAudioChrome = (root = document) => {
+    const pageLang = () =>
+      (
+        (document.body && document.body.getAttribute("data-lang")) ||
+        PAGE_LANG ||
+        "az"
+      )
+        .toLowerCase()
+        .slice(0, 2);
+    const storyAllowsAudio = (story) => {
+      if (!story) return false;
+      const lang = pageLang();
+      // EN/RU: Listen always (MP3 when present, else browser speechSynthesis).
+      if (lang === "en" || lang === "ru") return true;
+      if (story.hasAttribute("data-audio")) return true;
+      const stem = (story.getAttribute("data-stem") || story.id || "").trim();
+      const catalog = window.__BIRINCI_STORIES__;
+      if (catalog && stem) {
+        for (const cat of catalog.categories || []) {
+          for (const item of cat.stories || []) {
+            if (item && item.stem === stem) return !!item.hasAudio;
+          }
+        }
+      }
+      // Category pages may lack catalog + data-audio; AZ still has MP3s for every stem.
+      return lang === "az";
+    };
+    const cardAllowsAudio = (card) => {
+      if (!card) return false;
+      const lang = pageLang();
+      if (lang === "en" || lang === "ru") return true;
+      const stem = (card.getAttribute("data-stem") || "").trim();
+      if (!stem) return false;
+      const story = document.getElementById(stem);
+      if (story) return storyAllowsAudio(story);
+      const catalog = window.__BIRINCI_STORIES__;
+      if (catalog) {
+        for (const cat of catalog.categories || []) {
+          for (const item of cat.stories || []) {
+            if (item && item.stem === stem) return !!item.hasAudio;
+          }
+        }
+      }
+      return lang === "az";
+    };
     (root || document)
       .querySelectorAll(
         "[data-story-tts], [data-tools-play-visible], [data-story-tts-note], .story-tts__note, [data-discovery-tts], .inventions-entry__tts, .tools-bar__field--listen"
@@ -75,7 +119,18 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         if (isDiscovery) {
           if (SHOW_DISCOVERY_LISTEN) return;
         } else if (SHOW_AUDIO_CONTROLS) {
-          return;
+          const story = el.closest("article.story");
+          if (story) {
+            if (storyAllowsAudio(story)) return;
+          } else {
+            const card = el.closest(".cat-card[data-stem], a.cat-card[data-stem]");
+            if (card) {
+              if (cardAllowsAudio(card)) return;
+            } else {
+              // Page-level play-visible / listen field.
+              return;
+            }
+          }
         }
         const group = el.closest(
           ".story__action-group, .tools-bar__field, .text-lightbox__tts, .inventions-entry__tts"
@@ -624,11 +679,11 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       field.setAttribute("data-story-cat-filter", "");
       field.setAttribute("data-home-list-only", "");
       field.innerHTML =
-        `<span class="tools-bar__label" id="story-cat-label">${escapeStoryNav(label)}</span>` +
+        `<span class="visually-hidden" id="story-cat-label">${escapeStoryNav(label)}</span>` +
         `<div class="sel-wrap">` +
-        `<select id="filterStoryCategory" aria-labelledby="story-cat-label"><option value="">${escapeStoryNav(
+        `<select id="filterStoryCategory" aria-labelledby="story-cat-label" aria-label="${escapeStoryNav(
           label
-        )}</option></select>` +
+        )}"><option value="">${escapeStoryNav(label)}</option></select>` +
         `<button class="sel-clear" data-for="filterStoryCategory" title="${escapeStoryNav(
           clear
         )}" type="button" aria-label="${escapeStoryNav(clear)}">×</button>` +
@@ -643,6 +698,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       }
     } else {
       field.setAttribute("data-home-list-only", "");
+      const existingLabel = field.querySelector("#story-cat-label, :scope > .tools-bar__label");
+      if (existingLabel) {
+        existingLabel.classList.remove("tools-bar__label");
+        existingLabel.classList.add("visually-hidden");
+        if (!existingLabel.id) existingLabel.id = "story-cat-label";
+      }
     }
     const select = field.querySelector("#filterStoryCategory");
     fillStoryCategorySelect(select, initialSlugs);
@@ -855,6 +916,28 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     }
   };
 
+  /** Coalesce rapid search input; `.flush()` runs immediately (clear / Enter). */
+  const debounce = (fn, wait = 100) => {
+    let timer = 0;
+    const run = (...args) => {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => {
+        timer = 0;
+        fn(...args);
+      }, wait);
+    };
+    run.flush = (...args) => {
+      window.clearTimeout(timer);
+      timer = 0;
+      fn(...args);
+    };
+    run.cancel = () => {
+      window.clearTimeout(timer);
+      timer = 0;
+    };
+    return run;
+  };
+
   const SEARCH_HIT_CLASS = "search-hit";
   const SEARCH_HIT_SELECTOR = `mark.${SEARCH_HIT_CLASS}`;
 
@@ -986,8 +1069,18 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     } catch (_) {}
   };
 
-  const paintSearchAndLexicon = (root, query) => {
-    refreshAzLexicon(root);
+  const paintSearchAndLexicon = (root, query, { lexicon = true, visibleOnly = false } = {}) => {
+    // Lexicon unwrap/rewrap of every .story__text is expensive — skip while typing.
+    if (lexicon) refreshAzLexicon(root);
+    if (visibleOnly && root && root.querySelectorAll) {
+      clearSearchHighlights(root);
+      const raw = String(query || "").trim();
+      if (!raw) return;
+      root.querySelectorAll("article.story:not([hidden])").forEach((article) => {
+        applySearchHighlights(article, raw);
+      });
+      return;
+    }
     applySearchHighlights(root, query);
   };
 
@@ -1093,6 +1186,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const listen = tUi("listen", "Mətni dinlə");
     const stop = tUi("stop", "Dayandır");
     const audioLabel = tUi("story_audio_label", "Səs");
+    // AZ/EN/RU: mount Listen on every story. Missing MP3 → browser TTS in speakStory.
     document.querySelectorAll("article.story").forEach((story) => {
       const actions = story.querySelector(".story__actions");
       if (!actions || actions.querySelector("[data-story-tts]")) return;
@@ -4176,14 +4270,26 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       } catch (_) {}
     };
 
-    const renderList = ({ resetWindow = false } = {}) => {
-      if (typeof window.__birinciStopStoryTts === "function") window.__birinciStopStoryTts();
+    const storySearchHay = (story) => {
+      const cached = story.dataset.searchHay;
+      if (cached) return cached;
+      const textEl = story.querySelector(".story__text");
+      const hay = `${story.dataset.title || ""} ${textEl ? textEl.textContent : ""}`.toLocaleLowerCase(
+        LOCALE_TAG
+      );
+      story.dataset.searchHay = hay;
+      return hay;
+    };
+
+    let lastNavStemsKey = "";
+    const scheduleCategorySidebarRefresh = debounce(() => {
+      refreshSidebarNav();
+      bindStoryCategoryToggles(list);
+    }, 150);
+    const renderList = ({ resetWindow = false, soft = false, skipPaint = false } = {}) => {
+      if (!soft && typeof window.__birinciStopStoryTts === "function") window.__birinciStopStoryTts();
       const q = searchInput.value.trim().toLocaleLowerCase(LOCALE_TAG);
-      filtered = allStories.filter((story) => {
-        const textEl = story.querySelector(".story__text");
-        const hay = `${story.dataset.title || ""} ${textEl ? textEl.textContent : ""}`.toLocaleLowerCase(LOCALE_TAG);
-        return !q || hay.includes(q);
-      });
+      filtered = allStories.filter((story) => !q || storySearchHay(story).includes(q));
 
       const total = filtered.length;
       syncSearchFilterUi(searchInput.value.trim(), total);
@@ -4195,7 +4301,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       });
       lastShownCount = visibleStories.length;
       lastVisibleStems = visibleSet;
-      if (expandAllOnNextNav) {
+      if (expandAllOnNextNav || q) {
         categorySection.classList.remove("is-collapsed");
       }
       const categoryHead = categorySection.querySelector(".inventions-category-head");
@@ -4205,34 +4311,32 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         categoryHead.textContent = categoryTitleWithCount(base, visibleStories.length);
         if (toggle) categoryHead.appendChild(toggle);
       }
-      visibleStories.forEach((story) => categorySection.appendChild(story));
-      allStories
-        .filter((story) => !visibleSet.has(story.dataset.stem))
-        .forEach((story) => categorySection.appendChild(story));
+      // Keep DOM order; only toggle visibility (re-append was reshuffling on every keystroke).
       allCards.forEach((card) => {
         card.hidden = !visibleSet.has(card.dataset.stem);
       });
-      if (cardGrid) {
-        visibleStories.forEach((story) => {
-          const card = cardsByStem.get(story.dataset.stem);
-          if (card) cardGrid.appendChild(card);
-        });
-        allCards
-          .filter((card) => !visibleSet.has(card.dataset.stem))
-          .forEach((card) => cardGrid.appendChild(card));
-      }
 
-      if (typeof window.__birinciSetAllStoryFigures === "function") {
-        window.__birinciSetAllStoryFigures(!document.body.classList.contains("images-collapsed"));
+      if (!soft) {
+        if (typeof window.__birinciSetAllStoryFigures === "function") {
+          window.__birinciSetAllStoryFigures(!document.body.classList.contains("images-collapsed"));
+        }
+        if (typeof window.__birinciSetAllStoryTexts === "function") {
+          window.__birinciSetAllStoryTexts(!document.body.classList.contains("texts-collapsed"));
+        }
       }
-      if (typeof window.__birinciSetAllStoryTexts === "function") {
-        window.__birinciSetAllStoryTexts(!document.body.classList.contains("texts-collapsed"));
+      const navKey = [...visibleSet].sort().join("\n");
+      if (!soft || navKey !== lastNavStemsKey) {
+        lastNavStemsKey = navKey;
+        if (soft) {
+          scheduleCategorySidebarRefresh();
+        } else {
+          refreshSidebarNav();
+          bindStoryCategoryToggles(list);
+        }
       }
-      refreshSidebarNav();
-      bindStoryCategoryToggles(list);
       if (countEl) countEl.textContent = String(total);
       if (empty) empty.hidden = total !== 0;
-      if (typeof window.__birinciClearListenQueue === "function") {
+      if (!soft && typeof window.__birinciClearListenQueue === "function") {
         window.__birinciClearListenQueue({ keepTrack: true });
       }
       syncPlayVisibleUi(total);
@@ -4251,21 +4355,59 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         }
         pendingStem = null;
       }
-      const highlightRoot =
-        document.querySelector(".category-main") ||
-        list.closest("main") ||
-        list;
-      paintSearchAndLexicon(highlightRoot, searchInput.value.trim());
-      mountStoryTts();
-      if (typeof window.__birinciRefreshStoryLangSwitchers === "function") {
-        window.__birinciRefreshStoryLangSwitchers();
+      if (!skipPaint) {
+        const highlightRoot =
+          document.querySelector(".category-main") ||
+          list.closest("main") ||
+          list;
+        paintSearchAndLexicon(highlightRoot, searchInput.value.trim(), {
+          lexicon: !soft,
+          visibleOnly: soft,
+        });
+      }
+      if (!soft) {
+        mountStoryTts();
+        if (typeof window.__birinciRefreshStoryLangSwitchers === "function") {
+          window.__birinciRefreshStoryLangSwitchers();
+        }
       }
       expandAllOnNextNav = false;
     };
 
+    const paintCategorySearchHits = () => {
+      const highlightRoot =
+        document.querySelector(".category-main") ||
+        list.closest("main") ||
+        list;
+      paintSearchAndLexicon(highlightRoot, searchInput.value.trim(), {
+        lexicon: false,
+        visibleOnly: true,
+      });
+    };
+    const debouncedCategoryHighlights = debounce(paintCategorySearchHits, 180);
+
+    const runCategorySearch = () => {
+      pendingStem = null;
+      debouncedCategoryHighlights.cancel();
+      renderList({ resetWindow: true, soft: true, skipPaint: true });
+      debouncedCategoryHighlights();
+    };
+    const debouncedCategorySearch = debounce(runCategorySearch, 50);
     searchInput.addEventListener("input", () => {
       pendingStem = null;
-      renderList({ resetWindow: true });
+      if (!searchInput.value.trim()) {
+        debouncedCategoryHighlights.cancel();
+        debouncedCategorySearch.flush();
+        scheduleCategorySidebarRefresh.flush();
+        paintCategorySearchHits();
+        return;
+      }
+      debouncedCategorySearch();
+    });
+    searchInput.addEventListener("search", () => {
+      debouncedCategorySearch.flush();
+      debouncedCategoryHighlights.flush();
+      scheduleCategorySidebarRefresh.flush();
     });
 
     try {
@@ -4901,6 +5043,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     let loading = null;
     let pendingStem = null;
     let listRenderKey = "";
+    let listPoolKey = "";
+    let listNavKey = "";
     let lastShownCount = 0;
     let lastVisibleStems = new Set();
     let expandAllOnNextNav = false;
@@ -5024,7 +5168,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       });
       if (cardsEmpty) cardsEmpty.hidden = visible !== 0;
       syncSearchFilterUi(searchInput.value.trim(), visible);
-      paintSearchAndLexicon(cardsPanel || cardsList, searchInput.value.trim());
+      paintSearchAndLexicon(cardsPanel || cardsList, searchInput.value.trim(), { lexicon: false });
     };
 
     if (cardsList) {
@@ -5156,7 +5300,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const imageLabel = escapeHtml(tUi("story_image_label", "Şəkil"));
       const textLabel = escapeHtml(tUi("story_text_label", "Mətn"));
       const audioToggle = SHOW_AUDIO_CONTROLS
-        ? `
+          ? `
           <div class="story__action-group">
             <span class="tools-bar__label">${audioLabel}</span>
             <div class="tools-bar__views" role="group" aria-label="${audioLabel}">
@@ -5168,7 +5312,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
             </button>
             </div>
           </div>`
-        : "";
+          : "";
       const figureToggle = story.hasImage
         ? `
           <div class="story__action-group">
@@ -5281,6 +5425,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         return;
       }
       listRenderKey = "";
+      listPoolKey = "";
+      listNavKey = "";
       if (view === "list") renderList({ force: true });
       else {
         applyCards();
@@ -5296,11 +5442,37 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       }
     };
 
-    const renderList = ({ resetWindow = false, force = false } = {}) => {
+    const applyHomeSearchVisibility = (visibleSet, q) => {
+      storiesList.querySelectorAll("article.story").forEach((article) => {
+        const stem = article.dataset.stem || article.id;
+        article.hidden = !visibleSet.has(stem);
+      });
+      storiesList.querySelectorAll(".inventions-category").forEach((section) => {
+        let n = 0;
+        section.querySelectorAll("article.story").forEach((article) => {
+          if (!article.hidden) n += 1;
+        });
+        section.hidden = n === 0;
+        if (q) section.classList.remove("is-collapsed");
+        const head = section.querySelector(".inventions-category-head");
+        if (!head) return;
+        const base = section.getAttribute("data-category") || "";
+        const toggle = head.querySelector(".inventions-category-toggle");
+        head.textContent = categoryTitleWithCount(visibleCatalogLabel(base), n);
+        if (toggle) head.appendChild(toggle);
+      });
+    };
+
+    const scheduleHomeSidebarRefresh = debounce(() => {
+      refreshSidebarNav();
+      bindStoryCategoryToggles(storiesList);
+    }, 150);
+
+    const renderList = ({ resetWindow = false, force = false, soft = false, skipPaint = false } = {}) => {
       if (!storiesList) return;
-      if (typeof window.__birinciStopStoryTts === "function") window.__birinciStopStoryTts();
       const q = searchInput.value.trim().toLocaleLowerCase(LOCALE_TAG);
       const noneSelected = storyCategoryFilterNoneSelected();
+      let pool;
       if (noneSelected) {
         // Select All unchecked → uncategorized stories (no category), A–Z by title.
         // If the catalog has no uncategorized stories yet, fall back to a flat A–Z
@@ -5308,9 +5480,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         const orphans = (allStories || []).filter((story) =>
           isStoryUncategorizedSlug(story.categorySlug)
         );
-        const pool = orphans.length ? orphans : allStories || [];
-        filtered = pool
-          .filter((story) => !q || story.hay.includes(q))
+        const base = orphans.length ? orphans : allStories || [];
+        pool = base
           .slice()
           .sort((a, b) => compareCatalogTitles(a.title, b.title))
           .map((story) => ({
@@ -5319,32 +5490,30 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
             categoryTitle: uncategorizedStoriesLabel(),
           }));
       } else {
-        filtered = (allStories || []).filter(
-          (story) => storyCategoryPasses(story.categorySlug) && (!q || story.hay.includes(q))
-        );
+        pool = (allStories || []).filter((story) => storyCategoryPasses(story.categorySlug));
       }
 
+      filtered = pool.filter((story) => !q || story.hay.includes(q));
       const total = filtered.length;
       syncSearchFilterUi(searchInput.value.trim(), total);
-      const visibleStories = filtered.slice();
+      const visibleStories = filtered;
 
       lastShownCount = visibleStories.length;
       lastVisibleStems = new Set(visibleStories.map((s) => s.stem));
-      const nextKey = `${visibleStories.map((s) => s.stem).join("\n")}|t${total}|u${
-        noneSelected ? 1 : 0
-      }`;
-      const reuseDom =
-        !force &&
-        nextKey === listRenderKey &&
-        storiesList.querySelectorAll("article.story").length === visibleStories.length;
+      const poolKey = `${pool.map((s) => s.stem).join("\n")}|u${noneSelected ? 1 : 0}`;
+      const needRebuild =
+        force ||
+        poolKey !== listPoolKey ||
+        storiesList.querySelectorAll("article.story").length !== pool.length;
 
-      if (!reuseDom) {
+      if (needRebuild) {
+        if (typeof window.__birinciStopStoryTts === "function") window.__birinciStopStoryTts();
         const collapsed =
           expandAllOnNextNav || q || noneSelected
             ? new Set()
             : collectCollapsedStoryCategories(storiesList);
         if (pendingStem) {
-          const reveal = visibleStories.find(
+          const reveal = pool.find(
             (story) => story.stem === pendingStem || story.categorySlug === pendingStem
           );
           if (reveal) collapsed.delete(reveal.categorySlug);
@@ -5352,14 +5521,13 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         }
         const catalog = window.__BIRINCI_STORIES__;
         const numbering = noneSelected ? new Map() : storyCatalogNumbering(catalog);
-        listRenderKey = nextKey;
+        listPoolKey = poolKey;
+        listRenderKey = poolKey;
         if (noneSelected) {
           // Flat list: story titles only — no category section headings.
-          storiesList.innerHTML = visibleStories
-            .map((story) => storyArticleHtml(story, null))
-            .join("");
+          storiesList.innerHTML = pool.map((story) => storyArticleHtml(story, null)).join("");
         } else {
-          const groups = groupStoriesByCategory(visibleStories, catalog);
+          const groups = groupStoriesByCategory(pool, catalog);
           storiesList.innerHTML = groups
             .map((group) => {
               const collapsedClass = collapsed.has(group.slug) ? " is-collapsed" : "";
@@ -5385,8 +5553,20 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           window.__birinciClearListenQueue({ keepTrack: true });
         }
       }
-      refreshSidebarNav();
-      bindStoryCategoryToggles(storiesList);
+
+      applyHomeSearchVisibility(lastVisibleStems, q);
+
+      const navKey = [...lastVisibleStems].sort().join("\n");
+      const navChanged = navKey !== listNavKey;
+      if (needRebuild || (!soft && navChanged)) {
+        listNavKey = navKey;
+        refreshSidebarNav();
+        bindStoryCategoryToggles(storiesList);
+      } else if (soft && navChanged) {
+        listNavKey = navKey;
+        // Sidebar rebuild is heavy with hundreds of links — coalesce while typing.
+        scheduleHomeSidebarRefresh();
+      }
       if (listEmpty) listEmpty.hidden = total !== 0;
       syncPlayVisibleUi(total);
       writeUrlState();
@@ -5418,8 +5598,13 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         }
         pendingStem = null;
       }
-      paintSearchAndLexicon(listPanel || storiesList, searchInput.value.trim());
-      if (typeof window.__birinciRefreshStoryLangSwitchers === "function") {
+      if (!skipPaint) {
+        paintSearchAndLexicon(listPanel || storiesList, searchInput.value.trim(), {
+          lexicon: needRebuild,
+          visibleOnly: !needRebuild,
+        });
+      }
+      if (needRebuild && typeof window.__birinciRefreshStoryLangSwitchers === "function") {
         window.__birinciRefreshStoryLangSwitchers();
       }
       expandAllOnNextNav = false;
@@ -5520,14 +5705,47 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     });
     bar.addEventListener("click", onViewButton);
 
-    searchInput.addEventListener("input", () => {
+    const paintHomeSearchHits = () => {
+      paintSearchAndLexicon(listPanel || storiesList, searchInput.value.trim(), {
+        lexicon: false,
+        visibleOnly: true,
+      });
+    };
+    const debouncedHomeHighlights = debounce(paintHomeSearchHits, 180);
+
+    const runHomeSearch = () => {
       if (view === "cards") {
         applyCards();
         writeUrlState();
         return;
       }
       pendingStem = null;
-      renderList({ resetWindow: true });
+      debouncedHomeHighlights.cancel();
+      renderList({ resetWindow: true, soft: true, skipPaint: true });
+      debouncedHomeHighlights();
+    };
+    const debouncedHomeSearch = debounce(runHomeSearch, 50);
+
+    searchInput.addEventListener("input", () => {
+      if (view === "cards") {
+        if (!searchInput.value.trim()) debouncedHomeSearch.flush();
+        else debouncedHomeSearch();
+        return;
+      }
+      pendingStem = null;
+      if (!searchInput.value.trim()) {
+        debouncedHomeHighlights.cancel();
+        debouncedHomeSearch.flush();
+        scheduleHomeSidebarRefresh.flush();
+        paintHomeSearchHits();
+        return;
+      }
+      debouncedHomeSearch();
+    });
+    searchInput.addEventListener("search", () => {
+      debouncedHomeSearch.flush();
+      debouncedHomeHighlights.flush();
+      scheduleHomeSidebarRefresh.flush();
     });
 
     const urlState = readUrlState();
@@ -6529,13 +6747,24 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       audioPlayer.addEventListener("error", () => {
         if (suppressError) return;
         const btn = activeBtn;
-        if (queueActive) {
-          if (btn) showNote(btn, audioFailedMessage);
-          if (typeof window.__birinciQueueAdvance === "function") window.__birinciQueueAdvance();
+        const fromQueue = queueActive;
+        // MP3 missing/corrupt → browser speechSynthesis fallback.
+        activeSourceKey = "";
+        stopAudioElement({ clearSrc: true });
+        if (playerShell) {
+          playerShell.hidden = true;
+          playerShell.setAttribute("hidden", "");
+        }
+        markPlaying(btn, false);
+        updatePlayButton(false);
+        syncPlayVisibleButton();
+        if (btn) {
+          speakStory(btn, { fromQueue });
           return;
         }
-        closePlayer();
-        if (btn) showNote(btn, audioFailedMessage);
+        if (fromQueue && typeof window.__birinciQueueAdvance === "function") {
+          window.__birinciQueueAdvance();
+        }
       });
 
       return playerEls;
@@ -6552,13 +6781,21 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
             updatePlayButton(false);
             return;
           }
-          if (queueActive) {
-            showNote(btn, audioFailedMessage);
-            advanceQueue();
+          const fromQueue = queueActive;
+          activeSourceKey = "";
+          stopAudioElement({ clearSrc: true });
+          if (playerShell) {
+            playerShell.hidden = true;
+            playerShell.setAttribute("hidden", "");
+          }
+          markPlaying(btn, false);
+          updatePlayButton(false);
+          if (btn) {
+            speakStory(btn, { fromQueue });
             return;
           }
-          closePlayer();
-          showNote(btn, audioFailedMessage);
+          if (fromQueue) advanceQueue();
+          else showNote(btn, audioFailedMessage);
         });
       }
     };

@@ -126,7 +126,6 @@ STORY_CATEGORY: dict[str, str] = {
     "pair-of-boots": "Dostluq və insan münasibətləri",
     "sound-of-the-doorbell": "Dostluq və insan münasibətləri",
     "to-be-alone": "Dostluq və insan münasibətləri",
-    "i-was-so-embarrassed": "Dostluq və insan münasibətləri",
     "mockery-is-unacceptable": "Dostluq və insan münasibətləri",
     "how-to-ward-off-insults": "Dostluq və insan münasibətləri",
     "compassion": "Dostluq və insan münasibətləri",
@@ -294,6 +293,7 @@ STORY_CATEGORY: dict[str, str] = {
     # --- Tarix və tanınmış şəxsiyyətlər ---
     "albrecht-durer": "Tarix və tanınmış şəxsiyyətlər",
     "architect-sinan-dies-in-a-house-without-water": "Tarix və tanınmış şəxsiyyətlər",
+    "mihrimah-sultan-and-architect-sinan": "Tarix və tanınmış şəxsiyyətlər",
 }
 
 

@@ -2293,33 +2293,6 @@
     "bytes": 213212,
     "join": "ffmpeg+loudnorm"
   },
-  "i-was-so-embarrassed": {
-    "title": "Utandım vallah",
-    "category": "dostluq-ve-insan-munasibetleri",
-    "index": 25,
-    "voice": "az-AZ-BabekNeural",
-    "dialogue_voice": null,
-    "prosody": "v2",
-    "roles": [
-      "title",
-      "narrative",
-      "question",
-      "dialogue",
-      "question",
-      "question",
-      "dialogue",
-      "question",
-      "dialogue",
-      "question",
-      "question",
-      "exclaim",
-      "dialogue",
-      "moral"
-    ],
-    "file": "i-was-so-embarrassed.mp3",
-    "bytes": 482924,
-    "join": "ffmpeg+loudnorm"
-  },
   "spend-your-time-with-people": {
     "title": "Vaxtını insanlarla keçir",
     "category": "dostluq-ve-insan-munasibetleri",
@@ -5538,6 +5511,31 @@
     ],
     "file": "three-essential-things-for-a-city.mp3",
     "bytes": 177356,
+    "join": "ffmpeg+loudnorm"
+  },
+  "mihrimah-sultan-and-architect-sinan": {
+    "title": "Mihrimah sultan və Memar Sinan",
+    "category": "tarix-ve-taninmish-shexsiyyetler",
+    "index": 2,
+    "voice": "az-AZ-BabekNeural",
+    "dialogue_voice": "az-AZ-BanuNeural",
+    "prosody": "v2",
+    "roles": [
+      "title",
+      "narrative",
+      "narrative",
+      "narrative",
+      "narrative",
+      "narrative",
+      "narrative",
+      "narrative",
+      "narrative",
+      "question",
+      "narrative",
+      "moral"
+    ],
+    "file": "mihrimah-sultan-and-architect-sinan.mp3",
+    "bytes": 1000604,
     "join": "ffmpeg+loudnorm"
   }
 }

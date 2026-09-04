@@ -210,6 +210,27 @@ def structural() -> None:
                 f"discoveries_locs={dep_disc} publish_discoveries={want_disc}",
             )
 
+    # Per-locale i18n.js must exist (KY previously vanished when truncated
+    # locale site.js stubs had no extractable i18n blob).
+    for lang in LANGS:
+        i18n = ROOT / lang / "assets" / "i18n.js"
+        ok = i18n.is_file() and i18n.stat().st_size > 32
+        blob_ok = False
+        if ok:
+            text = i18n.read_text(encoding="utf-8", errors="replace")
+            blob_ok = f'"lang": "{lang}"' in text or f'"lang":"{lang}"' in text
+        check(
+            f"{lang}/assets/i18n.js present with matching lang",
+            ok and blob_ok,
+            f"exists={i18n.is_file()} size={i18n.stat().st_size if i18n.is_file() else 0} lang_marker={blob_ok}",
+        )
+        stub = ROOT / lang / "assets" / "site.js"
+        check(
+            f"{lang}/assets/site.js stub absent (use shared /assets/site.js)",
+            not stub.is_file(),
+            f"path={stub}",
+        )
+
     # translation_manifest audio_* must match MP3s on disk
     import json
     from i18n_config import story_audio_dir  # noqa: E402

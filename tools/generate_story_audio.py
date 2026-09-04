@@ -22,6 +22,7 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import hashlib
 import json
 import re
 import shutil
@@ -433,6 +434,19 @@ def speech_text(story: dict) -> str:
     return " ".join(seg["text"] for seg in speech_segments(story))
 
 
+def content_fingerprint(job: dict) -> str:
+    """Stable hash of narrated text + voice plan. Skip regen when unchanged."""
+    payload = {
+        "dialogue_voice": job.get("dialogue_voice") or "",
+        "prosody": PROSODY_VERSION,
+        "roles": [seg.get("role") for seg in job.get("segments") or []],
+        "text": job.get("text") or "",
+        "voice": job.get("voice") or "",
+    }
+    raw = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    return hashlib.sha256(raw.encode("utf-8")).hexdigest()[:24]
+
+
 def planned_jobs(stem_filter: set[str] | None) -> list[dict]:
     jobs: list[dict] = []
     for cat in load_categories():
@@ -663,19 +677,46 @@ async def run(
         voice = job["voice"]
         dialogue_voice = "" if single_voice else (job.get("dialogue_voice") or "")
 
-        if out.is_file() and not force:
+        if out.is_file() and not force and out.stat().st_size >= 256:
             existing = manifest.get(stem) or {}
+            fp = content_fingerprint(job)
+            stored = existing.get("content")
             same_voice = existing.get("voice") == voice
             same_dialogue = existing.get("dialogue_voice") == (dialogue_voice or None)
             same_prosody = existing.get("prosody") == PROSODY_VERSION
-            if same_voice and same_dialogue and same_prosody:
+            # Prefer content hash: only rewrite when narration text/voice plan changed.
+            if stored == fp or (
+                stored is None
+                and same_voice
+                and same_dialogue
+                and same_prosody
+            ):
                 async with lock:
+                    if stored is None:
+                        meta = dict(existing) if isinstance(existing, dict) else {}
+                        meta.update(
+                            {
+                                "title": job["title"],
+                                "category": job["category"],
+                                "index": job["index"],
+                                "voice": voice,
+                                "dialogue_voice": dialogue_voice or None,
+                                "prosody": PROSODY_VERSION,
+                                "content": fp,
+                                "file": f"pilot/{out.name}" if pilot else out.name,
+                                "bytes": out.stat().st_size,
+                            }
+                        )
+                        manifest[stem] = meta
+                        manifest_path.write_text(
+                            json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
+                            encoding="utf-8",
+                        )
                     skipped += 1
                     done += 1
                     print(f"[{done}/{total}] skip {stem} ({voice})", flush=True)
                 return
-            # Metadata mismatch (e.g. v1 → v2): regenerate. Use --force to replace
-            # matching files too.
+            # Content or voice/prosody mismatch: regenerate.
 
         async with sem:
             roles = ",".join(seg["role"] for seg in job["segments"])
@@ -711,6 +752,7 @@ async def run(
                 "voice": voice,
                 "dialogue_voice": dialogue_voice or None,
                 "prosody": PROSODY_VERSION,
+                "content": content_fingerprint(job),
                 "roles": [seg["role"] for seg in job["segments"]],
                 "file": f"pilot/{out.name}" if pilot else out.name,
                 "bytes": out.stat().st_size,

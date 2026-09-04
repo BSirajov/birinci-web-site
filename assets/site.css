@@ -2483,9 +2483,44 @@ body.global-search-open { overflow: hidden; }
   color: rgba(52, 95, 134, 0.78);
   text-align: center;
 }
+/* Wisdom: Search / Category text already lives in the controls — keep SR labels only. */
+:is(.page-home, .page-category) .tools-bar.tools-bar--inventions .tools-bar__search-field > .visually-hidden,
+:is(.page-home, .page-category) .tools-bar.tools-bar--inventions [data-story-cat-filter] > .tools-bar__label,
+:is(.page-home, .page-category) .tools-bar.tools-bar--inventions [data-story-cat-filter] > .visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  display: block !important;
+  align-items: unset;
+  justify-content: unset;
+  color: inherit;
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: 1px !important;
+  font-weight: 400;
+  text-align: left;
+}
+:is(.page-home, .page-category) .tools-bar.tools-bar--inventions > .tools-bar__search-row > .tools-bar__search > .tools-bar__search-field,
+:is(.page-home, .page-category) .tools-bar.tools-bar--inventions > .tools-bar__search-row > .tools-bar__field--filter {
+  justify-content: flex-end;
+}
 :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--dense.tools-bar--inventions .tools-bar__label,
 :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--dense.tools-bar--inventions .tools-bar__search-field > .visually-hidden {
   font-size: 0.68rem;
+}
+:is(.page-home, .page-category) .tools-bar.tools-bar--dense.tools-bar--inventions .tools-bar__search-field > .visually-hidden,
+:is(.page-home, .page-category) .tools-bar.tools-bar--dense.tools-bar--inventions [data-story-cat-filter] > .tools-bar__label,
+:is(.page-home, .page-category) .tools-bar.tools-bar--dense.tools-bar--inventions [data-story-cat-filter] > .visually-hidden {
+  font-size: 1px !important;
 }
 :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__search-field {
   display: flex;
@@ -2692,7 +2727,14 @@ body.global-search-open { overflow: hidden; }
     min-width: 0;
     gap: var(--tools-bar-label-gap);
   }
-  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row .tools-bar__label,
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row .tools-bar__label {
+    font-size: 0.62rem;
+    letter-spacing: 0.03em;
+    padding-inline: 0.1rem !important;
+    line-height: 1;
+    white-space: nowrap;
+    height: var(--tools-bar-label-h) !important;
+  }
   :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__search-field > .visually-hidden {
     font-size: 0.62rem;
     letter-spacing: 0.03em;
@@ -2700,6 +2742,14 @@ body.global-search-open { overflow: hidden; }
     line-height: 1;
     white-space: nowrap;
     height: var(--tools-bar-label-h) !important;
+  }
+  :is(.page-home, .page-category) .tools-bar.tools-bar--inventions .tools-bar__search-field > .visually-hidden,
+  :is(.page-home, .page-category) .tools-bar.tools-bar--inventions [data-story-cat-filter] > .tools-bar__label,
+  :is(.page-home, .page-category) .tools-bar.tools-bar--inventions [data-story-cat-filter] > .visually-hidden {
+    font-size: 1px !important;
+    letter-spacing: normal;
+    padding: 0 !important;
+    height: 1px !important;
   }
   :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row .tools-bar__views {
     height: var(--tools-bar-pill-height);
