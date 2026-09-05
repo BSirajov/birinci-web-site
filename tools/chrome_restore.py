@@ -96,7 +96,7 @@ def install_resilient_path_writes() -> None:
 DISABLE_DISCOVERY_VIDEOS = True
 
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
-SITE_ASSET_VERSION = "20260905rump3"
+SITE_ASSET_VERSION = "20260905vol30"
 SITE_PUBLIC_ORIGIN = "https://birinci.cloud"
 LIVE_LANGS = ("az", "en", "ru", "ky")
 OG_IMAGE_URL = f"{SITE_PUBLIC_ORIGIN}/assets/pearl-hero.webp"

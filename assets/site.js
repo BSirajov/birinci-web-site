@@ -5822,6 +5822,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const SPEED_KEY = "birinci-audio-rate";
     const VOLUME_KEY = "birinci-audio-volume";
     const MUTE_KEY = "birinci-audio-muted";
+    // First-play default when the user has never set a volume preference.
+    // (localStorage miss must not use Number(null) === 0.)
+    const DEFAULT_VOLUME = 0.3;
 
     let activeBtn = null;
     let activeStem = "";
@@ -5834,7 +5837,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     let playerEls = null;
     let seeking = false;
     let playbackRate = 1;
-    let savedVolume = 1;
+    let savedVolume = DEFAULT_VOLUME;
     let savedMuted = false;
     let objectUrl = "";
     let activeSourceKey = "";
@@ -5962,12 +5965,29 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         if (SPEED_STEPS.includes(rate)) playbackRate = rate;
       } catch (_) {}
       try {
-        const vol = Number(localStorage.getItem(VOLUME_KEY));
-        if (Number.isFinite(vol) && vol >= 0 && vol <= 1) savedVolume = vol;
-      } catch (_) {}
+        const rawVol = localStorage.getItem(VOLUME_KEY);
+        if (rawVol != null && rawVol !== "") {
+          const vol = Number(rawVol);
+          if (Number.isFinite(vol) && vol >= 0 && vol <= 1) savedVolume = vol;
+          else savedVolume = DEFAULT_VOLUME;
+        } else {
+          savedVolume = DEFAULT_VOLUME;
+        }
+      } catch (_) {
+        savedVolume = DEFAULT_VOLUME;
+      }
       try {
-        savedMuted = localStorage.getItem(MUTE_KEY) === "1";
-      } catch (_) {}
+        const rawMute = localStorage.getItem(MUTE_KEY);
+        // Only treat as muted when the user previously chose mute.
+        savedMuted = rawMute === "1";
+      } catch (_) {
+        savedMuted = false;
+      }
+      // Heal older bug: missing volume was read as Number(null)===0 and persisted.
+      // Intentional silence always pairs volume 0 with muted=true via the slider.
+      if (!savedMuted && savedVolume === 0) {
+        savedVolume = DEFAULT_VOLUME;
+      }
     };
 
     const writePrefs = () => {
@@ -6577,7 +6597,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
             </div>
             <div class="audio-player__volume-wrap">
               <button type="button" class="audio-player__btn" data-audio-mute aria-label="Səssiz" aria-pressed="false"></button>
-              <input class="audio-player__volume" data-audio-volume type="range" min="0" max="1" value="1" step="0.01" aria-label="Səs səviyyəsi" />
+              <input class="audio-player__volume" data-audio-volume type="range" min="0" max="1" value="0.3" step="0.01" aria-label="Səs səviyyəsi" />
             </div>
             <button type="button" class="audio-player__btn audio-player__btn--close" data-audio-close aria-label="Pleyeri bağla">&times;</button>
           </div>
@@ -6679,7 +6699,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
       playerEls.volume.addEventListener("input", () => {
         const next = Number(playerEls.volume.value);
-        savedVolume = Number.isFinite(next) ? Math.min(1, Math.max(0, next)) : 1;
+        savedVolume = Number.isFinite(next)
+          ? Math.min(1, Math.max(0, next))
+          : DEFAULT_VOLUME;
         savedMuted = savedVolume === 0;
         if (audioPlayer) {
           audioPlayer.volume = savedVolume;
