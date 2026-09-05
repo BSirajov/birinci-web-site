@@ -1863,11 +1863,25 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   };
 
   const langAssetUrl = (lang, file) => {
+    const q = assetQuery();
+    const rel = String(lang || "az") + "/assets/" + file + q;
+    // Resolve from site.js location so search/i18n work at any page depth
+    // (root home, locale home, categories, about, sitemap, compare overlay).
+    try {
+      const tag = document.querySelector('script[src*="site.js"]');
+      if (tag && tag.src) {
+        const siteRoot = new URL("../", new URL(tag.src, location.href));
+        return new URL(rel, siteRoot).href;
+      }
+    } catch (_) {}
     const path = String(location.pathname || "").replace(/\\/g, "/");
     if (/\/(categories|discoveries|about|prominent-figures)\//i.test(path)) {
-      return new URL("../../" + lang + "/assets/" + file + assetQuery(), location.href).href;
+      return new URL("../../" + rel, location.href).href;
     }
-    return new URL("../" + lang + "/assets/" + file + assetQuery(), location.href).href;
+    if (document.body && document.body.classList.contains("page-root-home")) {
+      return new URL(rel, location.href).href;
+    }
+    return new URL("../" + rel, location.href).href;
   };
 
   const setSwitcherAppearance = (root, code) => {
@@ -3777,20 +3791,107 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     };
 
     const parseSearchIndexSource = (source) => {
+      const text = String(source || "").trim();
+      if (!text) return [];
+      // Prefer JSON.parse (no eval). Assignment form: window.__BIRINCI_SEARCH__ = [...];
+      const eq = text.indexOf("=");
+      if (eq >= 0) {
+        let json = text.slice(eq + 1).trim();
+        if (json.endsWith(";")) json = json.slice(0, -1).trim();
+        try {
+          const data = JSON.parse(json);
+          if (Array.isArray(data)) return data;
+        } catch (_) {}
+      }
       const prev = window.__BIRINCI_SEARCH__;
       try {
-        new Function(source)();
+        new Function(text)();
         return Array.isArray(window.__BIRINCI_SEARCH__) ? window.__BIRINCI_SEARCH__.slice() : [];
+      } catch (_) {
+        return [];
       } finally {
         window.__BIRINCI_SEARCH__ = prev;
       }
     };
 
+    const isFileProtocol = () => String(location.protocol || "").toLowerCase() === "file:";
+
+    // file:// cannot fetch local JSON/JS; load assignment scripts instead.
+    // Serialize: all locales write the same window.__BIRINCI_SEARCH__ global.
+    let searchScriptChain = Promise.resolve();
+    const loadLangSearchIndexViaScript = (lang) => {
+      const run = () =>
+        new Promise((resolve, reject) => {
+          let href = langAssetUrl(lang, "search-index.js");
+          // Cache-bust query breaks file:// (browser looks for a literal "?v=…" filename).
+          if (isFileProtocol()) href = href.replace(/\?[^#]*$/, "");
+          const prev = window.__BIRINCI_SEARCH__;
+          window.__BIRINCI_SEARCH__ = undefined;
+          const script = document.createElement("script");
+          script.async = false;
+          const cleanup = () => {
+            script.onload = null;
+            script.onerror = null;
+            if (script.parentNode) script.parentNode.removeChild(script);
+          };
+          script.onload = () => {
+            const rows = Array.isArray(window.__BIRINCI_SEARCH__)
+              ? window.__BIRINCI_SEARCH__.slice()
+              : [];
+            window.__BIRINCI_SEARCH__ = prev;
+            cleanup();
+            if (!rows.length) {
+              reject(new Error("empty-index:" + lang));
+              return;
+            }
+            resolve(rows.map((row) => Object.assign({}, row, { lang })));
+          };
+          script.onerror = () => {
+            window.__BIRINCI_SEARCH__ = prev;
+            cleanup();
+            reject(new Error("script-failed:" + lang));
+          };
+          script.src = href;
+          (document.head || document.documentElement).appendChild(script);
+        });
+      const next = searchScriptChain.then(run, run);
+      searchScriptChain = next.then(
+        () => undefined,
+        () => undefined
+      );
+      return next;
+    };
+
     const loadLangSearchIndex = async (lang) => {
-      const res = await fetch(langAssetUrl(lang, "search-index.js"), { credentials: "same-origin" });
-      if (!res.ok) throw new Error("fetch-failed:" + lang);
-      const rows = parseSearchIndexSource(await res.text());
-      return rows.map((row) => Object.assign({}, row, { lang }));
+      if (isFileProtocol()) return loadLangSearchIndexViaScript(lang);
+      const ctrl = typeof AbortController === "function" ? new AbortController() : null;
+      const timer =
+        ctrl &&
+        window.setTimeout(() => {
+          try {
+            ctrl.abort();
+          } catch (_) {}
+        }, 8000);
+      try {
+        const res = await fetch(langAssetUrl(lang, "search-index.js"), {
+          credentials: "same-origin",
+          cache: "no-cache",
+          signal: ctrl ? ctrl.signal : undefined,
+        });
+        if (!res.ok) throw new Error("fetch-failed:" + lang);
+        const rows = parseSearchIndexSource(await res.text());
+        if (!rows.length) throw new Error("empty-index:" + lang);
+        return rows.map((row) => Object.assign({}, row, { lang }));
+      } catch (err) {
+        // Some previews block fetch; script tags still work for same-origin/local trees.
+        try {
+          return await loadLangSearchIndexViaScript(lang);
+        } catch (_) {
+          throw err;
+        }
+      } finally {
+        if (timer) window.clearTimeout(timer);
+      }
     };
 
     const hrefForSearchResult = (row) => {
@@ -3809,13 +3910,19 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       return `${base}#${stem}`;
     };
 
+    const foldSearchText = (value) =>
+      String(value || "")
+        .replace(/[\u2018\u2019\u201A\u2032]/g, "'")
+        .replace(/[\u201C\u201D\u201E\u2033]/g, '"')
+        .replace(/ə/gi, "e");
+
     const queryVariants = (query) => {
-      const raw = query.trim();
-      if (!raw) return [];
-      const variants = new Set([raw.toLowerCase()]);
+      const trimmed = String(query || "").trim();
+      if (!trimmed) return [];
+      const variants = new Set([foldSearchText(trimmed).toLowerCase()]);
       LANG_ORDER.forEach((lang) => {
         try {
-          variants.add(raw.toLocaleLowerCase(lang));
+          variants.add(foldSearchText(trimmed.toLocaleLowerCase(lang)));
         } catch (_) {}
       });
       return [...variants].filter(Boolean);
@@ -3836,28 +3943,48 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     };
 
     const ensureIndex = () => {
-      if (index) {
+      if (index && index.length) {
         if (status && !lastQuery) status.textContent = countStatus(index);
         return Promise.resolve(index);
       }
       if (loading) return loading;
       if (status) status.textContent = tJs("index_loading", "İndeks yüklənir…");
-      loading = Promise.all(LANG_ORDER.map((lang) => loadLangSearchIndex(lang)))
+      // Load each locale independently so one failed/slow language does not wipe search.
+      loading = Promise.all(
+        LANG_ORDER.map((lang) =>
+          loadLangSearchIndex(lang).catch((err) => {
+            console.warn("[birinci] search index failed for", lang, err && err.message);
+            return [];
+          })
+        )
+      )
         .then((chunks) => {
           index = chunks.flat();
-          if (status) status.textContent = lastQuery ? status.textContent : countStatus(index);
+          if (!index.length) {
+            // Keep index null so the next open/ensure retries a failed load.
+            index = null;
+            if (status) {
+              status.textContent = tJs("index_failed", "Axtarış indeksi yüklənmədi.").replace(
+                /\{lang\}/g,
+                searchLang()
+              );
+            }
+            return [];
+          }
+          if (status && !lastQuery) status.textContent = countStatus(index);
           if (lastQuery) render(lastQuery);
+          else if (status) status.textContent = countStatus(index);
           return index;
         })
         .catch(() => {
-          index = [];
-          if (status) {
+          index = index && index.length ? index : null;
+          if (!index && status) {
             status.textContent = tJs("index_failed", "Axtarış indeksi yüklənmədi.").replace(
               /\{lang\}/g,
               searchLang()
             );
           }
-          return index;
+          return index || [];
         })
         .finally(() => {
           loading = null;
@@ -3871,17 +3998,34 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const highlightQ = variants[0] || "";
       results.innerHTML = "";
       if (!variants.length) {
-        if (status) status.textContent = index ? countStatus(index) : "";
+        if (status) {
+          status.textContent =
+            index && index.length
+              ? countStatus(index)
+              : index
+                ? tJs("index_failed", "Axtarış indeksi yüklənmədi.")
+                : "";
+        }
         return;
       }
       if (!index) {
         if (status) status.textContent = tJs("index_loading", "İndeks yüklənir…");
+        ensureIndex();
+        return;
+      }
+      if (!index.length) {
+        if (status) {
+          status.textContent = tJs("index_failed", "Axtarış indeksi yüklənmədi.").replace(
+            /\{lang\}/g,
+            searchLang()
+          );
+        }
         return;
       }
       const current = normalizePageLang(searchLang());
       const matches = index
         .filter((row) => {
-          const hay = row.hay || "";
+          const hay = foldSearchText(row.hay || "").toLowerCase();
           return variants.some((q) => hay.includes(q));
         })
         .sort((a, b) => {

@@ -84,14 +84,14 @@
     "join": "ffmpeg+loudnorm"
   },
   "dervishs-spoons": {
-    "title": "Dervish Spoons",
+    "title": "The Dervish’s Long Spoons",
     "category": "iman-ve-meneviyyat",
     "index": 4,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
     "prosody": "v3-az-dual",
-    "text": "2a8ae1391049ae3dae4dcfd1",
-    "content": "1ddf7658fbf01a44de733ed1",
+    "text": "20df2be466e972fe02ac81ce",
+    "content": "de09df777db5b97c42a0ab29",
     "roles": [
       "title",
       "narrative",
@@ -106,38 +106,38 @@
       "moral"
     ],
     "file": "dervishs-spoons.mp3",
-    "bytes": 653852,
+    "bytes": 577820,
     "join": "ffmpeg+loudnorm"
   },
   "dervishs-robe": {
-    "title": "Dervish's Robe",
+    "title": "The Dervish’s Robe",
     "category": "iman-ve-meneviyyat",
     "index": 5,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
     "prosody": "v3-az-dual",
-    "text": "c75fe136b9f0e89511950cea",
-    "content": "a50c7c8a1099839836cfd42a",
+    "text": "594df14655bc9012a8947911",
+    "content": "f2a090db849d3e35419598d4",
     "roles": [
       "title",
       "narrative",
-      "dialogue",
+      "question",
       "narrative",
       "dialogue",
       "narrative",
-      "dialogue",
+      "question",
       "narrative",
       "dialogue",
       "narrative",
       "exclaim",
       "narrative",
-      "exclaim",
       "dialogue",
+      "question",
       "dialogue",
       "moral"
     ],
     "file": "dervishs-robe.mp3",
-    "bytes": 646220,
+    "bytes": 596396,
     "join": "ffmpeg+loudnorm"
   },
   "your-hand-at-work-your-hope-in-god": {
@@ -233,8 +233,8 @@
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
     "prosody": "v3-az-dual",
-    "text": "0c442ebfc09b7bdbfff5bc46",
-    "content": "96867c46ed2fcb837d6313eb",
+    "text": "e9032b2a35d953b830b5cd51",
+    "content": "faf0139ae48936b4f5f2b7a6",
     "roles": [
       "title",
       "narrative",
@@ -247,7 +247,7 @@
       "moral"
     ],
     "file": "friend-of-god.mp3",
-    "bytes": 287948,
+    "bytes": 305228,
     "join": "ffmpeg+loudnorm"
   },
   "blessings-god-has-given": {
@@ -275,17 +275,20 @@
     "join": "ffmpeg+loudnorm"
   },
   "hajj-pilgrimage": {
-    "title": "Hajj pilgrimage",
+    "title": "The Hajj Pilgrimage",
     "category": "iman-ve-meneviyyat",
     "index": 12,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
     "prosody": "v3-az-dual",
-    "text": "335238abb454167d20b93d38",
-    "content": "ba3de0256bc73dbe44502ff9",
+    "text": "a5ea91a427fee9fb77aad22b",
+    "content": "cc101f0ae1480d8ece924a9d",
     "roles": [
       "title",
       "narrative",
+      "question",
+      "narrative",
+      "dialogue",
       "narrative",
       "narrative",
       "narrative",
@@ -293,7 +296,7 @@
       "moral"
     ],
     "file": "hajj-pilgrimage.mp3",
-    "bytes": 336188,
+    "bytes": 363692,
     "join": "ffmpeg+loudnorm"
   },
   "forbidden-money": {
@@ -392,14 +395,14 @@
     "join": "ffmpeg+loudnorm"
   },
   "let-prayer-come-and-find-you": {
-    "title": "May prayer come and find you",
+    "title": "May the Prayer You Need Find You",
     "category": "iman-ve-meneviyyat",
     "index": 17,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
     "prosody": "v3-az-dual",
-    "text": "91393a3802e452f4fb21d229",
-    "content": "418c51d850cf463cb4dba4a6",
+    "text": "c00f4845b2ae52dae04dc5ac",
+    "content": "e55fe14c40aeb5e2df1cd31d",
     "roles": [
       "title",
       "narrative",
@@ -407,7 +410,7 @@
       "moral"
     ],
     "file": "let-prayer-come-and-find-you.mp3",
-    "bytes": 191612,
+    "bytes": 212060,
     "join": "ffmpeg+loudnorm"
   },
   "eat-less-and-stay-on-the-right-path": {
@@ -450,35 +453,42 @@
     "join": "ffmpeg+loudnorm"
   },
   "not-leaving-the-right-path": {
-    "title": "Not to deviate from the right path",
+    "title": "Staying on the Right Path",
     "category": "iman-ve-meneviyyat",
     "index": 20,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
     "prosody": "v3-az-dual",
-    "text": "f9711dc2723207434c2aa6ae",
-    "content": "30460db93b98ce88de3be4ee",
+    "text": "457eb11d3f2d83400604e2a9",
+    "content": "ceebec6a0bba647ed03688c8",
     "roles": [
       "title",
       "narrative",
       "narrative",
+      "dialogue",
       "narrative",
+      "dialogue",
       "narrative",
+      "question",
+      "narrative",
+      "dialogue",
+      "narrative",
+      "dialogue",
       "moral"
     ],
     "file": "not-leaving-the-right-path.mp3",
-    "bytes": 629660,
+    "bytes": 541676,
     "join": "ffmpeg+loudnorm"
   },
   "o-god-heal-our-sorrows": {
-    "title": "O Allah, find a solution to our problems",
+    "title": "O Allah, Grant Relief from Our Troubles",
     "category": "iman-ve-meneviyyat",
     "index": 21,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
     "prosody": "v3-az-dual",
-    "text": "7f7cb54a27ebc0079d7dbea9",
-    "content": "269f327cff1d6e969375e3a7",
+    "text": "b6b659a59e0f223b18b29543",
+    "content": "0dc3c704ca256ea4d1d942d8",
     "roles": [
       "title",
       "narrative",
@@ -489,26 +499,26 @@
       "moral"
     ],
     "file": "o-god-heal-our-sorrows.mp3",
-    "bytes": 239420,
+    "bytes": 239852,
     "join": "ffmpeg+loudnorm"
   },
   "o-god-give-first-to-the-mountains-and-stones": {
-    "title": "O Allah, first give to the mountains and stones",
+    "title": "O Allah, Give First to the Mountains and Stones",
     "category": "iman-ve-meneviyyat",
     "index": 22,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
     "prosody": "v3-az-dual",
-    "text": "22d9d304d1b9593dd73aeed7",
-    "content": "252d636bf79f480af23134a9",
+    "text": "4b893cf1ed6098186163247c",
+    "content": "308cac7bcb19d37ea905c07f",
     "roles": [
       "title",
       "narrative",
-      "exclaim",
+      "dialogue",
       "moral"
     ],
     "file": "o-god-give-first-to-the-mountains-and-stones.mp3",
-    "bytes": 193052,
+    "bytes": 195068,
     "join": "ffmpeg+loudnorm"
   },
   "pray-while-washing-your-dishes": {
@@ -593,8 +603,8 @@
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
     "prosody": "v3-az-dual",
-    "text": "181084e6d9bb5e59a6835b86",
-    "content": "81851f05c7e4bc28355aa097",
+    "text": "aa35dda99f54efe19995e3ed",
+    "content": "206725cc28aeb84ea23c97f2",
     "roles": [
       "title",
       "narrative",
@@ -604,18 +614,18 @@
       "moral"
     ],
     "file": "stoning-the-devil.mp3",
-    "bytes": 261596,
+    "bytes": 266780,
     "join": "ffmpeg+loudnorm"
   },
   "dervishs-clothes": {
-    "title": "The Dervish's Dress",
+    "title": "The Dervish’s Appearance",
     "category": "iman-ve-meneviyyat",
     "index": 27,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
     "prosody": "v3-az-dual",
-    "text": "2dbf661e4a527c5020314b75",
-    "content": "4c57661f785e76c75601e8db",
+    "text": "bedc4e938f314be1c2a60128",
+    "content": "a91a501b8160d2044630837f",
     "roles": [
       "title",
       "narrative",
@@ -625,7 +635,7 @@
       "moral"
     ],
     "file": "dervishs-clothes.mp3",
-    "bytes": 198524,
+    "bytes": 187148,
     "join": "ffmpeg+loudnorm"
   },
   "idle-devil": {
@@ -1245,21 +1255,27 @@
     "join": "ffmpeg+loudnorm"
   },
   "fallen-teeth": {
-    "title": "Teeth falling out",
+    "title": "The Falling Teeth",
     "category": "aile-ve-terbiye",
     "index": 15,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
     "prosody": "v3-az-dual",
-    "text": "b70acc7cec836973f5011224",
-    "content": "aeb3ced960efe7a524cdd9d3",
+    "text": "59a1c7b4a9df444a39c2563e",
+    "content": "fad4e75ed171a321e3e4126f",
     "roles": [
       "title",
+      "narrative",
+      "narrative",
+      "dialogue",
+      "narrative",
+      "narrative",
+      "dialogue",
       "narrative",
       "moral"
     ],
     "file": "fallen-teeth.mp3",
-    "bytes": 252236,
+    "bytes": 309980,
     "join": "ffmpeg+loudnorm"
   },
   "most-beautiful-gift": {
@@ -5434,21 +5450,25 @@
     "join": "ffmpeg+loudnorm"
   },
   "woman-whose-house-was-robbed": {
-    "title": "A woman whose house was robbed",
+    "title": "The Woman Whose House Was Robbed",
     "category": "edalet-ve-cemiyyet",
     "index": 1,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
     "prosody": "v3-az-dual",
-    "text": "1795b9a562149a2ff3a6435d",
-    "content": "c635f1b933a17f2ed6a4c0a6",
+    "text": "c89b138a93e539350d77e2b8",
+    "content": "b297283e2b6f7bd4e7640f01",
     "roles": [
       "title",
       "narrative",
+      "narrative",
+      "question",
+      "narrative",
+      "dialogue",
       "moral"
     ],
     "file": "woman-whose-house-was-robbed.mp3",
-    "bytes": 237260,
+    "bytes": 278012,
     "join": "ffmpeg+loudnorm"
   },
   "homeland-and-land": {

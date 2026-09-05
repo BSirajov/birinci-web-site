@@ -70,8 +70,8 @@
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
     "prosody": "v3-az-dual",
-    "text": "c3079fac781663392e4aa670",
-    "content": "a716a31f2f958eccb4e0014b",
+    "text": "001cc0c016f610d5984ce045",
+    "content": "a10f3eae9f956c345f68da1e",
     "roles": [
       "title",
       "narrative",
@@ -84,7 +84,7 @@
       "moral"
     ],
     "file": "friend-of-god.mp3",
-    "bytes": 316604,
+    "bytes": 341228,
     "join": "ffmpeg+loudnorm"
   },
   "if-fate-allows-we-will-meet": {
@@ -146,14 +146,14 @@
     "join": "ffmpeg+loudnorm"
   },
   "stoning-the-devil": {
-    "title": "Забивание камнями дьявола",
+    "title": "Бросая камни в шайтана",
     "category": "iman-ve-meneviyyat",
     "index": 6,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
     "prosody": "v3-az-dual",
-    "text": "c11616fc372e408afb96958a",
-    "content": "f25c00ee82e1fdc20df66a31",
+    "text": "8019b2af16a30873e08da5ea",
+    "content": "9ddd6c54cb7ef0f34a08568b",
     "roles": [
       "title",
       "narrative",
@@ -163,18 +163,18 @@
       "moral"
     ],
     "file": "stoning-the-devil.mp3",
-    "bytes": 282476,
+    "bytes": 284060,
     "join": "ffmpeg+loudnorm"
   },
   "dervishs-spoons": {
-    "title": "Ложки дервиша",
+    "title": "Длинные ложки дервиша",
     "category": "iman-ve-meneviyyat",
     "index": 7,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
     "prosody": "v3-az-dual",
-    "text": "8457d613d47fc2b1606d60ae",
-    "content": "5de1b22de0c55e26a991a214",
+    "text": "fd71869f9c1f81e075459306",
+    "content": "7b1831c02d3b507ff951f39a",
     "roles": [
       "title",
       "narrative",
@@ -189,7 +189,7 @@
       "moral"
     ],
     "file": "dervishs-spoons.mp3",
-    "bytes": 724268,
+    "bytes": 650828,
     "join": "ffmpeg+loudnorm"
   },
   "my-alif-has-been-dotted": {
@@ -276,35 +276,42 @@
     "join": "ffmpeg+loudnorm"
   },
   "not-leaving-the-right-path": {
-    "title": "Не отклоняться от праведного пути",
+    "title": "Не сходить с праведного пути",
     "category": "iman-ve-meneviyyat",
     "index": 12,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
     "prosody": "v3-az-dual",
-    "text": "e239b1fe41ad16312ee8c580",
-    "content": "30d6d96d6376893bb22c67b2",
+    "text": "1a63180df47ee07f19983fea",
+    "content": "6b53e66f317624c5dbe6cc87",
     "roles": [
       "title",
       "narrative",
       "narrative",
+      "dialogue",
       "narrative",
+      "dialogue",
       "narrative",
+      "question",
+      "narrative",
+      "dialogue",
+      "narrative",
+      "dialogue",
       "moral"
     ],
     "file": "not-leaving-the-right-path.mp3",
-    "bytes": 696332,
+    "bytes": 651692,
     "join": "ffmpeg+loudnorm"
   },
   "o-god-heal-our-sorrows": {
-    "title": "О Аллах, найди решение наших проблем.",
+    "title": "О Аллах, даруй нам избавление от бед",
     "category": "iman-ve-meneviyyat",
     "index": 13,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
     "prosody": "v3-az-dual",
-    "text": "4865ecce5bb6d66030444192",
-    "content": "35d5cd3a31d8ed493af618db",
+    "text": "66cc3b7dd3d80c9dfe6aed67",
+    "content": "036d6c77bc66d6f816f5d088",
     "roles": [
       "title",
       "narrative",
@@ -315,7 +322,7 @@
       "moral"
     ],
     "file": "o-god-heal-our-sorrows.mp3",
-    "bytes": 265052,
+    "bytes": 285068,
     "join": "ffmpeg+loudnorm"
   },
   "o-god-give-first-to-the-mountains-and-stones": {
@@ -338,18 +345,18 @@
     "join": "ffmpeg+loudnorm"
   },
   "dervishs-robe": {
-    "title": "Одежда дервиша",
+    "title": "Одеяние дервиша",
     "category": "iman-ve-meneviyyat",
     "index": 15,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
     "prosody": "v3-az-dual",
-    "text": "783211eb49eba15e36b125b2",
-    "content": "669fcef217fadb63e16d7f55",
+    "text": "75769765d10702755ab8afd8",
+    "content": "67491de79797079bd1d15179",
     "roles": [
       "title",
       "narrative",
-      "dialogue",
+      "question",
       "narrative",
       "dialogue",
       "narrative",
@@ -359,24 +366,24 @@
       "narrative",
       "exclaim",
       "narrative",
-      "exclaim",
       "dialogue",
+      "question",
       "dialogue",
       "moral"
     ],
     "file": "dervishs-robe.mp3",
-    "bytes": 731900,
+    "bytes": 660188,
     "join": "ffmpeg+loudnorm"
   },
   "dervishs-clothes": {
-    "title": "Одежда дервиша",
+    "title": "Внешний вид дервиша",
     "category": "iman-ve-meneviyyat",
     "index": 16,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
     "prosody": "v3-az-dual",
-    "text": "c049871eb2863e4afc7c3b09",
-    "content": "04d998dc4205d01c2e1cfe02",
+    "text": "cae81e2edb51e7c74627b00c",
+    "content": "0be4c687697cf79f66a7f5c6",
     "roles": [
       "title",
       "narrative",
@@ -386,7 +393,7 @@
       "moral"
     ],
     "file": "dervishs-clothes.mp3",
-    "bytes": 219548,
+    "bytes": 213932,
     "join": "ffmpeg+loudnorm"
   },
   "where-does-calamity-come-from": {
@@ -419,11 +426,14 @@
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
     "prosody": "v3-az-dual",
-    "text": "1a3ff2ac2fe9580e74ff42a7",
-    "content": "40c77ea89a3569955f70683a",
+    "text": "004aced0b87a1b4dbccd6c27",
+    "content": "bbf86e39dc4598ca86d501bc",
     "roles": [
       "title",
       "narrative",
+      "question",
+      "narrative",
+      "dialogue",
       "narrative",
       "narrative",
       "narrative",
@@ -431,7 +441,7 @@
       "moral"
     ],
     "file": "hajj-pilgrimage.mp3",
-    "bytes": 360236,
+    "bytes": 386444,
     "join": "ffmpeg+loudnorm"
   },
   "drinking-the-sherbet-of-martyrdom": {
@@ -538,14 +548,14 @@
     "join": "ffmpeg+loudnorm"
   },
   "let-prayer-come-and-find-you": {
-    "title": "Пусть молитва придёт и найдёт тебя.",
+    "title": "Пусть нужная тебе молитва сама тебя найдёт",
     "category": "iman-ve-meneviyyat",
     "index": 23,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
     "prosody": "v3-az-dual",
-    "text": "73777ed5f266c676491211c1",
-    "content": "15319f7bf411ec9767cf9392",
+    "text": "665af9e1e6e70726a3676c85",
+    "content": "41a2cadcbe3dbbd9b75af417",
     "roles": [
       "title",
       "narrative",
@@ -553,7 +563,7 @@
       "moral"
     ],
     "file": "let-prayer-come-and-find-you.mp3",
-    "bytes": 215948,
+    "bytes": 258284,
     "join": "ffmpeg+loudnorm"
   },
   "most-beautiful-portion": {
@@ -894,21 +904,27 @@
     "join": "ffmpeg+loudnorm"
   },
   "fallen-teeth": {
-    "title": "Выпадение зубов",
+    "title": "Выпавшие зубы",
     "category": "aile-ve-terbiye",
     "index": 2,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
     "prosody": "v3-az-dual",
-    "text": "76b7797293ea9f5f52d26d48",
-    "content": "5fa00b406dd2325a4b0e1e62",
+    "text": "c01edcf59fc84eef2b9d9a93",
+    "content": "5d3139228b024ef275fcf00b",
     "roles": [
       "title",
+      "narrative",
+      "narrative",
+      "dialogue",
+      "narrative",
+      "narrative",
+      "dialogue",
       "narrative",
       "moral"
     ],
     "file": "fallen-teeth.mp3",
-    "bytes": 291692,
+    "bytes": 350300,
     "join": "ffmpeg+loudnorm"
   },
   "rotten-seed": {
@@ -5410,21 +5426,25 @@
     "join": "ffmpeg+loudnorm"
   },
   "woman-whose-house-was-robbed": {
-    "title": "Женщина, чей дом был ограблен",
+    "title": "Женщина, чей дом ограбили",
     "category": "edalet-ve-cemiyyet",
     "index": 0,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
     "prosody": "v3-az-dual",
-    "text": "f053659527ae2d49fe138fd2",
-    "content": "63abf8bae886f2ffc18983da",
+    "text": "ea534af982765bd3e324b611",
+    "content": "7533458ad05eb486e023f90e",
     "roles": [
       "title",
       "narrative",
+      "narrative",
+      "question",
+      "narrative",
+      "dialogue",
       "moral"
     ],
     "file": "woman-whose-house-was-robbed.mp3",
-    "bytes": 273116,
+    "bytes": 309836,
     "join": "ffmpeg+loudnorm"
   },
   "why-injustice-when-there-is-justice": {
