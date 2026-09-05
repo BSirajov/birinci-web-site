@@ -1,34 +1,13 @@
 {
-  "different-path": {
-    "title": "A Different Path",
-    "category": "hikmet-ve-heyat-dersleri",
-    "index": 0,
-    "voice": "en-US-GuyNeural",
-    "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "db16fae6b0f854ff664e86b8",
-    "roles": [
-      "title",
-      "narrative",
-      "narrative",
-      "narrative",
-      "narrative",
-      "narrative",
-      "narrative",
-      "moral"
-    ],
-    "file": "different-path.mp3",
-    "bytes": 577820,
-    "join": "ffmpeg+loudnorm"
-  },
   "lawful-morsel": {
     "title": "A Lawful Morsel",
     "category": "iman-ve-meneviyyat",
     "index": 0,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "30e5c05f902f1d8a49c636ac",
+    "prosody": "v3-az-dual",
+    "text": "132862fc176f52ef268ac240",
+    "content": "4ecb0269282fd7ac837dc560",
     "roles": [
       "title",
       "narrative",
@@ -37,7 +16,7 @@
       "moral"
     ],
     "file": "lawful-morsel.mp3",
-    "bytes": 197804,
+    "bytes": 198668,
     "join": "ffmpeg+loudnorm"
   },
   "calamity-and-blessing": {
@@ -46,8 +25,9 @@
     "index": 1,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "4910960dc4a88e37eaed6a8c",
+    "prosody": "v3-az-dual",
+    "text": "db63541079c4c1f45e4bb61a",
+    "content": "4bc1d8aab9f669c18c97ec02",
     "roles": [
       "title",
       "narrative",
@@ -64,8 +44,9 @@
     "index": 2,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "ce7303e558b6ef43bfdcaa05",
+    "prosody": "v3-az-dual",
+    "text": "8842663c07eed721afd3bcc1",
+    "content": "5d45f6772bc63231151ef01e",
     "roles": [
       "title",
       "narrative",
@@ -84,8 +65,9 @@
     "index": 3,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "aa0b83acbd3a17313ccebcc9",
+    "prosody": "v3-az-dual",
+    "text": "adefecde54d048a702fe2050",
+    "content": "965ce8427f7f8ce719b770e8",
     "roles": [
       "title",
       "narrative",
@@ -107,8 +89,9 @@
     "index": 4,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "65265f02663670bbdd376b84",
+    "prosody": "v3-az-dual",
+    "text": "2a8ae1391049ae3dae4dcfd1",
+    "content": "1ddf7658fbf01a44de733ed1",
     "roles": [
       "title",
       "narrative",
@@ -123,7 +106,7 @@
       "moral"
     ],
     "file": "dervishs-spoons.mp3",
-    "bytes": 653996,
+    "bytes": 653852,
     "join": "ffmpeg+loudnorm"
   },
   "dervishs-robe": {
@@ -132,8 +115,9 @@
     "index": 5,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "e7a83119cf7814ad5d01e343",
+    "prosody": "v3-az-dual",
+    "text": "c75fe136b9f0e89511950cea",
+    "content": "a50c7c8a1099839836cfd42a",
     "roles": [
       "title",
       "narrative",
@@ -153,7 +137,7 @@
       "moral"
     ],
     "file": "dervishs-robe.mp3",
-    "bytes": 643916,
+    "bytes": 646220,
     "join": "ffmpeg+loudnorm"
   },
   "your-hand-at-work-your-hope-in-god": {
@@ -162,8 +146,9 @@
     "index": 6,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "56742edefc20bbb101f6fb07",
+    "prosody": "v3-az-dual",
+    "text": "301f1a9a373ff1804353d651",
+    "content": "4d003132f3015f5851e2137e",
     "roles": [
       "title",
       "narrative",
@@ -186,8 +171,9 @@
     "index": 7,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "de3035714e43bf94847ae072",
+    "prosody": "v3-az-dual",
+    "text": "569dc1f3249f777d841be25a",
+    "content": "941f61491b8b0f699f9a6a8b",
     "roles": [
       "title",
       "narrative",
@@ -203,8 +189,9 @@
     "index": 8,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "30c64f5a2606c22e0e6ad540",
+    "prosody": "v3-az-dual",
+    "text": "ff92f0bc08fdd946dd3d9ce5",
+    "content": "c5f39830751338c10dbd1916",
     "roles": [
       "title",
       "narrative",
@@ -217,7 +204,7 @@
       "moral"
     ],
     "file": "to-be-fasting.mp3",
-    "bytes": 422876,
+    "bytes": 421580,
     "join": "ffmpeg+loudnorm"
   },
   "fortieth-day-rite": {
@@ -226,8 +213,9 @@
     "index": 9,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "c291b8f6da95fc976e6fdfa4",
+    "prosody": "v3-az-dual",
+    "text": "9d4aa08324d93c5d1a535ef5",
+    "content": "855ea1e33a49d7026ec46104",
     "roles": [
       "title",
       "narrative",
@@ -244,8 +232,9 @@
     "index": 10,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "19b756a2ad5f831a4fa3b7a0",
+    "prosody": "v3-az-dual",
+    "text": "0c442ebfc09b7bdbfff5bc46",
+    "content": "96867c46ed2fcb837d6313eb",
     "roles": [
       "title",
       "narrative",
@@ -258,7 +247,7 @@
       "moral"
     ],
     "file": "friend-of-god.mp3",
-    "bytes": 289820,
+    "bytes": 287948,
     "join": "ffmpeg+loudnorm"
   },
   "blessings-god-has-given": {
@@ -267,8 +256,9 @@
     "index": 11,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "707134104d65da19e05ccfdf",
+    "prosody": "v3-az-dual",
+    "text": "726a2aea0df6754176daa711",
+    "content": "880699242e29a3fa538f2882",
     "roles": [
       "title",
       "narrative",
@@ -290,8 +280,9 @@
     "index": 12,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "90c2710b6786ccae44614117",
+    "prosody": "v3-az-dual",
+    "text": "335238abb454167d20b93d38",
+    "content": "ba3de0256bc73dbe44502ff9",
     "roles": [
       "title",
       "narrative",
@@ -311,8 +302,9 @@
     "index": 13,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "ea50e1fc773a089e0d6e7e9c",
+    "prosody": "v3-az-dual",
+    "text": "57e39aa1f64e823756258af8",
+    "content": "18d20e0ba1d3f4afa209a417",
     "roles": [
       "title",
       "narrative",
@@ -338,8 +330,9 @@
     "index": 14,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "13f2d9cb3f98486b8ccd78ac",
+    "prosody": "v3-az-dual",
+    "text": "b791c6715e49d4164fafdb4f",
+    "content": "762cf6222e2f2229d4e4a434",
     "roles": [
       "title",
       "narrative",
@@ -363,8 +356,9 @@
     "index": 15,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "9d97d1de5fc969ba3c3e5807",
+    "prosody": "v3-az-dual",
+    "text": "f34b3f6f08fadb83815fb67e",
+    "content": "d40be50b0b5c4b27cecbf50a",
     "roles": [
       "title",
       "question",
@@ -383,8 +377,9 @@
     "index": 16,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "f6b25bcffeda41db3d85ac91",
+    "prosody": "v3-az-dual",
+    "text": "49db0351ae63840a338d7a90",
+    "content": "4cb0ed3a68e8b98f28ec3d78",
     "roles": [
       "title",
       "narrative",
@@ -402,8 +397,9 @@
     "index": 17,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "0a88ebc7b218f7596ef7d53d",
+    "prosody": "v3-az-dual",
+    "text": "91393a3802e452f4fb21d229",
+    "content": "418c51d850cf463cb4dba4a6",
     "roles": [
       "title",
       "narrative",
@@ -420,8 +416,9 @@
     "index": 18,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "fcc705d1c0a8bee83b7b276d",
+    "prosody": "v3-az-dual",
+    "text": "b3ae35370bc6fd44c5625aea",
+    "content": "58c3e4dd2c086f982f6afb5b",
     "roles": [
       "title",
       "narrative",
@@ -430,7 +427,7 @@
       "moral"
     ],
     "file": "eat-less-and-stay-on-the-right-path.mp3",
-    "bytes": 222428,
+    "bytes": 217388,
     "join": "ffmpeg+loudnorm"
   },
   "my-alif-has-been-dotted": {
@@ -439,8 +436,9 @@
     "index": 19,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "10ffca58e48a60b6dc5307d2",
+    "prosody": "v3-az-dual",
+    "text": "fc18101594cd76f0ee3c1d4a",
+    "content": "35d868915655408fd68ba809",
     "roles": [
       "title",
       "narrative",
@@ -457,8 +455,9 @@
     "index": 20,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "2dc5b5718b28dd38de360dba",
+    "prosody": "v3-az-dual",
+    "text": "f9711dc2723207434c2aa6ae",
+    "content": "30460db93b98ce88de3be4ee",
     "roles": [
       "title",
       "narrative",
@@ -477,8 +476,9 @@
     "index": 21,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "4945c25d233e899e51c4cba5",
+    "prosody": "v3-az-dual",
+    "text": "7f7cb54a27ebc0079d7dbea9",
+    "content": "269f327cff1d6e969375e3a7",
     "roles": [
       "title",
       "narrative",
@@ -498,8 +498,9 @@
     "index": 22,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "7e7f8508f7e116d2b3bc5467",
+    "prosody": "v3-az-dual",
+    "text": "22d9d304d1b9593dd73aeed7",
+    "content": "252d636bf79f480af23134a9",
     "roles": [
       "title",
       "narrative",
@@ -516,8 +517,9 @@
     "index": 23,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "033dce0eec5916e4f5e70fe3",
+    "prosody": "v3-az-dual",
+    "text": "945d2d8fb65196b9b4505f1d",
+    "content": "90a80acae5dceeedb1f47fda",
     "roles": [
       "title",
       "narrative",
@@ -534,8 +536,9 @@
     "index": 24,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "1331d7c9ab7c021acfc3cd39",
+    "prosody": "v3-az-dual",
+    "text": "464133185cdf5b8eb1c49c25",
+    "content": "70ecd86a96d6a8b90fb0a22a",
     "roles": [
       "title",
       "exclaim",
@@ -552,8 +555,9 @@
     "index": 25,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "16ceab274af3c9e4f37fc323",
+    "prosody": "v3-az-dual",
+    "text": "b488bdbd70bad12ee75ccf8c",
+    "content": "ca4baa9d11f7647ca952f8bd",
     "roles": [
       "title",
       "narrative",
@@ -579,7 +583,7 @@
       "moral"
     ],
     "file": "sacrificial-meat.mp3",
-    "bytes": 1859708,
+    "bytes": 1859852,
     "join": "ffmpeg+loudnorm"
   },
   "stoning-the-devil": {
@@ -588,8 +592,9 @@
     "index": 26,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "65c26ee76877e243f4bfef4a",
+    "prosody": "v3-az-dual",
+    "text": "181084e6d9bb5e59a6835b86",
+    "content": "81851f05c7e4bc28355aa097",
     "roles": [
       "title",
       "narrative",
@@ -599,7 +604,7 @@
       "moral"
     ],
     "file": "stoning-the-devil.mp3",
-    "bytes": 263324,
+    "bytes": 261596,
     "join": "ffmpeg+loudnorm"
   },
   "dervishs-clothes": {
@@ -608,8 +613,9 @@
     "index": 27,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "a5e8f538f2d4621ed0dfe676",
+    "prosody": "v3-az-dual",
+    "text": "2dbf661e4a527c5020314b75",
+    "content": "4c57661f785e76c75601e8db",
     "roles": [
       "title",
       "narrative",
@@ -619,7 +625,7 @@
       "moral"
     ],
     "file": "dervishs-clothes.mp3",
-    "bytes": 198668,
+    "bytes": 198524,
     "join": "ffmpeg+loudnorm"
   },
   "idle-devil": {
@@ -628,8 +634,9 @@
     "index": 28,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "9c9868753eff3a028d788014",
+    "prosody": "v3-az-dual",
+    "text": "7f4d2e5c5fe679b7988a2454",
+    "content": "6d596fa0b543922e8e83da75",
     "roles": [
       "title",
       "narrative",
@@ -646,8 +653,9 @@
     "index": 29,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "fcfd8abf75101844d917fd18",
+    "prosody": "v3-az-dual",
+    "text": "35100c2dc91cbfbde365d3b3",
+    "content": "6967cb21c3362651244a778a",
     "roles": [
       "title",
       "narrative",
@@ -657,7 +665,7 @@
       "moral"
     ],
     "file": "most-beautiful-portion.mp3",
-    "bytes": 171740,
+    "bytes": 172604,
     "join": "ffmpeg+loudnorm"
   },
   "mullah-and-the-scholar": {
@@ -666,8 +674,9 @@
     "index": 30,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "786d58300d8c63df92731887",
+    "prosody": "v3-az-dual",
+    "text": "3c139b0899be81016303befb",
+    "content": "ad75d35f619ce8c81768a9ec",
     "roles": [
       "title",
       "narrative",
@@ -691,8 +700,9 @@
     "index": 31,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "b61a4a219dc5bf64033f449b",
+    "prosody": "v3-az-dual",
+    "text": "c727827e9c21f16a30d0d7c9",
+    "content": "29c31a56f0a92cc2f855354c",
     "roles": [
       "title",
       "narrative",
@@ -710,8 +720,9 @@
     "index": 32,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "30ab1ad964cfaca4190824c6",
+    "prosody": "v3-az-dual",
+    "text": "2011c3c4c2e12bd51ceeab7a",
+    "content": "16c8733f439002706d568d0c",
     "roles": [
       "title",
       "narrative",
@@ -727,8 +738,9 @@
     "index": 33,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "7409954abcb218cd8b119611",
+    "prosody": "v3-az-dual",
+    "text": "3bd5e9ad141bc570c6fd2ee9",
+    "content": "5e966c90d079b81734f441c2",
     "roles": [
       "title",
       "narrative",
@@ -756,7 +768,7 @@
       "moral"
     ],
     "file": "price-of-a-miracle.mp3",
-    "bytes": 1397756,
+    "bytes": 1401644,
     "join": "ffmpeg+loudnorm"
   },
   "where-does-calamity-come-from": {
@@ -765,8 +777,9 @@
     "index": 34,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "c2b3cba346d151a7b21c0e5c",
+    "prosody": "v3-az-dual",
+    "text": "97f7d6af68676a7a1422cb69",
+    "content": "c103d7d92432ef13274f1ec6",
     "roles": [
       "title",
       "narrative",
@@ -778,7 +791,7 @@
       "moral"
     ],
     "file": "where-does-calamity-come-from.mp3",
-    "bytes": 226460,
+    "bytes": 226604,
     "join": "ffmpeg+loudnorm"
   },
   "why-are-you-waiting-for-the-last-day-of-the-world": {
@@ -787,8 +800,9 @@
     "index": 35,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "5600eb016adfbecfd3645855",
+    "prosody": "v3-az-dual",
+    "text": "2d2baf5e39090e3e25f60c5b",
+    "content": "60cf05912da5a79468da7716",
     "roles": [
       "title",
       "narrative",
@@ -811,7 +825,7 @@
       "moral"
     ],
     "file": "why-are-you-waiting-for-the-last-day-of-the-world.mp3",
-    "bytes": 564140,
+    "bytes": 562268,
     "join": "ffmpeg+loudnorm"
   },
   "fathers-footprints": {
@@ -820,8 +834,9 @@
     "index": 0,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "4701b8f59a03f565af33a3c6",
+    "prosody": "v3-az-dual",
+    "text": "9c72df8725deddc569d43a14",
+    "content": "5b09c3240a22be5be9d9e849",
     "roles": [
       "title",
       "narrative",
@@ -831,7 +846,7 @@
       "moral"
     ],
     "file": "fathers-footprints.mp3",
-    "bytes": 170444,
+    "bytes": 170588,
     "join": "ffmpeg+loudnorm"
   },
   "festive-gift": {
@@ -840,8 +855,9 @@
     "index": 1,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "1c538883b6dbe8a7598394b2",
+    "prosody": "v3-az-dual",
+    "text": "e0dc3536452ac7df1e8db825",
+    "content": "eb4703ed59d271074166b5ee",
     "roles": [
       "title",
       "question",
@@ -850,7 +866,7 @@
       "moral"
     ],
     "file": "festive-gift.mp3",
-    "bytes": 193340,
+    "bytes": 193772,
     "join": "ffmpeg+loudnorm"
   },
   "mothers-love": {
@@ -859,8 +875,9 @@
     "index": 2,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "45ef3a3edd1eddcccce1407b",
+    "prosody": "v3-az-dual",
+    "text": "91b46f342d98c25a3154f145",
+    "content": "5df415372d9eb6128e61f76d",
     "roles": [
       "title",
       "narrative",
@@ -894,8 +911,9 @@
     "index": 3,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "19b3485b69a9f2af392fb559",
+    "prosody": "v3-az-dual",
+    "text": "28f14dd62ae2b97869cda6d8",
+    "content": "36849b2c282554a76f17675b",
     "roles": [
       "title",
       "narrative",
@@ -920,8 +938,9 @@
     "index": 4,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "35dd212f31b197716e5da2d5",
+    "prosody": "v3-az-dual",
+    "text": "6f1ef7c68751d3f3b92578ae",
+    "content": "ba5c87633cf5231f6b95ee2a",
     "roles": [
       "title",
       "narrative",
@@ -952,7 +971,7 @@
       "moral"
     ],
     "file": "father-and-son.mp3",
-    "bytes": 1362764,
+    "bytes": 1348508,
     "join": "ffmpeg+loudnorm"
   },
   "from-a-wise-fathers-advice-to-his-son": {
@@ -961,8 +980,9 @@
     "index": 5,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "96727e783e5ead9cd11085e7",
+    "prosody": "v3-az-dual",
+    "text": "eb84962e00898a6285e11f17",
+    "content": "83c2750fb44643bca769aa7e",
     "roles": [
       "title",
       "exclaim",
@@ -994,8 +1014,9 @@
     "index": 6,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "3d0801f95693079c62ce6474",
+    "prosody": "v3-az-dual",
+    "text": "30bcc83f70edb04eafeea404",
+    "content": "3c2fc978581b8adc913294ca",
     "roles": [
       "title",
       "narrative",
@@ -1012,8 +1033,9 @@
     "index": 7,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "e4c031ef5b09f8a7f3891206",
+    "prosody": "v3-az-dual",
+    "text": "3b30fa89a91921b80432634c",
+    "content": "185136b2e65109846d6547e1",
     "roles": [
       "title",
       "narrative",
@@ -1026,7 +1048,7 @@
       "moral"
     ],
     "file": "hold-my-hand.mp3",
-    "bytes": 314444,
+    "bytes": 313148,
     "join": "ffmpeg+loudnorm"
   },
   "i-am-tired-mother": {
@@ -1035,8 +1057,9 @@
     "index": 8,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "18a50f136227e37205782053",
+    "prosody": "v3-az-dual",
+    "text": "a1d8d1c06f337d01a4eea324",
+    "content": "661978efb6fd883839ed6bc2",
     "roles": [
       "title",
       "dialogue",
@@ -1050,7 +1073,7 @@
       "moral"
     ],
     "file": "i-am-tired-mother.mp3",
-    "bytes": 365564,
+    "bytes": 363404,
     "join": "ffmpeg+loudnorm"
   },
   "mother-and-son": {
@@ -1059,8 +1082,9 @@
     "index": 9,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "d084eb5899362432d714e42e",
+    "prosody": "v3-az-dual",
+    "text": "aa745e63f1b62ef9a5034da4",
+    "content": "78820784da6fb8c526bf982b",
     "roles": [
       "title",
       "narrative",
@@ -1081,7 +1105,7 @@
       "moral"
     ],
     "file": "mother-and-son.mp3",
-    "bytes": 1268732,
+    "bytes": 1266716,
     "join": "ffmpeg+loudnorm"
   },
   "only-my-mother-would-weep": {
@@ -1090,8 +1114,9 @@
     "index": 10,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "e708f78e4eaef4830a9332e8",
+    "prosody": "v3-az-dual",
+    "text": "f463d398a8479b285c67a94d",
+    "content": "089d3f7086a57c8bdebabf33",
     "roles": [
       "title",
       "exclaim",
@@ -1107,8 +1132,9 @@
     "index": 11,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "395176f411d02b60e70f83b4",
+    "prosody": "v3-az-dual",
+    "text": "04c3b7bf1c30d11c29f4709b",
+    "content": "a2b645bb73bc70f173c13c9b",
     "roles": [
       "title",
       "narrative",
@@ -1132,7 +1158,7 @@
       "moral"
     ],
     "file": "raising-children.mp3",
-    "bytes": 1582508,
+    "bytes": 1579628,
     "join": "ffmpeg+loudnorm"
   },
   "puppies-for-sale": {
@@ -1141,8 +1167,9 @@
     "index": 12,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "955a3c9c99e42326def405fe",
+    "prosody": "v3-az-dual",
+    "text": "6974210251d8178e3aa6455b",
+    "content": "f4f7e77a0ac32f409b1cbb12",
     "roles": [
       "title",
       "narrative",
@@ -1166,7 +1193,7 @@
       "moral"
     ],
     "file": "puppies-for-sale.mp3",
-    "bytes": 913484,
+    "bytes": 904268,
     "join": "ffmpeg+loudnorm"
   },
   "rotten-seed": {
@@ -1175,8 +1202,9 @@
     "index": 13,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "314dae38f12415725ee59f56",
+    "prosody": "v3-az-dual",
+    "text": "427f2b6e110d5e56215176c9",
+    "content": "aa16e8eb3fcaa325a394d809",
     "roles": [
       "title",
       "narrative",
@@ -1188,7 +1216,7 @@
       "moral"
     ],
     "file": "rotten-seed.mp3",
-    "bytes": 445772,
+    "bytes": 442604,
     "join": "ffmpeg+loudnorm"
   },
   "spinach": {
@@ -1197,8 +1225,9 @@
     "index": 14,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "0adfe80d3b2ef4ba663517fb",
+    "prosody": "v3-az-dual",
+    "text": "7cb4074605b358345988d783",
+    "content": "cd2be8adf20bb4f5e3dd55b6",
     "roles": [
       "title",
       "narrative",
@@ -1221,8 +1250,9 @@
     "index": 15,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "88ee9d6025fa44085f0fcaad",
+    "prosody": "v3-az-dual",
+    "text": "b70acc7cec836973f5011224",
+    "content": "aeb3ced960efe7a524cdd9d3",
     "roles": [
       "title",
       "narrative",
@@ -1238,8 +1268,9 @@
     "index": 16,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "7f1ad58cfa89c088bfc057b2",
+    "prosody": "v3-az-dual",
+    "text": "1adc453e80e8a73dd36410b0",
+    "content": "e38308a50e523c436b1a19f2",
     "roles": [
       "title",
       "narrative",
@@ -1263,8 +1294,9 @@
     "index": 17,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "d184bb52b7d58d8b992670d2",
+    "prosody": "v3-az-dual",
+    "text": "4d214128306dd37ec5860198",
+    "content": "6c88ee5ef5488624648fa94b",
     "roles": [
       "title",
       "narrative",
@@ -1280,8 +1312,9 @@
     "index": 18,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "86ea653faa18650bcd8076a9",
+    "prosody": "v3-az-dual",
+    "text": "7efb47eacdd3028e44e4246f",
+    "content": "913eb7360a3d1b4bcd24e824",
     "roles": [
       "title",
       "narrative",
@@ -1302,8 +1335,9 @@
     "index": 19,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "7febeb14e577267bc40c7244",
+    "prosody": "v3-az-dual",
+    "text": "12335f31493c7229dc3578a3",
+    "content": "bf93f69a474e82e410d52e01",
     "roles": [
       "title",
       "narrative",
@@ -1320,7 +1354,7 @@
       "moral"
     ],
     "file": "i-am-waiting-for-the-teeth.mp3",
-    "bytes": 624044,
+    "bytes": 622748,
     "join": "ffmpeg+loudnorm"
   },
   "weeds-must-be-pulled-from-the-root": {
@@ -1329,8 +1363,9 @@
     "index": 20,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "916cbaf212d6cceb643dccc1",
+    "prosody": "v3-az-dual",
+    "text": "ea87f95f32a5a61826ce55de",
+    "content": "0d38d31a30218b7a705e0403",
     "roles": [
       "title",
       "narrative",
@@ -1347,8 +1382,9 @@
     "index": 0,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "5702af99ec5c557cfca6005e",
+    "prosody": "v3-az-dual",
+    "text": "5a5d03095ddc4249c8df471e",
+    "content": "c77b43357aff3a9a6be96a87",
     "roles": [
       "title",
       "narrative",
@@ -1368,8 +1404,9 @@
     "index": 1,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "315ed281106c36865627915e",
+    "prosody": "v3-az-dual",
+    "text": "37480fec54c4201e46be0339",
+    "content": "690b63e240c8ffef96b253e0",
     "roles": [
       "title",
       "narrative",
@@ -1392,8 +1429,9 @@
     "index": 2,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "0e4a5c54db23039aafb49454",
+    "prosody": "v3-az-dual",
+    "text": "86d1a595d8a7cfc50d5e02e5",
+    "content": "b38e2946e4fe2095e781fcb6",
     "roles": [
       "title",
       "question",
@@ -1415,8 +1453,9 @@
     "index": 3,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "1fb2ab1f205a1622ea89a5aa",
+    "prosody": "v3-az-dual",
+    "text": "dbd76593ea94f6f4e391b7c3",
+    "content": "8e711c31983ec42fe1c77373",
     "roles": [
       "title",
       "narrative",
@@ -1430,7 +1469,7 @@
       "moral"
     ],
     "file": "early-marriage.mp3",
-    "bytes": 579116,
+    "bytes": 580988,
     "join": "ffmpeg+loudnorm"
   },
   "friendship-and-love": {
@@ -1439,8 +1478,9 @@
     "index": 4,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "49f4ad6bba3b3e793032b8fe",
+    "prosody": "v3-az-dual",
+    "text": "f1b9f6b24fc8ec98965b91b6",
+    "content": "6ae6607d2af183f6ae96497d",
     "roles": [
       "title",
       "dialogue",
@@ -1450,7 +1490,7 @@
       "moral"
     ],
     "file": "friendship-and-love.mp3",
-    "bytes": 245612,
+    "bytes": 243020,
     "join": "ffmpeg+loudnorm"
   },
   "i-kiss-your-eyes": {
@@ -1459,8 +1499,9 @@
     "index": 5,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "83b698b68bb88ba1076ee074",
+    "prosody": "v3-az-dual",
+    "text": "f2984f3e104f2c1556f7bf26",
+    "content": "52044906352c5fcea2e7da53",
     "roles": [
       "title",
       "question",
@@ -1477,8 +1518,9 @@
     "index": 6,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "27f86458b0874fd7cbf80b2c",
+    "prosody": "v3-az-dual",
+    "text": "4072668b85917f410af00dda",
+    "content": "47333e1b8fc42eaecb06ba3a",
     "roles": [
       "title",
       "narrative",
@@ -1498,8 +1540,9 @@
     "index": 7,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "5777da95aae69db02c7e2e7f",
+    "prosody": "v3-az-dual",
+    "text": "0b09876b5ab4f1fb4b80c985",
+    "content": "29015c08bed23f47c6a94676",
     "roles": [
       "title",
       "narrative",
@@ -1512,7 +1555,7 @@
       "moral"
     ],
     "file": "loving-from-afar.mp3",
-    "bytes": 357932,
+    "bytes": 358940,
     "join": "ffmpeg+loudnorm"
   },
   "purple-jacket": {
@@ -1521,8 +1564,9 @@
     "index": 8,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "71029830acde3b5c693ad328",
+    "prosody": "v3-az-dual",
+    "text": "7224039c68589bdd9cb61fe7",
+    "content": "946a56e4659afb031c71fc5a",
     "roles": [
       "title",
       "narrative",
@@ -1544,8 +1588,9 @@
     "index": 9,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "5d7c3a6996ac1772542b9451",
+    "prosody": "v3-az-dual",
+    "text": "5500581aca83e1f9d9f1bba8",
+    "content": "c7e83dd1f897b7123b60e7b7",
     "roles": [
       "title",
       "narrative",
@@ -1561,8 +1606,9 @@
     "index": 10,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "93ab8a71c9096bd42274b544",
+    "prosody": "v3-az-dual",
+    "text": "043a20fd4f04c5917c99cdf5",
+    "content": "7ec03126e583568e89e1bc54",
     "roles": [
       "title",
       "narrative",
@@ -1578,7 +1624,7 @@
       "moral"
     ],
     "file": "beware-of-those-you-love.mp3",
-    "bytes": 480188,
+    "bytes": 480764,
     "join": "ffmpeg+loudnorm"
   },
   "what-breaks-a-marriage": {
@@ -1587,8 +1633,9 @@
     "index": 11,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "59d214687fb13a6d54f5777a",
+    "prosody": "v3-az-dual",
+    "text": "4cbba1083b82c4bf264f1a6d",
+    "content": "968974784b31c8b7db9434dd",
     "roles": [
       "title",
       "narrative",
@@ -1617,7 +1664,7 @@
       "moral"
     ],
     "file": "what-breaks-a-marriage.mp3",
-    "bytes": 738812,
+    "bytes": 736076,
     "join": "ffmpeg+loudnorm"
   },
   "mother-of-pearl-flower": {
@@ -1626,8 +1673,9 @@
     "index": 12,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "04f99c3906716f8c502b330f",
+    "prosody": "v3-az-dual",
+    "text": "809fcc3b9f13446e740f03f3",
+    "content": "9292a2d619a0f1022f415f99",
     "roles": [
       "title",
       "narrative",
@@ -1647,7 +1695,7 @@
       "moral"
     ],
     "file": "mother-of-pearl-flower.mp3",
-    "bytes": 1381196,
+    "bytes": 1377596,
     "join": "ffmpeg+loudnorm"
   },
   "red-dress": {
@@ -1656,8 +1704,9 @@
     "index": 13,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "5515308e6cee1f7269a732ba",
+    "prosody": "v3-az-dual",
+    "text": "2a897764385676bb5ccc440d",
+    "content": "1f3def059d4585f6f7f41d88",
     "roles": [
       "title",
       "narrative",
@@ -1682,7 +1731,7 @@
       "moral"
     ],
     "file": "red-dress.mp3",
-    "bytes": 1200476,
+    "bytes": 1200044,
     "join": "ffmpeg+loudnorm"
   },
   "true-love": {
@@ -1691,8 +1740,9 @@
     "index": 14,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "29e25d23e7d642847727cc85",
+    "prosody": "v3-az-dual",
+    "text": "639d50335000a67eac62931d",
+    "content": "75b7e58403497f53afdb48b5",
     "roles": [
       "title",
       "narrative",
@@ -1722,8 +1772,9 @@
     "index": 15,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "c45aa8acbc74f20cf4e8f99d",
+    "prosody": "v3-az-dual",
+    "text": "f3d8bc88b8cc50f4b62cdac1",
+    "content": "49bf955ec8524f31ee9344e9",
     "roles": [
       "title",
       "narrative",
@@ -1760,8 +1811,9 @@
     "index": 16,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "203665f8b8546e9c01cb0be0",
+    "prosody": "v3-az-dual",
+    "text": "5f41d0b4743eaf714bfdccc3",
+    "content": "0698061a1e9e336362c53e96",
     "roles": [
       "title",
       "narrative",
@@ -1786,8 +1838,9 @@
     "index": 17,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "3c331bb5f68e4d5dac2bc7ef",
+    "prosody": "v3-az-dual",
+    "text": "d58ab6e09fa5239baf540d6f",
+    "content": "031fcef1b236a538f8862c01",
     "roles": [
       "title",
       "narrative",
@@ -1806,8 +1859,9 @@
     "index": 18,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "b400628b21f518d4c3bd0976",
+    "prosody": "v3-az-dual",
+    "text": "4fd2bf7b6a2feec49a77cc1a",
+    "content": "57604647a6d4a2229a90a1c0",
     "roles": [
       "title",
       "narrative",
@@ -1830,8 +1884,9 @@
     "index": 19,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "6a81df71f48a067dcbe62577",
+    "prosody": "v3-az-dual",
+    "text": "89a8984ed1aaa6611f67e8b0",
+    "content": "d06527c5ba72162992b459f4",
     "roles": [
       "title",
       "narrative",
@@ -1847,8 +1902,9 @@
     "index": 0,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "a3351064475f820f4508b0df",
+    "prosody": "v3-az-dual",
+    "text": "9ab1ce641a9e11206b382216",
+    "content": "389781db2163f54e56a95e7e",
     "roles": [
       "title",
       "narrative",
@@ -1873,7 +1929,7 @@
       "moral"
     ],
     "file": "compliment.mp3",
-    "bytes": 1246124,
+    "bytes": 1246700,
     "join": "ffmpeg+loudnorm"
   },
   "glass-of-milk": {
@@ -1882,8 +1938,9 @@
     "index": 1,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "f25bddee31a3161f885bf88f",
+    "prosody": "v3-az-dual",
+    "text": "9fb022864240a22900f61830",
+    "content": "78bb76d28db15aae6f529c60",
     "roles": [
       "title",
       "narrative",
@@ -1904,7 +1961,7 @@
       "moral"
     ],
     "file": "glass-of-milk.mp3",
-    "bytes": 852572,
+    "bytes": 853868,
     "join": "ffmpeg+loudnorm"
   },
   "handful-of-roasted-chickpeas": {
@@ -1913,8 +1970,9 @@
     "index": 2,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "d54eab25f79ddad5f5e5237a",
+    "prosody": "v3-az-dual",
+    "text": "69b5c0205c03f7c21be6fda2",
+    "content": "4904136d0ebe3bbdba2ac30d",
     "roles": [
       "title",
       "narrative",
@@ -1928,7 +1986,7 @@
       "moral"
     ],
     "file": "handful-of-roasted-chickpeas.mp3",
-    "bytes": 332012,
+    "bytes": 334028,
     "join": "ffmpeg+loudnorm"
   },
   "pair-of-boots": {
@@ -1937,8 +1995,9 @@
     "index": 3,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "db8c979f8c8c0b373765ea7a",
+    "prosody": "v3-az-dual",
+    "text": "24bb6baf999de554adb1caf3",
+    "content": "c9a1897732b647c0932da21d",
     "roles": [
       "title",
       "narrative",
@@ -1953,7 +2012,7 @@
       "moral"
     ],
     "file": "pair-of-boots.mp3",
-    "bytes": 498044,
+    "bytes": 501356,
     "join": "ffmpeg+loudnorm"
   },
   "to-be-alone": {
@@ -1962,8 +2021,9 @@
     "index": 4,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "bee85616db866951ece6d3d9",
+    "prosody": "v3-az-dual",
+    "text": "4da9c3bf9ab27bd88c32af03",
+    "content": "c401fe7e1f09223b24d76358",
     "roles": [
       "title",
       "narrative",
@@ -1980,8 +2040,9 @@
     "index": 5,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "11ab5b2a4f082428c1bda430",
+    "prosody": "v3-az-dual",
+    "text": "527579b87dca1d6b6e91e8eb",
+    "content": "6b870afa37e841a2d0b84c71",
     "roles": [
       "title",
       "narrative",
@@ -2002,8 +2063,9 @@
     "index": 6,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "ca79d751b29f7d7eb9c728b5",
+    "prosody": "v3-az-dual",
+    "text": "11fba982a24a5c353d587e23",
+    "content": "377c828a252bdef78abe24fb",
     "roles": [
       "title",
       "narrative",
@@ -2023,7 +2085,7 @@
       "moral"
     ],
     "file": "everyone-is-the-same-here.mp3",
-    "bytes": 668828,
+    "bytes": 668540,
     "join": "ffmpeg+loudnorm"
   },
   "to-forgive": {
@@ -2032,8 +2094,9 @@
     "index": 7,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "424a71a238a5f8760a141265",
+    "prosody": "v3-az-dual",
+    "text": "cbaaaab0281e416c69a620e9",
+    "content": "f587aaac914999a53290a952",
     "roles": [
       "title",
       "narrative",
@@ -2051,8 +2114,9 @@
     "index": 8,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "7f3e1cbf9abf7e64ff46c36b",
+    "prosody": "v3-az-dual",
+    "text": "c3feb6f8e0e7be8ce5dcc20e",
+    "content": "fc19695e1f77d4babb8163ff",
     "roles": [
       "title",
       "narrative",
@@ -2069,8 +2133,9 @@
     "index": 9,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "6f11d3c36cf94b889d583dc6",
+    "prosody": "v3-az-dual",
+    "text": "aea5def6b21e254fde72e4b6",
+    "content": "5ca93f0311d6c7b59cd580e7",
     "roles": [
       "title",
       "narrative",
@@ -2086,8 +2151,9 @@
     "index": 10,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "f91d548e06ac8979ed0b6350",
+    "prosody": "v3-az-dual",
+    "text": "052d0fb0ecc453d427cb61cb",
+    "content": "2d045881e441eabe8080a4aa",
     "roles": [
       "title",
       "narrative",
@@ -2106,7 +2172,7 @@
       "moral"
     ],
     "file": "gossip.mp3",
-    "bytes": 645788,
+    "bytes": 647516,
     "join": "ffmpeg+loudnorm"
   },
   "how-to-ward-off-insults": {
@@ -2115,8 +2181,9 @@
     "index": 11,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "f15f31dd14e5422b4396b6a0",
+    "prosody": "v3-az-dual",
+    "text": "f839797569e45034e48b058b",
+    "content": "1ebc418b75f11410b717e3d6",
     "roles": [
       "title",
       "narrative",
@@ -2131,7 +2198,7 @@
       "moral"
     ],
     "file": "how-to-ward-off-insults.mp3",
-    "bytes": 574508,
+    "bytes": 573500,
     "join": "ffmpeg+loudnorm"
   },
   "humanity": {
@@ -2140,8 +2207,9 @@
     "index": 12,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "0b798d8cb69c09804a893c50",
+    "prosody": "v3-az-dual",
+    "text": "0d378d2db6b989bffbb48b02",
+    "content": "b484e52914305852c4ad4b43",
     "roles": [
       "title",
       "narrative",
@@ -2160,7 +2228,7 @@
       "moral"
     ],
     "file": "humanity.mp3",
-    "bytes": 1813484,
+    "bytes": 1812620,
     "join": "ffmpeg+loudnorm"
   },
   "i-want-a-friend": {
@@ -2169,8 +2237,9 @@
     "index": 13,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "bd2623e56de10a651dbf84a4",
+    "prosody": "v3-az-dual",
+    "text": "12d1ebe2b7804b46ae1385a1",
+    "content": "89894f0065af53d92bde0540",
     "roles": [
       "title",
       "narrative",
@@ -2189,8 +2258,9 @@
     "index": 14,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "494f20066eb230b3bef18a17",
+    "prosody": "v3-az-dual",
+    "text": "0d89ac3533e0ae75da207911",
+    "content": "d24a3ac880b2db17da782640",
     "roles": [
       "title",
       "narrative",
@@ -2208,8 +2278,9 @@
     "index": 15,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "60136a53cdbe12d793bbbe1d",
+    "prosody": "v3-az-dual",
+    "text": "2264ac7d5d231e31a8ea74c4",
+    "content": "ec1e43075b49379c82d113fe",
     "roles": [
       "title",
       "exclaim",
@@ -2225,8 +2296,9 @@
     "index": 16,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "a3820172b6b5f0dbe874b493",
+    "prosody": "v3-az-dual",
+    "text": "8ff790b3a392161ec52baca2",
+    "content": "c1014daaab0305c122e961c5",
     "roles": [
       "title",
       "narrative",
@@ -2242,8 +2314,9 @@
     "index": 17,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "be0b1f18102f9f34e28aa1a0",
+    "prosody": "v3-az-dual",
+    "text": "10f41a6565b33cd472eac091",
+    "content": "5e1dddf9bcaf8e8c65411a92",
     "roles": [
       "title",
       "narrative",
@@ -2264,7 +2337,7 @@
       "moral"
     ],
     "file": "compassion.mp3",
-    "bytes": 1029116,
+    "bytes": 1027964,
     "join": "ffmpeg+loudnorm"
   },
   "people-who-need-something-from-you": {
@@ -2273,8 +2346,9 @@
     "index": 18,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "d9df41a9afaa17da1731a0db",
+    "prosody": "v3-az-dual",
+    "text": "b7109c2c5873c6f4708fc717",
+    "content": "4798e3f7598c384ca6c41f6a",
     "roles": [
       "title",
       "narrative",
@@ -2290,8 +2364,9 @@
     "index": 19,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "63dde9c69a1c43549177097f",
+    "prosody": "v3-az-dual",
+    "text": "4193c892d9409b5132a732b7",
+    "content": "0ab7c9a2107b8338b8347747",
     "roles": [
       "title",
       "narrative",
@@ -2311,8 +2386,9 @@
     "index": 20,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "722a85eff6bb88241971e97a",
+    "prosody": "v3-az-dual",
+    "text": "4bd1857f2b3c3082fd965c8d",
+    "content": "93f220d4620ec6bad74fdb7c",
     "roles": [
       "title",
       "narrative",
@@ -2331,8 +2407,9 @@
     "index": 21,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "24efefdfbd354de4ef99798c",
+    "prosody": "v3-az-dual",
+    "text": "edbb0d1c96c14cc242718421",
+    "content": "8d945c3fa16a0a43709345b5",
     "roles": [
       "title",
       "narrative",
@@ -2348,8 +2425,9 @@
     "index": 22,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "4d9fed69556ed8c75177ae08",
+    "prosody": "v3-az-dual",
+    "text": "ec275e44dd2c74001bf0d9ac",
+    "content": "2f9988c8c8de672653471d33",
     "roles": [
       "title",
       "narrative",
@@ -2375,7 +2453,7 @@
       "moral"
     ],
     "file": "spend-your-time-with-people.mp3",
-    "bytes": 909452,
+    "bytes": 905276,
     "join": "ffmpeg+loudnorm"
   },
   "friendship-of-horses": {
@@ -2384,8 +2462,9 @@
     "index": 23,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "dc27ac441004760217030089",
+    "prosody": "v3-az-dual",
+    "text": "8b46d2839b6b8335bdf75532",
+    "content": "0d23ff55bcbc467a22382c5e",
     "roles": [
       "title",
       "narrative",
@@ -2404,8 +2483,9 @@
     "index": 24,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "b665446d4ff975b34a8fa605",
+    "prosody": "v3-az-dual",
+    "text": "30f7a1b5b170054823c43386",
+    "content": "a27ac578b9bfce65ef3e61b3",
     "roles": [
       "title",
       "narrative",
@@ -2424,7 +2504,7 @@
       "moral"
     ],
     "file": "sound-of-the-doorbell.mp3",
-    "bytes": 579980,
+    "bytes": 577244,
     "join": "ffmpeg+loudnorm"
   },
   "those-you-should-not-befriend": {
@@ -2433,8 +2513,9 @@
     "index": 25,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "b3e65a2a4c274e0e970fed00",
+    "prosody": "v3-az-dual",
+    "text": "b33dece52d2693ce2fe987d6",
+    "content": "2dcfe572406da36a8fb0ae71",
     "roles": [
       "title",
       "dialogue",
@@ -2443,7 +2524,7 @@
       "moral"
     ],
     "file": "those-you-should-not-befriend.mp3",
-    "bytes": 234380,
+    "bytes": 231212,
     "join": "ffmpeg+loudnorm"
   },
   "welcome-my-bey": {
@@ -2452,8 +2533,9 @@
     "index": 26,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "0f35095a7aea7636ec67e96e",
+    "prosody": "v3-az-dual",
+    "text": "a538bbfc9c5c9351dd03ca71",
+    "content": "cae124560d50c2072c89c26c",
     "roles": [
       "title",
       "narrative",
@@ -2476,7 +2558,7 @@
       "moral"
     ],
     "file": "welcome-my-bey.mp3",
-    "bytes": 1003628,
+    "bytes": 1005788,
     "join": "ffmpeg+loudnorm"
   },
   "why-people-shout-when-they-argue": {
@@ -2485,8 +2567,9 @@
     "index": 27,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "9576ad09c0f29841c79f138e",
+    "prosody": "v3-az-dual",
+    "text": "d2fd9af2f7859a1607262b88",
+    "content": "94d96f4d389019a74cc94c3c",
     "roles": [
       "title",
       "narrative",
@@ -2500,7 +2583,7 @@
       "moral"
     ],
     "file": "why-people-shout-when-they-argue.mp3",
-    "bytes": 580268,
+    "bytes": 579404,
     "join": "ffmpeg+loudnorm"
   },
   "your-friends": {
@@ -2509,8 +2592,9 @@
     "index": 28,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "47fa619ecfa30ddf8cb99c15",
+    "prosody": "v3-az-dual",
+    "text": "0cf79f21efe29f2a56b0cc6a",
+    "content": "5590dcda7a7ff92f3a8c0c84",
     "roles": [
       "title",
       "narrative",
@@ -2521,7 +2605,7 @@
       "moral"
     ],
     "file": "your-friends.mp3",
-    "bytes": 432956,
+    "bytes": 430220,
     "join": "ffmpeg+loudnorm"
   },
   "generous-man": {
@@ -2530,8 +2614,9 @@
     "index": 0,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "919163c4ee1e41584968dd7d",
+    "prosody": "v3-az-dual",
+    "text": "e5aecc7c79876181a3880295",
+    "content": "8f2ede31c28d05e946399dbf",
     "roles": [
       "title",
       "narrative",
@@ -2541,7 +2626,7 @@
       "moral"
     ],
     "file": "generous-man.mp3",
-    "bytes": 193484,
+    "bytes": 191756,
     "join": "ffmpeg+loudnorm"
   },
   "mature-person": {
@@ -2550,8 +2635,9 @@
     "index": 1,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "deff77831306b2af34d2d6b8",
+    "prosody": "v3-az-dual",
+    "text": "bc7a3367e65148baf35a7d62",
+    "content": "239abe53ff643135e60d2f67",
     "roles": [
       "title",
       "narrative",
@@ -2567,8 +2653,9 @@
     "index": 2,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "304ced55b6b35e1ec7d1c17b",
+    "prosody": "v3-az-dual",
+    "text": "7b02badb96b9fb8922c2a1d3",
+    "content": "73453ccdb722fe5d42be537d",
     "roles": [
       "title",
       "narrative",
@@ -2593,7 +2680,7 @@
       "moral"
     ],
     "file": "meaningless-question.mp3",
-    "bytes": 1178732,
+    "bytes": 1181036,
     "join": "ffmpeg+loudnorm"
   },
   "attitude-toward-a-problem": {
@@ -2602,8 +2689,9 @@
     "index": 3,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "b1cd5058e762e1aa8ac33dd9",
+    "prosody": "v3-az-dual",
+    "text": "5dd518741889e9d7c4ecaeaf",
+    "content": "bb3e7b44ec96462773afb06a",
     "roles": [
       "title",
       "question",
@@ -2623,8 +2711,9 @@
     "index": 4,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "4a6bff9ccc73593cef0b75af",
+    "prosody": "v3-az-dual",
+    "text": "2de67fbd9f864208a506ea02",
+    "content": "dacfad6fd9559e4babf2b0cc",
     "roles": [
       "title",
       "question",
@@ -2641,8 +2730,9 @@
     "index": 5,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "ea4e1a9ec8b3eb72683c5380",
+    "prosody": "v3-az-dual",
+    "text": "71cdc3e4d8230741e2298d96",
+    "content": "43cd11d32c1cc1c0dc967652",
     "roles": [
       "title",
       "narrative",
@@ -2653,7 +2743,7 @@
       "moral"
     ],
     "file": "be-sure-of-your-purpose.mp3",
-    "bytes": 220988,
+    "bytes": 222284,
     "join": "ffmpeg+loudnorm"
   },
   "to-be-cool-headed": {
@@ -2662,8 +2752,9 @@
     "index": 6,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "c31fe9ec8073be9182dd29f9",
+    "prosody": "v3-az-dual",
+    "text": "95099d6ae19307d91dc3c0d0",
+    "content": "a4e997dc393b1c2791e71c7c",
     "roles": [
       "title",
       "narrative",
@@ -2679,8 +2770,9 @@
     "index": 7,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "66ed560803de1688c0498077",
+    "prosody": "v3-az-dual",
+    "text": "08c952c133841a4fe0085f22",
+    "content": "c18970cf644353971504b6da",
     "roles": [
       "title",
       "question",
@@ -2702,8 +2794,9 @@
     "index": 8,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "7eca8897ea26c8867cbcdd4b",
+    "prosody": "v3-az-dual",
+    "text": "b683430e0195e0f980c68353",
+    "content": "f8ad19d40ceb5d02f0a97f3e",
     "roles": [
       "title",
       "exclaim",
@@ -2727,8 +2820,9 @@
     "index": 9,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "097b6c4fd4ebd451c85e46a9",
+    "prosody": "v3-az-dual",
+    "text": "aa4935b925778c17882470e5",
+    "content": "afab46f1f46fdc3e76424be5",
     "roles": [
       "title",
       "narrative",
@@ -2744,8 +2838,9 @@
     "index": 10,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "4e1f83d14020a915a2cf78db",
+    "prosody": "v3-az-dual",
+    "text": "ba228fc1b821d40dbc5e70cf",
+    "content": "7e494747e5a67813bd602bfd",
     "roles": [
       "title",
       "narrative",
@@ -2761,8 +2856,9 @@
     "index": 11,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "7d72cbe22fb068e8c51b5ec3",
+    "prosody": "v3-az-dual",
+    "text": "2c00ddcecfb220d0271d2eac",
+    "content": "c901f3313084f64fc9815f60",
     "roles": [
       "title",
       "narrative",
@@ -2778,8 +2874,9 @@
     "index": 12,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "b2e6f4b5319705b9ef6b7a11",
+    "prosody": "v3-az-dual",
+    "text": "0d0fca9d6422e7bfd9d12317",
+    "content": "92b640480a07845c6a65d823",
     "roles": [
       "title",
       "narrative",
@@ -2800,7 +2897,7 @@
       "moral"
     ],
     "file": "education-or-character.mp3",
-    "bytes": 570044,
+    "bytes": 570620,
     "join": "ffmpeg+loudnorm"
   },
   "everything-is-in-our-own-hands": {
@@ -2809,8 +2906,9 @@
     "index": 13,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "ff3f65f7270ecc42d65ccf90",
+    "prosody": "v3-az-dual",
+    "text": "3d90613ea948647f647b6377",
+    "content": "cc20358868df47205407f3ae",
     "roles": [
       "title",
       "narrative",
@@ -2825,7 +2923,7 @@
       "moral"
     ],
     "file": "everything-is-in-our-own-hands.mp3",
-    "bytes": 469244,
+    "bytes": 464780,
     "join": "ffmpeg+loudnorm"
   },
   "explaining-ones-sorrow": {
@@ -2834,8 +2932,9 @@
     "index": 14,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "d01e296e1322208033bbf8e8",
+    "prosody": "v3-az-dual",
+    "text": "dc0d5185bd44084af4366845",
+    "content": "bf8264ee801963ef6f616636",
     "roles": [
       "title",
       "narrative",
@@ -2851,8 +2950,9 @@
     "index": 15,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "d50b3d771f176cfd450e38fc",
+    "prosody": "v3-az-dual",
+    "text": "771cc5cd540569a2e686102f",
+    "content": "5c6d4430cf55d0121d065344",
     "roles": [
       "title",
       "dialogue",
@@ -2873,7 +2973,7 @@
       "moral"
     ],
     "file": "to-give-up.mp3",
-    "bytes": 410348,
+    "bytes": 411788,
     "join": "ffmpeg+loudnorm"
   },
   "he-would-not-have-given-so-little": {
@@ -2882,8 +2982,9 @@
     "index": 16,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "1604a584edb817f26ce163c0",
+    "prosody": "v3-az-dual",
+    "text": "29fea262c7cdec8f600fc290",
+    "content": "004ee384f999df71e8baa1f0",
     "roles": [
       "title",
       "narrative",
@@ -2894,7 +2995,7 @@
       "moral"
     ],
     "file": "he-would-not-have-given-so-little.mp3",
-    "bytes": 275564,
+    "bytes": 275132,
     "join": "ffmpeg+loudnorm"
   },
   "honey-or-dry-bread": {
@@ -2903,8 +3004,9 @@
     "index": 17,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "df9eb6f4e92b3add81be4d64",
+    "prosody": "v3-az-dual",
+    "text": "347ea890f6f16c9f857063fe",
+    "content": "2f3240a370998ff37dd33c31",
     "roles": [
       "title",
       "narrative",
@@ -2920,8 +3022,9 @@
     "index": 18,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "3f215dac3ed5838f9f4bf2fd",
+    "prosody": "v3-az-dual",
+    "text": "8e80da4befcc1e00fddcbccf",
+    "content": "4d8f6ea82a834a5539cb3ff3",
     "roles": [
       "title",
       "narrative",
@@ -2935,7 +3038,7 @@
       "moral"
     ],
     "file": "how-can-i-escape-my-thoughts.mp3",
-    "bytes": 399980,
+    "bytes": 401420,
     "join": "ffmpeg+loudnorm"
   },
   "i-am-aware-now": {
@@ -2944,8 +3047,9 @@
     "index": 19,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "e8929456d826eb82fced410b",
+    "prosody": "v3-az-dual",
+    "text": "b8999ee919426b2156232738",
+    "content": "e6d1eb4f2bbbb5129c3c38d1",
     "roles": [
       "title",
       "narrative",
@@ -2970,8 +3074,9 @@
     "index": 20,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "1da14589bc9211a607066af2",
+    "prosody": "v3-az-dual",
+    "text": "a918c902d25468df5c826d55",
+    "content": "7d62145665c9793f04a9bab8",
     "roles": [
       "title",
       "narrative",
@@ -3019,8 +3124,9 @@
     "index": 21,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "21eae3c9197d8910200d8962",
+    "prosody": "v3-az-dual",
+    "text": "120384e316725ccb5fe85597",
+    "content": "8c67007dccde7bd497b263f1",
     "roles": [
       "title",
       "narrative",
@@ -3048,8 +3154,9 @@
     "index": 22,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "ce561a3a0f31a10978e91d0a",
+    "prosody": "v3-az-dual",
+    "text": "6db5ea579959acd786189cf4",
+    "content": "65311a9687fa90837583ed4a",
     "roles": [
       "title",
       "narrative",
@@ -3065,8 +3172,9 @@
     "index": 23,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "5f486218d13a929d415a6dec",
+    "prosody": "v3-az-dual",
+    "text": "b27a1966ef01c924b5a64395",
+    "content": "05148f7dd311c7dd4e82abac",
     "roles": [
       "title",
       "question",
@@ -3080,7 +3188,7 @@
       "moral"
     ],
     "file": "telling-lies.mp3",
-    "bytes": 324236,
+    "bytes": 318332,
     "join": "ffmpeg+loudnorm"
   },
   "may-your-face-always-smile": {
@@ -3089,8 +3197,9 @@
     "index": 24,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "5e217a7c8fbe6f41d8fcc593",
+    "prosody": "v3-az-dual",
+    "text": "5bf66b0bdffd4e6741dd74c0",
+    "content": "2623783dec83ac143f81a14c",
     "roles": [
       "title",
       "narrative",
@@ -3106,8 +3215,9 @@
     "index": 25,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "b1edcfc6084c69bef9e1a311",
+    "prosody": "v3-az-dual",
+    "text": "6c70e363bae2e76142894b52",
+    "content": "30159e0449f2392302cf03b0",
     "roles": [
       "title",
       "dialogue",
@@ -3115,7 +3225,7 @@
       "moral"
     ],
     "file": "dont-be-words-for-mouths-dust-for-feet.mp3",
-    "bytes": 170012,
+    "bytes": 167276,
     "join": "ffmpeg+loudnorm"
   },
   "do-not-complain-about-any-day-you-have-lived": {
@@ -3124,8 +3234,9 @@
     "index": 26,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "51adc02805f0b4cbd53985a4",
+    "prosody": "v3-az-dual",
+    "text": "977bee69516e758fcc4ac54a",
+    "content": "434f0bc37bf413d4d52368e6",
     "roles": [
       "title",
       "narrative",
@@ -3145,8 +3256,9 @@
     "index": 27,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "c652c71df98bd05f9e6d4e7f",
+    "prosody": "v3-az-dual",
+    "text": "00a34585edaf7ba6e2de1f29",
+    "content": "de12978ff5797421e29fa823",
     "roles": [
       "title",
       "narrative",
@@ -3163,8 +3275,9 @@
     "index": 28,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "2230dfa2ed7f4ea264c4466a",
+    "prosody": "v3-az-dual",
+    "text": "f5b8f1ff7f69042023acdc01",
+    "content": "707a85f3e10073062f536698",
     "roles": [
       "title",
       "narrative",
@@ -3181,8 +3294,9 @@
     "index": 29,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "796d746dc6724531ceca0b7f",
+    "prosody": "v3-az-dual",
+    "text": "40a2a50ee11d52b1c7a47348",
+    "content": "2fb4fe6b37b828a6497d2b01",
     "roles": [
       "title",
       "narrative",
@@ -3199,8 +3313,9 @@
     "index": 30,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "d4e7a99d604dd222931efe6b",
+    "prosody": "v3-az-dual",
+    "text": "f08b521a8f6f74618ce9402c",
+    "content": "c20f672fab13d78f110cf557",
     "roles": [
       "title",
       "narrative",
@@ -3219,8 +3334,9 @@
     "index": 31,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "38d2655245caa74d48b8c824",
+    "prosody": "v3-az-dual",
+    "text": "06bcb0a610bda3055bfedf65",
+    "content": "46f07cb5563be5a62ac81dee",
     "roles": [
       "title",
       "narrative",
@@ -3237,7 +3353,7 @@
       "moral"
     ],
     "file": "expressions-you-should-stay-away-from.mp3",
-    "bytes": 792956,
+    "bytes": 793676,
     "join": "ffmpeg+loudnorm"
   },
   "strength-and-sorrow": {
@@ -3246,8 +3362,9 @@
     "index": 32,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "95ab3f14cc8bf1f54dcfca40",
+    "prosody": "v3-az-dual",
+    "text": "eaf8e28ecdf7d3c7b9b21bba",
+    "content": "996370c7254b12c038f9cb72",
     "roles": [
       "title",
       "narrative",
@@ -3264,8 +3381,9 @@
     "index": 33,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "ab40bcdc3a873fff40fe7dbc",
+    "prosody": "v3-az-dual",
+    "text": "eee8f17216fdb9f72f8c0df0",
+    "content": "341ae94013353ed07dd7718a",
     "roles": [
       "title",
       "narrative",
@@ -3289,8 +3407,9 @@
     "index": 34,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "dfffb97475bf40682c59c2b3",
+    "prosody": "v3-az-dual",
+    "text": "56496348998584387c8115e6",
+    "content": "7ca81d207ae696cc400a6d2b",
     "roles": [
       "title",
       "narrative",
@@ -3332,7 +3451,7 @@
       "moral"
     ],
     "file": "goose-to-be-plucked.mp3",
-    "bytes": 1192844,
+    "bytes": 1190252,
     "join": "ffmpeg+loudnorm"
   },
   "strongest-shield": {
@@ -3341,8 +3460,9 @@
     "index": 35,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "8d75f8f12c4b2a47c7dedef1",
+    "prosody": "v3-az-dual",
+    "text": "f8a77aec34dae7c072e215d4",
+    "content": "a77616bb3912c946776586d6",
     "roles": [
       "title",
       "narrative",
@@ -3358,8 +3478,9 @@
     "index": 36,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "e345a8b6423124d281c26c99",
+    "prosody": "v3-az-dual",
+    "text": "f095b47b45c01cbfadac484a",
+    "content": "3f6a4f30945d64c94bd59c21",
     "roles": [
       "title",
       "narrative",
@@ -3371,7 +3492,7 @@
       "moral"
     ],
     "file": "three-best-things.mp3",
-    "bytes": 275996,
+    "bytes": 269660,
     "join": "ffmpeg+loudnorm"
   },
   "think-speak-and-act-positively": {
@@ -3380,8 +3501,9 @@
     "index": 37,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "487feec0babdf5adaa02d143",
+    "prosody": "v3-az-dual",
+    "text": "0c4953e7e308600ef415f6bd",
+    "content": "0a9b657636ec13b10081a07f",
     "roles": [
       "title",
       "narrative",
@@ -3401,8 +3523,9 @@
     "index": 38,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "37dca07b87fe8a7030ebbbb2",
+    "prosody": "v3-az-dual",
+    "text": "0e3d00dc6a1ae9bf37271387",
+    "content": "48fb98a9599673e8728ecdb8",
     "roles": [
       "title",
       "narrative",
@@ -3423,8 +3546,9 @@
     "index": 39,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "ed0e85776bf6b86a49254c30",
+    "prosody": "v3-az-dual",
+    "text": "a597696df5596a1df656f1a3",
+    "content": "4f4ddc9deb58effb8f88b777",
     "roles": [
       "title",
       "narrative",
@@ -3440,8 +3564,9 @@
     "index": 40,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "83357ad009696016b3744126",
+    "prosody": "v3-az-dual",
+    "text": "efd65c570ef9354f23b86625",
+    "content": "045cd0965d340547687cc69b",
     "roles": [
       "title",
       "narrative",
@@ -3454,7 +3579,7 @@
       "moral"
     ],
     "file": "who-handles-honey-licks-his-finger.mp3",
-    "bytes": 428636,
+    "bytes": 430076,
     "join": "ffmpeg+loudnorm"
   },
   "you-cannot-descend-a-well-on-his-rope": {
@@ -3463,8 +3588,9 @@
     "index": 41,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "1ac3f04e2948cf09ecfe214d",
+    "prosody": "v3-az-dual",
+    "text": "a76f65e38ca712d54260368f",
+    "content": "033c8c3c8e88f0e36fbeb8d0",
     "roles": [
       "title",
       "narrative",
@@ -3474,7 +3600,7 @@
       "moral"
     ],
     "file": "you-cannot-descend-a-well-on-his-rope.mp3",
-    "bytes": 394796,
+    "bytes": 389468,
     "join": "ffmpeg+loudnorm"
   },
   "communication": {
@@ -3483,8 +3609,9 @@
     "index": 0,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "b90102426e6c3d259cf254fc",
+    "prosody": "v3-az-dual",
+    "text": "c3f66409d75ead3cd6955f2d",
+    "content": "f77124d2cbfaa1468db679fa",
     "roles": [
       "title",
       "narrative",
@@ -3500,8 +3627,9 @@
     "index": 1,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "1345c732c5d44b59ccc02346",
+    "prosody": "v3-az-dual",
+    "text": "b97b1fb8141f65c8a1e216d0",
+    "content": "33ee53dc6f7c60b41cc26d4d",
     "roles": [
       "title",
       "narrative",
@@ -3518,8 +3646,9 @@
     "index": 2,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "4fc55e36b5d6f9b51ab23e0b",
+    "prosody": "v3-az-dual",
+    "text": "7150928b900e1d63960d9019",
+    "content": "246bfda6e98ce5f401e06a56",
     "roles": [
       "title",
       "narrative",
@@ -3538,8 +3667,9 @@
     "index": 3,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "ddb8e0db48af693d0eaf7810",
+    "prosody": "v3-az-dual",
+    "text": "a47b4e4628964adfcc985639",
+    "content": "66022084b3cbb53746937f94",
     "roles": [
       "title",
       "narrative",
@@ -3557,7 +3687,7 @@
       "moral"
     ],
     "file": "silent-corridor.mp3",
-    "bytes": 689420,
+    "bytes": 690284,
     "join": "ffmpeg+loudnorm"
   },
   "saying-the-word-in-its-place": {
@@ -3566,8 +3696,9 @@
     "index": 4,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "050a19db87dc4d7331106302",
+    "prosody": "v3-az-dual",
+    "text": "1e045ece152f3c8b8f8d89e7",
+    "content": "999724c0585013b95515db9f",
     "roles": [
       "title",
       "narrative",
@@ -3583,8 +3714,9 @@
     "index": 5,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "15374b6f21e327fd7ce6f282",
+    "prosody": "v3-az-dual",
+    "text": "4c78d37255abf584f3dfe99d",
+    "content": "aec601bc25aa01f4fbc5332b",
     "roles": [
       "title",
       "narrative",
@@ -3601,8 +3733,9 @@
     "index": 6,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "8396ae522bd7b123bc11c8d6",
+    "prosody": "v3-az-dual",
+    "text": "65ebedfcf39233e4e139959b",
+    "content": "0bbedcfdd5f51b20eff35bcd",
     "roles": [
       "title",
       "narrative",
@@ -3627,8 +3760,9 @@
     "index": 7,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "67eee6351cc561ab270d5d9a",
+    "prosody": "v3-az-dual",
+    "text": "adc8c67b42ba0d6f12b57f2d",
+    "content": "ba18a6b6bf1d4104f66d5703",
     "roles": [
       "title",
       "narrative",
@@ -3648,8 +3782,9 @@
     "index": 8,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "ee642f3ea6463d736a0bdb64",
+    "prosody": "v3-az-dual",
+    "text": "6a9a09a32a21528acd5d4820",
+    "content": "08a9065ffb1cef22badffd0f",
     "roles": [
       "title",
       "narrative",
@@ -3663,7 +3798,7 @@
       "moral"
     ],
     "file": "shepherds-word.mp3",
-    "bytes": 590348,
+    "bytes": 590636,
     "join": "ffmpeg+loudnorm"
   },
   "what-is-a-word": {
@@ -3672,8 +3807,9 @@
     "index": 9,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "99b1875f8d35a3b4d8155794",
+    "prosody": "v3-az-dual",
+    "text": "5f851559af799c8e23e20954",
+    "content": "34f2abcf33c321c15fc8867a",
     "roles": [
       "title",
       "narrative",
@@ -3690,8 +3826,9 @@
     "index": 10,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "9eb179e02478b1e3f319eba7",
+    "prosody": "v3-az-dual",
+    "text": "6cf96e2486b770117e7ff8ef",
+    "content": "4b8c38388406581973e9223f",
     "roles": [
       "title",
       "narrative",
@@ -3713,8 +3850,9 @@
     "index": 11,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "9b34af2988aa6aaa3c9c091f",
+    "prosody": "v3-az-dual",
+    "text": "6845e4e843468d95b5bd1d67",
+    "content": "7856c630aa5f0ffc4f2f5a8c",
     "roles": [
       "title",
       "narrative",
@@ -3734,7 +3872,30 @@
       "moral"
     ],
     "file": "shepherd-must-be-called.mp3",
-    "bytes": 602156,
+    "bytes": 592652,
+    "join": "ffmpeg+loudnorm"
+  },
+  "different-path": {
+    "title": "A Different Path",
+    "category": "hikmet-ve-heyat-dersleri",
+    "index": 0,
+    "voice": "en-US-GuyNeural",
+    "dialogue_voice": "en-US-JennyNeural",
+    "prosody": "v3-az-dual",
+    "text": "2ee6a8091f255247b0cc5006",
+    "content": "b1de9e0ce225a65871c9061a",
+    "roles": [
+      "title",
+      "narrative",
+      "narrative",
+      "narrative",
+      "narrative",
+      "narrative",
+      "narrative",
+      "moral"
+    ],
+    "file": "different-path.mp3",
+    "bytes": 577820,
     "join": "ffmpeg+loudnorm"
   },
   "human-emerged": {
@@ -3743,8 +3904,9 @@
     "index": 1,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "62f0197d55852e87eae0a54b",
+    "prosody": "v3-az-dual",
+    "text": "8ba435e20f8dd178171354bc",
+    "content": "f0bb6d8abaeeb972bfdb438b",
     "roles": [
       "title",
       "narrative",
@@ -3764,8 +3926,9 @@
     "index": 2,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "b795746c45de988f9b6f7985",
+    "prosody": "v3-az-dual",
+    "text": "34ae83c4b69333ca7f731a2a",
+    "content": "939f957f03341a85fc813310",
     "roles": [
       "title",
       "narrative",
@@ -3779,7 +3942,7 @@
       "moral"
     ],
     "file": "life-lesson.mp3",
-    "bytes": 306380,
+    "bytes": 308684,
     "join": "ffmpeg+loudnorm"
   },
   "more-effective-way": {
@@ -3788,8 +3951,9 @@
     "index": 3,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "61c01a8505da8b2f9ac64c40",
+    "prosody": "v3-az-dual",
+    "text": "f1b914c7c599d29e6fcaa108",
+    "content": "ff6137348cac8e68f4db728a",
     "roles": [
       "title",
       "narrative",
@@ -3800,7 +3964,7 @@
       "moral"
     ],
     "file": "more-effective-way.mp3",
-    "bytes": 319196,
+    "bytes": 319916,
     "join": "ffmpeg+loudnorm"
   },
   "windmill-turning-in-still-air": {
@@ -3809,8 +3973,9 @@
     "index": 4,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "518a3c02e160f96dad340256",
+    "prosody": "v3-az-dual",
+    "text": "104cb722be6d41c33099bd21",
+    "content": "ea0c0d207aebd951692572bb",
     "roles": [
       "title",
       "narrative",
@@ -3827,8 +3992,9 @@
     "index": 5,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "880ebe19e6eeff30b2f588f4",
+    "prosody": "v3-az-dual",
+    "text": "5e2165d17cedb56a3adaf429",
+    "content": "37306e73036e5d7fa066d86c",
     "roles": [
       "title",
       "narrative",
@@ -3842,7 +4008,7 @@
       "moral"
     ],
     "file": "bookstore.mp3",
-    "bytes": 513740,
+    "bytes": 515036,
     "join": "ffmpeg+loudnorm"
   },
   "doctors-appointment": {
@@ -3851,8 +4017,9 @@
     "index": 6,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "9a3d0baf2c41afab11ee544d",
+    "prosody": "v3-az-dual",
+    "text": "23adc6f19b2865438df4ebc3",
+    "content": "37691f08a04f5a50b44eef42",
     "roles": [
       "title",
       "narrative",
@@ -3873,8 +4040,9 @@
     "index": 7,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "9ff3e4d0cdc725f9ea8ea000",
+    "prosody": "v3-az-dual",
+    "text": "45dd64416b4d2ec8d9a2e88d",
+    "content": "2af09edbdda53f0c59d636dc",
     "roles": [
       "title",
       "narrative",
@@ -3890,8 +4058,9 @@
     "index": 8,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "828b313aa42f65275bd0143b",
+    "prosody": "v3-az-dual",
+    "text": "fd02163b8da7eef7ea6212cd",
+    "content": "9bafe6126877eab6a62cb74c",
     "roles": [
       "title",
       "narrative",
@@ -3908,8 +4077,9 @@
     "index": 9,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "7909d1dbea63698ac7cf5488",
+    "prosody": "v3-az-dual",
+    "text": "a520954c49d598fcc4598582",
+    "content": "ab92b8b0038f222919be71fe",
     "roles": [
       "title",
       "narrative",
@@ -3936,8 +4106,9 @@
     "index": 10,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "78d32ddc7f0ad9bde88486e7",
+    "prosody": "v3-az-dual",
+    "text": "05077e9e234877a75fc93691",
+    "content": "6230572ba61726563bd7ad9d",
     "roles": [
       "title",
       "narrative",
@@ -3953,8 +4124,9 @@
     "index": 11,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "f9fe3101ba3e959538feec26",
+    "prosody": "v3-az-dual",
+    "text": "ddc1d5394ba710b249a2941c",
+    "content": "8e54db02908b494e529359d1",
     "roles": [
       "title",
       "narrative",
@@ -3970,8 +4142,9 @@
     "index": 12,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "fa945c9d1d261683cb66e59a",
+    "prosody": "v3-az-dual",
+    "text": "af5a82a9ae8dc7699d98221a",
+    "content": "03d15e92798d3b4f6559e52a",
     "roles": [
       "title",
       "narrative",
@@ -3992,7 +4165,7 @@
       "moral"
     ],
     "file": "from-the-memoirs-of-a-lady-from-istanbul.mp3",
-    "bytes": 884972,
+    "bytes": 884540,
     "join": "ffmpeg+loudnorm"
   },
   "hayats-life-story": {
@@ -4001,8 +4174,9 @@
     "index": 13,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "11ed842b848b833eace05d26",
+    "prosody": "v3-az-dual",
+    "text": "0b4a4f4a50dc43f41a7b200c",
+    "content": "760f43fb54e092f8a88fe31f",
     "roles": [
       "title",
       "question",
@@ -4053,8 +4227,9 @@
     "index": 14,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "531b9c6b247c5683c6401dc2",
+    "prosody": "v3-az-dual",
+    "text": "522fa8eae6edfe1971af029e",
+    "content": "19bfb37c5d63b735aeba0aec",
     "roles": [
       "title",
       "narrative",
@@ -4077,8 +4252,9 @@
     "index": 15,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "5dc9da164019f94ea9f369d0",
+    "prosody": "v3-az-dual",
+    "text": "ff3282ac4569cedcb2994f41",
+    "content": "bf2fcde3270dd596d349f31d",
     "roles": [
       "title",
       "narrative",
@@ -4096,8 +4272,9 @@
     "index": 16,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "68f32f2491edf7448a3b34c3",
+    "prosody": "v3-az-dual",
+    "text": "f4bfd7f84fa568fcd8d45bc2",
+    "content": "cdc547c74255fb746c12225e",
     "roles": [
       "title",
       "narrative",
@@ -4113,8 +4290,9 @@
     "index": 17,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "bf3fa46654892d8a03bd71b7",
+    "prosody": "v3-az-dual",
+    "text": "82fd24a395773bb239ec2524",
+    "content": "991b68f7c43e0503c6042d28",
     "roles": [
       "title",
       "narrative",
@@ -4137,8 +4315,9 @@
     "index": 18,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "bf8983f729689c0840e53ccf",
+    "prosody": "v3-az-dual",
+    "text": "7a52e80689e73c038a5ae872",
+    "content": "00f5d43d5cb60834aa4def00",
     "roles": [
       "title",
       "question",
@@ -4150,7 +4329,7 @@
       "moral"
     ],
     "file": "lecturer-and-the-groom.mp3",
-    "bytes": 383852,
+    "bytes": 382988,
     "join": "ffmpeg+loudnorm"
   },
   "life-is-short": {
@@ -4159,8 +4338,9 @@
     "index": 19,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "f94e4b011d34bf0ce3b3bd0a",
+    "prosody": "v3-az-dual",
+    "text": "426b8d4edbcfbf21e70dffff",
+    "content": "e856172175ecc55ec8c49077",
     "roles": [
       "title",
       "narrative",
@@ -4176,8 +4356,9 @@
     "index": 20,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "2a9141cf256f7f711b78d8a6",
+    "prosody": "v3-az-dual",
+    "text": "e1c60438e39425c9b8f8a2ac",
+    "content": "829fe1b342733430c295072b",
     "roles": [
       "title",
       "question",
@@ -4196,8 +4377,9 @@
     "index": 21,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "688aa8dfea6e7159c4efd62c",
+    "prosody": "v3-az-dual",
+    "text": "0ca97fc3db41f0139235d7db",
+    "content": "b9e998636935c9c307fe9ef0",
     "roles": [
       "title",
       "narrative",
@@ -4213,8 +4395,9 @@
     "index": 22,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "5f00c4754eb29ce4f70a7e83",
+    "prosody": "v3-az-dual",
+    "text": "8acd31bb505651c91c63ef73",
+    "content": "6fa96b3e70fce04e00825a7c",
     "roles": [
       "title",
       "narrative",
@@ -4230,8 +4413,9 @@
     "index": 23,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "4503cde0a359b0e9fdb89e3f",
+    "prosody": "v3-az-dual",
+    "text": "40aade54cc4559ccd73780a1",
+    "content": "8c835205eed9b52b63e890e4",
     "roles": [
       "title",
       "narrative",
@@ -4247,8 +4431,9 @@
     "index": 24,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "5cebf135f242082d80a20154",
+    "prosody": "v3-az-dual",
+    "text": "87c78f79d23154a6df07b490",
+    "content": "0e4fd895e730a74c6075ddfc",
     "roles": [
       "title",
       "exclaim",
@@ -4267,8 +4452,9 @@
     "index": 25,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "79430c51164605e24ccc2fc8",
+    "prosody": "v3-az-dual",
+    "text": "1383dd280193126739093e72",
+    "content": "e1c56e5d872da62281b40df7",
     "roles": [
       "title",
       "narrative",
@@ -4285,7 +4471,7 @@
       "moral"
     ],
     "file": "sowing-millet-at-the-bottom.mp3",
-    "bytes": 650540,
+    "bytes": 640028,
     "join": "ffmpeg+loudnorm"
   },
   "properties-of-water": {
@@ -4294,8 +4480,9 @@
     "index": 26,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "6d822a31c78f189a0e5444d5",
+    "prosody": "v3-az-dual",
+    "text": "aa127c699dbafb34467ec680",
+    "content": "485cab27966919eec18a6c1f",
     "roles": [
       "title",
       "narrative",
@@ -4310,7 +4497,7 @@
       "moral"
     ],
     "file": "properties-of-water.mp3",
-    "bytes": 324380,
+    "bytes": 321356,
     "join": "ffmpeg+loudnorm"
   },
   "teacher-hello-do-you-remember-me": {
@@ -4319,8 +4506,9 @@
     "index": 27,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "1f8df4f26523198b92f21879",
+    "prosody": "v3-az-dual",
+    "text": "47a5fecae8b12d7696d2750a",
+    "content": "b2b2b2c13447f1e923c4af40",
     "roles": [
       "title",
       "dialogue",
@@ -4340,7 +4528,7 @@
       "moral"
     ],
     "file": "teacher-hello-do-you-remember-me.mp3",
-    "bytes": 997292,
+    "bytes": 1003628,
     "join": "ffmpeg+loudnorm"
   },
   "dead-remain-in-life": {
@@ -4349,8 +4537,9 @@
     "index": 28,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "b883cd543581ea72d7da13e7",
+    "prosody": "v3-az-dual",
+    "text": "e7522b2a9ffc5bd36de6fef1",
+    "content": "c6bd3a768d33d5c53c8429fd",
     "roles": [
       "title",
       "narrative",
@@ -4366,8 +4555,9 @@
     "index": 29,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "f2179bedfee9791be0cfe5c2",
+    "prosody": "v3-az-dual",
+    "text": "b3a76a3df7cadf0da30ffb51",
+    "content": "d7230470ad8a0958b37bcc1e",
     "roles": [
       "title",
       "narrative",
@@ -4383,8 +4573,9 @@
     "index": 30,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "a357efa861eee8cb6b212760",
+    "prosody": "v3-az-dual",
+    "text": "52949e9ffb299be25760d93f",
+    "content": "954db923b280dcd50461a5f0",
     "roles": [
       "title",
       "narrative",
@@ -4400,7 +4591,7 @@
       "moral"
     ],
     "file": "road-to-the-cotton-field.mp3",
-    "bytes": 1030844,
+    "bytes": 1033436,
     "join": "ffmpeg+loudnorm"
   },
   "secret-of-living-well-and-longevity": {
@@ -4409,8 +4600,9 @@
     "index": 31,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "cc33c8dbf42c00d41d8d8de3",
+    "prosody": "v3-az-dual",
+    "text": "6ce655ff52f42701ac8e9706",
+    "content": "9ea40fef498df453575440be",
     "roles": [
       "title",
       "narrative",
@@ -4427,8 +4619,9 @@
     "index": 32,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "1371aeda34998af0b576cbfa",
+    "prosody": "v3-az-dual",
+    "text": "84a0e7677cde8c5487790f5e",
+    "content": "9a01305d39bb726807afd5ca",
     "roles": [
       "title",
       "narrative",
@@ -4444,8 +4637,9 @@
     "index": 33,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "5db8e5455885ccd7b1f7af3d",
+    "prosody": "v3-az-dual",
+    "text": "e58ec8214f8c91a6130d71f4",
+    "content": "9594e78b1d54820890c3fc47",
     "roles": [
       "title",
       "narrative",
@@ -4466,8 +4660,9 @@
     "index": 34,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "3fb03453f25ef06b67cd1eec",
+    "prosody": "v3-az-dual",
+    "text": "117244cfa8c750c41752cf43",
+    "content": "67945038af52ad72e856bbb5",
     "roles": [
       "title",
       "narrative",
@@ -4487,7 +4682,7 @@
       "moral"
     ],
     "file": "three-questions.mp3",
-    "bytes": 693596,
+    "bytes": 697772,
     "join": "ffmpeg+loudnorm"
   },
   "three-landscapes": {
@@ -4496,8 +4691,9 @@
     "index": 35,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "dedd4ba4313511c9a8d43b1c",
+    "prosody": "v3-az-dual",
+    "text": "ac3e5c2c4f232392bc2fc3be",
+    "content": "9c410849406100a49d80a140",
     "roles": [
       "title",
       "narrative",
@@ -4511,7 +4707,7 @@
       "moral"
     ],
     "file": "three-landscapes.mp3",
-    "bytes": 820460,
+    "bytes": 818012,
     "join": "ffmpeg+loudnorm"
   },
   "three-statues": {
@@ -4520,8 +4716,9 @@
     "index": 36,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "b58093f5a873117a96f6eeeb",
+    "prosody": "v3-az-dual",
+    "text": "1cc97326a11f67febf49bb05",
+    "content": "753970089d8d57bbe11a521a",
     "roles": [
       "title",
       "narrative",
@@ -4538,7 +4735,7 @@
       "moral"
     ],
     "file": "three-statues.mp3",
-    "bytes": 951644,
+    "bytes": 952940,
     "join": "ffmpeg+loudnorm"
   },
   "to-be-full-or-to-be-gone": {
@@ -4547,8 +4744,9 @@
     "index": 37,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "3572f00d0bbf9ede80f479ef",
+    "prosody": "v3-az-dual",
+    "text": "7b6cffffcab956dbb06eb30d",
+    "content": "8a361f99657e6ffd5594712c",
     "roles": [
       "title",
       "narrative",
@@ -4566,8 +4764,9 @@
     "index": 38,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "97f944e78594aea4c939b910",
+    "prosody": "v3-az-dual",
+    "text": "97d89df0b27a969dad017267",
+    "content": "7699adda083c61a930ce6182",
     "roles": [
       "title",
       "narrative",
@@ -4583,8 +4782,9 @@
     "index": 39,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "c2aefe09745c2e4e12e00589",
+    "prosody": "v3-az-dual",
+    "text": "045a0825d8f0da8d4928ff47",
+    "content": "4426d0070ddb306cfe61a62f",
     "roles": [
       "title",
       "question",
@@ -4602,8 +4802,9 @@
     "index": 40,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "34ce2baf421e07b317300da4",
+    "prosody": "v3-az-dual",
+    "text": "ae3fcb98afc75291298a41da",
+    "content": "c19634ec968eb27e345c412a",
     "roles": [
       "title",
       "question",
@@ -4619,7 +4820,7 @@
       "moral"
     ],
     "file": "what-do-i-need-it-for.mp3",
-    "bytes": 1069148,
+    "bytes": 1048412,
     "join": "ffmpeg+loudnorm"
   },
   "what-it-means-to-be-late": {
@@ -4628,8 +4829,9 @@
     "index": 41,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "863dc51fba7dbb510ff16c17",
+    "prosody": "v3-az-dual",
+    "text": "1db5b0106633f5f527961f84",
+    "content": "165feb436c8d7b9bc6addbdc",
     "roles": [
       "title",
       "narrative",
@@ -4648,8 +4850,9 @@
     "index": 42,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "c9044ede31f025e4feee7f2f",
+    "prosody": "v3-az-dual",
+    "text": "58ddb92aaa15858bb44284cb",
+    "content": "70e5a6bb7af896050fc5dee6",
     "roles": [
       "title",
       "narrative",
@@ -4670,7 +4873,7 @@
       "moral"
     ],
     "file": "what-matters-in-life.mp3",
-    "bytes": 651980,
+    "bytes": 651260,
     "join": "ffmpeg+loudnorm"
   },
   "what-we-learn-in-life": {
@@ -4679,8 +4882,9 @@
     "index": 43,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "a24b777b995cc136332609ae",
+    "prosody": "v3-az-dual",
+    "text": "a939c523c0620f3a1b45acd5",
+    "content": "7722f1ad6f46091f80d070cd",
     "roles": [
       "title",
       "narrative",
@@ -4697,8 +4901,9 @@
     "index": 44,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "fe32d4be6242a8fd0cf4797f",
+    "prosody": "v3-az-dual",
+    "text": "86a12c97a6e66281804e9c56",
+    "content": "f024ff047e18993a020e40e2",
     "roles": [
       "title",
       "narrative",
@@ -4709,7 +4914,7 @@
       "moral"
     ],
     "file": "where-does-this-road-go.mp3",
-    "bytes": 218828,
+    "bytes": 221132,
     "join": "ffmpeg+loudnorm"
   },
   "organization-without-an-action-plan": {
@@ -4718,8 +4923,9 @@
     "index": 0,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "36826a15f70bddbbad2f95a3",
+    "prosody": "v3-az-dual",
+    "text": "2f58814c8f7c15db9ce82694",
+    "content": "d4e3a6d397cf469f5181c0e9",
     "roles": [
       "title",
       "narrative",
@@ -4736,8 +4942,9 @@
     "index": 1,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "0abf260bcedf6e03feca3d54",
+    "prosody": "v3-az-dual",
+    "text": "92bb2b3e28d71123c0f58e9b",
+    "content": "4c3dd057865c7e54075ce0cb",
     "roles": [
       "title",
       "narrative",
@@ -4756,7 +4963,7 @@
       "moral"
     ],
     "file": "fish-shop.mp3",
-    "bytes": 747740,
+    "bytes": 749324,
     "join": "ffmpeg+loudnorm"
   },
   "baklava": {
@@ -4765,8 +4972,9 @@
     "index": 2,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "d6e54adca16f652f875585cb",
+    "prosody": "v3-az-dual",
+    "text": "3498c766feaf78354acb639e",
+    "content": "758914ff1f666a2a28eb52de",
     "roles": [
       "title",
       "narrative",
@@ -4781,7 +4989,7 @@
       "moral"
     ],
     "file": "baklava.mp3",
-    "bytes": 495308,
+    "bytes": 496316,
     "join": "ffmpeg+loudnorm"
   },
   "chief-accountant-and-the-ceo": {
@@ -4790,8 +4998,9 @@
     "index": 3,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "c87dc8ab81f6b1753313edb4",
+    "prosody": "v3-az-dual",
+    "text": "652522274de2912416a2865a",
+    "content": "002f34bc3a87a023bf1febdd",
     "roles": [
       "title",
       "narrative",
@@ -4801,7 +5010,7 @@
       "moral"
     ],
     "file": "chief-accountant-and-the-ceo.mp3",
-    "bytes": 225596,
+    "bytes": 227324,
     "join": "ffmpeg+loudnorm"
   },
   "do-you-have-spending-money": {
@@ -4810,8 +5019,9 @@
     "index": 4,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "12c8aeb3a835acae6c40ce0f",
+    "prosody": "v3-az-dual",
+    "text": "0aa74dc956640d4d7907e1c8",
+    "content": "70fac0b6579ef90debe3ed59",
     "roles": [
       "title",
       "narrative",
@@ -4827,8 +5037,9 @@
     "index": 5,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "c5d44a5e5a96935b6c19de5c",
+    "prosody": "v3-az-dual",
+    "text": "d5525fecb18f383eb2d6a81e",
+    "content": "b3a98bd446e1ef5a7cdd4d63",
     "roles": [
       "title",
       "narrative",
@@ -4845,8 +5056,9 @@
     "index": 6,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "9449d2a18d2bfcb5a5ceb89e",
+    "prosody": "v3-az-dual",
+    "text": "78ea51b6675bce32200748d3",
+    "content": "0a8ea564a4aa3a866e40f795",
     "roles": [
       "title",
       "narrative",
@@ -4857,7 +5069,7 @@
       "moral"
     ],
     "file": "former-minister-at-the-seminar.mp3",
-    "bytes": 826796,
+    "bytes": 822332,
     "join": "ffmpeg+loudnorm"
   },
   "garden-and-the-gardener": {
@@ -4866,8 +5078,9 @@
     "index": 7,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "c0644f4e0babebbb630e388a",
+    "prosody": "v3-az-dual",
+    "text": "2c7965b6b34e4ab1047d03d4",
+    "content": "33d8c1f3527f0d057be16909",
     "roles": [
       "title",
       "narrative",
@@ -4878,7 +5091,7 @@
       "moral"
     ],
     "file": "garden-and-the-gardener.mp3",
-    "bytes": 242300,
+    "bytes": 242444,
     "join": "ffmpeg+loudnorm"
   },
   "grocery-shop-and-the-supermarket": {
@@ -4887,8 +5100,9 @@
     "index": 8,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "ad1702f08d117438d8e768a9",
+    "prosody": "v3-az-dual",
+    "text": "c4c3a4262bca0bab7aa0ac29",
+    "content": "acb259b5b85ef63b4c8dc214",
     "roles": [
       "title",
       "narrative",
@@ -4908,8 +5122,9 @@
     "index": 9,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "3ac9d81bb1c7245be9b13fa2",
+    "prosody": "v3-az-dual",
+    "text": "638e7ea4b622772075d9fc75",
+    "content": "217a5227f2d3184328dfc4e3",
     "roles": [
       "title",
       "narrative",
@@ -4921,7 +5136,7 @@
       "moral"
     ],
     "file": "henry-fords-choice.mp3",
-    "bytes": 547292,
+    "bytes": 543260,
     "join": "ffmpeg+loudnorm"
   },
   "his-hand-is-at-work": {
@@ -4930,8 +5145,9 @@
     "index": 10,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "b455f2ddc71c535ac0c8b6fc",
+    "prosody": "v3-az-dual",
+    "text": "fb817d9f5143f777303e44d3",
+    "content": "25818c63a360e8b5d9b48ff1",
     "roles": [
       "title",
       "narrative",
@@ -4939,7 +5155,7 @@
       "moral"
     ],
     "file": "his-hand-is-at-work.mp3",
-    "bytes": 180236,
+    "bytes": 177068,
     "join": "ffmpeg+loudnorm"
   },
   "hot-bread": {
@@ -4948,8 +5164,9 @@
     "index": 11,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "09be39370011845b6dd305a3",
+    "prosody": "v3-az-dual",
+    "text": "ebc45713ea7926bdf084fb6d",
+    "content": "2c9c373feb5b48eb72a47189",
     "roles": [
       "title",
       "narrative",
@@ -5010,7 +5227,7 @@
       "moral"
     ],
     "file": "hot-bread.mp3",
-    "bytes": 1795484,
+    "bytes": 1792460,
     "join": "ffmpeg+loudnorm"
   },
   "credit-ledger": {
@@ -5019,8 +5236,9 @@
     "index": 12,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "357b9f5a3f4a8b9274a123f2",
+    "prosody": "v3-az-dual",
+    "text": "d82826f663b92fabfdf62692",
+    "content": "586af930212bb2971a8d2523",
     "roles": [
       "title",
       "narrative",
@@ -5039,7 +5257,7 @@
       "moral"
     ],
     "file": "credit-ledger.mp3",
-    "bytes": 1133084,
+    "bytes": 1126460,
     "join": "ffmpeg+loudnorm"
   },
   "mercedes": {
@@ -5048,8 +5266,9 @@
     "index": 13,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "8ffb2e113455dd03dcf7f68e",
+    "prosody": "v3-az-dual",
+    "text": "680da89fb0c70bf96aca7410",
+    "content": "cfcf204d833ca841074fe62c",
     "roles": [
       "title",
       "narrative",
@@ -5071,8 +5290,9 @@
     "index": 14,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "5ac0541f81983bf5d66dd514",
+    "prosody": "v3-az-dual",
+    "text": "2ef1e26ca41e4580f1f29e5c",
+    "content": "5fa262bb926c4613942b632d",
     "roles": [
       "title",
       "narrative",
@@ -5089,8 +5309,9 @@
     "index": 15,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "d545e74c7ce7fe5a97e3a7ea",
+    "prosody": "v3-az-dual",
+    "text": "3d110a7242763be2527bef7f",
+    "content": "2ca718e4bb3d85b249a4eeed",
     "roles": [
       "title",
       "narrative",
@@ -5114,7 +5335,7 @@
       "moral"
     ],
     "file": "scarf-seller.mp3",
-    "bytes": 1571132,
+    "bytes": 1566236,
     "join": "ffmpeg+loudnorm"
   },
   "weight-of-the-oil": {
@@ -5123,8 +5344,9 @@
     "index": 16,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "8a1beb1c4607a21fa80c0820",
+    "prosody": "v3-az-dual",
+    "text": "1c08cc635fca06c9d626067c",
+    "content": "b3d448ae1b196cac312be630",
     "roles": [
       "title",
       "narrative",
@@ -5141,8 +5363,9 @@
     "index": 17,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "4656afc3660078dc36f24ed4",
+    "prosody": "v3-az-dual",
+    "text": "f0a4372ae0c9a9e3303ecb58",
+    "content": "95459b7cf59ef56df9447bbc",
     "roles": [
       "title",
       "narrative",
@@ -5165,8 +5388,9 @@
     "index": 18,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "8480d696292be6cc7a391f71",
+    "prosody": "v3-az-dual",
+    "text": "18c035ab4bfbe22f010eb753",
+    "content": "e752d2f3eae580c45b07b1cd",
     "roles": [
       "title",
       "narrative",
@@ -5184,7 +5408,7 @@
       "moral"
     ],
     "file": "why-am-i-poor.mp3",
-    "bytes": 383852,
+    "bytes": 384860,
     "join": "ffmpeg+loudnorm"
   },
   "bell-to-hang-on-the-cats-neck": {
@@ -5193,8 +5417,9 @@
     "index": 0,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "25d46ab2102d72e90f7c1e67",
+    "prosody": "v3-az-dual",
+    "text": "777a1577f8b2c8af87ce0b1d",
+    "content": "e090cf3beeb993e74067cfa1",
     "roles": [
       "title",
       "narrative",
@@ -5214,8 +5439,9 @@
     "index": 1,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "4f0e8066b0ade15b5dbc801d",
+    "prosody": "v3-az-dual",
+    "text": "1795b9a562149a2ff3a6435d",
+    "content": "c635f1b933a17f2ed6a4c0a6",
     "roles": [
       "title",
       "narrative",
@@ -5231,8 +5457,9 @@
     "index": 2,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "560217a3e1edebe3c6eb897c",
+    "prosody": "v3-az-dual",
+    "text": "4e9645ca468eb241c221764d",
+    "content": "ed37f490e603a087f52a10f4",
     "roles": [
       "title",
       "narrative",
@@ -5248,8 +5475,9 @@
     "index": 3,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "bddb2ed835c613afdb645700",
+    "prosody": "v3-az-dual",
+    "text": "cc37583ddcb83f23713beb34",
+    "content": "11aeb9b160be22dd8a0fc324",
     "roles": [
       "title",
       "narrative",
@@ -5264,7 +5492,7 @@
       "moral"
     ],
     "file": "nazim-hikmet-in-bursa-prison.mp3",
-    "bytes": 558668,
+    "bytes": 561260,
     "join": "ffmpeg+loudnorm"
   },
   "sharing-justice": {
@@ -5273,8 +5501,9 @@
     "index": 4,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "9abe7cb90dfd1fe91f80c5f1",
+    "prosody": "v3-az-dual",
+    "text": "1f083dad1e7a55c417cb0686",
+    "content": "b418502c750995e82617dd12",
     "roles": [
       "title",
       "narrative",
@@ -5297,8 +5526,9 @@
     "index": 5,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "76273e673af9d9da674f1bbe",
+    "prosody": "v3-az-dual",
+    "text": "00c164a1b3fff7f1e6a62d94",
+    "content": "7883bbe054b93754f0620ace",
     "roles": [
       "title",
       "narrative",
@@ -5311,7 +5541,7 @@
       "moral"
     ],
     "file": "just-verdict-of-the-frankfurt-judge.mp3",
-    "bytes": 946028,
+    "bytes": 942860,
     "join": "ffmpeg+loudnorm"
   },
   "skins-of-the-lambs": {
@@ -5320,8 +5550,9 @@
     "index": 6,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "173947cbf0e9b5ffca09ea0e",
+    "prosody": "v3-az-dual",
+    "text": "4248523cf93b5394d751a3bb",
+    "content": "d1744574a69433428c54e386",
     "roles": [
       "title",
       "dialogue",
@@ -5344,7 +5575,7 @@
       "moral"
     ],
     "file": "skins-of-the-lambs.mp3",
-    "bytes": 1154684,
+    "bytes": 1154396,
     "join": "ffmpeg+loudnorm"
   },
   "bedouin-whose-camel-was-stolen": {
@@ -5353,8 +5584,9 @@
     "index": 7,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "dc44485bd2fe6c2743f8ed38",
+    "prosody": "v3-az-dual",
+    "text": "34c7a9e0878677771718fc62",
+    "content": "933974b4e6e730e4e0ac5911",
     "roles": [
       "title",
       "narrative",
@@ -5365,7 +5597,7 @@
       "moral"
     ],
     "file": "bedouin-whose-camel-was-stolen.mp3",
-    "bytes": 390188,
+    "bytes": 388892,
     "join": "ffmpeg+loudnorm"
   },
   "with-this-nation-the-world-can-be-conquered": {
@@ -5374,8 +5606,9 @@
     "index": 8,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "15532c99cfee04887a099529",
+    "prosody": "v3-az-dual",
+    "text": "040efd18effe11b8cf6ef249",
+    "content": "f4663bc20ceb8d1a15b305a9",
     "roles": [
       "title",
       "narrative",
@@ -5390,7 +5623,7 @@
       "moral"
     ],
     "file": "with-this-nation-the-world-can-be-conquered.mp3",
-    "bytes": 672572,
+    "bytes": 662780,
     "join": "ffmpeg+loudnorm"
   },
   "why-injustice-when-there-is-justice": {
@@ -5399,8 +5632,9 @@
     "index": 9,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "58baaf1b8db89403867e8175",
+    "prosody": "v3-az-dual",
+    "text": "86a9b977742a068a4c340f62",
+    "content": "063be664cd3a0ea65f66e179",
     "roles": [
       "title",
       "narrative",
@@ -5422,8 +5656,9 @@
     "index": 0,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "9f6133c7dc899a09dee45f63",
+    "prosody": "v3-az-dual",
+    "text": "e319845a20b4ef6d01f2eafc",
+    "content": "c307692928a7ddc63cd77a34",
     "roles": [
       "title",
       "narrative",
@@ -5439,8 +5674,9 @@
     "index": 1,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "7bb7360876975247f47bd38f",
+    "prosody": "v3-az-dual",
+    "text": "7821dca2df80d5b17b0125d6",
+    "content": "f4d09f5c92da1652f1181097",
     "roles": [
       "title",
       "narrative",
@@ -5471,8 +5707,9 @@
     "index": 2,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "301c46feae8b70c2f7c73d3a",
+    "prosody": "v3-az-dual",
+    "text": "9dadadbf216ea57bc49e1de5",
+    "content": "1de0116e1370d2b642ead4a4",
     "roles": [
       "title",
       "narrative",
@@ -5502,8 +5739,9 @@
     "index": 0,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "bd63ca506ad83d1c39c70f73",
+    "prosody": "v3-az-dual",
+    "text": "ec6917e8c44e2f6d68b00592",
+    "content": "161f642cb8245ff0944df9ad",
     "roles": [
       "title",
       "narrative",
@@ -5520,8 +5758,9 @@
     "index": 1,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "38fbe6543ccc375ef5c57fa2",
+    "prosody": "v3-az-dual",
+    "text": "5ada3be3b6c17a1d176f9a4f",
+    "content": "71497d97f6275ba99b7be0cd",
     "roles": [
       "title",
       "narrative",
@@ -5531,7 +5770,7 @@
       "moral"
     ],
     "file": "elephant-and-the-rope.mp3",
-    "bytes": 428924,
+    "bytes": 426044,
     "join": "ffmpeg+loudnorm"
   },
   "donkeys-law": {
@@ -5540,8 +5779,9 @@
     "index": 2,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "02e9eb5b26e3a686fea34b7c",
+    "prosody": "v3-az-dual",
+    "text": "063f90310c4389a03c1cb9b9",
+    "content": "dac506342649f786703c95ff",
     "roles": [
       "title",
       "narrative",
@@ -5554,7 +5794,7 @@
       "moral"
     ],
     "file": "donkeys-law.mp3",
-    "bytes": 655868,
+    "bytes": 652268,
     "join": "ffmpeg+loudnorm"
   },
   "hunters-description": {
@@ -5563,8 +5803,9 @@
     "index": 3,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "6415e16e66095c92506f3072",
+    "prosody": "v3-az-dual",
+    "text": "6e6a182dd7b1e41a2991112d",
+    "content": "b31bb722ee46eb99dd50947a",
     "roles": [
       "title",
       "narrative",
@@ -5581,8 +5822,9 @@
     "index": 4,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "e2f8e4d4b14e8f45a7578e38",
+    "prosody": "v3-az-dual",
+    "text": "9813af568b6f976b2478da65",
+    "content": "1421b248059a8ee59ea2f01f",
     "roles": [
       "title",
       "narrative",
@@ -5594,7 +5836,7 @@
       "moral"
     ],
     "file": "lions-footprint.mp3",
-    "bytes": 279308,
+    "bytes": 278876,
     "join": "ffmpeg+loudnorm"
   },
   "turtles-wrong-calculation": {
@@ -5603,8 +5845,9 @@
     "index": 5,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "4e2fa567e74697bebba8bf7b",
+    "prosody": "v3-az-dual",
+    "text": "65d0c554240cbb5ce27fcc56",
+    "content": "1f5fc1ebfd1929d63a4617e0",
     "roles": [
       "title",
       "narrative",
@@ -5615,7 +5858,7 @@
       "moral"
     ],
     "file": "turtles-wrong-calculation.mp3",
-    "bytes": 393788,
+    "bytes": 387884,
     "join": "ffmpeg+loudnorm"
   },
   "two-donkeys": {
@@ -5624,8 +5867,9 @@
     "index": 6,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "b52d68a82146f3ded4f3db74",
+    "prosody": "v3-az-dual",
+    "text": "1f55b44b08f56f60a6c66582",
+    "content": "effd3cb88453e5cd9fb22f3e",
     "roles": [
       "title",
       "narrative",
@@ -5642,8 +5886,9 @@
     "index": 7,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "c52ea85049563d177c9eb7f2",
+    "prosody": "v3-az-dual",
+    "text": "fb92c43d2d470e26670cf651",
+    "content": "e1fc03c81e929bb732d91f9d",
     "roles": [
       "title",
       "narrative",
@@ -5657,7 +5902,7 @@
       "moral"
     ],
     "file": "ant-that-carries-water.mp3",
-    "bytes": 454124,
+    "bytes": 456284,
     "join": "ffmpeg+loudnorm"
   },
   "magnificent-lesson": {
@@ -5666,8 +5911,9 @@
     "index": 0,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "fd589770ff9a9a9d082e7483",
+    "prosody": "v3-az-dual",
+    "text": "056b4f56e7314a2add9be1a0",
+    "content": "0f8cddb3e9768861d1f2e9c1",
     "roles": [
       "title",
       "narrative",
@@ -5683,7 +5929,7 @@
       "moral"
     ],
     "file": "magnificent-lesson.mp3",
-    "bytes": 676460,
+    "bytes": 679052,
     "join": "ffmpeg+loudnorm"
   },
   "albrecht-durer": {
@@ -5692,8 +5938,9 @@
     "index": 1,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "4e22c7a85224abf4430fcf24",
+    "prosody": "v3-az-dual",
+    "text": "fd430bfd377daa5594679364",
+    "content": "ff322cc083e6aefa24351d58",
     "roles": [
       "title",
       "narrative",
@@ -5709,7 +5956,7 @@
       "moral"
     ],
     "file": "albrecht-durer.mp3",
-    "bytes": 717932,
+    "bytes": 717068,
     "join": "ffmpeg+loudnorm"
   },
   "mihrimah-sultan-and-architect-sinan": {
@@ -5718,8 +5965,9 @@
     "index": 2,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "614ca744d2be613644c075a3",
+    "prosody": "v3-az-dual",
+    "text": "b3ee7d5278faba28b031e35d",
+    "content": "3424ddf207e69dbc2e275cd2",
     "roles": [
       "title",
       "narrative",
@@ -5744,8 +5992,9 @@
     "index": 3,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "2073544448df7e67f521739b",
+    "prosody": "v3-az-dual",
+    "text": "e96164fe66210a41e3acc3b1",
+    "content": "79139caeb841ae41a448b856",
     "roles": [
       "title",
       "narrative",
@@ -5767,7 +6016,7 @@
       "moral"
     ],
     "file": "architect-sinan-dies-in-a-house-without-water.mp3",
-    "bytes": 985484,
+    "bytes": 988076,
     "join": "ffmpeg+loudnorm"
   },
   "three-essential-things-for-a-city": {
@@ -5776,8 +6025,9 @@
     "index": 4,
     "voice": "en-US-GuyNeural",
     "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v2",
-    "content": "68a4a655d22af2e30d28a943",
+    "prosody": "v3-az-dual",
+    "text": "9fc78632f980edd6b6e773a9",
+    "content": "321796017cb1782f9af71aab",
     "roles": [
       "title",
       "narrative",

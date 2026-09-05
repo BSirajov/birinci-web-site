@@ -6777,8 +6777,10 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const start = audioPlayer.play();
       if (start && typeof start.catch === "function") {
         start.catch((err) => {
-          if (err && err.name === "NotAllowedError") {
-            updatePlayButton(false);
+          const name = err && err.name;
+          // Pause/seek/restart often abort play(); that is not an MP3 failure.
+          if (name === "NotAllowedError" || name === "AbortError") {
+            if (name === "NotAllowedError") updatePlayButton(false);
             return;
           }
           const fromQueue = queueActive;

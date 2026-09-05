@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Verify EN/RU story MP3 coverage, naming, and data-audio wiring."""
+"""Verify AZ/EN/RU story MP3 coverage, naming, and data-audio wiring."""
 from __future__ import annotations
 
 import json
@@ -10,7 +10,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
-from generate_story_audio import content_fingerprint, configure_lang, planned_jobs  # noqa: E402
+from generate_story_audio import (  # noqa: E402
+    content_fingerprint,
+    configure_lang,
+    planned_jobs,
+    text_fingerprint,
+)
 from i18n_config import story_audio_dir  # noqa: E402
 from stories_catalog import load_stories_catalog, stories_data_path  # noqa: E402
 
@@ -18,6 +23,8 @@ _ARTICLE_RE = re.compile(
     r'<article\b(?=[^>]*\bclass="[^"]*\bstory\b)[^>]*?>',
     re.I,
 )
+
+VERIFY_LANGS = ("az", "en", "ru")
 
 
 def catalog_stems(lang: str) -> list[str]:
@@ -71,8 +78,11 @@ def verify_lang(lang: str) -> list[str]:
         if not job:
             continue
         meta = manifest.get(stem) or {}
-        fp = content_fingerprint(job)
-        if meta.get("content") and meta.get("content") != fp:
+        # Stale = story narration text changed since the MP3 was built.
+        # Ignore full content-fingerprint drift (voice-plan formula upgrades).
+        fp_text = text_fingerprint(job)
+        stored_text = meta.get("text")
+        if stored_text and stored_text != fp_text:
             stale.append(stem)
     if stale:
         problems.append(f"{lang}: outdated vs story text ({len(stale)}): {', '.join(stale[:8])}")
@@ -140,14 +150,14 @@ def verify_lang(lang: str) -> list[str]:
 
 def main() -> None:
     all_problems: list[str] = []
-    for lang in ("en", "ru"):
+    for lang in VERIFY_LANGS:
         all_problems.extend(verify_lang(lang))
     if all_problems:
         print("FAIL")
         for line in all_problems:
             print(" -", line)
         raise SystemExit(1)
-    print("OK: EN/RU audio coverage and links look correct")
+    print("OK: AZ/EN/RU audio coverage and links look correct")
 
 
 if __name__ == "__main__":

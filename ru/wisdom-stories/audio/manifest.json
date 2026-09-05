@@ -1,34 +1,13 @@
 {
-  "different-path": {
-    "title": "Другой путь",
-    "category": "hikmet-ve-heyat-dersleri",
-    "index": 7,
-    "voice": "ru-RU-DmitryNeural",
-    "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "8fd7b91d5d6644ba5df749fc",
-    "roles": [
-      "title",
-      "narrative",
-      "narrative",
-      "narrative",
-      "narrative",
-      "narrative",
-      "narrative",
-      "moral"
-    ],
-    "file": "different-path.mp3",
-    "bytes": 658748,
-    "join": "ffmpeg+loudnorm"
-  },
   "idle-devil": {
     "title": "Бездельник-дьявол",
     "category": "iman-ve-meneviyyat",
     "index": 0,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "a9c6e47baedbfc638a35579b",
+    "prosody": "v3-az-dual",
+    "text": "79fe11895771fe1e4b8c066c",
+    "content": "c2ede2fa5805f02af303339b",
     "roles": [
       "title",
       "narrative",
@@ -45,8 +24,9 @@
     "index": 1,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "4b29e73ecd16fb2d6005b1a1",
+    "prosody": "v3-az-dual",
+    "text": "2282b34ec3ef0282eb89ae68",
+    "content": "3310c77409514303d3feaeeb",
     "roles": [
       "title",
       "narrative",
@@ -64,8 +44,9 @@
     "index": 2,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "fc85d71f803fc37070de1c76",
+    "prosody": "v3-az-dual",
+    "text": "2ee9b012923307f0e723fffa",
+    "content": "bc0234a7f2ff69ffc5607c63",
     "roles": [
       "title",
       "narrative",
@@ -88,8 +69,9 @@
     "index": 3,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "e3176f90d1fc248a7a16612e",
+    "prosody": "v3-az-dual",
+    "text": "c3079fac781663392e4aa670",
+    "content": "a716a31f2f958eccb4e0014b",
     "roles": [
       "title",
       "narrative",
@@ -102,7 +84,7 @@
       "moral"
     ],
     "file": "friend-of-god.mp3",
-    "bytes": 314156,
+    "bytes": 316604,
     "join": "ffmpeg+loudnorm"
   },
   "if-fate-allows-we-will-meet": {
@@ -111,8 +93,9 @@
     "index": 4,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "e8f696d5cf95aaaaabf7fa6a",
+    "prosody": "v3-az-dual",
+    "text": "7390945c58f355a33ccddaf1",
+    "content": "85f51bb1314971e0b0a9efb5",
     "roles": [
       "title",
       "question",
@@ -131,8 +114,9 @@
     "index": 5,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "d2b5f94a8396429dccd6782c",
+    "prosody": "v3-az-dual",
+    "text": "018fa03287fec39f027e5e0b",
+    "content": "f1b40b7fc33321469648592a",
     "roles": [
       "title",
       "narrative",
@@ -158,7 +142,7 @@
       "moral"
     ],
     "file": "sacrificial-meat.mp3",
-    "bytes": 2091836,
+    "bytes": 2091116,
     "join": "ffmpeg+loudnorm"
   },
   "stoning-the-devil": {
@@ -167,8 +151,9 @@
     "index": 6,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "7f51d6049d90a9686c23ffd8",
+    "prosody": "v3-az-dual",
+    "text": "c11616fc372e408afb96958a",
+    "content": "f25c00ee82e1fdc20df66a31",
     "roles": [
       "title",
       "narrative",
@@ -178,7 +163,7 @@
       "moral"
     ],
     "file": "stoning-the-devil.mp3",
-    "bytes": 281900,
+    "bytes": 282476,
     "join": "ffmpeg+loudnorm"
   },
   "dervishs-spoons": {
@@ -187,8 +172,9 @@
     "index": 7,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "a35e6f59471d71bc7b1ae964",
+    "prosody": "v3-az-dual",
+    "text": "8457d613d47fc2b1606d60ae",
+    "content": "5de1b22de0c55e26a991a214",
     "roles": [
       "title",
       "narrative",
@@ -203,7 +189,7 @@
       "moral"
     ],
     "file": "dervishs-spoons.mp3",
-    "bytes": 722972,
+    "bytes": 724268,
     "join": "ffmpeg+loudnorm"
   },
   "my-alif-has-been-dotted": {
@@ -212,8 +198,9 @@
     "index": 8,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "66c8c89b343e18908742b78e",
+    "prosody": "v3-az-dual",
+    "text": "b5766fd68898c8ebe0657ac7",
+    "content": "29e0c0e822f7758c1033bce8",
     "roles": [
       "title",
       "narrative",
@@ -230,8 +217,9 @@
     "index": 9,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "52c555a476780c452901c993",
+    "prosody": "v3-az-dual",
+    "text": "f1fc072dea814e369fb4249c",
+    "content": "ee5049296e5b9ed3bc11c6f0",
     "roles": [
       "title",
       "exclaim",
@@ -248,8 +236,9 @@
     "index": 10,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "d2390a2b523221d7b89c9d81",
+    "prosody": "v3-az-dual",
+    "text": "d7398448bffb5effa232226e",
+    "content": "0c4d3c74d245dc14f29ffdca",
     "roles": [
       "title",
       "narrative",
@@ -266,8 +255,9 @@
     "index": 11,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "46fddbfbb114945c4c79e9c3",
+    "prosody": "v3-az-dual",
+    "text": "d9a81300222dfa1e45c1ae27",
+    "content": "b3c75d0925d43db6e6a0677a",
     "roles": [
       "title",
       "narrative",
@@ -291,8 +281,9 @@
     "index": 12,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "d61691e9f40c86c8732a2ec4",
+    "prosody": "v3-az-dual",
+    "text": "e239b1fe41ad16312ee8c580",
+    "content": "30d6d96d6376893bb22c67b2",
     "roles": [
       "title",
       "narrative",
@@ -311,8 +302,9 @@
     "index": 13,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "53b18f3426a69c209453cbc7",
+    "prosody": "v3-az-dual",
+    "text": "4865ecce5bb6d66030444192",
+    "content": "35d5cd3a31d8ed493af618db",
     "roles": [
       "title",
       "narrative",
@@ -332,8 +324,9 @@
     "index": 14,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "2b13e64e8aeabedcf5afed06",
+    "prosody": "v3-az-dual",
+    "text": "73895b321c109419712676fa",
+    "content": "2ab32ed573a572d0275944cd",
     "roles": [
       "title",
       "narrative",
@@ -350,8 +343,9 @@
     "index": 15,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "e78632ed7b34f22db3ce04b4",
+    "prosody": "v3-az-dual",
+    "text": "783211eb49eba15e36b125b2",
+    "content": "669fcef217fadb63e16d7f55",
     "roles": [
       "title",
       "narrative",
@@ -371,7 +365,7 @@
       "moral"
     ],
     "file": "dervishs-robe.mp3",
-    "bytes": 725852,
+    "bytes": 731900,
     "join": "ffmpeg+loudnorm"
   },
   "dervishs-clothes": {
@@ -380,8 +374,9 @@
     "index": 16,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "7cad1ff824b504ab54c7815f",
+    "prosody": "v3-az-dual",
+    "text": "c049871eb2863e4afc7c3b09",
+    "content": "04d998dc4205d01c2e1cfe02",
     "roles": [
       "title",
       "narrative",
@@ -391,7 +386,7 @@
       "moral"
     ],
     "file": "dervishs-clothes.mp3",
-    "bytes": 217676,
+    "bytes": 219548,
     "join": "ffmpeg+loudnorm"
   },
   "where-does-calamity-come-from": {
@@ -400,8 +395,9 @@
     "index": 17,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "566406d9ba577e2f3bea1554",
+    "prosody": "v3-az-dual",
+    "text": "e661b7a3b5475f11ffd472d5",
+    "content": "52dd1c0521ddb9857a9e79e9",
     "roles": [
       "title",
       "narrative",
@@ -413,7 +409,7 @@
       "moral"
     ],
     "file": "where-does-calamity-come-from.mp3",
-    "bytes": 263612,
+    "bytes": 266492,
     "join": "ffmpeg+loudnorm"
   },
   "hajj-pilgrimage": {
@@ -422,8 +418,9 @@
     "index": 18,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "9eff8fb5bd7a9ecfb891e934",
+    "prosody": "v3-az-dual",
+    "text": "1a3ff2ac2fe9580e74ff42a7",
+    "content": "40c77ea89a3569955f70683a",
     "roles": [
       "title",
       "narrative",
@@ -443,8 +440,9 @@
     "index": 19,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "0d4d593d8a7daea67749a38b",
+    "prosody": "v3-az-dual",
+    "text": "df6910ac9262a9078918dae5",
+    "content": "0e0144c82f1c4f84a17c11f9",
     "roles": [
       "title",
       "narrative",
@@ -460,8 +458,9 @@
     "index": 20,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "e685348537f63e9a95b47373",
+    "prosody": "v3-az-dual",
+    "text": "fe524c3431f064583fb00e55",
+    "content": "4c7a0ce402cf6354dca037da",
     "roles": [
       "title",
       "narrative",
@@ -474,7 +473,7 @@
       "moral"
     ],
     "file": "to-be-fasting.mp3",
-    "bytes": 454412,
+    "bytes": 456284,
     "join": "ffmpeg+loudnorm"
   },
   "why-are-you-waiting-for-the-last-day-of-the-world": {
@@ -483,8 +482,9 @@
     "index": 21,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "fd17370fcd03ceef6c6444ae",
+    "prosody": "v3-az-dual",
+    "text": "3fa974f6c4729e1d67e38291",
+    "content": "6ff07b36ffc99e03729e5992",
     "roles": [
       "title",
       "narrative",
@@ -507,7 +507,7 @@
       "moral"
     ],
     "file": "why-are-you-waiting-for-the-last-day-of-the-world.mp3",
-    "bytes": 634124,
+    "bytes": 639452,
     "join": "ffmpeg+loudnorm"
   },
   "help-yourself-o-exalted-god": {
@@ -516,8 +516,9 @@
     "index": 22,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "1a6cab4487b922d198d45dff",
+    "prosody": "v3-az-dual",
+    "text": "23873def73a0fe1fbbda9902",
+    "content": "108fd0397a4b1441b238afa9",
     "roles": [
       "title",
       "narrative",
@@ -542,8 +543,9 @@
     "index": 23,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "a61fe4684059e829a77a9c70",
+    "prosody": "v3-az-dual",
+    "text": "73777ed5f266c676491211c1",
+    "content": "15319f7bf411ec9767cf9392",
     "roles": [
       "title",
       "narrative",
@@ -560,8 +562,9 @@
     "index": 24,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "388764eb2f23fda43d1f1804",
+    "prosody": "v3-az-dual",
+    "text": "4daef5b95e7e9c6e081e1dd4",
+    "content": "1054d60d77b07506d9c78041",
     "roles": [
       "title",
       "narrative",
@@ -571,7 +574,7 @@
       "moral"
     ],
     "file": "most-beautiful-portion.mp3",
-    "bytes": 207596,
+    "bytes": 207020,
     "join": "ffmpeg+loudnorm"
   },
   "light-of-the-universe": {
@@ -580,8 +583,9 @@
     "index": 25,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "35686784a7e658a2a4c1e7fc",
+    "prosody": "v3-az-dual",
+    "text": "5a829a4cc38b32da182abdb6",
+    "content": "9ec60a47f834580abd70fc7d",
     "roles": [
       "title",
       "narrative",
@@ -599,8 +603,9 @@
     "index": 26,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "5ca9c36a8abe66325b54e89c",
+    "prosody": "v3-az-dual",
+    "text": "7ef4dd7fda8251cf2c7d201b",
+    "content": "eabd41bed10218beaea491e0",
     "roles": [
       "title",
       "narrative",
@@ -616,8 +621,9 @@
     "index": 27,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "a9e6f7b243b31a51092d9dd5",
+    "prosody": "v3-az-dual",
+    "text": "605b0c91812c34b3c3699a7e",
+    "content": "4311facf5b1daf68882e9215",
     "roles": [
       "title",
       "narrative",
@@ -634,8 +640,9 @@
     "index": 28,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "23bff3efb9687f3cfd476c08",
+    "prosody": "v3-az-dual",
+    "text": "02b37fc20343a73dba9b9f19",
+    "content": "810f86772af7d058ba23deda",
     "roles": [
       "title",
       "narrative",
@@ -658,8 +665,9 @@
     "index": 29,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "82150eab5448158d02bebb8d",
+    "prosody": "v3-az-dual",
+    "text": "e5316edfd663337584c9b62b",
+    "content": "92e8482e3e4500054c9f6b4e",
     "roles": [
       "title",
       "narrative",
@@ -676,8 +684,9 @@
     "index": 30,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "9c5458f15dabddcc773dc83d",
+    "prosody": "v3-az-dual",
+    "text": "c72cadee8db6bd8495c2d8fe",
+    "content": "62850220943c75385d1593f1",
     "roles": [
       "title",
       "narrative",
@@ -699,8 +708,9 @@
     "index": 31,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "12b3a6c27d77f953b0d95ec8",
+    "prosody": "v3-az-dual",
+    "text": "8808eaa5fc0e8e8ca5f38aa3",
+    "content": "9144d40c4b5f3e4adec8f55b",
     "roles": [
       "title",
       "narrative",
@@ -709,7 +719,7 @@
       "moral"
     ],
     "file": "eat-less-and-stay-on-the-right-path.mp3",
-    "bytes": 279740,
+    "bytes": 281180,
     "join": "ffmpeg+loudnorm"
   },
   "lawful-morsel": {
@@ -718,8 +728,9 @@
     "index": 32,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "690790790f8392ee33142cbf",
+    "prosody": "v3-az-dual",
+    "text": "663e7d0aa48dfd2bb60510ca",
+    "content": "52047185607b395f2971b4f8",
     "roles": [
       "title",
       "narrative",
@@ -737,8 +748,9 @@
     "index": 33,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "94b5f16a1ca058d4c1109a27",
+    "prosody": "v3-az-dual",
+    "text": "b45dfb9eee9391bddc9dfa2f",
+    "content": "16e13c38cedae9e0bfc1f8e8",
     "roles": [
       "title",
       "narrative",
@@ -764,8 +776,9 @@
     "index": 34,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "607ca8e7c225318a5202a5f5",
+    "prosody": "v3-az-dual",
+    "text": "00275a09be722906887a46bb",
+    "content": "053f833954acd1bcf62f7e4a",
     "roles": [
       "title",
       "narrative",
@@ -793,7 +806,7 @@
       "moral"
     ],
     "file": "price-of-a-miracle.mp3",
-    "bytes": 1562780,
+    "bytes": 1568396,
     "join": "ffmpeg+loudnorm"
   },
   "church-bell": {
@@ -802,8 +815,9 @@
     "index": 35,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "af701aeb0a75d2507a4452fd",
+    "prosody": "v3-az-dual",
+    "text": "029cdae9fb49a652298cd979",
+    "content": "7880cf04872ed31d593454b9",
     "roles": [
       "title",
       "narrative",
@@ -822,8 +836,9 @@
     "index": 0,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "ddbf22eeefc03e4dba332792",
+    "prosody": "v3-az-dual",
+    "text": "a8b0d04a5d3c2d5bfe126d3a",
+    "content": "8471da84715c12b6c6b5699e",
     "roles": [
       "title",
       "narrative",
@@ -840,7 +855,7 @@
       "moral"
     ],
     "file": "i-am-waiting-for-the-teeth.mp3",
-    "bytes": 681212,
+    "bytes": 686108,
     "join": "ffmpeg+loudnorm"
   },
   "raising-children": {
@@ -849,8 +864,9 @@
     "index": 1,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "f9334d483cbda5984857593f",
+    "prosody": "v3-az-dual",
+    "text": "723d8e19622c8b6ba510f1d5",
+    "content": "8ef7f1aedc662ea1ed44b01a",
     "roles": [
       "title",
       "narrative",
@@ -874,7 +890,7 @@
       "moral"
     ],
     "file": "raising-children.mp3",
-    "bytes": 1841564,
+    "bytes": 1844588,
     "join": "ffmpeg+loudnorm"
   },
   "fallen-teeth": {
@@ -883,8 +899,9 @@
     "index": 2,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "2feb81cb15c2dbe13cb59d5d",
+    "prosody": "v3-az-dual",
+    "text": "76b7797293ea9f5f52d26d48",
+    "content": "5fa00b406dd2325a4b0e1e62",
     "roles": [
       "title",
       "narrative",
@@ -900,8 +917,9 @@
     "index": 3,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "45e6000a1e59c6c2c5db5985",
+    "prosody": "v3-az-dual",
+    "text": "808e3d4efafe72f57f79770c",
+    "content": "aa954261655e2ccffd2f2498",
     "roles": [
       "title",
       "narrative",
@@ -913,7 +931,7 @@
       "moral"
     ],
     "file": "rotten-seed.mp3",
-    "bytes": 500060,
+    "bytes": 499772,
     "join": "ffmpeg+loudnorm"
   },
   "grandfather-and-grandson-at-the-market": {
@@ -922,8 +940,9 @@
     "index": 4,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "d9960f374693d7ee3efc54d5",
+    "prosody": "v3-az-dual",
+    "text": "d034c76637cec59e486a5ccb",
+    "content": "12153a5325e429cce9dae163",
     "roles": [
       "title",
       "narrative",
@@ -940,8 +959,9 @@
     "index": 5,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "1758b0538a8ad2e2e741e575",
+    "prosody": "v3-az-dual",
+    "text": "97219f59fe41dbcdf62b11d8",
+    "content": "8c37fdea235584a1eaf62e4b",
     "roles": [
       "title",
       "narrative",
@@ -954,7 +974,7 @@
       "moral"
     ],
     "file": "hold-my-hand.mp3",
-    "bytes": 362108,
+    "bytes": 362684,
     "join": "ffmpeg+loudnorm"
   },
   "from-a-wise-fathers-advice-to-his-son": {
@@ -963,8 +983,9 @@
     "index": 6,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "35b231c97249b9967eccd497",
+    "prosody": "v3-az-dual",
+    "text": "d370cc70340750c7a9ae0cf1",
+    "content": "78efb1ac05a01b9bf0f82b0b",
     "roles": [
       "title",
       "exclaim",
@@ -996,8 +1017,9 @@
     "index": 7,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "56a3ce82628b2f1d4810293f",
+    "prosody": "v3-az-dual",
+    "text": "d5808398baf870edc4dd1d28",
+    "content": "433dd579884324b482623b28",
     "roles": [
       "title",
       "narrative",
@@ -1021,8 +1043,9 @@
     "index": 8,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "b300adcb8883ec2f010b69fc",
+    "prosody": "v3-az-dual",
+    "text": "4c6d3a69160b6b2608eba3d1",
+    "content": "2228cfa9f40a391b6f263a0a",
     "roles": [
       "title",
       "narrative",
@@ -1056,8 +1079,9 @@
     "index": 9,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "3eea7bf8bf11de2afc1427c3",
+    "prosody": "v3-az-dual",
+    "text": "12a32f0027029c5388f54d9f",
+    "content": "0de31b44f6a8acec4a4d53e6",
     "roles": [
       "title",
       "narrative",
@@ -1078,7 +1102,7 @@
       "moral"
     ],
     "file": "mother-and-son.mp3",
-    "bytes": 1433900,
+    "bytes": 1436636,
     "join": "ffmpeg+loudnorm"
   },
   "mothers-advice-fakir-baykurt-never-forgot": {
@@ -1087,8 +1111,9 @@
     "index": 10,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "21c57e8b6027f5cfdbc33526",
+    "prosody": "v3-az-dual",
+    "text": "ea764ed6bbb70305e88ddbe2",
+    "content": "08b476212828e098313435a1",
     "roles": [
       "title",
       "narrative",
@@ -1113,8 +1138,9 @@
     "index": 11,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "0ed1bc6424a1b27d80fff831",
+    "prosody": "v3-az-dual",
+    "text": "2d8a3d286295efbf554e2dbf",
+    "content": "5f28fdfdc505a2e3913807dc",
     "roles": [
       "title",
       "narrative",
@@ -1145,7 +1171,7 @@
       "moral"
     ],
     "file": "father-and-son.mp3",
-    "bytes": 1458668,
+    "bytes": 1472204,
     "join": "ffmpeg+loudnorm"
   },
   "only-my-mother-would-weep": {
@@ -1154,8 +1180,9 @@
     "index": 12,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "bbb406613434a048fa093759",
+    "prosody": "v3-az-dual",
+    "text": "5f40c02161174fac3595a69e",
+    "content": "2eaff515881ed609a609e498",
     "roles": [
       "title",
       "exclaim",
@@ -1171,8 +1198,9 @@
     "index": 13,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "227accc0a9dfb42e996aa9bf",
+    "prosody": "v3-az-dual",
+    "text": "b4aa55d9a57ef3fec5ae8876",
+    "content": "1696200901cbe75271d46d74",
     "roles": [
       "title",
       "narrative",
@@ -1182,7 +1210,7 @@
       "moral"
     ],
     "file": "fathers-footprints.mp3",
-    "bytes": 185420,
+    "bytes": 186572,
     "join": "ffmpeg+loudnorm"
   },
   "festive-gift": {
@@ -1191,8 +1219,9 @@
     "index": 14,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "b9c3a55baa7b46cac2965265",
+    "prosody": "v3-az-dual",
+    "text": "a56837233be2f840707ef890",
+    "content": "11cf058b665fcb7f11fcd224",
     "roles": [
       "title",
       "question",
@@ -1201,7 +1230,7 @@
       "moral"
     ],
     "file": "festive-gift.mp3",
-    "bytes": 212204,
+    "bytes": 210476,
     "join": "ffmpeg+loudnorm"
   },
   "weeds-must-be-pulled-from-the-root": {
@@ -1210,8 +1239,9 @@
     "index": 15,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "7605f957bd1b177de272119c",
+    "prosody": "v3-az-dual",
+    "text": "af24c739eb67290ae8aadf53",
+    "content": "3cc6b01be867dd5261a79777",
     "roles": [
       "title",
       "narrative",
@@ -1228,8 +1258,9 @@
     "index": 16,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "ccd7a72fa14e1d4965ccfc38",
+    "prosody": "v3-az-dual",
+    "text": "bbba0d3f80603332b217113a",
+    "content": "5c18981f849d0e9c9680cc86",
     "roles": [
       "title",
       "narrative",
@@ -1245,8 +1276,9 @@
     "index": 17,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "70525bf2bc11c69a72cf6fee",
+    "prosody": "v3-az-dual",
+    "text": "59920f4209d71cb5737404f4",
+    "content": "7554f70b5b66b4d4444c86e9",
     "roles": [
       "title",
       "narrative",
@@ -1267,8 +1299,9 @@
     "index": 18,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "9660b01f3f0fecf67a3523d9",
+    "prosody": "v3-az-dual",
+    "text": "af75ea6d9075d81ec620e9eb",
+    "content": "00ea47310bc767f3d16ed651",
     "roles": [
       "title",
       "narrative",
@@ -1291,8 +1324,9 @@
     "index": 19,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "60d1750b8262f0b1b5bb2bfd",
+    "prosody": "v3-az-dual",
+    "text": "f4c09cafbb61a6b7a884538e",
+    "content": "9c472abc6f233c23af14c165",
     "roles": [
       "title",
       "narrative",
@@ -1316,7 +1350,7 @@
       "moral"
     ],
     "file": "puppies-for-sale.mp3",
-    "bytes": 1029404,
+    "bytes": 1035164,
     "join": "ffmpeg+loudnorm"
   },
   "i-am-tired-mother": {
@@ -1325,8 +1359,9 @@
     "index": 20,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "a536cb2f0375b0014f474b5f",
+    "prosody": "v3-az-dual",
+    "text": "c4da2843c86227e1e9bafa4c",
+    "content": "cfcd7276fc50b6466123af07",
     "roles": [
       "title",
       "dialogue",
@@ -1340,7 +1375,7 @@
       "moral"
     ],
     "file": "i-am-tired-mother.mp3",
-    "bytes": 414668,
+    "bytes": 418844,
     "join": "ffmpeg+loudnorm"
   },
   "beware-of-those-you-love": {
@@ -1349,8 +1384,9 @@
     "index": 0,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "4d3a92e07d5a43243a5f5247",
+    "prosody": "v3-az-dual",
+    "text": "104842f2c172c41e8df12ac8",
+    "content": "9ad1669f68a622e63b4a9a1a",
     "roles": [
       "title",
       "narrative",
@@ -1366,7 +1402,7 @@
       "moral"
     ],
     "file": "beware-of-those-you-love.mp3",
-    "bytes": 534188,
+    "bytes": 536060,
     "join": "ffmpeg+loudnorm"
   },
   "friendship-and-love": {
@@ -1375,8 +1411,9 @@
     "index": 1,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "490b22100cf2ea1c61b6b36e",
+    "prosody": "v3-az-dual",
+    "text": "0a36b144f1364b3cd22687be",
+    "content": "3dc7e3bc57ef8ed5bb0c71ca",
     "roles": [
       "title",
       "dialogue",
@@ -1386,7 +1423,7 @@
       "moral"
     ],
     "file": "friendship-and-love.mp3",
-    "bytes": 268796,
+    "bytes": 267068,
     "join": "ffmpeg+loudnorm"
   },
   "woman-and-the-mirror": {
@@ -1395,8 +1432,9 @@
     "index": 2,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "2efc970844316acd31e7d65c",
+    "prosody": "v3-az-dual",
+    "text": "5474d63d3ead04448824120e",
+    "content": "b685e4112c35f9b493179c25",
     "roles": [
       "title",
       "narrative",
@@ -1419,8 +1457,9 @@
     "index": 3,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "84766fcaa6fcda561b055c7e",
+    "prosody": "v3-az-dual",
+    "text": "e5c2a9e69092efbfdea8f9a9",
+    "content": "63c5850082520c80fd0f1d90",
     "roles": [
       "title",
       "narrative",
@@ -1436,8 +1475,9 @@
     "index": 4,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "dbf989a67703d635822f67b2",
+    "prosody": "v3-az-dual",
+    "text": "1e5e6d80880ec290c25172a3",
+    "content": "e2c0d84c973635f418c105e8",
     "roles": [
       "title",
       "narrative",
@@ -1467,8 +1507,9 @@
     "index": 5,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "f7e0decd671d2c05a3d84f72",
+    "prosody": "v3-az-dual",
+    "text": "2e54ede00f9ba70db3cbc0b6",
+    "content": "7881075f4c686f648f2227b1",
     "roles": [
       "title",
       "narrative",
@@ -1493,7 +1534,7 @@
       "moral"
     ],
     "file": "red-dress.mp3",
-    "bytes": 1395164,
+    "bytes": 1398188,
     "join": "ffmpeg+loudnorm"
   },
   "what-breaks-a-marriage": {
@@ -1502,8 +1543,9 @@
     "index": 6,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "a0dc34daa0b0a351548c5984",
+    "prosody": "v3-az-dual",
+    "text": "6263941775b3ed479b57bbea",
+    "content": "c108053ef8420bfd25b4ddf1",
     "roles": [
       "title",
       "narrative",
@@ -1532,7 +1574,7 @@
       "moral"
     ],
     "file": "what-breaks-a-marriage.mp3",
-    "bytes": 815420,
+    "bytes": 815276,
     "join": "ffmpeg+loudnorm"
   },
   "beloved-is-one-who-gives-love-to-people": {
@@ -1541,8 +1583,9 @@
     "index": 7,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "887345d9dedd0d1f91ff0e71",
+    "prosody": "v3-az-dual",
+    "text": "5bc336686982925284017321",
+    "content": "8af02d2e785911ba18f78f71",
     "roles": [
       "title",
       "narrative",
@@ -1562,8 +1605,9 @@
     "index": 8,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "8bbc93b1898815a7597b49e5",
+    "prosody": "v3-az-dual",
+    "text": "80d35297aa797e08dfa5bf90",
+    "content": "b555d0c8615252fdcbf96afc",
     "roles": [
       "title",
       "narrative",
@@ -1576,7 +1620,7 @@
       "moral"
     ],
     "file": "loving-from-afar.mp3",
-    "bytes": 387740,
+    "bytes": 387020,
     "join": "ffmpeg+loudnorm"
   },
   "do-not-let-your-hearts-part": {
@@ -1585,8 +1629,9 @@
     "index": 9,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "0cfdfa8a7a8d22bdc99d1359",
+    "prosody": "v3-az-dual",
+    "text": "4fba96828120271565922810",
+    "content": "312b6317fefbf0d2bb5183c6",
     "roles": [
       "title",
       "question",
@@ -1608,8 +1653,9 @@
     "index": 10,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "c6855f10a4e88724829641d8",
+    "prosody": "v3-az-dual",
+    "text": "e76cf0e5f0f6896d87e28cca",
+    "content": "9c4b64fb3d07cd95318306c1",
     "roles": [
       "title",
       "narrative",
@@ -1623,7 +1669,7 @@
       "moral"
     ],
     "file": "early-marriage.mp3",
-    "bytes": 621308,
+    "bytes": 620876,
     "join": "ffmpeg+loudnorm"
   },
   "rose": {
@@ -1632,8 +1678,9 @@
     "index": 11,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "54d93e854b633b35ab7c8b36",
+    "prosody": "v3-az-dual",
+    "text": "7bfd13ffadb831bdb5ec34d2",
+    "content": "50e1b2013a5c1663e5d2e459",
     "roles": [
       "title",
       "narrative",
@@ -1649,8 +1696,9 @@
     "index": 12,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "129fa89e9764b26ccfc55a58",
+    "prosody": "v3-az-dual",
+    "text": "f13a412fa7e92a7799113a92",
+    "content": "876c149880fed7479577c254",
     "roles": [
       "title",
       "narrative",
@@ -1669,8 +1717,9 @@
     "index": 13,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "ec03033ed75ac8fd1a6a9e05",
+    "prosody": "v3-az-dual",
+    "text": "39279da51e07997db22625ac",
+    "content": "1c348587cbccfc692e47d188",
     "roles": [
       "title",
       "narrative",
@@ -1693,8 +1742,9 @@
     "index": 14,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "4f3f5c30ff1d38627f94bea3",
+    "prosody": "v3-az-dual",
+    "text": "1833ccb71ef1274972e6a49a",
+    "content": "1e69ea52ccfd926960e951fe",
     "roles": [
       "title",
       "narrative",
@@ -1716,8 +1766,9 @@
     "index": 15,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "4ba903fe5ed1a21e111b7236",
+    "prosody": "v3-az-dual",
+    "text": "fbca2e3e14b220ff2bfcf7c6",
+    "content": "450f2433d398a4bdc1a2a84d",
     "roles": [
       "title",
       "narrative",
@@ -1737,7 +1788,7 @@
       "moral"
     ],
     "file": "mother-of-pearl-flower.mp3",
-    "bytes": 1514252,
+    "bytes": 1517132,
     "join": "ffmpeg+loudnorm"
   },
   "what-women-have-endured-in-this-world": {
@@ -1746,8 +1797,9 @@
     "index": 16,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "1756a31208cf95d202c165e9",
+    "prosody": "v3-az-dual",
+    "text": "70e2dbe4521bb60e205ba3e3",
+    "content": "9e20a47bf60cb028caf94ec7",
     "roles": [
       "title",
       "narrative",
@@ -1784,8 +1836,9 @@
     "index": 17,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "92f26844c809e8f1531e5a2b",
+    "prosody": "v3-az-dual",
+    "text": "a050d98b6c29a3cdb332987d",
+    "content": "1bb692e7667d37398cc07652",
     "roles": [
       "title",
       "narrative",
@@ -1810,8 +1863,9 @@
     "index": 18,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "a91655580a4a6d6447df6dae",
+    "prosody": "v3-az-dual",
+    "text": "e2006f6e6e23251b66b42fb4",
+    "content": "db339ae80d93241be21a8e9e",
     "roles": [
       "title",
       "narrative",
@@ -1831,8 +1885,9 @@
     "index": 19,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "fb3b8a225e4b9eb509cac702",
+    "prosody": "v3-az-dual",
+    "text": "1ff6a45e0a154aff02f7b9c7",
+    "content": "636557b96948d5f1c37c859a",
     "roles": [
       "title",
       "question",
@@ -1849,8 +1904,9 @@
     "index": 0,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "2f9bafab1fb39688a30dc4f5",
+    "prosody": "v3-az-dual",
+    "text": "fef4a3525b89ae51473b0fef",
+    "content": "06e823d8d9a92eb39dc05098",
     "roles": [
       "title",
       "exclaim",
@@ -1866,8 +1922,9 @@
     "index": 1,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "0cc69a7ddc34613d6bfeb5d4",
+    "prosody": "v3-az-dual",
+    "text": "1e5d68f5f676aa440af34f5f",
+    "content": "e0b73c97bd95bff8363e2fde",
     "roles": [
       "title",
       "narrative",
@@ -1881,7 +1938,7 @@
       "moral"
     ],
     "file": "handful-of-roasted-chickpeas.mp3",
-    "bytes": 353756,
+    "bytes": 354908,
     "join": "ffmpeg+loudnorm"
   },
   "welcome-my-bey": {
@@ -1890,8 +1947,9 @@
     "index": 2,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "12d1b8e9b9234d67f966e6d5",
+    "prosody": "v3-az-dual",
+    "text": "0f42907111c0a8a6b52d3fb9",
+    "content": "ce409c72d4e388bc79da09f6",
     "roles": [
       "title",
       "narrative",
@@ -1914,7 +1972,7 @@
       "moral"
     ],
     "file": "welcome-my-bey.mp3",
-    "bytes": 1129052,
+    "bytes": 1128620,
     "join": "ffmpeg+loudnorm"
   },
   "friendship-of-horses": {
@@ -1923,8 +1981,9 @@
     "index": 3,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "fd3105a6ba2968c249aa491e",
+    "prosody": "v3-az-dual",
+    "text": "241d5bf597fc0658208eff85",
+    "content": "24ec6de1fe244cdaffaa97b4",
     "roles": [
       "title",
       "narrative",
@@ -1943,8 +2002,9 @@
     "index": 4,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "7c7fee0232a514c80da3dced",
+    "prosody": "v3-az-dual",
+    "text": "57620b660cb3557ecada3cc4",
+    "content": "85f9b53205bf6004793794a1",
     "roles": [
       "title",
       "narrative",
@@ -1962,8 +2022,9 @@
     "index": 5,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "2566ba34a7269e5ce829fc3d",
+    "prosody": "v3-az-dual",
+    "text": "0c2a6c68b4e3d8a24554e393",
+    "content": "bb20c8dcfed4a82e479faa69",
     "roles": [
       "title",
       "narrative",
@@ -1982,7 +2043,7 @@
       "moral"
     ],
     "file": "sound-of-the-doorbell.mp3",
-    "bytes": 661484,
+    "bytes": 666956,
     "join": "ffmpeg+loudnorm"
   },
   "to-meet-and-to-know": {
@@ -1991,8 +2052,9 @@
     "index": 6,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "e743e33742a8b3718688c410",
+    "prosody": "v3-az-dual",
+    "text": "e764d2b2265e68b84f516ee9",
+    "content": "0eb9fbfa6b102f08bfdaba2c",
     "roles": [
       "title",
       "narrative",
@@ -2009,8 +2071,9 @@
     "index": 7,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "c8121a3d905db97a75f5e8c3",
+    "prosody": "v3-az-dual",
+    "text": "b5881ac33f96a970f960ef6e",
+    "content": "356bb8f3119b775279c3836b",
     "roles": [
       "title",
       "narrative",
@@ -2025,7 +2088,7 @@
       "moral"
     ],
     "file": "how-to-ward-off-insults.mp3",
-    "bytes": 637436,
+    "bytes": 638732,
     "join": "ffmpeg+loudnorm"
   },
   "compliment": {
@@ -2034,8 +2097,9 @@
     "index": 8,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "5463e81f16a548eafcc1463f",
+    "prosody": "v3-az-dual",
+    "text": "a0ef031df25d342d27687469",
+    "content": "d295067fac92acf6ff176b81",
     "roles": [
       "title",
       "narrative",
@@ -2060,7 +2124,7 @@
       "moral"
     ],
     "file": "compliment.mp3",
-    "bytes": 1370108,
+    "bytes": 1371692,
     "join": "ffmpeg+loudnorm"
   },
   "people-who-need-something-from-you": {
@@ -2069,8 +2133,9 @@
     "index": 9,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "9543dee3ff88c70b2936b1a7",
+    "prosody": "v3-az-dual",
+    "text": "58fcb8b577fc091260b3241d",
+    "content": "01a678033adfd321424e853a",
     "roles": [
       "title",
       "narrative",
@@ -2086,8 +2151,9 @@
     "index": 10,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "3f0cd56680230171ab7acb1f",
+    "prosody": "v3-az-dual",
+    "text": "b95deb7db6990795e9cdbdac",
+    "content": "e17d5075a28aec384223fea0",
     "roles": [
       "title",
       "narrative",
@@ -2106,8 +2172,9 @@
     "index": 11,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "48e579fce8a56c665e8c865c",
+    "prosody": "v3-az-dual",
+    "text": "f89b2509fe045c8591705f8a",
+    "content": "83d41fa73228dce19de3238e",
     "roles": [
       "title",
       "narrative",
@@ -2123,8 +2190,9 @@
     "index": 12,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "930a5a33456bdde5c57ec44b",
+    "prosody": "v3-az-dual",
+    "text": "18c37ad67b0cf3b2ff011729",
+    "content": "ec2fc6c612d1a3ececa0622c",
     "roles": [
       "title",
       "narrative",
@@ -2145,8 +2213,9 @@
     "index": 13,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "9389fec5621e1c11ff4b1277",
+    "prosody": "v3-az-dual",
+    "text": "a7fdfd1d0d7bf5c06b3e8871",
+    "content": "5f002ded7617914c74e4089a",
     "roles": [
       "title",
       "narrative",
@@ -2163,8 +2232,9 @@
     "index": 14,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "8734048642a7906ad3fe1a21",
+    "prosody": "v3-az-dual",
+    "text": "c91da9c924a923527a0ff077",
+    "content": "237db0cb55d02b4889bf2b50",
     "roles": [
       "title",
       "narrative",
@@ -2183,8 +2253,9 @@
     "index": 15,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "f867c930cbbca9e9da1f9bd1",
+    "prosody": "v3-az-dual",
+    "text": "d8406b237e53ffcbf006d472",
+    "content": "c034f9135e1e2090cef6097c",
     "roles": [
       "title",
       "narrative",
@@ -2199,7 +2270,7 @@
       "moral"
     ],
     "file": "pair-of-boots.mp3",
-    "bytes": 571052,
+    "bytes": 570620,
     "join": "ffmpeg+loudnorm"
   },
   "know-your-friend": {
@@ -2208,8 +2279,9 @@
     "index": 16,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "9b0925c29d9cc7e0cb691669",
+    "prosody": "v3-az-dual",
+    "text": "731a49ebb41c69cab4efecd3",
+    "content": "c56913884b10ae2f846868e7",
     "roles": [
       "title",
       "narrative",
@@ -2225,8 +2297,9 @@
     "index": 17,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "2e7f9e6cfab05da4dfaf5a17",
+    "prosody": "v3-az-dual",
+    "text": "20a4273fc49096da9049fbd9",
+    "content": "c33ae47d31318c8729cf951d",
     "roles": [
       "title",
       "narrative",
@@ -2240,7 +2313,7 @@
       "moral"
     ],
     "file": "why-people-shout-when-they-argue.mp3",
-    "bytes": 660476,
+    "bytes": 662924,
     "join": "ffmpeg+loudnorm"
   },
   "spend-your-time-with-people": {
@@ -2249,8 +2322,9 @@
     "index": 18,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "6776ef0ded7f2e48b9dacb55",
+    "prosody": "v3-az-dual",
+    "text": "f08114fad4894b6a91773dc6",
+    "content": "7536f897478b96bd330aff50",
     "roles": [
       "title",
       "narrative",
@@ -2274,7 +2348,7 @@
       "moral"
     ],
     "file": "spend-your-time-with-people.mp3",
-    "bytes": 915788,
+    "bytes": 917372,
     "join": "ffmpeg+loudnorm"
   },
   "to-forgive": {
@@ -2283,8 +2357,9 @@
     "index": 19,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "56c94818ade2539f4fd53473",
+    "prosody": "v3-az-dual",
+    "text": "3623b181fb3047fa1963c63c",
+    "content": "f0730208a923a5050b20756c",
     "roles": [
       "title",
       "narrative",
@@ -2302,8 +2377,9 @@
     "index": 20,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "851be414bfd313fdd9ee9752",
+    "prosody": "v3-az-dual",
+    "text": "c547641e5e883db887b7569f",
+    "content": "c41600d1782f48b36be83f47",
     "roles": [
       "title",
       "narrative",
@@ -2323,8 +2399,9 @@
     "index": 21,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "10836cd3ab642545f49ce312",
+    "prosody": "v3-az-dual",
+    "text": "1de6e4ce5d5b573c43987abe",
+    "content": "5b73503ecfda549dfed4c156",
     "roles": [
       "title",
       "narrative",
@@ -2345,7 +2422,7 @@
       "moral"
     ],
     "file": "compassion.mp3",
-    "bytes": 1211708,
+    "bytes": 1210412,
     "join": "ffmpeg+loudnorm"
   },
   "gossip": {
@@ -2354,8 +2431,9 @@
     "index": 22,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "61f9f6e2c1fb6b7c5a8304b2",
+    "prosody": "v3-az-dual",
+    "text": "77a16265dd2940b7dba1e633",
+    "content": "53af87a641f6969d89cee01c",
     "roles": [
       "title",
       "narrative",
@@ -2374,7 +2452,7 @@
       "moral"
     ],
     "file": "gossip.mp3",
-    "bytes": 728444,
+    "bytes": 728876,
     "join": "ffmpeg+loudnorm"
   },
   "glass-of-milk": {
@@ -2383,8 +2461,9 @@
     "index": 23,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "bc6662d34f455923f0a5edf3",
+    "prosody": "v3-az-dual",
+    "text": "dd962c17951a80da1261b84c",
+    "content": "5c3ac7ae9e6f8232c4078770",
     "roles": [
       "title",
       "narrative",
@@ -2405,7 +2484,7 @@
       "moral"
     ],
     "file": "glass-of-milk.mp3",
-    "bytes": 970220,
+    "bytes": 970940,
     "join": "ffmpeg+loudnorm"
   },
   "your-friends": {
@@ -2414,8 +2493,9 @@
     "index": 24,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "1ee87da41d674b4a698d46b7",
+    "prosody": "v3-az-dual",
+    "text": "5fe55104b54d9504a8199f64",
+    "content": "cf66bd92a9164b0f6585848e",
     "roles": [
       "title",
       "narrative",
@@ -2426,7 +2506,7 @@
       "moral"
     ],
     "file": "your-friends.mp3",
-    "bytes": 479612,
+    "bytes": 483788,
     "join": "ffmpeg+loudnorm"
   },
   "those-you-should-not-befriend": {
@@ -2435,8 +2515,9 @@
     "index": 25,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "a6df28f9e38543c92263c7ce",
+    "prosody": "v3-az-dual",
+    "text": "fa747064bf382b9b2b58f392",
+    "content": "4e88b424eef6937cdeb0e89f",
     "roles": [
       "title",
       "dialogue",
@@ -2445,7 +2526,7 @@
       "moral"
     ],
     "file": "those-you-should-not-befriend.mp3",
-    "bytes": 239276,
+    "bytes": 240428,
     "join": "ffmpeg+loudnorm"
   },
   "everyone-is-the-same-here": {
@@ -2454,8 +2535,9 @@
     "index": 26,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "1ce03999c56b3d73fe9ee44a",
+    "prosody": "v3-az-dual",
+    "text": "bee45f8f37d9cd09de3f2402",
+    "content": "ec51a1814d70c658ec4e4322",
     "roles": [
       "title",
       "narrative",
@@ -2475,7 +2557,7 @@
       "moral"
     ],
     "file": "everyone-is-the-same-here.mp3",
-    "bytes": 732908,
+    "bytes": 736220,
     "join": "ffmpeg+loudnorm"
   },
   "go-but-come-again": {
@@ -2484,8 +2566,9 @@
     "index": 27,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "ed02130ed62200598517203c",
+    "prosody": "v3-az-dual",
+    "text": "9093c791df7bbdb4efb7b628",
+    "content": "d445a80d16369934dcd16103",
     "roles": [
       "title",
       "narrative",
@@ -2501,8 +2584,9 @@
     "index": 28,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "78a0fe850f7dbfcdb650ee11",
+    "prosody": "v3-az-dual",
+    "text": "a333f6cb0362e6d74dd73bed",
+    "content": "a71f5249d8b7910170d723a0",
     "roles": [
       "title",
       "narrative",
@@ -2521,7 +2605,7 @@
       "moral"
     ],
     "file": "humanity.mp3",
-    "bytes": 2016380,
+    "bytes": 2027468,
     "join": "ffmpeg+loudnorm"
   },
   "meaningless-question": {
@@ -2530,8 +2614,9 @@
     "index": 0,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "e5a97375f04f8800e3d0550e",
+    "prosody": "v3-az-dual",
+    "text": "7f9df9218709d449c14fb8a9",
+    "content": "57105f477d4e893f1488234b",
     "roles": [
       "title",
       "narrative",
@@ -2556,7 +2641,7 @@
       "moral"
     ],
     "file": "meaningless-question.mp3",
-    "bytes": 1348796,
+    "bytes": 1348508,
     "join": "ffmpeg+loudnorm"
   },
   "being-human": {
@@ -2565,8 +2650,9 @@
     "index": 1,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "794646d895f7d4710756acc1",
+    "prosody": "v3-az-dual",
+    "text": "209cab05c757899550255dde",
+    "content": "f67d11abd584609356a788a6",
     "roles": [
       "title",
       "question",
@@ -2588,8 +2674,9 @@
     "index": 2,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "ccfab6abf2bb9c3dbfaeecc3",
+    "prosody": "v3-az-dual",
+    "text": "32c710b7504648974d472b4d",
+    "content": "c3ed6fda9f2d593b906c9e58",
     "roles": [
       "title",
       "narrative",
@@ -2604,7 +2691,7 @@
       "moral"
     ],
     "file": "everything-is-in-our-own-hands.mp3",
-    "bytes": 513452,
+    "bytes": 518492,
     "join": "ffmpeg+loudnorm"
   },
   "goose-to-be-plucked": {
@@ -2613,8 +2700,9 @@
     "index": 3,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "82009eb6dc77ef1b958e8d46",
+    "prosody": "v3-az-dual",
+    "text": "e24c437a27fbacb86e9dacbf",
+    "content": "7aafe534ad1430700b37cfc6",
     "roles": [
       "title",
       "narrative",
@@ -2656,7 +2744,7 @@
       "moral"
     ],
     "file": "goose-to-be-plucked.mp3",
-    "bytes": 1311500,
+    "bytes": 1332956,
     "join": "ffmpeg+loudnorm"
   },
   "think-speak-and-act-positively": {
@@ -2665,8 +2753,9 @@
     "index": 4,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "d719778974853fd80effafdb",
+    "prosody": "v3-az-dual",
+    "text": "66368d85769953e31d1c6075",
+    "content": "03a0f2c3f54b3352803f41ad",
     "roles": [
       "title",
       "narrative",
@@ -2686,8 +2775,9 @@
     "index": 5,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "02847b0987b05d6137280a40",
+    "prosody": "v3-az-dual",
+    "text": "bf985e458bd7e48a02ff4264",
+    "content": "00d548a743b02c8d75c40f37",
     "roles": [
       "title",
       "narrative",
@@ -2703,8 +2793,9 @@
     "index": 6,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "5d0645d89d0a6e0d9946e0f8",
+    "prosody": "v3-az-dual",
+    "text": "4298241ba026c996509faa6b",
+    "content": "0311ae4e656182c19f9d628a",
     "roles": [
       "title",
       "question",
@@ -2721,8 +2812,9 @@
     "index": 7,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "d016b2c90f9344981fe41f11",
+    "prosody": "v3-az-dual",
+    "text": "7034d52c6def5aba57886b82",
+    "content": "aaa80908a40d6efae190b963",
     "roles": [
       "title",
       "narrative",
@@ -2736,7 +2828,7 @@
       "moral"
     ],
     "file": "how-can-i-escape-my-thoughts.mp3",
-    "bytes": 448508,
+    "bytes": 451244,
     "join": "ffmpeg+loudnorm"
   },
   "who-handles-honey-licks-his-finger": {
@@ -2745,8 +2837,9 @@
     "index": 8,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "8915bdac48d3cac6d5ec78cd",
+    "prosody": "v3-az-dual",
+    "text": "559bb2cfcdae1d0149be647a",
+    "content": "91904604af95ede085eb3874",
     "roles": [
       "title",
       "narrative",
@@ -2759,7 +2852,7 @@
       "moral"
     ],
     "file": "who-handles-honey-licks-his-finger.mp3",
-    "bytes": 493004,
+    "bytes": 494012,
     "join": "ffmpeg+loudnorm"
   },
   "telling-lies": {
@@ -2768,8 +2861,9 @@
     "index": 9,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "33e80f3454ff92857d9c3b18",
+    "prosody": "v3-az-dual",
+    "text": "14ed8f55f542ad0e53942f42",
+    "content": "9e0e9bee388666d9e473b5cd",
     "roles": [
       "title",
       "question",
@@ -2783,7 +2877,7 @@
       "moral"
     ],
     "file": "telling-lies.mp3",
-    "bytes": 353324,
+    "bytes": 354476,
     "join": "ffmpeg+loudnorm"
   },
   "other-peoples-opinions": {
@@ -2792,8 +2886,9 @@
     "index": 10,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "e69b88b361ed709534e39aa4",
+    "prosody": "v3-az-dual",
+    "text": "89d4fd6c0c40817651cb3eba",
+    "content": "1adc546bf4d7d0eba1b049f9",
     "roles": [
       "title",
       "narrative",
@@ -2810,8 +2905,9 @@
     "index": 11,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "dcf6577d243e594ef71909e2",
+    "prosody": "v3-az-dual",
+    "text": "6baec6cb1a709a7ff9f7688f",
+    "content": "3198cda5879d3f44f04e4d64",
     "roles": [
       "title",
       "narrative",
@@ -2827,8 +2923,9 @@
     "index": 12,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "d7fc4bb62d854eee1495e1cd",
+    "prosody": "v3-az-dual",
+    "text": "ed80f23aaa674283b1d345d9",
+    "content": "5f143a1ec0fb61feb4b075d0",
     "roles": [
       "title",
       "narrative",
@@ -2847,8 +2944,9 @@
     "index": 13,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "23bf5f3fe640518004e3963a",
+    "prosody": "v3-az-dual",
+    "text": "baf4ec906938a0b3f47e180a",
+    "content": "f63c7167425926ff96b2fb48",
     "roles": [
       "title",
       "dialogue",
@@ -2856,7 +2954,7 @@
       "moral"
     ],
     "file": "dont-be-words-for-mouths-dust-for-feet.mp3",
-    "bytes": 173612,
+    "bytes": 174476,
     "join": "ffmpeg+loudnorm"
   },
   "not-every-sorrow-is-told-to-people": {
@@ -2865,8 +2963,9 @@
     "index": 14,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "bb65a2bc3c129ffd09016f9c",
+    "prosody": "v3-az-dual",
+    "text": "bc313a2f605022a101db5850",
+    "content": "e9eb9f41cd7a44c0fea2fcc3",
     "roles": [
       "title",
       "narrative",
@@ -2882,8 +2981,9 @@
     "index": 15,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "78c85143b5831bb69ae9c371",
+    "prosody": "v3-az-dual",
+    "text": "acc40aefe57654cd2ce928e1",
+    "content": "a8fb255b6fdcb92312b73cc0",
     "roles": [
       "title",
       "narrative",
@@ -2899,8 +2999,9 @@
     "index": 16,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "6f439765b3609f864637c8b9",
+    "prosody": "v3-az-dual",
+    "text": "6787c460f706dc5df09d495f",
+    "content": "5b9146e9525509fd0f6638f5",
     "roles": [
       "title",
       "narrative",
@@ -2916,8 +3017,9 @@
     "index": 17,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "16515b765647d3dd70cbeb94",
+    "prosody": "v3-az-dual",
+    "text": "0d472d5d228c6023a57dc0fa",
+    "content": "25b8533c54511b8a28b7a729",
     "roles": [
       "title",
       "narrative",
@@ -2933,8 +3035,9 @@
     "index": 18,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "8b98f3c48ed6600eb0d31fb9",
+    "prosody": "v3-az-dual",
+    "text": "a038431e340854bccb115344",
+    "content": "9c6c476c3c2091da1441202e",
     "roles": [
       "title",
       "narrative",
@@ -2962,8 +3065,9 @@
     "index": 19,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "3c350d5c55196e03130eb053",
+    "prosody": "v3-az-dual",
+    "text": "6765121aa165ba51573937b8",
+    "content": "68ba55e3d59a46b45e30dc1d",
     "roles": [
       "title",
       "narrative",
@@ -2983,8 +3087,9 @@
     "index": 20,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "1d5701fcf61ce3f1b1fcd18d",
+    "prosody": "v3-az-dual",
+    "text": "b356ca7d0bf4dd0d16e86c0d",
+    "content": "1a5645ee2520bcfc1d4f07b8",
     "roles": [
       "title",
       "narrative",
@@ -3001,8 +3106,9 @@
     "index": 21,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "01a483a6e27d08ceb76c7cd7",
+    "prosody": "v3-az-dual",
+    "text": "0532c3284bc97069301c8311",
+    "content": "d76373d69eb08edd117e4d9b",
     "roles": [
       "title",
       "narrative",
@@ -3023,7 +3129,7 @@
       "moral"
     ],
     "file": "education-or-character.mp3",
-    "bytes": 640316,
+    "bytes": 638444,
     "join": "ffmpeg+loudnorm"
   },
   "explaining-ones-sorrow": {
@@ -3032,8 +3138,9 @@
     "index": 22,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "f98d070076a68dd28f5fcb3a",
+    "prosody": "v3-az-dual",
+    "text": "033c8ebb1cf7293d27a61aa9",
+    "content": "11b8acb2e8d785ef8b44637c",
     "roles": [
       "title",
       "narrative",
@@ -3049,8 +3156,9 @@
     "index": 23,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "328fffd43af8f95b34ff8e2d",
+    "prosody": "v3-az-dual",
+    "text": "a7ccaf4e71ade6dbded0d616",
+    "content": "fbac74cc1829606a3cb483ae",
     "roles": [
       "title",
       "narrative",
@@ -3061,7 +3169,7 @@
       "moral"
     ],
     "file": "he-would-not-have-given-so-little.mp3",
-    "bytes": 316028,
+    "bytes": 318044,
     "join": "ffmpeg+loudnorm"
   },
   "to-give-up": {
@@ -3070,8 +3178,9 @@
     "index": 24,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "936b0fea237d7f6c1d6eaa38",
+    "prosody": "v3-az-dual",
+    "text": "36ccd00a88aabb996786fd75",
+    "content": "2a1ac1580ae6ffdc5fb93d09",
     "roles": [
       "title",
       "exclaim",
@@ -3092,7 +3201,7 @@
       "moral"
     ],
     "file": "to-give-up.mp3",
-    "bytes": 483212,
+    "bytes": 483788,
     "join": "ffmpeg+loudnorm"
   },
   "attitude-toward-a-problem": {
@@ -3101,8 +3210,9 @@
     "index": 25,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "04a4029f08058b52eb874998",
+    "prosody": "v3-az-dual",
+    "text": "2608cdd6e88d3780e434be53",
+    "content": "ff33ebd971b5220a95f28376",
     "roles": [
       "title",
       "question",
@@ -3122,8 +3232,9 @@
     "index": 26,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "38018b46743bd6ca4aef9153",
+    "prosody": "v3-az-dual",
+    "text": "638041bb2f8d0ee9e56bdbf4",
+    "content": "6505bd80bbb476b576327fb0",
     "roles": [
       "title",
       "narrative",
@@ -3144,8 +3255,9 @@
     "index": 27,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "f71583ff4bd3f6c3e00cbfe2",
+    "prosody": "v3-az-dual",
+    "text": "c4c0536ce7befded7590bfa8",
+    "content": "3c7be4601265be3a6a81491c",
     "roles": [
       "title",
       "narrative",
@@ -3161,8 +3273,9 @@
     "index": 28,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "a65c84f49842d39317169780",
+    "prosody": "v3-az-dual",
+    "text": "0f24f4f311e640fa2e6730bb",
+    "content": "e4109cebc32af8e269f44517",
     "roles": [
       "title",
       "narrative",
@@ -3178,8 +3291,9 @@
     "index": 29,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "288e576b1a2fed1f9aa46102",
+    "prosody": "v3-az-dual",
+    "text": "74fe232ccff82c923e83cc4b",
+    "content": "70de9e6c66175ff413b0821f",
     "roles": [
       "title",
       "narrative",
@@ -3189,7 +3303,7 @@
       "moral"
     ],
     "file": "you-cannot-descend-a-well-on-his-rope.mp3",
-    "bytes": 470684,
+    "bytes": 472700,
     "join": "ffmpeg+loudnorm"
   },
   "strongest-shield": {
@@ -3198,8 +3312,9 @@
     "index": 30,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "399b4102af54ccf1bf8c9ca5",
+    "prosody": "v3-az-dual",
+    "text": "406c59a9ab9df72ebc309626",
+    "content": "3029340f9913d0aea93b56c5",
     "roles": [
       "title",
       "narrative",
@@ -3215,8 +3330,9 @@
     "index": 31,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "642acb1e47b067bdd8f1fe0d",
+    "prosody": "v3-az-dual",
+    "text": "af812b142bbb9e1267a151a5",
+    "content": "028c2bf09f9ad93096ec6731",
     "roles": [
       "title",
       "narrative",
@@ -3233,8 +3349,9 @@
     "index": 32,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "d58ffbca33f8ed0d04063d13",
+    "prosody": "v3-az-dual",
+    "text": "f9bdfc878dcb9ce12c6a6f3f",
+    "content": "29c5f2a71099d0bf0c291478",
     "roles": [
       "title",
       "narrative",
@@ -3250,8 +3367,9 @@
     "index": 33,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "a75a8a6871b36e73fdd1f77e",
+    "prosody": "v3-az-dual",
+    "text": "b3ac6b68629ecdd87469da20",
+    "content": "c97ae5d646f6924b9942960b",
     "roles": [
       "title",
       "narrative",
@@ -3276,8 +3394,9 @@
     "index": 34,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "a73cb5b9c3634017d5fa652a",
+    "prosody": "v3-az-dual",
+    "text": "7047630fb795fd5b966fdeff",
+    "content": "823c6b53a43dfad5bb9d16c5",
     "roles": [
       "title",
       "narrative",
@@ -3289,7 +3408,7 @@
       "moral"
     ],
     "file": "three-best-things.mp3",
-    "bytes": 307244,
+    "bytes": 315740,
     "join": "ffmpeg+loudnorm"
   },
   "be-sure-of-your-purpose": {
@@ -3298,8 +3417,9 @@
     "index": 35,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "be6905b13a10bb5935910f53",
+    "prosody": "v3-az-dual",
+    "text": "2a9bf570e68723a694afd54f",
+    "content": "7afb602aadbe31a86daf7c3a",
     "roles": [
       "title",
       "narrative",
@@ -3310,7 +3430,7 @@
       "moral"
     ],
     "file": "be-sure-of-your-purpose.mp3",
-    "bytes": 240428,
+    "bytes": 241580,
     "join": "ffmpeg+loudnorm"
   },
   "to-be-self-confident": {
@@ -3319,8 +3439,9 @@
     "index": 36,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "bd5ac3bebffdf963d095539c",
+    "prosody": "v3-az-dual",
+    "text": "0ea3d2ae200c8e03ffa799a2",
+    "content": "b47c703eff5589b640c1ad31",
     "roles": [
       "title",
       "exclaim",
@@ -3344,8 +3465,9 @@
     "index": 37,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "930252c123cf233c9193b3e3",
+    "prosody": "v3-az-dual",
+    "text": "8235a96e07ac874cb5552b18",
+    "content": "3f17a8dfed7f17cffaa57cde",
     "roles": [
       "title",
       "narrative",
@@ -3362,7 +3484,7 @@
       "moral"
     ],
     "file": "expressions-you-should-stay-away-from.mp3",
-    "bytes": 918524,
+    "bytes": 917948,
     "join": "ffmpeg+loudnorm"
   },
   "flower-of-honesty": {
@@ -3371,8 +3493,9 @@
     "index": 38,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "6848d43f6ac4fa9e5945470c",
+    "prosody": "v3-az-dual",
+    "text": "62c8a9cc6d71fae69d3a49e8",
+    "content": "0b45b438282e3399dcee58f8",
     "roles": [
       "title",
       "narrative",
@@ -3387,7 +3510,7 @@
       "moral"
     ],
     "file": "flower-of-honesty.mp3",
-    "bytes": 914060,
+    "bytes": 916220,
     "join": "ffmpeg+loudnorm"
   },
   "generous-man": {
@@ -3396,8 +3519,9 @@
     "index": 39,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "2a71bf82872c358994a9e3a7",
+    "prosody": "v3-az-dual",
+    "text": "e4c01ab5e11568010f5a5597",
+    "content": "37812949b3e96fa69650a58d",
     "roles": [
       "title",
       "narrative",
@@ -3407,7 +3531,7 @@
       "moral"
     ],
     "file": "generous-man.mp3",
-    "bytes": 219548,
+    "bytes": 220268,
     "join": "ffmpeg+loudnorm"
   },
   "that-was-not-your-right": {
@@ -3416,8 +3540,9 @@
     "index": 40,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "501ad567fc912836146ffcfc",
+    "prosody": "v3-az-dual",
+    "text": "0abef1d980f2a4d36a27af57",
+    "content": "43553475d579802135ee0516",
     "roles": [
       "title",
       "narrative",
@@ -3433,8 +3558,9 @@
     "index": 41,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "6b34f042eafd9da75344bb87",
+    "prosody": "v3-az-dual",
+    "text": "09d4bbbf3b540c6e2666c105",
+    "content": "cedee925d1830fcfdf6cb2ae",
     "roles": [
       "title",
       "narrative",
@@ -3482,8 +3608,9 @@
     "index": 0,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "ab88b44b759c0f2c33478a08",
+    "prosody": "v3-az-dual",
+    "text": "6f2e74de2f8054a70bf94b6a",
+    "content": "290af5648d0dc0e10115f1de",
     "roles": [
       "title",
       "narrative",
@@ -3503,8 +3630,9 @@
     "index": 1,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "368dd63c7618dd1b58ed5204",
+    "prosody": "v3-az-dual",
+    "text": "081ec2fa11071dd3fad72fa4",
+    "content": "2ac9750f886c4297e3b18d4e",
     "roles": [
       "title",
       "narrative",
@@ -3523,8 +3651,9 @@
     "index": 2,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "ede24fce960302b7b9a08e62",
+    "prosody": "v3-az-dual",
+    "text": "60e2ced1d8cba6d45243ee47",
+    "content": "2592f4fe3908d13349f92b7d",
     "roles": [
       "title",
       "narrative",
@@ -3540,8 +3669,9 @@
     "index": 3,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "09aa5019ae72be0b95eb05ee",
+    "prosody": "v3-az-dual",
+    "text": "f8061fbaa945323313f1477a",
+    "content": "c5b8142ed1d18ec617e6abb3",
     "roles": [
       "title",
       "narrative",
@@ -3566,8 +3696,9 @@
     "index": 4,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "2cf73fa367b24e43c2270d91",
+    "prosody": "v3-az-dual",
+    "text": "10d7875153474d4754882c14",
+    "content": "171b502e671a4230720a58ca",
     "roles": [
       "title",
       "narrative",
@@ -3584,8 +3715,9 @@
     "index": 5,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "25cdaf9f38137ddce8db0490",
+    "prosody": "v3-az-dual",
+    "text": "3c19eaa8ee7895a22fa9433a",
+    "content": "0e802eccc24635ace07c07e6",
     "roles": [
       "title",
       "narrative",
@@ -3607,8 +3739,9 @@
     "index": 6,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "b9be5fc7797cc68aaac1dfea",
+    "prosody": "v3-az-dual",
+    "text": "18412df8aaff661b5ca14b1f",
+    "content": "91f8c63bae4cb118038a0d65",
     "roles": [
       "title",
       "narrative",
@@ -3622,7 +3755,7 @@
       "moral"
     ],
     "file": "shepherds-word.mp3",
-    "bytes": 660332,
+    "bytes": 663068,
     "join": "ffmpeg+loudnorm"
   },
   "shepherd-must-be-called": {
@@ -3631,8 +3764,9 @@
     "index": 7,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "e8274571e1efc556e1af12ae",
+    "prosody": "v3-az-dual",
+    "text": "125ba1f8113fb834ba68da2e",
+    "content": "b363f98537fa475d0fffa486",
     "roles": [
       "title",
       "narrative",
@@ -3652,7 +3786,7 @@
       "moral"
     ],
     "file": "shepherd-must-be-called.mp3",
-    "bytes": 655292,
+    "bytes": 657020,
     "join": "ffmpeg+loudnorm"
   },
   "silent-corridor": {
@@ -3661,8 +3795,9 @@
     "index": 8,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "40746aaac735522a38e156fa",
+    "prosody": "v3-az-dual",
+    "text": "4a918b44b67ec112dc0470e3",
+    "content": "8e9ab0a17e68d73c269f9e05",
     "roles": [
       "title",
       "narrative",
@@ -3680,7 +3815,7 @@
       "moral"
     ],
     "file": "silent-corridor.mp3",
-    "bytes": 729452,
+    "bytes": 729020,
     "join": "ffmpeg+loudnorm"
   },
   "saying-the-word-in-its-place": {
@@ -3689,8 +3824,9 @@
     "index": 9,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "023394323b909485f5a7c95e",
+    "prosody": "v3-az-dual",
+    "text": "1dc85eaae55b0e642015ae80",
+    "content": "587c098bf39eb6bc58f175ca",
     "roles": [
       "title",
       "narrative",
@@ -3706,8 +3842,9 @@
     "index": 10,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "2697aeca54e691c50e9eafe1",
+    "prosody": "v3-az-dual",
+    "text": "4a41e30ad10c7ff3e732695d",
+    "content": "d985df3382816d40491b292a",
     "roles": [
       "title",
       "narrative",
@@ -3724,8 +3861,9 @@
     "index": 11,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "991b2091f1b444fe7a5832c6",
+    "prosody": "v3-az-dual",
+    "text": "c0d7f3e6c57eade2b7d17e0c",
+    "content": "507469a11730df56ffefe9ed",
     "roles": [
       "title",
       "narrative",
@@ -3742,8 +3880,9 @@
     "index": 0,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "eb1fec0879a0d9d278082cb7",
+    "prosody": "v3-az-dual",
+    "text": "08d4f3f5f6d3840251a7b98f",
+    "content": "8041dbbcefda3a6cb5673f7b",
     "roles": [
       "title",
       "narrative",
@@ -3759,8 +3898,9 @@
     "index": 1,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "81a8603be083f3581f47e2f3",
+    "prosody": "v3-az-dual",
+    "text": "aab06d5fa689d844dca27fed",
+    "content": "16cef70f92355c5e88410a93",
     "roles": [
       "title",
       "narrative",
@@ -3771,7 +3911,7 @@
       "moral"
     ],
     "file": "more-effective-way.mp3",
-    "bytes": 365996,
+    "bytes": 367436,
     "join": "ffmpeg+loudnorm"
   },
   "to-be-full-or-to-be-gone": {
@@ -3780,8 +3920,9 @@
     "index": 2,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "098f342eb76eea8ddaad0314",
+    "prosody": "v3-az-dual",
+    "text": "9224b5e2c7f194b56fe0a05b",
+    "content": "bbf43c55b9f07febd4b57b5e",
     "roles": [
       "title",
       "narrative",
@@ -3799,8 +3940,9 @@
     "index": 3,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "10ca2f06dd8e63bcd6cf9b37",
+    "prosody": "v3-az-dual",
+    "text": "658d8da6b7c3bcb688341f94",
+    "content": "3ef7ad7df42f5f4d9ae76183",
     "roles": [
       "title",
       "narrative",
@@ -3814,7 +3956,7 @@
       "moral"
     ],
     "file": "bookstore.mp3",
-    "bytes": 565868,
+    "bytes": 566876,
     "join": "ffmpeg+loudnorm"
   },
   "newtons-second-law": {
@@ -3823,8 +3965,9 @@
     "index": 4,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "c5f1baf1a0033d13d6e060e1",
+    "prosody": "v3-az-dual",
+    "text": "77c455a7c351a82c77aa4b2b",
+    "content": "41663961c75524dcd356fee6",
     "roles": [
       "title",
       "narrative",
@@ -3840,8 +3983,9 @@
     "index": 5,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "ba358d8bd1006783bce7b012",
+    "prosody": "v3-az-dual",
+    "text": "afae3cb28541239f4d9ff5fa",
+    "content": "c413b0e7e3bac8aaddcfbfee",
     "roles": [
       "title",
       "question",
@@ -3859,8 +4003,9 @@
     "index": 6,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "7f2c572e5ecdc1c9c68cc787",
+    "prosody": "v3-az-dual",
+    "text": "04113160c4d4f85cf70247ae",
+    "content": "10cce60327b70dcf022061d6",
     "roles": [
       "title",
       "narrative",
@@ -3879,14 +4024,38 @@
     "bytes": 1199900,
     "join": "ffmpeg+loudnorm"
   },
+  "different-path": {
+    "title": "Другой путь",
+    "category": "hikmet-ve-heyat-dersleri",
+    "index": 7,
+    "voice": "ru-RU-DmitryNeural",
+    "dialogue_voice": "ru-RU-SvetlanaNeural",
+    "prosody": "v3-az-dual",
+    "text": "ac0adf1f2d3417fa4ee75da5",
+    "content": "52251d8bb99cd927eb379e5f",
+    "roles": [
+      "title",
+      "narrative",
+      "narrative",
+      "narrative",
+      "narrative",
+      "narrative",
+      "narrative",
+      "moral"
+    ],
+    "file": "different-path.mp3",
+    "bytes": 658748,
+    "join": "ffmpeg+loudnorm"
+  },
   "if-the-door-before-you-wont-open-it-is-not-your-door": {
     "title": "Если дверь перед тобой не открывается, значит, это не твоя дверь.",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 8,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "a00473a5b93f30e0e34f9a07",
+    "prosody": "v3-az-dual",
+    "text": "23f16301ab754989b2b9f4ad",
+    "content": "f6f5449b2b273ffe187e1b9b",
     "roles": [
       "title",
       "narrative",
@@ -3904,8 +4073,9 @@
     "index": 9,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "43e1c452a0c4829135295bb9",
+    "prosody": "v3-az-dual",
+    "text": "1ae8b987c11945ff07c629dd",
+    "content": "c6b5bac886edebcf0a69cf68",
     "roles": [
       "title",
       "narrative",
@@ -3928,8 +4098,9 @@
     "index": 10,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "8d566644ba63ef95d7b99d06",
+    "prosody": "v3-az-dual",
+    "text": "c93f0b99d91ad870e11a1552",
+    "content": "2c4dda0a157c1b7ce2027645",
     "roles": [
       "title",
       "question",
@@ -3971,7 +4142,7 @@
       "moral"
     ],
     "file": "hayats-life-story.mp3",
-    "bytes": 3726524,
+    "bytes": 3727388,
     "join": "ffmpeg+loudnorm"
   },
   "life-is-short": {
@@ -3980,8 +4151,9 @@
     "index": 11,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "74f6a34bbe29043dddee52c5",
+    "prosody": "v3-az-dual",
+    "text": "3d200b52d868da93f7c5b99c",
+    "content": "04d0818490c51bcc33275f12",
     "roles": [
       "title",
       "narrative",
@@ -3997,8 +4169,9 @@
     "index": 12,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "23279642f03012fb7526bec1",
+    "prosody": "v3-az-dual",
+    "text": "ef83f2d70998775524c96f28",
+    "content": "c308242133e878318dc55d32",
     "roles": [
       "title",
       "narrative",
@@ -4014,8 +4187,9 @@
     "index": 13,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "9e95b173b9683ad8f286905f",
+    "prosody": "v3-az-dual",
+    "text": "2e74cde9f6ee7483ae0d2df5",
+    "content": "fa4ccd49b08bf2dfe87cf708",
     "roles": [
       "title",
       "narrative",
@@ -4036,7 +4210,7 @@
       "moral"
     ],
     "file": "from-the-memoirs-of-a-lady-from-istanbul.mp3",
-    "bytes": 980732,
+    "bytes": 983036,
     "join": "ffmpeg+loudnorm"
   },
   "searching": {
@@ -4045,8 +4219,9 @@
     "index": 14,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "bbfe802666d7e4c044fe7d34",
+    "prosody": "v3-az-dual",
+    "text": "e533988869d8c7b11d600370",
+    "content": "84217243560e0c5c72e0bbdc",
     "roles": [
       "title",
       "narrative",
@@ -4062,8 +4237,9 @@
     "index": 15,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "f200c2b865c28edc3c0f4baa",
+    "prosody": "v3-az-dual",
+    "text": "b951a549162351218563fb58",
+    "content": "c026e601ea79c5acbf3e1094",
     "roles": [
       "title",
       "narrative",
@@ -4074,7 +4250,7 @@
       "moral"
     ],
     "file": "where-does-this-road-go.mp3",
-    "bytes": 255980,
+    "bytes": 257708,
     "join": "ffmpeg+loudnorm"
   },
   "lecturer-and-the-groom": {
@@ -4083,8 +4259,9 @@
     "index": 16,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "25860c1b0179a6182f17d3f4",
+    "prosody": "v3-az-dual",
+    "text": "4b9e32677d8ad88ffc24e1f9",
+    "content": "a5cb6ccaf7851d211839537f",
     "roles": [
       "title",
       "question",
@@ -4096,7 +4273,7 @@
       "moral"
     ],
     "file": "lecturer-and-the-groom.mp3",
-    "bytes": 423164,
+    "bytes": 424748,
     "join": "ffmpeg+loudnorm"
   },
   "windmill-turning-in-still-air": {
@@ -4105,8 +4282,9 @@
     "index": 17,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "8f2d48ff6c23b41a385f3901",
+    "prosody": "v3-az-dual",
+    "text": "752f7efe2ef145c4a136625d",
+    "content": "3c9385d0a497d4bee75477c7",
     "roles": [
       "title",
       "narrative",
@@ -4123,8 +4301,9 @@
     "index": 18,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "64d6a3f1aa072415a79fa929",
+    "prosody": "v3-az-dual",
+    "text": "9a5b3cd2f20c45bad0259cbf",
+    "content": "93fbeab3c970f76e95722806",
     "roles": [
       "title",
       "narrative",
@@ -4140,8 +4319,9 @@
     "index": 19,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "96403c5506ebf367e94c192b",
+    "prosody": "v3-az-dual",
+    "text": "b0c3f0de85d755490e01e1ac",
+    "content": "355d8a0e1ece2f338bf51e36",
     "roles": [
       "title",
       "narrative",
@@ -4157,8 +4337,9 @@
     "index": 20,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "d57ca04fc6ddec7663ce18e4",
+    "prosody": "v3-az-dual",
+    "text": "365a50f29a3407284231db19",
+    "content": "f9f1a4a73bb71d671718a3dc",
     "roles": [
       "title",
       "narrative",
@@ -4179,8 +4360,9 @@
     "index": 21,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "55610221f8a556b3881546c5",
+    "prosody": "v3-az-dual",
+    "text": "6e3175ff544e5086b3876813",
+    "content": "e1dd7a3d9f95685f9998cc93",
     "roles": [
       "title",
       "narrative",
@@ -4196,8 +4378,9 @@
     "index": 22,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "3c11d0616bd06bb68ebdacb2",
+    "prosody": "v3-az-dual",
+    "text": "9ba7e437c842405f2e18b7e2",
+    "content": "0884bd4b3f599ff1341c853a",
     "roles": [
       "title",
       "narrative",
@@ -4220,8 +4403,9 @@
     "index": 23,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "3740cbe88e5d12ca01d23be1",
+    "prosody": "v3-az-dual",
+    "text": "d6c6273a4ef8ec5958a1dcfc",
+    "content": "00756a3be61f3ab253f9fef7",
     "roles": [
       "title",
       "narrative",
@@ -4237,8 +4421,9 @@
     "index": 24,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "0c0ba96b78b19f5263ba0c1d",
+    "prosody": "v3-az-dual",
+    "text": "9fe0c671369884ef997dd0c1",
+    "content": "dfff079e589fbc4e8858035d",
     "roles": [
       "title",
       "question",
@@ -4257,8 +4442,9 @@
     "index": 25,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "14c2a3d0ec24c5c4c33f4702",
+    "prosody": "v3-az-dual",
+    "text": "4665fed946469f17f96b36e0",
+    "content": "c013c0c5ea35686f8559fca7",
     "roles": [
       "title",
       "exclaim",
@@ -4277,8 +4463,9 @@
     "index": 26,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "abf4e7cef049c14d36d90a26",
+    "prosody": "v3-az-dual",
+    "text": "f755cf4e26edf0cf7661152c",
+    "content": "24c48f4f9323beafa74ef017",
     "roles": [
       "title",
       "narrative",
@@ -4298,8 +4485,9 @@
     "index": 27,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "f86e69b322a82d692a2839ae",
+    "prosody": "v3-az-dual",
+    "text": "75301c0c036d7757996fed87",
+    "content": "04c23e083c958628ebd1bf62",
     "roles": [
       "title",
       "narrative",
@@ -4316,7 +4504,7 @@
       "moral"
     ],
     "file": "sowing-millet-at-the-bottom.mp3",
-    "bytes": 719228,
+    "bytes": 725852,
     "join": "ffmpeg+loudnorm"
   },
   "most-beautiful-places-in-the-world": {
@@ -4325,8 +4513,9 @@
     "index": 28,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "306c7304b035a87852fcbea7",
+    "prosody": "v3-az-dual",
+    "text": "4da9a7e5fe10d1c82a74633b",
+    "content": "97c2302479a3e5629eb0ad30",
     "roles": [
       "title",
       "narrative",
@@ -4342,8 +4531,9 @@
     "index": 29,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "d50a6dec004ce99e251e3289",
+    "prosody": "v3-az-dual",
+    "text": "73e1782cc2e07ea857ced4ee",
+    "content": "5141f8b09e21dce2e5cdfd94",
     "roles": [
       "title",
       "narrative",
@@ -4359,8 +4549,9 @@
     "index": 30,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "6bb8b437b3fb976aa3998897",
+    "prosody": "v3-az-dual",
+    "text": "7b74c9e4e24e24bbc53c8e2e",
+    "content": "8f903a59ce030e61d8dff956",
     "roles": [
       "title",
       "narrative",
@@ -4375,7 +4566,7 @@
       "moral"
     ],
     "file": "properties-of-water.mp3",
-    "bytes": 357788,
+    "bytes": 360236,
     "join": "ffmpeg+loudnorm"
   },
   "secret-of-living-well-and-longevity": {
@@ -4384,8 +4575,9 @@
     "index": 31,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "159f40e08896a50e1505ba83",
+    "prosody": "v3-az-dual",
+    "text": "7787d38cf53e44fa2f1d9036",
+    "content": "b6ffd2b002144a12d4c91ea9",
     "roles": [
       "title",
       "narrative",
@@ -4402,8 +4594,9 @@
     "index": 32,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "229d13e3886f00127d698085",
+    "prosody": "v3-az-dual",
+    "text": "17d28dbe0f3670a3b306dc8d",
+    "content": "4ef1d8b4f17f86de55743d61",
     "roles": [
       "title",
       "narrative",
@@ -4420,8 +4613,9 @@
     "index": 33,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "30b2139d7d09591f234839ef",
+    "prosody": "v3-az-dual",
+    "text": "48285be313566a144d64d332",
+    "content": "35105169d7939269b635d62f",
     "roles": [
       "title",
       "narrative",
@@ -4437,8 +4631,9 @@
     "index": 34,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "7d913e2c5f092d9aa441603d",
+    "prosody": "v3-az-dual",
+    "text": "f06cc2b43d91603bc55ddfb7",
+    "content": "c6954c85065da105a7ae5053",
     "roles": [
       "title",
       "narrative",
@@ -4458,7 +4653,7 @@
       "moral"
     ],
     "file": "three-questions.mp3",
-    "bytes": 764300,
+    "bytes": 773084,
     "join": "ffmpeg+loudnorm"
   },
   "three-statues": {
@@ -4467,8 +4662,9 @@
     "index": 35,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "32d247032deaa3e711a153d5",
+    "prosody": "v3-az-dual",
+    "text": "a658d21e277bdf7a739292d9",
+    "content": "0e755471451a1e1c87f3ff30",
     "roles": [
       "title",
       "narrative",
@@ -4494,8 +4690,9 @@
     "index": 36,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "4c5f475cf6070d6ca7f1bab8",
+    "prosody": "v3-az-dual",
+    "text": "0a82c06cc176317946cd858a",
+    "content": "c50ba80c62d35733703dfff7",
     "roles": [
       "title",
       "narrative",
@@ -4509,7 +4706,7 @@
       "moral"
     ],
     "file": "three-landscapes.mp3",
-    "bytes": 913484,
+    "bytes": 916076,
     "join": "ffmpeg+loudnorm"
   },
   "life-lesson": {
@@ -4518,8 +4715,9 @@
     "index": 37,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "c43e4d9e7f04fb571ae3420d",
+    "prosody": "v3-az-dual",
+    "text": "1cfda6f2d247ef85acfdd829",
+    "content": "df90420d6ac64818a4a5b98e",
     "roles": [
       "title",
       "narrative",
@@ -4533,7 +4731,7 @@
       "moral"
     ],
     "file": "life-lesson.mp3",
-    "bytes": 330860,
+    "bytes": 333164,
     "join": "ffmpeg+loudnorm"
   },
   "teacher-hello-do-you-remember-me": {
@@ -4542,8 +4740,9 @@
     "index": 38,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "2edeacc4d6b7e7bd6081e0a7",
+    "prosody": "v3-az-dual",
+    "text": "148610ec39b362f458800217",
+    "content": "5ec11a88952d81cc2e1fa57a",
     "roles": [
       "title",
       "dialogue",
@@ -4563,7 +4762,7 @@
       "moral"
     ],
     "file": "teacher-hello-do-you-remember-me.mp3",
-    "bytes": 1102844,
+    "bytes": 1108460,
     "join": "ffmpeg+loudnorm"
   },
   "what-we-learn-in-life": {
@@ -4572,8 +4771,9 @@
     "index": 39,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "ecf5d3fc4d827be78a4b3c8f",
+    "prosody": "v3-az-dual",
+    "text": "d55d26e23b37e1633d6337b2",
+    "content": "d2ed762be1e7c01099175208",
     "roles": [
       "title",
       "narrative",
@@ -4590,8 +4790,9 @@
     "index": 40,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "83c7b4ae06aeacc3bfd53011",
+    "prosody": "v3-az-dual",
+    "text": "27ea468e553b14e05bb02c76",
+    "content": "8dcfe2393ca1c465269c8efe",
     "roles": [
       "title",
       "narrative",
@@ -4612,7 +4813,7 @@
       "moral"
     ],
     "file": "what-matters-in-life.mp3",
-    "bytes": 745004,
+    "bytes": 744716,
     "join": "ffmpeg+loudnorm"
   },
   "what-it-means-to-be-late": {
@@ -4621,8 +4822,9 @@
     "index": 41,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "7325ce34b771f752f5411c4a",
+    "prosody": "v3-az-dual",
+    "text": "5d3376f1fe6228230fa0ee55",
+    "content": "a152686dd20ef13475d2320f",
     "roles": [
       "title",
       "narrative",
@@ -4641,8 +4843,9 @@
     "index": 42,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "72b6b3f866f005bc593fa510",
+    "prosody": "v3-az-dual",
+    "text": "c875a37cacf20cb46c455251",
+    "content": "f184c72c139da3253ed11081",
     "roles": [
       "title",
       "question",
@@ -4658,7 +4861,7 @@
       "moral"
     ],
     "file": "what-do-i-need-it-for.mp3",
-    "bytes": 1199324,
+    "bytes": 1203500,
     "join": "ffmpeg+loudnorm"
   },
   "this-boat-is-empty-too": {
@@ -4667,8 +4870,9 @@
     "index": 43,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "ed93b57fb1bc150f01a46e7a",
+    "prosody": "v3-az-dual",
+    "text": "f3a6d16ae0af51bc7a067515",
+    "content": "e52d6e5ee7bd9b69db65ab75",
     "roles": [
       "title",
       "narrative",
@@ -4688,8 +4892,9 @@
     "index": 44,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "60a88ca8dd183a05b5258a48",
+    "prosody": "v3-az-dual",
+    "text": "04f133ddbfa96419d34c1d8b",
+    "content": "4687f01d2f692ba6d966f913",
     "roles": [
       "title",
       "narrative",
@@ -4716,8 +4921,9 @@
     "index": 0,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "f060fd5dd4807bbe8d81aa0f",
+    "prosody": "v3-az-dual",
+    "text": "7f0426e53f15f17b5187ef88",
+    "content": "98b16a04ebe1ff2ca1889e21",
     "roles": [
       "title",
       "narrative",
@@ -4728,7 +4934,7 @@
       "moral"
     ],
     "file": "former-minister-at-the-seminar.mp3",
-    "bytes": 952076,
+    "bytes": 956684,
     "join": "ffmpeg+loudnorm"
   },
   "fish-shop": {
@@ -4737,8 +4943,9 @@
     "index": 1,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "3fc1d6672b26bc46263e30c7",
+    "prosody": "v3-az-dual",
+    "text": "2f9a67d07964df68660b9da6",
+    "content": "e2a8a3f6c014435401ba370c",
     "roles": [
       "title",
       "narrative",
@@ -4757,7 +4964,7 @@
       "moral"
     ],
     "file": "fish-shop.mp3",
-    "bytes": 818732,
+    "bytes": 819740,
     "join": "ffmpeg+loudnorm"
   },
   "weight-of-the-oil": {
@@ -4766,8 +4973,9 @@
     "index": 2,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "9dc635bf4dbe619125c568ee",
+    "prosody": "v3-az-dual",
+    "text": "21297ba907ba508a857c98ee",
+    "content": "d91b12e5324be14541334cd5",
     "roles": [
       "title",
       "narrative",
@@ -4784,8 +4992,9 @@
     "index": 3,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "b0a506480c93022d686a79f8",
+    "prosody": "v3-az-dual",
+    "text": "94826bf2161db8a67308ae45",
+    "content": "d82d68b8527d2b340e8bac4f",
     "roles": [
       "title",
       "question",
@@ -4802,8 +5011,9 @@
     "index": 4,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "6199b11250d041535919a6ce",
+    "prosody": "v3-az-dual",
+    "text": "887a17bdf282b9a78709f053",
+    "content": "53b51085f4eae642688f4e34",
     "roles": [
       "title",
       "narrative",
@@ -4815,7 +5025,7 @@
       "moral"
     ],
     "file": "henry-fords-choice.mp3",
-    "bytes": 624908,
+    "bytes": 627644,
     "join": "ffmpeg+loudnorm"
   },
   "chief-accountant-and-the-ceo": {
@@ -4824,8 +5034,9 @@
     "index": 5,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "6c8691f66c3f38e2da6ba595",
+    "prosody": "v3-az-dual",
+    "text": "c4310c77e2d6c3e05cab2723",
+    "content": "171197ded5ea01afb0d87709",
     "roles": [
       "title",
       "narrative",
@@ -4835,7 +5046,7 @@
       "moral"
     ],
     "file": "chief-accountant-and-the-ceo.mp3",
-    "bytes": 280604,
+    "bytes": 281036,
     "join": "ffmpeg+loudnorm"
   },
   "hot-bread": {
@@ -4844,8 +5055,9 @@
     "index": 6,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "33b07f7e2a79af4e60cf5cfd",
+    "prosody": "v3-az-dual",
+    "text": "7f3d2d170bc8a67799e7298f",
+    "content": "7bca200f30d0631260f0792f",
     "roles": [
       "title",
       "narrative",
@@ -4906,7 +5118,7 @@
       "moral"
     ],
     "file": "hot-bread.mp3",
-    "bytes": 1965836,
+    "bytes": 1978940,
     "join": "ffmpeg+loudnorm"
   },
   "do-you-have-spending-money": {
@@ -4915,8 +5127,9 @@
     "index": 7,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "8e8439603bd44aaa0b5629a8",
+    "prosody": "v3-az-dual",
+    "text": "0928ea1bf9bcce0c99dceb71",
+    "content": "ae04fa63f7629b04cffce055",
     "roles": [
       "title",
       "narrative",
@@ -4932,8 +5145,9 @@
     "index": 8,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "03a1ab994b8b6df93b106410",
+    "prosody": "v3-az-dual",
+    "text": "c5e5f8b3a36aa98d1059969a",
+    "content": "666af710fb625c66d4ae1583",
     "roles": [
       "title",
       "narrative",
@@ -4955,8 +5169,9 @@
     "index": 9,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "db89b4b5bfc0ac23cde1432d",
+    "prosody": "v3-az-dual",
+    "text": "986d9349a83c2de612587ca5",
+    "content": "c1173c692b0f2cde82f3d948",
     "roles": [
       "title",
       "narrative",
@@ -4970,7 +5185,7 @@
       "moral"
     ],
     "file": "we-are-rich.mp3",
-    "bytes": 556796,
+    "bytes": 556652,
     "join": "ffmpeg+loudnorm"
   },
   "organization-without-an-action-plan": {
@@ -4979,8 +5194,9 @@
     "index": 10,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "9250f83df3ae3f54d7523fce",
+    "prosody": "v3-az-dual",
+    "text": "6a873a4e0b2950a18526d232",
+    "content": "369fb452d66310014f7758d6",
     "roles": [
       "title",
       "narrative",
@@ -4997,8 +5213,9 @@
     "index": 11,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "1f6dfcb732288e2d55de5f3e",
+    "prosody": "v3-az-dual",
+    "text": "523341d680957381d2707683",
+    "content": "87afc4ad044ad9378372f026",
     "roles": [
       "title",
       "narrative",
@@ -5013,7 +5230,7 @@
       "moral"
     ],
     "file": "baklava.mp3",
-    "bytes": 538220,
+    "bytes": 542396,
     "join": "ffmpeg+loudnorm"
   },
   "pay-rent-for-the-water": {
@@ -5022,8 +5239,9 @@
     "index": 12,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "96b42000ab969c94b5d7742b",
+    "prosody": "v3-az-dual",
+    "text": "fb4abfd6735c577a566f2731",
+    "content": "5059cd550e278bae8052a195",
     "roles": [
       "title",
       "narrative",
@@ -5040,8 +5258,9 @@
     "index": 13,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "ad75ddbb0ffac74811b49d2f",
+    "prosody": "v3-az-dual",
+    "text": "b1efa78ad2518d902ee94e3d",
+    "content": "4558fe810badd431a12ff253",
     "roles": [
       "title",
       "narrative",
@@ -5059,7 +5278,7 @@
       "moral"
     ],
     "file": "why-am-i-poor.mp3",
-    "bytes": 449228,
+    "bytes": 450380,
     "join": "ffmpeg+loudnorm"
   },
   "credit-ledger": {
@@ -5068,8 +5287,9 @@
     "index": 14,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "1c5d51598fff34d9eada489d",
+    "prosody": "v3-az-dual",
+    "text": "a35a50157e7005d2489fd651",
+    "content": "bc65d39ed2af7d4c5a94aaea",
     "roles": [
       "title",
       "narrative",
@@ -5088,7 +5308,7 @@
       "moral"
     ],
     "file": "credit-ledger.mp3",
-    "bytes": 1235612,
+    "bytes": 1245836,
     "join": "ffmpeg+loudnorm"
   },
   "scarf-seller": {
@@ -5097,8 +5317,9 @@
     "index": 15,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "5ff8c1b9e0124b334333924b",
+    "prosody": "v3-az-dual",
+    "text": "9095aa5d82f92ec2fc4afa2f",
+    "content": "86667e18aa7ee92aea80340e",
     "roles": [
       "title",
       "narrative",
@@ -5122,7 +5343,7 @@
       "moral"
     ],
     "file": "scarf-seller.mp3",
-    "bytes": 1728668,
+    "bytes": 1740620,
     "join": "ffmpeg+loudnorm"
   },
   "grocery-shop-and-the-supermarket": {
@@ -5131,8 +5352,9 @@
     "index": 16,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "aabd071b81237dddc786a584",
+    "prosody": "v3-az-dual",
+    "text": "15b8a002bd7a6ba65e20eb77",
+    "content": "3e99bfd3b88b4db2eefa0a0e",
     "roles": [
       "title",
       "narrative",
@@ -5152,8 +5374,9 @@
     "index": 17,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "9b85989b62f8023090609142",
+    "prosody": "v3-az-dual",
+    "text": "7dedb4b9c3a1ac70d87c3bb2",
+    "content": "0170482005cf0c97677e2516",
     "roles": [
       "title",
       "narrative",
@@ -5170,8 +5393,9 @@
     "index": 18,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "95d17aad0b26039fc4d08cbb",
+    "prosody": "v3-az-dual",
+    "text": "6055e50b68cbe9397e44dffa",
+    "content": "4be1a13a4ed363b6b548bf4b",
     "roles": [
       "title",
       "narrative",
@@ -5182,7 +5406,7 @@
       "moral"
     ],
     "file": "garden-and-the-gardener.mp3",
-    "bytes": 251660,
+    "bytes": 251372,
     "join": "ffmpeg+loudnorm"
   },
   "woman-whose-house-was-robbed": {
@@ -5191,8 +5415,9 @@
     "index": 0,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "a0b13ffefa05b5b154288f03",
+    "prosody": "v3-az-dual",
+    "text": "f053659527ae2d49fe138fd2",
+    "content": "63abf8bae886f2ffc18983da",
     "roles": [
       "title",
       "narrative",
@@ -5208,8 +5433,9 @@
     "index": 1,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "7cab08b9a48808abead9005a",
+    "prosody": "v3-az-dual",
+    "text": "1a07000cb267fea98631eb98",
+    "content": "dcc31b0f71456b2fc018fb13",
     "roles": [
       "title",
       "narrative",
@@ -5231,8 +5457,9 @@
     "index": 2,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "7cde7529f2ef19f7a446f942",
+    "prosody": "v3-az-dual",
+    "text": "f50581e35467a998654d6b50",
+    "content": "fcb6c3a1bf790dc4539b9837",
     "roles": [
       "title",
       "narrative",
@@ -5252,8 +5479,9 @@
     "index": 3,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "c99a42be73a50d7cfec64789",
+    "prosody": "v3-az-dual",
+    "text": "76dc143300691831ca5afb39",
+    "content": "5d88227d218661906467a895",
     "roles": [
       "title",
       "narrative",
@@ -5273,8 +5501,9 @@
     "index": 4,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "03ad3684af1767af39291c14",
+    "prosody": "v3-az-dual",
+    "text": "2812d1619177a01885fad093",
+    "content": "e35ee1e54d4b5a400f5aa004",
     "roles": [
       "title",
       "narrative",
@@ -5289,7 +5518,7 @@
       "moral"
     ],
     "file": "with-this-nation-the-world-can-be-conquered.mp3",
-    "bytes": 718220,
+    "bytes": 728588,
     "join": "ffmpeg+loudnorm"
   },
   "nazim-hikmet-in-bursa-prison": {
@@ -5298,8 +5527,9 @@
     "index": 5,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "8d8134b4d9318eac487ee002",
+    "prosody": "v3-az-dual",
+    "text": "2068c86f5b9d8e756cf1d85a",
+    "content": "4e46f5f1dc59e5dba3ab3bf2",
     "roles": [
       "title",
       "narrative",
@@ -5314,7 +5544,7 @@
       "moral"
     ],
     "file": "nazim-hikmet-in-bursa-prison.mp3",
-    "bytes": 608780,
+    "bytes": 608060,
     "join": "ffmpeg+loudnorm"
   },
   "sharing-justice": {
@@ -5323,8 +5553,9 @@
     "index": 6,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "cbc9cfcdcfd03da54c8ec0b4",
+    "prosody": "v3-az-dual",
+    "text": "1035c4d5b3c181e4b29482d5",
+    "content": "44058f67e6aa051d67feea55",
     "roles": [
       "title",
       "narrative",
@@ -5347,8 +5578,9 @@
     "index": 7,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "e8c926f40fda248b5b604eb5",
+    "prosody": "v3-az-dual",
+    "text": "d6c44a1c82e064e9a02ab633",
+    "content": "64d30572f3d8b7f7cc2c0b19",
     "roles": [
       "title",
       "narrative",
@@ -5364,8 +5596,9 @@
     "index": 8,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "366a810f18f9e63810a8ec29",
+    "prosody": "v3-az-dual",
+    "text": "41dd80868f5da611187cbf1d",
+    "content": "f943b1f8a45b5055607c7f6b",
     "roles": [
       "title",
       "narrative",
@@ -5387,8 +5620,9 @@
     "index": 9,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "d58ddc90727b86e6b7304b7a",
+    "prosody": "v3-az-dual",
+    "text": "c388b3d605de51c498df0251",
+    "content": "0145089fbacec4cc26acebfc",
     "roles": [
       "title",
       "dialogue",
@@ -5411,7 +5645,7 @@
       "moral"
     ],
     "file": "skins-of-the-lambs.mp3",
-    "bytes": 1240652,
+    "bytes": 1241948,
     "join": "ffmpeg+loudnorm"
   },
   "aging": {
@@ -5420,8 +5654,9 @@
     "index": 0,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "6befec3bfc1e65856b4b067e",
+    "prosody": "v3-az-dual",
+    "text": "2185b40002227bfec19b766c",
+    "content": "7c871851ef80f0d40fb6d01a",
     "roles": [
       "title",
       "narrative",
@@ -5437,8 +5672,9 @@
     "index": 1,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "4711ecc03fb6d3ff69bfbf2b",
+    "prosody": "v3-az-dual",
+    "text": "9a5d38798d0d095a1cbde0f5",
+    "content": "7e0441128818cfd9224dd55a",
     "roles": [
       "title",
       "narrative",
@@ -5468,8 +5704,9 @@
     "index": 2,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "9e950d453675c62ff9a76c2d",
+    "prosody": "v3-az-dual",
+    "text": "65c7aff3d5207563c935e6f9",
+    "content": "2ddebc91d560fc69e98279bb",
     "roles": [
       "title",
       "narrative",
@@ -5499,8 +5736,9 @@
     "index": 0,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "2eb705b21da4df474d69d263",
+    "prosody": "v3-az-dual",
+    "text": "56fd100743fc92fa4c1a1731",
+    "content": "f536c07c3772869046f12844",
     "roles": [
       "title",
       "narrative",
@@ -5517,8 +5755,9 @@
     "index": 1,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "ced6fe87f0553f2c2e5b3635",
+    "prosody": "v3-az-dual",
+    "text": "269dce310d00f2f7ea432117",
+    "content": "026cc8cf67393acbfe699381",
     "roles": [
       "title",
       "narrative",
@@ -5531,7 +5770,7 @@
       "moral"
     ],
     "file": "donkeys-law.mp3",
-    "bytes": 703100,
+    "bytes": 703964,
     "join": "ffmpeg+loudnorm"
   },
   "ant-that-carries-water": {
@@ -5540,8 +5779,9 @@
     "index": 2,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "6f5e7e6a9ddd7530f3f351bd",
+    "prosody": "v3-az-dual",
+    "text": "db88f629480919270fd7af73",
+    "content": "7d7dba3e1d6bd9f83ddb528c",
     "roles": [
       "title",
       "narrative",
@@ -5555,7 +5795,7 @@
       "moral"
     ],
     "file": "ant-that-carries-water.mp3",
-    "bytes": 494012,
+    "bytes": 494588,
     "join": "ffmpeg+loudnorm"
   },
   "fly-in-the-china-shop": {
@@ -5564,8 +5804,9 @@
     "index": 3,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "660dfe37289bac38580ef4b9",
+    "prosody": "v3-az-dual",
+    "text": "d70176bc90b89e4ace49b5a6",
+    "content": "eeeec176f16acd6a35423872",
     "roles": [
       "title",
       "narrative",
@@ -5582,8 +5823,9 @@
     "index": 4,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "b0c7e931356eb154a007a1bd",
+    "prosody": "v3-az-dual",
+    "text": "bc08dba7806dbc4e8d3f57c3",
+    "content": "2efc0e5a41f7b92e46990d0f",
     "roles": [
       "title",
       "narrative",
@@ -5594,7 +5836,7 @@
       "moral"
     ],
     "file": "turtles-wrong-calculation.mp3",
-    "bytes": 441164,
+    "bytes": 441596,
     "join": "ffmpeg+loudnorm"
   },
   "hunters-description": {
@@ -5603,8 +5845,9 @@
     "index": 5,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "4a68ba6c634593ab5d57df9a",
+    "prosody": "v3-az-dual",
+    "text": "6f36583753071dbe5fd3b9cd",
+    "content": "bb02e15ab940545c0b4d376a",
     "roles": [
       "title",
       "narrative",
@@ -5621,8 +5864,9 @@
     "index": 6,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "342a27f76b804644a04fea5e",
+    "prosody": "v3-az-dual",
+    "text": "cd61dda5c8424ad2f0340d16",
+    "content": "07cbb89d674c5765bf79be41",
     "roles": [
       "title",
       "narrative",
@@ -5634,7 +5878,7 @@
       "moral"
     ],
     "file": "lions-footprint.mp3",
-    "bytes": 296444,
+    "bytes": 296588,
     "join": "ffmpeg+loudnorm"
   },
   "elephant-and-the-rope": {
@@ -5643,8 +5887,9 @@
     "index": 7,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "9da1256eae8f6459e1e5dfdb",
+    "prosody": "v3-az-dual",
+    "text": "f779a6f1395a4b81d77272ab",
+    "content": "49f5d4ddc6c8e72c7f56939a",
     "roles": [
       "title",
       "narrative",
@@ -5654,7 +5899,7 @@
       "moral"
     ],
     "file": "elephant-and-the-rope.mp3",
-    "bytes": 483932,
+    "bytes": 485804,
     "join": "ffmpeg+loudnorm"
   },
   "albrecht-durer": {
@@ -5663,8 +5908,9 @@
     "index": 0,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "85a9736fbe43dba4e9abb393",
+    "prosody": "v3-az-dual",
+    "text": "4af79f7e2e46d818949e0f48",
+    "content": "d07b9d1481002451d0fee222",
     "roles": [
       "title",
       "narrative",
@@ -5680,7 +5926,7 @@
       "moral"
     ],
     "file": "albrecht-durer.mp3",
-    "bytes": 803756,
+    "bytes": 805916,
     "join": "ffmpeg+loudnorm"
   },
   "magnificent-lesson": {
@@ -5689,8 +5935,9 @@
     "index": 1,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "d1acb3064740c23668425432",
+    "prosody": "v3-az-dual",
+    "text": "b6867635e7af76693f0f3ce2",
+    "content": "000a3e8c98bcda8763dc0742",
     "roles": [
       "title",
       "narrative",
@@ -5706,7 +5953,7 @@
       "moral"
     ],
     "file": "magnificent-lesson.mp3",
-    "bytes": 739388,
+    "bytes": 739532,
     "join": "ffmpeg+loudnorm"
   },
   "mihrimah-sultan-and-architect-sinan": {
@@ -5715,8 +5962,9 @@
     "index": 2,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "a2b0967de4a698fd08efa5c7",
+    "prosody": "v3-az-dual",
+    "text": "07e2560309a9c444b3568f41",
+    "content": "a09b6e3b0cdd9e367ff827b9",
     "roles": [
       "title",
       "narrative",
@@ -5741,8 +5989,9 @@
     "index": 3,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "03f0c2aebc33536c9f4ae7c3",
+    "prosody": "v3-az-dual",
+    "text": "a7d7e52bf609c90d61a0febb",
+    "content": "b4f78e68018da018423c11cb",
     "roles": [
       "title",
       "narrative",
@@ -5764,7 +6013,7 @@
       "moral"
     ],
     "file": "architect-sinan-dies-in-a-house-without-water.mp3",
-    "bytes": 1040204,
+    "bytes": 1041932,
     "join": "ffmpeg+loudnorm"
   },
   "three-essential-things-for-a-city": {
@@ -5773,8 +6022,9 @@
     "index": 4,
     "voice": "ru-RU-DmitryNeural",
     "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v2",
-    "content": "9a1d296ef25b363e7ee54b5e",
+    "prosody": "v3-az-dual",
+    "text": "ebddc7e57e871009a8c92105",
+    "content": "46555923d864e0592b7d11a5",
     "roles": [
       "title",
       "narrative",

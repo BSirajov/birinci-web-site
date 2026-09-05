@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
-"""Generate MP3 narration for stories via Microsoft Edge TTS.
+"""Generate MP3 narration for stories via Microsoft Azure AI Speech neural voices.
 
-Default voice is male (az-AZ-BabekNeural). Female (az-AZ-BanuNeural) is used
-only when you pass --voice az-AZ-BanuNeural explicitly.
+Uses the Microsoft neural TTS stack (edge-tts gateway to the same Azure AI Speech
+voices configured in languages.json). Default AZ narrator is az-AZ-BabekNeural;
+pass --voice az-AZ-BanuNeural for the female voice explicitly.
 
 Prosody v2: paragraphs are classified (title / narrative / dialogue /
 question / exclaim / moral). Source lines are omitted. Dual voice (narrator +
@@ -13,6 +14,7 @@ Examples:
   python tools/generate_story_audio.py --all
   python tools/generate_story_audio.py friend-of-god
   python tools/generate_story_audio.py --all --force
+  python tools/generate_story_audio.py --lang az --all
   python tools/generate_story_audio.py value-of-your-family --force
   python tools/generate_story_audio.py friend-of-god --voice az-AZ-BanuNeural --force
   python tools/generate_story_audio.py --pilot
@@ -123,7 +125,7 @@ MAX_CONCURRENCY = 1
 MAX_RETRIES = 12
 RETRY_BASE_DELAY = 2.0
 RETRY_MAX_DELAY = 20.0
-PROSODY_VERSION = "v2"
+PROSODY_VERSION = "v3-az-dual"
 
 # Wider role contrast than v1. edge-tts pitch is Hz, not semitones.
 PROSODY = {
@@ -231,6 +233,15 @@ def _inject_article_audio(html: str, rel_prefix: str, version: str, stems: set[s
     return _STORY_ARTICLE_RE.sub(repl, html)
 
 
+def _write_text(path: Path, text: str) -> None:
+    try:
+        from chrome_restore import write_text_resilient
+
+        write_text_resilient(path, text, encoding="utf-8", newline="\n")
+    except Exception:
+        path.write_text(text, encoding="utf-8")
+
+
 def link_story_audio(lang: str | None = None) -> tuple[int, int]:
     """Mark hasAudio and attach data-audio for generated MP3s."""
     lang = lang or LANG
@@ -252,12 +263,12 @@ def link_story_audio(lang: str | None = None) -> tuple[int, int]:
             suffix = text[end:]
             if not suffix.startswith(";"):
                 suffix = ";" + suffix.lstrip()
-            data_path.write_text(
+            _write_text(
+                data_path,
                 text[:start]
                 + _STORIES_PREFIX
                 + json.dumps(blob, ensure_ascii=False, separators=(", ", ": "))
                 + suffix,
-                encoding="utf-8",
             )
 
     version = _asset_version()
@@ -268,7 +279,7 @@ def link_story_audio(lang: str | None = None) -> tuple[int, int]:
             raw = path.read_text(encoding="utf-8")
             new = _inject_article_audio(raw, "../wisdom-stories/audio/", version, stems)
             if new != raw:
-                path.write_text(new, encoding="utf-8")
+                _write_text(path, new)
                 pages += 1
     return marked, pages
 
@@ -340,6 +351,40 @@ def is_dialogue(text: str) -> bool:
     return False
 
 
+_FEMALE_CUE_RE = re.compile(
+    r"\b("
+    r"ana|anas[iı]|ana[nm]|nənə|nənəsi|bacı|bacıs[iı]|q[iı]z|q[iı]z[iı]|qad[iı]n|"
+    r"xan[iı]m|qadın|arvad|gəlin|mələk|şahzadə\s*qız|mistress|mother|woman|girl|daughter|"
+    r"wife|sister|grandmother|lady|queen|"
+    r"мама|мать|матери|дочь|девочка|девушка|женщина|жена|сестра|бабушка|госпожа|царица|"
+    r"принцесса|королева|невеста|тетя|тётя"
+    r")\b",
+    re.I,
+)
+_MALE_CUE_RE = re.compile(
+    r"\b("
+    r"ata|atas[iı]|ata[nm]|baba|babas[iı]|o[gğ]ul|o[gğ]lu|ki[sş]i|cənab|bəy|"
+    r"pad[sş]ah|sultan|o[gğ]lan|dərvi[sş]|imam|molla|h[əe]kim|müəllim|"
+    r"father|man|boy|son|brother|grandfather|king|mister|mr\b|husband|"
+    r"папа|отец|отца|сын|мальчик|мужчина|муж|брат|дедушка|господин|царь|"
+    r"король|принц|дядя|старик|юноша"
+    r")\b",
+    re.I,
+)
+
+
+def _gender_cue(text: str) -> str | None:
+    """Return 'female', 'male', or None from AZ/EN/RU cues."""
+    folded = fold_az_i(text or "")
+    female = bool(_FEMALE_CUE_RE.search(folded))
+    male = bool(_MALE_CUE_RE.search(folded))
+    if female and not male:
+        return "female"
+    if male and not female:
+        return "male"
+    return None
+
+
 def classify_paragraph(text: str) -> tuple[str, str]:
     """Return (prosody_role, voice_role). Moral is prefix-only, never last-para fallback."""
     raw = (text or "").strip()
@@ -356,6 +401,100 @@ def classify_paragraph(text: str) -> tuple[str, str]:
     if dialogue:
         return "dialogue", "dialogue"
     return "narrative", "narrator"
+
+
+def assign_dialogue_voices(segments: list[dict], body_paras: list[str]) -> None:
+    """Assign dialogue_female / dialogue_male consistently within each story.
+
+    Narrator stays on the male neural voice. Dialogue speakers are mapped to the
+    male/female neural pair using gender cues when available, otherwise a stable
+    structural A/B assignment (first unknown speaker → female, second → male).
+    """
+    # Cumulative gender hint from preceding narrative (helps attribution lines).
+    narrative_hint: str | None = None
+    speaker_gender: dict[int, str] = {}
+    next_structural = "female"  # first unspecified speaker
+    current_speaker: int | None = None
+    para_idx = 0
+
+    for seg in segments:
+        if seg.get("voice_role") != "dialogue":
+            # Refresh hint from recent narrative/title text.
+            cue = _gender_cue(seg.get("text") or "")
+            if cue:
+                narrative_hint = cue
+            current_speaker = None
+            continue
+
+        # Match optional raw paragraph for broader cue context.
+        raw_ctx = ""
+        while para_idx < len(body_paras):
+            cleaned = clean_speech_chunk(body_paras[para_idx])
+            para_idx += 1
+            if cleaned == seg.get("text"):
+                raw_ctx = body_paras[para_idx - 1]
+                break
+
+        line_cue = _gender_cue(seg.get("text") or "") or _gender_cue(raw_ctx) or narrative_hint
+
+        # New dialogue turn after narrator, or continuing exchange.
+        if current_speaker is None:
+            # Start or resume exchange: pick speaker 0 or 1 by cue / structure.
+            if line_cue == "female":
+                current_speaker = 0
+                speaker_gender[0] = "female"
+            elif line_cue == "male":
+                current_speaker = 1
+                speaker_gender[1] = "male"
+            else:
+                # Structural: first open slot.
+                if 0 not in speaker_gender:
+                    speaker_gender[0] = next_structural
+                    next_structural = "male" if next_structural == "female" else "female"
+                    current_speaker = 0
+                elif 1 not in speaker_gender:
+                    speaker_gender[1] = next_structural
+                    next_structural = "male" if next_structural == "female" else "female"
+                    current_speaker = 1
+                else:
+                    current_speaker = 0
+        else:
+            # Contiguous dialogue: alternate speakers on each new line.
+            # If this line has a strong opposite-gender cue, switch.
+            other = 1 - current_speaker
+            if line_cue and speaker_gender.get(current_speaker) and line_cue != speaker_gender[current_speaker]:
+                if other not in speaker_gender:
+                    speaker_gender[other] = line_cue
+                current_speaker = other
+            elif line_cue and current_speaker not in speaker_gender:
+                speaker_gender[current_speaker] = line_cue
+            else:
+                # Default turn-taking for back-and-forth dialogue.
+                if other not in speaker_gender:
+                    # Prefer opposite of current when known.
+                    cur_g = speaker_gender.get(current_speaker)
+                    speaker_gender[other] = (
+                        "male"
+                        if cur_g == "female"
+                        else "female"
+                        if cur_g == "male"
+                        else next_structural
+                    )
+                    if speaker_gender[other] == next_structural:
+                        next_structural = "male" if next_structural == "female" else "female"
+                current_speaker = other
+
+        gender = speaker_gender.get(current_speaker) or "female"
+        if line_cue and current_speaker in speaker_gender and speaker_gender[current_speaker] != line_cue:
+            # Lock first assignment; do not flip mid-story for the same slot.
+            gender = speaker_gender[current_speaker]
+        elif line_cue and current_speaker not in speaker_gender:
+            speaker_gender[current_speaker] = line_cue
+            gender = line_cue
+
+        seg["voice_role"] = "dialogue_female" if gender == "female" else "dialogue_male"
+        seg["speaker"] = current_speaker
+        seg["speaker_gender"] = gender
 
 
 def speech_segments(story: dict) -> list[dict]:
@@ -407,6 +546,8 @@ def speech_segments(story: dict) -> list[dict]:
             }
         )
 
+    assign_dialogue_voices(segments, body_paras)
+
     if segments:
         # Longer breath before the moral; no trailing pause after the last line.
         for i, seg in enumerate(segments):
@@ -434,12 +575,19 @@ def speech_text(story: dict) -> str:
     return " ".join(seg["text"] for seg in speech_segments(story))
 
 
+def text_fingerprint(job: dict) -> str:
+    """Hash of narrated story text + prosody version (ignores dialogue-voice plan)."""
+    raw = f"{PROSODY_VERSION}\n{job.get('text') or ''}"
+    return hashlib.sha256(raw.encode("utf-8")).hexdigest()[:24]
+
+
 def content_fingerprint(job: dict) -> str:
-    """Stable hash of narrated text + voice plan. Skip regen when unchanged."""
+    """Stable hash of narrated text + full voice plan. Skip regen when unchanged."""
     payload = {
         "dialogue_voice": job.get("dialogue_voice") or "",
         "prosody": PROSODY_VERSION,
         "roles": [seg.get("role") for seg in job.get("segments") or []],
+        "voice_roles": [seg.get("voice_role") for seg in job.get("segments") or []],
         "text": job.get("text") or "",
         "voice": job.get("voice") or "",
     }
@@ -476,8 +624,12 @@ def planned_jobs(stem_filter: set[str] | None) -> list[dict]:
 def segment_voice(seg: dict, narrator: str, dialogue: str, single_voice: bool) -> str:
     if single_voice or not dialogue:
         return narrator
-    if seg.get("voice_role") == "dialogue":
+    role = seg.get("voice_role") or "narrator"
+    if role in ("dialogue", "dialogue_female"):
         return dialogue
+    if role == "dialogue_male":
+        # Male character lines use the male neural voice with dialogue prosody.
+        return narrator
     return narrator
 
 
@@ -680,43 +832,46 @@ async def run(
         if out.is_file() and not force and out.stat().st_size >= 256:
             existing = manifest.get(stem) or {}
             fp = content_fingerprint(job)
+            fp_text = text_fingerprint(job)
             stored = existing.get("content")
+            stored_text = existing.get("text")
             same_voice = existing.get("voice") == voice
             same_dialogue = existing.get("dialogue_voice") == (dialogue_voice or None)
             same_prosody = existing.get("prosody") == PROSODY_VERSION
-            # Prefer content hash: only rewrite when narration text/voice plan changed.
-            if stored == fp or (
-                stored is None
-                and same_voice
-                and same_dialogue
-                and same_prosody
-            ):
+            # Keep valid MP3s when story text is unchanged. Do not rewrite solely
+            # because the dual-voice plan differs from an older single-voice file.
+            text_unchanged = stored_text == fp_text or (
+                stored_text is None and (stored == fp or (same_voice and same_prosody))
+            )
+            if stored == fp or (text_unchanged and same_voice and same_prosody):
                 async with lock:
-                    if stored is None:
-                        meta = dict(existing) if isinstance(existing, dict) else {}
-                        meta.update(
-                            {
-                                "title": job["title"],
-                                "category": job["category"],
-                                "index": job["index"],
-                                "voice": voice,
-                                "dialogue_voice": dialogue_voice or None,
-                                "prosody": PROSODY_VERSION,
-                                "content": fp,
-                                "file": f"pilot/{out.name}" if pilot else out.name,
-                                "bytes": out.stat().st_size,
-                            }
-                        )
-                        manifest[stem] = meta
-                        manifest_path.write_text(
-                            json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
-                            encoding="utf-8",
-                        )
+                    meta = dict(existing) if isinstance(existing, dict) else {}
+                    meta.update(
+                        {
+                            "title": job["title"],
+                            "category": job["category"],
+                            "index": job["index"],
+                            "voice": meta.get("voice") or voice,
+                            "dialogue_voice": meta.get("dialogue_voice")
+                            if "dialogue_voice" in meta
+                            else (dialogue_voice or None),
+                            "prosody": PROSODY_VERSION,
+                            "text": fp_text,
+                            "content": stored or fp,
+                            "file": f"pilot/{out.name}" if pilot else out.name,
+                            "bytes": out.stat().st_size,
+                        }
+                    )
+                    manifest[stem] = meta
+                    manifest_path.write_text(
+                        json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
+                        encoding="utf-8",
+                    )
                     skipped += 1
                     done += 1
                     print(f"[{done}/{total}] skip {stem} ({voice})", flush=True)
                 return
-            # Content or voice/prosody mismatch: regenerate.
+            # Story text or narrator/prosody mismatch: regenerate.
 
         async with sem:
             roles = ",".join(seg["role"] for seg in job["segments"])
@@ -752,6 +907,7 @@ async def run(
                 "voice": voice,
                 "dialogue_voice": dialogue_voice or None,
                 "prosody": PROSODY_VERSION,
+                "text": text_fingerprint(job),
                 "content": content_fingerprint(job),
                 "roles": [seg["role"] for seg in job["segments"]],
                 "file": f"pilot/{out.name}" if pilot else out.name,

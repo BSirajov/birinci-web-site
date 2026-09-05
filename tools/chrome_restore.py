@@ -96,7 +96,7 @@ def install_resilient_path_writes() -> None:
 DISABLE_DISCOVERY_VIDEOS = True
 
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
-SITE_ASSET_VERSION = "20260904mp3enru"
+SITE_ASSET_VERSION = "20260905rump3"
 SITE_PUBLIC_ORIGIN = "https://birinci.cloud"
 LIVE_LANGS = ("az", "en", "ru", "ky")
 OG_IMAGE_URL = f"{SITE_PUBLIC_ORIGIN}/assets/pearl-hero.webp"
@@ -3388,16 +3388,34 @@ def ensure_stories_inventions_chrome(html: str) -> str:
         html,
     )
 
-    if is_category and "data-inventions-list-only" not in html:
+    # Prefer attribute upgrade over wrapping (wrapping nested an extra field div).
+    if is_category:
         html = re.sub(
-            r'(<div class="tools-bar__field">\s*<span class="tools-bar__label" id="tools-images-label")',
-            r'<div class="tools-bar__field" data-inventions-list-only hidden>\1',
+            r'<div class="tools-bar__field" data-inventions-list-only hidden><div class="tools-bar__field">\s*'
+            r'(<span class="tools-bar__label" id="tools-images-label">)',
+            r'<div class="tools-bar__field" data-home-list-only hidden data-inventions-list-only>\n    \1',
             html,
             count=1,
         )
         html = re.sub(
-            r'(<div class="tools-bar__field">\s*<span class="tools-bar__label" id="tools-texts-label")',
-            r'<div class="tools-bar__field" data-inventions-list-only hidden>\1',
+            r'<div class="tools-bar__field" data-inventions-list-only hidden><div class="tools-bar__field">\s*'
+            r'(<span class="tools-bar__label" id="tools-texts-label">)',
+            r'<div class="tools-bar__field" data-home-list-only hidden data-inventions-list-only>\n    \1',
+            html,
+            count=1,
+        )
+    if is_category and "data-home-list-only" not in html:
+        html = re.sub(
+            r'<div class="tools-bar__field"(?: data-inventions-list-only hidden)?>\s*'
+            r'(<span class="tools-bar__label" id="tools-images-label")',
+            r'<div class="tools-bar__field" data-home-list-only hidden data-inventions-list-only>\n    \1',
+            html,
+            count=1,
+        )
+        html = re.sub(
+            r'<div class="tools-bar__field"(?: data-inventions-list-only hidden)?>\s*'
+            r'(<span class="tools-bar__label" id="tools-texts-label")',
+            r'<div class="tools-bar__field" data-home-list-only hidden data-inventions-list-only>\n    \1',
             html,
             count=1,
         )
