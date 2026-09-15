@@ -44,6 +44,40 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     SHOW_DISCOVERY_LISTEN = flags.discoveries;
   };
 
+  /**
+   * iOS/Android phones only — not iPad, Android tablets, or desktop.
+   * Width media queries cannot do this: landscape phones are often 667–932px,
+   * while iPad Mini portrait is 768px. UA + tablet exclusion keeps tablets
+   * on the existing Image/Text layout in any orientation.
+   */
+  const isPhoneDevice = () => {
+    const nav = window.navigator || {};
+    const ua = String(nav.userAgent || "");
+    const platform = String(nav.platform || "");
+    const maxTouch = Number(nav.maxTouchPoints) || 0;
+    const haystack = `${ua} ${platform}`;
+
+    // Tablets first. iPadOS 13+ may report as Macintosh with touch points.
+    if (/iPad/i.test(haystack) || (/Macintosh/i.test(haystack) && maxTouch > 1)) {
+      return false;
+    }
+    if (/Tablet|Silk|Kindle/i.test(ua)) return false;
+    // Android tablets omit "Mobile"; phones include it.
+    if (/Android/i.test(ua) && !/Mobile/i.test(ua)) return false;
+
+    if (/iPhone|iPod/i.test(haystack)) return true;
+    if (/Android/i.test(ua) && /Mobile/i.test(ua)) return true;
+    return false;
+  };
+
+  const applyPhoneUiClass = () => {
+    const root = document.documentElement;
+    if (!root) return;
+    root.classList.toggle("is-phone", isPhoneDevice());
+  };
+  applyPhoneUiClass();
+  window.__birinciIsPhoneDevice = isPhoneDevice;
+
   // Wisdom illustrations default to hidden. One-time migration overrides older
   // sessions that stored "show" ("0") before this product default.
   const IMAGES_COLLAPSED_KEY = "birinci-images-collapsed";
@@ -1282,6 +1316,30 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       (story.querySelector(".story__figure") || story.querySelector("[data-images-mode]"))
     );
 
+  const storyIllustrationImg = (story) =>
+    story ? story.querySelector(".story__figure img") : null;
+
+  const storyIllustrationUrl = (img) => {
+    if (!img) return "";
+    return (img.getAttribute("data-src") || "").trim();
+  };
+
+  const isStoryIllustrationReady = (story) => {
+    const img = storyIllustrationImg(story);
+    return !!(img && (img.getAttribute("src") || "").trim());
+  };
+
+  const loadStoryIllustration = (story) => {
+    const img = storyIllustrationImg(story);
+    if (!img) return false;
+    const url = storyIllustrationUrl(img);
+    const current = (img.getAttribute("src") || "").trim();
+    if (current && (!url || current === url)) return true;
+    if (!url) return !!current;
+    img.setAttribute("src", url);
+    return true;
+  };
+
   const isStoryTextVisible = (story) =>
     !!(story && !story.classList.contains("story--text-hidden"));
 
@@ -1345,6 +1403,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   ) => {
     let showImages = !!imagesVisible;
     let showTexts = !!textsVisible;
+    const onPhone = isPhoneDevice();
+    // Phones hide Image/Text controls, so keep copy on-screen and illustrations unloaded.
+    if (onPhone) {
+      showImages = false;
+      showTexts = true;
+    }
     if (!showImages && !showTexts) showTexts = true;
 
     const prevImages = !document.body.classList.contains("images-collapsed");
@@ -1364,10 +1428,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       btn.setAttribute("aria-pressed", pressed ? "true" : "false");
     });
 
-    try {
-      localStorage.setItem(IMAGES_COLLAPSED_KEY, showImages ? "0" : "1");
-      localStorage.setItem("birinci-texts-collapsed", showTexts ? "0" : "1");
-    } catch (_) {}
+    if (!onPhone) {
+      try {
+        localStorage.setItem(IMAGES_COLLAPSED_KEY, showImages ? "0" : "1");
+        localStorage.setItem("birinci-texts-collapsed", showTexts ? "0" : "1");
+      } catch (_) {}
+    }
 
     const syncFigures =
       opts.forceAll || showImages !== prevImages || (!showImages && !showTexts);
@@ -1384,8 +1450,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
             setStoryModePressed(story, "data-texts-mode", true);
           }
           if (storyHasImageControls(story)) {
-            story.classList.toggle("story--figure-hidden", !showImages);
-            setStoryModePressed(story, "data-images-mode", showImages);
+            const reveal = showImages && isStoryIllustrationReady(story);
+            story.classList.toggle("story--figure-hidden", !reveal);
+            setStoryModePressed(story, "data-images-mode", reveal);
           }
           syncStoryMediaGuards(story);
         });
@@ -1402,8 +1469,10 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
               return;
             }
             if (!isStoryFigureVisible(story)) {
-              story.classList.remove("story--figure-hidden");
-              setStoryModePressed(story, "data-images-mode", true);
+              if (isStoryIllustrationReady(story)) {
+                story.classList.remove("story--figure-hidden");
+                setStoryModePressed(story, "data-images-mode", true);
+              }
             }
           }
           story.classList.toggle("story--text-hidden", !showTexts);
@@ -1428,6 +1497,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
   /** Never start with both media channels off. */
   const resolveInitialMediaCollapsed = () => {
+    if (isPhoneDevice()) return { imagesCollapsed: true, textsCollapsed: false };
     let imagesCollapsed = readImagesCollapsedPref();
     let textsCollapsed = readTextsCollapsedPref();
     if (imagesCollapsed && textsCollapsed) textsCollapsed = false;
@@ -2572,6 +2642,10 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const toImg = story.querySelector(".story__figure img");
       if (fromImg && toImg) {
         toImg.alt = fromImg.alt || "";
+        const fromPending = fromImg.getAttribute("data-src");
+        if (fromPending && !toImg.getAttribute("data-src")) {
+          toImg.setAttribute("data-src", fromPending);
+        }
         const open = toImg.closest(".story__figure-open");
         const fromOpen = fromImg.closest(".story__figure-open");
         if (open && fromOpen) open.setAttribute("aria-label", fromOpen.getAttribute("aria-label") || "");
@@ -4243,7 +4317,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     if ((imagesToggle && imagesBtns.length) || (textsToggle && textsBtns.length)) {
       const initial = resolveInitialMediaCollapsed();
       applyGlobalMediaVisibility(
-        !initial.imagesCollapsed,
+        false,
         !initial.textsCollapsed,
         imagesBtns,
         textsBtns,
@@ -5263,7 +5337,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     if ((imagesToggle && imagesBtns.length) || (textsToggle && textsBtns.length)) {
       const initial = resolveInitialMediaCollapsed();
       applyGlobalMediaVisibility(
-        !initial.imagesCollapsed,
+        false,
         !initial.textsCollapsed,
         imagesBtns,
         textsBtns,
@@ -5481,7 +5555,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         ? `
     <figure class="story__figure" id="figure-${escapeHtml(story.stem)}">
       <button type="button" class="story__figure-open" aria-label="${enlargeLabel}">
-        <img src="wisdom-stories/illustrations/${escapeHtml(story.stem)}.webp" alt="${figAlt}" loading="lazy" width="1536" height="1024" />
+        <img data-src="wisdom-stories/illustrations/${escapeHtml(story.stem)}.webp" alt="${figAlt}" loading="lazy" width="1536" height="1024" />
       </button>
     </figure>`
         : "";
@@ -7875,6 +7949,10 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           }
         }
       }
+      if (visible) {
+        if (opts.load) loadStoryIllustration(story);
+        else if (!isStoryIllustrationReady(story)) visible = false;
+      }
       story.classList.toggle("story--figure-hidden", !visible);
       setStoryModePressed(story, "data-images-mode", visible);
       syncStoryMediaGuards(story);
@@ -7898,14 +7976,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const story = btn.closest("article.story");
       if (!story) return;
       event.preventDefault();
-      setFigureState(story, btn.getAttribute("data-images-mode") === "show");
+      const show = btn.getAttribute("data-images-mode") === "show";
+      setFigureState(story, show, { load: show });
     });
 
-    const imagesCollapsed =
-      document.body.classList.contains("images-collapsed") ||
-      resolveInitialMediaCollapsed().imagesCollapsed;
-    if (imagesCollapsed) document.body.classList.add("images-collapsed");
-    setAllFigures(!imagesCollapsed);
+    document.body.classList.add("images-collapsed");
+    setAllFigures(false);
   };
 
   const initStoryTextToggle = () => {
@@ -7917,7 +7993,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           return false;
         }
         if (!isStoryFigureVisible(story)) {
-          if (opts.ensureOther) {
+          if (opts.ensureOther && isStoryIllustrationReady(story)) {
             story.classList.remove("story--figure-hidden");
             setStoryModePressed(story, "data-images-mode", true);
           } else {
@@ -7951,6 +8027,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       setTextState(story, btn.getAttribute("data-texts-mode") === "show");
     });
 
+    if (isPhoneDevice()) {
+      document.body.classList.remove("texts-collapsed");
+      setAllTexts(true);
+      syncAllStoryMediaGuards();
+      return;
+    }
     const textsCollapsed =
       document.body.classList.contains("texts-collapsed") ||
       resolveInitialMediaCollapsed().textsCollapsed;

@@ -3202,6 +3202,26 @@ body.global-search-open { overflow: hidden; }
 .story.story--text-hidden .story__text {
   display: none;
 }
+
+/*
+  Phone-only Wisdom controls (html.is-phone from assets/site.js).
+  JS detects iPhone/iPod and Android+Mobile, and excludes iPad / iPadOS
+  desktop-mode UA, Android tablets (no "Mobile"), and Tablet/Silk/Kindle.
+  Desktop and tablets never get .is-phone, so these rules do not apply.
+  Discoveries (.page-inventions) is out of scope.
+*/
+html.is-phone :is(.page-home, .page-category) .tools-bar__field:has([data-tools-images]),
+html.is-phone :is(.page-home, .page-category) .tools-bar__field:has([data-tools-texts]),
+html.is-phone article.story .story__action-group:has([data-images-mode]),
+html.is-phone article.story .story__action-group:has([data-texts-mode]) {
+  display: none !important;
+}
+html.is-phone article.story.story--text-hidden .story__text {
+  display: block;
+}
+html.is-phone article.story .story__actions:not(:has(.story__action-group:has([data-story-tts]):not([hidden]))) {
+  display: none;
+}
 .tools-empty {
   margin: 1rem 0 0;
   padding: 1rem 1.1rem;

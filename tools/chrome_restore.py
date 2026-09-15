@@ -20,6 +20,7 @@ if str(TOOLS) not in sys.path:
 from brand_one_mark import ensure_brand_one_mark  # noqa: E402
 from html_sitemap import write_html_sitemaps  # noqa: E402
 from i18n_config import (  # noqa: E402
+    dehydrate_story_illustrations,
     rewrite_content_media_paths,
     story_audio_dir,
     story_illustrations_dir,
@@ -3784,7 +3785,7 @@ def ensure_site_js_i18n_chrome(js: str) -> str:
         "        ? `\n"
         '    <figure class="story__figure" id="figure-${escapeHtml(story.stem)}">\n'
         '      <button type="button" class="story__figure-open" aria-label="${escapeHtml(story.title)} şəklini böyüt">\n'
-        '        <img src="illustrations/${escapeHtml(story.stem)}.webp" alt="${escapeHtml(story.title)} illüstrasiyası" loading="lazy" width="1536" height="1024" />\n'
+        '        <img data-src="illustrations/${escapeHtml(story.stem)}.webp" alt="${escapeHtml(story.title)} illüstrasiyası" loading="lazy" width="1536" height="1024" />\n'
     )
     new_figure = (
         "      const enlargeLabel = escapeHtml(\n"
@@ -3797,10 +3798,18 @@ def ensure_site_js_i18n_chrome(js: str) -> str:
         "        ? `\n"
         '    <figure class="story__figure" id="figure-${escapeHtml(story.stem)}">\n'
         '      <button type="button" class="story__figure-open" aria-label="${enlargeLabel}">\n'
-        '        <img src="wisdom-stories/illustrations/${escapeHtml(story.stem)}.webp" alt="${figAlt}" loading="lazy" width="1536" height="1024" />\n'
+        '        <img data-src="wisdom-stories/illustrations/${escapeHtml(story.stem)}.webp" alt="${figAlt}" loading="lazy" width="1536" height="1024" />\n'
     )
     if old_figure in js:
         js = js.replace(old_figure, new_figure, 1)
+    js = js.replace(
+        '<img src="wisdom-stories/illustrations/${escapeHtml(story.stem)}.webp"',
+        '<img data-src="wisdom-stories/illustrations/${escapeHtml(story.stem)}.webp"',
+    )
+    js = js.replace(
+        '<img src="illustrations/${escapeHtml(story.stem)}.webp"',
+        '<img data-src="illustrations/${escapeHtml(story.stem)}.webp"',
+    )
     replacements = (
         (
             'aria-label="Böyüdülmüş illüstrasiya"',
@@ -4117,6 +4126,7 @@ def patch_emitted_html(
         html = dedupe_home_apply_view(html)
     html = ensure_seo_head(html, lang, rel_path)
     html = rewrite_content_media_paths(html)
+    html = dehydrate_story_illustrations(html)
     return html
 
 

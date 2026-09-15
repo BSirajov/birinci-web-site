@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 from functools import lru_cache
 from pathlib import Path
 
@@ -123,6 +124,7 @@ CONTENT_MEDIA_REPLACEMENTS = (
     ("../audio/", "../wisdom-stories/audio/"),
     ("../illustrations/", "../wisdom-stories/illustrations/"),
     ('src="illustrations/', 'src="wisdom-stories/illustrations/'),
+    ('data-src="illustrations/', 'data-src="wisdom-stories/illustrations/'),
     ('data-audio="audio/', 'data-audio="wisdom-stories/audio/'),
     ("data-audio=`audio/", "data-audio=`wisdom-stories/audio/"),
 )
@@ -132,6 +134,50 @@ def rewrite_content_media_paths(text: str) -> str:
     for old, new in CONTENT_MEDIA_REPLACEMENTS:
         text = text.replace(old, new)
     return text
+
+
+# Keep illustration URLs in markup, but do not give the browser a fetchable src
+# until the in-story Image toggle opts in (see assets/site.js).
+_STORY_ILLUSTRATION_SRC_PREFIXES = (
+    'src="../wisdom-stories/illustrations/',
+    'src="wisdom-stories/illustrations/',
+    'src="../illustrations/',
+    'src="illustrations/',
+)
+_STORY_SHOW_IMAGE_RE = re.compile(
+    r'(data-images-mode="show" aria-pressed=")true(" aria-controls="figure-)'
+)
+_STORY_HIDE_IMAGE_RE = re.compile(
+    r'(data-images-mode="hide" aria-pressed=")false(" aria-controls="figure-)'
+)
+_STORY_ARTICLE_OPEN_RE = re.compile(r'<article class="story news-card([^"]*)"')
+
+
+def dehydrate_story_illustrations(html: str) -> str:
+    """Move Wisdom illustration src to data-src and start figures hidden."""
+    if not html or (
+        "story__figure" not in html
+        and "wisdom-stories/illustrations/" not in html
+        and "/illustrations/" not in html
+    ):
+        return html
+    for prefix in _STORY_ILLUSTRATION_SRC_PREFIXES:
+        html = html.replace(prefix, "data-" + prefix)
+
+    def hide_article(match: re.Match[str]) -> str:
+        classes = match.group(1)
+        if "story--figure-hidden" in classes:
+            return match.group(0)
+        return match.group(0).replace(
+            'class="story news-card',
+            'class="story news-card story--figure-hidden',
+            1,
+        )
+
+    html = _STORY_ARTICLE_OPEN_RE.sub(hide_article, html)
+    html = _STORY_SHOW_IMAGE_RE.sub(r"\1false\2", html)
+    html = _STORY_HIDE_IMAGE_RE.sub(r"\1true\2", html)
+    return html
 
 
 def progress_manifest_path() -> Path:
