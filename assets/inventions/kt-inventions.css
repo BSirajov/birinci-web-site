@@ -872,3 +872,51 @@ body.inventions-view-cards .inventions-cards {
     padding: 14px 16px;
   }
 }
+
+/* Discoveries toolbar: Search / Category / Period text already lives in the
+   controls (placeholder + empty option). Keep SR names; hide visible labels.
+   Scoped so Wisdom and Prominent Figures toolbars are unchanged. */
+html[data-kt-page-id="discoveries-and-inventions"] body.page-inventions
+  .tools-bar.tools-bar--inventions
+  .tools-bar__search-field
+  > .visually-hidden,
+html[data-kt-page-id="discoveries-and-inventions"] body.page-inventions
+  .tools-bar.tools-bar--inventions
+  #inv-cat-label,
+html[data-kt-page-id="discoveries-and-inventions"] body.page-inventions
+  .tools-bar.tools-bar--inventions
+  #inv-period-label {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  display: block !important;
+  align-items: unset;
+  justify-content: unset;
+  color: inherit;
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: 1px !important;
+  font-weight: 400;
+  text-align: left;
+}
+
+html[data-kt-page-id="discoveries-and-inventions"] body.page-inventions
+  .tools-bar.tools-bar--inventions
+  > .tools-bar__search-row
+  > .tools-bar__search
+  > .tools-bar__search-field,
+html[data-kt-page-id="discoveries-and-inventions"] body.page-inventions
+  .tools-bar.tools-bar--inventions
+  > .tools-bar__search-row
+  > .tools-bar__field--filter {
+  justify-content: flex-start;
+}

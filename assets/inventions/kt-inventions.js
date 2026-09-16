@@ -1334,11 +1334,22 @@
     });
   }
 
+  function syncArticlesDrawerChrome() {
+    if (typeof window.__birinciSyncArticlesDrawer === "function") {
+      window.__birinciSyncArticlesDrawer();
+    }
+  }
+
   function closeEventsMenu() {
     if (!widget) return;
+    if (typeof window.__birinciCloseArticlesDrawer === "function") {
+      window.__birinciCloseArticlesDrawer();
+      return;
+    }
     var toggle = widget.querySelector(".events-menu-toggle");
     widget.classList.remove("events-open");
     if (toggle) toggle.setAttribute("aria-expanded", "false");
+    syncArticlesDrawerChrome();
   }
 
   function toggleEventsMenu() {
@@ -1346,10 +1357,12 @@
     var toggle = widget.querySelector(".events-menu-toggle");
     var open = widget.classList.toggle("events-open");
     if (toggle) toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    syncArticlesDrawerChrome();
   }
 
   function scrollSidebarLinkIntoView(link) {
-    if (!widgetBody || mobileMq.matches || !link) return;
+    if (!widgetBody || !link) return;
+    if (mobileMq.matches && !(widget && widget.classList.contains("events-open"))) return;
 
     var row = link.closest("li") || link;
     var bodyRect = widgetBody.getBoundingClientRect();
@@ -3318,6 +3331,9 @@
       window.KT_SIDEBAR_TOC_GROUPS.syncAllMainCategoriesFromToc();
     }
     applyFilters();
+    if (typeof window.__birinciSyncArticlesDrawer === "function") {
+      window.__birinciSyncArticlesDrawer();
+    }
   }
   window.__birinciSetInventionsView = setInventionsView;
 
@@ -3414,6 +3430,7 @@
     document.addEventListener("click", function (e) {
       if (!mobileMq.matches || !widget.classList.contains("events-open")) return;
       if (widget.contains(e.target)) return;
+      if (e.target.closest(".articles-drawer-launch, .stories-drawer-launch")) return;
       closeEventsMenu();
     });
 

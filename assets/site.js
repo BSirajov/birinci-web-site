@@ -2466,6 +2466,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       if (icon) icon.title = tip;
       if (value) value.title = tip;
     });
+    if (typeof window.__birinciSyncStoriesDrawerLabels === "function") {
+      window.__birinciSyncStoriesDrawerLabels();
+    }
+    if (typeof window.__birinciSyncArticlesDrawerLabels === "function") {
+      window.__birinciSyncArticlesDrawerLabels();
+    }
   };
 
   window.__birinciSyncToolsBarTooltips = syncToolsBarTooltips;
@@ -3201,6 +3207,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   const finePointerQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
   const canHoverNav = () => finePointerQuery.matches && !mobileNavQuery.matches;
 
+  const PAGE_TOOLBAR_SEL =
+    '.tools-bar[data-tools="home"], .tools-bar[data-tools="category"], .tools-bar[data-tools="inventions"]';
+
   const syncStickyChrome = () => {
     const root = document.documentElement;
     if (header) {
@@ -3209,9 +3218,49 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const crumbs = document.querySelector(".breadcrumbs");
     if (crumbs) {
       root.style.setProperty("--breadcrumb-h", `${Math.ceil(crumbs.getBoundingClientRect().height)}px`);
+    } else {
+      root.style.setProperty("--breadcrumb-h", "0px");
     }
+    const toolbar = document.querySelector(".page-toolbar");
+    const toolbarH =
+      toolbar && toolbar.offsetParent !== null
+        ? `${Math.ceil(toolbar.getBoundingClientRect().height)}px`
+        : "0px";
+    root.style.setProperty("--toolbar-h", toolbarH);
+    root.style.setProperty("--sticky-stack-h", toolbarH);
   };
   window.__birinciSyncStickyChrome = syncStickyChrome;
+
+  const placePageToolbar = () => {
+    const bar = document.querySelector(PAGE_TOOLBAR_SEL);
+    const crumbs = document.querySelector(".breadcrumbs");
+    let slot = document.querySelector(".page-toolbar");
+    if (!bar) {
+      if (slot) slot.remove();
+      document.body.classList.remove("has-page-toolbar");
+      syncStickyChrome();
+      return null;
+    }
+    if (!slot) {
+      slot = document.createElement("div");
+      slot.className = "page-toolbar";
+      slot.setAttribute("data-page-toolbar", "");
+    }
+    const anchor = crumbs || header;
+    if (anchor) {
+      if (slot.previousElementSibling !== anchor) anchor.after(slot);
+    } else {
+      const main = document.getElementById("main");
+      if (main && slot.nextElementSibling !== main) main.before(slot);
+    }
+    if (bar.parentElement !== slot) slot.appendChild(bar);
+    document.body.classList.add("has-page-toolbar");
+    ensureStoryToolsSearchRow(bar);
+    ensureStoryToolsControlRow(bar);
+    syncStickyChrome();
+    return slot;
+  };
+  window.__birinciPlacePageToolbar = placePageToolbar;
 
   /**
    * Append the active story / discovery article to the sticky breadcrumb trail.
@@ -3478,6 +3527,15 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     if (header) stickyRo.observe(header);
     const crumbsEl = document.querySelector(".breadcrumbs");
     if (crumbsEl) stickyRo.observe(crumbsEl);
+    const toolbarEl = placePageToolbar();
+    if (toolbarEl) stickyRo.observe(toolbarEl);
+    document.addEventListener("birinci:lang-change", () => {
+      const next = placePageToolbar();
+      if (next) stickyRo.observe(next);
+    });
+  } else {
+    placePageToolbar();
+    document.addEventListener("birinci:lang-change", () => placePageToolbar());
   }
   window.addEventListener("resize", syncStickyChrome, { passive: true });
   syncStickyChrome();
@@ -4218,6 +4276,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         document.body.classList.toggle("category-view-cards", next === "cards");
         document.body.classList.toggle("inventions-view-cards", next === "cards");
         document.body.classList.toggle("inventions-view-list", next === "list");
+        if (typeof window.__birinciSyncStoriesDrawer === "function") {
+          window.__birinciSyncStoriesDrawer();
+        }
+        if (typeof window.__birinciSyncArticlesDrawer === "function") {
+          window.__birinciSyncArticlesDrawer();
+        }
         bar.querySelectorAll("[data-inventions-list-only], [data-home-list-only]").forEach((el) => {
           el.hidden = next !== "list";
           if (next === "list") el.removeAttribute("hidden");
@@ -4725,6 +4789,73 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const widgetBody = nav.querySelector(".widget-body");
     const toggle = nav.querySelector(".events-menu-toggle");
     const mobileQuery = window.matchMedia("(max-width: 1060px)");
+    const DRAWER_FOCUSABLE =
+      'a[href]:not([tabindex="-1"]), button:not([disabled]):not([tabindex="-1"]), input:not([disabled]):not([tabindex="-1"]), select:not([disabled]):not([tabindex="-1"]), textarea:not([disabled]):not([tabindex="-1"]), [tabindex]:not([tabindex="-1"])';
+
+    const isStoriesDrawerSurface = () => {
+      const body = document.body;
+      return (
+        !!body &&
+        !body.classList.contains("page-inventions") &&
+        (body.classList.contains("page-category") || body.classList.contains("page-home"))
+      );
+    };
+    const isStoriesListActive = () => {
+      const body = document.body;
+      if (!body || body.classList.contains("page-inventions")) return false;
+      if (body.classList.contains("category-view-cards")) return false;
+      if (body.classList.contains("inventions-view-cards")) return false;
+      if (body.classList.contains("page-home")) {
+        const listPanel = document.querySelector('[data-view="list"]');
+        if (listPanel && (listPanel.hidden || listPanel.hasAttribute("hidden"))) return false;
+      }
+      return body.classList.contains("page-category") || body.classList.contains("page-home");
+    };
+    const isDrawerMode = () =>
+      isStoriesDrawerSurface() && mobileQuery.matches && isStoriesListActive();
+    const drawerLang = () =>
+      String(
+        (document.body && document.body.getAttribute("data-lang")) ||
+          liveI18n().lang ||
+          "en"
+      )
+        .toLowerCase()
+        .split(/[-_]/)[0];
+    const drawerFallback = (map, en) => map[drawerLang()] || en;
+    const drawerLabel = () =>
+      tUi(
+        "stories_nav",
+        drawerFallback(
+          { az: "Hekayələr", en: "Stories", ru: "Рассказы", ky: "Аңгемелер" },
+          "Stories"
+        )
+      );
+    const drawerOpenLabel = () =>
+      tUi(
+        "stories_nav_open",
+        drawerFallback(
+          {
+            az: "Hekayələr menyusunu aç",
+            en: "Open stories menu",
+            ru: "Открыть меню рассказов",
+            ky: "Аңгеме менюсун ачуу",
+          },
+          "Open stories menu"
+        )
+      );
+    const drawerCloseLabel = () =>
+      tUi(
+        "stories_nav_close",
+        drawerFallback(
+          {
+            az: "Hekayələr menyusunu bağla",
+            en: "Close stories menu",
+            ru: "Закрыть меню рассказов",
+            ky: "Аңгеме менюсун жабуу",
+          },
+          tUi("close", "Close")
+        )
+      );
 
     let links = [];
     let cards = [];
@@ -4732,17 +4863,156 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     let programmaticLock = false;
     let lockTimer = null;
     let sidebarScrollSilent = false;
+    let lastFocus = null;
+    let launchBtn = document.querySelector(".stories-drawer-launch");
+    let backdrop = document.querySelector(".stories-drawer-backdrop");
+    let closeBtn = nav.querySelector(".stories-drawer-close");
 
-    const closeMenu = () => {
-      if (!widget || !toggle) return;
+    const drawerFocusables = () => {
+      if (!widget) return [];
+      return Array.from(widget.querySelectorAll(DRAWER_FOCUSABLE)).filter((el) => {
+        if (el.closest("[hidden]")) return false;
+        const style = window.getComputedStyle(el);
+        return style.display !== "none" && style.visibility !== "hidden";
+      });
+    };
+
+    const syncDrawerLabels = () => {
+      if (launchBtn) {
+        const label = launchBtn.querySelector(".stories-drawer-launch__label");
+        if (label) label.textContent = drawerLabel();
+        launchBtn.setAttribute("aria-label", drawerOpenLabel());
+        launchBtn.title = drawerLabel();
+      }
+      if (closeBtn) {
+        closeBtn.setAttribute("aria-label", drawerCloseLabel());
+        closeBtn.title = drawerCloseLabel();
+      }
+    };
+    window.__birinciSyncStoriesDrawerLabels = syncDrawerLabels;
+
+    const ensureDrawerChrome = () => {
+      if (!isStoriesDrawerSurface() || !widget) return;
+      if (!widget.id) widget.id = "storiesDrawerPanel";
+      if (!launchBtn) {
+        launchBtn = document.createElement("button");
+        launchBtn.type = "button";
+        launchBtn.className = "stories-drawer-launch";
+        launchBtn.innerHTML =
+          '<span class="stories-drawer-launch__icon" aria-hidden="true">📖</span><span class="stories-drawer-launch__label"></span>';
+        document.body.appendChild(launchBtn);
+      }
+      if (!backdrop) {
+        backdrop = document.createElement("div");
+        backdrop.className = "stories-drawer-backdrop";
+        backdrop.tabIndex = -1;
+        backdrop.setAttribute("hidden", "");
+        backdrop.setAttribute("aria-hidden", "true");
+        document.body.appendChild(backdrop);
+      }
+      if (!closeBtn) {
+        closeBtn = document.createElement("button");
+        closeBtn.type = "button";
+        closeBtn.className = "stories-drawer-close";
+        closeBtn.innerHTML = '<span aria-hidden="true">×</span>';
+        const head = widget.querySelector(".widget-head");
+        if (head) head.appendChild(closeBtn);
+        else widget.insertBefore(closeBtn, widget.firstChild);
+      }
+      const titleEl = widget.querySelector(".widget-head > span");
+      if (titleEl && !titleEl.id) titleEl.id = "storiesDrawerTitle";
+      launchBtn.setAttribute("aria-controls", widget.id);
+      closeBtn.setAttribute("aria-controls", widget.id);
+      if (titleEl) widget.setAttribute("aria-labelledby", titleEl.id);
+      syncDrawerLabels();
+    };
+
+    const syncDrawerChromeState = (open) => {
+      const drawer = isDrawerMode();
+      const show = !!(open && drawer);
+      document.documentElement.classList.toggle("stories-drawer-open", show);
+      document.body.classList.toggle("stories-drawer-open", show);
+      if (launchBtn) {
+        launchBtn.setAttribute("aria-expanded", show ? "true" : "false");
+        const showLaunch = drawer;
+        launchBtn.hidden = !showLaunch;
+        if (showLaunch) launchBtn.removeAttribute("hidden");
+        else launchBtn.setAttribute("hidden", "");
+      }
+      if (backdrop) {
+        backdrop.hidden = !show;
+        backdrop.setAttribute("aria-hidden", show ? "false" : "true");
+        if (show) backdrop.removeAttribute("hidden");
+        else backdrop.setAttribute("hidden", "");
+      }
+      if (nav) {
+        if (drawer) {
+          nav.toggleAttribute("inert", !open);
+          nav.setAttribute("aria-hidden", open ? "false" : "true");
+        } else {
+          nav.removeAttribute("inert");
+          nav.removeAttribute("aria-hidden");
+        }
+      }
+      if (widget) {
+        if (show) {
+          widget.setAttribute("role", "dialog");
+          widget.setAttribute("aria-modal", "true");
+        } else {
+          widget.removeAttribute("role");
+          widget.removeAttribute("aria-modal");
+        }
+      }
+    };
+
+    const closeMenu = (options = {}) => {
+      if (!widget) return;
+      const wasOpen = widget.classList.contains("events-open");
       widget.classList.remove("events-open");
-      toggle.setAttribute("aria-expanded", "false");
+      if (toggle) toggle.setAttribute("aria-expanded", "false");
+      syncDrawerChromeState(false);
+      if (wasOpen && options.restoreFocus !== false) {
+        const target =
+          (isDrawerMode() && launchBtn && !launchBtn.hidden && launchBtn) ||
+          (lastFocus && document.contains(lastFocus) && lastFocus);
+        if (target && typeof target.focus === "function") {
+          try {
+            target.focus({ preventScroll: true });
+          } catch (_) {}
+        }
+      }
+      lastFocus = null;
+    };
+    const openMenu = () => {
+      if (!widget) return;
+      ensureDrawerChrome();
+      lastFocus = document.activeElement;
+      widget.classList.add("events-open");
+      if (toggle) toggle.setAttribute("aria-expanded", "true");
+      syncDrawerChromeState(true);
+      if (isDrawerMode()) {
+        window.requestAnimationFrame(() => {
+          const focusTarget = closeBtn || drawerFocusables()[0];
+          try {
+            if (focusTarget) focusTarget.focus({ preventScroll: true });
+          } catch (_) {}
+          if (lastActiveLink) scrollSidebarLinkIntoView(lastActiveLink);
+        });
+      }
     };
     const toggleMenu = () => {
-      if (!widget || !toggle) return;
-      const open = widget.classList.toggle("events-open");
-      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      if (!widget) return;
+      if (widget.classList.contains("events-open")) closeMenu();
+      else openMenu();
     };
+    const syncStoriesDrawer = () => {
+      ensureDrawerChrome();
+      const open = !!(widget && widget.classList.contains("events-open"));
+      if (open && !isDrawerMode()) closeMenu({ restoreFocus: false });
+      else syncDrawerChromeState(open && isDrawerMode());
+    };
+    window.__birinciSyncStoriesDrawer = syncStoriesDrawer;
+    window.__birinciCloseStoriesDrawer = () => closeMenu({ restoreFocus: false });
 
     const stickyScrollOffset = () => {
       // Prefer live sticky chrome (header + breadcrumbs) — matches --sticky-stack-bottom.
@@ -4909,7 +5179,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     };
 
     const scrollSidebarLinkIntoView = (link) => {
-      if (!widgetBody || mobileQuery.matches || !link) return;
+      if (!widgetBody || !link) return;
+      if (mobileQuery.matches && !(widget && widget.classList.contains("events-open"))) return;
       const row = link.closest("li") || link;
       const bodyRect = widgetBody.getBoundingClientRect();
       const rowRect = row.getBoundingClientRect();
@@ -5064,7 +5335,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(() => {
         sidebarScrollSilent = false;
-        if (mobileQuery.matches) closeMenu();
+        if (mobileQuery.matches) closeMenu({ restoreFocus: false });
+        syncStoriesDrawer();
         updateActive(true, { skipSidebarScroll: true });
       }, 120);
     };
@@ -5085,25 +5357,73 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       updateActive();
     };
 
+    ensureDrawerChrome();
+    syncDrawerChromeState(false);
+
     if (toggle) {
       toggle.addEventListener("click", (event) => {
         event.stopPropagation();
         toggleMenu();
       });
     }
+    if (launchBtn && !launchBtn.__birinciBound) {
+      launchBtn.__birinciBound = true;
+      launchBtn.addEventListener("click", (event) => {
+        event.stopPropagation();
+        toggleMenu();
+      });
+    }
+    if (closeBtn && !closeBtn.__birinciBound) {
+      closeBtn.__birinciBound = true;
+      closeBtn.addEventListener("click", (event) => {
+        event.stopPropagation();
+        closeMenu();
+      });
+    }
+    if (backdrop && !backdrop.__birinciBound) {
+      backdrop.__birinciBound = true;
+      backdrop.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        closeMenu();
+      });
+    }
     document.addEventListener("click", (event) => {
       if (!mobileQuery.matches || !widget || !widget.classList.contains("events-open")) return;
       if (widget.contains(event.target)) return;
+      if (launchBtn && launchBtn.contains(event.target)) return;
       closeMenu();
     });
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") closeMenu();
+      const open = widget && widget.classList.contains("events-open");
+      if (event.key === "Escape") {
+        if (open) {
+          event.preventDefault();
+          closeMenu();
+        }
+        return;
+      }
+      if (event.key !== "Tab" || !open || !isDrawerMode()) return;
+      const nodes = drawerFocusables();
+      if (!nodes.length) return;
+      const first = nodes[0];
+      const last = nodes[nodes.length - 1];
+      if (event.shiftKey) {
+        if (document.activeElement === first || !widget.contains(document.activeElement)) {
+          event.preventDefault();
+          last.focus();
+        }
+      } else if (document.activeElement === last || !widget.contains(document.activeElement)) {
+        event.preventDefault();
+        first.focus();
+      }
     });
     mobileQuery.addEventListener("change", () => {
-      closeMenu();
+      closeMenu({ restoreFocus: false });
       programmaticLock = false;
       clearTimeout(lockTimer);
       sidebarScrollSilent = true;
+      syncStoriesDrawer();
       window.requestAnimationFrame(() => {
         sidebarScrollSilent = false;
         updateActive(true, { skipSidebarScroll: true });
@@ -5213,6 +5533,340 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   };
 
   window.__birinciBindStorySidebar = bindStorySidebarLayout;
+
+  /**
+   * Discoveries Articles drawer — same 1060px / a11y model as Wisdom Stories.
+   * Scroll-spy stays in kt-inventions.js; this only owns off-canvas chrome.
+   */
+  const bindArticlesDrawer = () => {
+    const body = document.body;
+    if (!body || !body.classList.contains("page-inventions")) return null;
+    if (body.classList.contains("figures-preview-page")) return null;
+    if (
+      (document.documentElement.getAttribute("data-kt-page-id") || "") !==
+      "discoveries-and-inventions"
+    ) {
+      return null;
+    }
+
+    const nav = document.querySelector(".charter-layout .charter-sidebar, .charter-sidebar.toc-card");
+    if (!nav) return null;
+    const widget =
+      document.getElementById("inventionsArticlesWidget") ||
+      nav.querySelector(".sidebar-widget");
+    if (!widget) return null;
+    const widgetBody = widget.querySelector(".widget-body");
+    const toggle = widget.querySelector(".events-menu-toggle");
+    const mobileQuery = window.matchMedia("(max-width: 1060px)");
+    const DRAWER_FOCUSABLE =
+      'a[href]:not([tabindex="-1"]), button:not([disabled]):not([tabindex="-1"]), input:not([disabled]):not([tabindex="-1"]), select:not([disabled]):not([tabindex="-1"]), textarea:not([disabled]):not([tabindex="-1"]), [tabindex]:not([tabindex="-1"])';
+
+    const isArticlesDrawerSurface = () =>
+      !!document.body && document.body.classList.contains("page-inventions");
+    const isArticlesListActive = () =>
+      !!document.body && document.body.classList.contains("inventions-view-list");
+    const isDrawerMode = () =>
+      isArticlesDrawerSurface() && mobileQuery.matches && isArticlesListActive();
+
+    const drawerLang = () =>
+      String(
+        (document.body && document.body.getAttribute("data-lang")) ||
+          liveI18n().lang ||
+          "en"
+      )
+        .toLowerCase()
+        .split(/[-_]/)[0];
+    const drawerFallback = (map, en) => map[drawerLang()] || en;
+    const drawerLabel = () =>
+      tUi(
+        "articles_nav",
+        drawerFallback(
+          { az: "Məqalələr", en: "Articles", ru: "Статьи", ky: "Макалалар" },
+          "Articles"
+        )
+      );
+    const drawerOpenLabel = () =>
+      tUi(
+        "articles_nav_open",
+        drawerFallback(
+          {
+            az: "Məqalələr menyusunu aç",
+            en: "Open articles menu",
+            ru: "Открыть меню статей",
+            ky: "Макалалар менюсун ачуу",
+          },
+          "Open articles menu"
+        )
+      );
+    const drawerCloseLabel = () =>
+      tUi(
+        "articles_nav_close",
+        drawerFallback(
+          {
+            az: "Məqalələr menyusunu bağla",
+            en: "Close articles menu",
+            ru: "Закрыть меню статей",
+            ky: "Макалалар менюсун жабуу",
+          },
+          tUi("close", "Close")
+        )
+      );
+
+    let lastFocus = null;
+    let wasDrawerMode = false;
+    let launchBtn = document.querySelector(".articles-drawer-launch");
+    let backdrop = document.querySelector(".articles-drawer-backdrop");
+    let closeBtn = widget.querySelector(".articles-drawer-close");
+
+    const drawerFocusables = () => {
+      if (!widget) return [];
+      return Array.from(widget.querySelectorAll(DRAWER_FOCUSABLE)).filter((el) => {
+        if (el.closest("[hidden]")) return false;
+        const style = window.getComputedStyle(el);
+        return style.display !== "none" && style.visibility !== "hidden";
+      });
+    };
+
+    const syncDrawerLabels = () => {
+      if (launchBtn) {
+        const label = launchBtn.querySelector(".articles-drawer-launch__label");
+        if (label) label.textContent = drawerLabel();
+        launchBtn.setAttribute("aria-label", drawerOpenLabel());
+        launchBtn.title = drawerLabel();
+      }
+      if (closeBtn) {
+        closeBtn.setAttribute("aria-label", drawerCloseLabel());
+        closeBtn.title = drawerCloseLabel();
+      }
+    };
+    window.__birinciSyncArticlesDrawerLabels = syncDrawerLabels;
+
+    const ensureDrawerChrome = () => {
+      if (!isArticlesDrawerSurface() || !widget) return;
+      if (!widget.id) widget.id = "inventionsArticlesWidget";
+      if (!launchBtn) {
+        launchBtn = document.createElement("button");
+        launchBtn.type = "button";
+        launchBtn.className = "articles-drawer-launch";
+        launchBtn.innerHTML =
+          '<span class="articles-drawer-launch__icon" aria-hidden="true">📚</span><span class="articles-drawer-launch__label"></span>';
+        document.body.appendChild(launchBtn);
+      }
+      if (!backdrop) {
+        backdrop = document.createElement("div");
+        backdrop.className = "articles-drawer-backdrop";
+        backdrop.tabIndex = -1;
+        backdrop.setAttribute("hidden", "");
+        backdrop.setAttribute("aria-hidden", "true");
+        document.body.appendChild(backdrop);
+      }
+      if (!closeBtn) {
+        closeBtn = document.createElement("button");
+        closeBtn.type = "button";
+        closeBtn.className = "articles-drawer-close";
+        closeBtn.innerHTML = '<span aria-hidden="true">×</span>';
+        const head = widget.querySelector(".widget-head");
+        if (head) head.appendChild(closeBtn);
+        else widget.insertBefore(closeBtn, widget.firstChild);
+      }
+      const titleEl =
+        widget.querySelector(".widget-head__title") ||
+        widget.querySelector(".widget-head > span") ||
+        widget.querySelector(".widget-head h2");
+      if (titleEl && !titleEl.id) titleEl.id = "articlesDrawerTitle";
+      launchBtn.setAttribute("aria-controls", widget.id);
+      closeBtn.setAttribute("aria-controls", widget.id);
+      if (titleEl) widget.setAttribute("aria-labelledby", titleEl.id);
+      syncDrawerLabels();
+    };
+
+    const syncDrawerChromeState = (open) => {
+      const drawer = isDrawerMode();
+      const show = !!(open && drawer);
+      document.documentElement.classList.toggle("articles-drawer-open", show);
+      document.body.classList.toggle("articles-drawer-open", show);
+      if (launchBtn) {
+        launchBtn.setAttribute("aria-expanded", show ? "true" : "false");
+        const showLaunch = drawer;
+        launchBtn.hidden = !showLaunch;
+        if (showLaunch) launchBtn.removeAttribute("hidden");
+        else launchBtn.setAttribute("hidden", "");
+      }
+      if (backdrop) {
+        backdrop.hidden = !show;
+        backdrop.setAttribute("aria-hidden", show ? "false" : "true");
+        if (show) backdrop.removeAttribute("hidden");
+        else backdrop.setAttribute("hidden", "");
+      }
+      if (nav) {
+        if (drawer) {
+          nav.toggleAttribute("inert", !open);
+          nav.setAttribute("aria-hidden", open ? "false" : "true");
+        } else {
+          nav.removeAttribute("inert");
+          nav.removeAttribute("aria-hidden");
+        }
+      }
+      if (widget) {
+        if (show) {
+          widget.setAttribute("role", "dialog");
+          widget.setAttribute("aria-modal", "true");
+        } else {
+          widget.removeAttribute("role");
+          widget.removeAttribute("aria-modal");
+        }
+      }
+    };
+
+    const closeMenu = (options = {}) => {
+      if (!widget) return;
+      const wasOpen = widget.classList.contains("events-open");
+      widget.classList.remove("events-open");
+      if (toggle) toggle.setAttribute("aria-expanded", "false");
+      syncDrawerChromeState(false);
+      if (wasOpen && options.restoreFocus !== false) {
+        const target =
+          (isDrawerMode() && launchBtn && !launchBtn.hidden && launchBtn) ||
+          (lastFocus && document.contains(lastFocus) && lastFocus);
+        if (target && typeof target.focus === "function") {
+          try {
+            target.focus({ preventScroll: true });
+          } catch (_) {}
+        }
+      }
+      lastFocus = null;
+    };
+    const openMenu = () => {
+      if (!widget) return;
+      ensureDrawerChrome();
+      lastFocus = document.activeElement;
+      widget.classList.add("events-open");
+      if (toggle) toggle.setAttribute("aria-expanded", "true");
+      syncDrawerChromeState(true);
+      if (isDrawerMode()) {
+        const focusDrawer = () => {
+          const focusTarget = closeBtn || drawerFocusables()[0];
+          try {
+            if (focusTarget) focusTarget.focus({ preventScroll: true });
+          } catch (_) {}
+          const active =
+            widget.querySelector("a.tl-active") ||
+            widget.querySelector("a[aria-current='true']");
+          if (active && widgetBody) {
+            const row = active.closest("li") || active;
+            const bodyRect = widgetBody.getBoundingClientRect();
+            const rowRect = row.getBoundingClientRect();
+            if (rowRect.top < bodyRect.top || rowRect.bottom > bodyRect.bottom) {
+              row.scrollIntoView({ block: "nearest", inline: "nearest" });
+            }
+          }
+        };
+        window.requestAnimationFrame(() => {
+          window.requestAnimationFrame(focusDrawer);
+        });
+        window.setTimeout(focusDrawer, 50);
+      }
+    };
+    const toggleMenu = () => {
+      if (!widget) return;
+      if (widget.classList.contains("events-open")) closeMenu();
+      else openMenu();
+    };
+    const syncArticlesDrawer = () => {
+      ensureDrawerChrome();
+      const drawer = isDrawerMode();
+      const open = !!(widget && widget.classList.contains("events-open"));
+      if (!drawer) {
+        wasDrawerMode = false;
+        if (open && mobileQuery.matches) closeMenu({ restoreFocus: false });
+        else syncDrawerChromeState(false);
+        return;
+      }
+      if (!wasDrawerMode) {
+        wasDrawerMode = true;
+        closeMenu({ restoreFocus: false });
+        return;
+      }
+      syncDrawerChromeState(open);
+    };
+    window.__birinciSyncArticlesDrawer = syncArticlesDrawer;
+    window.__birinciCloseArticlesDrawer = (options) => closeMenu(options);
+
+    ensureDrawerChrome();
+    if (mobileQuery.matches) closeMenu({ restoreFocus: false });
+    else syncDrawerChromeState(false);
+    wasDrawerMode = isDrawerMode();
+
+    if (launchBtn && !launchBtn.__birinciBound) {
+      launchBtn.__birinciBound = true;
+      launchBtn.addEventListener("click", (event) => {
+        event.stopPropagation();
+        toggleMenu();
+      });
+    }
+    if (closeBtn && !closeBtn.__birinciBound) {
+      closeBtn.__birinciBound = true;
+      closeBtn.addEventListener("click", (event) => {
+        event.stopPropagation();
+        closeMenu();
+      });
+    }
+    if (backdrop && !backdrop.__birinciBound) {
+      backdrop.__birinciBound = true;
+      backdrop.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        closeMenu();
+      });
+    }
+    document.addEventListener("click", (event) => {
+      if (!mobileQuery.matches || !widget || !widget.classList.contains("events-open")) return;
+      if (widget.contains(event.target)) return;
+      if (launchBtn && launchBtn.contains(event.target)) return;
+      closeMenu();
+    });
+    document.addEventListener("keydown", (event) => {
+      const chromeOpen = document.body.classList.contains("articles-drawer-open");
+      const open =
+        chromeOpen || (!!(widget && widget.classList.contains("events-open") && isDrawerMode()));
+      if (event.key === "Escape") {
+        if (open) {
+          event.preventDefault();
+          closeMenu();
+        }
+        return;
+      }
+      if (event.key !== "Tab" || !open) return;
+      const nodes = drawerFocusables();
+      if (!nodes.length) return;
+      const first = nodes[0];
+      const last = nodes[nodes.length - 1];
+      if (event.shiftKey) {
+        if (document.activeElement === first || !widget.contains(document.activeElement)) {
+          event.preventDefault();
+          last.focus();
+        }
+      } else if (document.activeElement === last || !widget.contains(document.activeElement)) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+    mobileQuery.addEventListener("change", () => {
+      closeMenu({ restoreFocus: false });
+      syncArticlesDrawer();
+    });
+    nav.addEventListener("click", (event) => {
+      const link = event.target.closest('a[href^="#"]');
+      if (!link || !nav.contains(link)) return;
+      if (mobileQuery.matches) {
+        window.setTimeout(() => closeMenu({ restoreFocus: false }), 0);
+      }
+    });
+
+    return { closeMenu, openMenu, sync: syncArticlesDrawer };
+  };
+
+  window.__birinciBindArticlesDrawer = bindArticlesDrawer;
 
   const selectStoryInSidebar = (stem) => {
     if (!stem) return false;
@@ -5843,6 +6497,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       });
       document.body.classList.toggle("inventions-view-cards", view === "cards");
       document.body.classList.toggle("inventions-view-list", view === "list");
+      if (typeof window.__birinciSyncStoriesDrawer === "function") {
+        window.__birinciSyncStoriesDrawer();
+      }
+      if (typeof window.__birinciSyncArticlesDrawer === "function") {
+        window.__birinciSyncArticlesDrawer();
+      }
       bar.querySelectorAll("[data-inventions-list-only], [data-home-list-only], [data-story-cat-filter]").forEach((el) => {
         setHidden(el, view !== "list");
       });
@@ -9614,4 +10274,21 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       console.error("bindStorySidebarLayout failed", err);
     }
   });
+  try {
+    bindArticlesDrawer();
+  } catch (err) {
+    console.error("bindArticlesDrawer failed", err);
+  }
+  if (typeof window.__birinciSyncStoriesDrawerLabels === "function") {
+    window.__birinciSyncStoriesDrawerLabels();
+  }
+  if (typeof window.__birinciSyncStoriesDrawer === "function") {
+    window.__birinciSyncStoriesDrawer();
+  }
+  if (typeof window.__birinciSyncArticlesDrawerLabels === "function") {
+    window.__birinciSyncArticlesDrawerLabels();
+  }
+  if (typeof window.__birinciSyncArticlesDrawer === "function") {
+    window.__birinciSyncArticlesDrawer();
+  }
 })();

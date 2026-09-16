@@ -48,8 +48,9 @@
   --radius-pill: 999px;
   --header-h: 4.25rem;
   --breadcrumb-h: 2.7rem;
-  /* Reserved for a future third sticky layer; syncStickyChrome sets header/breadcrumb only. */
-  --sticky-stack-h: 0rem;
+  /* Page toolbar (search/filters). syncStickyChrome measures header, breadcrumbs, toolbar. */
+  --toolbar-h: 0rem;
+  --sticky-stack-h: var(--toolbar-h);
   --sticky-stack-bottom: calc(var(--header-h) + var(--breadcrumb-h) + var(--sticky-stack-h));
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -223,6 +224,7 @@ summary,
 .skip-link:focus { top: 0.75rem; }
 
 .site-header {
+  --header-action-h: 2.15rem;
   position: sticky;
   top: 0;
   z-index: 40;
@@ -267,9 +269,10 @@ summary,
 .lang-switcher__toggle {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.4rem;
   min-height: 2.15rem;
-  padding: 0.22rem 0.55rem 0.22rem 0.38rem;
+  padding: 0.28rem 0.55rem 0.28rem 0.38rem;
   border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.16);
@@ -278,6 +281,7 @@ summary,
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.01em;
+  line-height: 1;
   cursor: pointer;
   touch-action: manipulation;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0.18);
@@ -298,17 +302,22 @@ summary,
   flex: 0 0 auto;
 }
 .lang-switcher__name {
+  display: inline-flex;
+  align-items: center;
   max-width: 3rem;
   overflow: hidden;
   text-overflow: clip;
   white-space: nowrap;
   letter-spacing: 0.04em;
+  line-height: 1;
   text-transform: uppercase;
 }
 .lang-switcher__caret {
   width: 0.42rem;
   height: 0.42rem;
   margin-left: 0.05rem;
+  flex: 0 0 auto;
+  align-self: center;
   border-right: 1.7px solid currentColor;
   border-bottom: 1.7px solid currentColor;
   transform: rotate(45deg) translateY(-1px);
@@ -396,8 +405,11 @@ summary,
   box-shadow: 0 0 0 1px rgba(0, 105, 180, 0.16);
 }
 @media (pointer: coarse) {
+  .site-header {
+    --header-action-h: 2.75rem;
+  }
   .lang-switcher__toggle {
-    min-height: 44px;
+    min-height: 2.75rem;
     min-width: 44px;
   }
   .lang-switcher__option {
@@ -524,6 +536,10 @@ summary,
 }
 .site-header.is-nav-open .nav-toggle span:nth-child(3) {
   transform: translateY(-0.34rem) rotate(-45deg);
+}
+.site-header .lang-switcher__toggle,
+.site-header .global-search-toggle {
+  min-height: var(--header-action-h);
 }
 .global-search-toggle {
   display: inline-flex;
@@ -787,6 +803,65 @@ body.global-search-open { overflow: hidden; }
   color: var(--ink);
   font-weight: 600;
   overflow-wrap: anywhere;
+}
+
+/* Page tools-bar: same column as breadcrumbs, sticky under header + crumbs. */
+.page-toolbar {
+  position: sticky;
+  top: calc(var(--header-h) + var(--breadcrumb-h));
+  z-index: 32;
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 0.35rem 1.25rem 0.45rem;
+  background: rgba(238, 248, 255, 0.98);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+  overflow: visible;
+}
+.page-toolbar > .tools-bar,
+:is(.page-home, .page-category, .page-inventions) .page-toolbar > .tools-bar,
+.page-toolbar > .tools-bar.tools-bar--dense {
+  grid-column: auto;
+  grid-row: auto;
+  width: 100%;
+  max-width: var(--max-wide);
+  min-width: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.page-toolbar .tools-bar.tools-bar--inventions > .tools-bar__search-row,
+.page-toolbar .tools-bar.tools-bar--inventions > .tools-bar__control-row {
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: visible;
+}
+body.has-page-toolbar .page-category .category-layout > .category-hero {
+  grid-column: 1 / -1;
+}
+@media (max-width: 760px) {
+  .page-toolbar {
+    padding-inline: 0.7rem;
+  }
+  .page-toolbar .tools-bar,
+  .page-toolbar .tools-bar.tools-bar--inventions,
+  :is(.page-home, .page-category, .page-inventions) .page-toolbar .tools-bar {
+    flex-wrap: wrap;
+    max-width: 100%;
+    min-width: 0;
+  }
+}
+@media (max-width: 480px) {
+  .page-toolbar {
+    padding-inline: 0.5rem;
+  }
 }
 
 .nav-dropdown { position: relative; font-family: var(--font-ui); }
@@ -2067,22 +2142,9 @@ body.global-search-open { overflow: hidden; }
   display: block;
   width: 100%;
 }
-:is(.page-home, .page-category, .page-inventions) .tools-bar__search-field::before {
-  content: "";
-  position: absolute;
-  left: 0.8rem;
-  top: 50%;
-  width: 0.8rem;
-  height: 0.8rem;
-  border: 2px solid rgba(0, 105, 180, 0.45);
-  border-radius: 50%;
-  transform: translateY(-55%);
-  pointer-events: none;
-  box-shadow: 0.24rem 0.24rem 0 -0.11rem rgba(0, 105, 180, 0.45);
-}
 :is(.page-home, .page-category, .page-inventions) .tools-bar__search--active input {
   border-color: rgba(0, 105, 180, 0.5);
-  background: var(--panel-blue);
+  background-color: var(--panel-blue);
   box-shadow: 0 0 0 4px var(--line-14);
 }
 .tools-bar__search-chip {
@@ -2129,9 +2191,14 @@ body.global-search-open { overflow: hidden; }
   min-height: 2.25rem;
   padding: 0.4rem 0.75rem 0.4rem 2.05rem;
   border: 1px solid rgba(0, 105, 180, 0.16);
-  background: rgba(255, 255, 255, 0.92);
+  background-color: rgba(255, 255, 255, 0.92);
+  /* Paint the glass on the input so it tracks the placeholder, not the reserved label slot. */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgba(0,105,180,0.62)' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M20 20l-3.5-3.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 0.65rem 50%;
+  background-size: 1.05rem 1.05rem;
   box-shadow: 0 1px 2px rgba(0, 78, 140, 0.04) inset;
-  transition: border-color var(--duration) var(--ease-standard), box-shadow var(--duration) var(--ease-standard), background var(--duration) var(--ease-standard);
+  transition: border-color var(--duration) var(--ease-standard), box-shadow var(--duration) var(--ease-standard), background-color var(--duration) var(--ease-standard);
   font-size: 0.88rem;
 }
 :is(.page-home, .page-category, .page-inventions) .tools-bar__search input:hover {
@@ -2140,18 +2207,15 @@ body.global-search-open { overflow: hidden; }
 :is(.page-home, .page-category, .page-inventions) .tools-bar__search input:focus {
   outline: none;
   border-color: rgba(0, 105, 180, 0.5);
-  background: #fff;
+  background-color: #fff;
   box-shadow: 0 0 0 4px var(--line-14);
 }
 .tools-bar.tools-bar--dense .tools-bar__search input {
   min-height: 2.05rem;
   padding: 0.32rem 0.6rem 0.32rem 1.85rem;
   font-size: 0.82rem;
-}
-.tools-bar.tools-bar--dense .tools-bar__search-field::before {
-  left: 0.65rem;
-  width: 0.7rem;
-  height: 0.7rem;
+  background-position: 0.55rem 50%;
+  background-size: 0.95rem 0.95rem;
 }
 :is(.page-home, .page-category, .page-inventions) .tools-bar__views {
   padding: 0.15rem;
@@ -2419,20 +2483,20 @@ body.global-search-open { overflow: hidden; }
   margin-inline: 0;
 }
 :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions {
-  --tools-bar-label-h: calc(0.72rem * 1.2);
-  --tools-bar-label-gap: 0.28rem;
+  --tools-bar-label-h: 0;
+  --tools-bar-label-gap: 0;
   --tools-bar-pill-height: 2.25rem;
 }
 :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--dense.tools-bar--inventions {
-  --tools-bar-label-h: calc(0.68rem * 1.2);
-  --tools-bar-label-gap: 0.22rem;
+  --tools-bar-label-h: 0;
+  --tools-bar-label-gap: 0;
   --tools-bar-pill-height: 2.05rem;
 }
 :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row,
 :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__control-row {
   align-items: flex-start;
 }
-/* One shared column: label row + pill row. Tops of all pills then match. */
+/* Compact single row: no reserved label slot. Pills share one height. */
 :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row > .tools-bar__search {
   display: flex;
   flex-direction: column;
@@ -2453,40 +2517,14 @@ body.global-search-open { overflow: hidden; }
   align-items: stretch;
   justify-content: flex-start;
   align-self: flex-start;
-  gap: var(--tools-bar-label-gap);
+  gap: 0;
   margin-top: 0 !important;
-  min-height: calc(var(--tools-bar-label-h) + var(--tools-bar-label-gap) + var(--tools-bar-pill-height));
+  min-height: var(--tools-bar-pill-height);
 }
+/* Toolbar labels (Search / Category / Period / View / Images / Texts): SR names only. */
 :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__label,
-:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__search-field > .visually-hidden {
-  position: static !important;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  width: 100% !important;
-  height: var(--tools-bar-label-h) !important;
-  min-height: var(--tools-bar-label-h);
-  max-height: var(--tools-bar-label-h);
-  margin: 0 !important;
-  padding: 0 0.1rem !important;
-  overflow: visible !important;
-  clip: auto !important;
-  clip-path: none !important;
-  white-space: nowrap !important;
-  border: 0 !important;
-  font-family: var(--font-ui);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  line-height: 1;
-  color: rgba(52, 95, 134, 0.78);
-  text-align: center;
-}
-/* Wisdom: Search / Category text already lives in the controls — keep SR labels only. */
-:is(.page-home, .page-category) .tools-bar.tools-bar--inventions .tools-bar__search-field > .visually-hidden,
-:is(.page-home, .page-category) .tools-bar.tools-bar--inventions [data-story-cat-filter] > .tools-bar__label,
-:is(.page-home, .page-category) .tools-bar.tools-bar--inventions [data-story-cat-filter] > .visually-hidden {
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__search-field > .visually-hidden,
+:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions [data-story-cat-filter] > .visually-hidden {
   position: absolute !important;
   width: 1px !important;
   height: 1px !important;
@@ -2509,19 +2547,6 @@ body.global-search-open { overflow: hidden; }
   font-weight: 400;
   text-align: left;
 }
-:is(.page-home, .page-category) .tools-bar.tools-bar--inventions > .tools-bar__search-row > .tools-bar__search > .tools-bar__search-field,
-:is(.page-home, .page-category) .tools-bar.tools-bar--inventions > .tools-bar__search-row > .tools-bar__field--filter {
-  justify-content: flex-end;
-}
-:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--dense.tools-bar--inventions .tools-bar__label,
-:is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--dense.tools-bar--inventions .tools-bar__search-field > .visually-hidden {
-  font-size: 0.68rem;
-}
-:is(.page-home, .page-category) .tools-bar.tools-bar--dense.tools-bar--inventions .tools-bar__search-field > .visually-hidden,
-:is(.page-home, .page-category) .tools-bar.tools-bar--dense.tools-bar--inventions [data-story-cat-filter] > .tools-bar__label,
-:is(.page-home, .page-category) .tools-bar.tools-bar--dense.tools-bar--inventions [data-story-cat-filter] > .visually-hidden {
-  font-size: 1px !important;
-}
 :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__search-field {
   display: flex;
   flex-direction: column;
@@ -2529,7 +2554,7 @@ body.global-search-open { overflow: hidden; }
   gap: var(--tools-bar-label-gap);
   width: 100%;
 }
-/* Keep Search / Category / View / Images / Texts pills the same height and top-aligned. */
+/* Keep Search / Category / View / Images / Texts pills the same height. */
 :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__search input,
 :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__field--filter .sel-wrap,
 :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__field--filter .sel-wrap select,
@@ -2727,23 +2752,8 @@ body.global-search-open { overflow: hidden; }
     min-width: 0;
     gap: var(--tools-bar-label-gap);
   }
-  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row .tools-bar__label {
-    font-size: 0.62rem;
-    letter-spacing: 0.03em;
-    padding-inline: 0.1rem !important;
-    line-height: 1;
-    white-space: nowrap;
-    height: var(--tools-bar-label-h) !important;
-  }
-  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__search-field > .visually-hidden {
-    font-size: 0.62rem;
-    letter-spacing: 0.03em;
-    padding-inline: 0.1rem !important;
-    line-height: 1;
-    white-space: nowrap;
-    height: var(--tools-bar-label-h) !important;
-  }
-  :is(.page-home, .page-category) .tools-bar.tools-bar--inventions .tools-bar__search-field > .visually-hidden,
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row .tools-bar__label,
+  :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__search-field > .visually-hidden,
   :is(.page-home, .page-category) .tools-bar.tools-bar--inventions [data-story-cat-filter] > .tools-bar__label,
   :is(.page-home, .page-category) .tools-bar.tools-bar--inventions [data-story-cat-filter] > .visually-hidden {
     font-size: 1px !important;
@@ -2919,8 +2929,8 @@ body.global-search-open { overflow: hidden; }
     margin-top: 0;
   }
   :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions {
-    --tools-bar-label-h: calc(0.62rem * 1.15);
-    --tools-bar-label-gap: 0.2rem;
+    --tools-bar-label-h: 0;
+    --tools-bar-label-gap: 0;
     --tools-bar-pill-height: 2.05rem;
   }
   :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions > .tools-bar__search-row > .tools-bar__search,
@@ -3064,8 +3074,8 @@ body.global-search-open { overflow: hidden; }
     gap: 0.14rem;
   }
   :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row .tools-bar__label {
-    font-size: 0.56rem;
-    letter-spacing: 0.025em;
+    font-size: 1px !important;
+    letter-spacing: normal;
   }
   :is(.page-home, .page-category, .page-inventions) .tools-bar.tools-bar--inventions .tools-bar__control-row .tools-bar__views {
     padding: 0.06rem;
@@ -3183,9 +3193,39 @@ body.global-search-open { overflow: hidden; }
     width: 12px;
     height: 12px;
   }
+  :is(.page-home, .page-category, .page-inventions)
+    .page-toolbar
+    .tools-bar.tools-bar--inventions
+    > .tools-bar__search-row,
+  :is(.page-home, .page-category, .page-inventions)
+    .page-toolbar
+    .tools-bar.tools-bar--inventions
+    > .tools-bar__control-row {
+    flex-wrap: wrap;
+    overflow-x: visible;
+    max-width: 100%;
+    min-width: 0;
+  }
+}
+
+:is(.page-home, .page-category, .page-inventions)
+  .page-toolbar
+  .tools-bar.tools-bar--inventions
+  > .tools-bar__search-row,
+:is(.page-home, .page-category, .page-inventions)
+  .page-toolbar
+  .tools-bar.tools-bar--inventions
+  > .tools-bar__control-row {
+  flex-wrap: wrap;
+  overflow-x: visible;
+  max-width: 100%;
+  min-width: 0;
 }
 
 @media (pointer: coarse) {
+  .site-header {
+    --header-action-h: 2.75rem;
+  }
   .global-search-toggle {
     min-height: 2.75rem;
   }
@@ -3388,8 +3428,15 @@ html.is-phone article.story .story__actions:not(:has(.story__action-group:has([d
     margin-left: 0;
     justify-self: end;
   }
+  .site-header {
+    --header-action-h: 2.75rem;
+  }
   .lang-switcher__name {
     max-width: 2.75rem;
+  }
+  .site-header .lang-switcher__toggle {
+    min-height: var(--header-action-h);
+    padding: 0.45rem 0.55rem 0.45rem 0.42rem;
   }
   .global-search-toggle__label,
   .global-search-toggle__kbd { display: none; }
@@ -4376,14 +4423,14 @@ body.story-compare-open {
   clear: both;
   margin: 1.65rem 0 0;
   padding: 0.85rem 1rem 0.9rem 1.05rem;
-  background: linear-gradient(135deg, #fff8e4 0%, var(--gold-soft) 55%, #ffe9b8 100%);
+  background: #fff9e6;
   border: 1px solid rgba(201, 155, 59, 0.42);
   border-left: 4px solid var(--gold);
   border-radius: var(--radius-sm);
   color: var(--ink);
   font-family: var(--font-display);
-  font-size: 1.02em;
-  font-weight: 700;
+  font-size: 0.95em;
+  font-weight: 400;
   line-height: 1.45;
   text-align: left;
   text-justify: auto;
@@ -4395,7 +4442,7 @@ body.story-compare-open {
   .story .card-text .story__moral {
     margin-top: 1.35rem;
     padding: 0.75rem 0.85rem 0.8rem 0.9rem;
-    font-size: 1.05em;
+    font-size: 0.98em;
     line-height: 1.42;
   }
 }
@@ -4673,14 +4720,14 @@ body.text-lightbox-open {
   clear: both;
   margin: 1.65rem 0 0;
   padding: 0.95rem 1.1rem 1rem;
-  background: linear-gradient(135deg, #fff8e4 0%, var(--gold-soft) 55%, #ffe9b8 100%);
+  background: #fff9e6;
   border: 1px solid rgba(201, 155, 59, 0.42);
   border-left: 4px solid var(--gold);
   border-radius: var(--radius-sm);
   color: var(--ink);
   font-family: var(--font-display);
-  font-size: 1.02em;
-  font-weight: 700;
+  font-size: 0.95em;
+  font-weight: 400;
   line-height: 1.45;
   text-align: left;
   box-shadow: 0 4px 14px rgba(201, 155, 59, 0.12);
@@ -4995,7 +5042,9 @@ body.audio-player-open {
   padding-bottom: calc(var(--audio-player-h, 6.5rem) + 0.5rem);
 }
 body.audio-player-open .page-jump,
-body.audio-player-open .back-to-top {
+body.audio-player-open .back-to-top,
+body.audio-player-open .stories-drawer-launch,
+body.audio-player-open .articles-drawer-launch {
   bottom: calc(var(--audio-player-h, 6.5rem) + 0.85rem);
 }
 body.audio-player-open .text-lightbox {
@@ -5020,7 +5069,9 @@ body.audio-player-open .text-lightbox {
     padding-bottom: calc(var(--audio-player-h, 9.5rem) + 0.5rem);
   }
   body.audio-player-open .page-jump,
-  body.audio-player-open .back-to-top {
+  body.audio-player-open .back-to-top,
+  body.audio-player-open .stories-drawer-launch,
+  body.audio-player-open .articles-drawer-launch {
     bottom: calc(var(--audio-player-h, 9.5rem) + 0.85rem);
   }
   body.audio-player-open .text-lightbox {
@@ -5108,42 +5159,112 @@ body.audio-player-open .text-lightbox {
     grid-column: auto;
     grid-row: auto;
   }
-  /* Keep title left-aligned with sidebar stack on narrow screens too. */
-  .story-nav.sidebar {
-    position: static;
-    top: auto;
+  /* Wisdom Stories: off-canvas drawer below 1060px (sidebar no longer fits beside the story). */
+  :is(.page-home, .page-category) .story-nav.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: min(22rem, calc(100vw - 2.75rem));
+    max-width: 100%;
     max-height: none;
+    height: 100dvh;
+    margin: 0;
+    padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px);
     order: 0;
-    z-index: 30;
+    z-index: 85;
+    overflow: hidden;
+    transform: translate3d(-105%, 0, 0);
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform 0.28s var(--ease-outro, ease), visibility 0.28s;
+  }
+  :is(.page-home, .page-category).stories-drawer-open .story-nav.sidebar {
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+    pointer-events: auto;
+  }
+  /* Discoveries Articles: same off-canvas drawer at the sidebar-stack breakpoint. */
+  .page-inventions .charter-layout .charter-sidebar.toc-card,
+  .page-inventions .charter-sidebar.toc-card {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: min(22rem, calc(100vw - 2.75rem)) !important;
+    max-width: calc(100vw - 2.75rem);
+    max-height: none;
+    height: 100dvh;
+    margin: 0;
+    padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px);
+    order: 0;
+    z-index: 85;
+    overflow: hidden !important;
+    transform: translate3d(-105%, 0, 0);
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform 0.28s var(--ease-outro, ease), visibility 0.28s;
+  }
+  .page-inventions.articles-drawer-open .charter-sidebar.toc-card {
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+    pointer-events: auto;
+  }
+  .page-inventions .charter-sidebar .sidebar-widget {
+    height: 100%;
+    max-height: none;
+    overflow: hidden;
+    border-radius: 0 18px 18px 0;
+    box-shadow: 0 18px 48px rgba(0, 45, 82, 0.28);
+  }
+  .page-inventions .charter-sidebar .widget-head {
+    min-height: 58px;
+  }
+  .page-inventions .charter-sidebar .events-menu-toggle {
+    display: none;
+  }
+  .page-inventions .articles-drawer-close {
+    display: inline-flex;
+  }
+  .page-inventions .charter-sidebar .sidebar-widget .widget-actions,
+  .page-inventions .charter-sidebar .sidebar-widget:not(.events-open) .widget-actions,
+  .page-inventions .charter-sidebar .sidebar-widget.events-open .widget-actions {
+    max-height: none;
+    padding: 8px 16px;
+    overflow: visible;
+  }
+  .page-inventions .charter-sidebar .sidebar-widget .widget-body,
+  .page-inventions .charter-sidebar .sidebar-widget:not(.events-open) .widget-body,
+  .page-inventions .charter-sidebar .sidebar-widget.events-open .widget-body {
+    max-height: none;
+    padding: 12px 16px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
   }
   .story-list { order: 1; }
   .category-main { order: 1; }
   .home-stories-main { order: 1; }
-  .story-nav .sidebar-widget {
+  :is(.page-home, .page-category) .story-nav .sidebar-widget {
+    height: 100%;
     max-height: none;
     overflow: hidden;
-    border-radius: 18px;
+    border-radius: 0 18px 18px 0;
+    box-shadow: 0 18px 48px rgba(0, 45, 82, 0.28);
   }
-  .story-nav .widget-head {
+  :is(.page-home, .page-category) .story-nav .widget-head {
     min-height: 58px;
   }
-  .story-nav .events-menu-toggle {
+  :is(.page-home, .page-category) .story-nav .events-menu-toggle {
+    display: none;
+  }
+  :is(.page-home, .page-category) .stories-drawer-close {
     display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex: 0 0 auto;
-    width: 44px;
-    height: 42px;
-    min-width: 44px;
   }
-  .story-nav .sidebar-widget:not(.events-open) .widget-body {
-    max-height: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    overflow: hidden;
-  }
-  .story-nav .sidebar-widget.events-open .widget-body {
-    max-height: min(62vh, 520px);
+  :is(.page-home, .page-category) .story-nav .sidebar-widget .widget-body,
+  :is(.page-home, .page-category) .story-nav .sidebar-widget:not(.events-open) .widget-body,
+  :is(.page-home, .page-category) .story-nav .sidebar-widget.events-open .widget-body {
+    max-height: none;
     padding: 12px 16px;
     overflow-y: auto;
     overscroll-behavior: contain;
@@ -5168,6 +5289,128 @@ body.audio-player-open .text-lightbox {
   .story-nav .timeline-list li {
     gap: 10px;
     font-size: 14px;
+  }
+}
+
+/* Stories / Articles drawer chrome — created in site.js; visible only on compact list views. */
+.stories-drawer-launch,
+.articles-drawer-launch,
+.stories-drawer-backdrop,
+.articles-drawer-backdrop,
+.stories-drawer-close,
+.articles-drawer-close {
+  display: none;
+}
+.stories-drawer-launch[hidden],
+.articles-drawer-launch[hidden],
+.stories-drawer-backdrop[hidden],
+.articles-drawer-backdrop[hidden] {
+  display: none !important;
+}
+.stories-drawer-close,
+.articles-drawer-close {
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font-size: 1.65rem;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+}
+.stories-drawer-close:focus-visible,
+.articles-drawer-close:focus-visible {
+  outline: 3px solid var(--gold-soft);
+  outline-offset: 2px;
+}
+.stories-drawer-backdrop,
+.articles-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: rgba(8, 38, 59, 0.42);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  cursor: pointer;
+  transition: opacity 0.28s ease, visibility 0.28s;
+}
+body.stories-drawer-open .stories-drawer-backdrop:not([hidden]),
+body.articles-drawer-open .articles-drawer-backdrop:not([hidden]) {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.stories-drawer-launch,
+.articles-drawer-launch {
+  position: fixed;
+  left: max(0.85rem, env(safe-area-inset-left, 0px));
+  bottom: max(1.25rem, env(safe-area-inset-bottom, 0px));
+  z-index: 70;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 2.5rem;
+  max-width: calc(100vw - 5.5rem);
+  padding: 0.4rem 0.9rem 0.4rem 0.7rem;
+  border: 1px solid rgba(0, 105, 180, 0.28);
+  border-radius: var(--radius-pill);
+  background: var(--nav-blue);
+  color: #fff;
+  font-family: var(--font-ui);
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.2;
+  box-shadow: 0 8px 24px rgba(0, 78, 140, 0.18);
+  cursor: pointer;
+}
+.stories-drawer-launch__icon,
+.articles-drawer-launch__icon {
+  flex: 0 0 auto;
+}
+.stories-drawer-launch__label,
+.articles-drawer-launch__label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.stories-drawer-launch:focus-visible,
+.articles-drawer-launch:focus-visible {
+  outline: 3px solid var(--gold-soft);
+  outline-offset: 2px;
+}
+@media (max-width: 1060px) {
+  body.page-category:not(.category-view-cards) .stories-drawer-launch:not([hidden]),
+  body.page-home.inventions-view-list .stories-drawer-launch:not([hidden]),
+  body.page-inventions.inventions-view-list .articles-drawer-launch:not([hidden]) {
+    display: inline-flex;
+  }
+  body.stories-drawer-open .stories-drawer-launch,
+  body.articles-drawer-open .articles-drawer-launch {
+    visibility: hidden;
+    pointer-events: none;
+  }
+  html.stories-drawer-open,
+  body.stories-drawer-open,
+  html.articles-drawer-open,
+  body.articles-drawer-open {
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+  :is(.page-home, .page-category, .page-inventions) {
+    overflow-x: clip;
   }
 }
 

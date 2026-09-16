@@ -72,7 +72,8 @@ body.page-inventions::after {
 
 .page-inventions #main,
 .page-inventions .inventions-page-body,
-.page-inventions .about-hero {
+.page-inventions .about-hero,
+.page-inventions .intro {
   overflow-anchor: none;
 }
 
@@ -91,6 +92,10 @@ body.page-inventions::after {
 
 .page-inventions .about-hero {
   background: transparent !important;
+}
+
+.page-inventions .intro {
+  margin-bottom: 0.75rem;
 }
 
 .page-inventions .about-hero__wrap {
@@ -450,11 +455,8 @@ body.page-inventions.texts-collapsed.inventions-view-list .inventions-key-facts 
   }
 }
 
-/* Sticky TOC: keep clear of header stack on narrow layouts */
+/* Off-canvas Articles drawer (site.css) owns sidebar position at this breakpoint. */
 @media (max-width: 1060px) {
-  .page-inventions .charter-sidebar.toc-card {
-    top: auto;
-  }
   .page-inventions .inventions-layout,
   .page-inventions .charter-layout {
     overflow-x: clip;
