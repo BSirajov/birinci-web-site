@@ -78,6 +78,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   applyPhoneUiClass();
   window.__birinciIsPhoneDevice = isPhoneDevice;
 
+  const isDiscoveriesCatalogPage = () =>
+    !!document.body &&
+    document.body.classList.contains("page-inventions") &&
+    (document.documentElement.getAttribute("data-kt-page-id") || "") ===
+      "discoveries-and-inventions";
+
   // Wisdom illustrations default to hidden. One-time migration overrides older
   // sessions that stored "show" ("0") before this product default.
   const IMAGES_COLLAPSED_KEY = "birinci-images-collapsed";
@@ -96,49 +102,15 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   };
 
   const hideAudioChrome = (root = document) => {
-    const pageLang = () =>
-      (
-        (document.body && document.body.getAttribute("data-lang")) ||
-        PAGE_LANG ||
-        "az"
-      )
-        .toLowerCase()
-        .slice(0, 2);
     const storyAllowsAudio = (story) => {
       if (!story) return false;
-      const lang = pageLang();
-      // EN/RU: Listen always (MP3 when present, else browser speechSynthesis).
-      if (lang === "en" || lang === "ru") return true;
-      if (story.hasAttribute("data-audio")) return true;
-      const stem = (story.getAttribute("data-stem") || story.id || "").trim();
-      const catalog = window.__BIRINCI_STORIES__;
-      if (catalog && stem) {
-        for (const cat of catalog.categories || []) {
-          for (const item of cat.stories || []) {
-            if (item && item.stem === stem) return !!item.hasAudio;
-          }
-        }
-      }
-      // Category pages may lack catalog + data-audio; AZ still has MP3s for every stem.
-      return lang === "az";
+      // Locale-agnostic: Listen is shown whenever the locale enables story audio.
+      // playAudioStory uses the MP3 when data-audio exists; speakStory is fallback.
+      return SHOW_AUDIO_CONTROLS;
     };
     const cardAllowsAudio = (card) => {
       if (!card) return false;
-      const lang = pageLang();
-      if (lang === "en" || lang === "ru") return true;
-      const stem = (card.getAttribute("data-stem") || "").trim();
-      if (!stem) return false;
-      const story = document.getElementById(stem);
-      if (story) return storyAllowsAudio(story);
-      const catalog = window.__BIRINCI_STORIES__;
-      if (catalog) {
-        for (const cat of catalog.categories || []) {
-          for (const item of cat.stories || []) {
-            if (item && item.stem === stem) return !!item.hasAudio;
-          }
-        }
-      }
-      return lang === "az";
+      return SHOW_AUDIO_CONTROLS;
     };
     (root || document)
       .querySelectorAll(
@@ -885,9 +857,51 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     return stripped.replace(/\/index\.html$/i, "/").replace(/\/+$/, "") || "/";
   };
 
+  const normalizeHistoryHref = (href) => {
+    try {
+      const url = new URL(String(href || ""), window.location.href);
+      let hash = "";
+      try {
+        hash = decodeURIComponent((url.hash || "").replace(/^#/, ""));
+      } catch (_) {
+        hash = (url.hash || "").replace(/^#/, "");
+      }
+      return url.pathname + url.search + (hash ? "#" + hash : "");
+    } catch (_) {
+      return String(href || "");
+    }
+  };
+
+  let applyingHistoryDepth = 0;
+  const beginApplyingHistory = () => {
+    applyingHistoryDepth += 1;
+    window.__birinciApplyingHistory = true;
+  };
+  const endApplyingHistory = () => {
+    applyingHistoryDepth = Math.max(0, applyingHistoryDepth - 1);
+    window.__birinciApplyingHistory = applyingHistoryDepth > 0;
+  };
+  const runApplyingHistory = (fn) => {
+    beginApplyingHistory();
+    try {
+      return fn();
+    } finally {
+      endApplyingHistory();
+    }
+  };
+
   const commitHistoryHref = (nextHref, { replace = false } = {}) => {
-    const next = String(nextHref || "");
-    if (!next || next === historyHref()) return false;
+    if (applyingHistoryDepth) return false;
+    let next = "";
+    try {
+      const url = new URL(String(nextHref || ""), window.location.href);
+      next = url.pathname + url.search + url.hash;
+    } catch (_) {
+      return false;
+    }
+    if (!next || normalizeHistoryHref(next) === normalizeHistoryHref(historyHref())) {
+      return false;
+    }
     try {
       if (replace) history.replaceState({ birinci: 1 }, "", next);
       else history.pushState({ birinci: 1 }, "", next);
@@ -899,9 +913,14 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   };
 
   window.__birinciHistoryHref = historyHref;
+  window.__birinciNormalizeHistoryHref = normalizeHistoryHref;
   window.__birinciPagePathKey = pagePathKey;
   window.__birinciCommitHistoryHref = commitHistoryHref;
+  window.__birinciBeginApplyingHistory = beginApplyingHistory;
+  window.__birinciEndApplyingHistory = endApplyingHistory;
+  window.__birinciRunApplyingHistory = runApplyingHistory;
   window.__birinciPageKey = pagePathKey(window.location.pathname);
+  window.__birinciApplyingHistory = false;
 
   const prefersReducedMotion = () => {
     try {
@@ -1220,7 +1239,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const listen = tUi("listen", "Mətni dinlə");
     const stop = tUi("stop", "Dayandır");
     const audioLabel = tUi("story_audio_label", "Səs");
-    // AZ/EN/RU: mount Listen on every story. Missing MP3 → browser TTS in speakStory.
+    // All audio-enabled locales: mount Listen. Missing MP3 → browser TTS in speakStory.
     document.querySelectorAll("article.story").forEach((story) => {
       const actions = story.querySelector(".story__actions");
       if (!actions || actions.querySelector("[data-story-tts]")) return;
@@ -1404,8 +1423,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     let showImages = !!imagesVisible;
     let showTexts = !!textsVisible;
     const onPhone = isPhoneDevice();
-    // Phones hide Image/Text controls, so keep copy on-screen and illustrations unloaded.
-    if (onPhone) {
+    // Discoveries always shows article copy and illustrations; Wisdom phone chrome is unchanged.
+    if (isDiscoveriesCatalogPage()) {
+      showImages = true;
+      showTexts = true;
+    } else if (onPhone) {
+      // Phones hide Image/Text controls, so keep copy on-screen and illustrations unloaded.
       showImages = false;
       showTexts = true;
     }
@@ -2293,16 +2316,14 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       event.preventDefault();
       event.stopPropagation();
 
-      // Keep the target story in the URL so SPA lang swap preserves it.
+      // Keep the target story on the current entry; setLiveLang then pushes the locale URL.
       try {
         const nextHash = "#" + encodeURIComponent(stem).replace(/%2F/gi, "/");
         const params = new URLSearchParams(window.location.search || "");
         params.set("view", "list");
-        history.replaceState(
-          history.state,
-          "",
-          window.location.pathname + "?" + params.toString() + nextHash
-        );
+        commitHistoryHref(window.location.pathname + "?" + params.toString() + nextHash, {
+          replace: true,
+        });
       } catch (_) {}
       if (typeof window.__birinciSyncLangHrefs === "function") {
         window.__birinciSyncLangHrefs();
@@ -3088,7 +3109,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       }
       if (!fromHistory) {
         const nextUrl = target.pathname + target.search + (target.hash || location.hash || "");
-        commitHistoryHref(nextUrl, { replace: true });
+        commitHistoryHref(nextUrl);
       }
       applyFetchedChrome(doc);
       const liveBody = document.body.className || "";
@@ -3145,11 +3166,16 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           sessionStorage.removeItem("birinci-lang-ctx");
         } catch (_) {}
       } else {
+        if (fromHistory) beginApplyingHistory();
         window.setTimeout(() => {
-          if (typeof window.__birinciRefreshInventionsAfterLang === "function") {
-            window.__birinciRefreshInventionsAfterLang();
+          try {
+            if (typeof window.__birinciRefreshInventionsAfterLang === "function") {
+              window.__birinciRefreshInventionsAfterLang();
+            }
+            applyLangSwitchBrowseReset();
+          } finally {
+            if (fromHistory) endApplyingHistory();
           }
-          applyLangSwitchBrowseReset();
         }, 0);
       }
     } finally {
@@ -3179,7 +3205,10 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const match = path.match(/\/(az|en|ru|ky)(?:\/|$)/i);
     const lang = match ? match[1].toLowerCase() : "";
     if (lang && lang !== currentPageLang()) {
-      setLiveLang(lang, { fromHistory: true }).catch(() => {});
+      beginApplyingHistory();
+      setLiveLang(lang, { fromHistory: true })
+        .catch(() => {})
+        .finally(() => endApplyingHistory());
     }
   });
 
@@ -3803,7 +3832,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     html.scrollTop = 0;
     if (document.body) document.body.scrollTop = 0;
     window.scrollTo(0, 0);
-    history.replaceState(null, "", window.location.pathname + window.location.search);
+    commitHistoryHref(window.location.pathname + window.location.search, { replace: true });
     if (typeof window.__birinciClearDeepCrumb === "function") {
       window.__birinciClearDeepCrumb();
     }
@@ -3884,7 +3913,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         const max = Math.max(html.scrollHeight, document.body ? document.body.scrollHeight : 0);
         window.scrollTo(0, max);
       }
-      history.replaceState(null, "", window.location.pathname + window.location.search);
+      commitHistoryHref(window.location.pathname + window.location.search, { replace: true });
       requestAnimationFrame(() => {
         html.classList.remove("no-smooth-scroll");
       });
@@ -4536,8 +4565,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     };
 
     let applyingHistory = false;
+    let historyReady = false;
     const writeCategoryUrlState = () => {
-      if (applyingHistory) return;
+      if (applyingHistory || applyingHistoryDepth) return;
       try {
         const params = new URLSearchParams();
         const q = searchInput.value.trim();
@@ -4546,9 +4576,11 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         url.search = params.toString();
         url.hash = pendingStem || (window.location.hash || "").replace(/^#/, "");
         const next = `${url.pathname}${url.search}${url.hash}`;
-        const prevHash = window.location.hash || "";
-        const nextHash = url.hash ? `#${String(url.hash).replace(/^#/, "")}` : "";
-        commitHistoryHref(next, { replace: prevHash === nextHash });
+        const prevNorm = normalizeHistoryHref(historyHref());
+        const nextNorm = normalizeHistoryHref(next);
+        const prevHash = prevNorm.includes("#") ? prevNorm.slice(prevNorm.indexOf("#")) : "";
+        const nextHash = nextNorm.includes("#") ? nextNorm.slice(nextNorm.indexOf("#")) : "";
+        commitHistoryHref(next, { replace: !historyReady || prevHash === nextHash });
       } catch (_) {}
     };
 
@@ -4733,28 +4765,31 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     }
 
     renderList();
+    historyReady = true;
 
     window.addEventListener("popstate", () => {
       if (pagePathKey(window.location.pathname) !== (window.__birinciPageKey || pagePathKey(window.location.pathname))) {
         return;
       }
-      applyingHistory = true;
-      try {
-        const params = new URLSearchParams(window.location.search || "");
-        const qParam = String(params.get("q") || "").trim();
-        searchInput.value = qParam;
-        let hash = "";
+      runApplyingHistory(() => {
+        applyingHistory = true;
         try {
-          hash = decodeURIComponent((window.location.hash || "").replace(/^#/, ""));
-        } catch (_) {
-          hash = (window.location.hash || "").replace(/^#/, "");
+          const params = new URLSearchParams(window.location.search || "");
+          const qParam = String(params.get("q") || "").trim();
+          searchInput.value = qParam;
+          let hash = "";
+          try {
+            hash = decodeURIComponent((window.location.hash || "").replace(/^#/, ""));
+          } catch (_) {
+            hash = (window.location.hash || "").replace(/^#/, "");
+          }
+          pendingStem = hash || null;
+          if (hash) applyCategoryView("list", { animate: false });
+          renderList();
+        } finally {
+          applyingHistory = false;
         }
-        pendingStem = hash || null;
-        if (hash) applyCategoryView("list", { animate: false });
-        renderList();
-      } finally {
-        applyingHistory = false;
-      }
+      });
     });
   };
 
@@ -5093,13 +5128,20 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         requestAnimationFrame(alignStoryHeader);
       });
 
-      try {
-        commitHistoryHref(`${window.location.pathname}${window.location.search}#${id}`);
-      } catch (_) {}
+      const historyMode = options.history || "push";
+      if (historyMode !== "skip") {
+        try {
+          const nextUrl = new URL(window.location.href);
+          nextUrl.hash = id;
+          commitHistoryHref(nextUrl.pathname + nextUrl.search + nextUrl.hash, {
+            replace: historyMode === "replace",
+          });
+        } catch (_) {}
+      }
       return true;
     };
 
-    window.__birinciScrollToStoryOrArticle = (id) => {
+    window.__birinciScrollToStoryOrArticle = (id, options = {}) => {
       if (!id) return false;
       let decoded = id;
       try {
@@ -5128,7 +5170,13 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           (nav.querySelector(`a[href="#${decoded}"]`) ||
             nav.querySelector(`a[href="#${encodeURIComponent(decoded)}"]`))) ||
         null;
-      if (link) return scrollMainToStory(link, { force: true, forceSidebarScroll: true });
+      if (link) {
+        return scrollMainToStory(link, {
+          force: true,
+          forceSidebarScroll: true,
+          history: options.history || "skip",
+        });
+      }
       const scrollTarget =
         target.querySelector(".card-header, .story__title, .inventions-category-head, h2, h1") ||
         target;
@@ -5464,7 +5512,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       if (!target || !layout.contains(target)) return;
       const link = nav.querySelector(`a[href="#${id}"], a[href="#${encodeURIComponent(id)}"]`);
       expandStoryContext(link, target);
-      if (link) scrollMainToStory(link, { force: true });
+      if (link) scrollMainToStory(link, { force: true, history: "skip" });
       else {
         programmaticLock = true;
         const scrollTarget =
@@ -5482,7 +5530,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       }
       lockSpy();
     };
-    window.addEventListener("popstate", restoreHashTarget);
+    window.addEventListener("popstate", () => runApplyingHistory(restoreHashTarget));
 
     window.addEventListener("scroll", () => updateActive(false, { skipSidebarScroll: false }), {
       passive: true,
@@ -5907,6 +5955,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const textsBtns = Array.from(bar.querySelectorAll("[data-texts-mode]"));
     const viewBtns = Array.from(bar.querySelectorAll("[data-home-view]"));
     const assetVersion = listPanel.getAttribute("data-asset-version") || "";
+    const audioVersion =
+      listPanel.getAttribute("data-audio-version") ||
+      (assetVersion ? `${assetVersion}-audio2` : "audio2");
     const viewStorageKey = "birinci-home-view";
 
     let view = "cards";
@@ -5950,8 +6001,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     };
 
     let applyingHistory = false;
+    let historyReady = false;
     const writeUrlState = () => {
-      if (applyingHistory) return;
+      if (applyingHistory || applyingHistoryDepth) return;
       try {
         const params = new URLSearchParams();
         if (view === "list") params.set("view", "list");
@@ -5964,11 +6016,19 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         if (view === "cards") url.hash = "";
         else url.hash = pendingStem || (window.location.hash || "").replace(/^#/, "");
         const next = `${url.pathname}${url.search}${url.hash}`;
-        const prev = new URL(historyHref(), window.location.href);
-        const navChanged =
-          (prev.searchParams.get("view") || "") !== (params.get("view") || "") ||
-          (prev.hash || "") !== (url.hash ? `#${String(url.hash).replace(/^#/, "")}` : "");
-        commitHistoryHref(next, { replace: !navChanged });
+        const prevNorm = normalizeHistoryHref(historyHref());
+        const nextNorm = normalizeHistoryHref(next);
+        const prevHash = prevNorm.includes("#") ? prevNorm.slice(prevNorm.indexOf("#")) : "";
+        const nextHash = nextNorm.includes("#") ? nextNorm.slice(nextNorm.indexOf("#")) : "";
+        const prevView = (() => {
+          try {
+            return new URL(historyHref(), window.location.href).searchParams.get("view") || "";
+          } catch (_) {
+            return "";
+          }
+        })();
+        const navChanged = prevView !== (params.get("view") || "") || prevHash !== nextHash;
+        commitHistoryHref(next, { replace: !historyReady || !navChanged });
       } catch (_) {
         /* file:// or sandboxed histories must not block view switching */
       }
@@ -6166,7 +6226,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
     const storyArticleHtml = (story, numInfo) => {
       const audioAttr = story.hasAudio
-        ? ` data-audio="wisdom-stories/audio/${escapeHtml(story.stem)}.mp3?v=${escapeHtml(assetVersion)}"`
+        ? ` data-audio="wisdom-stories/audio/${escapeHtml(story.stem)}.mp3?v=${escapeHtml(audioVersion)}"`
         : "";
       const audioLabel = escapeHtml(tUi("story_audio_label", "Səsləndir"));
       const imageLabel = escapeHtml(tUi("story_image_label", "Şəkil"));
@@ -6664,25 +6724,28 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       setHidden(cardsPanel, initialView !== "cards");
       setHidden(listPanel, initialView !== "list");
     }
+    historyReady = true;
 
     window.addEventListener("popstate", () => {
       if (pagePathKey(window.location.pathname) !== (window.__birinciPageKey || pagePathKey(window.location.pathname))) {
         return;
       }
-      const state = readUrlState();
-      applyingHistory = true;
-      try {
-        searchInput.value = state.q || "";
-        pendingStem = state.stem || null;
-        const catApi = window.KT_CATALOG_MULTI_FILTER;
-        if (catApi && typeof catApi.setActiveValues === "function") {
-          catApi.setActiveValues("filterStoryCategory", state.cat || [], { silent: true });
+      runApplyingHistory(() => {
+        const state = readUrlState();
+        applyingHistory = true;
+        try {
+          searchInput.value = state.q || "";
+          pendingStem = state.stem || null;
+          const catApi = window.KT_CATALOG_MULTI_FILTER;
+          if (catApi && typeof catApi.setActiveValues === "function") {
+            catApi.setActiveValues("filterStoryCategory", state.cat || [], { silent: true });
+          }
+          const nextView = state.stem ? "list" : state.view === "list" ? "list" : "cards";
+          setView(nextView, { persist: false, scrollTools: false, animate: false });
+        } finally {
+          applyingHistory = false;
         }
-        const nextView = state.stem ? "list" : state.view === "list" ? "list" : "cards";
-        setView(nextView, { persist: false, scrollTools: false, animate: false });
-      } finally {
-        applyingHistory = false;
-      }
+      });
     });
   };
 
@@ -8596,6 +8659,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   };
 
   const initStoryFigureToggle = () => {
+    if (isDiscoveriesCatalogPage()) return;
     const setFigureState = (story, visible, opts = {}) => {
       if (!story) return false;
       if (!visible) {
@@ -8645,6 +8709,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   };
 
   const initStoryTextToggle = () => {
+    if (isDiscoveriesCatalogPage()) return;
     const setTextState = (story, visible, opts = {}) => {
       if (!story) return false;
       if (!visible) {

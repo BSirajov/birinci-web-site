@@ -801,7 +801,8 @@
     state.index = state.stems.indexOf(storyStem);
   };
 
-  const syncLocation = (storyStem) => {
+  const syncLocation = (storyStem, opts) => {
+    const options = opts || {};
     try {
       sessionStorage.setItem("birinci-compare-stem", storyStem);
       sessionStorage.setItem("birinci-compare-from", fromLang);
@@ -810,7 +811,14 @@
       const url = new URL(window.location.href);
       url.searchParams.set("stem", storyStem);
       url.searchParams.set("from", fromLang);
-      window.history.replaceState({}, "", url.pathname + url.search + url.hash);
+      const next = url.pathname + url.search + url.hash;
+      if (typeof window.__birinciCommitHistoryHref === "function") {
+        window.__birinciCommitHistoryHref(next, { replace: options.replace !== false });
+      } else if (options.replace !== false) {
+        window.history.replaceState({}, "", next);
+      } else {
+        window.history.pushState({}, "", next);
+      }
     } catch (_) {}
   };
 
@@ -846,7 +854,7 @@
       return false;
     }
     initDefaults();
-    syncLocation(stem);
+    syncLocation(stem, { replace: options.replace === true });
     showPrimaryTitle();
     setStatus("", true);
     refresh();
@@ -1099,9 +1107,23 @@
       state.stems.push(state.stem);
     }
 
-    if (!goToStem(state.stem, { keepScroll: true })) {
+    if (!goToStem(state.stem, { keepScroll: true, replace: true })) {
       return;
     }
+
+    window.addEventListener("popstate", () => {
+      const run =
+        typeof window.__birinciRunApplyingHistory === "function"
+          ? window.__birinciRunApplyingHistory
+          : (fn) => fn();
+      run(() => {
+        try {
+          const params = new URLSearchParams(window.location.search || "");
+          const stem = String(params.get("stem") || "").trim();
+          if (stem) goToStem(stem, { keepScroll: true, replace: true });
+        } catch (_) {}
+      });
+    });
 
     if (els.langs && !state.togglesBound) {
       state.togglesBound = true;

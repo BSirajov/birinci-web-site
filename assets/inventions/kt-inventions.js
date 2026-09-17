@@ -849,8 +849,10 @@
 
   var applyingHistory = false;
 
-  function writeInventionsUrlState(activeId) {
-    if (applyingHistory) return;
+  function writeInventionsUrlState(activeId, options) {
+    if (applyingHistory || window.__birinciApplyingHistory) return;
+    options = options || {};
+    var replace = options.push !== true;
     try {
       var url = new URL(window.location.href);
       var params = url.searchParams;
@@ -891,11 +893,9 @@
         url.hash = "";
       }
       var next = url.pathname + url.search + url.hash;
-      var prevHash = window.location.hash || "";
-      var nextHash = url.hash || "";
       if (typeof window.__birinciCommitHistoryHref === "function") {
-        window.__birinciCommitHistoryHref(next, { replace: prevHash === nextHash });
-      } else if (prevHash === nextHash) {
+        window.__birinciCommitHistoryHref(next, { replace: replace });
+      } else if (replace) {
         history.replaceState(null, "", next);
       } else {
         history.pushState(null, "", next);
@@ -991,7 +991,7 @@
 
     if (!targetId || !document.getElementById(targetId)) return;
     setTimeout(function () {
-      if (linkById && linkById[targetId]) scrollToSection(targetId);
+      if (linkById && linkById[targetId]) scrollToSection(targetId, { history: "skip" });
       else jumpToTarget(targetId);
     }, 80);
   }
@@ -1126,19 +1126,79 @@
     });
   }
 
+  function loadDiscoveriesImages(root) {
+    if (!root) return;
+    Array.prototype.forEach.call(root.querySelectorAll("img"), function (img) {
+      var pending = (img.getAttribute("data-src") || "").trim();
+      var src = (img.getAttribute("src") || img.currentSrc || "").trim();
+      if (!src && pending) {
+        img.setAttribute("src", pending);
+        src = pending;
+      }
+      if (!src) return;
+      img.hidden = false;
+      img.removeAttribute("hidden");
+      var figure = img.closest("figure, .inventions-entry-icon, .inventions-entry-visual-media");
+      if (figure) {
+        figure.hidden = false;
+        figure.removeAttribute("hidden");
+        figure.classList.remove("is-hidden");
+      }
+    });
+  }
+
+  function stripDiscoveriesMediaToggles(root) {
+    if (!root) return;
+    Array.prototype.forEach.call(
+      root.querySelectorAll("[data-tools-images], [data-tools-texts]"),
+      function (group) {
+        var field = group.closest(".tools-bar__field") || group;
+        if (field.parentNode) field.parentNode.removeChild(field);
+      }
+    );
+    Array.prototype.forEach.call(
+      root.querySelectorAll(".story__action-group"),
+      function (group) {
+        if (!group.querySelector("[data-images-mode], [data-texts-mode]")) return;
+        if (group.parentNode) group.parentNode.removeChild(group);
+      }
+    );
+  }
+
+  function revealDiscoveriesMedia() {
+    if (!isDiscoveriesPage()) return;
+    if (document.body) {
+      document.body.classList.remove("images-collapsed", "texts-collapsed");
+    }
+    stripDiscoveriesMediaToggles(document);
+    entries.forEach(function (entry) {
+      setInventionsEntryFigure(entry, true);
+      setInventionsEntryText(entry, true);
+      loadDiscoveriesImages(entry);
+    });
+    loadDiscoveriesImages(document.querySelector(".inventions-article-modal"));
+  }
+
   function setInventionsEntryFigure(entry, visible) {
     if (!entry) return;
+    if (isDiscoveriesPage()) visible = true;
     entry.classList.toggle("inventions-entry--figure-hidden", !visible);
     setInventionsEntryModePressed(entry, "data-images-mode", visible);
+    if (visible) loadDiscoveriesImages(entry);
   }
 
   function setInventionsEntryText(entry, visible) {
     if (!entry) return;
+    if (isDiscoveriesPage()) visible = true;
     entry.classList.toggle("inventions-entry--text-hidden", !visible);
     setInventionsEntryModePressed(entry, "data-texts-mode", visible);
   }
 
   function applyInventionsImagesState(collapsed) {
+    if (isDiscoveriesPage()) {
+      revealDiscoveriesMedia();
+      return;
+    }
     document.body.classList.toggle("images-collapsed", collapsed);
     document.querySelectorAll("[data-images-mode]").forEach(function (btn) {
       if (!btn.closest(".tools-bar--inventions")) return;
@@ -1157,6 +1217,10 @@
   }
 
   function applyInventionsTextsState(collapsed) {
+    if (isDiscoveriesPage()) {
+      revealDiscoveriesMedia();
+      return;
+    }
     document.body.classList.toggle("texts-collapsed", collapsed);
     document.querySelectorAll("[data-texts-mode]").forEach(function (btn) {
       if (!btn.closest(".tools-bar--inventions")) return;
@@ -1179,46 +1243,13 @@
     var bar = inventionsListBar();
     if (!bar) return;
     inventionsListState.bound = true;
-
-    var imagesCollapsed = true;
-    var textsCollapsed = false;
-    try {
-      if (localStorage.getItem("birinci-images-collapsed-default-v2") !== "1") {
-        localStorage.setItem("birinci-images-collapsed-default-v2", "1");
-        localStorage.setItem("birinci-images-collapsed", "1");
-      }
-      imagesCollapsed = localStorage.getItem("birinci-images-collapsed") !== "0";
-      textsCollapsed = localStorage.getItem("birinci-texts-collapsed") === "1";
-    } catch (_) {}
-    applyInventionsImagesState(imagesCollapsed);
-    applyInventionsTextsState(textsCollapsed);
-
-    bar.querySelectorAll("[data-images-mode]").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        applyInventionsImagesState(btn.getAttribute("data-images-mode") === "hide");
-      });
-    });
-    bar.querySelectorAll("[data-texts-mode]").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        applyInventionsTextsState(btn.getAttribute("data-texts-mode") === "hide");
-      });
-    });
-
+    revealDiscoveriesMedia();
     applyInventionsListWindow();
   }
 
   window.__birinciRefreshInventionsListTools = function () {
     if (!isDiscoveriesPage()) return;
-    try {
-      if (localStorage.getItem("birinci-images-collapsed-default-v2") !== "1") {
-        localStorage.setItem("birinci-images-collapsed-default-v2", "1");
-        localStorage.setItem("birinci-images-collapsed", "1");
-      }
-      applyInventionsImagesState(
-        localStorage.getItem("birinci-images-collapsed") !== "0"
-      );
-      applyInventionsTextsState(localStorage.getItem("birinci-texts-collapsed") === "1");
-    } catch (_) {}
+    revealDiscoveriesMedia();
     applyInventionsListWindow();
   };
 
@@ -1536,15 +1567,18 @@
     return true;
   }
 
-  function scrollToSection(id) {
+  function scrollToSection(id, options) {
     if (!id || !document.getElementById(id)) return false;
+    options = options || {};
 
     revealInventionsEntry(id);
     lockSpy(480);
     setActive(id, { force: true, forceSidebarScroll: true });
     jumpToTarget(id);
 
-    writeInventionsUrlState(id);
+    if (options.history !== "skip") {
+      writeInventionsUrlState(id, { push: options.history !== "replace" });
+    }
 
     if (mobileMq.matches) {
       closeEventsMenu();
@@ -1558,7 +1592,9 @@
     });
     return true;
   }
-  window.__birinciScrollInventionsTo = scrollToSection;
+  window.__birinciScrollInventionsTo = function (id) {
+    return scrollToSection(id, { history: "skip" });
+  };
 
   enrichEntryMetadata();
 
@@ -1608,24 +1644,29 @@
   });
 
   window.addEventListener("popstate", function () {
-    applyingHistory = true;
-    try {
-      var urlState = readInventionsUrlState();
-      applyInventionsUrlState(urlState);
-      applyFilters();
-      var hash = "";
+    var run = typeof window.__birinciRunApplyingHistory === "function"
+      ? window.__birinciRunApplyingHistory
+      : function (fn) { return fn(); };
+    run(function () {
+      applyingHistory = true;
       try {
-        hash = decodeURIComponent((window.location.hash || "").replace(/^#/, ""));
-      } catch (_) {
-        hash = (window.location.hash || "").replace(/^#/, "");
+        var urlState = readInventionsUrlState();
+        applyInventionsUrlState(urlState);
+        applyFilters();
+        var hash = "";
+        try {
+          hash = decodeURIComponent((window.location.hash || "").replace(/^#/, ""));
+        } catch (_) {
+          hash = (window.location.hash || "").replace(/^#/, "");
+        }
+        if (hash && document.getElementById(hash)) {
+          jumpToTarget(hash);
+          setActive(hash, { force: true, forceSidebarScroll: true });
+        }
+      } finally {
+        applyingHistory = false;
       }
-      if (hash && document.getElementById(hash)) {
-        jumpToTarget(hash);
-        setActive(hash, { force: true, forceSidebarScroll: true });
-      }
-    } finally {
-      applyingHistory = false;
-    }
+    });
   });
 
   document.querySelectorAll(".sel-clear").forEach(function (btn) {
@@ -1872,6 +1913,7 @@
 
   function prepareModalArticleImages(root) {
     if (!root) return;
+    loadDiscoveriesImages(root);
     Array.prototype.forEach.call(root.querySelectorAll("img"), function (img) {
       var src = (img.getAttribute("src") || img.currentSrc || "").trim();
       if (!src) return;
@@ -2658,42 +2700,6 @@
       );
     }
 
-    appendStoryActionGroup(
-      actions,
-      labels.image,
-      '<button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-images-mode="show" aria-pressed="true" title="' +
-        labels.showImage.replace(/"/g, "&quot;") +
-        '" aria-label="' +
-        labels.showImage.replace(/"/g, "&quot;") +
-        '">' +
-        storyIcon("eye", EYE_ICON) +
-        '</button><button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-images-mode="hide" aria-pressed="false" title="' +
-        labels.hideImage.replace(/"/g, "&quot;") +
-        '" aria-label="' +
-        labels.hideImage.replace(/"/g, "&quot;") +
-        '">' +
-        storyIcon("eye-off", EYE_OFF_ICON) +
-        "</button>"
-    );
-
-    appendStoryActionGroup(
-      actions,
-      labels.text,
-      '<button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-texts-mode="show" aria-pressed="true" title="' +
-        labels.showText.replace(/"/g, "&quot;") +
-        '" aria-label="' +
-        labels.showText.replace(/"/g, "&quot;") +
-        '">' +
-        storyIcon("text", TEXT_ICON) +
-        '</button><button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-texts-mode="hide" aria-pressed="false" title="' +
-        labels.hideText.replace(/"/g, "&quot;") +
-        '" aria-label="' +
-        labels.hideText.replace(/"/g, "&quot;") +
-        '">' +
-        storyIcon("text-off", TEXT_OFF_ICON) +
-        "</button>"
-    );
-
     var note = document.createElement("p");
     note.className = "story-tts__note";
     note.setAttribute("data-story-tts-note", "");
@@ -2706,7 +2712,7 @@
     if (!actions) return true;
     if (actions.querySelector(".inventions-article-listen, [data-article-tts]")) return true;
     if (!actions.querySelector(".story-tts__note")) return true;
-    if (!actions.querySelector("[data-texts-mode]")) return true;
+    if (actions.querySelector("[data-images-mode], [data-texts-mode]")) return true;
     var wantsAudio = articleModalSpeechLang().ui !== "ky";
     if (wantsAudio && !actions.querySelector("[data-story-tts]")) return true;
     if (!wantsAudio && actions.querySelector("[data-story-tts]")) return true;
@@ -2764,8 +2770,9 @@
     }
     var actions = existing || buildEntryActionsBar(entry);
     placeEntryActionsBar(entry, actions);
-    setInventionsEntryFigure(entry, !entry.classList.contains("inventions-entry--figure-hidden"));
-    setInventionsEntryText(entry, !entry.classList.contains("inventions-entry--text-hidden"));
+    stripDiscoveriesMediaToggles(actions);
+    setInventionsEntryFigure(entry, true);
+    setInventionsEntryText(entry, true);
     return actions;
   }
 
@@ -3483,7 +3490,7 @@
     }
     if (hasSectionHash && linkById[incomingHash]) {
       setTimeout(function () {
-        scrollToSection(incomingHash);
+        scrollToSection(incomingHash, { history: "skip" });
         restoreLangContext();
       }, 100);
     } else {

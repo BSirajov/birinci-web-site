@@ -1876,21 +1876,8 @@ def ensure_story_toolbar_list_controls(markup: str, lang: str) -> str:
 
 
 def ensure_inventions_toolbar_list_controls(markup: str, lang: str) -> str:
-    """Restore Images / Text toggles on Discoveries catalog toolbar (list view)."""
-    if 'id="tools-images-label"' in markup:
-        return markup
-    if 'data-tools="inventions"' not in markup:
-        return markup
-    block = _inventions_toolbar_list_controls_html(_story_toolbar_labels(lang))
-    new, count = _TOOLBAR_AFTER_INVENTIONS_VIEW_RE.subn(r"\1" + block + r"\2", markup, count=1)
-    if count:
-        return new
-    new, count = _TOOLBAR_BEFORE_CHARTER_RE.subn(
-        r"\1" + block + r"\n</div>\n</div>\n\2",
-        markup,
-        count=1,
-    )
-    return new if count else markup
+    """Discoveries no longer restores Images / Texts toolbar toggles."""
+    return markup
 
 
 def _story_listen_labels(lang: str) -> dict[str, str]:

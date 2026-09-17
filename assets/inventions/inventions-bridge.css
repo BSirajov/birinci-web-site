@@ -259,37 +259,13 @@ body.page-inventions::after {
   }
 }
 
-.page-inventions.inventions-view-list .inventions-entry--figure-hidden .inventions-entry-visual-media,
-.page-inventions.inventions-view-list .inventions-entry--figure-hidden .inventions-entry-icon,
-body.page-inventions.images-collapsed.inventions-view-list .inventions-entry-visual-media,
-body.page-inventions.images-collapsed.inventions-view-list .inventions-entry-icon {
-  display: none;
-}
-.page-inventions.inventions-view-list .inventions-entry--figure-hidden .inventions-entry-visual,
-body.page-inventions.images-collapsed.inventions-view-list .inventions-entry-visual {
-  grid-template-columns: 1fr;
-}
-.page-inventions.inventions-view-list .inventions-entry--figure-hidden .inventions-entry-visual-copy,
-.page-inventions.inventions-view-list .inventions-entry--figure-hidden .inventions-entry-visual > .inventions-entry-meta,
-.page-inventions.inventions-view-list .inventions-entry--figure-hidden .inventions-entry-visual > .inventions-key-facts,
-body.page-inventions.images-collapsed.inventions-view-list .inventions-entry-visual-copy,
-body.page-inventions.images-collapsed.inventions-view-list .inventions-entry-visual > .inventions-entry-meta,
-body.page-inventions.images-collapsed.inventions-view-list .inventions-entry-visual > .inventions-key-facts {
-  grid-column: 1;
-  grid-row: auto;
-}
-
-.page-inventions.inventions-view-list .inventions-entry--text-hidden .inventions-entry-visual-copy > :not(.inventions-entry-actions),
-.page-inventions.inventions-view-list .inventions-entry--text-hidden .inventions-entry-section,
-.page-inventions.inventions-view-list .inventions-entry--text-hidden .inventions-entry-references,
-.page-inventions.inventions-view-list .inventions-entry--text-hidden .inventions-entry-meta,
-.page-inventions.inventions-view-list .inventions-entry--text-hidden .inventions-key-facts,
-body.page-inventions.texts-collapsed.inventions-view-list .inventions-entry-visual-copy > :not(.inventions-entry-actions),
-body.page-inventions.texts-collapsed.inventions-view-list .inventions-entry-section,
-body.page-inventions.texts-collapsed.inventions-view-list .inventions-entry-references,
-body.page-inventions.texts-collapsed.inventions-view-list .inventions-entry-meta,
-body.page-inventions.texts-collapsed.inventions-view-list .inventions-key-facts {
-  display: none;
+html[data-kt-page-id="discoveries-and-inventions"] .tools-bar--inventions .tools-bar__field:has([data-tools-images]),
+html[data-kt-page-id="discoveries-and-inventions"] .tools-bar--inventions .tools-bar__field:has([data-tools-texts]),
+html[data-kt-page-id="discoveries-and-inventions"] .inventions-entry-actions .story__action-group:has([data-images-mode]),
+html[data-kt-page-id="discoveries-and-inventions"] .inventions-entry-actions .story__action-group:has([data-texts-mode]),
+html[data-kt-page-id="discoveries-and-inventions"] .inventions-article-modal .story__action-group:has([data-images-mode]),
+html[data-kt-page-id="discoveries-and-inventions"] .inventions-article-modal .story__action-group:has([data-texts-mode]) {
+  display: none !important;
 }
 
 .page-inventions .inventions-stack .inventions-entry {
