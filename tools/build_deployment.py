@@ -29,6 +29,9 @@ COPY_FILES = ("index.html", "sitemap.html")
 # unless asked for it. The locale trees themselves always keep the section, so
 # development keeps serving it from az/, en/, ru/, ky/ as usual.
 DISCOVERY_LOCALE_DIRS = ("discoveries", "discovery-articles")
+DISCOVERY_ONLY_ASSETS = (
+    "assets/discovery-compare.js",
+)
 
 # Word/PDF sources are local authoring inputs — never publish them.
 IGNORE_PUBLISH = shutil.ignore_patterns(
@@ -205,6 +208,11 @@ def hide_discoveries_i18n(js: str) -> str:
 def hide_discoveries(tree: Path) -> int:
     """Remove every public entry point to Discoveries from a publish tree."""
     edited = 0
+    for rel in DISCOVERY_ONLY_ASSETS:
+        path = tree / rel
+        if path.is_file():
+            path.unlink()
+            edited += 1
     for path in sorted(tree.rglob("*.html")):
         text = path.read_text(encoding="utf-8")
         updated = hide_discoveries_html(text)
