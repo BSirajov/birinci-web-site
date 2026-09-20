@@ -477,12 +477,16 @@
   }
 
   function stickyScrollOffset() {
-    // Prefer live sticky chrome (header + breadcrumbs) — matches --sticky-stack-bottom.
+    // Prefer live sticky chrome (header + breadcrumbs + page toolbar).
     var headerEl = document.querySelector(".site-header");
     var crumbsEl = document.querySelector(".breadcrumbs");
+    var toolbarEl = document.querySelector(".page-toolbar");
     var stack = 0;
     if (headerEl) stack = Math.max(stack, headerEl.getBoundingClientRect().bottom);
     if (crumbsEl) stack = Math.max(stack, crumbsEl.getBoundingClientRect().bottom);
+    if (toolbarEl && toolbarEl.offsetParent !== null) {
+      stack = Math.max(stack, toolbarEl.getBoundingClientRect().bottom);
+    }
     if (stack <= 0) {
       var root = document.documentElement;
       var style = window.getComputedStyle(root);
@@ -492,7 +496,8 @@
       } else {
         var headerH = parseFloat(style.getPropertyValue("--header-h")) || 68;
         var crumbH = parseFloat(style.getPropertyValue("--breadcrumb-h")) || 43;
-        stack = headerH + crumbH;
+        var toolH = parseFloat(style.getPropertyValue("--toolbar-h")) || 0;
+        stack = headerH + crumbH + toolH;
       }
     }
     var gap = parseFloat(
@@ -2549,6 +2554,11 @@
   }
 
   function startAzArticleSpeech(root, title, text) {
+    var src = articleStoredAudioUrl(root);
+    if (src) {
+      playArticleStoredMp3(root, title, src);
+      return;
+    }
     var spec = articleModalSpeechLang();
     if (isEdgeBrowser()) {
       loadArticleModalVoices(function (voices) {
@@ -2557,8 +2567,6 @@
           speakAzWithBrowserVoice(voice, text, spec);
           return;
         }
-        var lateSrc = articleStoredAudioUrl(root);
-        if (lateSrc) playArticleStoredMp3(root, title, lateSrc);
       });
       return;
     }
@@ -2566,15 +2574,17 @@
     var azVoice = pickAzBrowserVoice(voices);
     if (azVoice) {
       speakAzWithBrowserVoice(azVoice, text, spec);
-      return;
     }
-    var src = articleStoredAudioUrl(root);
-    if (src) playArticleStoredMp3(root, title, src);
   }
 
   function startArticleSpeech(root, title) {
     var spec = articleModalSpeechLang();
     if (spec.ui === "ky") return;
+    var stored = articleStoredAudioUrl(root);
+    if (stored) {
+      playArticleStoredMp3(root, title, stored);
+      return;
+    }
     var text = articleSpeechText(root, title);
     if (!text && spec.ui !== "az") return;
 
@@ -2864,6 +2874,32 @@
     if (articleModal.closeBtn) {
       articleModal.closeBtn.setAttribute("aria-label", labels.close);
     }
+    // Inject language / multilingual controls whenever an article is loaded into the
+    // modal. Do not require articleModal.open — fillArticleModal runs before open=true.
+    if (
+      articleModal.mode === "article" &&
+      articleModal.entryId &&
+      articleModal.overlay &&
+      typeof window.__birinciEnsureArticleModalLangSwitcher === "function"
+    ) {
+      window.__birinciArticleModalEntryId = function () {
+        return articleModal.entryId || "";
+      };
+      window.__birinciEnsureArticleModalLangSwitcher();
+    } else if (articleModal.overlay) {
+      var header = articleModal.overlay.querySelector(".inventions-article-modal__header");
+      if (header) {
+        Array.prototype.forEach.call(
+          header.querySelectorAll(
+            "[data-article-multilingual], [data-article-lang-switcher]"
+          ),
+          function (el) {
+            if (el.parentNode) el.parentNode.removeChild(el);
+          }
+        );
+        header.removeAttribute("data-article-stem");
+      }
+    }
     Array.prototype.forEach.call(
       (articleModal.overlay || document).querySelectorAll(
         ".story__actions .story__action-group"
@@ -3048,6 +3084,8 @@
     articleModal.overlay.removeAttribute("hidden");
     document.body.classList.add("inventions-article-modal-open");
     articleModal.open = true;
+    // Ensure header language controls exist after open flips true (fill runs earlier).
+    syncArticleModalChrome();
     window.requestAnimationFrame(function () {
       if (articleModal.closeBtn) articleModal.closeBtn.focus();
     });
@@ -3055,6 +3093,14 @@
 
   function isArticleModalInteractive(target) {
     if (!target || !target.closest) return false;
+    // Multilingual / language controls must not be treated as "open article" chrome.
+    if (
+      target.closest(
+        "a.story-multilingual-btn, [data-article-multilingual], [data-article-lang-switcher], .story-lang-switcher"
+      )
+    ) {
+      return true;
+    }
     var hit = target.closest("a, button, input, select, textarea, label");
     if (!hit) return false;
     if (hit.classList.contains("inventions-card")) return false;
@@ -3104,6 +3150,7 @@
 
     document.addEventListener("keydown", function (event) {
       if (!articleModal.open) return;
+      if (document.getElementById("story-compare-overlay")) return;
       if (event.key === "Escape") {
         event.preventDefault();
         closeArticleModal();
@@ -3183,6 +3230,9 @@
     hideDiscoveriesSectionSources();
     pruneDiscoveriesExtraNav();
     window.__birinciRefreshArticleModal();
+    if (typeof window.__birinciRefreshArticleLangSwitchers === "function") {
+      window.__birinciRefreshArticleLangSwitchers();
+    }
     if (typeof window.__birinciSyncToolsBarTooltips === "function") {
       window.__birinciSyncToolsBarTooltips();
     }
@@ -3192,6 +3242,14 @@
   pruneDiscoveriesExtraNav();
   bindArticleModalTriggers();
   insertPageEntryListenButtons();
+  if (typeof window.__birinciRefreshArticleLangSwitchers === "function") {
+    window.__birinciRefreshArticleLangSwitchers();
+  }
+  document.addEventListener("birinci:lang-change", function () {
+    if (typeof window.__birinciRefreshArticleLangSwitchers === "function") {
+      window.__birinciRefreshArticleLangSwitchers();
+    }
+  });
   document.addEventListener("birinci:audio-player-change", function (event) {
     var detail = (event && event.detail) || {};
     if (!articleModal.tts.usingMp3) return;

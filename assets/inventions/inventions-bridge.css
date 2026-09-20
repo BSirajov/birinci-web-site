@@ -16,10 +16,13 @@
   /* Chrome width stays site-sized; inventions content keeps a slightly wider shell */
   --max: 1120px;
   --inventions-content-max: 1220px;
-  /* Sticky stack aligned to Birİnci header + breadcrumbs */
+  /* Sticky stack: site header + breadcrumbs + page toolbar */
   --kt-nav-height: var(--header-h, 4.25rem);
   --kt-breadcrumbs-height: var(--breadcrumb-h, 2.7rem);
-  --kt-sticky-top-stack: calc(var(--header-h, 4.25rem) + var(--breadcrumb-h, 2.7rem));
+  --kt-sticky-top-stack: var(
+    --sticky-stack-bottom,
+    calc(var(--header-h, 4.25rem) + var(--breadcrumb-h, 2.7rem))
+  );
   --kt-scroll-anchor-gap: 1.25rem;
   overflow-anchor: none;
   font-family: var(--font-sans);
@@ -209,7 +212,16 @@ body.page-inventions::after {
 @media (min-width: 1061px) {
   .page-inventions .charter-sidebar.toc-card {
     top: calc(var(--kt-sticky-top-stack) + 16px);
+    z-index: 20;
   }
+}
+
+/* Keep Articles / Contents chrome pinned at the top of the panel. */
+.page-inventions .charter-sidebar .sidebar-widget > .widget-head {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  flex: 0 0 auto;
 }
 
 /* Tools bar chrome comes from assets/site.css (:is(.page-home, .page-category, .page-inventions) .tools-bar). */
@@ -265,6 +277,22 @@ html[data-kt-page-id="discoveries-and-inventions"] .inventions-entry-actions .st
 html[data-kt-page-id="discoveries-and-inventions"] .inventions-entry-actions .story__action-group:has([data-texts-mode]),
 html[data-kt-page-id="discoveries-and-inventions"] .inventions-article-modal .story__action-group:has([data-images-mode]),
 html[data-kt-page-id="discoveries-and-inventions"] .inventions-article-modal .story__action-group:has([data-texts-mode]) {
+  display: none !important;
+}
+
+/* Temporary until localization review is done. Delete this rule to restore Discovery Listen/Audio. */
+html.discovery-audio-hidden .story__action-group:has([data-discovery-tts]),
+html.discovery-audio-hidden [data-discovery-tts],
+html.discovery-audio-hidden .inventions-entry__tts,
+html.discovery-audio-hidden .inventions-tts-pair,
+html.discovery-audio-hidden .tools-bar__field--listen,
+html.discovery-audio-hidden .tools-bar__field:has([data-tools-play-visible]),
+html[data-kt-page-id="discoveries-and-inventions"] .story__action-group:has([data-discovery-tts]),
+html[data-kt-page-id="discoveries-and-inventions"] [data-discovery-tts],
+html[data-kt-page-id="discoveries-and-inventions"] .inventions-entry__tts,
+html[data-kt-page-id="discoveries-and-inventions"] .inventions-tts-pair,
+html[data-kt-page-id="discoveries-and-inventions"] .tools-bar__field--listen,
+html[data-kt-page-id="discoveries-and-inventions"] .tools-bar__field:has([data-tools-play-visible]) {
   display: none !important;
 }
 
@@ -535,10 +563,33 @@ html[data-kt-page-id="discoveries-and-inventions"] .inventions-article-modal .st
 
 .inventions-article-modal__header {
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
   flex: 0 0 auto;
   padding: 1.15rem 3.4rem 0.95rem;
   background: linear-gradient(135deg, var(--blue-900, #06314e) 0%, var(--nav-blue, #0069b4) 58%, var(--blue-400, #4eb4ee) 100%);
   border-bottom: 2px solid var(--gold-bright, #f0c75e);
+}
+
+.inventions-article-modal__header:has(.story-multilingual-btn) {
+  justify-content: flex-start;
+  text-align: start;
+  padding-left: 1.15rem;
+  padding-right: 4.2rem;
+}
+
+.inventions-article-modal__header .inventions-article-modal__title {
+  pointer-events: none;
+  flex: 1 1 auto;
+  min-width: 0;
+  text-align: start;
+}
+
+.inventions-article-modal__header .story-multilingual-btn {
+  left: auto;
+  top: auto;
+  transform: none;
 }
 
 .inventions-article-modal__title {
@@ -778,7 +829,11 @@ body.inventions-article-modal-open {
     max-height: min(94vh, 100%);
   }
   .inventions-article-modal__header {
-    padding: 1rem 3.2rem 0.85rem 1.05rem;
+    padding: 1rem 3.2rem 0.85rem;
+  }
+  .inventions-article-modal__header:has(.story-multilingual-btn) {
+    padding-left: 1rem;
+    padding-right: 4rem;
   }
   .inventions-article-modal__body {
     padding: 1.05rem 1.05rem 1.25rem;

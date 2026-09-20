@@ -6,13 +6,27 @@
   <meta name="theme-color" content="#0069b4" />
   <meta name="color-scheme" content="light" />
   <title>Birİnci</title>
+  <script>
+  (function () {
+    try {
+      if (location.protocol !== "file:") return;
+      var raw = decodeURIComponent(String(location.pathname || "").replace(/\\/g, "/"));
+      var lower = raw.toLowerCase();
+      var marker = "birinci-web-site/";
+      var at = lower.lastIndexOf(marker);
+      var rel = at >= 0 ? raw.slice(at + marker.length) : "index.html";
+      if (!rel || rel.charAt(rel.length - 1) === "/") rel += "index.html";
+      location.replace("http://127.0.0.1:8765/" + rel + (location.search || "") + (location.hash || ""));
+    } catch (_) {}
+  })();
+  </script>
   <meta name="description" content="Birİnci — ibrətamiz deyimlər və hekayələr toplusu." />
   <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32" />
   <link rel="icon" href="assets/favicon-48.png" type="image/png" sizes="48x48" />
   <link rel="icon" href="assets/favicon.png" type="image/png" sizes="192x192" />
   <link rel="icon" href="assets/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180" />
-  <link rel="stylesheet" href="assets/site.css?v=20260905search4" />
+  <link rel="stylesheet" href="assets/site.css?v=20260918printtoc1" />
   
 <link rel="stylesheet" href="assets/inventions/kt-inventions.css?v=20260905search4" />
   <link rel="stylesheet" href="assets/inventions/inventions-bridge.css?v=20260905search4" />
@@ -405,8 +419,9 @@
     </div>
   </footer>
   
+  <script src="assets/force-local-http.js"></script>
   <script src="az/assets/i18n.js?v=20260905search4"></script>
   <script src="assets/tts-proxy.js?v=20260905search4"></script>
-  <script src="assets/site.js?v=20260905search4" defer></script>
+  <script src="assets/site.js?v=20260917idxHttp1" defer></script>
 </body>
 </html>

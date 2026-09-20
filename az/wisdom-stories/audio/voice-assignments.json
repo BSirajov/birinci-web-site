@@ -1,0 +1,3272 @@
+{
+  "lang": "az",
+  "prosody": "v5-az-ssml",
+  "narrator_voice": "az-AZ-BabekNeural",
+  "female_voice": "az-AZ-BanuNeural",
+  "male_voice": "az-AZ-BabekNeural",
+  "story_count": 250,
+  "dialogue_story_count": 131,
+  "extra_speaker_story_count": 6,
+  "stories": {
+    "friend-of-god": {
+      "title": "Allahın dostu",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Sən Allahsan?"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Yox, ay bala, mən sadə bir insanam."
+        }
+      ]
+    },
+    "gods-pleasure": {
+      "title": "Allahın rizası",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Allahın rizasına aparan bütün yolları araşdırdım; ən qısasının insanları sevindirmək olduğunu gördüm."
+        }
+      ]
+    },
+    "blessings-god-has-given": {
+      "title": "Allahın verdiyi nemətlər",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "eat-less-and-stay-on-the-right-path": {
+      "title": "Az yeyən və düz gedən",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Az yeyənin həkimlə işi olmaz , insan yeməkdə həddi aşmasa, ölçülü-biçili qidalansa, sağlamlığını qorumaq ehtimalı daha yüksək olar və həkimə daha az ehtiyac duy"
+        }
+      ]
+    },
+    "not-leaving-the-right-path": {
+      "title": "Doğru yoldan ayrılmamaq",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "let-prayer-come-and-find-you": {
+      "title": "Dua gəlib tapsın səni",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "dervishs-spoons": {
+      "title": "Dərviş qaşıqları",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Əsl sevənlərlə sevgidən yalnız söz edənlər arasında fərq nədir?"
+        }
+      ]
+    },
+    "dervishs-robe": {
+      "title": "Dərviş əbası",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Bu quş səndən şikayətçidir. Niyə onun qanadını qırdın? , deyə soruşdu."
+        }
+      ]
+    },
+    "dervishs-clothes": {
+      "title": "Dərvişin üst-başı",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Üst-başın niyə belə səliqəsizdir?"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Daim daxilimi düzəltməklə məşğul olduğumdan zahirimi düzəltməyə vaxtım qalmır."
+        }
+      ]
+    },
+    "o-god-heal-our-sorrows": {
+      "title": "Ey Allahım, dərdlərimizə çarə et",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "o-god-give-first-to-the-mountains-and-stones": {
+      "title": "Ey Allahım, əvvəlcə dağa-daşa ver",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Ey Allahım, əvvəlcə dağa-daşa ver, meşəyə, heyvanlara, suya ver. Ondan sonra insanlara, qapı qonşuma, möhtac olana ver. Əgər qalarsa, ən sonda mənə ver!"
+        }
+      ]
+    },
+    "hajj-pilgrimage": {
+      "title": "Hacc ziyarəti",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "lawful-morsel": {
+      "title": "Halal tikə",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "İmam Qəzali"
+        }
+      ]
+    },
+    "power-of-truth": {
+      "title": "Haqqın qüdrəti",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "forbidden-money": {
+      "title": "Haram pul",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Bir az da üstünə qoy, gedək kinoya, dedi. Olsun dedim. Həftə sonu kinoya getmək qərarına gəldik."
+        }
+      ]
+    },
+    "faith-is-half-of-success": {
+      "title": "İnam uğurun yarısıdır!",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Siz bizim ən yaxşı, ən bacarıqlı müəllimlərimiz olduğunuz üçün seçdiyimiz bir qrup ən zəkalı, bacarıqlı şagirdi sizin öhdənizə veririk. Vəzifəniz növbəti bir il"
+        }
+      ]
+    },
+    "idle-devil": {
+      "title": "İşsiz şeytan",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "light-of-the-universe": {
+      "title": "Kainat işığı",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "church-bell": {
+      "title": "Kilsə zəngi",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "mullah-and-the-scholar": {
+      "title": "Molla və alim",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Üçüncü sual kimi insan və heyvanlar haqqında fikrini bilmək istədim; o da tez bir yumurta ilə quşların da bu cinsə aid olduğunu mənə xatırlatdı."
+        }
+      ]
+    },
+    "price-of-a-miracle": {
+      "title": "Möcüzənin qiyməti",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Qızım, sən nə istəyirsən? , deyə əsəbi halda soruşdu və cavabını gözləmədən əlavə etdi: , Bu dəqiqə uzun müddətdir görmədiyim qardaşımla söhbət edirəm."
+        }
+      ]
+    },
+    "where-does-calamity-come-from": {
+      "title": "Müsibət nədən gəlir",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Müsibət nədən gəlir?"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Gözünü yoxla gör, harama baxmısanmı?"
+        }
+      ]
+    },
+    "calamity-and-blessing": {
+      "title": "Müsibət və nemət",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "why-are-you-waiting-for-the-last-day-of-the-world": {
+      "title": "Niyə dünyanın son gününü gözləyirsiniz?",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Bir anlıq düşünün ki, bu gün dünyanın son günüdür. Sabah bu vaxt artıq hər şey bitəcək. Xilas olmaq şansınız da yoxdur. Belə olsa, nə edərdiniz?"
+        }
+      ]
+    },
+    "to-be-fasting": {
+      "title": "Oruclu olmaq",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Xeyir ola, dayı, yemək yeyirsən, oruclu deyilsənmi?"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Bəs siz necə, oruclusunuzmu?"
+        }
+      ]
+    },
+    "pray-while-washing-your-dishes": {
+      "title": "Qab-qacağınızı yuyarkən dua edin",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "if-fate-allows-we-will-meet": {
+      "title": "Qismət olarsa görüşərik",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "sacrificial-meat": {
+      "title": "QURBAN ƏTI",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Yox dedim yavaşca. Qonşular bizə qurban əti vermədilər."
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Qorxmayın, amma atanız kiçik bir qəzaya uğrayıb, dedi."
+        }
+      ]
+    },
+    "fortieth-day-rite": {
+      "title": "Qırx çıxarma",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "ramadan-prayer": {
+      "title": "Ramazan duası",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "help-yourself-o-exalted-god": {
+      "title": "Sən özün yardım et, uca Allahım!",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "stoning-the-devil": {
+      "title": "Şeytanı daşlama",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Ay dayı, niyə daşla özünü döyürsən?"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Oğul, de görüm, bizim buradakı şeytanla nə işimiz var? Biz gərək öz içimizdəki şeytanı daş-qalaq edək, öz nəfsimizi tərbiyə edək, özümüzü paklayaq."
+        }
+      ]
+    },
+    "drinking-the-sherbet-of-martyrdom": {
+      "title": "Şəhadət şərbəti içmək",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "my-alif-has-been-dotted": {
+      "title": "Əlifim nöqtələndi",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "your-hand-at-work-your-hope-in-god": {
+      "title": "Əlin işdə, ümidin Allahda",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Sənə sağlam bədən, güclü qol, iti ayaq verdim. Sən isə özünü şikəst bir tülküyə bənzətdin. Niyə aslana yox, tülküyə tay tutursan özünü? Niyə başqasının artığına"
+        }
+      ]
+    },
+    "most-beautiful-portion": {
+      "title": "Ən gözəl nəsib",
+      "category": "iman-ve-meneviyyat",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "İnsanın başına gələ biləcək ən gözəl nəsib nədir?"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Səni dinləmək istəyən birinə rast gəlməkdir."
+        }
+      ]
+    },
+    "value-of-your-family": {
+      "title": "Ailənizin dəyəri",
+      "category": "aile-ve-terbiye",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "weeds-must-be-pulled-from-the-root": {
+      "title": "Alaq otları",
+      "category": "aile-ve-terbiye",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "mothers-love": {
+      "title": "Ana sevgisi",
+      "category": "aile-ve-terbiye",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Ana sevgisi təmənnasız, qoruyucu və isti bir sığınacaqdır. Təmənnasız olduğu üçün onu məcburiyyətlə əldə etmək mümkün deyil."
+        }
+      ]
+    },
+    "mother-and-son": {
+      "title": "Ana və oğul",
+      "category": "aile-ve-terbiye",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Sən yubanma, oğlum, mən özüm yerləşdirərəm. Onsuz da çox əşyam yoxdur, dedi yaşlı qadın. Titrək əllərini uzadıb oğlunun əlini tutdu. Sanki bir şey deyəcəkmiş ki"
+        }
+      ]
+    },
+    "father-and-son": {
+      "title": "Ata və oğul",
+      "category": "aile-ve-terbiye",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Haydı, oğlum, gedək evə, dedi."
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Oğlum üçün darıxdım. Nə olar, gedib onu tapaq, evə gətirək, desə də, ata razılaşmırdı."
+        },
+        {
+          "id": 2,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "extra",
+          "sample": "Nə olar, ana, israr etmə, gəlməyəcəyəm. Bir dəfə də olsun məni axtarmayan, mənimlə maraqlanmayan bir adamla eyni evdə yaşaya bilmərəm, dedi."
+        },
+        {
+          "id": 3,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "extra",
+          "sample": "Olsun, bala, sən bilən məsləhətdir. Görürəm ki, qərarın qətidir, evə qayıtmayacaqsan. Amma atan tapşırdı ki, son bir aydır dostluq etdiyi adamdan uzaq dursun , "
+        },
+        {
+          "id": 4,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "extra",
+          "sample": "O mənim canımdır, canım, dedi."
+        }
+      ]
+    },
+    "fathers-footprints": {
+      "title": "Atanın izləri",
+      "category": "aile-ve-terbiye",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Oğlum, atdığın addımlara diqqət et!"
+        }
+      ]
+    },
+    "grandfather-and-grandson-at-the-market": {
+      "title": "Baba və nəvəsi bazarlıqda",
+      "category": "aile-ve-terbiye",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "festive-gift": {
+      "title": "Bayrama hədiyyə",
+      "category": "aile-ve-terbiye",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Ağsaqqal, deyə soruşdum, bayram üçün nə alım?"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Bir neçə insanın könlünü al. Bir neçə uşağı sevindirib təbəssümünü qazan. Bacarırsansa, bir neçə yoxsulun da duasını al."
+        }
+      ]
+    },
+    "only-my-mother-would-weep": {
+      "title": "Bir tək anam ağlar",
+      "category": "aile-ve-terbiye",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "i-am-waiting-for-the-teeth": {
+      "title": "Dişləri gözləyirəm",
+      "category": "aile-ve-terbiye",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Dayı, bağışlayın, bayaqdan sizi izləyirəm: siz yeyirsiniz, xanımınız isə yeməyə toxunmur. Bəyənmirsə, icazənizlə onun üçün başqa bir şey gətirim..."
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Təşəkkür edirəm, cavan oğlan, amma biz halımızdan məmnunuq... Altmış ildir evliyik və hər şeyimizi beləcə bölüşürük, deyir."
+        }
+      ]
+    },
+    "mothers-advice-fakir-baykurt-never-forgot": {
+      "title": "Fakir Baykurtun unutmadığı ana nəsihəti",
+      "category": "aile-ve-terbiye",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Sinifdə dərs vaxtı əsəbiləşdim, coşdum, guruldadım! Dərs bitəndə bayırda anamdan soruşdum: Anacan, necə oldu, müəllimliyimi bəyəndinmi?"
+        }
+      ]
+    },
+    "spinach": {
+      "title": "İspanaq",
+      "category": "aile-ve-terbiye",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Bol-bol yemək lazımdır, bədənə güc verir deyərdi anam və həm səhər, həm günorta, həm də axşam yeməyinə bizə ancaq ispanaq, üstəlik yanında elə hey qarğıdalı çör"
+        }
+      ]
+    },
+    "from-a-wise-fathers-advice-to-his-son": {
+      "title": "Müdrik atanın oğluna öyüd-nəsihətlərindən",
+      "category": "aile-ve-terbiye",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "puppies-for-sale": {
+      "title": "Satılıq küçüklər",
+      "category": "aile-ve-terbiye",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Buna nə olub? Niyə yeriyə bilmir? , deyə soruşdu."
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Küçükləri neçəyə satırsınız? , deyə soruşdu."
+        },
+        {
+          "id": 2,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "extra",
+          "sample": "O küçüyü həqiqətən istəməzsən, oğlum. O, səninlə o biriləri kimi qaçıb oynaya bilməyəcək, deyincə balaca oğlan:"
+        }
+      ]
+    },
+    "fallen-teeth": {
+      "title": "Tökülən dişlər",
+      "category": "aile-ve-terbiye",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "i-am-tired-mother": {
+      "title": "Yoruldum, ana",
+      "category": "aile-ve-terbiye",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Yoruldum, ana..."
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Başını qoy dizimə və rahatla, oğul, bir anlıq hər şeyi unut... ağrılarını mənə ver..."
+        }
+      ]
+    },
+    "builder-of-the-nest": {
+      "title": "Yuvanın qurucusu",
+      "category": "aile-ve-terbiye",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "rotten-seed": {
+      "title": "Çürük toxum",
+      "category": "aile-ve-terbiye",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Sən çürük toxum cücərməz deyib məni yetimlər evinə verəndən sonra bu xanım məni oğulluğa götürdü və sevgi ilə sulanan hər toxum cücərər deyə şəfqətli əllərini h"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Mən sənin sağalacağına, səndən adam olacağına inanmırdım. Cüssəli bir pəhləvan olmusan. Bu möcüzə necə baş verdi? Xəstəliklərdən necə qurtuldun? , deyə oğluna m"
+        }
+      ]
+    },
+    "raising-children": {
+      "title": "Övlad tərbiyəsi",
+      "category": "aile-ve-terbiye",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Övladınızın əlacı nə ayı təlimçisi, nə də mənəm; yalnız siz , valideynlərsiniz, deyə müdrik adam sözünü bitirdi."
+        }
+      ]
+    },
+    "hold-my-hand": {
+      "title": "Əlimi tut",
+      "category": "aile-ve-terbiye",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Şirin qızım, əlimi yaxşı tut ki, çaya yıxılmayasan."
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Yox, ata, sən mənim əlimi tut."
+        },
+        {
+          "id": 2,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "extra",
+          "sample": "Fərqi nədir ki?"
+        }
+      ]
+    },
+    "most-beautiful-gift": {
+      "title": "Ən gözəl hədiyyə",
+      "category": "aile-ve-terbiye",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "purple-jacket": {
+      "title": "Bənövşəyi çəpkən",
+      "category": "sevgi-ve-evlilik",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "friendship-and-love": {
+      "title": "Dostluq və sevgi",
+      "category": "sevgi-ve-evlilik",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Dava-dalaşı ağacın yarpağına yaz ki, payız gələndə yarpaqlar quruyub tökülsün, dava-dalaş yox olsun."
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Qəzəbi buludun üstünə yaz ki, yağış yağsın, buludlar dağılsın, qəzəb yox olsun."
+        }
+      ]
+    },
+    "early-marriage": {
+      "title": "Erkən evlilik",
+      "category": "sevgi-ve-evlilik",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Müəllimlər otağında bir nəfərlə rastlaşmısan. Ona nə demisən? , deyə soruşdu."
+        }
+      ]
+    },
+    "what-breaks-a-marriage": {
+      "title": "Evlilikdə pozan",
+      "category": "sevgi-ve-evlilik",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Niyə? , deyə soruşur oğul."
+        }
+      ]
+    },
+    "advice-for-those-who-marry": {
+      "title": "Evlənənlərə tövsiyə",
+      "category": "sevgi-ve-evlilik",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Evliliyinizi başqalarının evliliyi ilə müqayisə etməyin. Filankəsin əri belədir və ya filankəsin arvadı elədir deməyin."
+        }
+      ]
+    },
+    "i-kiss-your-eyes": {
+      "title": "Gözlərindən öpərəm",
+      "category": "sevgi-ve-evlilik",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "rose": {
+      "title": "Gül",
+      "category": "sevgi-ve-evlilik",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "true-love": {
+      "title": "Həqiqi eşq",
+      "category": "sevgi-ve-evlilik",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Zaman? Axı niyə mənə kömək etdi? deyə Eşq soruşur."
+        }
+      ]
+    },
+    "what-women-have-endured-in-this-world": {
+      "title": "Nələr çəkdi qadın bu dünyada...",
+      "category": "sevgi-ve-evlilik",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "woman-and-the-mirror": {
+      "title": "Qadın və güzgü",
+      "category": "sevgi-ve-evlilik",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Hımm... , deyir. , Bu gün saçımı hörərəm... Saçını hörür, günü də əla keçir..."
+        }
+      ]
+    },
+    "red-dress": {
+      "title": "Qırmızı don",
+      "category": "sevgi-ve-evlilik",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Ana, nə gözəl dondur! Heç əynində görməmişdim, dedim."
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Heç geymədim ki, dedi astadan. , Otur yanıma, gözəl qızım, bu dünyadan köçmədən sənə bir dərs vermək istəyirəm."
+        },
+        {
+          "id": 2,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "extra",
+          "sample": "Sizə həmişə yaxşı şeylər öyrətdiyimi zənn etdiyim halda, çox yanlış şeylər öyrətdiyimi indi anladım."
+        }
+      ]
+    },
+    "do-not-let-your-hearts-part": {
+      "title": "Qəlblərinizin ayrılmasına imkan verməyin",
+      "category": "sevgi-ve-evlilik",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "yellow-and-red-flowers": {
+      "title": "Sarı və qırmızı çiçəklər",
+      "category": "sevgi-ve-evlilik",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "beware-of-those-you-love": {
+      "title": "Sevdiklərinizdən muğayat olun",
+      "category": "sevgi-ve-evlilik",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Cəmil, evə getmək vaxtıdır."
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Daha beş dəqiqə, ata, lütfən!"
+        }
+      ]
+    },
+    "beloved-is-one-who-gives-love-to-people": {
+      "title": "Sevilən insan sevgisini insanlara verən insandır",
+      "category": "sevgi-ve-evlilik",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "can-a-broken-heart-love-again": {
+      "title": "Sınan qəlb yenə sevərmi?",
+      "category": "sevgi-ve-evlilik",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Hə, sevər, dedi dərviş."
+        }
+      ]
+    },
+    "mother-of-pearl-flower": {
+      "title": "Sədəf çiçəyi",
+      "category": "sevgi-ve-evlilik",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Söylə görək, xala, niyə boşanmaq istəyirsən? , deyə soruşdu."
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Deyəcəyin bir şey varmı, baba? , deyə soruşdu."
+        }
+      ]
+    },
+    "i-love-you": {
+      "title": "Səni sevirəm",
+      "category": "sevgi-ve-evlilik",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "loving-from-afar": {
+      "title": "Uzaqdan sevmək",
+      "category": "sevgi-ve-evlilik",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Deyəsən, mən bir qıza vurulmuşam."
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Nə gözəl! Onun xəbəri var?"
+        }
+      ]
+    },
+    "what-is-loyalty": {
+      "title": "Vəfa nədir?",
+      "category": "sevgi-ve-evlilik",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "friendship-of-horses": {
+      "title": "Atların dostluğu",
+      "category": "dostluq-ve-insan-munasibetleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "meddling-in-others-lives": {
+      "title": "Başqalarının həyatına qarışmaq",
+      "category": "dostluq-ve-insan-munasibetleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "pair-of-boots": {
+      "title": "Bir cüt çəkmə",
+      "category": "dostluq-ve-insan-munasibetleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Əminə!"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Nə gözəl həll tapmısan. Bəs niyə ağlayırsan?"
+        }
+      ]
+    },
+    "handful-of-roasted-chickpeas": {
+      "title": "Bir ovuc ləbləbi",
+      "category": "dostluq-ve-insan-munasibetleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Bala, gəl, özün buradan bir ovuc götür."
+        }
+      ]
+    },
+    "glass-of-milk": {
+      "title": "Bir stəkan süd",
+      "category": "dostluq-ve-insan-munasibetleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Heç nə, qadın cavab verir. , Anam bizə yaxşılığı əvəz gözləmədən etməyi öyrədib."
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Sizə nə qədər borcluyam?"
+        }
+      ]
+    },
+    "everyone-is-the-same-here": {
+      "title": "Bizdə hamı eynidir",
+      "category": "dostluq-ve-insan-munasibetleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Əmi, ayaqqabılarını boyayımmı? , deyə başçıya müraciət edir."
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Olsun, gəl boya. Yaxşı boyasan, sənə istədiyin pulun iki qatını verərəm, deyincə uşaq:"
+        }
+      ]
+    },
+    "gossip": {
+      "title": "Dedi-qodu",
+      "category": "dostluq-ve-insan-munasibetleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Bu bir zarafat idi, sadəcə zarafat, deyə o, ittihamı rədd etdi. , Sözlərimi başqaları yanlış başa düşdü, mən günahkar deyiləm!"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Təmiz adımı ləkələdin. Ədalət tələb edirəm."
+        }
+      ]
+    },
+    "i-want-a-friend": {
+      "title": "Dost istərəm",
+      "category": "dostluq-ve-insan-munasibetleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "those-you-should-not-befriend": {
+      "title": "Dostluq etməyəcəklərin",
+      "category": "dostluq-ve-insan-munasibetleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Təkəbbürlü ilə dostluq etmə! Hal bilməz, əhval bilməz, könül bilməz; üzülərsən."
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Özünü çox ağıllı sayanla dostluq etmə! Çox danışar, boş danışar, kəm danışar; üzülərsən."
+        }
+      ]
+    },
+    "know-your-friend": {
+      "title": "Dostunu tanı",
+      "category": "dostluq-ve-insan-munasibetleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "go-but-come-again": {
+      "title": "Gedin, amma yenə gəlin",
+      "category": "dostluq-ve-insan-munasibetleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "permission-or-apology": {
+      "title": "İcazə, yoxsa üzr istəmək",
+      "category": "dostluq-ve-insan-munasibetleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "compliment": {
+      "title": "İltifat",
+      "category": "dostluq-ve-insan-munasibetleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Ana, bax, o xanım bu papaqda necə də gözəl görünür!"
+        }
+      ]
+    },
+    "how-we-treat-people": {
+      "title": "İnsanlara olan münasibət",
+      "category": "dostluq-ve-insan-munasibetleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "humanity": {
+      "title": "İnsanlıq",
+      "category": "dostluq-ve-insan-munasibetleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Qayıt! Yoxsa imtahanın ləğv olar, bir ilin boşa gedər, oğlum, deyə imtahanı qəbul edən müəllim onu səslədi. Amma o dayanmadı, qaçaraq binanın arxa qapısından çı"
+        },
+        {
+          "id": 2,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "extra",
+          "sample": "İllər öncə şəhərə getmişdim. Birdən yolun ortasında halım pisləşdi, bərk sancılandım. Ətrafda kimsə yox idi, yollar boş idi. Demə, o gün imtahan varmış. Beş dəq"
+        }
+      ]
+    },
+    "discussion-and-conflict": {
+      "title": "Müzakirə və münaqişə",
+      "category": "dostluq-ve-insan-munasibetleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "compassion": {
+      "title": "Mərhəmət",
+      "category": "dostluq-ve-insan-munasibetleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Yaxşısınızmı, bir şeyə ehtiyacınız varmı? , deyə adama soruşdum."
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Xəstəyəm!… , dedi."
+        }
+      ]
+    },
+    "mockery-is-unacceptable": {
+      "title": "Məsxərə yolverilməzdir",
+      "category": "dostluq-ve-insan-munasibetleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "why-people-shout-when-they-argue": {
+      "title": "Niyə insanlar mübahisə edəndə qışqırırlar?",
+      "category": "dostluq-ve-insan-munasibetleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Niyə insanlar mübahisə edəndə qışqırır?"
+        }
+      ]
+    },
+    "sound-of-the-doorbell": {
+      "title": "Qapı zənginin səsi...",
+      "category": "dostluq-ve-insan-munasibetleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Dayı, poçt qutusunu niyə möhürləmisiniz? , deyə soruşdum."
+        }
+      ]
+    },
+    "people-who-need-something-from-you": {
+      "title": "Sizə işi düşən adamlar",
+      "category": "dostluq-ve-insan-munasibetleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "your-friends": {
+      "title": "Sənin dostların",
+      "category": "dostluq-ve-insan-munasibetleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Oğul, mən elə sən istədiyin kimi etdim."
+        }
+      ]
+    },
+    "to-meet-and-to-know": {
+      "title": "Tanış olmaq və tanımaq",
+      "category": "dostluq-ve-insan-munasibetleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "how-to-ward-off-insults": {
+      "title": "Təhqirləri necə dəf etməli",
+      "category": "dostluq-ve-insan-munasibetleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Ustad, siz nə üçün bu təhqirlərə dözdünüz? Nədən onu döyüşə çağırmadınız?"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Əgər kimsə sizə hədiyyə ilə gəlir və siz o hədiyyəni qəbul etmirsinizsə, onda hədiyyə kimə aid olur?"
+        }
+      ]
+    },
+    "to-be-alone": {
+      "title": "Tənha olmaq",
+      "category": "dostluq-ve-insan-munasibetleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Üzgünsənmi? , deyə soruşdum. Başını qaldırdı, gözümün içinə baxdı və: , Yox, tənhayam, deyə cavab verdi."
+        }
+      ]
+    },
+    "spend-your-time-with-people": {
+      "title": "Vaxtını insanlarla keçir",
+      "category": "dostluq-ve-insan-munasibetleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Ata, gəl sənin bank işlərini internet üzərindən görək. Nə deyirsən?"
+        }
+      ]
+    },
+    "welcome-my-bey": {
+      "title": "Xoş gəldin, bəyim",
+      "category": "dostluq-ve-insan-munasibetleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Oğlum, mən bazara gedirəm. Atan gələrsə, dərhal mənə xəbər ver!"
+        }
+      ]
+    },
+    "if-the-road-does-not-tire-you-it-is-because-of-your-companion": {
+      "title": "Yol yormursa, yoldaşındandır",
+      "category": "dostluq-ve-insan-munasibetleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "to-forgive": {
+      "title": "Əfv etmək",
+      "category": "dostluq-ve-insan-munasibetleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "being-human": {
+      "title": "Adam olmaq",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Alim olmaq asandır, adam olmaq çətin , tez-tez eşitdiyimiz bir ifadədir. Bəs adam olmaq nə deməkdir?"
+        }
+      ]
+    },
+    "i-am-aware-now": {
+      "title": "Artıq fərqindəyəm",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "dont-open-your-mouth": {
+      "title": "Ağzını açma",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "dont-be-words-for-mouths-dust-for-feet": {
+      "title": "Ağızlara söz, ayaqlara toz olma",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "who-handles-honey-licks-his-finger": {
+      "title": "Bal tutan barmağını yalayar",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Ay əmi, belə olmaz axı, balın yarısını yalayıb qurtardın!"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Ay qardaş, mənim bir qəsdim yoxdur. Bal tutan barmağını yalar."
+        }
+      ]
+    },
+    "honey-or-dry-bread": {
+      "title": "Bal ya quru çörək",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "he-would-not-have-given-so-little": {
+      "title": "Bu qədər az verməzdi",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Evə gedəndə anamla atam bu pulu haradan oğurladın? deyə soruşarlar."
+        }
+      ]
+    },
+    "avoid-these-questions": {
+      "title": "Bu suallardan çəkinin",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "do-not-do-these-things": {
+      "title": "Bunları etməyin",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "no-one-listens-to-constant-complainers": {
+      "title": "Durmadan şikayət edənə kimsə qulaq verməz",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "flower-of-honesty": {
+      "title": "Dürüstlük çiçəyi",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Bu gənc xanım ən dəyərli çiçəyi yetişdirib mənə gətirdi. O çiçəyin adı dürüstlük çiçəyidir. Sizə payladığım toxumların hamısı saxta idi, onların çiçək açması mü"
+        }
+      ]
+    },
+    "how-can-i-escape-my-thoughts": {
+      "title": "Düşüncələrimdən necə qurtula bilərəm?",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Əsiri olduğum acı düşüncələrdən necə qurtula bilərəm?"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Məni bu dirəkdən ayırın, canımı ondan qurtarın!… , deyə bağırmağa başlayır."
+        }
+      ]
+    },
+    "explaining-ones-sorrow": {
+      "title": "Dərdi izah etmək",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "strength-and-sorrow": {
+      "title": "Güc və dərd",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "i-would-not-trade-it-for-anything": {
+      "title": "Heç bir şeyə dəyişməm",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "not-every-sorrow-is-told-to-people": {
+      "title": "Hər dərd insanlara söylənməz",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "everything-is-in-our-own-hands": {
+      "title": "Hər şey bizim öz əlimizdədir",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Ey müdrik qoca, de görüm, əlimdəki quş diridir, ya ölü?"
+        }
+      ]
+    },
+    "meaningless-question": {
+      "title": "Mənasız sual",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Aramey dilini bilirsənmi? Xeyr? Bəs ivrit dilini? Heç olmasa, uşaqlıqda sənə Tövratı oxuyublarmı?"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Amma mən Sokrat məntiqi mövzusunda dissertasiya müdafiə etmişəm! Talmudu öyrənərək təhsilimdəki bəzi boşluqları doldurmaq istəyirəm."
+        }
+      ]
+    },
+    "be-sure-of-your-purpose": {
+      "title": "Məqsədinizdən əmin olun",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Nə ağır sandıqdır! Heç cür içəri sala bilmədik."
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Məgər sandığı bayıra çıxarmalı deyildikmi?"
+        }
+      ]
+    },
+    "that-was-not-your-right": {
+      "title": "O sənin haqqın deyildi",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "you-cannot-descend-a-well-on-his-rope": {
+      "title": "Onun ipi ilə quyuya enmək olmaz",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Mən bu ipi tanıyıram. Bu, usta Əlinin işidir. Onun ipi ilə quyuya enmək olmaz, deyə gileylənir."
+        }
+      ]
+    },
+    "think-speak-and-act-positively": {
+      "title": "Pozitiv düşünün, danışın, davranın",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "attitude-toward-a-problem": {
+      "title": "Problemə münasibət",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "to-be-cool-headed": {
+      "title": "Soyuqqanlı olmaq",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "education-or-character": {
+      "title": "Təhsil, ya xasiyyət",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Vəzir, təhsil vacibdir, yoxsa xasiyyət?"
+        }
+      ]
+    },
+    "i-got-busy-with-cleaning": {
+      "title": "Təmizliklə məşğul oldum",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "expressions-you-should-stay-away-from": {
+      "title": "Uzaq duracağınız ifadələr",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Boş-boş danışma!"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Şişirtmə!"
+        }
+      ]
+    },
+    "to-give-up": {
+      "title": "Vaz keçmək",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Gözəl xasiyyətdir vaz keçmək!"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Gözəl xasiyyətdir vaz keçmək!"
+        }
+      ]
+    },
+    "our-qualities-can-become-our-enemies": {
+      "title": "Vəsflərimiz düşmənimiz ola bilər",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "telling-lies": {
+      "title": "Yalan danışmaq",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Yalan danışırsan?"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Hə."
+        }
+      ]
+    },
+    "do-not-complain-about-any-day-you-have-lived": {
+      "title": "Yaşadığınız heç bir gündən şikayətçi olmayın",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "mature-person": {
+      "title": "Yetkin insan",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "goose-to-be-plucked": {
+      "title": "Yolunacaq qaz",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Əssəlamü-əleyküm, ey piri-fani."
+        }
+      ]
+    },
+    "try-to-think-this-way": {
+      "title": "Çalışın belə düşünün",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Mən bu işi yaxşı bacarmıram deməyin. Bəlkə bilmədiyim bir şey var? Əminəm ki, biliyimi təzələsəm, üzərində işləsəm, bacararam deyin."
+        }
+      ]
+    },
+    "dont-say-i-couldnt-deliver-or-i-couldnt-manage": {
+      "title": "Çatdırmadım, bacarmadım deməyin",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "turning-hardship-into-opportunity": {
+      "title": "Çətinliyi fürsətə çevirmək",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "to-be-self-confident": {
+      "title": "Özgüvənli olmaq",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "other-peoples-opinions": {
+      "title": "Özgələrin fikirləri",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "may-your-face-always-smile": {
+      "title": "Üzünüz daim gülsün",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "generous-man": {
+      "title": "Əliaçıq adam",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Kasıblara payladığın nemətlərə görə onların sənə minnətdar olmasını gözləyirsənmi?"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Mən özümü aşpazın əlindəki çömçəyə bənzədirəm. Yemək çömçə vasitəsilə paylansa da, onu verən çömçə deyil, aşpazdır."
+        }
+      ]
+    },
+    "strongest-shield": {
+      "title": "Ən güclü qalxan",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "three-best-things": {
+      "title": "Ən yaxşı üç şey",
+      "category": "exlaq-ve-xarakter",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Oğul, həyatda bu üç şeyə can atmalıyıq: ən yaxşı yeməyi yeməli, ən yaxşı yataqda yatmalı, ən yaxşı evdə yaşamalıyıq."
+        }
+      ]
+    },
+    "say-what-you-know": {
+      "title": "Bildiklərini söylə",
+      "category": "soz-sukut-ve-unsiyyet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "one-who-knows-and-the-one-who-does-not": {
+      "title": "Bilən və bilməyən",
+      "category": "soz-sukut-ve-unsiyyet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "tongue": {
+      "title": "Dil",
+      "category": "soz-sukut-ve-unsiyyet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "what-is-a-word": {
+      "title": "Söz nədir",
+      "category": "soz-sukut-ve-unsiyyet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "word-and-silence": {
+      "title": "Söz və sükut",
+      "category": "soz-sukut-ve-unsiyyet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "saying-the-word-in-its-place": {
+      "title": "Sözü yerində söyləmək",
+      "category": "soz-sukut-ve-unsiyyet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "silence": {
+      "title": "Sükut",
+      "category": "soz-sukut-ve-unsiyyet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "silent-corridor": {
+      "title": "Səssiz dəhliz",
+      "category": "soz-sukut-ve-unsiyyet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Sənədlər çatdımı? Onlara baxılıbmı?"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Bəli, sənədlər gəlib. Amma biz onları qəbul etməmişik. Çünki təqdimat forması düzgün deyil və rəsmi prosedura əməl olunmayıb."
+        }
+      ]
+    },
+    "shepherd-must-be-called": {
+      "title": "Çobanı səsləmək lazımdır",
+      "category": "soz-sukut-ve-unsiyyet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Olsun, amma bir şərtim var. Sənə bir sual verəcəyəm ki, görüm bu illər ərzində sənə verdiyim elmi layiqincə öyrənmisən, ya yox. Suala düzgün cavab versən, biləc"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Buyurun, ustadım, soruşun, deyir."
+        }
+      ]
+    },
+    "shepherds-word": {
+      "title": "Çobanın sözü",
+      "category": "soz-sukut-ve-unsiyyet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Ey Həsən, eşitmişəm ki, dağların otlaq yerlərinə yaxşı bələdsən. Bu yay sürümü sənə tapşırıram. Payızda heyvanlarım sağlam və kök qayıtsa, sənə bir inək bağışla"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Sənə inək vermək fikrim yox idi, o söz sadəcə səni işə həvəsləndirmək üçün deyilmişdi. Onsuz da kasıbsan, bir inəyi neyləyəcəksən?"
+        }
+      ]
+    },
+    "communication": {
+      "title": "Ünsiyyət",
+      "category": "soz-sukut-ve-unsiyyet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "candles-conversation": {
+      "title": "Şamların söhbəti",
+      "category": "soz-sukut-ve-unsiyyet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "searching": {
+      "title": "Axtarmaq",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "spare-time": {
+      "title": "Boş vaxt",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "it-is-in-vain": {
+      "title": "Boşunadır",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "if-i-dont-do-it-these-days-the-world-wont-collapse": {
+      "title": "Bu günlərdə etməsəm, dünya dağılmaz ki",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Bu günlərdə etməsəm, dünya dağılmaz ki…"
+        }
+      ]
+    },
+    "this-boat-is-empty-too": {
+      "title": "Bu qayıq da boşdur",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Bu qayıq da boşdur."
+        }
+      ]
+    },
+    "where-does-this-road-go": {
+      "title": "Bu yol haraya gedir?",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Dayı, bu yol haraya gedir?"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Heç yerə, oğlum."
+        }
+      ]
+    },
+    "liver": {
+      "title": "Ciyər",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Ciyər sözünün işləndiyi ifadələr , bir-birinə çox yaxın, səmimi, mehriban dost mənasındakı can-ciyər; çox sevimli övlad mənasındakı ciyərguşəm; qorxaq, cəsarəts"
+        }
+      ]
+    },
+    "more-effective-way": {
+      "title": "Daha səmərəli yol",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "İşiniz niyə belə ağır və ləng gedir? Baltanız tamam kütləşib. Bəlkə onu bir qədər itiləyəsiniz?"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Siz nə danışırsınız? Baltanı itiləməyə haradan vaxt tapım? Qarşıda kəsilməli daha iyirmi ağac var!"
+        }
+      ]
+    },
+    "sowing-millet-at-the-bottom": {
+      "title": "Dibinə darı əkmək",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Baba, sən niyə bu fidanları əkməklə məşğulsan? Maşallah, ömrünü yaşamısan; yəqin ki, bu fidanların meyvəsini yemək sənə nəsib olmayacaq."
+        }
+      ]
+    },
+    "diderot-effect": {
+      "title": "Didro effekti",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Köhnə paltarımın ağası ikən yenisinin köləsi oldum."
+        }
+      ]
+    },
+    "most-beautiful-places-in-the-world": {
+      "title": "Dünyada ən gözəl yerlər",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "different-path": {
+      "title": "Fərqli yol",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "what-it-means-to-be-late": {
+      "title": "Gecikmək nə deməkdir?",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "blind-who-have-eyes": {
+      "title": "Gözləri olan korlar",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "no-need-to-be-sane-when-everyone-is-mad": {
+      "title": "Hamı dəli olanda ağıllı olmağa gərək yoxdur",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "doctors-appointment": {
+      "title": "Həkim qəbulunda",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Siz nə etdiniz? Həkim uşağı müayinəyə ac gətirməyi tapşırmışdı. İşdən icazə alıb uzaq yoldan gəlmişik. İndi hər şeyi sabah yenidən başlamalı olacağıq."
+        }
+      ]
+    },
+    "life-lesson": {
+      "title": "Həyat dərsi",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Bax, onların əti dadlı olur."
+        }
+      ]
+    },
+    "what-matters-in-life": {
+      "title": "Həyatda önəmli olan nədir?",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Hamımızın yalnız bir həyatı var və biz bu həyatda istədiyimiz hər şeyə nail ola bilərik , vaxtımızdan düzgün istifadə etsək. , Sonra bankanı qolf topları ilə do"
+        }
+      ]
+    },
+    "what-we-learn-in-life": {
+      "title": "Həyatda öyrəndiklərimiz",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "hayats-life-story": {
+      "title": "Həyatın həyat hekayəsi",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Həyat, gözəl qızım, mən səni çox sevirəm."
+        }
+      ]
+    },
+    "two-bowls-of-water": {
+      "title": "İki qab su",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "human-emerged": {
+      "title": "İnsan çıxdı",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Yaşar Kamal"
+        }
+      ]
+    },
+    "from-the-memoirs-of-a-lady-from-istanbul": {
+      "title": "İstanbullu bir xanımın xatirələrindən",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Doğrudanmı vəkilsən? , deyə soruşdum."
+        }
+      ]
+    },
+    "it-wont-go-to-waste": {
+      "title": "İtib batmaz",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "nothing-is-ever-truly-lost": {
+      "title": "İtirdim deyə bir şey yoxdur",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "İtirdim deyə bir şey yoxdur. Yalnız qazandığınız uğurlar və həyatdan öyrəndiyiniz dərslər var."
+        }
+      ]
+    },
+    "living-in-the-past": {
+      "title": "Keçmişdə yaşamaq",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "bookstore": {
+      "title": "Kitab dükanında",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Buyur, əyləş. Sənə sözümüz var."
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Bu yaxınlarda bir müştəri qiymətini soruşdu və almaq istəyirdi. Mən kitabı rəfdən götürüb sənin üçün saxladım. Burada oturub oxuya bilərsən."
+        }
+      ]
+    },
+    "blind-well": {
+      "title": "Kor quyu",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "windmill-turning-in-still-air": {
+      "title": "Küləksiz havada fırlanan yel dəyirmanı",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "lecturer-and-the-groom": {
+      "title": "Mühazirəçi və mehtər",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Necədir, mühazirəmi bəyəndinizmi?"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Müəllim, mən mehtər babayam, iyirmi atım var. Atların hamısı qaçıb getsə, təkcə biri qalsa, mən yenə onu bəslər, suyunu, yemini verərəm."
+        }
+      ]
+    },
+    "teacher-hello-do-you-remember-me": {
+      "title": "Müəllim, salam, xatırladınız məni?",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Müəllim, salam! Xatırladınız məni? Vaxtilə məktəbdə mənim müəllimim olmusunuz."
+        }
+      ]
+    },
+    "newtons-second-law": {
+      "title": "Nyutonun 2-ci qanunu",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "what-do-i-need-it-for": {
+      "title": "Nəyimə lazımdır",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Sultanım, sizin sorğunuzu ciddiyə almamaq mümkündürmü? Mən sorğunuz üzərində yaxşıca düşünüb qənaətimi də açıqca ərz etmişdim."
+        }
+      ]
+    },
+    "road-to-the-cotton-field": {
+      "title": "Pambıq tarlasına gedən yol",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Övladlarım... Həmişə xəyallar qurun. Onlar sizi istədiyiniz yerə aparar. Yetər ki, səy göstərin, çalışın, niyyətinizə yetişmək üçün əzmli olun. Hamınızı ürəkdən"
+        }
+      ]
+    },
+    "pawn-and-the-king": {
+      "title": "Piyada və şah",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "properties-of-water": {
+      "title": "Suyun xassələri",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "ağacla dostluq edərsə, onu diri saxlayar;"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "odla təmas edərsə, onu söndürər;"
+        }
+      ]
+    },
+    "to-be-full-or-to-be-gone": {
+      "title": "Tox, ya yox olmaq",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "to-dream": {
+      "title": "Xəyal etmək",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "secret-of-living-well-and-longevity": {
+      "title": "Yaxşı yaşamağın və uzunömürlülüyün sirri",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "dead-remain-in-life": {
+      "title": "Ölən həyatda qalandır",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "life-is-short": {
+      "title": "Ömür qısadır",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "if-the-door-before-you-wont-open-it-is-not-your-door": {
+      "title": "Önünüzdə olan qapı açılmırsa, deməli, o sizin qapınız deyil",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "three-statues": {
+      "title": "Üç heykəl",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Bu üç heykəl üç fərqli insan tipinin rəmzidir. Eşitdiyini:"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "bir qulağından alıb o birindən verən;"
+        }
+      ]
+    },
+    "three-landscapes": {
+      "title": "Üç mənzərə",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Gördüyün o əkinçilər, buğda tarlası və onu yandıran adamlar bilirsənmi kimlərdir? Əvvəlcə yaxşılıq edən, sonra da etdiyi yaxşılığı ora-bura danışıb dəyərini heç"
+        }
+      ]
+    },
+    "three-questions": {
+      "title": "Üç sual",
+      "category": "hikmet-ve-heyat-dersleri",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Sənə üç sual verirəm. Sabaha kimi cavabını tapmasan, saraydan qovulacaqsan. Birincisi: Allah nəyə təhəmmül edir? İkincisi: Allah hansı həqiqətləri gizli saxlayı"
+        }
+      ]
+    },
+    "fish-shop": {
+      "title": "Balıq dükanında",
+      "category": "emek-ruzi-ve-servet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Oğlum, mənə də balıq alarsanmı?"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Dörd kilo çək: ikisi mənim, ikisi də xalanın."
+        }
+      ]
+    },
+    "grocery-shop-and-the-supermarket": {
+      "title": "Baqqal dükanı və supermarket",
+      "category": "emek-ruzi-ve-servet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Ay xala, bu supermarketlə yarışa girməsən yaxşıdır. Onların imkanı genişdir, qiymət düşəndə zərər çəkməzlər, amma sən müflis olarsan."
+        }
+      ]
+    },
+    "garden-and-the-gardener": {
+      "title": "Bağ və bağban",
+      "category": "emek-ruzi-ve-servet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Təsəvvür edin ki, bağban bağa qulluq edir. Təsəvvür etdinizmi?"
+        }
+      ]
+    },
+    "chief-accountant-and-the-ceo": {
+      "title": "Baş mühasib və baş direktor",
+      "category": "emek-ruzi-ve-servet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Fərz edək ki, əməkdaşlarımızın inkişafına vaxt sərf etdik, xərc çəkdik, amma buna baxmayaraq onlar şirkətimizi tərk etdilər. Sizcə, nə baş verər?"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Fərz edək ki, onlara nə vaxt ayırdıq, nə xərc çəkdik, onlar da şirkəti tərk etməyib qalmağı üstün tutdular. Bəs onda nə baş verər?"
+        }
+      ]
+    },
+    "we-are-rich": {
+      "title": "Biz zənginik",
+      "category": "emek-ruzi-ve-servet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "İndi biz zənginik! , deyir."
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Buna sən zənginlik deyirsən? , deyə soruşur."
+        }
+      ]
+    },
+    "organization-without-an-action-plan": {
+      "title": "Fəaliyyət planı olmayan təşkilat",
+      "category": "emek-ruzi-ve-servet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "everyone-has-work-to-do": {
+      "title": "Hamının işi-gücü var",
+      "category": "emek-ruzi-ve-servet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "henry-fords-choice": {
+      "title": "Henri Fordun seçimi",
+      "category": "emek-ruzi-ve-servet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Cənab Ford, biz bütün axşam nə avtomobildən, nə də mühəndislik bacarığından danışdıq, yalnız ümumi mövzulara toxunduq. Amma siz dostuma iş təklif etdiniz, məni "
+        }
+      ]
+    },
+    "hot-bread": {
+      "title": "İsti çörək",
+      "category": "emek-ruzi-ve-servet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Dayı... Dayan bir dəqiqə, zəhmət olmasa, gözlə."
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Al, dayı, nuş olsun."
+        },
+        {
+          "id": 2,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "extra",
+          "sample": "Xoş gəldin, ata."
+        },
+        {
+          "id": 3,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "extra",
+          "sample": "Hə, çox gözəl oldu, Allaha şükür. Allah qəbul etsin. Halva da çox dadlı idi."
+        },
+        {
+          "id": 4,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "extra",
+          "sample": "Kaş ki, rəhmətlik atan bu günləri görəydi."
+        }
+      ]
+    },
+    "former-minister-at-the-seminar": {
+      "title": "Keçmiş nazir seminarda",
+      "category": "emek-ruzi-ve-servet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Bilirsiniz, nə düşünürəm? Keçən il elə bu kürsüdə çıxış etmişdim. Tək fərq bu idi ki, onda nazir idim. Buraya gələndə mənə biznes-sinifdə bilet alınmışdı, hava "
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Aldığım bu mühüm dərsi sizinlə bölüşmək istəyirəm: bütün təriflər, göstərilən xidmətlər yalnız rütbəniz, rolunuz və ya vəzifəniz üçündür. Heç biri sizə aid deyi"
+        }
+      ]
+    },
+    "mercedes": {
+      "title": "Mercedes",
+      "category": "emek-ruzi-ve-servet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Mercedes adını verdiyi avtomobil qatıldığı yarışlarda ardıcıl qələbələr qazandı."
+        }
+      ]
+    },
+    "why-am-i-poor": {
+      "title": "Mən niyə kasıbam?",
+      "category": "emek-ruzi-ve-servet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Budda, mən niyə kasıbam?"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Ona görə ki, sən varından heç kimə heç nə vermirsən."
+        }
+      ]
+    },
+    "credit-ledger": {
+      "title": "Nisyə dəftəri",
+      "category": "emek-ruzi-ve-servet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Qardaş, mən səndən nisyə çörək, çay, yumurta istəsəm, verərsənmi?"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Neynirsən axı?"
+        }
+      ]
+    },
+    "baklava": {
+      "title": "Paxlava",
+      "category": "emek-ruzi-ve-servet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Yəqin, bu paxlavanı siçanlar üçün gətirmisən?"
+        }
+      ]
+    },
+    "pay-rent-for-the-water": {
+      "title": "Su üçün kirayə ödə",
+      "category": "emek-ruzi-ve-servet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "do-you-have-spending-money": {
+      "title": "Xərcliyiniz varmı?",
+      "category": "emek-ruzi-ve-servet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "scarf-seller": {
+      "title": "Yaylıq satıcısı",
+      "category": "emek-ruzi-ve-servet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Belə etsən, necə pul qazanacaqsan? Yazıq deyilsənmi bu soyuqda? , deyirəm."
+        }
+      ]
+    },
+    "weight-of-the-oil": {
+      "title": "Yağın çəkisi",
+      "category": "emek-ruzi-ve-servet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "his-hand-is-at-work": {
+      "title": "Əli işdədir",
+      "category": "emek-ruzi-ve-servet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Zərər etdiyimə baxmayın; alverlə məşğul olduğumu görüb hamı məni tacir sayır, hamı görür ki, əlim işdədir."
+        }
+      ]
+    },
+    "with-this-nation-the-world-can-be-conquered": {
+      "title": "Bu millət ilə dünya fəth edilə bilər",
+      "category": "edalet-ve-cemiyyet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Mənə yarım batman yağ, yarım batman bal və bir az da pendir verin, dedi."
+        }
+      ]
+    },
+    "bedouin-whose-camel-was-stolen": {
+      "title": "Dəvəsi oğurlanmış bədəvinin hekayəsi",
+      "category": "edalet-ve-cemiyyet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Olsun, dəvəni al apar, sənin olsun. Amma bu əhvalatı əsla kimsəyə danışma."
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Əgər danışsan, bu əhvalat hər yerə yayılar və bir daha heç kim rastlaşdığı möhtac insanlara yardım etməz, deyə bədəvi cavab verir."
+        }
+      ]
+    },
+    "woman-whose-house-was-robbed": {
+      "title": "Evi qarət olunan qadın",
+      "category": "edalet-ve-cemiyyet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "just-verdict-of-the-frankfurt-judge": {
+      "title": "FRANKFURT HAKİMİNİN ƏDALƏTLİ HÖKMÜ",
+      "category": "edalet-ve-cemiyyet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Dülgər 800 qulden tapıb, tacir isə 900 qulden itirib. Deməli, dülgərin tapdığı pul tacirin deyil. Buna görə də sahibi tapılmadığından bu 800 qulden dülgərə veri"
+        }
+      ]
+    },
+    "nazim-hikmet-in-bursa-prison": {
+      "title": "Nazim Hikmət Bursa həbsxanasında",
+      "category": "edalet-ve-cemiyyet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Ömər Xəyyamı tanıyırsınızmı?"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Əlbəttə. Onu tanımamaq olarmı?"
+        }
+      ]
+    },
+    "bell-to-hang-on-the-cats-neck": {
+      "title": "Pişiyin boynundan asılacaq zınqırov",
+      "category": "edalet-ve-cemiyyet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Bu, çox ağıllı təklifdir və həyata keçsə, uğurlu olacağına şübhəm yoxdur. Amma məni bir sual düşündürür: yaxşı, deyin görüm, zınqırovu pişiyin boynundan kim asa"
+        }
+      ]
+    },
+    "skins-of-the-lambs": {
+      "title": "Quzuların dərisi",
+      "category": "edalet-ve-cemiyyet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Quzuların dərisini soymaqdansa, qoçların yununu qırxmaq daha yaxşıdır."
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Əlli-altmış kisə qızıl alarıq, deyirlər."
+        }
+      ]
+    },
+    "homeland-and-land": {
+      "title": "Vətən və torpaq",
+      "category": "edalet-ve-cemiyyet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "why-injustice-when-there-is-justice": {
+      "title": "Ədalət var ikən haqsızlıq niyə",
+      "category": "edalet-ve-cemiyyet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "sharing-justice": {
+      "title": "Ədaləti paylaşmaq",
+      "category": "edalet-ve-cemiyyet",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "what-changed-after-sixty": {
+      "title": "Altmışdan sonra nə dəyişdi",
+      "category": "yaslanma-ve-zaman",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "for-those-who-have-reached-sixty": {
+      "title": "Altmışı haqlamış olanlar üçün...",
+      "category": "yaslanma-ve-zaman",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "aging": {
+      "title": "Yaşlanma",
+      "category": "yaslanma-ve-zaman",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "lions-footprint": {
+      "title": "Aslanın izi",
+      "category": "temsiller-ve-meseller",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Qardaş, buralarda bir aslana, yaxud onun izinə rast gəldinmi?"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Aslanın özünü gördüm; istəsən, gəl səni onun olduğu yerə aparım."
+        }
+      ]
+    },
+    "donkeys-law": {
+      "title": "Eşşəyin qanunu",
+      "category": "temsiller-ve-meseller",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Sən artıq axır günlərini yaşayırsan. Bilmək istəyirik: axşam altıda yatmağı, səhər altıda durmağı əmr edən o qanunun hikməti nə idi? Biz neçə dəfə qiyam qaldırı"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Doğrusu, elə mən özüm də illərdir buna təəccüb edirəm: eşşəkliyimdən çıxardığım bu qanuna meşənin vəhşi heyvanları niyə qoyun kimi boyun əydilər?"
+        }
+      ]
+    },
+    "elephant-and-the-rope": {
+      "title": "Fil və ip",
+      "category": "temsiller-ve-meseller",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Fillər körpə yaşlarında, kiçik olanda qısa bir ip onları bağlayıb saxlamağa bəs edir. Böyüdükcə bu heyvanlar tədricən ipi qırıb qaça bilməyəcəklərinə inanmağa b"
+        }
+      ]
+    },
+    "two-donkeys": {
+      "title": "İki uzunqulaq",
+      "category": "temsiller-ve-meseller",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Hara baxıram, hamısı eşşəkdir; kimlə dostluq edim?"
+        }
+      ]
+    },
+    "fly-in-the-china-shop": {
+      "title": "Milçək çini qablar dükanında",
+      "category": "temsiller-ve-meseller",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "hunters-description": {
+      "title": "Ovçunun vəsfi",
+      "category": "temsiller-ve-meseller",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "ant-that-carries-water": {
+      "title": "Su daşıyan qarışqa",
+      "category": "temsiller-ve-meseller",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Belə təlaşla hara qaçırsan?"
+        },
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Eşitmədinmi, Nəmrud İbrahim peyğəmbəri oda atacaq? , deyə su daşıyan qarışqa narahatlığını gizlətmir."
+        }
+      ]
+    },
+    "turtles-wrong-calculation": {
+      "title": "Tısbağanın yanlış hesabı",
+      "category": "temsiller-ve-meseller",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 0,
+          "gender": "female",
+          "voice": "az-AZ-BanuNeural",
+          "delivery": "primary",
+          "sample": "Bu yaxınlıqdakı kəndə nə qədər vaxta gedib çatarsan?"
+        }
+      ]
+    },
+    "albrecht-durer": {
+      "title": "Albrecht Dürer",
+      "category": "tarix-ve-taninmish-shexsiyyetler",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Əziz qardaşım, indi növbə sənindir. Get, arzunu gerçəkləşdir; bu dəfə mən sənə dayaq olacağam."
+        }
+      ]
+    },
+    "architect-sinan-dies-in-a-house-without-water": {
+      "title": "İstanbulu suya qovuşduran Memar Sinan susuz evdə vəfat etdi",
+      "category": "tarix-ve-taninmish-shexsiyyetler",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Memarbaşı, xalq bir at yükü suya çoxlu pul ödəyir. İstanbulu su ilə təmin etməyin bir yolu varmı?"
+        }
+      ]
+    },
+    "mihrimah-sultan-and-architect-sinan": {
+      "title": "Mihrimah sultan və Memar Sinan",
+      "category": "tarix-ve-taninmish-shexsiyyetler",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    },
+    "magnificent-lesson": {
+      "title": "Möhtəşəm dərs",
+      "category": "tarix-ve-taninmish-shexsiyyetler",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": true,
+      "speakers": [
+        {
+          "id": 1,
+          "gender": "male",
+          "voice": "az-AZ-BabekNeural",
+          "delivery": "primary",
+          "sample": "Sən mənə heç nə deyə bilməzsən. Mən padşah oğluyam!"
+        }
+      ]
+    },
+    "three-essential-things-for-a-city": {
+      "title": "Şəhər üçün üç vacib şey",
+      "category": "tarix-ve-taninmish-shexsiyyetler",
+      "narrator": "az-AZ-BabekNeural",
+      "dialogue": false,
+      "speakers": []
+    }
+  }
+}

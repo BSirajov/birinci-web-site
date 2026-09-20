@@ -31,16 +31,82 @@ NUM_RE = re.compile(r"^(\d+\.\d+)\b")
 TITLE_NUM_RE = re.compile(r"^\d+\.\d+\s+")
 CATEGORY_RE = re.compile(r"^\d+\.\s+\S")
 REF_GROUP_RE = re.compile(r"^[A-ZА-ЯЁ]\.\s+\S")
+REF_GROUP_LETTER_RE = re.compile(r"^[A-ZА-ЯЁ](?:[.\)]\s+|\s+)(?=\S)")
 REF_ITEM_RE = re.compile(r"^\d+\.\s+")
+REF_GROUP_TITLES = frozenset(
+    {
+        "Books and major scholarly works",
+        "Institutional and encyclopedic sources",
+        "Peer-reviewed articles and scientific reports",
+        "Peer-reviewed articles and original scientific papers",
+        "Original papers",
+        "Original scientific papers",
+        "Museum, archive, and library resources",
+        "Museum and archive resources",
+        "Online lectures and educational series",
+        "Space agencies, laboratories, and scientific organisations",
+        "Space organisations",
+        "Laboratories and scientific organisations",
+        "Scientific organisations",
+        "Professional societies and standards bodies",
+        "Professional societies",
+        "Press, popular science, and general reference",
+        "Kitablar və əsas elmi əsərlər",
+        "Qurumların materialları və ensiklopedik mənbələr",
+        "Rəy verilmiş elmi məqalələr və hesabatlar",
+        "Rəy verilmiş məqalələr və orijinal elmi işlər",
+        "Orijinal elmi məqalələr",
+        "Muzey arxiv və kitabxana materialları",
+        "Muzey və arxiv materialları",
+        "Onlayn mühazirələr və tədris silsilələri",
+        "Kosmik agentliklər laboratoriyalar və elmi təşkilatlar",
+        "Kosmik təşkilatlar",
+        "Laboratoriyalar və elmi təşkilatlar",
+        "Elmi təşkilatlar",
+        "Peşə birlikləri və standartlaşdırma qurumları",
+        "Peşə birlikləri",
+        "Mətbuat elmi kütləvi nəşrlər və ümumi mənbələr",
+        "Книги и основные научные труды",
+        "Материалы организаций и энциклопедии",
+        "Рецензируемые статьи и научные отчёты",
+        "Рецензируемые и оригинальные научные статьи",
+        "Оригинальные научные статьи",
+        "Материалы музеев, архивов и библиотек",
+        "Материалы музеев и архивов",
+        "Онлайн-лекции и образовательные циклы",
+        "Космические агентства, лаборатории и научные организации",
+        "Космические организации",
+        "Лаборатории и научные организации",
+        "Научные организации",
+        "Профессиональные общества и организации по стандартизации",
+        "Профессиональные общества",
+        "Пресса, научно-популярные и справочные материалы",
+        "Китептер жана негизги илимий эмгектер",
+        "Уюмдардын жана энциклопедиялардын материалдары",
+        "Адистердин кароосунан өткөн макалалар жана илимий отчеттор",
+        "Адистердин кароосунан өткөн жана баштапкы илимий макалалар",
+        "Баштапкы илимий макалалар",
+        "Музейлердин, архивдердин жана китепканалардын материалдары",
+        "Музейлердин жана архивдердин материалдары",
+        "Онлайн лекциялар жана билим берүү топтомдору",
+        "Космос агенттиктери, лабораториялар жана илимий уюмдар",
+        "Космос уюмдары",
+        "Лабораториялар жана илимий уюмдар",
+        "Илимий уюмдар",
+        "Кесиптик коомдор жана стандартташтыруу уюмдары",
+        "Кесиптик коомдор",
+        "Басма сөз, илимий-популярдуу жана маалымдама материалдар",
+    }
+)
 URL_RE = re.compile(r"(https?://[^\s<>\"]+?)([.,;:)\]]*)(?=\s|$)")
 FIG_LABEL_RE = re.compile(r"^([^:]+:)\s*(.*)$", re.S)
 
 ARTICLE_RE = re.compile(
-    r'(<article class="inventions-entry" id="([^"]+)">)(.*?)(</article>)',
+    r'(<article class="inventions-entry" id="([^"]+)"[^>]*>)(.*?)(</article>)',
     re.S,
 )
 ENTRY_HEAD_RE = re.compile(
-    r'<article class="inventions-entry" id="([^"]+)">\s*'
+    r'<article class="inventions-entry" id="([^"]+)"[^>]*>\s*'
     r'<h2 class="inventions-entry-title">'
     r'(<span[^>]*class="inventions-entry-num"[^>]*>)([^<]+)(</span>)'
     r'<span class="inventions-entry-name">([^<]*)</span>',
@@ -94,25 +160,44 @@ LOCALE = {
         "alt_prefix": "İllüstrasiya:",
         "section_prefixes": (
             "Bu nədir",
+            "Necə və kimlərin sayəsində",
             "Onu kim kəşf",
             "Kim kəşf",
+            "Kim yaradıb",
+            "Kim həyata keçirib",
             "Nə vaxt",
             "Elm üçün",
             "Elmi əhəmiyyəti",
             "Elmi baxımdan",
             "Sonrakı inkişaf",
             "İnsan həyatını",
+            "İnsanların həyatını",
+            "Pul və bank işi nədir",
+            "Pul və bank işi necə yaranıb",
+            "Odu idarə etmək nə deməkdir",
+            "Oddan ilk kimlər istifadə edib",
+            "Atın əhliləşdirilməsi nə deməkdir",
+            "Atı ilk kimlər əhliləşdirib",
+            "Elm baxımından",
+            "Sonrakı ixtiralara",
         ),
         "category_re": re.compile(r"^\d+\.?\s+\S"),
-        # Finalized AZ Word files use "A Kitablar…" without a period after the letter.
-        "ref_group_re": re.compile(r"^[A-JH]\s+\S"),
+        # Most finalized AZ Word files still use "A Kitablar…" without a period.
+        # A few articles (e.g. horse domestication) drop the group letter entirely.
+        "ref_group_re": re.compile(
+            r"^(?:[A-JH]\s+\S|"
+            r"Kitablar və əsas elmi əsərlər|"
+            r"Qurumların materialları və ensiklopedik mənbələr|"
+            r"Rəy verilmiş elmi məqalələr və hesabatlar)"
+        ),
         "meta_split": re.compile(r"^(Dövr:\s*.+?)(?:\s*\|\s*(.+))?$", re.S),
     },
     "ru": {
         "period_prefix": "Период:",
-        "facts_head": "Ключевые факты",
+        "facts_head": "Кратко о главном",
+        "facts_heads": ("Кратко о главном", "Ключевые факты"),
         "refs_heads": ("Источники и литература", "Источники и ссылки"),
-        "figures_label": "Ключевые имена:",
+        "figures_label": "Основные участники:",
         "alt_prefix": "Иллюстрация:",
         "section_prefixes": (
             "Что это",
@@ -120,25 +205,35 @@ LOCALE = {
             "Кто изобрёл",
             "Кто изобрел",
             "Когда и как",
+            "Значение для науки",
+            "Влияние на дальнейшее развитие",
             "Почему это важно",
             "Как это повлияло",
             "Как это изменило",
+            "Как изменило",
         ),
         "meta_split": re.compile(r"^(Период:\s*.+?)(?:\s*\|\s*(.+))?$", re.S),
     },
     "ky": {
         "period_prefix": "Мезгил:",
-        "facts_head": "Негизги фактылар",
-        "refs_heads": ("Булактар жана адабияттар", "Булактар жана шилтемелер"),
-        "figures_label": "Негизги ысымдар:",
+        "facts_head": "Негизги маалыматтар",
+        "facts_heads": ("Негизги маалыматтар", "Негизги фактылар"),
+        "refs_heads": (
+            "Булактар жана кошумча окуу",
+            "Булактар жана адабияттар",
+            "Булактар жана шилтемелер",
+        ),
+        "figures_label": "Негизги катышуучулар:",
         "alt_prefix": "Сүрөт:",
         "section_prefixes": (
             "Бул эмне",
             "Аны ким ачкан",
             "Ким ачкан",
+            "Ким ойлоп тапкан",
             "Качан жана кантип",
             "Илимий жактан",
             "Илимий мааниси",
+            "Илим үчүн",
             "Кийинки өнүгүү",
             "Адамдардын жашоосун",
         ),
@@ -211,11 +306,19 @@ def facts_heads_for(lang: str) -> tuple[str, ...]:
     return (cfg["facts_head"],)
 
 
+def strip_ref_group_letter(text: str) -> str:
+    """Drop A / A. / B. category letters from a source-group heading."""
+    return REF_GROUP_LETTER_RE.sub("", text, count=1).strip()
+
+
 def is_ref_group(text: str, pattern: re.Pattern[str] | None = None) -> bool:
+    if REF_ITEM_RE.match(text) or len(text) > 90:
+        return False
+    stripped = strip_ref_group_letter(text)
+    if stripped in REF_GROUP_TITLES:
+        return True
     rx = pattern or REF_GROUP_RE
     if not rx.match(text):
-        return False
-    if len(text) > 90:
         return False
     return True
 
@@ -344,7 +447,7 @@ def parse_docx(path: Path, lang: str) -> ParsedArticle:
         text = rows[i]
         if is_ref_group(text, ref_group_re):
             flush_group()
-            current_title = text
+            current_title = strip_ref_group_letter(text)
         elif REF_ITEM_RE.match(text):
             current_items.append(REF_ITEM_RE.sub("", text).strip())
         elif current_items:
@@ -561,7 +664,7 @@ def rebuild_lang(lang: str, dry_run: bool = False) -> dict:
         if parsed.title != old_title:
             renamed.append((parsed.number, article_id, old_title, parsed.title))
         article_m = re.search(
-            rf'<article class="inventions-entry" id="{re.escape(article_id)}">(.*?)</article>',
+            rf'<article class="inventions-entry" id="{re.escape(article_id)}"[^>]*>(.*?)</article>',
             page,
             re.S,
         )

@@ -54,6 +54,8 @@
     "skip_to_content": "Skip to content",
     "back_to_top": "Back to top",
     "go_to_bottom": "Go to bottom of page",
+    "print_pdf": "Print / PDF",
+    "print_toc": "Contents",
     "search": "Search…",
     "search_aria": "Search",
     "global_search": "Global search",

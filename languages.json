@@ -28,7 +28,8 @@
       "nav_prefixes": ["en"],
       "show_audio_controls": true,
       "tts_voice": "en-US-GuyNeural",
-      "tts_dialogue_voice": "en-US-JennyNeural"
+      "tts_dialogue_voice": "en-US-JennyNeural",
+      "tts_voice_note": "Primary narrator on every English story: en-US-GuyNeural (male). Female dialogue: en-US-JennyNeural. One en-US locale for the whole collection — do not mix accents."
     },
     {
       "code": "ru",

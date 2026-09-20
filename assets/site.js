@@ -1,3 +1,22 @@
+(function birinciForceLocalHttp() {
+  try {
+    if (typeof location === "undefined" || location.protocol !== "file:") return;
+    var raw = decodeURIComponent(String(location.pathname || "").replace(/\\/g, "/"));
+    var lower = raw.toLowerCase();
+    var marker = "birinci-web-site/";
+    var at = lower.lastIndexOf(marker);
+    var rel = at >= 0 ? raw.slice(at + marker.length) : "";
+    if (!rel) {
+      var parts = raw.replace(/^\/+[a-zA-Z]:/, "").split("/").filter(Boolean);
+      rel = parts.length ? parts[parts.length - 1] : "index.html";
+    }
+    if (!rel || rel.charAt(rel.length - 1) === "/") rel += "index.html";
+    location.replace(
+      "http://127.0.0.1:8765/" + rel + (location.search || "") + (location.hash || "")
+    );
+  } catch (_) {}
+})();
+
 window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 3h7l5 5v13H7z\"/><path d=\"M14 3v5h5\"/><path d=\"M9 13h6\"/><path d=\"M9 17h6\"/></svg>", "text-off": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 3h7l5 5v13H7z\"/><path d=\"M14 3v5h5\"/><path d=\"M9 13h6\"/><path d=\"M9 17h6\"/><path d=\"M5 5l14 14\"/></svg>", "eye": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/></svg>", "eye-off": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 3l18 18\"/><path d=\"M10.6 10.6a3 3 0 0 0 4.2 4.2\"/><path d=\"M9.9 5.1A11 11 0 0 1 12 5c6.5 0 10 7 10 7a19 19 0 0 1-3.2 4.1\"/><path d=\"M6.1 6.1C3.6 7.8 2 12 2 12s3.5 7 10 7c1.6 0 3.1-.3 4.4-.9\"/></svg>", "listen": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"/><path d=\"M15.54 8.46a5 5 0 0 1 0 7.07\"/><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14\"/></svg>", "stop": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"/><path d=\"M15.54 8.46a5 5 0 0 1 0 7.07\"/><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14\"/><path d=\"M3 3l18 18\"/></svg>"};
 
 (() => {
@@ -77,6 +96,10 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   };
   applyPhoneUiClass();
   window.__birinciIsPhoneDevice = isPhoneDevice;
+  // Temporary until localization review is done. Remove this class add to restore Discovery Listen/Audio.
+  if (document.documentElement.getAttribute("data-kt-page-id") === "discoveries-and-inventions") {
+    document.documentElement.classList.add("discovery-audio-hidden");
+  }
 
   const isDiscoveriesCatalogPage = () =>
     !!document.body &&
@@ -1997,28 +2020,16 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
   const LANG_ORDER = ["az", "en", "ru", "ky"];
 
-  const hrefForStoryLang = (code, stem) => {
-    const catMatch = (window.location.pathname || "").match(/\/categories\/([^/]+)\.html$/i);
-    let path = "";
-    if (document.body.classList.contains("page-category") && catMatch) {
-      path = "../../" + code + "/categories/" + encodeURIComponent(catMatch[1]) + ".html";
-    } else if (document.body.classList.contains("page-home")) {
-      path = "../" + code + "/index.html";
-    } else if (typeof window.__birinciHrefForLang === "function") {
-      path = String(window.__birinciHrefForLang(code) || "")
-        .split("#")[0]
-        .split("?")[0];
-    }
-    if (!path) path = "../" + code + "/index.html";
-    const hash = stem ? "#" + encodeURIComponent(stem).replace(/%2F/gi, "/") : "";
-    return path + "?view=list" + hash;
-  };
-
   const hrefForStoryCompare = (stem) => {
     const cur = currentPageLang();
     const path = String(location.pathname || "").replace(/\\/g, "/");
+    const isRootHome =
+      (document.body && document.body.classList.contains("page-root-home")) ||
+      (/\/index\.html$/i.test(path) && !/\/(az|en|ru|ky)\//i.test(path));
     let base = "stories/compare.html";
-    if (/\/(categories|discoveries|about|prominent-figures)\//i.test(path)) {
+    if (isRootHome) {
+      base = cur + "/stories/compare.html";
+    } else if (/\/(categories|discoveries|about|prominent-figures)\//i.test(path)) {
       base = "../stories/compare.html";
     } else if (/\/stories\//i.test(path)) {
       base = "compare.html";
@@ -2032,9 +2043,68 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     );
   };
 
+  const collectCompareStems = (kind, seedStem) => {
+    const stems = [];
+    const seen = Object.create(null);
+    const push = (value) => {
+      const next = String(value || "").trim().replace(/^#/, "");
+      if (!next || seen[next]) return;
+      seen[next] = 1;
+      stems.push(next);
+    };
+    if (kind === "discovery") {
+      document
+        .querySelectorAll("article.inventions-entry[id], .inventions-entry[id]")
+        .forEach((el) => {
+          push(el.id || el.getAttribute("data-article-stem"));
+        });
+    } else {
+      document.querySelectorAll("article.story[data-stem], .story[data-stem]").forEach((el) => {
+        push(el.getAttribute("data-stem") || el.id);
+      });
+    }
+    if (seedStem && stems.indexOf(seedStem) < 0) {
+      stems.unshift(String(seedStem).trim());
+    }
+    return stems;
+  };
+
+  const hrefForArticleCompare = (stem) => {
+    const cur = currentPageLang();
+    const path = String(location.pathname || "").replace(/\\/g, "/");
+    const isRootHome =
+      (document.body && document.body.classList.contains("page-root-home")) ||
+      (/\/index\.html$/i.test(path) && !/\/(az|en|ru|ky)\//i.test(path));
+    let base = "discoveries/compare.html";
+    if (isRootHome) {
+      base = cur + "/discoveries/compare.html";
+    } else if (/\/discoveries\//i.test(path)) {
+      base = "compare.html";
+    } else if (/\/(categories|stories|about|prominent-figures)\//i.test(path)) {
+      base = "../discoveries/compare.html";
+    }
+    return (
+      base +
+      "?stem=" +
+      encodeURIComponent(stem) +
+      "&from=" +
+      encodeURIComponent(cur)
+    );
+  };
+
   const closeStoryCompareOverlay = () => {
     const overlay = document.getElementById("story-compare-overlay");
     if (!overlay) return;
+    try {
+      const frame = overlay.querySelector("iframe.story-compare-overlay__frame");
+      const win = frame && frame.contentWindow;
+      if (win) {
+        if (typeof win.__birinciPersistCompareLangs === "function") {
+          win.__birinciPersistCompareLangs();
+        }
+        win.postMessage({ type: "birinci:compare-close" }, "*");
+      }
+    } catch (_) {}
     const previouslyFocused = overlay._birinciPrevFocus;
     overlay.remove();
     document.body.classList.remove("story-compare-open");
@@ -2046,78 +2116,155 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     } catch (_) {}
   };
 
-  const openStoryCompareWindow = (href, stem) => {
-    const url = new URL(href, window.location.href);
-    if (stem) url.searchParams.set("stem", stem);
-    url.searchParams.set("_t", String(Date.now()));
+  let _compareOpenKey = "";
+  let _compareOpenAt = 0;
+
+  const openStoryCompareWindow = (href, stem, kind) => {
     try {
-      if (stem) sessionStorage.setItem("birinci-compare-stem", stem);
-      sessionStorage.setItem("birinci-compare-from", currentPageLang());
-    } catch (_) {}
-    const absolute = url.href;
-    const title = tUi("multilingual_view", "Multilingual View");
-    const closeLabel = tUi("close", "Bağla");
-
-    // In-page overlay (no popup address bar / browser download control).
-    closeStoryCompareOverlay();
-    const overlay = document.createElement("div");
-    overlay.id = "story-compare-overlay";
-    overlay.className = "story-compare-overlay";
-    overlay.setAttribute("role", "dialog");
-    overlay.setAttribute("aria-modal", "true");
-    overlay.setAttribute("aria-label", title);
-    overlay._birinciPrevFocus = document.activeElement;
-    overlay.innerHTML =
-      '<div class="story-compare-overlay__chrome">' +
-      '<p class="story-compare-overlay__title">' +
-      title +
-      "</p>" +
-      '<button type="button" class="story-compare-overlay__close" data-story-compare-close aria-label="' +
-      closeLabel +
-      '">&times;</button>' +
-      "</div>" +
-      '<iframe class="story-compare-overlay__frame" title="' +
-      title +
-      '" src="' +
-      absolute.replace(/"/g, "&quot;") +
-      '"></iframe>';
-
-    const onKey = (event) => {
-      if (event.key === "Escape") {
-        event.preventDefault();
-        closeStoryCompareOverlay();
+      const url = new URL(href, window.location.href);
+      if (stem) url.searchParams.set("stem", stem);
+      url.searchParams.set("_t", String(Date.now()));
+      const compareKind =
+        kind === "discovery" || kind === "story"
+          ? kind
+          : /\/discoveries\//.test(url.pathname) || /(^|\/)compare\.html$/i.test(url.pathname)
+            ? document.body.classList.contains("page-inventions")
+              ? "discovery"
+              : "story"
+            : "story";
+      const debounceKey = String(stem || "") + "|" + url.pathname + "|" + compareKind;
+      const now = Date.now();
+      if (debounceKey === _compareOpenKey && now - _compareOpenAt < 450) {
+        return true;
       }
-    };
-    overlay._birinciOnKey = onKey;
-    document.addEventListener("keydown", onKey);
-    const originalRemove = overlay.remove.bind(overlay);
-    overlay.remove = () => {
-      document.removeEventListener("keydown", onKey);
-      originalRemove();
-    };
+      _compareOpenKey = debounceKey;
+      _compareOpenAt = now;
+      try {
+        if (stem) sessionStorage.setItem("birinci-compare-stem", stem);
+        sessionStorage.setItem("birinci-compare-from", currentPageLang());
+        sessionStorage.setItem("birinci-compare-kind", compareKind);
+      } catch (_) {}
+      const absolute = url.href;
+      const title = tUi("multilingual_view", "Multilingual View");
+      const closeLabel = tUi("close", "Bağla");
 
-    overlay.addEventListener("click", (event) => {
-      if (event.target.closest("[data-story-compare-close]")) {
-        event.preventDefault();
-        closeStoryCompareOverlay();
-      }
-    });
+      // In-page overlay (no popup address bar / browser download control).
+      closeStoryCompareOverlay();
+      ignoreModalBackdrop();
+      const overlay = document.createElement("div");
+      overlay.id = "story-compare-overlay";
+      overlay.className = "story-compare-overlay";
+      overlay.setAttribute("role", "dialog");
+      overlay.setAttribute("aria-modal", "true");
+      overlay.setAttribute("aria-label", title);
+      overlay._birinciPrevFocus = document.activeElement;
+      overlay.innerHTML =
+        '<div class="story-compare-overlay__chrome">' +
+        '<p class="story-compare-overlay__title">' +
+        title +
+        "</p>" +
+        '<button type="button" class="story-compare-overlay__close" data-story-compare-close aria-label="' +
+        closeLabel +
+        '">&times;</button>' +
+        "</div>" +
+        '<iframe class="story-compare-overlay__frame" title="' +
+        title +
+        '" src="' +
+        absolute.replace(/"/g, "&quot;") +
+        '"></iframe>';
 
-    document.body.appendChild(overlay);
-    document.body.classList.add("story-compare-open");
-    document.documentElement.classList.add("story-compare-open");
-    const frame = overlay.querySelector("iframe.story-compare-overlay__frame");
-    if (frame) {
-      const pushGlobeLang = () => {
-        applyLanguageGlobeIcons(currentPageLang());
+      const onKey = (event) => {
+        if (event.key === "Escape") {
+          event.preventDefault();
+          event.stopPropagation();
+          closeStoryCompareOverlay();
+        }
       };
-      frame.addEventListener("load", pushGlobeLang);
-      // In case the frame is already cached/complete.
-      window.setTimeout(pushGlobeLang, 0);
+      overlay._birinciOnKey = onKey;
+      document.addEventListener("keydown", onKey, true);
+      const originalRemove = overlay.remove.bind(overlay);
+      overlay.remove = () => {
+        document.removeEventListener("keydown", onKey, true);
+        originalRemove();
+      };
+
+      overlay.addEventListener("click", (event) => {
+        if (event.target.closest("[data-story-compare-close]")) {
+          event.preventDefault();
+          closeStoryCompareOverlay();
+        }
+      });
+
+      document.body.appendChild(overlay);
+      document.body.classList.add("story-compare-open");
+      document.documentElement.classList.add("story-compare-open");
+      const frame = overlay.querySelector("iframe.story-compare-overlay__frame");
+      if (frame) {
+        const pushGlobeLang = () => {
+          applyLanguageGlobeIcons(currentPageLang());
+        };
+        const pushCompareSeed = () => {
+          const seedStem = String(stem || "").trim();
+          let entry = null;
+          if (seedStem && /^[a-z0-9][a-z0-9-]*$/i.test(seedStem)) {
+            entry =
+              document.querySelector("article.inventions-entry#" + seedStem) ||
+              document.querySelector('.inventions-entry[data-article-stem="' + seedStem + '"]');
+          }
+          if (!entry && seedStem) {
+            const byId = document.getElementById(seedStem);
+            if (byId && byId.classList && byId.classList.contains("inventions-entry")) {
+              entry = byId;
+            }
+          }
+          if (!entry && document.body.classList.contains("page-inventions")) {
+            const hash = String(location.hash || "")
+              .replace(/^#/, "")
+              .trim();
+            if (hash && /^[a-z0-9][a-z0-9-]*$/i.test(hash)) {
+              entry = document.querySelector("article.inventions-entry#" + hash);
+            }
+            if (!entry) entry = document.querySelector("article.inventions-entry[id]");
+          }
+          const payload = {
+            type: "birinci:compare-seed",
+            kind: compareKind,
+            stem: seedStem || (entry && (entry.id || entry.getAttribute("data-article-stem"))) || "",
+            from: currentPageLang(),
+            stems: collectCompareStems(
+              compareKind,
+              seedStem || (entry && (entry.id || entry.getAttribute("data-article-stem"))) || ""
+            ),
+            html: entry && entry.classList && entry.classList.contains("inventions-entry") ? entry.outerHTML : "",
+            baseUrl: document.baseURI || window.location.href,
+          };
+          try {
+            const win = frame.contentWindow;
+            if (win && typeof win.__birinciReceiveCompareSeed === "function") {
+              win.__birinciReceiveCompareSeed(payload);
+            }
+          } catch (_) {}
+          try {
+            if (frame.contentWindow) frame.contentWindow.postMessage(payload, "*");
+          } catch (_) {}
+          pushGlobeLang();
+        };
+        frame.addEventListener("load", pushCompareSeed);
+        window.setTimeout(pushCompareSeed, 0);
+        window.setTimeout(pushCompareSeed, 250);
+      }
+      const closeBtn = overlay.querySelector("[data-story-compare-close]");
+      if (closeBtn) closeBtn.focus();
+      return true;
+    } catch (err) {
+      try {
+        console.error("openStoryCompareWindow failed", err);
+      } catch (_) {}
+      try {
+        window.location.assign(new URL(href, window.location.href).href);
+      } catch (_) {}
+      return false;
     }
-    const closeBtn = overlay.querySelector("[data-story-compare-close]");
-    if (closeBtn) closeBtn.focus();
-    return true;
   };
 
   const storyMultilingualIconHtml = () => {
@@ -2156,6 +2303,63 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     );
   };
 
+  const buildArticleMultilingualBtnHtml = (stem) => {
+    const title = tUi("multilingual_view_title", "Open this story in Multilingual View");
+    const urls = languageGlobeUrls(currentPageLang());
+    return (
+      '<a class="story-multilingual-btn" href="' +
+      hrefForArticleCompare(stem) +
+      '" data-article-multilingual data-stem="' +
+      stem +
+      '" data-globe-lang="' +
+      urls.code +
+      '" title="' +
+      title +
+      '" aria-label="' +
+      title +
+      '">' +
+      storyMultilingualIconHtml() +
+      "</a>"
+    );
+  };
+
+  const bindMultilingualCompareBtn = (btn) => {
+    if (!btn || btn.getAttribute("data-compare-bound") === "1") return;
+    btn.addEventListener(
+      "click",
+      (event) => {
+        const stem = (btn.getAttribute("data-stem") || "").trim();
+        const isArticle = btn.hasAttribute("data-article-multilingual");
+        // Keep story-edit mode from blocking Discovery multilingual opens.
+        if (!isArticle && document.body.classList.contains("dev-story-edit")) return;
+        const href =
+          btn.getAttribute("href") ||
+          (stem
+            ? isArticle
+              ? hrefForArticleCompare(stem)
+              : hrefForStoryCompare(stem)
+            : "");
+        if (!href && !stem) return;
+        const openHref =
+          href ||
+          (isArticle ? hrefForArticleCompare(stem) : hrefForStoryCompare(stem));
+        event.preventDefault();
+        event.stopPropagation();
+        if (typeof event.stopImmediatePropagation === "function") {
+          event.stopImmediatePropagation();
+        }
+        openStoryCompareWindow(
+          openHref,
+          stem,
+          isArticle ? "discovery" : "story"
+        );
+      },
+      true
+    );
+    // Mark bound only after the listener is attached (avoids dead clicks).
+    btn.setAttribute("data-compare-bound", "1");
+  };
+
   const ensureStoryMultilingualBtn = (story) => {
     if (!story || !story.classList || !story.classList.contains("story")) return;
     const header = story.querySelector(".card-header");
@@ -2174,76 +2378,87 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       existing.setAttribute("title", title);
       existing.setAttribute("aria-label", title);
       existing.innerHTML = storyMultilingualIconHtml();
+      bindMultilingualCompareBtn(existing);
       return;
     }
     header.insertAdjacentHTML("afterbegin", buildStoryMultilingualBtnHtml(stem));
+    bindMultilingualCompareBtn(header.querySelector("[data-story-multilingual]"));
   };
 
-  const buildStoryLangNavHtml = (stem, currentLang) => {
-    const cur = normalizePageLang(currentLang || currentPageLang());
-    const label = tUi("lang_switcher_label", "Language");
-    const parts = [
-      '<nav class="story-lang-switcher" aria-label="' +
-        label +
-        '" data-story-lang-switcher data-stem="' +
-        stem +
-        '" data-current-lang="' +
-        cur +
-        '">',
-    ];
-    LANG_ORDER.forEach((code) => {
-      if (code === cur) return;
-      const meta = LANG_META[code];
-      if (!meta) return;
-      parts.push(
-        '<a class="story-lang-switcher__pill" href="' +
-          hrefForStoryLang(code, stem) +
-          '" hreflang="' +
-          code +
-          '" data-lang="' +
-          code +
-          '" data-story-stem="' +
-          stem +
-          '" title="' +
-          meta.title +
-          '" aria-label="' +
-          meta.title +
-          '"><img class="story-lang-switcher__flag" src="' +
-          flagSrcFor(code) +
-          '" alt="" width="20" height="14" decoding="async" /><span class="story-lang-switcher__code">' +
-          meta.short +
-          "</span></a>"
-      );
-    });
-    parts.push("</nav>");
-    return parts.join("");
+  const ensureArticleMultilingualBtn = (header, stem) => {
+    if (!header || !stem) return;
+    const href = hrefForArticleCompare(stem);
+    const title = tUi("multilingual_view_title", "Open this story in Multilingual View");
+    const existing = header.querySelector("[data-article-multilingual]");
+    if (existing) {
+      existing.setAttribute("href", href);
+      existing.setAttribute("data-stem", stem);
+      existing.setAttribute("data-globe-lang", languageGlobeUrls(currentPageLang()).code);
+      existing.removeAttribute("target");
+      existing.removeAttribute("rel");
+      existing.setAttribute("title", title);
+      existing.setAttribute("aria-label", title);
+      existing.innerHTML = storyMultilingualIconHtml();
+      bindMultilingualCompareBtn(existing);
+      return;
+    }
+    header.insertAdjacentHTML("afterbegin", buildArticleMultilingualBtnHtml(stem));
+    bindMultilingualCompareBtn(header.querySelector("[data-article-multilingual]"));
+  };
+
+  const stripHeaderLangSwitcher = (header) => {
+    if (!header) return;
+    header
+      .querySelectorAll("[data-story-lang-switcher], [data-article-lang-switcher], nav.story-lang-switcher")
+      .forEach((el) => el.remove());
   };
 
   const ensureStoryLangSwitcher = (story) => {
     if (!story || !story.classList || !story.classList.contains("story")) return;
     const header = story.querySelector(".card-header");
     if (!header) return;
-    const stem = (story.getAttribute("data-stem") || story.id || "").trim();
-    if (!stem) return;
-    const cur = currentPageLang();
-    const existing = header.querySelector("[data-story-lang-switcher]");
-    if (
-      existing &&
-      existing.getAttribute("data-stem") === stem &&
-      existing.getAttribute("data-current-lang") === cur &&
-      existing.querySelectorAll("a.story-lang-switcher__pill[data-lang]").length === LANG_ORDER.length - 1
-    ) {
-      existing.querySelectorAll("a.story-lang-switcher__pill[data-lang]").forEach((link) => {
-        const code = link.getAttribute("data-lang");
-        if (code) link.setAttribute("href", hrefForStoryLang(code, stem));
-      });
-      ensureStoryMultilingualBtn(story);
-      return;
-    }
-    const html = buildStoryLangNavHtml(stem, cur);
-    if (existing) existing.outerHTML = html;
-    else header.insertAdjacentHTML("beforeend", html);
+    stripHeaderLangSwitcher(header);
     ensureStoryMultilingualBtn(story);
+  };
+
+  const ensureArticleLangSwitcherOnHeader = (header, stem) => {
+    if (!header || !stem) return;
+    stripHeaderLangSwitcher(header);
+    ensureArticleMultilingualBtn(header, stem);
+  };
+
+  const ensureArticleLangSwitcher = (entry) => {
+    if (!entry || !entry.classList || !entry.classList.contains("inventions-entry")) return;
+    if (entry.closest(".inventions-article-modal")) return;
+    const onDiscoveries =
+      document.body.classList.contains("page-inventions") ||
+      document.documentElement.getAttribute("data-kt-page-id") === "discoveries-and-inventions";
+    if (!onDiscoveries) return;
+    const header = entry.querySelector(".inventions-entry-title");
+    const stem = (entry.id || entry.getAttribute("data-article-stem") || "").trim();
+    if (!header || !stem) return;
+    ensureArticleLangSwitcherOnHeader(header, stem);
+  };
+
+  const ensureArticleModalLangSwitcher = () => {
+    const onDiscoveries =
+      document.body.classList.contains("page-inventions") ||
+      document.documentElement.getAttribute("data-kt-page-id") === "discoveries-and-inventions";
+    if (!onDiscoveries) return;
+    const header =
+      document.querySelector(
+        ".inventions-article-modal:not([hidden]) .inventions-article-modal__header"
+      ) ||
+      document.querySelector(".inventions-article-modal .inventions-article-modal__header");
+    if (!header) return;
+    const stem = String(
+      (window.__birinciArticleModalEntryId && window.__birinciArticleModalEntryId()) ||
+        header.getAttribute("data-article-stem") ||
+        ""
+    ).trim();
+    if (!stem) return;
+    header.setAttribute("data-article-stem", stem);
+    ensureArticleLangSwitcherOnHeader(header, stem);
   };
 
   const refreshAllStoryLangSwitchers = () => {
@@ -2253,101 +2468,102 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     });
   };
 
+  const refreshAllArticleLangSwitchers = () => {
+    document.querySelectorAll("article.inventions-entry").forEach((entry) => {
+      ensureArticleLangSwitcher(entry);
+    });
+    ensureArticleModalLangSwitcher();
+  };
+
   const initStoryLangSwitchers = () => {
     refreshAllStoryLangSwitchers();
+    refreshAllArticleLangSwitchers();
     applyLanguageGlobeIcons(currentPageLang());
     // Capture phase so Multilingual View always wins over text-lightbox / other
     // document click handlers (those are active when Dev Edit mode is off).
     document.addEventListener(
       "click",
       (event) => {
-        if (document.body.classList.contains("dev-story-edit")) return;
-        const raw = event.target;
-        const el =
-          raw && typeof raw.closest === "function"
-            ? raw
-            : raw && raw.parentElement
-              ? raw.parentElement
-              : null;
-        const compareBtn =
-          el && el.closest && el.closest("a.story-multilingual-btn[data-story-multilingual]");
+        const path =
+          typeof event.composedPath === "function" ? event.composedPath() : [];
+        let compareBtn = null;
+        for (let i = 0; i < path.length; i += 1) {
+          const node = path[i];
+          if (!node || !node.getAttribute) continue;
+          if (
+            node.matches &&
+            node.matches(
+              "a.story-multilingual-btn[data-story-multilingual], a.story-multilingual-btn[data-article-multilingual]"
+            )
+          ) {
+            compareBtn = node;
+            break;
+          }
+        }
+        if (!compareBtn) {
+          const raw = event.target;
+          const el =
+            raw && typeof raw.closest === "function"
+              ? raw
+              : raw && raw.parentElement
+                ? raw.parentElement
+                : null;
+          compareBtn =
+            el &&
+            el.closest &&
+            el.closest(
+              "a.story-multilingual-btn[data-story-multilingual], a.story-multilingual-btn[data-article-multilingual]"
+            );
+        }
         if (!compareBtn) return;
+        const isArticle = compareBtn.hasAttribute("data-article-multilingual");
+        if (!isArticle && document.body.classList.contains("dev-story-edit")) return;
         const stem = (compareBtn.getAttribute("data-stem") || "").trim();
         const href =
           compareBtn.getAttribute("href") ||
-          (stem ? hrefForStoryCompare(stem) : "");
+          (stem
+            ? isArticle
+              ? hrefForArticleCompare(stem)
+              : hrefForStoryCompare(stem)
+            : "");
         if (!href && !stem) return;
-        const openHref = href || hrefForStoryCompare(stem);
-        try {
-          if (stem) sessionStorage.setItem("birinci-compare-stem", stem);
-          sessionStorage.setItem("birinci-compare-from", currentPageLang());
-        } catch (_) {}
+        const openHref =
+          href ||
+          (isArticle ? hrefForArticleCompare(stem) : hrefForStoryCompare(stem));
         event.preventDefault();
         event.stopPropagation();
-        openStoryCompareWindow(openHref, stem);
+        if (typeof event.stopImmediatePropagation === "function") {
+          event.stopImmediatePropagation();
+        }
+        openStoryCompareWindow(
+          openHref,
+          stem,
+          isArticle ? "discovery" : "story"
+        );
       },
       true
     );
-    document.addEventListener("click", (event) => {
-      const link = event.target.closest("a.story-lang-switcher__pill[data-lang]");
-      if (!link) return;
-      const code = (link.getAttribute("data-lang") || "").toLowerCase();
-      const stem = (link.getAttribute("data-story-stem") || "").trim();
-      if (!code || !LANG_META[code] || !stem) return;
-      const href = hrefForStoryLang(code, stem);
-      link.setAttribute("href", href);
-      try {
-        sessionStorage.setItem(
-          "birinci-lang-ctx",
-          JSON.stringify({
-            sectionId: stem,
-            categoryId: "",
-            view: "list",
-            clearFilters: true,
-            ts: Date.now(),
-          })
-        );
-        localStorage.setItem("birinci-lang", code);
-        localStorage.setItem("birinci-home-view", "list");
-        if (document.body.classList.contains("page-category")) {
-          localStorage.setItem("birinci-category-view", "list");
-        }
-      } catch (_) {}
-      event.preventDefault();
-      event.stopPropagation();
-
-      // Keep the target story on the current entry; setLiveLang then pushes the locale URL.
-      try {
-        const nextHash = "#" + encodeURIComponent(stem).replace(/%2F/gi, "/");
-        const params = new URLSearchParams(window.location.search || "");
-        params.set("view", "list");
-        commitHistoryHref(window.location.pathname + "?" + params.toString() + nextHash, {
-          replace: true,
-        });
-      } catch (_) {}
-      if (typeof window.__birinciSyncLangHrefs === "function") {
-        window.__birinciSyncLangHrefs();
-      }
-
-      if (typeof window.__birinciSetLiveLang === "function") {
-        window.__birinciSetLiveLang(code).catch(() => {
-          window.location.assign(new URL(href, window.location.href).href);
-        });
-        return;
-      }
-      window.location.assign(new URL(href, window.location.href).href);
-    });
     document.addEventListener("birinci:lang-change", () => {
       refreshAllStoryLangSwitchers();
+      refreshAllArticleLangSwitchers();
     });
-    window.addEventListener("hashchange", refreshAllStoryLangSwitchers);
-    window.addEventListener("load", refreshAllStoryLangSwitchers);
+    window.addEventListener("hashchange", () => {
+      refreshAllStoryLangSwitchers();
+      refreshAllArticleLangSwitchers();
+    });
+    window.addEventListener("load", () => {
+      refreshAllStoryLangSwitchers();
+      refreshAllArticleLangSwitchers();
+    });
   };
   initStoryLangSwitchers();
   window.__birinciRefreshStoryLangSwitchers = refreshAllStoryLangSwitchers;
-  window.__birinciBuildStoryLangNavHtml = buildStoryLangNavHtml;
+  window.__birinciRefreshArticleLangSwitchers = refreshAllArticleLangSwitchers;
+  window.__birinciEnsureArticleModalLangSwitcher = ensureArticleModalLangSwitcher;
   window.__birinciBuildStoryMultilingualBtnHtml = buildStoryMultilingualBtnHtml;
+  window.__birinciBuildArticleMultilingualBtnHtml = buildArticleMultilingualBtnHtml;
   window.__birinciHrefForStoryCompare = hrefForStoryCompare;
+  window.__birinciHrefForArticleCompare = hrefForArticleCompare;
 
   const syncAllLangSwitchers = (code) => {
     document.querySelectorAll(".lang-switcher:not([data-pref-locale])").forEach((root) => {
@@ -2595,6 +2811,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         bottom.setAttribute("aria-label", tUi("go_to_bottom", "Səhifənin aşağısına get"));
       }
     }
+    document.querySelectorAll("[data-stories-print], #stories-print-pdf").forEach((btn) => {
+      const label = tUi("print_pdf", "Print / PDF");
+      btn.textContent = label;
+      btn.title = label;
+      btn.setAttribute("aria-label", label);
+    });
 
     const navToggle = document.getElementById("nav-toggle");
     if (navToggle) navToggle.setAttribute("aria-label", tUi("open_menu", "Menyunu aç"));
@@ -2931,9 +3153,13 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const stickyBottom = (() => {
       const header = document.querySelector(".site-header");
       const crumbs = document.querySelector(".breadcrumbs");
+      const toolbar = document.querySelector(".page-toolbar");
       let stack = 0;
       if (header) stack = Math.max(stack, header.getBoundingClientRect().bottom);
       if (crumbs) stack = Math.max(stack, crumbs.getBoundingClientRect().bottom);
+      if (toolbar && toolbar.offsetParent !== null) {
+        stack = Math.max(stack, toolbar.getBoundingClientRect().bottom);
+      }
       return Math.ceil(stack) + 16;
     })();
     const y =
@@ -3160,6 +3386,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       if (typeof window.__birinciSyncLangHrefs === "function") window.__birinciSyncLangHrefs();
       if (typeof window.__birinciRefreshStoryLangSwitchers === "function") {
         window.__birinciRefreshStoryLangSwitchers();
+      }
+      if (typeof window.__birinciRefreshArticleLangSwitchers === "function") {
+        window.__birinciRefreshArticleLangSwitchers();
       }
       if (keepModal) {
         try {
@@ -3934,22 +4163,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
     const searchLang = () =>
       (window.__BIRINCI_I18N__ && window.__BIRINCI_I18N__.lang) || LOCALE_TAG || "az";
-    const countStatus = (rows) => {
-      const list = Array.isArray(rows) ? rows : [];
-      const byLang = {};
-      LANG_ORDER.forEach((lang) => {
-        byLang[lang] = 0;
-      });
-      list.forEach((row) => {
-        const lang = normalizePageLang(row && row.lang);
-        if (byLang[lang] != null) byLang[lang] += 1;
-      });
-      const parts = LANG_ORDER.map((lang) => {
-        const short = (LANG_META[lang] && LANG_META[lang].short) || String(lang).toUpperCase();
-        return `${short} (${byLang[lang]})`;
-      });
-      return `${list.length} ${tUi("stories_count_suffix", "hekayə")} - ${parts.join(", ")}`;
-    };
 
     const parseSearchIndexSource = (source) => {
       const text = String(source || "").trim();
@@ -4105,7 +4318,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
     const ensureIndex = () => {
       if (index && index.length) {
-        if (status && !lastQuery) status.textContent = countStatus(index);
+        if (status && !lastQuery) status.textContent = "";
         return Promise.resolve(index);
       }
       if (loading) return loading;
@@ -4132,9 +4345,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
             }
             return [];
           }
-          if (status && !lastQuery) status.textContent = countStatus(index);
           if (lastQuery) render(lastQuery);
-          else if (status) status.textContent = countStatus(index);
+          else if (status) status.textContent = "";
           return index;
         })
         .catch(() => {
@@ -4162,7 +4374,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         if (status) {
           status.textContent =
             index && index.length
-              ? countStatus(index)
+              ? ""
               : index
                 ? tJs("index_failed", "Axtarış indeksi yüklənmədi.")
                 : "";
@@ -5050,12 +5262,16 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     window.__birinciCloseStoriesDrawer = () => closeMenu({ restoreFocus: false });
 
     const stickyScrollOffset = () => {
-      // Prefer live sticky chrome (header + breadcrumbs) — matches --sticky-stack-bottom.
+      // Prefer live sticky chrome (header + breadcrumbs + page toolbar).
       const headerEl = document.querySelector(".site-header");
       const crumbsEl = document.querySelector(".breadcrumbs");
+      const toolbarEl = document.querySelector(".page-toolbar");
       let stack = 0;
       if (headerEl) stack = Math.max(stack, headerEl.getBoundingClientRect().bottom);
       if (crumbsEl) stack = Math.max(stack, crumbsEl.getBoundingClientRect().bottom);
+      if (toolbarEl && toolbarEl.offsetParent !== null) {
+        stack = Math.max(stack, toolbarEl.getBoundingClientRect().bottom);
+      }
       if (stack <= 0) {
         const root = document.documentElement;
         const style = window.getComputedStyle(root);
@@ -5065,7 +5281,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         } else {
           const headerH = parseFloat(style.getPropertyValue("--header-h")) || 68;
           const crumbH = parseFloat(style.getPropertyValue("--breadcrumb-h")) || 43;
-          stack = headerH + crumbH;
+          const toolH = parseFloat(style.getPropertyValue("--toolbar-h")) || 0;
+          stack = headerH + crumbH + toolH;
         }
       }
       let gap = parseFloat(
@@ -5957,7 +6174,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const assetVersion = listPanel.getAttribute("data-asset-version") || "";
     const audioVersion =
       listPanel.getAttribute("data-audio-version") ||
-      (assetVersion ? `${assetVersion}-audio2` : "audio2");
+      (assetVersion ? `${assetVersion}-audio3` : "audio3");
     const viewStorageKey = "birinci-home-view";
 
     let view = "cards";
@@ -6274,10 +6491,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     </figure>`
         : "";
       const titleInner = escapeHtml(story.title);
-      const langNav =
-        typeof window.__birinciBuildStoryLangNavHtml === "function"
-          ? window.__birinciBuildStoryLangNavHtml(story.stem, currentPageLang())
-          : "";
       const multilingualBtn =
         typeof window.__birinciBuildStoryMultilingualBtnHtml === "function"
           ? window.__birinciBuildStoryMultilingualBtnHtml(story.stem)
@@ -6287,7 +6500,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   <div class="card-header">
     ${multilingualBtn}
     <h2 class="card-title story__title">${titleInner}</h2>
-    ${langNav}
   </div>
   <div class="card-body">
     <div class="story__content">
@@ -10046,6 +10258,10 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     console.error("initStoryTts failed", err);
   }
   const initDevStoryEditor = () => {
+    // Temporarily off. Set to true when local story editing should return.
+    const DEV_STORY_EDIT_ENABLED = false;
+    if (!DEV_STORY_EDIT_ENABLED) return;
+
     const host = (location.hostname || "").toLowerCase();
     const isLocal =
       host === "localhost" ||
@@ -10301,6 +10517,224 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       obs.observe(root, { childList: true, subtree: true });
     }
   };
+
+  const printPdfLabel = () => tUi("print_pdf", "Print / PDF");
+
+  const applyStoriesPrintLabel = (btn) => {
+    if (!btn) return;
+    const label = printPdfLabel();
+    btn.textContent = label;
+    btn.title = label;
+    btn.setAttribute("aria-label", label);
+  };
+
+  const waitForStoryArticles = (timeoutMs = 4000) =>
+    new Promise((resolve) => {
+      if (document.querySelector("article.story")) {
+        resolve(true);
+        return;
+      }
+      const started = Date.now();
+      const timer = window.setInterval(() => {
+        if (document.querySelector("article.story") || Date.now() - started > timeoutMs) {
+          window.clearInterval(timer);
+          resolve(!!document.querySelector("article.story"));
+        }
+      }, 50);
+    });
+
+  const escapePrintText = (value) =>
+    String(value || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+
+  const storyPrintTitle = (story) => {
+    const titleEl = story.querySelector(".story__title, .card-title");
+    return (
+      (titleEl && titleEl.textContent.replace(/\s+/g, " ").trim()) ||
+      (story.getAttribute("data-title") || "").trim() ||
+      story.id ||
+      ""
+    );
+  };
+
+  const collectPrintGroups = () => {
+    const sections = Array.from(
+      document.querySelectorAll(".inventions-category, .stories-category")
+    ).filter((section) => !section.hidden);
+    const groups = [];
+    sections.forEach((section) => {
+      const items = Array.from(section.querySelectorAll("article.story")).filter((story) => !story.hidden);
+      if (!items.length) return;
+      const raw =
+        section.getAttribute("data-category") ||
+        ((section.querySelector(".inventions-category-head") || {}).textContent || "");
+      groups.push({
+        title: String(raw).replace(/\s*\(\d+\)\s*$/, "").trim(),
+        items,
+      });
+    });
+    if (groups.length) return groups;
+    const items = Array.from(document.querySelectorAll("article.story")).filter((story) => !story.hidden);
+    return items.length ? [{ title: "", items }] : [];
+  };
+
+  const removeStoriesPrintToc = () => {
+    const toc = document.getElementById("stories-print-toc");
+    if (toc) toc.remove();
+    document.body.classList.remove("stories-printing");
+  };
+
+  const buildStoriesPrintToc = () => {
+    removeStoriesPrintToc();
+    const groups = collectPrintGroups();
+    if (!groups.length) return null;
+    const main = document.getElementById("main") || document.querySelector("main");
+    if (!main) return null;
+    const hero = document.querySelector(
+      ".intro__brand#about-hero-title, .page-home:not(.page-root-home) .intro__brand, .category-hero h1"
+    );
+    const docTitle =
+      (hero && hero.textContent.replace(/\s+/g, " ").trim()) ||
+      tUi("stories_nav", "Wisdom stories");
+    const tocLabel = tUi("print_toc", "Contents");
+    const showGroups = groups.length > 1;
+    const groupHtml = groups
+      .map((group) => {
+        const items = group.items
+          .map((story) => {
+            const id = story.id || story.getAttribute("data-stem") || "";
+            const title = storyPrintTitle(story);
+            if (!id || !title) return "";
+            return `<li><a href="#${escapePrintText(id)}">${escapePrintText(title)}</a></li>`;
+          })
+          .filter(Boolean)
+          .join("");
+        if (!items) return "";
+        const heading =
+          showGroups && group.title
+            ? `<h3 class="stories-print-toc__group-title">${escapePrintText(group.title)}</h3>`
+            : "";
+        return `<div class="stories-print-toc__group">${heading}<ol>${items}</ol></div>`;
+      })
+      .join("");
+    const nav = document.createElement("nav");
+    nav.id = "stories-print-toc";
+    nav.className = "stories-print-toc";
+    nav.setAttribute("aria-label", tocLabel);
+    nav.innerHTML = `<h1 class="stories-print-toc__doc">${escapePrintText(
+      docTitle
+    )}</h1><h2 class="stories-print-toc__title">${escapePrintText(tocLabel)}</h2>${groupHtml}`;
+    main.insertBefore(nav, main.firstChild);
+    document.body.classList.add("stories-printing");
+    return nav;
+  };
+
+  const printStoriesAsPdf = async (btn) => {
+    const body = document.body;
+    if (!body || body.dataset.storiesPrinting === "1") return;
+    body.dataset.storiesPrinting = "1";
+    if (btn) btn.disabled = true;
+    const onListView =
+      window.__birinciHomeView === "list" ||
+      body.classList.contains("inventions-view-list") ||
+      (body.classList.contains("page-category") && !body.classList.contains("category-view-cards"));
+    const textsWereHidden = body.classList.contains("texts-collapsed");
+    let restored = false;
+    const restore = () => {
+      if (restored) return;
+      restored = true;
+      removeStoriesPrintToc();
+      if (textsWereHidden && typeof window.__birinciSetAllStoryTexts === "function") {
+        window.__birinciSetAllStoryTexts(false);
+      }
+      if (btn) btn.disabled = false;
+      delete body.dataset.storiesPrinting;
+      window.removeEventListener("afterprint", restore);
+    };
+    try {
+      if (
+        (body.classList.contains("page-home") || body.classList.contains("page-category")) &&
+        !onListView &&
+        typeof window.__birinciSetHomeView === "function"
+      ) {
+        window.__birinciSetHomeView("list", {
+          persist: false,
+          scrollTools: false,
+          animate: false,
+        });
+      }
+      await waitForStoryArticles();
+      document
+        .querySelectorAll(".inventions-category.is-collapsed, .stories-category.is-collapsed")
+        .forEach((el) => el.classList.remove("is-collapsed"));
+      if (textsWereHidden && typeof window.__birinciSetAllStoryTexts === "function") {
+        window.__birinciSetAllStoryTexts(true);
+      }
+      document.querySelectorAll("article.story:not(.story--figure-hidden)").forEach((story) => {
+        loadStoryIllustration(story);
+      });
+      buildStoriesPrintToc();
+      await new Promise((resolve) => window.setTimeout(resolve, 180));
+      window.addEventListener("afterprint", restore);
+      window.print();
+      window.setTimeout(restore, 12000);
+    } catch (err) {
+      console.error("printStoriesAsPdf failed", err);
+      restore();
+    }
+  };
+
+  const initStoriesPrintPdf = () => {
+    // Temporarily off. Set to true when the Print / PDF control should return.
+    const STORIES_PRINT_PDF_ENABLED = false;
+    document.querySelectorAll("#stories-print-pdf, [data-stories-print], .stories-print-bar").forEach((el) => {
+      el.remove();
+    });
+    if (!STORIES_PRINT_PDF_ENABLED) return;
+
+    const body = document.body;
+    if (!body) return;
+    const isWisdomHome =
+      body.classList.contains("page-home") && !body.classList.contains("page-root-home");
+    const isCategory = body.classList.contains("page-category");
+    if (!isWisdomHome && !isCategory) return;
+
+    const jump = document.querySelector(".page-jump");
+    if (!jump) return;
+
+    let btn = document.getElementById("stories-print-pdf");
+    const leftoverBar = document.querySelector(".stories-print-bar");
+    if (!btn && leftoverBar) {
+      btn = leftoverBar.querySelector("[data-stories-print], .stories-print-btn");
+    }
+    if (!btn) {
+      btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "stories-print-btn";
+      btn.id = "stories-print-pdf";
+      btn.setAttribute("data-stories-print", "");
+    }
+    if (btn.parentElement !== jump) {
+      jump.insertBefore(btn, jump.firstChild);
+    }
+    if (leftoverBar) leftoverBar.remove();
+    applyStoriesPrintLabel(btn);
+    if (btn.dataset.printBound === "1") return;
+    btn.dataset.printBound = "1";
+    btn.addEventListener("click", (event) => {
+      event.preventDefault();
+      printStoriesAsPdf(btn);
+    });
+  };
+
+  try {
+    initStoriesPrintPdf();
+  } catch (err) {
+    console.error("initStoriesPrintPdf failed", err);
+  }
 
   try {
     initAboutValuesHighlight();

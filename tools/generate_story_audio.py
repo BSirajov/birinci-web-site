@@ -2,13 +2,16 @@
 """Generate MP3 narration for stories via Microsoft Azure AI Speech neural voices.
 
 Uses the Microsoft neural TTS stack (edge-tts gateway to the same Azure AI Speech
-voices configured in languages.json). Default AZ narrator is az-AZ-BabekNeural;
-pass --voice az-AZ-BanuNeural for the female voice explicitly.
+voices configured in languages.json). AZ pair is az-AZ-BabekNeural (male) and
+az-AZ-BanuNeural (female). Project convention keeps Babek as the primary
+narrator on every story; Banu is the female dialogue voice.
 
-Prosody v2: paragraphs are classified (title / narrative / dialogue /
-question / exclaim / moral). Source lines are omitted. Dual voice (narrator +
-dialogue) comes from languages.json. Pauses are silent MP3 clips between
-segments (ffmpeg loudnorm when available; edge-tts rejects <break> SSML).
+Prosody: paragraphs are classified (title / narrative / dialogue /
+    question / exclaim / moral). Source lines are omitted. Dual voice (narrator +
+    dialogue) comes from languages.json. AZ uses Azure SSML <prosody> plus
+    restrained <emphasis> on title/moral. Rate/pitch/volume also apply as
+    Communicate() fallback. Pauses are silent MP3 clips between segments
+    (ffmpeg loudnorm when available; the public edge-tts gateway rejects <break>).
 
 Examples:
   python tools/generate_story_audio.py --all
@@ -25,13 +28,17 @@ from __future__ import annotations
 import argparse
 import asyncio
 import hashlib
+import html
 import json
+import os
 import re
 import shutil
 import socket
 import subprocess
 import sys
 import tempfile
+import urllib.error
+import urllib.request
 from pathlib import Path
 
 # Prefer IPv4 for Edge TTS — IPv6 often fails with WinError 64 on some networks.
@@ -104,13 +111,15 @@ PILOT_LANGS = ("az", "en", "ru")
 
 
 def configure_lang(lang: str) -> None:
-    global LANG, DATA_JS, AUDIO_DIR, MANIFEST_JSON, DEFAULT_VOICE, DEFAULT_DIALOGUE_VOICE
+    global LANG, DATA_JS, AUDIO_DIR, MANIFEST_JSON, ASSIGNMENTS_JSON
+    global DEFAULT_VOICE, DEFAULT_DIALOGUE_VOICE, PROSODY_VERSION, AUDIO_CACHE_TAG
     if lang not in SUPPORTED_LANGS:
         raise SystemExit(f"Unsupported lang {lang}")
     LANG = lang
     DATA_JS = stories_data_path(lang)
     AUDIO_DIR = story_audio_dir(lang)
     MANIFEST_JSON = AUDIO_DIR / "manifest.json"
+    ASSIGNMENTS_JSON = AUDIO_DIR / "voice-assignments.json"
     voice = TTS_VOICES.get(lang)
     if not voice:
         raise SystemExit(
@@ -119,23 +128,120 @@ def configure_lang(lang: str) -> None:
         )
     DEFAULT_VOICE = voice
     DEFAULT_DIALOGUE_VOICE = TTS_DIALOGUE_VOICES.get(lang) or ""
+    PROSODY_VERSION = _PROSODY_VERSIONS.get(lang, "v5-az-ssml")
+    # Locale-agnostic cache-bust so EN/AZ/RU/KY share one query-string scheme.
+    AUDIO_CACHE_TAG = "audio3"
 
 
-MAX_CONCURRENCY = 1
+MAX_CONCURRENCY = 2
 MAX_RETRIES = 12
 RETRY_BASE_DELAY = 2.0
 RETRY_MAX_DELAY = 20.0
-PROSODY_VERSION = "v3-az-dual"
-
-# Wider role contrast than v1. edge-tts pitch is Hz, not semitones.
-PROSODY = {
-    "title": {"rate": "-8%", "pitch": "+0Hz", "volume": "+0%"},
-    "narrative": {"rate": "-6%", "pitch": "+0Hz", "volume": "+0%"},
-    "dialogue": {"rate": "+10%", "pitch": "+4Hz", "volume": "+0%"},
-    "question": {"rate": "+4%", "pitch": "+6Hz", "volume": "+0%"},
-    "exclaim": {"rate": "+8%", "pitch": "+4Hz", "volume": "+0%"},
-    "moral": {"rate": "-15%", "pitch": "-3Hz", "volume": "+0%"},
+CHUNK_TIMEOUT = 90.0
+PROSODY_VERSION = "v5-az-ssml"
+_PROSODY_VERSIONS = {
+    "az": "v5-az-ssml",
+    "en": "v4-en-dual",
+    "ru": "v4-az-regen",
+    "ky": "v4-az-regen",
 }
+AUDIO_CACHE_TAG = "audio3"
+ASSIGNMENTS_JSON = None
+
+_AZURE_KEY_NAMES = ("AZURE_SPEECH_KEY", "SPEECH_KEY")
+_AZURE_REGION_NAMES = ("AZURE_SPEECH_REGION", "SPEECH_REGION")
+_AZURE_ENDPOINT_NAMES = ("AZURE_SPEECH_ENDPOINT", "SPEECH_ENDPOINT")
+
+
+def _load_dotenv_files() -> None:
+    """Load KEY=value from repo .env files without printing values."""
+    for path in (ROOT / ".env", ROOT / "api" / ".env", ROOT / "tools" / ".env"):
+        if not path.is_file():
+            continue
+        try:
+            text = path.read_text(encoding="utf-8")
+        except OSError:
+            continue
+        for line in text.splitlines():
+            raw = line.strip()
+            if not raw or raw.startswith("#") or "=" not in raw:
+                continue
+            key, val = raw.split("=", 1)
+            key = key.strip()
+            val = val.strip().strip("'").strip('"')
+            if key and val and key not in os.environ:
+                os.environ[key] = val
+
+
+def azure_speech_credentials() -> tuple[str, str, str]:
+    """Return (key, region, endpoint) from env. Values are never printed."""
+    _load_dotenv_files()
+    key = ""
+    region = ""
+    endpoint = ""
+    for name in _AZURE_KEY_NAMES:
+        if os.environ.get(name, "").strip():
+            key = os.environ[name].strip()
+            break
+    for name in _AZURE_REGION_NAMES:
+        if os.environ.get(name, "").strip():
+            region = os.environ[name].strip()
+            break
+    for name in _AZURE_ENDPOINT_NAMES:
+        if os.environ.get(name, "").strip():
+            endpoint = os.environ[name].strip()
+            break
+    return key, region, endpoint
+
+
+def azure_speech_ready() -> bool:
+    key, region, endpoint = azure_speech_credentials()
+    return bool(key and (region or endpoint))
+
+
+def synthesize_via_azure_rest(ssml: str, out_path: Path) -> None:
+    """Official Azure AI Speech REST TTS. Raises on missing creds or HTTP errors."""
+    key, region, endpoint = azure_speech_credentials()
+    if not key:
+        raise RuntimeError(
+            "Azure Speech key missing. Set AZURE_SPEECH_KEY or SPEECH_KEY."
+        )
+    if endpoint:
+        url = endpoint.rstrip("/") + "/cognitiveservices/v1"
+    elif region:
+        url = f"https://{region}.tts.speech.microsoft.com/cognitiveservices/v1"
+    else:
+        raise RuntimeError(
+            "Azure Speech region/endpoint missing. Set AZURE_SPEECH_REGION or SPEECH_REGION."
+        )
+    req = urllib.request.Request(url, data=ssml.encode("utf-8"), method="POST")
+    req.add_header("Ocp-Apim-Subscription-Key", key)
+    req.add_header("Content-Type", "application/ssml+xml")
+    req.add_header("X-Microsoft-OutputFormat", "audio-24khz-48kbitrate-mono-mp3")
+    req.add_header("User-Agent", "birinci-web-site-story-audio")
+    try:
+        with urllib.request.urlopen(req, timeout=90) as resp:
+            data = resp.read()
+    except urllib.error.HTTPError as exc:
+        raise RuntimeError(f"Azure Speech HTTP {exc.code}") from exc
+    if not data or len(data) < 64:
+        raise RuntimeError("Azure Speech returned empty audio")
+    out_path.write_bytes(data)
+
+# Role contrast via rate/pitch/volume. Azure REST may wrap these in SSML;
+# edge-tts always gets the same values as Communicate() kwargs, never SSML.
+PROSODY = {
+    "title": {"rate": "-10%", "pitch": "-1Hz", "volume": "+0%"},
+    "narrative": {"rate": "-5%", "pitch": "+0Hz", "volume": "+0%"},
+    "reflective": {"rate": "-12%", "pitch": "-2Hz", "volume": "+0%"},
+    "dialogue": {"rate": "+8%", "pitch": "+5Hz", "volume": "+0%"},
+    "question": {"rate": "+2%", "pitch": "+8Hz", "volume": "+0%"},
+    "exclaim": {"rate": "+7%", "pitch": "+5Hz", "volume": "+0%"},
+    "moral": {"rate": "-18%", "pitch": "-4Hz", "volume": "+0%"},
+}
+
+# Extra same-gender speakers (3rd+) keep the two neural voices but shift delivery.
+EXTRA_DELIVERY = {"rate": "+3%", "pitch": "-3Hz", "volume": "+0%"}
 
 # Optional per-story role overrides (merged on top of PROSODY).
 STORY_PROSODY_OVERRIDES: dict[str, dict[str, dict[str, str]]] = {}
@@ -180,12 +286,14 @@ def synthetic_silence_mp3(ms: int) -> bytes:
     return _MP3_SILENCE_FRAME * frames
 
 
-def prosody_for(stem: str, role: str) -> dict[str, str]:
+def prosody_for(stem: str, role: str, delivery: str = "primary") -> dict[str, str]:
     """Resolve rate/pitch/volume for a role, with optional per-story overrides."""
     base = dict(PROSODY.get(role) or PROSODY["narrative"])
     story_over = STORY_PROSODY_OVERRIDES.get(stem) or {}
     role_over = story_over.get(role) or story_over.get("*") or {}
     base.update(role_over)
+    if delivery == "extra":
+        base.update(EXTRA_DELIVERY)
     return base
 
 
@@ -211,9 +319,10 @@ def _asset_version() -> str:
     try:
         from chrome_restore import SITE_ASSET_VERSION
 
-        return str(SITE_ASSET_VERSION)
+        base = str(SITE_ASSET_VERSION)
     except Exception:
-        return "20260823o"
+        base = "20260823o"
+    return f"{base}-{AUDIO_CACHE_TAG}"
 
 
 def _inject_article_audio(html: str, rel_prefix: str, version: str, stems: set[str]) -> str:
@@ -281,6 +390,25 @@ def link_story_audio(lang: str | None = None) -> tuple[int, int]:
             if new != raw:
                 _write_text(path, new)
                 pages += 1
+    home = ROOT / lang / "index.html"
+    if home.is_file():
+        raw = home.read_text(encoding="utf-8")
+        new = re.sub(
+            r'\bdata-audio-version="[^"]*"',
+            f'data-audio-version="{version}"',
+            raw,
+            count=1,
+        )
+        if 'data-audio-version="' not in raw and 'data-asset-version="' in raw:
+            new = re.sub(
+                r'(\bdata-asset-version="[^"]*")',
+                rf'\1\n         data-audio-version="{version}"',
+                raw,
+                count=1,
+            )
+        if new != raw:
+            _write_text(home, new)
+            pages += 1
     return marked, pages
 
 
@@ -355,7 +483,7 @@ _FEMALE_CUE_RE = re.compile(
     r"\b("
     r"ana|anas[iı]|ana[nm]|nənə|nənəsi|bacı|bacıs[iı]|q[iı]z|q[iı]z[iı]|qad[iı]n|"
     r"xan[iı]m|qadın|arvad|gəlin|mələk|şahzadə\s*qız|mistress|mother|woman|girl|daughter|"
-    r"wife|sister|grandmother|lady|queen|"
+    r"wife|sister|grandmother|lady|queen|widow|aunt|niece|bride|princess|mum|mom|grandma|"
     r"мама|мать|матери|дочь|девочка|девушка|женщина|жена|сестра|бабушка|госпожа|царица|"
     r"принцесса|королева|невеста|тетя|тётя"
     r")\b",
@@ -366,6 +494,7 @@ _MALE_CUE_RE = re.compile(
     r"ata|atas[iı]|ata[nm]|baba|babas[iı]|o[gğ]ul|o[gğ]lu|ki[sş]i|cənab|bəy|"
     r"pad[sş]ah|sultan|o[gğ]lan|dərvi[sş]|imam|molla|h[əe]kim|müəllim|"
     r"father|man|boy|son|brother|grandfather|king|mister|mr\b|husband|"
+    r"uncle|nephew|groom|prince|dad|grandpa|"
     r"папа|отец|отца|сын|мальчик|мужчина|муж|брат|дедушка|господин|царь|"
     r"король|принц|дядя|старик|юноша"
     r")\b",
@@ -403,30 +532,65 @@ def classify_paragraph(text: str) -> tuple[str, str]:
     return "narrative", "narrator"
 
 
+def _is_short_turn(text: str) -> bool:
+    return len((text or "").split()) <= 18
+
+
+def _primary_speaker_for_gender(speaker_gender: dict[int, str], gender: str) -> int | None:
+    for sid, g in speaker_gender.items():
+        if g == gender and sid < 2:
+            return sid
+    return None
+
+
+def _allocate_speaker(
+    speaker_gender: dict[int, str],
+    gender: str,
+    *,
+    extra: bool = False,
+    next_extra: list[int],
+) -> int:
+    if not extra:
+        preferred = 0 if gender == "female" else 1
+        if preferred not in speaker_gender or speaker_gender[preferred] == gender:
+            speaker_gender[preferred] = gender
+            return preferred
+        existing = _primary_speaker_for_gender(speaker_gender, gender)
+        if existing is not None:
+            return existing
+    sid = next_extra[0]
+    next_extra[0] += 1
+    speaker_gender[sid] = gender
+    return sid
+
+
 def assign_dialogue_voices(segments: list[dict], body_paras: list[str]) -> None:
     """Assign dialogue_female / dialogue_male consistently within each story.
 
-    Narrator stays on the male neural voice. Dialogue speakers are mapped to the
-    male/female neural pair using gender cues when available, otherwise a stable
-    structural A/B assignment (first unknown speaker → female, second → male).
+    Narrator stays on the configured neural narrator (AZ: Babek). Dialogue
+    speakers map to the male/female pair using gender cues when available,
+    otherwise a stable structural assignment (first unknown → female, second
+    → male). Extra speakers reuse those two voices with a delivery variant.
+    Consecutive lines from the same speaker keep that voice; no random flips.
     """
-    # Cumulative gender hint from preceding narrative (helps attribution lines).
     narrative_hint: str | None = None
+    last_hint_for_gender: dict[str, str | None] = {"female": None, "male": None}
     speaker_gender: dict[int, str] = {}
-    next_structural = "female"  # first unspecified speaker
+    next_structural = "female"
+    next_extra = [2]
     current_speaker: int | None = None
     para_idx = 0
+    prev_dialogue_text = ""
 
     for seg in segments:
         if seg.get("voice_role") != "dialogue":
-            # Refresh hint from recent narrative/title text.
             cue = _gender_cue(seg.get("text") or "")
             if cue:
                 narrative_hint = cue
             current_speaker = None
+            prev_dialogue_text = ""
             continue
 
-        # Match optional raw paragraph for broader cue context.
         raw_ctx = ""
         while para_idx < len(body_paras):
             cleaned = clean_speech_chunk(body_paras[para_idx])
@@ -437,42 +601,51 @@ def assign_dialogue_voices(segments: list[dict], body_paras: list[str]) -> None:
 
         line_cue = _gender_cue(seg.get("text") or "") or _gender_cue(raw_ctx) or narrative_hint
 
-        # New dialogue turn after narrator, or continuing exchange.
         if current_speaker is None:
-            # Start or resume exchange: pick speaker 0 or 1 by cue / structure.
-            if line_cue == "female":
+            if line_cue:
+                existing = _primary_speaker_for_gender(speaker_gender, line_cue)
+                new_character = bool(
+                    existing is not None
+                    and last_hint_for_gender.get(line_cue)
+                    and narrative_hint
+                    and last_hint_for_gender[line_cue] != narrative_hint
+                )
+                current_speaker = _allocate_speaker(
+                    speaker_gender,
+                    line_cue,
+                    extra=new_character,
+                    next_extra=next_extra,
+                )
+                last_hint_for_gender[line_cue] = narrative_hint or last_hint_for_gender[line_cue]
+            elif 0 not in speaker_gender:
+                speaker_gender[0] = next_structural
+                next_structural = "male" if next_structural == "female" else "female"
                 current_speaker = 0
-                speaker_gender[0] = "female"
-            elif line_cue == "male":
+            elif 1 not in speaker_gender:
+                speaker_gender[1] = next_structural
+                next_structural = "male" if next_structural == "female" else "female"
                 current_speaker = 1
-                speaker_gender[1] = "male"
             else:
-                # Structural: first open slot.
-                if 0 not in speaker_gender:
-                    speaker_gender[0] = next_structural
-                    next_structural = "male" if next_structural == "female" else "female"
-                    current_speaker = 0
-                elif 1 not in speaker_gender:
-                    speaker_gender[1] = next_structural
-                    next_structural = "male" if next_structural == "female" else "female"
-                    current_speaker = 1
-                else:
-                    current_speaker = 0
+                current_speaker = 0
         else:
-            # Contiguous dialogue: alternate speakers on each new line.
-            # If this line has a strong opposite-gender cue, switch.
-            other = 1 - current_speaker
-            if line_cue and speaker_gender.get(current_speaker) and line_cue != speaker_gender[current_speaker]:
-                if other not in speaker_gender:
-                    speaker_gender[other] = line_cue
-                current_speaker = other
+            other = 1 - current_speaker if current_speaker in (0, 1) else (
+                0 if speaker_gender.get(current_speaker) == "male" else 1
+            )
+            cur_g = speaker_gender.get(current_speaker)
+            if line_cue and cur_g and line_cue != cur_g:
+                current_speaker = _allocate_speaker(
+                    speaker_gender, line_cue, extra=False, next_extra=next_extra
+                )
             elif line_cue and current_speaker not in speaker_gender:
                 speaker_gender[current_speaker] = line_cue
-            else:
-                # Default turn-taking for back-and-forth dialogue.
+            elif line_cue and line_cue == cur_g:
+                pass
+            elif (
+                not line_cue
+                and _is_short_turn(prev_dialogue_text)
+                and _is_short_turn(seg.get("text") or "")
+            ):
                 if other not in speaker_gender:
-                    # Prefer opposite of current when known.
-                    cur_g = speaker_gender.get(current_speaker)
                     speaker_gender[other] = (
                         "male"
                         if cur_g == "female"
@@ -485,16 +658,17 @@ def assign_dialogue_voices(segments: list[dict], body_paras: list[str]) -> None:
                 current_speaker = other
 
         gender = speaker_gender.get(current_speaker) or "female"
-        if line_cue and current_speaker in speaker_gender and speaker_gender[current_speaker] != line_cue:
-            # Lock first assignment; do not flip mid-story for the same slot.
-            gender = speaker_gender[current_speaker]
-        elif line_cue and current_speaker not in speaker_gender:
+        if line_cue and current_speaker not in speaker_gender:
             speaker_gender[current_speaker] = line_cue
             gender = line_cue
+        elif current_speaker in speaker_gender:
+            gender = speaker_gender[current_speaker]
 
         seg["voice_role"] = "dialogue_female" if gender == "female" else "dialogue_male"
         seg["speaker"] = current_speaker
         seg["speaker_gender"] = gender
+        seg["delivery"] = "extra" if (current_speaker or 0) >= 2 else "primary"
+        prev_dialogue_text = seg.get("text") or ""
 
 
 def speech_segments(story: dict) -> list[dict]:
@@ -588,6 +762,7 @@ def content_fingerprint(job: dict) -> str:
         "prosody": PROSODY_VERSION,
         "roles": [seg.get("role") for seg in job.get("segments") or []],
         "voice_roles": [seg.get("voice_role") for seg in job.get("segments") or []],
+        "deliveries": [seg.get("delivery") or "primary" for seg in job.get("segments") or []],
         "text": job.get("text") or "",
         "voice": job.get("voice") or "",
     }
@@ -621,6 +796,67 @@ def planned_jobs(stem_filter: set[str] | None) -> list[dict]:
     return jobs
 
 
+def write_assignment_log(jobs: list[dict], path: Path | None = None) -> Path:
+    """Write narrator/dialogue voice plan for every job (human-readable log)."""
+    dest = path or ASSIGNMENTS_JSON or (AUDIO_DIR / "voice-assignments.json")
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    stories = {}
+    dialogue_count = 0
+    extra_count = 0
+    for job in jobs:
+        speakers: dict[int, dict] = {}
+        for seg in job.get("segments") or []:
+            role = seg.get("voice_role") or "narrator"
+            if not str(role).startswith("dialogue"):
+                continue
+            sid = int(seg.get("speaker") or 0)
+            if sid not in speakers:
+                gender = seg.get("speaker_gender") or (
+                    "female" if role == "dialogue_female" else "male"
+                )
+                voice = (
+                    job.get("dialogue_voice")
+                    if gender == "female"
+                    else job.get("voice")
+                )
+                speakers[sid] = {
+                    "id": sid,
+                    "gender": gender,
+                    "voice": voice,
+                    "delivery": seg.get("delivery") or "primary",
+                    "sample": (seg.get("text") or "")[:160],
+                }
+        if speakers:
+            dialogue_count += 1
+        if any(s.get("delivery") == "extra" for s in speakers.values()):
+            extra_count += 1
+        stories[job["stem"]] = {
+            "title": job.get("title"),
+            "category": job.get("category"),
+            "narrator": job.get("voice"),
+            "dialogue": bool(speakers),
+            "speakers": [speakers[k] for k in sorted(speakers)],
+        }
+    payload = {
+        "lang": LANG,
+        "prosody": PROSODY_VERSION,
+        "narrator_voice": DEFAULT_VOICE,
+        "female_voice": DEFAULT_DIALOGUE_VOICE or VOICE_FEMALE,
+        "male_voice": DEFAULT_VOICE or VOICE_MALE,
+        "story_count": len(jobs),
+        "dialogue_story_count": dialogue_count,
+        "extra_speaker_story_count": extra_count,
+        "stories": stories,
+    }
+    dest.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(
+        f"voice assignments: stories={len(jobs)} dialogue={dialogue_count} "
+        f"extra_speakers={extra_count} log={dest}",
+        flush=True,
+    )
+    return dest
+
+
 def segment_voice(seg: dict, narrator: str, dialogue: str, single_voice: bool) -> str:
     if single_voice or not dialogue:
         return narrator
@@ -633,6 +869,63 @@ def segment_voice(seg: dict, narrator: str, dialogue: str, single_voice: bool) -
     return narrator
 
 
+_EN_VOICE_STYLES = {
+    "en-US-GuyNeural": {
+        "title": "narration-professional",
+        "narrative": "narration-professional",
+        "dialogue": "friendly",
+        "question": "friendly",
+        "exclaim": "friendly",
+    },
+    "en-US-JennyNeural": {
+        "dialogue": "friendly",
+        "question": "friendly",
+        "exclaim": "friendly",
+    },
+}
+
+
+def _en_chunk_ssml(text: str, voice: str, rate: str, pitch: str, volume: str, role: str) -> str:
+    """Azure SSML for English: prosody plus a restrained neural style when supported."""
+    body = html.escape(text)
+    inner = f'<prosody rate="{rate}" pitch="{pitch}" volume="{volume}">{body}</prosody>'
+    style = (_EN_VOICE_STYLES.get(voice) or {}).get(role)
+    if style:
+        inner = f'<mstts:express-as style="{style}">{inner}</mstts:express-as>'
+    xml_lang = "en-GB" if voice.startswith("en-GB") else "en-US"
+    return (
+        f'<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" '
+        f'xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="{xml_lang}">'
+        f'<voice name="{voice}">{inner}</voice></speak>'
+    )
+
+
+_SSML_LANG = {
+    "az": "az-AZ",
+    "en": "en-US",
+    "ru": "ru-RU",
+    "ky": "kk-KZ",
+}
+
+
+def _chunk_ssml(text: str, voice: str, rate: str, pitch: str, volume: str, role: str) -> str:
+    """Azure SSML for rate/pitch/volume. No <break> — public edge-tts rejects it."""
+    if LANG == "en":
+        return _en_chunk_ssml(text, voice, rate, pitch, volume, role)
+    body = html.escape(text)
+    if role == "title":
+        body = f'<emphasis level="moderate">{body}</emphasis>'
+    elif role == "moral":
+        body = f'<emphasis level="reduced">{body}</emphasis>'
+    inner = f'<prosody rate="{rate}" pitch="{pitch}" volume="{volume}">{body}</prosody>'
+    xml_lang = _SSML_LANG.get(LANG, "az-AZ")
+    return (
+        f'<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" '
+        f'xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="{xml_lang}">'
+        f'<voice name="{voice}">{inner}</voice></speak>'
+    )
+
+
 async def synthesize_chunk(
     text: str,
     out_path: Path,
@@ -641,8 +934,25 @@ async def synthesize_chunk(
     rate: str,
     pitch: str,
     volume: str,
+    role: str = "narrative",
 ) -> None:
+    """Synthesize one speech chunk.
+
+    Azure REST is the only path that may receive SSML. Public edge-tts
+    escapes markup and would speak xmlns / speak version if given SSML, so
+    Communicate() always gets plain text plus rate/pitch/volume.
+    """
     last_err: Exception | None = None
+    if azure_speech_ready():
+        ssml = _chunk_ssml(text, voice, rate, pitch, volume, role)
+        try:
+            await asyncio.to_thread(synthesize_via_azure_rest, ssml, out_path)
+            if out_path.is_file() and out_path.stat().st_size >= 64:
+                return
+        except Exception as exc:  # noqa: BLE001
+            last_err = exc
+            if out_path.exists():
+                out_path.unlink(missing_ok=True)
     for attempt in range(1, MAX_RETRIES + 1):
         try:
             communicate = edge_tts.Communicate(
@@ -652,18 +962,21 @@ async def synthesize_chunk(
                 pitch=pitch,
                 volume=volume,
             )
-            await communicate.save(str(out_path))
+            await asyncio.wait_for(communicate.save(str(out_path)), timeout=CHUNK_TIMEOUT)
             if not out_path.is_file() or out_path.stat().st_size < 64:
                 raise RuntimeError("TTS produced empty or tiny audio chunk")
             return
         except Exception as exc:  # noqa: BLE001 - retry network/TTS blips
-            last_err = exc
+            if isinstance(exc, asyncio.TimeoutError):
+                last_err = TimeoutError(f"TTS chunk timed out after {CHUNK_TIMEOUT:.0f}s")
+            else:
+                last_err = exc
             if out_path.exists():
                 out_path.unlink(missing_ok=True)
             if attempt < MAX_RETRIES:
                 delay = min(RETRY_MAX_DELAY, RETRY_BASE_DELAY * (2 ** (attempt - 1)))
                 print(
-                    f"  retry {attempt}/{MAX_RETRIES} chunk: {exc} (sleep {delay:.1f}s)",
+                    f"  retry {attempt}/{MAX_RETRIES} chunk: {last_err} (sleep {delay:.1f}s)",
                     flush=True,
                 )
                 await asyncio.sleep(delay)
@@ -683,11 +996,15 @@ def ffmpeg_make_silence(ffmpeg: str, dest: Path, ms: int) -> bool:
             "-f",
             "lavfi",
             "-i",
-            "anullsrc=r=24000:cl=mono",
+            "anullsrc=r=48000:cl=mono",
             "-t",
             f"{sec:.3f}",
             "-c:a",
             "libmp3lame",
+            "-ar",
+            "48000",
+            "-ac",
+            "1",
             "-b:a",
             "48k",
             str(dest),
@@ -720,6 +1037,10 @@ def ffmpeg_concat_and_normalize(parts: list[Path], out_path: Path, ffmpeg: str) 
                     str(lst),
                     "-af",
                     "loudnorm=I=-16:TP=-1.5:LRA=11",
+                    "-ar",
+                    "48000",
+                    "-ac",
+                    "1",
                     "-c:a",
                     "libmp3lame",
                     "-b:a",
@@ -762,11 +1083,15 @@ async def synthesize_story(
         parts: list[Path] = []
         for i, seg in enumerate(segments):
             role = seg.get("role") or "narrative"
-            prosody = prosody_for(stem, role)
+            prosody = prosody_for(stem, role, seg.get("delivery") or "primary")
             pause_ms = int(seg.get("pause_ms") or 0)
             if i == len(segments) - 1:
                 pause_ms = 0
             chunk_path = tmp_dir / f"seg-{i:03d}-{role}.mp3"
+            print(
+                f"  seg {i + 1}/{len(segments)} {role} chars={len(seg.get('text') or '')}",
+                flush=True,
+            )
             await synthesize_chunk(
                 seg["text"],
                 chunk_path,
@@ -774,6 +1099,7 @@ async def synthesize_story(
                 rate=prosody["rate"],
                 pitch=prosody["pitch"],
                 volume=prosody["volume"],
+                role=role,
             )
             parts.append(chunk_path)
             if pause_ms:
@@ -812,7 +1138,9 @@ async def run(
     out_dir = AUDIO_DIR / "pilot" if pilot else AUDIO_DIR
     manifest_path = out_dir / "manifest.json" if pilot else MANIFEST_JSON
     out_dir.mkdir(parents=True, exist_ok=True)
-    sem = asyncio.Semaphore(MAX_CONCURRENCY)
+    if not pilot:
+        write_assignment_log(jobs, ASSIGNMENTS_JSON)
+    sem = asyncio.Semaphore(2 if LANG == "en" else MAX_CONCURRENCY)
     manifest = load_manifest(manifest_path)
 
     total = len(jobs)
@@ -900,12 +1228,20 @@ async def run(
 
         size_kb = out.stat().st_size / 1024
         async with lock:
+            speakers = sorted(
+                {
+                    int(seg.get("speaker") or 0)
+                    for seg in job["segments"]
+                    if str(seg.get("voice_role") or "").startswith("dialogue")
+                }
+            )
             manifest[stem] = {
                 "title": job["title"],
                 "category": job["category"],
                 "index": job["index"],
                 "voice": voice,
                 "dialogue_voice": dialogue_voice or None,
+                "speakers": speakers,
                 "prosody": PROSODY_VERSION,
                 "text": text_fingerprint(job),
                 "content": content_fingerprint(job),

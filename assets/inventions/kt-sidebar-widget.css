@@ -29,6 +29,17 @@
   width: 100%;
 }
 
+.charter-sidebar > .sidebar-widget > .widget-head {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  flex: 0 0 auto;
+}
+
+.charter-sidebar > .sidebar-widget > .widget-actions {
+  flex: 0 0 auto;
+}
+
 .charter-sidebar > .sidebar-widget > .widget-body {
   flex: 1 1 auto;
   min-height: 0;
