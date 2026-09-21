@@ -2683,32 +2683,36 @@
     var labels = entryActionLabels();
     var stem = entry && entry.id ? entry.id : "";
     var stemAttr = stem ? ' data-story-stem="' + stem.replace(/"/g, "&quot;") + '"' : "";
+    var audioEnabled = window.__BIRINCI_AUDIO_CONTROLS_ENABLED__ === true;
+    var disabledAttrs = audioEnabled ? "" : ' disabled aria-disabled="true"';
     var actions = document.createElement("div");
     actions.className = "story__actions inventions-entry-actions";
 
-    if (articleModalSpeechLang().ui !== "ky") {
-      appendStoryActionGroup(
-        actions,
-        labels.audio,
-        '<button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-discovery-tts data-tts-mode="listen"' +
-          stemAttr +
-          ' aria-pressed="false" title="' +
-          labels.listen.replace(/"/g, "&quot;") +
-          '" aria-label="' +
-          labels.listen.replace(/"/g, "&quot;") +
-          '">' +
-          storyIcon("listen", LISTEN_ICON) +
-          '</button><button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-discovery-tts data-tts-mode="stop"' +
-          stemAttr +
-          ' aria-pressed="true" title="' +
-          labels.stop.replace(/"/g, "&quot;") +
-          '" aria-label="' +
-          labels.stop.replace(/"/g, "&quot;") +
-          '">' +
-          storyIcon("stop", STOP_ICON) +
-          "</button>"
-      );
-    }
+    appendStoryActionGroup(
+      actions,
+      labels.audio,
+      '<button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-discovery-tts data-tts-mode="listen"' +
+        stemAttr +
+        ' aria-pressed="false" title="' +
+        labels.listen.replace(/"/g, "&quot;") +
+        '" aria-label="' +
+        labels.listen.replace(/"/g, "&quot;") +
+        '"' +
+        disabledAttrs +
+        ">" +
+        storyIcon("listen", LISTEN_ICON) +
+        '</button><button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-discovery-tts data-tts-mode="stop"' +
+        stemAttr +
+        ' aria-pressed="true" title="' +
+        labels.stop.replace(/"/g, "&quot;") +
+        '" aria-label="' +
+        labels.stop.replace(/"/g, "&quot;") +
+        '"' +
+        disabledAttrs +
+        ">" +
+        storyIcon("stop", STOP_ICON) +
+        "</button>"
+    );
 
     var note = document.createElement("p");
     note.className = "story-tts__note";
@@ -2723,9 +2727,11 @@
     if (actions.querySelector(".inventions-article-listen, [data-article-tts]")) return true;
     if (!actions.querySelector(".story-tts__note")) return true;
     if (actions.querySelector("[data-images-mode], [data-texts-mode]")) return true;
-    var wantsAudio = articleModalSpeechLang().ui !== "ky";
-    if (wantsAudio && !actions.querySelector("[data-story-tts]")) return true;
-    if (!wantsAudio && actions.querySelector("[data-story-tts]")) return true;
+    if (!actions.querySelector("[data-story-tts]")) return true;
+    var audioEnabled = window.__BIRINCI_AUDIO_CONTROLS_ENABLED__ === true;
+    var sample = actions.querySelector("[data-story-tts]");
+    var isDisabled = !!(sample && (sample.disabled || sample.getAttribute("aria-disabled") === "true"));
+    if (audioEnabled === isDisabled) return true;
     return false;
   }
 

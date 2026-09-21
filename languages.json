@@ -55,11 +55,11 @@
       "implemented": true,
       "stories_ready": true,
       "nav_prefixes": ["ky", "kir"],
-      "show_audio_controls": false,
-      "show_discovery_listen": false,
+      "show_audio_controls": true,
+      "show_discovery_listen": true,
       "tts_voice": "kk-KZ-DauletNeural",
       "tts_dialogue_voice": "kk-KZ-AigulNeural",
-      "tts_voice_note": "No Kyrgyz neural voice in Edge/Azure; Kazakh (closest Cyrillic Turkic) used for KY narration."
+      "tts_voice_note": "No Kyrgyz neural voice in Edge/Azure; Kazakh (closest Cyrillic Turkic) used for KY narration. Listen buttons stay visible but disabled site-wide until AUDIO_CONTROLS_ENABLED is flipped in assets/site.js."
     }
   ]
 }

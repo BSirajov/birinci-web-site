@@ -7,6 +7,14 @@ import os
 # publish tree and from the public XML sitemap unless explicitly enabled.
 PUBLISH_DISCOVERIES_ENV = "BIRINCI_PUBLISH_DISCOVERIES"
 
+# Story/article MP3s and audio/ folders stay in locale trees for local
+# development and testing, but build_deployment.py never copies them into
+# deployment/ while listen UI remains off (AUDIO_CONTROLS_ENABLED=false).
+# Re-enable publish only after stories/articles reach professional quality
+# and audio controls are turned back on — then drop audio from IGNORE_PUBLISH
+# in tools/build_deployment.py (and flip this flag).
+OMIT_AUDIO_FROM_PUBLISH = True
+
 
 def publish_discoveries_enabled(*, flag: bool | None = None) -> bool:
     """Return whether Discoveries should appear in public SEO / deployment.

@@ -212,31 +212,35 @@
     const audioLabel = escapeHtml(tUi("story_audio_label", "Audio"));
     const listenTip = escapeHtml(tUi("listen", "Listen"));
     const stopTip = escapeHtml(tUi("stop", "Stop"));
+    const audioEnabled = window.__BIRINCI_AUDIO_CONTROLS_ENABLED__ === true;
+    const disabledAttrs = audioEnabled ? "" : ' disabled aria-disabled="true"';
     const audioHtml =
-      code === "ky"
-        ? ""
-        : '<div class="sc-col__audio" role="group" aria-label="' +
-          audioLabel +
-          '">' +
-          '<button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-sc-tts="listen" data-lang="' +
-          code +
-          '" aria-pressed="false" title="' +
-          listenTip +
-          '" aria-label="' +
-          listenTip +
-          '">' +
-          VIEW_ICONS.listen +
-          "</button>" +
-          '<button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-sc-tts="stop" data-lang="' +
-          code +
-          '" aria-pressed="true" title="' +
-          stopTip +
-          '" aria-label="' +
-          stopTip +
-          '">' +
-          VIEW_ICONS.stop +
-          "</button>" +
-          "</div>";
+      '<div class="sc-col__audio" role="group" aria-label="' +
+      audioLabel +
+      '">' +
+      '<button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-sc-tts="listen" data-lang="' +
+      code +
+      '" aria-pressed="false" title="' +
+      listenTip +
+      '" aria-label="' +
+      listenTip +
+      '"' +
+      disabledAttrs +
+      ">" +
+      VIEW_ICONS.listen +
+      "</button>" +
+      '<button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-sc-tts="stop" data-lang="' +
+      code +
+      '" aria-pressed="true" title="' +
+      stopTip +
+      '" aria-label="' +
+      stopTip +
+      '"' +
+      disabledAttrs +
+      ">" +
+      VIEW_ICONS.stop +
+      "</button>" +
+      "</div>";
     const showImage = !!(story && story.stem && story.hasImage !== false);
     const alt = tUi("illustration_alt", "{title} illustration").replace(
       "{title}",

@@ -541,6 +541,7 @@
     const onColumnAudio = (event) => {
       const btn = event.target.closest("[data-sc-tts]");
       if (!btn || !els.grid || !els.grid.contains(btn)) return;
+      if (window.__BIRINCI_AUDIO_CONTROLS_ENABLED__ !== true) return;
       const mode = btn.getAttribute("data-sc-tts");
       const code = btn.getAttribute("data-lang");
       if (!code) return;

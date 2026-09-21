@@ -29,12 +29,28 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   )
     .toLowerCase()
     .split(/[-_]/)[0];
-  const audioFlagsForLang = (code) => {
-    const lang = String(code || "az")
-      .toLowerCase()
-      .split(/[-_]/)[0];
-    const on = lang !== "ky";
-    return { stories: on, discoveries: on };
+  // Flip to true when suitable TTS voices are ready. One change re-enables
+  // Listen/Stop for Wisdom Stories and Discoveries (all locales).
+  const AUDIO_CONTROLS_ENABLED = false;
+  window.__BIRINCI_AUDIO_CONTROLS_ENABLED__ = AUDIO_CONTROLS_ENABLED;
+  // Visibility is always on; AUDIO_CONTROLS_ENABLED gates interactivity only.
+  let SHOW_AUDIO_CONTROLS = true;
+  let SHOW_DISCOVERY_LISTEN = true;
+  const applyAudioFlags = () => {
+    SHOW_AUDIO_CONTROLS = true;
+    SHOW_DISCOVERY_LISTEN = true;
+  };
+  const audioControlDisabledAttrs = () =>
+    AUDIO_CONTROLS_ENABLED ? "" : ' disabled aria-disabled="true"';
+  const setAudioButtonEnabled = (el, enabled) => {
+    if (!el || !el.setAttribute) return;
+    if (enabled) {
+      el.removeAttribute("disabled");
+      el.removeAttribute("aria-disabled");
+    } else {
+      el.setAttribute("disabled", "");
+      el.setAttribute("aria-disabled", "true");
+    }
   };
   let LOCALE_TAG = I18N.lang || document.documentElement.lang || "az";
   const catalogLocale = String(LOCALE_TAG || "az")
@@ -52,16 +68,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   const NUMBERED_LABEL_RE = /^(?:§\s*)?\d+(?:\.\d+)*\.?\s+/;
   const visibleCatalogLabel = (text) =>
     String(text || "").replace(NUMBERED_LABEL_RE, "").trim();
-  // Ignore stale i18n `show_audio_controls: false` from older Hostinger uploads.
-  // Listen stays on for AZ/EN/RU even when that flag is still false on the live site.
-  let SHOW_AUDIO_CONTROLS = audioFlagsForLang(PAGE_LANG).stories;
-  // No native Kyrgyz neural voice — keep Listen off on KY articles.
-  let SHOW_DISCOVERY_LISTEN = audioFlagsForLang(PAGE_LANG).discoveries;
-  const applyAudioFlags = (code) => {
-    const flags = audioFlagsForLang(code);
-    SHOW_AUDIO_CONTROLS = flags.stories;
-    SHOW_DISCOVERY_LISTEN = flags.discoveries;
-  };
 
   /**
    * iOS/Android phones only — not iPad, Android tablets, or desktop.
@@ -96,10 +102,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   };
   applyPhoneUiClass();
   window.__birinciIsPhoneDevice = isPhoneDevice;
-  // Temporary until localization review is done. Remove this class add to restore Discovery Listen/Audio.
-  if (document.documentElement.getAttribute("data-kt-page-id") === "discoveries-and-inventions") {
-    document.documentElement.classList.add("discovery-audio-hidden");
-  }
+  // Audio buttons stay visible; AUDIO_CONTROLS_ENABLED controls disabled state.
+  document.documentElement.classList.remove("discovery-audio-hidden");
 
   const isDiscoveriesCatalogPage = () =>
     !!document.body &&
@@ -125,47 +129,30 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   };
 
   const hideAudioChrome = (root = document) => {
-    const storyAllowsAudio = (story) => {
-      if (!story) return false;
-      // Locale-agnostic: Listen is shown whenever the locale enables story audio.
-      // playAudioStory uses the MP3 when data-audio exists; speakStory is fallback.
-      return SHOW_AUDIO_CONTROLS;
-    };
-    const cardAllowsAudio = (card) => {
-      if (!card) return false;
-      return SHOW_AUDIO_CONTROLS;
-    };
-    (root || document)
+    // Keep Listen/Stop visible on stories and discoveries; disable until voices are ready.
+    const scope = root || document;
+    scope
       .querySelectorAll(
-        "[data-story-tts], [data-tools-play-visible], [data-story-tts-note], .story-tts__note, [data-discovery-tts], .inventions-entry__tts, .tools-bar__field--listen"
+        ".story__action-group[hidden], .tools-bar__field[hidden], .text-lightbox__tts[hidden], .inventions-entry__tts[hidden], .sc-col__audio[hidden]"
       )
       .forEach((el) => {
-        const isDiscovery = !!(
-          el.closest(
-            "[data-discovery-tts], .inventions-entry__tts, .inventions-entry, .tools-bar--inventions, [data-tools='inventions']"
+        if (
+          el.querySelector(
+            "[data-story-tts], [data-discovery-tts], [data-article-tts], [data-tools-play-visible], [data-sc-tts]"
           )
-        );
-        if (isDiscovery) {
-          if (SHOW_DISCOVERY_LISTEN) return;
-        } else if (SHOW_AUDIO_CONTROLS) {
-          const story = el.closest("article.story");
-          if (story) {
-            if (storyAllowsAudio(story)) return;
-          } else {
-            const card = el.closest(".cat-card[data-stem], a.cat-card[data-stem]");
-            if (card) {
-              if (cardAllowsAudio(card)) return;
-            } else {
-              // Page-level play-visible / listen field.
-              return;
-            }
-          }
+        ) {
+          el.hidden = false;
+          el.removeAttribute("hidden");
         }
-        const group = el.closest(
-          ".story__action-group, .tools-bar__field, .text-lightbox__tts, .inventions-entry__tts"
-        );
-        if (group) group.hidden = true;
-        else el.hidden = true;
+      });
+    scope
+      .querySelectorAll(
+        "[data-story-tts], [data-discovery-tts], [data-article-tts], [data-tools-play-visible], [data-sc-tts], [data-lightbox-tts]"
+      )
+      .forEach((el) => {
+        el.hidden = false;
+        el.removeAttribute("hidden");
+        setAudioButtonEnabled(el, AUDIO_CONTROLS_ENABLED);
       });
   };
   const liveI18n = () => window.__BIRINCI_I18N__ || I18N;
@@ -1258,11 +1245,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       .replace(/"/g, "&quot;")
       .replace(/</g, "&lt;");
   const mountStoryTts = () => {
-    if (!SHOW_AUDIO_CONTROLS) return;
+    applyAudioFlags();
     const listen = tUi("listen", "Mətni dinlə");
     const stop = tUi("stop", "Dayandır");
     const audioLabel = tUi("story_audio_label", "Səs");
-    // All audio-enabled locales: mount Listen. Missing MP3 → browser TTS in speakStory.
+    const disabledAttrs = audioControlDisabledAttrs();
+    // Always mount Listen (visible). AUDIO_CONTROLS_ENABLED gates clicks.
     document.querySelectorAll("article.story").forEach((story) => {
       const actions = story.querySelector(".story__actions");
       if (!actions || actions.querySelector("[data-story-tts]")) return;
@@ -1271,8 +1259,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         <div class="story__action-group">
           <span class="tools-bar__label">${escListen(audioLabel)}</span>
           <div class="tools-bar__views" role="group" aria-label="${escListen(audioLabel)}">
-            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="listen" aria-pressed="false" title="${escListen(listen)}" aria-label="${escListen(listen)}">${STORY_ICONS.listen}</button>
-            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="stop" aria-pressed="true" title="${escListen(stop)}" aria-label="${escListen(stop)}">${STORY_ICONS.stop}</button>
+            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="listen" aria-pressed="false" title="${escListen(listen)}" aria-label="${escListen(listen)}"${disabledAttrs}>${STORY_ICONS.listen}</button>
+            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="stop" aria-pressed="true" title="${escListen(stop)}" aria-label="${escListen(stop)}"${disabledAttrs}>${STORY_ICONS.stop}</button>
           </div>
         </div>`;
       const group = wrap.firstElementChild;
@@ -1323,8 +1311,10 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       btn.title = listen;
       btn.setAttribute("aria-label", listen);
       btn.innerHTML = STORY_ICONS.listen;
+      setAudioButtonEnabled(btn, AUDIO_CONTROLS_ENABLED);
       card.appendChild(btn);
     });
+    hideAudioChrome(document);
     if (typeof window.__birinciSyncPlayVisibleUi === "function") {
       window.__birinciSyncPlayVisibleUi();
     }
@@ -3015,23 +3005,21 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   };
 
   const syncAudioChromeForLang = () => {
-    applyAudioFlags(liveI18n().lang || LOCALE_TAG || PAGE_LANG);
-    if (SHOW_AUDIO_CONTROLS) {
-      document.querySelectorAll(".story__action-group[hidden], .tools-bar__field[hidden], .text-lightbox__tts[hidden]").forEach((el) => {
-        if (el.querySelector("[data-story-tts], [data-tools-play-visible]")) {
-          if (
-            el.hasAttribute("data-inventions-list-only") &&
-            !document.body.classList.contains("inventions-view-list")
-          ) {
-            return;
-          }
-          el.hidden = false;
-          el.removeAttribute("hidden");
+    applyAudioFlags();
+    document.querySelectorAll(".story__action-group[hidden], .tools-bar__field[hidden], .text-lightbox__tts[hidden]").forEach((el) => {
+      if (el.querySelector("[data-story-tts], [data-tools-play-visible], [data-discovery-tts]")) {
+        if (
+          el.hasAttribute("data-inventions-list-only") &&
+          !document.body.classList.contains("inventions-view-list")
+        ) {
+          return;
         }
-      });
-      ensureStoryListenButtons(document);
-      ensurePageListenButtons();
-    }
+        el.hidden = false;
+        el.removeAttribute("hidden");
+      }
+    });
+    ensureStoryListenButtons(document);
+    ensurePageListenButtons();
     hideAudioChrome(document);
   };
 
@@ -6448,20 +6436,18 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const audioLabel = escapeHtml(tUi("story_audio_label", "Səsləndir"));
       const imageLabel = escapeHtml(tUi("story_image_label", "Şəkil"));
       const textLabel = escapeHtml(tUi("story_text_label", "Mətn"));
-      const audioToggle = SHOW_AUDIO_CONTROLS
-          ? `
+      const audioToggle = `
           <div class="story__action-group">
             <span class="tools-bar__label">${audioLabel}</span>
             <div class="tools-bar__views" role="group" aria-label="${audioLabel}">
-            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="listen" aria-pressed="false" title="${escapeHtml(tUi("listen", "Mətni dinlə"))}" aria-label="${escapeHtml(tUi("listen", "Mətni dinlə"))}">
+            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="listen" aria-pressed="false" title="${escapeHtml(tUi("listen", "Mətni dinlə"))}" aria-label="${escapeHtml(tUi("listen", "Mətni dinlə"))}"${audioControlDisabledAttrs()}>
               ${STORY_ICONS.listen}
             </button>
-            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="stop" aria-pressed="true" title="${escapeHtml(tUi("stop", "Dayandır"))}" aria-label="${escapeHtml(tUi("stop", "Dayandır"))}">
+            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-tts-mode="stop" aria-pressed="true" title="${escapeHtml(tUi("stop", "Dayandır"))}" aria-label="${escapeHtml(tUi("stop", "Dayandır"))}"${audioControlDisabledAttrs()}>
               ${STORY_ICONS.stop}
             </button>
             </div>
-          </div>`
-          : "";
+          </div>`;
       const figureToggle = story.hasImage
         ? `
           <div class="story__action-group">
@@ -8289,10 +8275,11 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const listen = tUi("listen", "Mətni dinlə");
       const stop = tUi("stop", "Dayandır");
       const stemAttr = stem ? ` data-story-stem="${escAttr(stem)}"` : "";
+      const disabledAttrs = audioControlDisabledAttrs();
       return `
         <div class="tools-bar__views inventions-tts-pair" role="group" aria-label="${escAttr(listen)}">
-          <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-discovery-tts data-tts-mode="listen"${stemAttr} aria-pressed="false" title="${escAttr(listen)}" aria-label="${escAttr(listen)}">${STORY_ICONS.listen}</button>
-          <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-discovery-tts data-tts-mode="stop"${stemAttr} aria-pressed="true" title="${escAttr(stop)}" aria-label="${escAttr(stop)}">${STORY_ICONS.stop}</button>
+          <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-discovery-tts data-tts-mode="listen"${stemAttr} aria-pressed="false" title="${escAttr(listen)}" aria-label="${escAttr(listen)}"${disabledAttrs}>${STORY_ICONS.listen}</button>
+          <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-discovery-tts data-tts-mode="stop"${stemAttr} aria-pressed="true" title="${escAttr(stop)}" aria-label="${escAttr(stop)}"${disabledAttrs}>${STORY_ICONS.stop}</button>
         </div>
         <p class="story-tts__note" data-story-tts-note hidden></p>`;
     };
@@ -8308,7 +8295,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     document.addEventListener("click", (event) => {
       const playVisibleBtn = event.target.closest("[data-tools-play-visible]");
       if (playVisibleBtn) {
-        if (!SHOW_AUDIO_CONTROLS) return;
+        if (!AUDIO_CONTROLS_ENABLED || !SHOW_AUDIO_CONTROLS) return;
         event.preventDefault();
         event.stopPropagation();
         const mode = playVisibleBtn.getAttribute("data-tts-mode") || "listen";
@@ -8324,6 +8311,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       if (!btn) return;
       event.preventDefault();
       event.stopPropagation();
+      if (!AUDIO_CONTROLS_ENABLED) return;
       if (Date.now() < ignoreClicksUntil) return;
       if (!SHOW_DISCOVERY_LISTEN && btn.hasAttribute("data-discovery-tts")) return;
       if (!SHOW_AUDIO_CONTROLS && !btn.hasAttribute("data-discovery-tts")) return;
@@ -8663,15 +8651,16 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       if (closeBtn) closeBtn.setAttribute("aria-label", tUi("close", "Bağla"));
       const ttsWrap = overlay.querySelector(".text-lightbox__tts");
       if (ttsWrap) {
-        const show = liveI18n().show_audio_controls !== false;
-        ttsWrap.hidden = !show;
-        if (show) ttsWrap.removeAttribute("hidden");
-        else ttsWrap.setAttribute("hidden", "");
+        ttsWrap.hidden = false;
+        ttsWrap.removeAttribute("hidden");
         const label = ttsWrap.querySelector(".tools-bar__label");
         const views = ttsWrap.querySelector(".tools-bar__views");
         const audio = tUi("story_audio_label", "Səsləndir");
         if (label) label.textContent = audio;
         if (views) views.setAttribute("aria-label", audio);
+        ttsWrap.querySelectorAll("[data-story-tts], [data-lightbox-tts]").forEach((el) => {
+          setAudioButtonEnabled(el, AUDIO_CONTROLS_ENABLED);
+        });
       }
       ttsBtns.forEach((el) => {
         const mode = el.getAttribute("data-tts-mode");
@@ -8689,7 +8678,30 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const titleNode =
         story.querySelector(".story__title, .card-title") || story.querySelector("h2");
       titleEl.textContent = titleNode ? titleNode.textContent.trim() : tUi("stories_nav", "Hekayə");
-      bodyEl.innerHTML = textEl.innerHTML;
+      bodyEl.innerHTML = "";
+      if (isStoryFigureVisible(story)) {
+        loadStoryIllustration(story);
+        const srcImg = storyIllustrationImg(story);
+        const src =
+          (srcImg && (srcImg.getAttribute("src") || "").trim()) ||
+          storyIllustrationUrl(srcImg);
+        if (src) {
+          const figure = document.createElement("figure");
+          figure.className = "text-lightbox__figure";
+          const img = document.createElement("img");
+          img.src = src;
+          img.alt = (srcImg && srcImg.getAttribute("alt")) || "";
+          img.width = Number(srcImg && srcImg.getAttribute("width")) || 1536;
+          img.height = Number(srcImg && srcImg.getAttribute("height")) || 1024;
+          img.decoding = "async";
+          figure.appendChild(img);
+          bodyEl.appendChild(figure);
+        }
+      }
+      const copy = document.createElement("div");
+      copy.className = "text-lightbox__copy";
+      copy.innerHTML = textEl.innerHTML;
+      bodyEl.appendChild(copy);
       activeStem = ((story.dataset.stem || story.id) || "").trim();
       ttsBtns.forEach((el) => {
         if (activeStem) el.setAttribute("data-story-stem", activeStem);
@@ -8702,7 +8714,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         ttsNote.hidden = true;
         ttsNote.textContent = "";
       }
-      refreshAzLexicon(bodyEl);
+      refreshAzLexicon(copy);
     };
 
     const ensureOverlay = () => {
@@ -8721,10 +8733,10 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
             <div class="story__action-group">
               <span class="tools-bar__label">${tUi("story_audio_label", "Səsləndir")}</span>
               <div class="tools-bar__views" role="group" aria-label="${tUi("story_audio_label", "Səsləndir")}">
-            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-lightbox-tts data-tts-mode="listen" aria-pressed="false" title="${tUi("listen", "Mətni dinlə")}" aria-label="${tUi("listen", "Mətni dinlə")}">
+            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-lightbox-tts data-tts-mode="listen" aria-pressed="false" title="${tUi("listen", "Mətni dinlə")}" aria-label="${tUi("listen", "Mətni dinlə")}"${audioControlDisabledAttrs()}>
               ${STORY_ICONS.listen}
             </button>
-            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-lightbox-tts data-tts-mode="stop" aria-pressed="true" title="${tUi("stop", "Dayandır")}" aria-label="${tUi("stop", "Dayandır")}">
+            <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" data-story-tts data-lightbox-tts data-tts-mode="stop" aria-pressed="true" title="${tUi("stop", "Dayandır")}" aria-label="${tUi("stop", "Dayandır")}"${audioControlDisabledAttrs()}>
               ${STORY_ICONS.stop}
             </button>
               </div>

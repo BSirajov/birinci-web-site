@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 from i18n_config import SUPPORTED_LANGS  # noqa: E402
 from publish_policy import (  # noqa: E402
+    OMIT_AUDIO_FROM_PUBLISH,
     PUBLISH_DISCOVERIES_ENV,
     publish_discoveries_enabled,
 )
@@ -34,12 +35,37 @@ DISCOVERY_ONLY_ASSETS = (
 )
 
 # Word/PDF sources are local authoring inputs — never publish them.
-IGNORE_PUBLISH = shutil.ignore_patterns(
+# Audio media (MP3s and audio/ trees under wisdom-stories / discovery-articles)
+# stays in locale trees for local work but is omitted from deployment/ while
+# OMIT_AUDIO_FROM_PUBLISH is True (listen UI gated off until copy is ready).
+_IGNORE_PUBLISH_PATTERNS = [
     "*.pdf",
     "*.PDF",
     "*.docx",
     "*.DOCX",
     "Age10-14*",
+]
+if OMIT_AUDIO_FROM_PUBLISH:
+    _IGNORE_PUBLISH_PATTERNS.extend(
+        (
+            "audio",
+            "*.mp3",
+            "*.MP3",
+            "*.ogg",
+            "*.OGG",
+            "*.wav",
+            "*.WAV",
+            "*.m4a",
+            "*.M4A",
+            "*.aac",
+            "*.AAC",
+            "*.flac",
+            "*.FLAC",
+        )
+    )
+IGNORE_PUBLISH = shutil.ignore_patterns(*_IGNORE_PUBLISH_PATTERNS)
+AUDIO_MEDIA_SUFFIXES = frozenset(
+    {".mp3", ".ogg", ".wav", ".m4a", ".aac", ".flac"}
 )
 
 
@@ -57,8 +83,7 @@ def copy_locale(lang: str, *, publish_discoveries: bool) -> None:
         src = src_root / name
         if not src.is_dir():
             raise SystemExit(f"Missing required folder: {src}")
-        ignore = IGNORE_PUBLISH if name == "assets" else None
-        shutil.copytree(src, dst / name, ignore=ignore)
+        shutil.copytree(src, dst / name, ignore=IGNORE_PUBLISH)
     for group in (CONTENT_DIRS, OPTIONAL_PAGE_DIRS, OPTIONAL_DIRS):
         for name in group:
             if not publish_discoveries and name in DISCOVERY_LOCALE_DIRS:
@@ -331,6 +356,20 @@ def main() -> None:
         + list(DEPLOY.rglob("*.docx"))
         + list(DEPLOY.rglob("*.DOCX"))
     )
+    if OMIT_AUDIO_FROM_PUBLISH:
+        print("audio: omitted from publish tree (MP3s / audio/ folders)")
+        audio_dirs = [p for p in DEPLOY.rglob("audio") if p.is_dir()]
+        audio_media = [
+            p
+            for p in DEPLOY.rglob("*")
+            if p.is_file() and p.suffix.lower() in AUDIO_MEDIA_SUFFIXES
+        ]
+        if audio_dirs or audio_media:
+            sample = (audio_dirs + audio_media)[:5]
+            raise SystemExit(
+                "Publish tree unexpectedly contains audio media: "
+                + ", ".join(str(p.relative_to(DEPLOY)) for p in sample)
+            )
     print(f"deployment: {DEPLOY} (local publish copy, not committed)")
     print(f"files={files} size_mb={size_mb:.1f}")
     if blocked:

@@ -285,11 +285,20 @@ body.inventions-preview-page {
   text-align: center;
 }
 
+.inventions-entry-title:has(.story-lang-switcher) {
+  padding-right: 11.5rem;
+}
+
 .inventions-entry-title:has(.story-multilingual-btn) {
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  text-align: start;
-  padding-inline-end: 0.65rem;
+  text-align: center;
+  padding-left: 3.4rem;
+  padding-right: 3.4rem;
+}
+
+.inventions-entry-title:has(.story-multilingual-btn):has(.story-lang-switcher) {
+  padding-right: 11.5rem;
 }
 
 .inventions-entry-title .inventions-entry-name {
@@ -297,7 +306,7 @@ body.inventions-preview-page {
 }
 
 .inventions-entry-title:has(.story-multilingual-btn) .inventions-entry-name {
-  text-align: start;
+  text-align: center;
   min-width: 0;
 }
 
@@ -890,13 +899,17 @@ body.inventions-view-cards .inventions-cards {
     margin: -18px -16px 12px;
     padding: 14px 16px;
   }
+  .inventions-entry-title:has(.story-lang-switcher) {
+    padding-right: 16px;
+  }
   .inventions-entry-title:has(.story-multilingual-btn) {
-    padding-inline-end: 0.45rem;
+    padding-left: 16px;
   }
   .inventions-entry-title .inventions-entry-name {
     flex: 1 1 10rem;
     min-width: 0;
     width: auto;
+    text-align: center;
   }
 }
 

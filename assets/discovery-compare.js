@@ -3,8 +3,7 @@
 (function () {
   "use strict";
 
-  // Temporary until localization review is done. Remove this class add to restore Discovery compare Listen.
-  document.documentElement.classList.add("discovery-audio-hidden");
+  document.documentElement.classList.remove("discovery-audio-hidden");
 
   const CW = window.__birinciCompareWindow;
   if (!CW || typeof window.__birinciBootCompareWindow !== "function") {
@@ -230,31 +229,36 @@
     const audioLabel = escapeHtml(tUi("story_audio_label", "Audio"));
     const listenTip = escapeHtml(tUi("listen", "Listen"));
     const stopTip = escapeHtml(tUi("stop", "Stop"));
-    const audioHtml =
-      !article || code === "ky"
-        ? ""
-        : '<div class="sc-col__audio" role="group" aria-label="' +
-          audioLabel +
-          '">' +
-          '<button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-sc-tts="listen" data-lang="' +
-          code +
-          '" aria-pressed="false" title="' +
-          listenTip +
-          '" aria-label="' +
-          listenTip +
-          '">' +
-          VIEW_ICONS.listen +
-          "</button>" +
-          '<button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-sc-tts="stop" data-lang="' +
-          code +
-          '" aria-pressed="true" title="' +
-          stopTip +
-          '" aria-label="' +
-          stopTip +
-          '">' +
-          VIEW_ICONS.stop +
-          "</button>" +
-          "</div>";
+    const audioEnabled = window.__BIRINCI_AUDIO_CONTROLS_ENABLED__ === true;
+    const disabledAttrs = audioEnabled ? "" : ' disabled aria-disabled="true"';
+    const audioHtml = !article
+      ? ""
+      : '<div class="sc-col__audio" role="group" aria-label="' +
+        audioLabel +
+        '">' +
+        '<button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-sc-tts="listen" data-lang="' +
+        code +
+        '" aria-pressed="false" title="' +
+        listenTip +
+        '" aria-label="' +
+        listenTip +
+        '"' +
+        disabledAttrs +
+        ">" +
+        VIEW_ICONS.listen +
+        "</button>" +
+        '<button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-sc-tts="stop" data-lang="' +
+        code +
+        '" aria-pressed="true" title="' +
+        stopTip +
+        '" aria-label="' +
+        stopTip +
+        '"' +
+        disabledAttrs +
+        ">" +
+        VIEW_ICONS.stop +
+        "</button>" +
+        "</div>";
     return (
       '<article class="sc-col" data-lang="' +
       code +

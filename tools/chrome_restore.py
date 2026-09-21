@@ -97,7 +97,10 @@ def install_resilient_path_writes() -> None:
 DISABLE_DISCOVERY_VIDEOS = True
 
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
-SITE_ASSET_VERSION = "20260917discLang4"
+SITE_ASSET_VERSION = "20260921modlead"
+# Keep in sync with assets/site.js AUDIO_CONTROLS_ENABLED.
+# False = bake Listen/Stop as visible + disabled until suitable voices are ready.
+AUDIO_CONTROLS_ENABLED = False
 SITE_PUBLIC_ORIGIN = "https://birinci.cloud"
 LIVE_LANGS = ("az", "en", "ru", "ky")
 OG_IMAGE_URL = f"{SITE_PUBLIC_ORIGIN}/assets/pearl-hero.webp"
@@ -1765,6 +1768,7 @@ _CAT_STORY_CARD_RE = re.compile(
 
 def _inject_card_listen_buttons(markup: str, listen: str) -> str:
     """Put a Listen control on category story cards (the default cards view)."""
+    disabled = "" if AUDIO_CONTROLS_ENABLED else ' disabled aria-disabled="true"'
 
     def repl(match: re.Match[str]) -> str:
         open_tag, stem, body, close = match.group(1), match.group(2), match.group(3), match.group(4)
@@ -1773,7 +1777,7 @@ def _inject_card_listen_buttons(markup: str, listen: str) -> str:
         btn = (
             f'<button type="button" class="story-tts cat-card__listen" '
             f'data-story-tts data-tts-mode="listen" data-story-stem="{html.escape(stem)}" '
-            f'aria-pressed="false" title="{listen}" aria-label="{listen}">'
+            f'aria-pressed="false" title="{listen}" aria-label="{listen}"{disabled}>'
             f"{_LISTEN_ICON}</button>"
         )
         return f"{open_tag}{body}{btn}{close}"
@@ -1907,24 +1911,23 @@ def strip_story_listen_chrome(markup: str) -> str:
 def ensure_story_listen_markup(markup: str, lang: str) -> str:
     """Bake Listen buttons into static story HTML so they show without JS.
 
-    AZ keeps MP3 playback. EN/RU keep Listen even without MP3s (browser TTS).
-    KY still hides story audio controls (no reliable native voice).
+    Buttons are always visible (including KY). Interactivity is gated by
+    AUDIO_CONTROLS_ENABLED in assets/site.js (disabled until voices are ready).
     """
-    if lang == "ky":
-        return strip_story_listen_chrome(markup)
     labels = _story_listen_labels(lang)
     audio = html.escape(labels["audio"])
     listen = html.escape(labels["listen"])
     stop = html.escape(labels["stop"])
+    disabled = "" if AUDIO_CONTROLS_ENABLED else ' disabled aria-disabled="true"'
     group = (
         f'          <div class="story__action-group">\n'
         f'            <span class="tools-bar__label">{audio}</span>\n'
         f'            <div class="tools-bar__views" role="group" aria-label="{audio}">\n'
         f'              <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" '
-        f'data-story-tts data-tts-mode="listen" aria-pressed="false" title="{listen}" aria-label="{listen}">'
+        f'data-story-tts data-tts-mode="listen" aria-pressed="false" title="{listen}" aria-label="{listen}"{disabled}>'
         f"{_LISTEN_ICON}</button>\n"
         f'              <button type="button" class="story-tts tools-bar__view-btn tools-bar__view-btn--icon" '
-        f'data-story-tts data-tts-mode="stop" aria-pressed="true" title="{stop}" aria-label="{stop}">'
+        f'data-story-tts data-tts-mode="stop" aria-pressed="true" title="{stop}" aria-label="{stop}"{disabled}>'
         f"{_STOP_ICON}</button>\n"
         f"            </div>\n"
         f"          </div>\n"
@@ -1958,7 +1961,28 @@ def ensure_story_listen_markup(markup: str, lang: str) -> str:
             cursor = insert_at
     markup = "".join(pieces)
     markup = _inject_card_listen_buttons(markup, listen)
+    markup = _sync_story_tts_disabled_attrs(markup)
     return markup
+
+
+_TTS_BUTTON_RE = re.compile(
+    r"<button\b([^>]*\b(?:data-story-tts|data-discovery-tts|data-article-tts|data-lightbox-tts)\b[^>]*)>",
+    re.I,
+)
+
+
+def _sync_story_tts_disabled_attrs(markup: str) -> str:
+    """Keep baked Listen/Stop buttons aligned with AUDIO_CONTROLS_ENABLED."""
+
+    def repl(match: re.Match[str]) -> str:
+        attrs = match.group(1)
+        attrs = re.sub(r"\s+disabled(?:\s*=\s*(?:\"[^\"]*\"|'[^']*'|[^\s>]+))?", "", attrs, flags=re.I)
+        attrs = re.sub(r"\s+aria-disabled\s*=\s*(?:\"[^\"]*\"|'[^']*'|[^\s>]+)", "", attrs, flags=re.I)
+        if not AUDIO_CONTROLS_ENABLED:
+            attrs = attrs.rstrip() + ' disabled aria-disabled="true"'
+        return f"<button{attrs}>"
+
+    return _TTS_BUTTON_RE.sub(repl, markup)
 
 
 def slim_discoveries_search(html: str) -> str:

@@ -516,11 +516,7 @@ body.sc-page[data-sc-show-illus="false"] .sc-col__figure {
   gap: 0.15rem;
 }
 
-/* Temporary until localization review is done. Delete this rule to restore Discovery compare Listen. */
-html.discovery-audio-hidden .sc-col__audio {
-  display: none !important;
-}
-
+/* Compare-column audio stays visible; AUDIO_CONTROLS_ENABLED gates clicks. */
 .sc-col__audio .tools-bar__view-btn {
   display: inline-flex;
   align-items: center;
@@ -540,6 +536,19 @@ html.discovery-audio-hidden .sc-col__audio {
 
 .sc-col__audio .tools-bar__view-btn:hover {
   color: var(--sc-blue);
+}
+
+.sc-col__audio .tools-bar__view-btn:disabled,
+.sc-col__audio .tools-bar__view-btn[aria-disabled="true"] {
+  opacity: 0.42;
+  cursor: not-allowed;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.sc-col__audio .tools-bar__view-btn:disabled:hover,
+.sc-col__audio .tools-bar__view-btn[aria-disabled="true"]:hover {
+  color: var(--sc-ink-soft);
 }
 
 .sc-col__audio .tools-bar__view-btn[aria-pressed="true"] {

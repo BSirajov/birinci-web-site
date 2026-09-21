@@ -41,6 +41,16 @@ By default:
 
 Locale trees in the repo still keep Discoveries for local preview (nav/pages). Human `{lang}/sitemap.html` may still list Discoveries locally; the public XML sitemap does not until you opt in.
 
+## Audio policy (default: excluded)
+
+`build_deployment.py` does **not** copy story/article audio into `deployment/`:
+
+- skips `audio/` folders (e.g. `{lang}/wisdom-stories/audio/`)
+- skips MP3 and other audio media files
+- leaves audio intact in locale trees for local development
+
+Listen UI stays off (`AUDIO_CONTROLS_ENABLED=false`) until stories/articles reach professional language quality. Do not re-enable publish of audio until that gate is lifted (see `OMIT_AUDIO_FROM_PUBLISH` in `tools/publish_policy.py`).
+
 To publish Discoveries intentionally:
 
 ```bash
@@ -69,6 +79,7 @@ Do not ship `api/.env` or mailbox credential files.
 ## Quick checklist
 
 - [ ] `python tools/build_deployment.py` (Discoveries flag deliberate)
+- [ ] Confirm `deployment/` has no `.mp3` / `audio/` trees (default policy)
 - [ ] `python tools/full_site_qa.py` → FAIL=0 (or `--structural` for a fast gate)
 - [ ] Upload **only** `deployment/` contents to web root
 - [ ] Live sitemap matches Discoveries publish policy
