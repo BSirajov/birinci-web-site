@@ -1,0 +1,66 @@
+{
+  "count": 3,
+  "asset_rule": "Save final art as WebP 1536x1024 at output_webp; HTML paths unchanged",
+  "text_rule": "On-image English must match Exact quotes exactly",
+  "items": [
+    {
+      "stem": "what-is-loyalty",
+      "title": "What Is Loyalty?",
+      "moral": "Moral: Loyalty means staying present in hard times. It is shown through actions, not declarations.",
+      "body": [
+        "It is not forgetting,",
+        "Not turning your back on a difficult day,",
+        "Not closing the doors...",
+        "Not laughing when your friend is crying,",
+        "Loyalty is sharing every pain with him...",
+        "It is not just a word...",
+        "Loyalty means being with your friend,",
+        "Balm for the wounded,",
+        "Water for the thirsty,",
+        "Above all, loyalty is understanding: not discarding a rose because it has thorns."
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/what-is-loyalty.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: what-is-loyalty\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: What Is Loyalty?\nBODY[1]: It is not forgetting,\nBODY[2]: Not turning your back on a difficult day,\nBODY[3]: Not closing the doors...\nBODY[4]: Not laughing when your friend is crying,\nBODY[5]: Loyalty is sharing every pain with him...\nBODY[6]: It is not just a word...\nBODY[7]: Loyalty means being with your friend,\nBODY[8]: Balm for the wounded,\nBODY[9]: Water for the thirsty,\nBODY[10]: Above all, loyalty is understanding: not discarding a rose because it has thorns.\nMORAL: Moral: Loyalty means staying present in hard times. It is shown through actions, not declarations.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "expressions-you-should-stay-away-from",
+      "title": "Words to Avoid",
+      "moral": "Moral: Words can hurt the person we love the most. In the family, we should use the language of respect and requests, not orders and insults.",
+      "body": [
+        "Avoid these phrases, especially in the family, and never use them against your spouse:",
+        "“Don’t talk nonsense!”",
+        "This dismisses your spouse’s thoughts and feelings. Instead, try saying gently, “I see it differently” or “I don’t entirely agree.” You can disagree while showing that their opinion matters.",
+        "“Don’t exaggerate!”",
+        "This can make your spouse feel that their concerns are being dismissed. Instead, ask, “Can you tell me more about what’s worrying you and how you feel?” That opens the way to understanding.",
+        "“Why can’t you be more like their husband or wife?”",
+        "Comparing your spouse with someone else brings an outsider into your relationship and can leave your partner feeling hurt, unloved, and unable to trust you. Say clearly what you need rather than making comparisons.",
+        "“You don’t understand!”",
+        "This can sound insulting and dismissive. If you do not want to discuss a subject, say so respectfully: “Please don’t be hurt, but I’d rather not talk about this now. Could we talk about something else?”",
+        "“Don’t go there, don’t talk to her, don’t do this, don’t wear that, don’t talk like that, bring this, take that!”",
+        "Your spouse is your partner, not your subordinate. Discuss your concerns respectfully. Make requests rather than issuing orders, and remember to say “please.”"
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/expressions-you-should-stay-away-from.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: expressions-you-should-stay-away-from\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Words to Avoid\nBODY[1]: Avoid these phrases, especially in the family, and never use them against your spouse:\nBODY[2]: “Don’t talk nonsense!”\nBODY[3]: This dismisses your spouse’s thoughts and feelings. Instead, try saying gently, “I see it differently” or “I don’t entirely agree.” You can disagree while showing that their opinion matters.\nBODY[4]: “Don’t exaggerate!”\nBODY[5]: This can make your spouse feel that their concerns are being dismissed. Instead, ask, “Can you tell me more about what’s worrying you and how you feel?” That opens the way to understanding.\nBODY[6]: “Why can’t you be more like their husband or wife?”\nBODY[7]: Comparing your spouse with someone else brings an outsider into your relationship and can leave your partner feeling hurt, unloved, and unable to trust you. Say clearly what you need rather than making comparisons.\nBODY[8]: “You don’t understand!”\nBODY[9]: This can sound insulting and dismissive. If you do not want to discuss a subject, say so respectfully: “Please don’t be hurt, but I’d rather not talk about this now. Could we talk about something else?”\nBODY[10]: “Don’t go there, don’t talk to her, don’t do this, don’t wear that, don’t talk like that, bring this, take that!”\nBODY[11]: Your spouse is your partner, not your subordinate. Discuss your concerns respectfully. Make requests rather than issuing orders, and remember to say “please.”\nMORAL: Moral: Words can hurt the person we love the most. In the family, we should use the language of respect and requests, not orders and insults.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "forbidden-money",
+      "title": "Ill-Gotten Money",
+      "moral": "Moral: Money taken dishonestly brings no true benefit and may cost far more than it seems to offer. Leave what is not rightfully yours.",
+      "body": [
+        "One day, I saw a man drop some money in the street. Usually I would have called out, “You’ve dropped your money!” This time, temptation got the better of me. I picked it up and slipped it into my pocket.",
+        "When I got home, I told my wife the story.",
+        "“Add a little of our own and let’s go to the movies,” she said. I agreed, and we made plans for the weekend.",
+        "“You always promise, then change your mind,” she said. “Let’s buy the tickets online now.” So I did.",
+        "I work as a repairman. Soon afterward, a good customer called to offer me a job at his garden on Saturday. I asked whether I could come on Sunday, but he said it had to be Saturday. Of course, that was the day I had booked the movie. I lost a well-paid job.",
+        "When Saturday came, my wife and I were about to leave when her parents arrived unexpectedly.",
+        "I was ready to say, “Sorry, we’re off to the movies,” but my wife got in first. “We’re going to the movies—come with us!” There was nothing I could do.",
+        "My mother-in-law disliked public transportation, so we took a taxi. Naturally, I paid.",
+        "At the cinema, I bought two more tickets and popcorn for everyone. After all, the son-in-law had found money in the street; he could afford to treat them! I had spent less on meat for the feast than I spent on that popcorn. They soon finished it, so I bought more. My windfall was already costing me dearly, but the worst was still to come.",
+        "After the movie, I ran into an old acquaintance with whom I had a longstanding quarrel. Despite the presence of my in-laws, he insulted me. I lost my temper, and we began fighting. My father-in-law joined in. By the time the police arrived, my nose and his arm were broken. We settled the dispute at the station, but I still had to pay both our medical bills.",
+        "Recently, I saw a man buying a doner kebab. When the seller handed him his change, some coins fell to the ground. The man left them there. I couldn’t help myself. “Brother, if you won’t think of yourself, at least think of whoever finds that money! Please pick it up. Don’t bring trouble on someone else!”"
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/forbidden-money.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: forbidden-money\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Ill-Gotten Money\nBODY[1]: One day, I saw a man drop some money in the street. Usually I would have called out, “You’ve dropped your money!” This time, temptation got the better of me. I picked it up and slipped it into my pocket.\nBODY[2]: When I got home, I told my wife the story.\nBODY[3]: “Add a little of our own and let’s go to the movies,” she said. I agreed, and we made plans for the weekend.\nBODY[4]: “You always promise, then change your mind,” she said. “Let’s buy the tickets online now.” So I did.\nBODY[5]: I work as a repairman. Soon afterward, a good customer called to offer me a job at his garden on Saturday. I asked whether I could come on Sunday, but he said it had to be Saturday. Of course, that was the day I had booked the movie. I lost a well-paid job.\nBODY[6]: When Saturday came, my wife and I were about to leave when her parents arrived unexpectedly.\nBODY[7]: I was ready to say, “Sorry, we’re off to the movies,” but my wife got in first. “We’re going to the movies—come with us!” There was nothing I could do.\nBODY[8]: My mother-in-law disliked public transportation, so we took a taxi. Naturally, I paid.\nBODY[9]: At the cinema, I bought two more tickets and popcorn for everyone. After all, the son-in-law had found money in the street; he could afford to treat them! I had spent less on meat for the feast than I spent on that popcorn. They soon finished it, so I bought more. My windfall was already costing me dearly, but the worst was still to come.\nBODY[10]: After the movie, I ran into an old acquaintance with whom I had a longstanding quarrel. Despite the presence of my in-laws, he insulted me. I lost my temper, and we began fighting. My father-in-law joined in. By the time the police arrived, my nose and his arm were broken. We settled the dispute at the station, but I still had to pay both our medical bills.\nBODY[11]: Recently, I saw a man buying a doner kebab. When the seller handed him his change, some coins fell to the ground. The man left them there. I couldn’t help myself. “Brother, if you won’t think of yourself, at least think of whoever finds that money! Please pick it up. Don’t bring trouble on someone else!”\nMORAL: Moral: Money taken dishonestly brings no true benefit and may cost far more than it seems to offer. Leave what is not rightfully yours.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "count": 4,
+  "asset_rule": "Save final art as WebP 1536x1024 at output_webp; HTML paths unchanged",
+  "text_rule": "On-image Azerbaijani must match Exact quotes exactly (ə/ı/ğ/ö/ü/ş/ç)",
+  "items": [
+    {
+      "stem": "with-this-nation-the-world-can-be-conquered",
+      "title": "Bu millət ilə dünya fəth edilə bilər",
+      "moral": "İbrət: Əsl güc silahda deyil, xalqın dürüstlüyündə və halallığındadır. Torpaq almaq yox, könül fəth etmək əsl qələbədir.",
+      "body": [
+        "Bir gün padşah xalqın necə dolandığını görmək üçün libasını dəyişib şəhərə çıxdı. Bazarları gəzərək malların keyfiyyətini, qiymətləri, dükançıların güzəranını öyrənməyə başladı.",
+        "Padşah küçənin başındakı ilk dükana girdi. Salam verib:",
+        "— Mənə yarım batman yağ, yarım batman bal və bir az da pendir verin, — dedi.",
+        "Müştərini gülərüzlə qarşılayan dükan sahibi ədəblə salamı aldı və məmnuniyyətlə yarım batman yağ çəkdi. Yağı verərkən qarşısındakının padşah olduğunu bilmədən ona belə müraciət etdi:",
+        "— Ağam, arzu etsəniz, bal və pendiri də verə bilərəm. Ancaq mən bu yağı satmaqla artıq siftah — günün ilk satışını — etdim. Digər istəklərinizi hələ siftah etməmiş qarşıdakı qonşumdan alsanız, çox məmnun olaram.",
+        "Buna qəlbən sevinən padşah yağın pulunu ödəyib qarşı dükana keçdi. Buradan da yarım batman bal və pendir istədi. Dükanın yaşlı sahibi balı çəkdikdən sonra:",
+        "— Allaha şükür, sayənizdə bu gün də siftah etdik. Ancaq sizdən xahişim budur: pendiri məndən yox, bu yandakı dükandan alın. O hələ siftah etməyib, — dedi.",
+        "Gördüklərindən çox təsirlənən padşah yan dükana keçib alış-verişini etdikdən sonra:",
+        "— Bu millətdə bu cür yüksək əxlaq olandan sonra bütün dünyanı fəth etmək olar, — deyib xoşbəxt və məmnun halda bazarı tərk etdi."
+      ],
+      "docx": "az/wisdom-stories/with-this-nation-the-world-can-be-conquered-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/with-this-nation-the-world-can-be-conquered.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: with-this-nation-the-world-can-be-conquered\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Bu millət ilə dünya fəth edilə bilər\nBODY[1]: Bir gün padşah xalqın necə dolandığını görmək üçün libasını dəyişib şəhərə çıxdı. Bazarları gəzərək malların keyfiyyətini, qiymətləri, dükançıların güzəranını öyrənməyə başladı.\nBODY[2]: Padşah küçənin başındakı ilk dükana girdi. Salam verib:\nBODY[3]: — Mənə yarım batman yağ, yarım batman bal və bir az da pendir verin, — dedi.\nBODY[4]: Müştərini gülərüzlə qarşılayan dükan sahibi ədəblə salamı aldı və məmnuniyyətlə yarım batman yağ çəkdi. Yağı verərkən qarşısındakının padşah olduğunu bilmədən ona belə müraciət etdi:\nBODY[5]: — Ağam, arzu etsəniz, bal və pendiri də verə bilərəm. Ancaq mən bu yağı satmaqla artıq siftah — günün ilk satışını — etdim. Digər istəklərinizi hələ siftah etməmiş qarşıdakı qonşumdan alsanız, çox məmnun olaram.\nBODY[6]: Buna qəlbən sevinən padşah yağın pulunu ödəyib qarşı dükana keçdi. Buradan da yarım batman bal və pendir istədi. Dükanın yaşlı sahibi balı çəkdikdən sonra:\nBODY[7]: — Allaha şükür, sayənizdə bu gün də siftah etdik. Ancaq sizdən xahişim budur: pendiri məndən yox, bu yandakı dükandan alın. O hələ siftah etməyib, — dedi.\nBODY[8]: Gördüklərindən çox təsirlənən padşah yan dükana keçib alış-verişini etdikdən sonra:\nBODY[9]: — Bu millətdə bu cür yüksək əxlaq olandan sonra bütün dünyanı fəth etmək olar, — deyib xoşbəxt və məmnun halda bazarı tərk etdi.\nMORAL: İbrət: Əsl güc silahda deyil, xalqın dürüstlüyündə və halallığındadır. Torpaq almaq yox, könül fəth etmək əsl qələbədir.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "albrecht-durer",
+      "title": "Albrecht Dürer",
+      "moral": "İbrət: Hər uğurun arxasında çox vaxt görünməyən bir fədakarlıq dayanır. O fədakarlığı görmək və qiymətləndirmək insanlığın ən gözəl əlamətlərindəndir.",
+      "body": [
+        "Nürnberq yaxınlığındakı kiçik bir kənddə on uşaqlı bir ailə yaşayırdı. Ailəni dolandırmaq üçün ata gündə on səkkiz saat işləyirdi. Bütün çətinliklərə baxmayaraq, böyük oğullar Albrecht və Albert tanınmış rəssam olmaq arzusu ilə yaşayırdılar. Lakin atalarının hər ikisini eyni vaxtda oxutmağa imkanı olmadığını anlayırdılar.",
+        "Şam işığında apardıqları uzun söhbətlərdən sonra qardaşlar püşk atmağa qərar verdilər. Püşkü udan Nürnberqdəki akademiyada təhsil alacaq, digəri isə yaxınlıqdakı mədəndə işləyib ona maddi dayaq olacaqdı. Dörd ildən sonra yerlərini dəyişəcəkdilər.",
+        "Püşkü Albrecht qazandı. O, akademiyaya yollandı, Albert isə mədəndə işə başladı.",
+        "Dörd il ərzində qardaşlardan biri rəssamlıqla məşğul oldu, digəri isə mədənin dərinliklərində çalışdı. Albrechtin əsərləri tezliklə böyük maraq doğurdu; hətta onun bir çox müəllimini sənətkarlıqda üstələdiyi deyilirdi.",
+        "Təhsilini başa vuranda Albrecht artıq yaxşı gəlir qazanırdı. Sevinclə evə qayıdıb qardaşına dedi:",
+        "— Əziz qardaşım, indi növbə sənindir. Get, arzunu gerçəkləşdir; bu dəfə mən sənə dayaq olacağam.",
+        "Albert əllərini ona uzadıb sakit səslə cavab verdi:",
+        "— Yox, qardaşım, artıq çox gecdir. Mədəndə işlədiyim bu dörd ildə əllərim, barmaqlarım əzilib. Daha rəsm çəkə bilmərəm.",
+        "Albrecht qardaşının əllərini ovuclarına aldı və göz yaşlarına boğuldu.",
+        "Əsrlər keçsə də, Albrecht Dürerin (1471–1528) əsərləri dünyanın nüfuzlu qalereyalarında nümayiş olunur. Qardaşının fədakarlığı ilə əlaqələndirilən məşhur rəsmi “Dua edən əllər” adı ilə tanınır."
+      ],
+      "docx": "az/wisdom-stories/albrecht-durer-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/albrecht-durer.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: albrecht-durer\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Albrecht Dürer\nBODY[1]: Nürnberq yaxınlığındakı kiçik bir kənddə on uşaqlı bir ailə yaşayırdı. Ailəni dolandırmaq üçün ata gündə on səkkiz saat işləyirdi. Bütün çətinliklərə baxmayaraq, böyük oğullar Albrecht və Albert tanınmış rəssam olmaq arzusu ilə yaşayırdılar. Lakin atalarının hər ikisini eyni vaxtda oxutmağa imkanı olmadığını anlayırdılar.\nBODY[2]: Şam işığında apardıqları uzun söhbətlərdən sonra qardaşlar püşk atmağa qərar verdilər. Püşkü udan Nürnberqdəki akademiyada təhsil alacaq, digəri isə yaxınlıqdakı mədəndə işləyib ona maddi dayaq olacaqdı. Dörd ildən sonra yerlərini dəyişəcəkdilər.\nBODY[3]: Püşkü Albrecht qazandı. O, akademiyaya yollandı, Albert isə mədəndə işə başladı.\nBODY[4]: Dörd il ərzində qardaşlardan biri rəssamlıqla məşğul oldu, digəri isə mədənin dərinliklərində çalışdı. Albrechtin əsərləri tezliklə böyük maraq doğurdu; hətta onun bir çox müəllimini sənətkarlıqda üstələdiyi deyilirdi.\nBODY[5]: Təhsilini başa vuranda Albrecht artıq yaxşı gəlir qazanırdı. Sevinclə evə qayıdıb qardaşına dedi:\nBODY[6]: — Əziz qardaşım, indi növbə sənindir. Get, arzunu gerçəkləşdir; bu dəfə mən sənə dayaq olacağam.\nBODY[7]: Albert əllərini ona uzadıb sakit səslə cavab verdi:\nBODY[8]: — Yox, qardaşım, artıq çox gecdir. Mədəndə işlədiyim bu dörd ildə əllərim, barmaqlarım əzilib. Daha rəsm çəkə bilmərəm.\nBODY[9]: Albrecht qardaşının əllərini ovuclarına aldı və göz yaşlarına boğuldu.\nBODY[10]: Əsrlər keçsə də, Albrecht Dürerin (1471–1528) əsərləri dünyanın nüfuzlu qalereyalarında nümayiş olunur. Qardaşının fədakarlığı ilə əlaqələndirilən məşhur rəsmi “Dua edən əllər” adı ilə tanınır.\nMORAL: İbrət: Hər uğurun arxasında çox vaxt görünməyən bir fədakarlıq dayanır. O fədakarlığı görmək və qiymətləndirmək insanlığın ən gözəl əlamətlərindəndir.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "beware-of-those-you-love",
+      "title": "Sevdiklərinizdən muğayat olun",
+      "moral": "İbrət: Sevdiklərinlə keçirdiyin hər əlavə an bir nemətdir. Gec olmadan onlara bu gün beş dəqiqə də artıq vaxt ayır.",
+      "body": [
+        "Günəşli bir gündə parkda oturan qadın yanında əyləşmiş kişiyə yelləncəkdəki qırmızı köynəkli uşağın onun oğlu olduğunu dedi. Kişi gülümsəyib mavi köynəkli uşağın da öz oğlu Cəmil olduğunu söylədi.",
+        "Bir az sonra saatına baxıb səsləndi:",
+        "— Cəmil, evə getmək vaxtıdır.",
+        "— Daha beş dəqiqə, ata, lütfən!",
+        "Ata razılaşdı. Bir müddət sonra yenə çağırdı, uşaq isə bir beş dəqiqə də istədi. Kişi yenə “yaxşı” dedi.",
+        "Qadın heyranlıqla söylədi:",
+        "— Nə qədər səbirli atasınız.",
+        "Kişi kövrək təbəssümlə cavab verdi:",
+        "— Bu, səbir deyil. Keçən il böyük oğlum Kamalı yaxınlıqdakı yolda sərxoş sürücü vurdu. Ona heç vaxt yetərincə vaxt ayıra bilməmişdim. İndi onunla daha beş dəqiqə keçirmək üçün hər şeyimdən keçərdim. Cəmillə bağlı eyni səhvi təkrarlamayacağıma söz vermişəm.",
+        "— O, hər dəfə beş dəqiqəlik oyun qazandığını düşünür. Əslində isə qazanan mənəm: oğlumu daha beş dəqiqə izləmək xoşbəxtliyini yaşayıram."
+      ],
+      "docx": "az/wisdom-stories/beware-of-those-you-love-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/beware-of-those-you-love.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: beware-of-those-you-love\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Sevdiklərinizdən muğayat olun\nBODY[1]: Günəşli bir gündə parkda oturan qadın yanında əyləşmiş kişiyə yelləncəkdəki qırmızı köynəkli uşağın onun oğlu olduğunu dedi. Kişi gülümsəyib mavi köynəkli uşağın da öz oğlu Cəmil olduğunu söylədi.\nBODY[2]: Bir az sonra saatına baxıb səsləndi:\nBODY[3]: — Cəmil, evə getmək vaxtıdır.\nBODY[4]: — Daha beş dəqiqə, ata, lütfən!\nBODY[5]: Ata razılaşdı. Bir müddət sonra yenə çağırdı, uşaq isə bir beş dəqiqə də istədi. Kişi yenə “yaxşı” dedi.\nBODY[6]: Qadın heyranlıqla söylədi:\nBODY[7]: — Nə qədər səbirli atasınız.\nBODY[8]: Kişi kövrək təbəssümlə cavab verdi:\nBODY[9]: — Bu, səbir deyil. Keçən il böyük oğlum Kamalı yaxınlıqdakı yolda sərxoş sürücü vurdu. Ona heç vaxt yetərincə vaxt ayıra bilməmişdim. İndi onunla daha beş dəqiqə keçirmək üçün hər şeyimdən keçərdim. Cəmillə bağlı eyni səhvi təkrarlamayacağıma söz vermişəm.\nBODY[10]: — O, hər dəfə beş dəqiqəlik oyun qazandığını düşünür. Əslində isə qazanan mənəm: oğlumu daha beş dəqiqə izləmək xoşbəxtliyini yaşayıram.\nMORAL: İbrət: Sevdiklərinlə keçirdiyin hər əlavə an bir nemətdir. Gec olmadan onlara bu gün beş dəqiqə də artıq vaxt ayır.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "candles-conversation",
+      "title": "Şamların söhbəti",
+      "moral": "İbrət: İnam, vəfa və sevgi sönəndə onları yenidən yandıran ümiddir. Ümid işığını qorusaq, qalan dəyərlər də dirilər.",
+      "body": [
+        "Bir otaqda dörd şam asta-asta yanırdı. Ətraf elə sakit idi ki, onların söhbətini eşitmək olurdu.",
+        "Birinci şam dedi: «Mən İNAMAM! Amma kimsə yanmağıma kömək etmir. Deyəsən, bu yaxında sönəcəyəm.»",
+        "Elə də oldu. Şöləsi sürətlə azalmağa başladı və sonda İNAM tamamilə söndü.",
+        "İkinci şam dilləndi: “Mən VƏFAYAM! Təəssüf ki, artıq heç kimə lazım deyiləm. Daha yanmağımın mənası qalmayıb.”",
+        "Sözünü bitirər-bitirməz əsən xəfif bir yel VƏFANI da tamamilə söndürdü.",
+        "Növbə üçüncü şama çatdı. O, hüznlü səslə dedi: «Mən SEVGİYƏM! Daha yanmağa gücüm qalmadı. İnsanlar məni unutdu, dəyərim yoxa çıxdı. Ən yaxınlarım belə sevməyi unutdu.»",
+        "SEVGİ də daha dözə bilməyib sönüb getdi.",
+        "Bu an otağa bir uşaq girdi və üç şamın da yanmadığını gördü. «Niyə yanmırsınız? Sizin əbədi yanmağınız gərək deyildimi?» deyib ağlamağa başladı.",
+        "O zaman dördüncü şam dilləndi: «Qorxma, mən yandığım müddətcə o biri şamları yenidən yandıra bilərik. Mən ÜMİDƏM!»",
+        "Uşağın gözləri sevincdən parıldadı. ÜMİD şamını əlinə alıb o biri şamları bir-bir yandırdı."
+      ],
+      "docx": "az/wisdom-stories/candles-conversation-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/candles-conversation.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: candles-conversation\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Şamların söhbəti\nBODY[1]: Bir otaqda dörd şam asta-asta yanırdı. Ətraf elə sakit idi ki, onların söhbətini eşitmək olurdu.\nBODY[2]: Birinci şam dedi: «Mən İNAMAM! Amma kimsə yanmağıma kömək etmir. Deyəsən, bu yaxında sönəcəyəm.»\nBODY[3]: Elə də oldu. Şöləsi sürətlə azalmağa başladı və sonda İNAM tamamilə söndü.\nBODY[4]: İkinci şam dilləndi: “Mən VƏFAYAM! Təəssüf ki, artıq heç kimə lazım deyiləm. Daha yanmağımın mənası qalmayıb.”\nBODY[5]: Sözünü bitirər-bitirməz əsən xəfif bir yel VƏFANI da tamamilə söndürdü.\nBODY[6]: Növbə üçüncü şama çatdı. O, hüznlü səslə dedi: «Mən SEVGİYƏM! Daha yanmağa gücüm qalmadı. İnsanlar məni unutdu, dəyərim yoxa çıxdı. Ən yaxınlarım belə sevməyi unutdu.»\nBODY[7]: SEVGİ də daha dözə bilməyib sönüb getdi.\nBODY[8]: Bu an otağa bir uşaq girdi və üç şamın da yanmadığını gördü. «Niyə yanmırsınız? Sizin əbədi yanmağınız gərək deyildimi?» deyib ağlamağa başladı.\nBODY[9]: O zaman dördüncü şam dilləndi: «Qorxma, mən yandığım müddətcə o biri şamları yenidən yandıra bilərik. Mən ÜMİDƏM!»\nBODY[10]: Uşağın gözləri sevincdən parıldadı. ÜMİD şamını əlinə alıb o biri şamları bir-bir yandırdı.\nMORAL: İbrət: İnam, vəfa və sevgi sönəndə onları yenidən yandıran ümiddir. Ümid işığını qorusaq, qalan dəyərlər də dirilər.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    }
+  ]
+}

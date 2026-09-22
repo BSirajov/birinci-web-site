@@ -1,0 +1,58 @@
+{
+  "count": 3,
+  "asset_rule": "Save final art as WebP 1536x1024 at output_webp; HTML paths unchanged",
+  "text_rule": "On-image Azerbaijani must match Exact quotes exactly (ə/ı/ğ/ö/ü/ş/ç)",
+  "items": [
+    {
+      "stem": "loving-from-afar",
+      "title": "Uzaqdan sevmək",
+      "moral": "İbrət: Bəzən insan itirmək qorxusundan sevgisini dilə gətirməkdən çəkinir. Amma yaşanmamış sevgi də bir itkidir.",
+      "body": [
+        "İki dost görüşür. Aralarında belə söhbət olur:",
+        "— Deyəsən, mən bir qıza vurulmuşam.",
+        "— Nə gözəl! Onun xəbəri var?",
+        "— Yoxdur.",
+        "— Bəs niyə yaxınlaşıb etiraf etmirsən?",
+        "— Deyərdim, amma rahatlığımın pozulmasından qorxuram. Durduğum yerdə başıma iş açıb eşqə düşərəm. Kinoya, teatra gedər, əl-ələ gəzərik. Sonra küsüb-barışmaq, “Ona niyə baxdın, buna niyə göz qoydun?” söhbətləri başlar. Axırı ayrılıq olacaqsa, bu qədər həngaməyə nə ehtiyac var?",
+        "Yaxşısı budur, elə uzaqdan sevim mən o qızı."
+      ],
+      "docx": "az/wisdom-stories/loving-from-afar-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/loving-from-afar.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: loving-from-afar\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Uzaqdan sevmək\nBODY[1]: İki dost görüşür. Aralarında belə söhbət olur:\nBODY[2]: — Deyəsən, mən bir qıza vurulmuşam.\nBODY[3]: — Nə gözəl! Onun xəbəri var?\nBODY[4]: — Yoxdur.\nBODY[5]: — Bəs niyə yaxınlaşıb etiraf etmirsən?\nBODY[6]: — Deyərdim, amma rahatlığımın pozulmasından qorxuram. Durduğum yerdə başıma iş açıb eşqə düşərəm. Kinoya, teatra gedər, əl-ələ gəzərik. Sonra küsüb-barışmaq, “Ona niyə baxdın, buna niyə göz qoydun?” söhbətləri başlar. Axırı ayrılıq olacaqsa, bu qədər həngaməyə nə ehtiyac var?\nBODY[7]: Yaxşısı budur, elə uzaqdan sevim mən o qızı.\nMORAL: İbrət: Bəzən insan itirmək qorxusundan sevgisini dilə gətirməkdən çəkinir. Amma yaşanmamış sevgi də bir itkidir.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "mercedes",
+      "title": "Mercedes",
+      "moral": "İbrət: Sevgi ilə verilən ad, sevgi ilə görülən iş dünyanı dəyişə bilər. Ata məhəbbəti bir adı əbədiləşdirdi.",
+      "body": [
+        "“Mercedes” nə şirkətin təsisçisinin soyadı idi, nə də əvvəlcədən tanınmış bir avtomobil şirkətinin adı. Avtomobillərə vurğun bir atanın qızının adı idi.",
+        "Ata qızının adının ona uğur gətirəcəyinə inanırdı.",
+        "Və belə də oldu...",
+        "«Mercedes» adını verdiyi avtomobil qatıldığı yarışlarda ardıcıl qələbələr qazandı.",
+        "Bu uğurların sayəsində 1902-ci ildən bu günə qədər saysız-hesabsız Mercedes avtomobili istehsal olundu.",
+        "Atanın qızına olan sevgisi Mercedes adını dünyanın ən böyük avtomobil istehsalçılarından birinin brendinə çevirdi.",
+        "İki uğursuz evliliyi olmuş Mercedes xanım Vyanada yaşayırdı. 1929-cu ildə, otuz doqquz yaşında xərçəngdən vəfat etmiş və Vyanada dəfn edilmişdir."
+      ],
+      "docx": "az/wisdom-stories/mercedes-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/mercedes.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: mercedes\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Mercedes\nBODY[1]: “Mercedes” nə şirkətin təsisçisinin soyadı idi, nə də əvvəlcədən tanınmış bir avtomobil şirkətinin adı. Avtomobillərə vurğun bir atanın qızının adı idi.\nBODY[2]: Ata qızının adının ona uğur gətirəcəyinə inanırdı.\nBODY[3]: Və belə də oldu...\nBODY[4]: «Mercedes» adını verdiyi avtomobil qatıldığı yarışlarda ardıcıl qələbələr qazandı.\nBODY[5]: Bu uğurların sayəsində 1902-ci ildən bu günə qədər saysız-hesabsız Mercedes avtomobili istehsal olundu.\nBODY[6]: Atanın qızına olan sevgisi Mercedes adını dünyanın ən böyük avtomobil istehsalçılarından birinin brendinə çevirdi.\nBODY[7]: İki uğursuz evliliyi olmuş Mercedes xanım Vyanada yaşayırdı. 1929-cu ildə, otuz doqquz yaşında xərçəngdən vəfat etmiş və Vyanada dəfn edilmişdir.\nMORAL: İbrət: Sevgi ilə verilən ad, sevgi ilə görülən iş dünyanı dəyişə bilər. Ata məhəbbəti bir adı əbədiləşdirdi.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "purple-jacket",
+      "title": "Bənövşəyi çəpkən",
+      "moral": "İbrət: Qadına qarşı zorakılıq qəbuledilməzdir. Cəmiyyət qadını qorumağı vicdan borcu bildikdə zülmə yer qalmır.",
+      "body": [
+        "Qədim zamanlarda türk obalarında belə bir adət varmış: ərə gedən qızların cehizinə digər əşyalarla birlikdə bənövşəyi rəngli çəpkən də əlavə olunarmış. Çəpkən cehiz sandığının lap dibinə qoyular və qadının onu heç vaxt geyməməsi arzulanarmış.",
+        "Bənövşəyi çəpkən kişilərə qənim ola biləcək bir libas imiş. Çünki qadın o çəpkəni geyib evin damına, bacasına, kənd meydanına — hər kəsin görə biləcəyi bir yerə çıxsaydı, bu, «ərimi sevmirəm, ərim mənə əziyyət verir, könülsüz evləndim, boşanmaq istəyirəm, ağır vəziyyətdəyəm, mənə kömək edin» mənasına gələrmiş. Belə olanda kənd camaatı o qadına yardım edər, ərini isə qınayarmış. Bu, kişi üçün böyük ayıb sayılarmış.",
+        "Buna görə də kişilər ailədəki narazılıqları zorakılığa əl atmadan, mehribanlıqla, hörmətlə və güzəştə gedərək həll etməyə çalışarmışlar. Əks halda qadının bənövşəyi çəpkəni geyəcəyini bilərmişlər.",
+        "Arvadı bənövşəyi çəpkən geymiş kişi nəinki boşanmağa məcbur olar, hətta bir daha asanlıqla evlənə bilməzmiş. Çünki hamı bilirmiş ki, arvadına bənövşəyi çəpkən geydirən adamdan ər olmaz. Qadına hörmət etməyən, şiddət göstərən adama bir daha kimsə qız verməz, onun yenidən evlənməsi çox çətin olarmış. Deyilənə görə, məhz buna görə şiddətə məruz qalan qadınların sayı az qala yox səviyyəsində imiş.",
+        "Əgər bir qadın bənövşəyi çəpkənini geysəydi, o zaman axan sular durar, inək sağan, yun əyirən, kilim toxuyan əllər dayanar; yaşlı analar, nənələr işini-gücünü buraxıb bənövşəyi çəpkən geyməyə məcbur olmuş qadının müdafiəsinə qalxarmış.",
+        "Həmin anda ətrafda toy-düyün, zurna-qaval, nə əyləncə varsa, dayanarmış. Çünki qadının bənövşəyi çəpkən geyəcək qədər dara düşməsi ölüm qədər ağır hadisə sayılarmış.",
+        "Bənövşəyi çəpkən geymiş qadının əri evdən bayıra çıxa bilməz, çayxanaya gedə bilməz, kimsə də onun üzünə baxmazmış."
+      ],
+      "docx": "az/wisdom-stories/purple-jacket-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/purple-jacket.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: purple-jacket\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Bənövşəyi çəpkən\nBODY[1]: Qədim zamanlarda türk obalarında belə bir adət varmış: ərə gedən qızların cehizinə digər əşyalarla birlikdə bənövşəyi rəngli çəpkən də əlavə olunarmış. Çəpkən cehiz sandığının lap dibinə qoyular və qadının onu heç vaxt geyməməsi arzulanarmış.\nBODY[2]: Bənövşəyi çəpkən kişilərə qənim ola biləcək bir libas imiş. Çünki qadın o çəpkəni geyib evin damına, bacasına, kənd meydanına — hər kəsin görə biləcəyi bir yerə çıxsaydı, bu, «ərimi sevmirəm, ərim mənə əziyyət verir, könülsüz evləndim, boşanmaq istəyirəm, ağır vəziyyətdəyəm, mənə kömək edin» mənasına gələrmiş. Belə olanda kənd camaatı o qadına yardım edər, ərini isə qınayarmış. Bu, kişi üçün böyük ayıb sayılarmış.\nBODY[3]: Buna görə də kişilər ailədəki narazılıqları zorakılığa əl atmadan, mehribanlıqla, hörmətlə və güzəştə gedərək həll etməyə çalışarmışlar. Əks halda qadının bənövşəyi çəpkəni geyəcəyini bilərmişlər.\nBODY[4]: Arvadı bənövşəyi çəpkən geymiş kişi nəinki boşanmağa məcbur olar, hətta bir daha asanlıqla evlənə bilməzmiş. Çünki hamı bilirmiş ki, arvadına bənövşəyi çəpkən geydirən adamdan ər olmaz. Qadına hörmət etməyən, şiddət göstərən adama bir daha kimsə qız verməz, onun yenidən evlənməsi çox çətin olarmış. Deyilənə görə, məhz buna görə şiddətə məruz qalan qadınların sayı az qala yox səviyyəsində imiş.\nBODY[5]: Əgər bir qadın bənövşəyi çəpkənini geysəydi, o zaman axan sular durar, inək sağan, yun əyirən, kilim toxuyan əllər dayanar; yaşlı analar, nənələr işini-gücünü buraxıb bənövşəyi çəpkən geyməyə məcbur olmuş qadının müdafiəsinə qalxarmış.\nBODY[6]: Həmin anda ətrafda toy-düyün, zurna-qaval, nə əyləncə varsa, dayanarmış. Çünki qadının bənövşəyi çəpkən geyəcək qədər dara düşməsi ölüm qədər ağır hadisə sayılarmış.\nBODY[7]: Bənövşəyi çəpkən geymiş qadının əri evdən bayıra çıxa bilməz, çayxanaya gedə bilməz, kimsə də onun üzünə baxmazmış.\nMORAL: İbrət: Qadına qarşı zorakılıq qəbuledilməzdir. Cəmiyyət qadını qorumağı vicdan borcu bildikdə zülmə yer qalmır.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    }
+  ]
+}

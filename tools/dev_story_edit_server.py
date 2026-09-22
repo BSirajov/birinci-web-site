@@ -94,12 +94,19 @@ def _load_json_assignment(path: Path, prefix: str) -> tuple[str, Any, str]:
     return m.group(1), json.loads(m.group(2)), m.group(3) or ";\n"
 
 
-def update_stories_data(lang: str, stem: str, title: str, body: list[str], moral: str) -> str | None:
+def update_stories_data(
+    lang: str,
+    stem: str,
+    title: str,
+    body: list[str],
+    moral: str,
+    source: str | None = None,
+) -> str | None:
     path = ROOT / lang / "assets" / "stories-data.js"
     prefix, data, suffix = _load_json_assignment(path, "window.__BIRINCI_STORIES__")
     category_slug = None
     found = False
-    source = SITE_SOURCE[lang]
+    source = (source or "").strip() or SITE_SOURCE[lang]
     paragraphs = list(body) + [moral, source]
     for cat in data.get("categories") or []:
         for story in cat.get("stories") or []:
@@ -122,10 +129,18 @@ def update_stories_data(lang: str, stem: str, title: str, body: list[str], moral
     return category_slug
 
 
-def update_search_index(lang: str, stem: str, title: str, body: list[str], moral: str, category: str | None) -> None:
+def update_search_index(
+    lang: str,
+    stem: str,
+    title: str,
+    body: list[str],
+    moral: str,
+    category: str | None,
+    source: str | None = None,
+) -> None:
     path = ROOT / lang / "assets" / "search-index.js"
     prefix, entries, suffix = _load_json_assignment(path, "window.__BIRINCI_SEARCH__")
-    source = SITE_SOURCE[lang]
+    source = (source or "").strip() or SITE_SOURCE[lang]
     hay = " ".join(p for p in [title, category or "", *body, moral, source] if p).lower()
     found = False
     for entry in entries:
@@ -146,10 +161,11 @@ def update_search_index(lang: str, stem: str, title: str, body: list[str], moral
     )
 
 
-def _story_body_html(body: list[str], moral: str, lang: str) -> str:
+def _story_body_html(body: list[str], moral: str, lang: str, source: str | None = None) -> str:
+    source_text = (source or "").strip() or SITE_SOURCE[lang]
     parts = [f"<p>{html.escape(p)}</p>" for p in body]
     parts.append(f'<p class="story__moral">{html.escape(moral)}</p>')
-    parts.append(f'<p class="story__source">{html.escape(SITE_SOURCE[lang])}</p>')
+    parts.append(f'<p class="story__source">{html.escape(source_text)}</p>')
     return "".join(parts)
 
 
@@ -162,16 +178,16 @@ def _replace_story_text_in_html(text: str, stem: str, body_html: str) -> str:
     exact = re.compile(
         rf'(<div class="story__text card-text" id="text-{re.escape(stem)}">)([\s\S]*?)(</div>)'
     )
-    text2, n = exact.subn(
-        rf"\1\n          {body_html}\n        \3",
-        text,
-        count=1,
-    )
+
+    def _inject(m: re.Match[str]) -> str:
+        return f"{m.group(1)}\n          {body_html}\n        {m.group(3)}"
+
+    text2, n = exact.subn(_inject, text, count=1)
     if n == 1:
         return text2
 
     art = re.search(
-        rf'<article class="story news-card" id="{re.escape(stem)}"[^>]*>[\s\S]*?</article>',
+        rf'<article class="story news-card[^"]*" id="{re.escape(stem)}"[^>]*>[\s\S]*?</article>',
         text,
     )
     if not art:
@@ -179,7 +195,7 @@ def _replace_story_text_in_html(text: str, stem: str, body_html: str) -> str:
     article = art.group(0)
     article2, n = re.subn(
         r'(<div class="story__text card-text" id="text-[^"]+">)([\s\S]*?)(</div>)',
-        rf"\1\n          {body_html}\n        \3",
+        _inject,
         article,
         count=1,
     )
@@ -196,53 +212,61 @@ def update_category_html(
     body: list[str],
     moral: str,
     old_title: str | None,
+    source: str | None = None,
 ) -> None:
     path = ROOT / lang / "categories" / f"{slug}.html"
     if not path.is_file():
         raise FileNotFoundError(f"missing category page: {path}")
     text = path.read_text(encoding="utf-8")
     blurb = body[0] if body else title
-    body_html = _story_body_html(body, moral, lang)
+    body_html = _story_body_html(body, moral, lang, source=source)
+
+    # Replace leftover title mentions before injecting the new body so a
+    # word that appears in both the old title and the new body is kept.
+    if old_title and old_title != title:
+        text = text.replace(old_title, title)
 
     text = _replace_story_text_in_html(text, stem, body_html)
 
+    title_attr = html.escape(title, quote=True)
+    title_html = html.escape(title)
+    blurb_attr = html.escape(blurb, quote=True)
+    blurb_html = html.escape(blurb)
+
     text = re.sub(
         rf'(data-stem="{re.escape(stem)}" data-title=")([^"]*)(")',
-        rf'\1{html.escape(title, quote=True)}\3',
+        lambda m: f"{m.group(1)}{title_attr}{m.group(3)}",
         text,
     )
     text = re.sub(
         rf'(id="{re.escape(stem)}"[^>]*data-title=")([^"]*)(")',
-        rf'\1{html.escape(title, quote=True)}\3',
+        lambda m: f"{m.group(1)}{title_attr}{m.group(3)}",
         text,
     )
     text = re.sub(
         rf'(<li data-stem="{re.escape(stem)}"[^>]*>\s*<a href="#{re.escape(stem)}">)([^<]*)(</a>)',
-        rf"\1{html.escape(title)}\3",
+        lambda m: f"{m.group(1)}{title_html}{m.group(3)}",
         text,
     )
     text = re.sub(
         rf'(href="#{re.escape(stem)}"[^>]*data-blurb=")([^"]*)(")',
-        rf'\1{html.escape(blurb, quote=True)}\3',
+        lambda m: f"{m.group(1)}{blurb_attr}{m.group(3)}",
         text,
     )
     text, n = re.subn(
         rf'(<a class="cat-card page-card" href="#{re.escape(stem)}"[\s\S]*?<h2 class="card-title">)([^<]*)(</h2>\s*<div class="card-desc">)([^<]*)(</div>)',
-        rf"\1{html.escape(title)}\3{html.escape(blurb)}\5",
+        lambda m: f"{m.group(1)}{title_html}{m.group(3)}{blurb_html}{m.group(5)}",
         text,
         count=1,
     )
     text, n2 = re.subn(
-        rf'(<article class="story news-card" id="{re.escape(stem)}"[\s\S]*?<h2 class="card-title story__title">)([^<]*)(</h2>)',
-        rf"\1{html.escape(title)}\3",
+        rf'(<article class="story news-card[^"]*" id="{re.escape(stem)}"[\s\S]*?<h2 class="card-title story__title">)([^<]*)(</h2>)',
+        lambda m: f"{m.group(1)}{title_html}{m.group(3)}",
         text,
         count=1,
     )
     if n2 != 1:
         raise ValueError(f"article title not found for {stem}")
-
-    if old_title and old_title != title:
-        text = text.replace(old_title, title)
 
     path.write_text(text, encoding="utf-8", newline="\n")
 
@@ -252,9 +276,10 @@ def update_sitemap(lang: str, stem: str, slug: str, title: str) -> None:
     if not path.is_file():
         return
     text = path.read_text(encoding="utf-8")
+    title_html = html.escape(title)
     text2, n = re.subn(
         rf'(href="categories/{re.escape(slug)}\.html#{re.escape(stem)}"><span>)([^<]*)(</span>)',
-        rf"\1{html.escape(title)}\3",
+        lambda m: f"{m.group(1)}{title_html}{m.group(3)}",
         text,
         count=1,
     )

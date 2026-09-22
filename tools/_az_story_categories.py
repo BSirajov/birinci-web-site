@@ -272,7 +272,6 @@ STORY_CATEGORY: dict[str, str] = {
     "why-injustice-when-there-is-justice": "Ədalət və cəmiyyət",
     "sharing-justice": "Ədalət və cəmiyyət",
     "skins-of-the-lambs": "Ədalət və cəmiyyət",
-    "nazim-hikmet-in-bursa-prison": "Ədalət və cəmiyyət",
     "bell-to-hang-on-the-cats-neck": "Ədalət və cəmiyyət",
 
     # --- Yaşlanma və zaman ---

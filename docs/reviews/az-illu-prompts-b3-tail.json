@@ -1,0 +1,67 @@
+{
+  "count": 4,
+  "asset_rule": "Save final art as WebP 1536x1024 at output_webp; HTML paths unchanged",
+  "text_rule": "On-image Azerbaijani must match Exact quotes exactly (ə/ı/ğ/ö/ü/ş/ç)",
+  "items": [
+    {
+      "stem": "silence",
+      "title": "Sükut",
+      "moral": "İbrət: Hər suala cavab vermək lazım deyil. Bəzən vaxtı çatmayıb, bəzən də qarşındakı cavaba layiq deyil.",
+      "body": [
+        "Bəzi sualların cavabı sükutdur.",
+        "Ya cavabın vaxtı deyil,",
+        "ya da həmsöhbət cavaba layiq deyil!",
+        "* * *",
+        "Dərviş Cəlal Ruhəvi"
+      ],
+      "docx": "az/wisdom-stories/silence-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/silence.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: silence\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Sükut\nBODY[1]: Bəzi sualların cavabı sükutdur.\nBODY[2]: Ya cavabın vaxtı deyil,\nBODY[3]: ya da həmsöhbət cavaba layiq deyil!\nBODY[4]: * * *\nBODY[5]: Dərviş Cəlal Ruhəvi\nMORAL: İbrət: Hər suala cavab vermək lazım deyil. Bəzən vaxtı çatmayıb, bəzən də qarşındakı cavaba layiq deyil.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "think-speak-and-act-positively",
+      "title": "Yaxşı düşünün, yaxşı danışın, yaxşı davranın",
+      "moral": "İbrət: Düşüncə sözə, söz əmələ, əməl vərdişə, vərdiş isə taleyə çevrilir. Müsbət taleyin başlanğıcı müsbət düşüncədir.",
+      "body": [
+        "Yaxşı düşünün, çünki düşüncələriniz sözə çevrilir.",
+        "Yaxşı danışın, çünki sözləriniz əməllərinizə yol açır.",
+        "Yaxşı davranın, çünki davranışlarınız vərdişə çevrilir.",
+        "Yaxşı vərdişlər qazanın, çünki onlar dəyərlərinizi formalaşdırır.",
+        "Dəyərlərinizi uca tutun, çünki onlar taleyinizə təsir edir."
+      ],
+      "docx": "az/wisdom-stories/think-speak-and-act-positively-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/think-speak-and-act-positively.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: think-speak-and-act-positively\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Yaxşı düşünün, yaxşı danışın, yaxşı davranın\nBODY[1]: Yaxşı düşünün, çünki düşüncələriniz sözə çevrilir.\nBODY[2]: Yaxşı danışın, çünki sözləriniz əməllərinizə yol açır.\nBODY[3]: Yaxşı davranın, çünki davranışlarınız vərdişə çevrilir.\nBODY[4]: Yaxşı vərdişlər qazanın, çünki onlar dəyərlərinizi formalaşdırır.\nBODY[5]: Dəyərlərinizi uca tutun, çünki onlar taleyinizə təsir edir.\nMORAL: İbrət: Düşüncə sözə, söz əmələ, əməl vərdişə, vərdiş isə taleyə çevrilir. Müsbət taleyin başlanğıcı müsbət düşüncədir.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "where-does-this-road-go",
+      "title": "Bu yol haraya gedir?",
+      "moral": "İbrət: Yol yerindədir, yolçu isə sənsən. Hara getdiyini bilmədən yolun səni hara aparacağını soruşma.",
+      "body": [
+        "Yolla gedən bir gənc yolun kənarında oturmuş yaşlı bir kişiyə rast gəlir və soruşur:",
+        "— Dayı, bu yol haraya gedir?",
+        "— Heç yerə, oğlum.",
+        "— Necə yəni? Heç yerə getməyən yol olar?",
+        "— Vallah, mən əlli ildir buradayam; bu yol necə vardısa, elə də yerində durur. Gedib-gələn insanlardır."
+      ],
+      "docx": "az/wisdom-stories/where-does-this-road-go-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/where-does-this-road-go.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: where-does-this-road-go\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Bu yol haraya gedir?\nBODY[1]: Yolla gedən bir gənc yolun kənarında oturmuş yaşlı bir kişiyə rast gəlir və soruşur:\nBODY[2]: — Dayı, bu yol haraya gedir?\nBODY[3]: — Heç yerə, oğlum.\nBODY[4]: — Necə yəni? Heç yerə getməyən yol olar?\nBODY[5]: — Vallah, mən əlli ildir buradayam; bu yol necə vardısa, elə də yerində durur. Gedib-gələn insanlardır.\nMORAL: İbrət: Yol yerindədir, yolçu isə sənsən. Hara getdiyini bilmədən yolun səni hara aparacağını soruşma.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "your-friends",
+      "title": "Sənin dostların",
+      "moral": "İbrət: Əsl dost sən dara düşəndə yanında olandır. Sayı çox olan tanışların yox, sınaqdan çıxan az dostun qiymətlidir.",
+      "body": [
+        "Bir gün gənc bir oğlan evlənmək qərarına gəlir. Toy hazırlıqlarına bir həftə vaxt sərf edəndən sonra bir axşam atasına: «Ata, səndən bir xahişim var. Bütün işləri tək görməyə gücüm çatmır. Lütfən, bu siyahını götür və oradakı bütün dostlarıma zəng vurub onları toyuma dəvət et» deyir. «Gözüm üstə, oğlum!» deyə atası cavab verir.",
+        "Toy günü oğlan əsəbi halda atasına yaxınlaşır: «Ata, axı mən səndən bütün dostlarıma zəng vurmağını xahiş etmişdim!»",
+        "— Oğul, mən elə sən istədiyin kimi etdim.",
+        "— Siyahıda əlli nəfər vardı, burada isə cəmi on beşini görürəm, — deyə oğlan etiraz edir.",
+        "— Oğlum, mən əlli nəfərin hamısına bir-bir zəng vurdum. Hər birinə sənin adından zəng etdiyimi, hazırda problemin olduğunu, dostlarının yardımına ehtiyacın olduğunu söylədim və bu vaxt, bu məkanda olmalarını xahiş etdim. Sən heç narahat olma, oğlum. Sənin əsl dostların bu gün burada, sənin yanındadır!"
+      ],
+      "docx": "az/wisdom-stories/your-friends-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/your-friends.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: your-friends\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Sənin dostların\nBODY[1]: Bir gün gənc bir oğlan evlənmək qərarına gəlir. Toy hazırlıqlarına bir həftə vaxt sərf edəndən sonra bir axşam atasına: «Ata, səndən bir xahişim var. Bütün işləri tək görməyə gücüm çatmır. Lütfən, bu siyahını götür və oradakı bütün dostlarıma zəng vurub onları toyuma dəvət et» deyir. «Gözüm üstə, oğlum!» deyə atası cavab verir.\nBODY[2]: Toy günü oğlan əsəbi halda atasına yaxınlaşır: «Ata, axı mən səndən bütün dostlarıma zəng vurmağını xahiş etmişdim!»\nBODY[3]: — Oğul, mən elə sən istədiyin kimi etdim.\nBODY[4]: — Siyahıda əlli nəfər vardı, burada isə cəmi on beşini görürəm, — deyə oğlan etiraz edir.\nBODY[5]: — Oğlum, mən əlli nəfərin hamısına bir-bir zəng vurdum. Hər birinə sənin adından zəng etdiyimi, hazırda problemin olduğunu, dostlarının yardımına ehtiyacın olduğunu söylədim və bu vaxt, bu məkanda olmalarını xahiş etdim. Sən heç narahat olma, oğlum. Sənin əsl dostların bu gün burada, sənin yanındadır!\nMORAL: İbrət: Əsl dost sən dara düşəndə yanında olandır. Sayı çox olan tanışların yox, sınaqdan çıxan az dostun qiymətlidir.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    }
+  ]
+}

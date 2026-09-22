@@ -1,0 +1,61 @@
+{
+  "count": 5,
+  "asset_rule": "Save final art as WebP 1536x1024 at output_webp; HTML paths unchanged",
+  "text_rule": "On-image Kyrgyz must match Exact quotes exactly",
+  "items": [
+    {
+      "stem": "avoid-these-questions",
+      "title": "Мындай суроолорду бербеңиз",
+      "moral": "Сабак: Ойлонбой берген сурооң бирөөнүн жүрөгүндөгү жарасын козгошу мүмкүн. Ар кимдин жеке турмушуна аяр мамиле кыл.",
+      "body": [
+        "Жумушсуз адамдан «Дагы эле жумушсузсуңбу?», иштегенден «Айлыгың канча?», баласы жоктон «Дагы эле балалуу боло элексиңерби?», бойдоктон «Качан үйлөнөсүң?» деп суроодон алыс бололу.",
+        "Ошондой эле кимдир бирөөнү «Сен муну билчү эмес белең?» деген суроо менен уят кылбайлы. Бизге жөнөкөй көрүнгөн суроо башка адамдын эң сезимтал жарасын козгошу мүмкүн."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/avoid-these-questions.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: avoid-these-questions\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Мындай суроолорду бербеңиз\nBODY[1]: Жумушсуз адамдан «Дагы эле жумушсузсуңбу?», иштегенден «Айлыгың канча?», баласы жоктон «Дагы эле балалуу боло элексиңерби?», бойдоктон «Качан үйлөнөсүң?» деп суроодон алыс бололу.\nBODY[2]: Ошондой эле кимдир бирөөнү «Сен муну билчү эмес белең?» деген суроо менен уят кылбайлы. Бизге жөнөкөй көрүнгөн суроо башка адамдын эң сезимтал жарасын козгошу мүмкүн.\nMORAL: Сабак: Ойлонбой берген сурооң бирөөнүн жүрөгүндөгү жарасын козгошу мүмкүн. Ар кимдин жеке турмушуна аяр мамиле кыл.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "that-was-not-your-right",
+      "title": "Ал сенин акыңа жатчу эмес",
+      "moral": "Сабак: Калыстык эң жакыныңдын кызыкчылыгы сыналганда да сакталууга тийиш. Бирөөнүн акысын өз жакыныңа ыраа көрбө.",
+      "body": [
+        "Чанаккале салгылашында аман калууга мүмкүнчүлүгү бар жарадарларга гана морфин сайышчу экен. Дарыгер Тарык Нусретке алып келген оор жарадарлардын бири өз уулу болуп чыгат. Баласынын өмүрүн сактап калуу мүмкүн эмес экенин көргөн ата ага ийне сайбайт. Эки сааттан кийин шейит кеткен уулунун жансыз денесин кучактаган ата терең кайгы менен: «Мени кечир, уулум, ал сенин акыңа жатчу эмес», — деп шыбырайт."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/that-was-not-your-right.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: that-was-not-your-right\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Ал сенин акыңа жатчу эмес\nBODY[1]: Чанаккале салгылашында аман калууга мүмкүнчүлүгү бар жарадарларга гана морфин сайышчу экен. Дарыгер Тарык Нусретке алып келген оор жарадарлардын бири өз уулу болуп чыгат. Баласынын өмүрүн сактап калуу мүмкүн эмес экенин көргөн ата ага ийне сайбайт. Эки сааттан кийин шейит кеткен уулунун жансыз денесин кучактаган ата терең кайгы менен: «Мени кечир, уулум, ал сенин акыңа жатчу эмес», — деп шыбырайт.\nMORAL: Сабак: Калыстык эң жакыныңдын кызыкчылыгы сыналганда да сакталууга тийиш. Бирөөнүн акысын өз жакыныңа ыраа көрбө.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "weight-of-the-oil",
+      "title": "Майдын салмагы",
+      "moral": "Сабак: Бирөөгө кандай өлчөм колдонсоң, өзүңө да ошондой өлчөм кайтышы мүмкүн. Өз ишиңди текшербей туруп башканы айыптаба.",
+      "body": [
+        "Бир наабайчы дыйкандан такай белгилүү өлчөмдө сары май сатып алчу экен. Бир күнү дыйкандан алган майдын салмагы күн өткөн сайын азайып баратканын байкайт. Дыйканды алдап жатат деп айыптап, казыга даттанат.",
+        "Дыйкан казыга мындай дейт: «Менин тараза ташым жок. Ошондуктан таразанын бир табагына майды, экинчисине күн сайын ушул наабайчыдан алган бир килограммдык нанды коём. Майды ошол нанга теңеп тартам»."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/weight-of-the-oil.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: weight-of-the-oil\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Майдын салмагы\nBODY[1]: Бир наабайчы дыйкандан такай белгилүү өлчөмдө сары май сатып алчу экен. Бир күнү дыйкандан алган майдын салмагы күн өткөн сайын азайып баратканын байкайт. Дыйканды алдап жатат деп айыптап, казыга даттанат.\nBODY[2]: Дыйкан казыга мындай дейт: «Менин тараза ташым жок. Ошондуктан таразанын бир табагына майды, экинчисине күн сайын ушул наабайчыдан алган бир килограммдык нанды коём. Майды ошол нанга теңеп тартам».\nMORAL: Сабак: Бирөөгө кандай өлчөм колдонсоң, өзүңө да ошондой өлчөм кайтышы мүмкүн. Өз ишиңди текшербей туруп башканы айыптаба.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "no-one-listens-to-constant-complainers",
+      "title": "Тынымсыз даттанган адамды эч ким укпайт",
+      "moral": "Сабак: Бир эле муңду кайталай бергенден маселе чечилбейт. Даттанууга кеткен күчтү айла табууга жумша.",
+      "body": [
+        "Көптү көргөн бир адам ошол эле көйгөйлөрүнө кайра-кайра даттанган бир топ кишиге мындай сабак берет. Ал күлкүлүү тамаша айтып берет; баары чын жүрөктөн каткырып күлөт. Ошол эле тамашату экинчи жолу айтат; адамдардын бир бөлүгү гана күлөт. Үчүнчү жолу айтканда болсо, эч кимдин эрди да кыймылдабайт.",
+        "Чечим издегендин ордуна улам эле ошол көйгөйлөргө даттана берүү да ушуга окшош. Тынымсыз даттанган адамды эч ким укпайт."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/no-one-listens-to-constant-complainers.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: no-one-listens-to-constant-complainers\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Тынымсыз даттанган адамды эч ким укпайт\nBODY[1]: Көптү көргөн бир адам ошол эле көйгөйлөрүнө кайра-кайра даттанган бир топ кишиге мындай сабак берет. Ал күлкүлүү тамаша айтып берет; баары чын жүрөктөн каткырып күлөт. Ошол эле тамашату экинчи жолу айтат; адамдардын бир бөлүгү гана күлөт. Үчүнчү жолу айтканда болсо, эч кимдин эрди да кыймылдабайт.\nBODY[2]: Чечим издегендин ордуна улам эле ошол көйгөйлөргө даттана берүү да ушуга окшош. Тынымсыз даттанган адамды эч ким укпайт.\nMORAL: Сабак: Бир эле муңду кайталай бергенден маселе чечилбейт. Даттанууга кеткен күчтү айла табууга жумша.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "two-donkeys",
+      "title": "Эки эшек",
+      "moral": "Сабак: Бирөөнү шылдыңдап күлөм деп, өзүң күлкүгө калба. Кемсинткен сөз ээсине кайтып тийиши мүмкүн.",
+      "body": [
+        "Эки эшек жолдо баратып, даракта отурган маймылды көрүшөт. «Кел, бул маймылды шылдыңдайлы. Досуң барбы деп сурайбыз. “Бар” десе, “Сени менен кайсы келесоо достошот?” дейбиз; “жок” десе, “Сени менен кайсы келесоо дос болмок эле?” дейбиз», — дешет. Даракка жакындап: «Маймыл, сенин досуң барбы?» — деп сурашат. Маймыл жогору жактан аны шылдыңдагысы келген эшектерди карап:",
+        "— Кайда карабайын, баары эшек; ким менен достошом? — дейт."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/two-donkeys.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: two-donkeys\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Эки эшек\nBODY[1]: Эки эшек жолдо баратып, даракта отурган маймылды көрүшөт. «Кел, бул маймылды шылдыңдайлы. Досуң барбы деп сурайбыз. “Бар” десе, “Сени менен кайсы келесоо достошот?” дейбиз; “жок” десе, “Сени менен кайсы келесоо дос болмок эле?” дейбиз», — дешет. Даракка жакындап: «Маймыл, сенин досуң барбы?» — деп сурашат. Маймыл жогору жактан аны шылдыңдагысы келген эшектерди карап:\nBODY[2]: — Кайда карабайын, баары эшек; ким менен достошом? — дейт.\nMORAL: Сабак: Бирөөнү шылдыңдап күлөм деп, өзүң күлкүгө калба. Кемсинткен сөз ээсине кайтып тийиши мүмкүн.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    }
+  ]
+}

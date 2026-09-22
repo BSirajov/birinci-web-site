@@ -1,0 +1,58 @@
+{
+  "count": 5,
+  "asset_rule": "Save final art as WebP 1536x1024 at output_webp; HTML paths unchanged",
+  "text_rule": "On-image Kyrgyz must match Exact quotes exactly",
+  "items": [
+    {
+      "stem": "do-not-do-these-things",
+      "title": "Муну кылбаңыз",
+      "moral": "Сабак: Бирөөнүн кем-карчын бетине салып, көңүлүн оорутпа. Анын абалын түшүнүп, сөзүңдү абайлап сүйлө.",
+      "body": [
+        "Жакырдын жанында байлыгыңыз, оорулуунун жанында ден соолугуңуз, кайгылуунун жанында бактыңыз, камактагынын жанында эркиндигиңиз, алсыздын жанында күчүңүз, баласы жоктун жанында балаңыз, жетимдин жанында ата-энеңиз тууралуу сөз кылбаңыз."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/do-not-do-these-things.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: do-not-do-these-things\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Муну кылбаңыз\nBODY[1]: Жакырдын жанында байлыгыңыз, оорулуунун жанында ден соолугуңуз, кайгылуунун жанында бактыңыз, камактагынын жанында эркиндигиңиз, алсыздын жанында күчүңүз, баласы жоктун жанында балаңыз, жетимдин жанында ата-энеңиз тууралуу сөз кылбаңыз.\nMORAL: Сабак: Бирөөнүн кем-карчын бетине салып, көңүлүн оорутпа. Анын абалын түшүнүп, сөзүңдү абайлап сүйлө.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "newtons-second-law",
+      "title": "Ньютондун 2-мыйзамы",
+      "moral": "Сабак: Үйрөтүүдөн мурда өзүң түшүн. Анан угуучуга жеткидей жөнөкөй тил менен түшүндүрүүнүн жолун тап.",
+      "body": [
+        "Физика мугалими сабактан чыгып, мугалимдер бөлмөсүнө кирет да, кесиптештерине даттанат: «Бул студенттер кандай гана акылсыз! Ньютондун 2-мыйзамын аларга үч жолу түшүндүрдүм. Акырында атүгүл өзүм да түшүндүм, бирок алар дагы эле түшүнгөн жок»."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/newtons-second-law.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: newtons-second-law\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Ньютондун 2-мыйзамы\nBODY[1]: Физика мугалими сабактан чыгып, мугалимдер бөлмөсүнө кирет да, кесиптештерине даттанат: «Бул студенттер кандай гана акылсыз! Ньютондун 2-мыйзамын аларга үч жолу түшүндүрдүм. Акырында атүгүл өзүм да түшүндүм, бирок алар дагы эле түшүнгөн жок».\nMORAL: Сабак: Үйрөтүүдөн мурда өзүң түшүн. Анан угуучуга жеткидей жөнөкөй тил менен түшүндүрүүнүн жолун тап.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "say-what-you-know",
+      "title": "Билгениңди айт",
+      "moral": "Сабак: Билгениңди орундуу айт, укканыңды акылга сал. Адамды кемсинтпей да, ашкере мактабай да калыс баала.",
+      "body": [
+        "Билгениңди айт, бирок акыл үйрөтпө. Айтылгандарды кунт коюп ук, бирок баарын эле чындык деп ойлобо.",
+        "Унчукпай туруу эч нерсе билбегениңди билдирбегендей эле, көп сүйлөө да көп нерсе билгениңди көрсөтпөйт. Адамды басынтуу — акылсыздык, аны ашкере көкөлөтүү — коркоктук."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/say-what-you-know.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: say-what-you-know\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Билгениңди айт\nBODY[1]: Билгениңди айт, бирок акыл үйрөтпө. Айтылгандарды кунт коюп ук, бирок баарын эле чындык деп ойлобо.\nBODY[2]: Унчукпай туруу эч нерсе билбегениңди билдирбегендей эле, көп сүйлөө да көп нерсе билгениңди көрсөтпөйт. Адамды басынтуу — акылсыздык, аны ашкере көкөлөтүү — коркоктук.\nMORAL: Сабак: Билгениңди орундуу айт, укканыңды акылга сал. Адамды кемсинтпей да, ашкере мактабай да калыс баала.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "dont-say-i-couldnt-deliver-or-i-couldnt-manage",
+      "title": "«Жетишпедим, колуман келбеди» дебегиле",
+      "moral": "Сабак: Бүгүн үлгүрбөсөң, үмүтүңдү үзбө. Эртең кайра аракет кылууга мүмкүнчүлүк бар.",
+      "body": [
+        "Күндөр бири-бирин алмаштырат. Бирөө күнүн бактылуу, бирөө кайгылуу аяктайт. Бирок кандай болгон күндө да, бүгүн бүтүрө албай калган ишиңер үчүн «жетишпедим, колуман келбеди» дебегиле. Эң башкысы — үмүтүңөрдү үзбөгүлө. Эртеси күн чыгып келери менен бүтүндөй күн силердики."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/dont-say-i-couldnt-deliver-or-i-couldnt-manage.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: dont-say-i-couldnt-deliver-or-i-couldnt-manage\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: «Жетишпедим, колуман келбеди» дебегиле\nBODY[1]: Күндөр бири-бирин алмаштырат. Бирөө күнүн бактылуу, бирөө кайгылуу аяктайт. Бирок кандай болгон күндө да, бүгүн бүтүрө албай калган ишиңер үчүн «жетишпедим, колуман келбеди» дебегиле. Эң башкысы — үмүтүңөрдү үзбөгүлө. Эртеси күн чыгып келери менен бүтүндөй күн силердики.\nMORAL: Сабак: Бүгүн үлгүрбөсөң, үмүтүңдү үзбө. Эртең кайра аракет кылууга мүмкүнчүлүк бар.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "drinking-the-sherbet-of-martyrdom",
+      "title": "Шейиттик шербетин ичүү",
+      "moral": "Сабак: Айрым сөздөрдө бүтүндөй бир доордун изи сакталат. Алардын төркүнүн билүү өткөндү түшүнүүгө жардам берет.",
+      "body": [
+        "Осмон доорунда согушта оор жараланып, жан берип жаткан жоокерлер шейит болор алдында оозу таттуу болсун деп, дарыгерлер өздөрү алып жүргөн чакан челектердеги замзам суусунан жасалган шербеттен ичиришчү экен. «Шейиттик шербетин ичүү» деген сөз айкашы ушундан келип чыккан."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/drinking-the-sherbet-of-martyrdom.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: drinking-the-sherbet-of-martyrdom\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Шейиттик шербетин ичүү\nBODY[1]: Осмон доорунда согушта оор жараланып, жан берип жаткан жоокерлер шейит болор алдында оозу таттуу болсун деп, дарыгерлер өздөрү алып жүргөн чакан челектердеги замзам суусунан жасалган шербеттен ичиришчү экен. «Шейиттик шербетин ичүү» деген сөз айкашы ушундан келип чыккан.\nMORAL: Сабак: Айрым сөздөрдө бүтүндөй бир доордун изи сакталат. Алардын төркүнүн билүү өткөндү түшүнүүгө жардам берет.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "count": 10,
+  "asset_rule": "Save final art as WebP 1536x1024 at output_webp; HTML paths unchanged",
+  "text_rule": "On-image Azerbaijani must match Exact quotes exactly (ə/ı/ğ/ö/ü/ş/ç)",
+  "items": [
+    {
+      "stem": "who-handles-honey-licks-his-finger",
+      "title": "Bal tutan barmağını yalayar",
+      "moral": "İbrət: İnsan ucundan bucağından qarışsa da qarışdığı işdən az-çox yararlanar.",
+      "body": [
+        "Bir arıçı yığdığı balı satmaq üçün qablara doldurub baqqalın yanına gətirir. Sövdələşib qiymətdə razılığa gəlirlər və balı tərəzidə çəkməyə başlayırlar.",
+        "Baqqalın yalnız bir kiloqramlıq çəki daşı var. Ona görə şanları əli ilə qırıb tərəziyə qoyur, balı kilo-kilo çəkir. Amma hər dəfə balı tərəziyə qoymazdan əvvəl barmağına bulaşanı da yalayır.",
+        "Bir dəfə, iki dəfə, üç dəfə... Arıçı görür ki, balın bir hissəsi tərəziyə çatmamış baqqalın ağzına gedir. Üzünü turşudub etiraz edir. Baqqal isə vecinə almadan barmaqlarını yalaya-yalaya işini davam etdirir.",
+        "Nəhayət arıçının səbri tükənir:",
+        "— Ay əmi, belə olmaz axı, balın yarısını yalayıb qurtardın!",
+        "Ballı barmaqlarını yalamaqdan əl çəkməyən baqqal altdan-altdan gülümsəyib cavab verir:",
+        "— Ay qardaş, mənim bir qəsdim yoxdur. Bal tutan barmağını yalar."
+      ],
+      "docx": "az/wisdom-stories/who-handles-honey-licks-his-finger-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/who-handles-honey-licks-his-finger.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: who-handles-honey-licks-his-finger\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Bal tutan barmağını yalayar\nBODY[1]: Bir arıçı yığdığı balı satmaq üçün qablara doldurub baqqalın yanına gətirir. Sövdələşib qiymətdə razılığa gəlirlər və balı tərəzidə çəkməyə başlayırlar.\nBODY[2]: Baqqalın yalnız bir kiloqramlıq çəki daşı var. Ona görə şanları əli ilə qırıb tərəziyə qoyur, balı kilo-kilo çəkir. Amma hər dəfə balı tərəziyə qoymazdan əvvəl barmağına bulaşanı da yalayır.\nBODY[3]: Bir dəfə, iki dəfə, üç dəfə... Arıçı görür ki, balın bir hissəsi tərəziyə çatmamış baqqalın ağzına gedir. Üzünü turşudub etiraz edir. Baqqal isə vecinə almadan barmaqlarını yalaya-yalaya işini davam etdirir.\nBODY[4]: Nəhayət arıçının səbri tükənir:\nBODY[5]: — Ay əmi, belə olmaz axı, balın yarısını yalayıb qurtardın!\nBODY[6]: Ballı barmaqlarını yalamaqdan əl çəkməyən baqqal altdan-altdan gülümsəyib cavab verir:\nBODY[7]: — Ay qardaş, mənim bir qəsdim yoxdur. Bal tutan barmağını yalar.\nMORAL: İbrət: İnsan ucundan bucağından qarışsa da qarışdığı işdən az-çox yararlanar.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "it-wont-go-to-waste",
+      "title": "İtib batmaz",
+      "moral": "İbrət: Ürəkdən edilən yaxşılıq, söz və əməl heç vaxt itmir; həm başqalarının yoluna işıq salır, həm də sənin ömrünü nurlandırır.",
+      "body": [
+        "Ürəkdən edilən yaxşılıq,",
+        "sevgi ilə yoğrulmuş davranış,",
+        "səmimiyyətlə söylənmiş söz,",
+        "ədəb-ərkanlı rəftar,",
+        "eşqlə boyanmış təbəssüm,",
+        "haqq-ədalət uğrunda atılan addım,",
+        "mənəvi dəyərlərə göstərilən ehtiram —",
+        "heç vaxt itib-batmaz. Başqalarının yolunu işıqlandırar, sənin də ömrünə nur, sağlamlıq və gözəllik qatar."
+      ],
+      "docx": "az/wisdom-stories/it-wont-go-to-waste-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/it-wont-go-to-waste.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: it-wont-go-to-waste\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: İtib batmaz\nBODY[1]: Ürəkdən edilən yaxşılıq,\nBODY[2]: sevgi ilə yoğrulmuş davranış,\nBODY[3]: səmimiyyətlə söylənmiş söz,\nBODY[4]: ədəb-ərkanlı rəftar,\nBODY[5]: eşqlə boyanmış təbəssüm,\nBODY[6]: haqq-ədalət uğrunda atılan addım,\nBODY[7]: mənəvi dəyərlərə göstərilən ehtiram —\nBODY[8]: heç vaxt itib-batmaz. Başqalarının yolunu işıqlandırar, sənin də ömrünə nur, sağlamlıq və gözəllik qatar.\nMORAL: İbrət: Ürəkdən edilən yaxşılıq, söz və əməl heç vaxt itmir; həm başqalarının yoluna işıq salır, həm də sənin ömrünü nurlandırır.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "sharing-justice",
+      "title": "Ədaləti paylaşmaq",
+      "moral": "İbrət: Sevinci, çörəyi, sevgini bölüşmək insanlıqdır. Bir yanda gülüb, o biri yanda ağlayırlarsa, orada ədalət yoxdur.",
+      "body": [
+        "Ya ağlamasın heç kimsə,",
+        "ya da gülməsin bu həmişə gülənlər;",
+        "ya kimsədə olmasın bu pul adlanan illət,",
+        "ya da paylaşmağı öyrənsin pullu millət;",
+        "ya kimsə söyləməsin sevdiyini,",
+        "ya da versinlər bu əsl sevginin tərifini;",
+        "ya bu bayramlar heç yaşanmasın,",
+        "ya da bayramda ət yeməyən qalmasın."
+      ],
+      "docx": "az/wisdom-stories/sharing-justice-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/sharing-justice.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: sharing-justice\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Ədaləti paylaşmaq\nBODY[1]: Ya ağlamasın heç kimsə,\nBODY[2]: ya da gülməsin bu həmişə gülənlər;\nBODY[3]: ya kimsədə olmasın bu pul adlanan illət,\nBODY[4]: ya da paylaşmağı öyrənsin pullu millət;\nBODY[5]: ya kimsə söyləməsin sevdiyini,\nBODY[6]: ya da versinlər bu əsl sevginin tərifini;\nBODY[7]: ya bu bayramlar heç yaşanmasın,\nBODY[8]: ya da bayramda ət yeməyən qalmasın.\nMORAL: İbrət: Sevinci, çörəyi, sevgini bölüşmək insanlıqdır. Bir yanda gülüb, o biri yanda ağlayırlarsa, orada ədalət yoxdur.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "shepherds-word",
+      "title": "Çobanın sözü",
+      "moral": "İbrət: İnsanın əsl sərvəti mal-mülkü deyil, sözü, vicdanı və etibarıdır.",
+      "body": [
+        "Bir zamanlar bir kənddə Həsən adlı kasıb, amma dürüst bir çoban yaşayırdı. Günlərin bir günü kənd ağası onu yanına çağırıb dedi:",
+        "— Ey Həsən, eşitmişəm ki, dağların otlaq yerlərinə yaxşı bələdsən. Bu yay sürümü sənə tapşırıram. Payızda heyvanlarım sağlam və kök qayıtsa, sənə bir inək bağışlayacağam.",
+        "Həsən razılaşdı. Bütün yayı yağışa, istiyə baxmadan sürünü otardı, gecələr gözünü qırpmadan keşiyini çəkdi. Payızda heyvanları əvvəlkindən də kök və sağlam halda kəndə qaytardı.",
+        "Həsən vəd olunmuş inəyi almaq ümidilə ağanın yanına gəldi. Ağa isə istehza ilə gülümsəyib dedi:",
+        "— Sənə inək vermək fikrim yox idi, o söz sadəcə səni işə həvəsləndirmək üçün deyilmişdi. Onsuz da kasıbsan, bir inəyi neyləyəcəksən?",
+        "Həsənin gözləri doldu. Lakin o, sakit və ləyaqətlə cavab verdi:",
+        "— Doğru deyirsən, ağa, mən kasıbam. Amma vicdanım var və öz sözümün ağasıyam. Sən varlı ola bilərsən, ancaq verdiyin sözün qiyməti yoxdursa, əsl kasıb sənsən.",
+        "Bu sözlər kənddə ağızdan-ağıza gəzdi. Ağanın adı hörmətdən düşdü, camaat onunla iş tutmaqdan çəkinməyə başladı. O isə gec də olsa başa düşdü: insanın qiymətini mal-dövləti və ya vəzifəsi yox, sözünə sadiqliyi müəyyən edir."
+      ],
+      "docx": "az/wisdom-stories/shepherds-word-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/shepherds-word.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: shepherds-word\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Çobanın sözü\nBODY[1]: Bir zamanlar bir kənddə Həsən adlı kasıb, amma dürüst bir çoban yaşayırdı. Günlərin bir günü kənd ağası onu yanına çağırıb dedi:\nBODY[2]: — Ey Həsən, eşitmişəm ki, dağların otlaq yerlərinə yaxşı bələdsən. Bu yay sürümü sənə tapşırıram. Payızda heyvanlarım sağlam və kök qayıtsa, sənə bir inək bağışlayacağam.\nBODY[3]: Həsən razılaşdı. Bütün yayı yağışa, istiyə baxmadan sürünü otardı, gecələr gözünü qırpmadan keşiyini çəkdi. Payızda heyvanları əvvəlkindən də kök və sağlam halda kəndə qaytardı.\nBODY[4]: Həsən vəd olunmuş inəyi almaq ümidilə ağanın yanına gəldi. Ağa isə istehza ilə gülümsəyib dedi:\nBODY[5]: — Sənə inək vermək fikrim yox idi, o söz sadəcə səni işə həvəsləndirmək üçün deyilmişdi. Onsuz da kasıbsan, bir inəyi neyləyəcəksən?\nBODY[6]: Həsənin gözləri doldu. Lakin o, sakit və ləyaqətlə cavab verdi:\nBODY[7]: — Doğru deyirsən, ağa, mən kasıbam. Amma vicdanım var və öz sözümün ağasıyam. Sən varlı ola bilərsən, ancaq verdiyin sözün qiyməti yoxdursa, əsl kasıb sənsən.\nBODY[8]: Bu sözlər kənddə ağızdan-ağıza gəzdi. Ağanın adı hörmətdən düşdü, camaat onunla iş tutmaqdan çəkinməyə başladı. O isə gec də olsa başa düşdü: insanın qiymətini mal-dövləti və ya vəzifəsi yox, sözünə sadiqliyi müəyyən edir.\nMORAL: İbrət: İnsanın əsl sərvəti mal-mülkü deyil, sözü, vicdanı və etibarıdır.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "spinach",
+      "title": "İspanaq",
+      "moral": "İbrət: Ananın imkansızlıqdakı fədakarlığını çox vaxt illər sonra anlayırıq. Sevgi bəzən bir boşqab sadə yeməkdə gizlənir.",
+      "body": [
+        "Ucqar bir kənddə yaşayırdıq. Düz-əməlli yolumuz da yox idi. Anam elə hey ispanaq bişirirdi. Uşaq ağlımla elə bilirdim ki, atam öləndən sonra anamın ağlı çaşıb...",
+        "«Bol-bol yemək lazımdır, bədənə güc verir» deyərdi anam və həm səhər, həm günorta, həm də axşam yeməyinə bizə ancaq ispanaq, üstəlik yanında elə hey qarğıdalı çörəyi yedizdirərdi. Artıq ispanağa nifrət edirdim, bu göyərtini görməyə gözüm yox idi.",
+        "Bir gün anama dedim: «Böyüyüb iş sahibi olanda, ailə quranda evə əsla ispanaq almayacağam. Evdə ispanaq yeməyi bişməyəcək.» O isə həmin günləri səbirsizliklə gözlədiyini, hətta yaşı neçə olursa-olsun, toyumda oynayacağına söz verdi.",
+        "Gün gəldi, orta məktəbdə oxumaq üçün kəndimizdən şəhərə köçdüm. Aldığım kiçik təqaüdlə birtəhər dolanırdım. Ayda bir dəfə evə gələndə anamın süfrəyə qoyduğu ispanaq yeməyindən bir qaşıq da yemək istəmirdim. Yataqxanaya qayıdıb ancaq nəfis yeməklər yemək istəyirdim.",
+        "Oxudum. Dövlət krediti ilə universiteti, magistraturanı, doktoranturanı bitirəndə anam artıq beli bükülmüş bir qoca idi. Evlənəcəyim qızla kəndə gəlib toy edəndə yaşlı anam həm ağladı, həm də illər öncə söz verdiyi kimi toyumda oynadı. O oynayanda anamın niyə göz yaşı tökdüyünü o vaxt anlaya bilməmişdim.",
+        "Aradan illər keçdi. Anam iki il öncə vəfat etdi.",
+        "Bir gün anamın köhnə sandığında o vaxtlar tutduğu xatirə dəftərini tapdım. Dəftərin bir səhifəsində anam belə yazmışdı: «Əlimdə sadəcə ispanaq toxumu qalmışdı. Daim ispanaq, bir az da qarğıdalı əkib becərirdim. Nə əldə vardı, nə ovucda. Uşaqlarım ac qalmasın deyə hey bu yeməyi bişirib verirdim. Amma üsyan etmirdim. «İspanaq çox faydalıdır, ona görə gündə üç dəfə sizə bu yeməyi verirəm» deyəndə ürəyim ağrıyırdı. Balalarım üçün əlimdən ancaq bu gəlirdi. Onları canımdan çox sevirəm.»",
+        "Əlli yaşında sevdim ispanaq yeməyini. Xanımım hey təəccüblə evə niyə bu qədər tez-tez ispanaq aldığımı soruşur, elə bilir ki, ispanağı çox sevirəm. Amma bilmir ki, mən hər dəfə o yeməyin qoxusunu duyanda anamın məni böyütmək üçün etdiyi fədakarlıqları, toyumda ağlaya-ağlaya oynadığını xatırlayıram..."
+      ],
+      "docx": "az/wisdom-stories/spinach-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/spinach.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: spinach\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: İspanaq\nBODY[1]: Ucqar bir kənddə yaşayırdıq. Düz-əməlli yolumuz da yox idi. Anam elə hey ispanaq bişirirdi. Uşaq ağlımla elə bilirdim ki, atam öləndən sonra anamın ağlı çaşıb...\nBODY[2]: «Bol-bol yemək lazımdır, bədənə güc verir» deyərdi anam və həm səhər, həm günorta, həm də axşam yeməyinə bizə ancaq ispanaq, üstəlik yanında elə hey qarğıdalı çörəyi yedizdirərdi. Artıq ispanağa nifrət edirdim, bu göyərtini görməyə gözüm yox idi.\nBODY[3]: Bir gün anama dedim: «Böyüyüb iş sahibi olanda, ailə quranda evə əsla ispanaq almayacağam. Evdə ispanaq yeməyi bişməyəcək.» O isə həmin günləri səbirsizliklə gözlədiyini, hətta yaşı neçə olursa-olsun, toyumda oynayacağına söz verdi.\nBODY[4]: Gün gəldi, orta məktəbdə oxumaq üçün kəndimizdən şəhərə köçdüm. Aldığım kiçik təqaüdlə birtəhər dolanırdım. Ayda bir dəfə evə gələndə anamın süfrəyə qoyduğu ispanaq yeməyindən bir qaşıq da yemək istəmirdim. Yataqxanaya qayıdıb ancaq nəfis yeməklər yemək istəyirdim.\nBODY[5]: Oxudum. Dövlət krediti ilə universiteti, magistraturanı, doktoranturanı bitirəndə anam artıq beli bükülmüş bir qoca idi. Evlənəcəyim qızla kəndə gəlib toy edəndə yaşlı anam həm ağladı, həm də illər öncə söz verdiyi kimi toyumda oynadı. O oynayanda anamın niyə göz yaşı tökdüyünü o vaxt anlaya bilməmişdim.\nBODY[6]: Aradan illər keçdi. Anam iki il öncə vəfat etdi.\nBODY[7]: Bir gün anamın köhnə sandığında o vaxtlar tutduğu xatirə dəftərini tapdım. Dəftərin bir səhifəsində anam belə yazmışdı: «Əlimdə sadəcə ispanaq toxumu qalmışdı. Daim ispanaq, bir az da qarğıdalı əkib becərirdim. Nə əldə vardı, nə ovucda. Uşaqlarım ac qalmasın deyə hey bu yeməyi bişirib verirdim. Amma üsyan etmirdim. «İspanaq çox faydalıdır, ona görə gündə üç dəfə sizə bu yeməyi verirəm» deyəndə ürəyim ağrıyırdı. Balalarım üçün əlimdən ancaq bu gəlirdi. Onları canımdan çox sevirəm.»\nBODY[8]: Əlli yaşında sevdim ispanaq yeməyini. Xanımım hey təəccüblə evə niyə bu qədər tez-tez ispanaq aldığımı soruşur, elə bilir ki, ispanağı çox sevirəm. Amma bilmir ki, mən hər dəfə o yeməyin qoxusunu duyanda anamın məni böyütmək üçün etdiyi fədakarlıqları, toyumda ağlaya-ağlaya oynadığını xatırlayıram...\nMORAL: İbrət: Ananın imkansızlıqdakı fədakarlığını çox vaxt illər sonra anlayırıq. Sevgi bəzən bir boşqab sadə yeməkdə gizlənir.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "telling-lies",
+      "title": "Yalan danışmaq",
+      "moral": "İbrət: Bəzən özünə dediyin xoş söz — «bacararsan» — səni irəli aparan qüvvəyə çevrilir. İnsan özünə inandığı qədər güclüdür.",
+      "body": [
+        "— Yalan danışırsan?",
+        "— Hə.",
+        "— Necə bir yalandır o?",
+        "— O yalanı ancaq özümə deyirəm. Yəni hər gün özüm-özümə deyirəm ki, «sən hamıdan güclüsən, hamıdan savadlısan, hamıdan bacarıqlısan» və s.",
+        "— Bəlkə bu, doğrudur?",
+        "— Yox, belə bir iddia doğru ola bilməz. Çünki məndən güclüsü də var, məndən bacarıqlısı da.",
+        "— Bəs onda niyə özünə bu yalanı deyirsən?",
+        "— İstər inan, istər inanma, bu sözlər mənə böyük həvəs verir. Daha güclü, daha savadlı olmaq, öz üzərimdə daha çox çalışmaq istəyirəm."
+      ],
+      "docx": "az/wisdom-stories/telling-lies-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/telling-lies.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: telling-lies\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Yalan danışmaq\nBODY[1]: — Yalan danışırsan?\nBODY[2]: — Hə.\nBODY[3]: — Necə bir yalandır o?\nBODY[4]: — O yalanı ancaq özümə deyirəm. Yəni hər gün özüm-özümə deyirəm ki, «sən hamıdan güclüsən, hamıdan savadlısan, hamıdan bacarıqlısan» və s.\nBODY[5]: — Bəlkə bu, doğrudur?\nBODY[6]: — Yox, belə bir iddia doğru ola bilməz. Çünki məndən güclüsü də var, məndən bacarıqlısı da.\nBODY[7]: — Bəs onda niyə özünə bu yalanı deyirsən?\nBODY[8]: — İstər inan, istər inanma, bu sözlər mənə böyük həvəs verir. Daha güclü, daha savadlı olmaq, öz üzərimdə daha çox çalışmaq istəyirəm.\nMORAL: İbrət: Bəzən özünə dediyin xoş söz — «bacararsan» — səni irəli aparan qüvvəyə çevrilir. İnsan özünə inandığı qədər güclüdür.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "three-landscapes",
+      "title": "Üç mənzərə",
+      "moral": "İbrət: Danışıb dəyəri heçə endirilən yaxşılıq, tövbəsiz günah və doğru rəhbərin ardınca getmək — hər biri həyatın gizli bir dərsidir.",
+      "body": [
+        "Səfərə çıxan bir gənc yolda üç qəribə mənzərə ilə üzləşir.",
+        "Əvvəl görür ki, bir neçə adam tarlaya buğda səpir. Dənlər torpağa düşən kimi cücərib boy atır, sünbül verir. Amma əkinçilər məhsulu yığmaq əvəzinə tarlanı yandırırlar.",
+        "Sonra bir adamın böyük bir daşı qaldırmağa çalışdığını görür. Adam daşı qaldıra bilmir. Üstünə ikinci daşı qoyanda qaldırır, üçüncünü qoyanda isə yükünü daha asan götürür. Gənc buna məna verə bilməyib yoluna davam edir.",
+        "Yolda rast gəldiyi üçüncü qəribə mənzərə də belə olur: bir adam qoyunun belinə minib, bir neçə adam da onun çiyninə dırmaşıb. Qoyun sürətlə qaçır; bir neçə adam da onların dalınca nə qədər yüyürsə də, çata bilmir.",
+        "Gənc bu gördüklərini nə qədər götür-qoy etsə də, bir məna anlaya bilmir və gəlib bir şəhərə çatır. Giriş qapısının yanında nurani bir qoca görüb salam verir. Qoca salamı alır, onu saxlayıb söhbətə tutur. Oğlan yol boyu gördüklərini danışır, qoca da onları belə izah edir:",
+        "— Gördüyün o əkinçilər, buğda tarlası və onu yandıran adamlar bilirsənmi kimlərdir? Əvvəlcə yaxşılıq edən, sonra da etdiyi yaxşılığı ora-bura danışıb dəyərini heçə endirənlər.",
+        "— Daş qaldıran adamın mənzərəsinin mənası budur: ilk dəfə günah işləmək insan üçün çox ağırdır. Amma insan günah işləyəndən sonra tövbə etməsə, sonrakı günahlar ona çox yüngül gəlir. Tövbəsi olmayan bir günah başqa bir günah üçün açılmış qapıdır.",
+        "— Qoyun və belindəki adamlara gəlincə, unutma ki, qoyun cənnət heyvanıdır və belinə minənləri cənnətə daşıyır. Qoyuna ilk minənlər alimlərdir. Alimlərin çiynindən asılanlar hər təbəqədən olan möminlərdir. Onların dalınca qaçanlar isə inancsızlar, dinsizlərdir."
+      ],
+      "docx": "az/wisdom-stories/three-landscapes-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/three-landscapes.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: three-landscapes\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Üç mənzərə\nBODY[1]: Səfərə çıxan bir gənc yolda üç qəribə mənzərə ilə üzləşir.\nBODY[2]: Əvvəl görür ki, bir neçə adam tarlaya buğda səpir. Dənlər torpağa düşən kimi cücərib boy atır, sünbül verir. Amma əkinçilər məhsulu yığmaq əvəzinə tarlanı yandırırlar.\nBODY[3]: Sonra bir adamın böyük bir daşı qaldırmağa çalışdığını görür. Adam daşı qaldıra bilmir. Üstünə ikinci daşı qoyanda qaldırır, üçüncünü qoyanda isə yükünü daha asan götürür. Gənc buna məna verə bilməyib yoluna davam edir.\nBODY[4]: Yolda rast gəldiyi üçüncü qəribə mənzərə də belə olur: bir adam qoyunun belinə minib, bir neçə adam da onun çiyninə dırmaşıb. Qoyun sürətlə qaçır; bir neçə adam da onların dalınca nə qədər yüyürsə də, çata bilmir.\nBODY[5]: Gənc bu gördüklərini nə qədər götür-qoy etsə də, bir məna anlaya bilmir və gəlib bir şəhərə çatır. Giriş qapısının yanında nurani bir qoca görüb salam verir. Qoca salamı alır, onu saxlayıb söhbətə tutur. Oğlan yol boyu gördüklərini danışır, qoca da onları belə izah edir:\nBODY[6]: — Gördüyün o əkinçilər, buğda tarlası və onu yandıran adamlar bilirsənmi kimlərdir? Əvvəlcə yaxşılıq edən, sonra da etdiyi yaxşılığı ora-bura danışıb dəyərini heçə endirənlər.\nBODY[7]: — Daş qaldıran adamın mənzərəsinin mənası budur: ilk dəfə günah işləmək insan üçün çox ağırdır. Amma insan günah işləyəndən sonra tövbə etməsə, sonrakı günahlar ona çox yüngül gəlir. Tövbəsi olmayan bir günah başqa bir günah üçün açılmış qapıdır.\nBODY[8]: — Qoyun və belindəki adamlara gəlincə, unutma ki, qoyun cənnət heyvanıdır və belinə minənləri cənnətə daşıyır. Qoyuna ilk minənlər alimlərdir. Alimlərin çiynindən asılanlar hər təbəqədən olan möminlərdir. Onların dalınca qaçanlar isə inancsızlar, dinsizlərdir.\nMORAL: İbrət: Danışıb dəyəri heçə endirilən yaxşılıq, tövbəsiz günah və doğru rəhbərin ardınca getmək — hər biri həyatın gizli bir dərsidir.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "we-are-rich",
+      "title": "Biz zənginik",
+      "moral": "İbrət: Əsl sərvət xəzinədə yox, xalqın güzəranındadır. Rəhbəri böyük edən vəzifəsi deyil, o vəzifədə xalqı üçün gördüyü işdir.",
+      "body": [
+        "IV əsrin sonlarına yaxın Yaponiyada taxtda oturan imperator Nintoku bir gün hündür bir qülləyə qalxıb ölkəsini nəzərdən keçirir. Göyə qalxan bir tüstü belə görməyəndə anlayır ki, xalqı yoxsulluğa düçar olub və heç kim evində yemək bişirə bilmir.",
+        "Dərhal fərman verib əhalisinə üç il boyunca yalnız özləri üçün işləməyi əmr edir. Sarayındakı işçiləri də evlərinə göndərir. Özü üçün işləyən, vergi verməyən xalq üç ilin sonunda bolluğa çıxır.",
+        "Üç ildən sonra yenidən qülləyə qalxan Nintoku hər tərəfdən yüksələn tüstüyə baxıb bütün ölkədə ocaqların yandığına əmin olur və yanındakı xanımına sevinclə:",
+        "— İndi biz zənginik! — deyir.",
+        "İmperatriçə isə üç illik baxımsızlıqdan köhnəlmiş, damı sızan, çiçəkləri solmuş sarayı göstərib:",
+        "— Buna sən zənginlik deyirsən? — deyə soruşur.",
+        "Nintokunun cavabı əsrlərdir yaponların yadından çıxmır:",
+        "— İnsanlarımızın yoxsulluğu bizim yoxsulluğumuz, zənginliyi isə bizim zənginliyimizdir."
+      ],
+      "docx": "az/wisdom-stories/we-are-rich-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/we-are-rich.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: we-are-rich\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Biz zənginik\nBODY[1]: IV əsrin sonlarına yaxın Yaponiyada taxtda oturan imperator Nintoku bir gün hündür bir qülləyə qalxıb ölkəsini nəzərdən keçirir. Göyə qalxan bir tüstü belə görməyəndə anlayır ki, xalqı yoxsulluğa düçar olub və heç kim evində yemək bişirə bilmir.\nBODY[2]: Dərhal fərman verib əhalisinə üç il boyunca yalnız özləri üçün işləməyi əmr edir. Sarayındakı işçiləri də evlərinə göndərir. Özü üçün işləyən, vergi verməyən xalq üç ilin sonunda bolluğa çıxır.\nBODY[3]: Üç ildən sonra yenidən qülləyə qalxan Nintoku hər tərəfdən yüksələn tüstüyə baxıb bütün ölkədə ocaqların yandığına əmin olur və yanındakı xanımına sevinclə:\nBODY[4]: — İndi biz zənginik! — deyir.\nBODY[5]: İmperatriçə isə üç illik baxımsızlıqdan köhnəlmiş, damı sızan, çiçəkləri solmuş sarayı göstərib:\nBODY[6]: — Buna sən zənginlik deyirsən? — deyə soruşur.\nBODY[7]: Nintokunun cavabı əsrlərdir yaponların yadından çıxmır:\nBODY[8]: — İnsanlarımızın yoxsulluğu bizim yoxsulluğumuz, zənginliyi isə bizim zənginliyimizdir.\nMORAL: İbrət: Əsl sərvət xəzinədə yox, xalqın güzəranındadır. Rəhbəri böyük edən vəzifəsi deyil, o vəzifədə xalqı üçün gördüyü işdir.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "why-injustice-when-there-is-justice",
+      "title": "Ədalət var ikən haqsızlıq niyə",
+      "moral": "İbrət: Sevgi, sülh, qardaşlıq və ədalət yolu açıqdırsa, nifrətə, davaya, haqsızlığa üz tutmaq insanın öz seçimidir və məsuliyyəti də onun üzərindədir.",
+      "body": [
+        "Hacı Bektaş Vəli:",
+        "Sevgi var ikən nifrət niyə,",
+        "Barış var ikən savaş niyə,",
+        "Qardaşlıq var ikən didişmək niyə,",
+        "Dostluq var ikən düşmənlik niyə,",
+        "Dözüm var ikən dözümsüzlük niyə,",
+        "Azadlıq var ikən əsirlik niyə,",
+        "Ədalət var ikən haqsızlıq niyə?"
+      ],
+      "docx": "az/wisdom-stories/why-injustice-when-there-is-justice-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/why-injustice-when-there-is-justice.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: why-injustice-when-there-is-justice\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Ədalət var ikən haqsızlıq niyə\nBODY[1]: Hacı Bektaş Vəli:\nBODY[2]: Sevgi var ikən nifrət niyə,\nBODY[3]: Barış var ikən savaş niyə,\nBODY[4]: Qardaşlıq var ikən didişmək niyə,\nBODY[5]: Dostluq var ikən düşmənlik niyə,\nBODY[6]: Dözüm var ikən dözümsüzlük niyə,\nBODY[7]: Azadlıq var ikən əsirlik niyə,\nBODY[8]: Ədalət var ikən haqsızlıq niyə?\nMORAL: İbrət: Sevgi, sülh, qardaşlıq və ədalət yolu açıqdırsa, nifrətə, davaya, haqsızlığa üz tutmaq insanın öz seçimidir və məsuliyyəti də onun üzərindədir.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "woman-and-the-mirror",
+      "title": "Qadın və güzgü",
+      "moral": "İbrət: Həyata baxışımız əhvalımıza təsir edir. Xoşbəxtliyi yalnız başqasından gözləmə; çətin gündə də sevinməyə bir səbəb tapmağa çalış.",
+      "body": [
+        "Qadın səhər-səhər oyanıb güzgüyə baxır. Görür ki, başında üç tel saç qalıb.",
+        "«Hımm... — deyir. — Bu gün saçımı hörərəm...» Saçını hörür, günü də əla keçir...",
+        "Ertəsi gün oyanıb yenə güzgüyə baxır... Başında iki tel saç qaldığını görür.",
+        "«Hımm... — deyir. — Bu gün saçımı ikiyə ayıraram...» Dediyini edir və yenə gözəl bir gün keçirir...",
+        "Sonrakı gün oyananda güzgüdə başında bircə tel saç olduğunu görür.",
+        "«Eybi yox, olsun... — deyir. — Bu gün də at quyruğu edərəm...» Elə də edir və çox möhtəşəm bir gün keçirir...",
+        "Daha bir gün güzgüyə baxanda başında heç saç qalmadığını görür.",
+        "«Ay daaa!… — deyə sevinclə çığırır. — Nə yaxşı, bu gün heç saç dərdim yoxdur!»"
+      ],
+      "docx": "az/wisdom-stories/woman-and-the-mirror-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/woman-and-the-mirror.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: woman-and-the-mirror\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Qadın və güzgü\nBODY[1]: Qadın səhər-səhər oyanıb güzgüyə baxır. Görür ki, başında üç tel saç qalıb.\nBODY[2]: «Hımm... — deyir. — Bu gün saçımı hörərəm...» Saçını hörür, günü də əla keçir...\nBODY[3]: Ertəsi gün oyanıb yenə güzgüyə baxır... Başında iki tel saç qaldığını görür.\nBODY[4]: «Hımm... — deyir. — Bu gün saçımı ikiyə ayıraram...» Dediyini edir və yenə gözəl bir gün keçirir...\nBODY[5]: Sonrakı gün oyananda güzgüdə başında bircə tel saç olduğunu görür.\nBODY[6]: «Eybi yox, olsun... — deyir. — Bu gün də at quyruğu edərəm...» Elə də edir və çox möhtəşəm bir gün keçirir...\nBODY[7]: Daha bir gün güzgüyə baxanda başında heç saç qalmadığını görür.\nBODY[8]: «Ay daaa!… — deyə sevinclə çığırır. — Nə yaxşı, bu gün heç saç dərdim yoxdur!»\nMORAL: İbrət: Həyata baxışımız əhvalımıza təsir edir. Xoşbəxtliyi yalnız başqasından gözləmə; çətin gündə də sevinməyə bir səbəb tapmağa çalış.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    }
+  ]
+}

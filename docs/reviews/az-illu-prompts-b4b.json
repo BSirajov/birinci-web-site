@@ -1,0 +1,72 @@
+{
+  "count": 4,
+  "asset_rule": "Save final art as WebP 1536x1024 at output_webp; HTML paths unchanged",
+  "text_rule": "On-image Azerbaijani must match Exact quotes exactly (ə/ı/ğ/ö/ü/ş/ç)",
+  "items": [
+    {
+      "stem": "three-best-things",
+      "title": "Ən yaxşı üç şey",
+      "moral": "İbrət: Ən yaxşı yemək acanda yediyin, ən rahat yuxu zəhmətdən sonra yatdığındır. Ən gözəl ev isə könüllərdə tutduğun yerdir. Xoşbəxtlik təkcə imkandan deyil, həyata baxışdan da asılıdır.",
+      "body": [
+        "Ata:",
+        "— Oğul, həyatda bu üç şeyə can atmalıyıq: ən yaxşı yeməyi yeməli, ən yaxşı yataqda yatmalı, ən yaxşı evdə yaşamalıyıq.",
+        "Oğul:",
+        "— Ata, amma biz axı kasıbıq, bunu necə edə bilərik?",
+        "Ata:",
+        "— Acanda yeyərsənsə, bu, sənin ən yaxşı yeməyin olar. Çox zəhmət çəkib yorğun yatarsansa, bu, sənin ən yaxşı yuxun olar. İnsanlara qəlbində yer verərsənsə, bu, sənin ən yaxşı evin olar."
+      ],
+      "docx": "az/wisdom-stories/three-best-things-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/three-best-things.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: three-best-things\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Ən yaxşı üç şey\nBODY[1]: Ata:\nBODY[2]: — Oğul, həyatda bu üç şeyə can atmalıyıq: ən yaxşı yeməyi yeməli, ən yaxşı yataqda yatmalı, ən yaxşı evdə yaşamalıyıq.\nBODY[3]: Oğul:\nBODY[4]: — Ata, amma biz axı kasıbıq, bunu necə edə bilərik?\nBODY[5]: Ata:\nBODY[6]: — Acanda yeyərsənsə, bu, sənin ən yaxşı yeməyin olar. Çox zəhmət çəkib yorğun yatarsansa, bu, sənin ən yaxşı yuxun olar. İnsanlara qəlbində yer verərsənsə, bu, sənin ən yaxşı evin olar.\nMORAL: İbrət: Ən yaxşı yemək acanda yediyin, ən rahat yuxu zəhmətdən sonra yatdığındır. Ən gözəl ev isə könüllərdə tutduğun yerdir. Xoşbəxtlik təkcə imkandan deyil, həyata baxışdan da asılıdır.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "try-to-think-this-way",
+      "title": "Belə düşünməyə çalışın",
+      "moral": "İbrət: Düşüncəni dəyişmək həyatını dəyişməyin ilk addımıdır. «Bacarmaram» demək yolu bağlayır, «öyrənərəm» demək isə yeni imkanlar açır. Uğursuzluq son deyil, inkişaf fürsətidir.",
+      "body": [
+        "«Mən bu işi yaxşı bacarmıram» deməyin. «Bəlkə bilmədiyim bir şey var? Əminəm ki, biliyimi təzələsəm, üzərində işləsəm, bacararam» deyin.",
+        "«Mən bu işdən vaz keçdim» deməyin. «Bəlkə bu işi başqa yolla həll edə bilərəm? Cəhd edim görüm, bəlkə alındı» deyin.",
+        "«Bu iş çox çətindir» deməyin. «Çətindir, amma mümkünsüz deyil; bir qədər əlavə vaxt və zəhmət istəyir» deyin.",
+        "«Gördüyüm iş məni qane edir, bundan yaxşısını edə bilmərəm» deməyin. «Öz üzərimdə işləyib təkmilləşə və daha yaxşı nəticə əldə edə bilərəm» deyin.",
+        "«Mən səhv etdim, kaş etməyəydim» deməyin. «Dünyanın sonu deyil; səhvlər öyrənməyimə kömək edir» deyin.",
+        "«O çox ağıllıdır, mən onun kimi ola bilmərəm» deməyin. «Onun buna necə nail olduğunu öyrənib mən də eyni uğuru qazana bilərəm» deyin."
+      ],
+      "docx": "az/wisdom-stories/try-to-think-this-way-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/try-to-think-this-way.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: try-to-think-this-way\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Belə düşünməyə çalışın\nBODY[1]: «Mən bu işi yaxşı bacarmıram» deməyin. «Bəlkə bilmədiyim bir şey var? Əminəm ki, biliyimi təzələsəm, üzərində işləsəm, bacararam» deyin.\nBODY[2]: «Mən bu işdən vaz keçdim» deməyin. «Bəlkə bu işi başqa yolla həll edə bilərəm? Cəhd edim görüm, bəlkə alındı» deyin.\nBODY[3]: «Bu iş çox çətindir» deməyin. «Çətindir, amma mümkünsüz deyil; bir qədər əlavə vaxt və zəhmət istəyir» deyin.\nBODY[4]: «Gördüyüm iş məni qane edir, bundan yaxşısını edə bilmərəm» deməyin. «Öz üzərimdə işləyib təkmilləşə və daha yaxşı nəticə əldə edə bilərəm» deyin.\nBODY[5]: «Mən səhv etdim, kaş etməyəydim» deməyin. «Dünyanın sonu deyil; səhvlər öyrənməyimə kömək edir» deyin.\nBODY[6]: «O çox ağıllıdır, mən onun kimi ola bilmərəm» deməyin. «Onun buna necə nail olduğunu öyrənib mən də eyni uğuru qazana bilərəm» deyin.\nMORAL: İbrət: Düşüncəni dəyişmək həyatını dəyişməyin ilk addımıdır. «Bacarmaram» demək yolu bağlayır, «öyrənərəm» demək isə yeni imkanlar açır. Uğursuzluq son deyil, inkişaf fürsətidir.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "turtles-wrong-calculation",
+      "title": "Tısbağanın yanlış hesabı",
+      "moral": "İbrət: Həyatda hər çətinliyi hesablamaq olar, amma pis niyyətli insanları yox. Allah səni irəli getməyə qoymayanlarla yox, dəstək olanlarla qarşılaşdırsın.",
+      "body": [
+        "Tısbağadan soruşurlar:",
+        "— Bu yaxınlıqdakı kəndə nə qədər vaxta gedib çatarsan?",
+        "— Yağışı, palçığı, küləyi, eniş-yoxuşları nəzərə alsaq, üç günlük yoldur, amma mən altı günə çataram... — deyə tısbağa cavab verir.",
+        "Altı gündən sonra baxıb görürlər ki, tısbağa hələ kəndə çatmayıb. Axtarıb nəhayət onu yolun yarısında tapırlar: — Xeyir ola, üç günlük yolu altı günə də gələ bilməmisən? — deyə təəccüblə soruşurlar.",
+        "Tısbağa pərişan halda deyir:",
+        "— Heç soruşmayın, dostlar. Yağışı, palçığı, küləyi, eniş-yoxuşu nəzərə aldım, pis adamları isə unutdum. Hər dəfə bir az sürətimi artıranda məni tutub arxası üstə çevirdilər."
+      ],
+      "docx": "az/wisdom-stories/turtles-wrong-calculation-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/turtles-wrong-calculation.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: turtles-wrong-calculation\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Tısbağanın yanlış hesabı\nBODY[1]: Tısbağadan soruşurlar:\nBODY[2]: — Bu yaxınlıqdakı kəndə nə qədər vaxta gedib çatarsan?\nBODY[3]: — Yağışı, palçığı, küləyi, eniş-yoxuşları nəzərə alsaq, üç günlük yoldur, amma mən altı günə çataram... — deyə tısbağa cavab verir.\nBODY[4]: Altı gündən sonra baxıb görürlər ki, tısbağa hələ kəndə çatmayıb. Axtarıb nəhayət onu yolun yarısında tapırlar: — Xeyir ola, üç günlük yolu altı günə də gələ bilməmisən? — deyə təəccüblə soruşurlar.\nBODY[5]: Tısbağa pərişan halda deyir:\nBODY[6]: — Heç soruşmayın, dostlar. Yağışı, palçığı, küləyi, eniş-yoxuşu nəzərə aldım, pis adamları isə unutdum. Hər dəfə bir az sürətimi artıranda məni tutub arxası üstə çevirdilər.\nMORAL: İbrət: Həyatda hər çətinliyi hesablamaq olar, amma pis niyyətli insanları yox. Allah səni irəli getməyə qoymayanlarla yox, dəstək olanlarla qarşılaşdırsın.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "being-human",
+      "title": "Adam olmaq",
+      "moral": "İbrət: Əsl dəyər təkcə bilikdə deyil, insanlıqdadır. Hörmət etməyi bacaran qəlbdə sevgi də, ədalət də özünə yer tapır.",
+      "body": [
+        "“Alim olmaq asandır, adam olmaq çətin” — tez-tez eşitdiyimiz bir ifadədir. Bəs adam olmaq nə deməkdir?",
+        "Adam olmaq fəzilətli, müdrik, mədəni, ədalətli, şərəfli və ləyaqətli yaşamaqdır.",
+        "Ədəbli, nəzakətli, fərasətli və təvazökar olmaq; özünü öymədən başqalarına hörmət göstərməkdir.",
+        "Hər addımını ölçüb-biçmək, müvazinəti qorumaq, əməllərində ardıcıl olmaq və çətinlik qarşısında əyilməməkdir.",
+        "Sözünün üstündə durmaq, pula və vəzifəyə sitayiş etməmək, oğurlamamaq və başqasının haqqını yeməməkdir.",
+        "Yalan danışmamaq, böhtan atmamaq, şəxsi mənfəət naminə başqasını satmamaq və haqqı müdafiə etməkdir.",
+        "İkiüzlülükdən, kindən və insanları bir-birinə qarşı qoymaqdan uzaq durmaq; sevməyi bacarmaqdır."
+      ],
+      "docx": "az/wisdom-stories/being-human-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/being-human.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: being-human\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Adam olmaq\nBODY[1]: “Alim olmaq asandır, adam olmaq çətin” — tez-tez eşitdiyimiz bir ifadədir. Bəs adam olmaq nə deməkdir?\nBODY[2]: Adam olmaq fəzilətli, müdrik, mədəni, ədalətli, şərəfli və ləyaqətli yaşamaqdır.\nBODY[3]: Ədəbli, nəzakətli, fərasətli və təvazökar olmaq; özünü öymədən başqalarına hörmət göstərməkdir.\nBODY[4]: Hər addımını ölçüb-biçmək, müvazinəti qorumaq, əməllərində ardıcıl olmaq və çətinlik qarşısında əyilməməkdir.\nBODY[5]: Sözünün üstündə durmaq, pula və vəzifəyə sitayiş etməmək, oğurlamamaq və başqasının haqqını yeməməkdir.\nBODY[6]: Yalan danışmamaq, böhtan atmamaq, şəxsi mənfəət naminə başqasını satmamaq və haqqı müdafiə etməkdir.\nBODY[7]: İkiüzlülükdən, kindən və insanları bir-birinə qarşı qoymaqdan uzaq durmaq; sevməyi bacarmaqdır.\nMORAL: İbrət: Əsl dəyər təkcə bilikdə deyil, insanlıqdadır. Hörmət etməyi bacaran qəlbdə sevgi də, ədalət də özünə yer tapır.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "count": 5,
+  "asset_rule": "Save final art as WebP 1536x1024 at output_webp; HTML paths unchanged",
+  "text_rule": "On-image English must match Exact quotes exactly",
+  "items": [
+    {
+      "stem": "organization-without-an-action-plan",
+      "title": "An Organization Without an Action Plan",
+      "moral": "Moral: A goal provides direction; a plan defines the path toward it. An organization may advance by chance without a plan, but lasting success requires deliberate and consistent action.",
+      "body": [
+        "An organization without an action plan is like a ship that knows its destination but has no chart, no chosen route, and no assigned duties for its crew. It may reach port through luck, a skillful captain, or favorable weather. But lasting success needs more than fortunate circumstances: it requires careful planning and consistent action.",
+        "Over time, an organization without a plan also begins to lose its members. People are sustained not only by ideas, but by the hope of seeing those ideas put into practice. When hope fades, people leave; when people leave, the organization gradually weakens and eventually ceases to function."
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/organization-without-an-action-plan.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: organization-without-an-action-plan\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: An Organization Without an Action Plan\nBODY[1]: An organization without an action plan is like a ship that knows its destination but has no chart, no chosen route, and no assigned duties for its crew. It may reach port through luck, a skillful captain, or favorable weather. But lasting success needs more than fortunate circumstances: it requires careful planning and consistent action.\nBODY[2]: Over time, an organization without a plan also begins to lose its members. People are sustained not only by ideas, but by the hope of seeing those ideas put into practice. When hope fades, people leave; when people leave, the organization gradually weakens and eventually ceases to function.\nMORAL: Moral: A goal provides direction; a plan defines the path toward it. An organization may advance by chance without a plan, but lasting success requires deliberate and consistent action.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "other-peoples-opinions",
+      "title": "Other People's Opinions",
+      "moral": "Moral: When we surrender our own voice and understanding, other people’s ideas take their place. Preserve the values and roots that help you remain yourself.",
+      "body": [
+        "One day, a person lost the comma, and every sentence ran together. Then the period disappeared, and thoughts stretched on without an end. Next went the exclamation mark, taking joy, anger, and feeling with it. When the question mark vanished, the person stopped asking questions and accepted everything without challenge. Finally, the colon disappeared, along with the ability to explain.",
+        "At the end of life, only quotation marks remained, enclosing other people’s opinions."
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/other-peoples-opinions.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: other-peoples-opinions\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Other People's Opinions\nBODY[1]: One day, a person lost the comma, and every sentence ran together. Then the period disappeared, and thoughts stretched on without an end. Next went the exclamation mark, taking joy, anger, and feeling with it. When the question mark vanished, the person stopped asking questions and accepted everything without challenge. Finally, the colon disappeared, along with the ability to explain.\nBODY[2]: At the end of life, only quotation marks remained, enclosing other people’s opinions.\nMORAL: Moral: When we surrender our own voice and understanding, other people’s ideas take their place. Preserve the values and roots that help you remain yourself.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "pay-rent-for-the-water",
+      "title": "Rent for the Water",
+      "moral": "Moral: Dishonesty can trap the person who practices it. Fair judgment considers both sides of a claim.",
+      "body": [
+        "A man bought a well from a villager. But when he tried to draw water, the seller stopped him. “I sold you the well, not the water.” Unable to settle the dispute, they went before a judge.",
+        "“If the water is yours,” the judge told the seller, “you cannot store it in another man’s well. Take it away or pay him rent.”"
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/pay-rent-for-the-water.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: pay-rent-for-the-water\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Rent for the Water\nBODY[1]: A man bought a well from a villager. But when he tried to draw water, the seller stopped him. “I sold you the well, not the water.” Unable to settle the dispute, they went before a judge.\nBODY[2]: “If the water is yours,” the judge told the seller, “you cannot store it in another man’s well. Take it away or pay him rent.”\nMORAL: Moral: Dishonesty can trap the person who practices it. Fair judgment considers both sides of a claim.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "pray-while-washing-your-dishes",
+      "title": "Gratitude at the Kitchen Sink",
+      "moral": "Moral: Everyday chores can remind us of everyday blessings. Gratitude begins with noticing them.",
+      "body": [
+        "As you wash the dishes, offer a prayer of thanks. The dishes show that there was food to prepare, a table to set, and perhaps someone to care for and feed.",
+        "Remember those who have neither food to serve nor anyone to share it with."
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/pray-while-washing-your-dishes.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: pray-while-washing-your-dishes\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Gratitude at the Kitchen Sink\nBODY[1]: As you wash the dishes, offer a prayer of thanks. The dishes show that there was food to prepare, a table to set, and perhaps someone to care for and feed.\nBODY[2]: Remember those who have neither food to serve nor anyone to share it with.\nMORAL: Moral: Everyday chores can remind us of everyday blessings. Gratitude begins with noticing them.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "no-one-listens-to-constant-complainers",
+      "title": "The Same Complaint",
+      "moral": "Moral: Repetition alone changes nothing. Give your energy to finding a way forward.",
+      "body": [
+        "A wise man met a group who kept complaining about the same problems. He told them a joke, and everyone laughed. He repeated it, and only a few smiled. The third time, no one reacted.",
+        "Repeating a complaint without seeking a solution can have the same effect. Eventually, people stop listening."
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/no-one-listens-to-constant-complainers.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: no-one-listens-to-constant-complainers\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: The Same Complaint\nBODY[1]: A wise man met a group who kept complaining about the same problems. He told them a joke, and everyone laughed. He repeated it, and only a few smiled. The third time, no one reacted.\nBODY[2]: Repeating a complaint without seeking a solution can have the same effect. Eventually, people stop listening.\nMORAL: Moral: Repetition alone changes nothing. Give your energy to finding a way forward.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    }
+  ]
+}

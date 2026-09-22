@@ -1,0 +1,79 @@
+{
+  "count": 4,
+  "asset_rule": "Save final art as WebP 1536x1024 at output_webp; HTML paths unchanged",
+  "text_rule": "On-image Azerbaijani must match Exact quotes exactly (ə/ı/ğ/ö/ü/ş/ç)",
+  "items": [
+    {
+      "stem": "handful-of-roasted-chickpeas",
+      "title": "Bir ovuc ləbləbi",
+      "moral": "İbrət: Bəzən nə istədiyin qədər kimdən istədiyin də vacibdir. Verənin ovucu böyükdürsə, payın da çox olar.",
+      "body": [
+        "Bir uşaq anası ilə birlikdə çərəz dükanına girir. Uşaq dayanmadan “Ləbləbi istəyirəm” deyə israr edir. Ananın almaq fikrində olmadığını görən satıcının uşağa yazığı gəlir:",
+        "— Bala, gəl, özün buradan bir ovuc götür.",
+        "— Yox, ancaq sən versən, alaram, — deyə uşaq cavab verir.",
+        "Satıcı ona bir ovuc dolusu ləbləbi verib soruşur:",
+        "— Niyə özün götürmədin, mənim verməyimi istədin?",
+        "Uşaq gülümsəyərək deyir:",
+        "— Çünki sənin ovucun mənimkindən böyükdür.",
+        "— Maşallah, nə qədər zirək uşaqsan! — deyə satıcı da gülümsəyir."
+      ],
+      "docx": "az/wisdom-stories/handful-of-roasted-chickpeas-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/handful-of-roasted-chickpeas.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: handful-of-roasted-chickpeas\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Bir ovuc ləbləbi\nBODY[1]: Bir uşaq anası ilə birlikdə çərəz dükanına girir. Uşaq dayanmadan “Ləbləbi istəyirəm” deyə israr edir. Ananın almaq fikrində olmadığını görən satıcının uşağa yazığı gəlir:\nBODY[2]: — Bala, gəl, özün buradan bir ovuc götür.\nBODY[3]: — Yox, ancaq sən versən, alaram, — deyə uşaq cavab verir.\nBODY[4]: Satıcı ona bir ovuc dolusu ləbləbi verib soruşur:\nBODY[5]: — Niyə özün götürmədin, mənim verməyimi istədin?\nBODY[6]: Uşaq gülümsəyərək deyir:\nBODY[7]: — Çünki sənin ovucun mənimkindən böyükdür.\nBODY[8]: — Maşallah, nə qədər zirək uşaqsan! — deyə satıcı da gülümsəyir.\nMORAL: İbrət: Bəzən nə istədiyin qədər kimdən istədiyin də vacibdir. Verənin ovucu böyükdürsə, payın da çox olar.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "how-can-i-escape-my-thoughts",
+      "title": "Düşüncələrimdən necə qurtula bilərəm?",
+      "moral": "İbrət: Səni əzən düşüncələri sən özün tutub saxlayırsan; onları buraxmaq da elə sənin əlindədir. Baxış bucağını dəyiş, yükün yüngülləşər.",
+      "body": [
+        "Bir gün bir adam dövrünün tanınmış alimlərindən birinin yanına gəlib soruşur:",
+        "— Əsiri olduğum acı düşüncələrdən necə qurtula bilərəm?",
+        "Alim ona cavab vermək əvəzinə ayağa qalxır, yaxınlıqdakı dirəyi qucaqlayıb var gücü ilə:",
+        "— Məni bu dirəkdən ayırın, canımı ondan qurtarın!… — deyə bağırmağa başlayır.",
+        "Heyrətlə ona baxan adam soruşur:",
+        "— Niyə belə edirsən? Mən səni müdrik adam bilib imdad diləməyə gəlmişəm. Amma görürəm ki, sən müdrik birinə bənzəmirsən. Dirəyi sən özün tutmusan, o səni tutmayıb. Burax onu, canın qurtulsun!",
+        "Alim dirəyi buraxıb adama deyir:",
+        "— Sən öz sualına özün cavab verdin. Düşüncələr səni yox, sən onları tutub saxlayırsan! Burax getsinlər ki, sənin də canın qurtulsun."
+      ],
+      "docx": "az/wisdom-stories/how-can-i-escape-my-thoughts-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/how-can-i-escape-my-thoughts.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: how-can-i-escape-my-thoughts\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Düşüncələrimdən necə qurtula bilərəm?\nBODY[1]: Bir gün bir adam dövrünün tanınmış alimlərindən birinin yanına gəlib soruşur:\nBODY[2]: — Əsiri olduğum acı düşüncələrdən necə qurtula bilərəm?\nBODY[3]: Alim ona cavab vermək əvəzinə ayağa qalxır, yaxınlıqdakı dirəyi qucaqlayıb var gücü ilə:\nBODY[4]: — Məni bu dirəkdən ayırın, canımı ondan qurtarın!… — deyə bağırmağa başlayır.\nBODY[5]: Heyrətlə ona baxan adam soruşur:\nBODY[6]: — Niyə belə edirsən? Mən səni müdrik adam bilib imdad diləməyə gəlmişəm. Amma görürəm ki, sən müdrik birinə bənzəmirsən. Dirəyi sən özün tutmusan, o səni tutmayıb. Burax onu, canın qurtulsun!\nBODY[7]: Alim dirəyi buraxıb adama deyir:\nBODY[8]: — Sən öz sualına özün cavab verdin. Düşüncələr səni yox, sən onları tutub saxlayırsan! Burax getsinlər ki, sənin də canın qurtulsun.\nMORAL: İbrət: Səni əzən düşüncələri sən özün tutub saxlayırsan; onları buraxmaq da elə sənin əlindədir. Baxış bucağını dəyiş, yükün yüngülləşər.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "i-am-tired-mother",
+      "title": "Yoruldum, ana",
+      "moral": "İbrət: Ana qucağı dünyanın ən rahat sığınacağıdır. Anası olan yorğunluğunu qoyacağı bir yer həmişə tapar — əlindəkinin qədrini bil.",
+      "body": [
+        "— Yoruldum, ana...",
+        "— Nədən, oğlum?",
+        "— Hər şeydən: işləməkdən, dostlardan, gəzməkdən, hamını razı salmağa çalışmaqdan... Çox yorulmuşam.",
+        "— Başını qoy dizimə və rahatla, oğul, bir anlıq hər şeyi unut... ağrılarını mənə ver...",
+        "— Sağ ol, ana, yaxşı ki varsan. Yanında yaşımı da, yaşadıqlarımı da unuduram. Var ol!",
+        "— Ana həyat verəndir, oğlum, həmişə yanındayam.",
+        "— Anam, bizlər də səni çox yoruruq, bağışla bizi.",
+        "— Məni siz yormursunuz, oğlum. Mənim yorğunluğum anasızlığımdır. Başımı qoymağa «ana dizi»m yoxdur, oğlum... Sən yorulma, əlindəkilərin qiymətini bil..."
+      ],
+      "docx": "az/wisdom-stories/i-am-tired-mother-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/i-am-tired-mother.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: i-am-tired-mother\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Yoruldum, ana\nBODY[1]: — Yoruldum, ana...\nBODY[2]: — Nədən, oğlum?\nBODY[3]: — Hər şeydən: işləməkdən, dostlardan, gəzməkdən, hamını razı salmağa çalışmaqdan... Çox yorulmuşam.\nBODY[4]: — Başını qoy dizimə və rahatla, oğul, bir anlıq hər şeyi unut... ağrılarını mənə ver...\nBODY[5]: — Sağ ol, ana, yaxşı ki varsan. Yanında yaşımı da, yaşadıqlarımı da unuduram. Var ol!\nBODY[6]: — Ana həyat verəndir, oğlum, həmişə yanındayam.\nBODY[7]: — Anam, bizlər də səni çox yoruruq, bağışla bizi.\nBODY[8]: — Məni siz yormursunuz, oğlum. Mənim yorğunluğum anasızlığımdır. Başımı qoymağa «ana dizi»m yoxdur, oğlum... Sən yorulma, əlindəkilərin qiymətini bil...\nMORAL: İbrət: Ana qucağı dünyanın ən rahat sığınacağıdır. Anası olan yorğunluğunu qoyacağı bir yer həmişə tapar — əlindəkinin qədrini bil.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "if-i-dont-do-it-these-days-the-world-wont-collapse",
+      "title": "Bu günlərdə etməsəm, dünya dağılmaz ki",
+      "moral": "İbrət: Etimad təşkilatın ən qiymətli sərvətidir. Onu qazanmaq illər çəkir, itirməyə isə bir cümlə kifayət edir. Sözünün üstündə duran insan bu sərvəti qoruyur.",
+      "body": [
+        "Bir əməkdaşımızdan tapşırılan işin nə yerdə olduğunu soruşdum. Cavabı məni çox məyus etdi:",
+        "«Bu günlərdə etməsəm, dünya dağılmaz ki…»",
+        "Bir anlıq düşündüm: Bəli, dünya dağılmaz. Amma bəs bizim aramızdakı etibar? O da dağılmazmı? Bu münasibət əməkdaşlığımıza, qarşılıqlı hörmətimizə və gördüyümüz ümumi işə zərər vurmazmı?",
+        "Məsələ tapşırığın bir neçə gün gecikməsi deyildi. Məsələ insanın üzərinə götürdüyü öhdəliyə münasibəti idi. Çünki məsuliyyət təkcə işi görmək deyil, verilən sözə sahib çıxmaq, qarşı tərəfin etimadını doğrultmaq və insanların sənə arxalana bilməsini təmin etməkdir.",
+        "Düşünürəm ki, üzərinə götürdüyün hər hansı bir öhdəliyə bu cür məsuliyyətsiz yanaşmaq doğru deyil. Daha da təəssüf doğuran isə bu yanaşmanın ifadə tərzi idi. Mənə görə, belə bir cavab ən azı kobud səslənir və qarşı tərəfin vaxtına, əməyinə və etimadına yetərincə dəyər verilmədiyini göstərir.",
+        "Etiraf edim ki, bu sözlər qəlbimi sındırdı. Həmin an anladım ki, əməkdaşlığımız əvvəlki kimi davam edə bilməyəcək. Çünki istənilən peşəkar münasibətin təməli etibardır. Etibar sarsıldıqda isə iş birliyi də ciddi sınaq qarşısında qalır.",
+        "Məni daha çox məyus edən isə odur ki, həmkarım nə dediyi sözün yanlışlığını anladı, nə buna görə üzr istədi, nə də tapşırığı yerinə yetirdi. Nəticədə, ona olan etimadım sarsıldığı üçün problemin həllini başqa yolla təmin etməyə məcbur oldum.",
+        "Bu hadisə mənə bir daha göstərdi ki, təşkilatlarda ən qiymətli resurs nə vaxtdır, nə puldur, nə də texnologiya. Ən qiymətli resurs insanların bir-birinə olan etimadıdır. Etimadı qazanmaq illər tələb edə bilər, onu itirmək isə bəzən cəmi bir cümlə ilə mümkündür."
+      ],
+      "docx": "az/wisdom-stories/if-i-dont-do-it-these-days-the-world-wont-collapse-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/if-i-dont-do-it-these-days-the-world-wont-collapse.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: if-i-dont-do-it-these-days-the-world-wont-collapse\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Bu günlərdə etməsəm, dünya dağılmaz ki\nBODY[1]: Bir əməkdaşımızdan tapşırılan işin nə yerdə olduğunu soruşdum. Cavabı məni çox məyus etdi:\nBODY[2]: «Bu günlərdə etməsəm, dünya dağılmaz ki…»\nBODY[3]: Bir anlıq düşündüm: Bəli, dünya dağılmaz. Amma bəs bizim aramızdakı etibar? O da dağılmazmı? Bu münasibət əməkdaşlığımıza, qarşılıqlı hörmətimizə və gördüyümüz ümumi işə zərər vurmazmı?\nBODY[4]: Məsələ tapşırığın bir neçə gün gecikməsi deyildi. Məsələ insanın üzərinə götürdüyü öhdəliyə münasibəti idi. Çünki məsuliyyət təkcə işi görmək deyil, verilən sözə sahib çıxmaq, qarşı tərəfin etimadını doğrultmaq və insanların sənə arxalana bilməsini təmin etməkdir.\nBODY[5]: Düşünürəm ki, üzərinə götürdüyün hər hansı bir öhdəliyə bu cür məsuliyyətsiz yanaşmaq doğru deyil. Daha da təəssüf doğuran isə bu yanaşmanın ifadə tərzi idi. Mənə görə, belə bir cavab ən azı kobud səslənir və qarşı tərəfin vaxtına, əməyinə və etimadına yetərincə dəyər verilmədiyini göstərir.\nBODY[6]: Etiraf edim ki, bu sözlər qəlbimi sındırdı. Həmin an anladım ki, əməkdaşlığımız əvvəlki kimi davam edə bilməyəcək. Çünki istənilən peşəkar münasibətin təməli etibardır. Etibar sarsıldıqda isə iş birliyi də ciddi sınaq qarşısında qalır.\nBODY[7]: Məni daha çox məyus edən isə odur ki, həmkarım nə dediyi sözün yanlışlığını anladı, nə buna görə üzr istədi, nə də tapşırığı yerinə yetirdi. Nəticədə, ona olan etimadım sarsıldığı üçün problemin həllini başqa yolla təmin etməyə məcbur oldum.\nBODY[8]: Bu hadisə mənə bir daha göstərdi ki, təşkilatlarda ən qiymətli resurs nə vaxtdır, nə puldur, nə də texnologiya. Ən qiymətli resurs insanların bir-birinə olan etimadıdır. Etimadı qazanmaq illər tələb edə bilər, onu itirmək isə bəzən cəmi bir cümlə ilə mümkündür.\nMORAL: İbrət: Etimad təşkilatın ən qiymətli sərvətidir. Onu qazanmaq illər çəkir, itirməyə isə bir cümlə kifayət edir. Sözünün üstündə duran insan bu sərvəti qoruyur.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    }
+  ]
+}

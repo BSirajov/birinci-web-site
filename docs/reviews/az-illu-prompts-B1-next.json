@@ -1,0 +1,182 @@
+{
+  "count": 10,
+  "asset_rule": "Save final art as WebP 1536x1024 at output_webp; HTML paths unchanged",
+  "text_rule": "On-image Azerbaijani must match Exact quotes exactly (ə/ı/ğ/ö/ü/ş/ç)",
+  "items": [
+    {
+      "stem": "advice-for-those-who-marry",
+      "title": "Evlənənlərə tövsiyə",
+      "moral": "İbrət: Xoşbəxt evlilik müqayisədə və qüsursuzluq axtarışında deyil, açıq ünsiyyətdə, qarşılıqlı hörmətdə və şəxsi sərhədlərə ehtiramdadır.",
+      "body": [
+        "Ailə quran gənc bir cütlüyə dünyagörmüş böyüklər belə nəsihət etdilər:",
+        "“Evliliyinizi başqalarının evliliyi ilə müqayisə etməyin. ‘Filankəsin əri belədir’ və ya ‘filankəsin arvadı elədir’ deməyin.",
+        "Qüsursuz insan axtarmayın; heç birimiz qüsursuz deyilik. Bir-birinizin keçmişini eşələməyin — keçən keçmişdə qalsın.",
+        "Həyat yoldaşınızdan ürəyinizdən keçənləri oxumasını gözləməyin. Bunu heç kim bacarmır. İstək və narahatlıqlarınızı açıq söyləyin, problemlərinizi danışıb həll etməyə çalışın.",
+        "Birgə həyatınız olsa da, hər birinizin öz dünyası olduğunu qəbul edin. Kirpilər bir-birinə tikanlarının imkan verdiyi qədər yaxınlaşır; həddən artıq yaxınlaşanda bir-birini yaralayırlar. Siz də bir-birinizin şəxsi sərhədlərinə hörmət edin.",
+        "Evlilikdə bir-birinizin sahibi və ya köləsi deyil, yol yoldaşı olun.",
+        "‘Hər şey həmişə gözəl olacaq’ deyə vəd verməyin. Bunun əvəzinə, ‘Çətinliyə düşsən, yanında olacağam’ deyin.",
+        "Gün ərzində incik qalsanız belə, yatmazdan əvvəl bir-birinizə ‘Gecən xeyrə qalsın’ deməyi unutmayın. Qoy sabahınız barışıqla açılsın.”"
+      ],
+      "docx": "az/wisdom-stories/advice-for-those-who-marry-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/advice-for-those-who-marry.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: advice-for-those-who-marry\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Evlənənlərə tövsiyə\nBODY[1]: Ailə quran gənc bir cütlüyə dünyagörmüş böyüklər belə nəsihət etdilər:\nBODY[2]: “Evliliyinizi başqalarının evliliyi ilə müqayisə etməyin. ‘Filankəsin əri belədir’ və ya ‘filankəsin arvadı elədir’ deməyin.\nBODY[3]: Qüsursuz insan axtarmayın; heç birimiz qüsursuz deyilik. Bir-birinizin keçmişini eşələməyin — keçən keçmişdə qalsın.\nBODY[4]: Həyat yoldaşınızdan ürəyinizdən keçənləri oxumasını gözləməyin. Bunu heç kim bacarmır. İstək və narahatlıqlarınızı açıq söyləyin, problemlərinizi danışıb həll etməyə çalışın.\nBODY[5]: Birgə həyatınız olsa da, hər birinizin öz dünyası olduğunu qəbul edin. Kirpilər bir-birinə tikanlarının imkan verdiyi qədər yaxınlaşır; həddən artıq yaxınlaşanda bir-birini yaralayırlar. Siz də bir-birinizin şəxsi sərhədlərinə hörmət edin.\nBODY[6]: Evlilikdə bir-birinizin sahibi və ya köləsi deyil, yol yoldaşı olun.\nBODY[7]: ‘Hər şey həmişə gözəl olacaq’ deyə vəd verməyin. Bunun əvəzinə, ‘Çətinliyə düşsən, yanında olacağam’ deyin.\nBODY[8]: Gün ərzində incik qalsanız belə, yatmazdan əvvəl bir-birinizə ‘Gecən xeyrə qalsın’ deməyi unutmayın. Qoy sabahınız barışıqla açılsın.”\nMORAL: İbrət: Xoşbəxt evlilik müqayisədə və qüsursuzluq axtarışında deyil, açıq ünsiyyətdə, qarşılıqlı hörmətdə və şəxsi sərhədlərə ehtiramdadır.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "albrecht-durer",
+      "title": "Albrecht Dürer",
+      "moral": "İbrət: Hər uğurun arxasında çox vaxt görünməyən bir fədakarlıq dayanır. O fədakarlığı görmək və qiymətləndirmək insanlığın ən gözəl əlamətlərindəndir.",
+      "body": [
+        "Nürnberq yaxınlığındakı kiçik bir kənddə on uşaqlı bir ailə yaşayırdı. Ailəni dolandırmaq üçün ata gündə on səkkiz saat işləyirdi. Bütün çətinliklərə baxmayaraq, böyük oğullar Albrecht və Albert tanınmış rəssam olmaq arzusu ilə yaşayırdılar. Lakin atalarının hər ikisini eyni vaxtda oxutmağa imkanı olmadığını anlayırdılar.",
+        "Şam işığında apardıqları uzun söhbətlərdən sonra qardaşlar püşk atmağa qərar verdilər. Püşkü udan Nürnberqdəki akademiyada təhsil alacaq, digəri isə yaxınlıqdakı mədəndə işləyib ona maddi dayaq olacaqdı. Dörd ildən sonra yerlərini dəyişəcəkdilər.",
+        "Püşkü Albrecht qazandı. O, akademiyaya yollandı, Albert isə mədəndə işə başladı.",
+        "Dörd il ərzində qardaşlardan biri rəssamlıqla məşğul oldu, digəri isə mədənin dərinliklərində çalışdı. Albrechtin əsərləri tezliklə böyük maraq doğurdu; hətta onun bir çox müəllimini sənətkarlıqda üstələdiyi deyilirdi.",
+        "Təhsilini başa vuranda Albrecht artıq yaxşı gəlir qazanırdı. Sevinclə evə qayıdıb qardaşına dedi:",
+        "— Əziz qardaşım, indi növbə sənindir. Get, arzunu gerçəkləşdir; bu dəfə mən sənə dayaq olacağam.",
+        "Albert əllərini ona uzadıb sakit səslə cavab verdi:",
+        "— Yox, qardaşım, artıq çox gecdir. Mədəndə işlədiyim bu dörd ildə əllərim, barmaqlarım əzilib. Daha rəsm çəkə bilmərəm.",
+        "Albrecht qardaşının əllərini ovuclarına aldı və göz yaşlarına boğuldu.",
+        "Əsrlər keçsə də, Albrecht Dürerin (1471–1528) əsərləri dünyanın nüfuzlu qalereyalarında nümayiş olunur. Qardaşının fədakarlığı ilə əlaqələndirilən məşhur rəsmi “Dua edən əllər” adı ilə tanınır."
+      ],
+      "docx": "az/wisdom-stories/albrecht-durer-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/albrecht-durer.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: albrecht-durer\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Albrecht Dürer\nBODY[1]: Nürnberq yaxınlığındakı kiçik bir kənddə on uşaqlı bir ailə yaşayırdı. Ailəni dolandırmaq üçün ata gündə on səkkiz saat işləyirdi. Bütün çətinliklərə baxmayaraq, böyük oğullar Albrecht və Albert tanınmış rəssam olmaq arzusu ilə yaşayırdılar. Lakin atalarının hər ikisini eyni vaxtda oxutmağa imkanı olmadığını anlayırdılar.\nBODY[2]: Şam işığında apardıqları uzun söhbətlərdən sonra qardaşlar püşk atmağa qərar verdilər. Püşkü udan Nürnberqdəki akademiyada təhsil alacaq, digəri isə yaxınlıqdakı mədəndə işləyib ona maddi dayaq olacaqdı. Dörd ildən sonra yerlərini dəyişəcəkdilər.\nBODY[3]: Püşkü Albrecht qazandı. O, akademiyaya yollandı, Albert isə mədəndə işə başladı.\nBODY[4]: Dörd il ərzində qardaşlardan biri rəssamlıqla məşğul oldu, digəri isə mədənin dərinliklərində çalışdı. Albrechtin əsərləri tezliklə böyük maraq doğurdu; hətta onun bir çox müəllimini sənətkarlıqda üstələdiyi deyilirdi.\nBODY[5]: Təhsilini başa vuranda Albrecht artıq yaxşı gəlir qazanırdı. Sevinclə evə qayıdıb qardaşına dedi:\nBODY[6]: — Əziz qardaşım, indi növbə sənindir. Get, arzunu gerçəkləşdir; bu dəfə mən sənə dayaq olacağam.\nBODY[7]: Albert əllərini ona uzadıb sakit səslə cavab verdi:\nBODY[8]: — Yox, qardaşım, artıq çox gecdir. Mədəndə işlədiyim bu dörd ildə əllərim, barmaqlarım əzilib. Daha rəsm çəkə bilmərəm.\nBODY[9]: Albrecht qardaşının əllərini ovuclarına aldı və göz yaşlarına boğuldu.\nBODY[10]: Əsrlər keçsə də, Albrecht Dürerin (1471–1528) əsərləri dünyanın nüfuzlu qalereyalarında nümayiş olunur. Qardaşının fədakarlığı ilə əlaqələndirilən məşhur rəsmi “Dua edən əllər” adı ilə tanınır.\nMORAL: İbrət: Hər uğurun arxasında çox vaxt görünməyən bir fədakarlıq dayanır. O fədakarlığı görmək və qiymətləndirmək insanlığın ən gözəl əlamətlərindəndir.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "ant-that-carries-water",
+      "title": "Su daşıyan qarışqa",
+      "moral": "İbrət: Əlindən çox şey gəlməsə də, haqqın yanında ol. Sevdiyin insanın dar günündə yanında olmağın özü də qiymətlidir.",
+      "body": [
+        "Əfsanəyə görə, Nəmrud (Bibliyada adı çəkilən Şinar hökmdarı) zülmünə mane olduğunu düşündüyü İbrahim peyğəmbəri oda atıb cəzalandırmaq istəyir. Meydanın ortasında nəhəng bir tonqal qalatdırır. Tonqalı görən bütün canlılar qaçmağa üz tutur.",
+        "Bu arada bir qarışqa ağzında bir damla su ilə təlaşla tonqala doğru qaçmağa başlayır.",
+        "Onu görən başqa bir qarışqa soruşur:",
+        "— Belə təlaşla hara qaçırsan?",
+        "— Eşitmədinmi, Nəmrud İbrahim peyğəmbəri oda atacaq? — deyə su daşıyan qarışqa narahatlığını gizlətmir.",
+        "— Yəqin, sən o tonqalı görməmisən. Nəhəng bir tonqaldır, qaçmaqdan başqa çarə yoxdur. Ağzındakı bu bir damla su iləmi o tonqalı söndürəcəksən? — deyə ikinci qarışqa istehza ilə soruşur.",
+        "Su daşıyan qarışqa cavab verir:",
+        "— Söndürə bilməsəm də, heç olmasa, kimin tərəfində olduğum bəlli olar."
+      ],
+      "docx": "az/wisdom-stories/ant-that-carries-water-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/ant-that-carries-water.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: ant-that-carries-water\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Su daşıyan qarışqa\nBODY[1]: Əfsanəyə görə, Nəmrud (Bibliyada adı çəkilən Şinar hökmdarı) zülmünə mane olduğunu düşündüyü İbrahim peyğəmbəri oda atıb cəzalandırmaq istəyir. Meydanın ortasında nəhəng bir tonqal qalatdırır. Tonqalı görən bütün canlılar qaçmağa üz tutur.\nBODY[2]: Bu arada bir qarışqa ağzında bir damla su ilə təlaşla tonqala doğru qaçmağa başlayır.\nBODY[3]: Onu görən başqa bir qarışqa soruşur:\nBODY[4]: — Belə təlaşla hara qaçırsan?\nBODY[5]: — Eşitmədinmi, Nəmrud İbrahim peyğəmbəri oda atacaq? — deyə su daşıyan qarışqa narahatlığını gizlətmir.\nBODY[6]: — Yəqin, sən o tonqalı görməmisən. Nəhəng bir tonqaldır, qaçmaqdan başqa çarə yoxdur. Ağzındakı bu bir damla su iləmi o tonqalı söndürəcəksən? — deyə ikinci qarışqa istehza ilə soruşur.\nBODY[7]: Su daşıyan qarışqa cavab verir:\nBODY[8]: — Söndürə bilməsəm də, heç olmasa, kimin tərəfində olduğum bəlli olar.\nMORAL: İbrət: Əlindən çox şey gəlməsə də, haqqın yanında ol. Sevdiyin insanın dar günündə yanında olmağın özü də qiymətlidir.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "architect-sinan-dies-in-a-house-without-water",
+      "title": "İstanbulu suya qovuşduran Memar Sinan susuz evdə vəfat etdi",
+      "moral": "İbrət: Dünyaya, şöhrətə və insanların vəfasına həddindən artıq bel bağlama. Əsl xidmət şəxsi mənfəət güdmədən, haqq bildiyin yolda çalışmaqdır.",
+      "body": [
+        "Qanuni Sultan Süleymanın dövründə əhalisi sürətlə artan İstanbulda ciddi su qıtlığı vardı. Bu problemi həll etmək böyük memar Qoca Sinana (1489–1588) nəsib oldu.",
+        "Bir gün Sultan Süleyman onu hüzuruna çağırıb soruşdu:",
+        "— Memarbaşı, xalq bir at yükü suya çoxlu pul ödəyir. İstanbulu su ilə təmin etməyin bir yolu varmı?",
+        "Sinan şəhərin ətrafını araşdırmaq üçün icazə istədi. Köməkçiləri ilə Çəkməcədən Beşiktaşa qədər quyuları, dərələri və axar suları yoxladı; bəndlərin və su kəmərlərinin harada qurula biləcəyini hesabladı.",
+        "Sultanın hüzuruna qayıdanda dedi:",
+        "— İstanbula su gətirmək mümkündür, ancaq bu iş çox böyük xərc tələb edəcək. Bunun üçün saysız-hesabsız qızıl kisəsi lazım olacaq.",
+        "Sultan cavab verdi:",
+        "— Sən yetər ki, bunun mümkün olduğunu söylə. Nə qədər qızıl tələb olunsa, verəcəyəm.",
+        "Sinan işə başladı və şəhərin müxtəlif meydanlarına su çatdıran, qırx çeşmə ilə tamamlanan möhtəşəm sistemi qurdu. Suyun israf edilməməsi üçün çeşmələrə kranlar qoyuldu.",
+        "Sultan ümumi çeşmələrin xalqa məxsus olduğunu bildirən və evlərə gizli su xətti çəkməyi qadağan edən fərman verdi. Lakin Sinanın xidmətini nəzərə alaraq ona evinə xüsusi su xətti çəkdirməyə şifahi icazə verdi.",
+        "İllər keçdi. Sultan Süleyman və Sinanın xidmətlərindən xəbərdar olanlar dünyadan köçdülər. Bir gün yaşlı memarı saraya çağırdılar. Divan üzvləri onun evinə ayrıca su xətti çəkilməsi ilə bağlı şikayəti araşdırırdılar.",
+        "Sinan sultanın ona icazə verdiyini söylədi. Lakin yazılı fərman istənəndə etiraf etdi:",
+        "— O vaxt Cahan Padşahından fərman almağa utanmışdım. Yazılı sənədim yoxdur.",
+        "Uzun müzakirədən sonra divan onun əvvəlki istifadəsinə görə cəzalandırılmamasına, lakin xüsusi su xəttinin kəsilməsinə qərar verdi.",
+        "Ömrünün sonlarında Sinan xəstələnib yatağa düşdü. Dodaqlarını islatmaq üçün su istəyəndə evdəki kranın axmadığını gördülər. Böyük memar dedi:",
+        "— Biz xidmətimizi mənfəət üçün deyil, Allah rizası üçün etdik. Mükafatını da axirətdə gözləyirik. Bu dünyada evimizə su verilmədiyinə görə kədərlənmirik."
+      ],
+      "docx": "az/wisdom-stories/architect-sinan-dies-in-a-house-without-water-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/architect-sinan-dies-in-a-house-without-water.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: architect-sinan-dies-in-a-house-without-water\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: İstanbulu suya qovuşduran Memar Sinan susuz evdə vəfat etdi\nBODY[1]: Qanuni Sultan Süleymanın dövründə əhalisi sürətlə artan İstanbulda ciddi su qıtlığı vardı. Bu problemi həll etmək böyük memar Qoca Sinana (1489–1588) nəsib oldu.\nBODY[2]: Bir gün Sultan Süleyman onu hüzuruna çağırıb soruşdu:\nBODY[3]: — Memarbaşı, xalq bir at yükü suya çoxlu pul ödəyir. İstanbulu su ilə təmin etməyin bir yolu varmı?\nBODY[4]: Sinan şəhərin ətrafını araşdırmaq üçün icazə istədi. Köməkçiləri ilə Çəkməcədən Beşiktaşa qədər quyuları, dərələri və axar suları yoxladı; bəndlərin və su kəmərlərinin harada qurula biləcəyini hesabladı.\nBODY[5]: Sultanın hüzuruna qayıdanda dedi:\nBODY[6]: — İstanbula su gətirmək mümkündür, ancaq bu iş çox böyük xərc tələb edəcək. Bunun üçün saysız-hesabsız qızıl kisəsi lazım olacaq.\nBODY[7]: Sultan cavab verdi:\nBODY[8]: — Sən yetər ki, bunun mümkün olduğunu söylə. Nə qədər qızıl tələb olunsa, verəcəyəm.\nBODY[9]: Sinan işə başladı və şəhərin müxtəlif meydanlarına su çatdıran, qırx çeşmə ilə tamamlanan möhtəşəm sistemi qurdu. Suyun israf edilməməsi üçün çeşmələrə kranlar qoyuldu.\nBODY[10]: Sultan ümumi çeşmələrin xalqa məxsus olduğunu bildirən və evlərə gizli su xətti çəkməyi qadağan edən fərman verdi. Lakin Sinanın xidmətini nəzərə alaraq ona evinə xüsusi su xətti çəkdirməyə şifahi icazə verdi.\nBODY[11]: İllər keçdi. Sultan Süleyman və Sinanın xidmətlərindən xəbərdar olanlar dünyadan köçdülər. Bir gün yaşlı memarı saraya çağırdılar. Divan üzvləri onun evinə ayrıca su xətti çəkilməsi ilə bağlı şikayəti araşdırırdılar.\nBODY[12]: Sinan sultanın ona icazə verdiyini söylədi. Lakin yazılı fərman istənəndə etiraf etdi:\nBODY[13]: — O vaxt Cahan Padşahından fərman almağa utanmışdım. Yazılı sənədim yoxdur.\nBODY[14]: Uzun müzakirədən sonra divan onun əvvəlki istifadəsinə görə cəzalandırılmamasına, lakin xüsusi su xəttinin kəsilməsinə qərar verdi.\nBODY[15]: Ömrünün sonlarında Sinan xəstələnib yatağa düşdü. Dodaqlarını islatmaq üçün su istəyəndə evdəki kranın axmadığını gördülər. Böyük memar dedi:\nBODY[16]: — Biz xidmətimizi mənfəət üçün deyil, Allah rizası üçün etdik. Mükafatını da axirətdə gözləyirik. Bu dünyada evimizə su verilmədiyinə görə kədərlənmirik.\nMORAL: İbrət: Dünyaya, şöhrətə və insanların vəfasına həddindən artıq bel bağlama. Əsl xidmət şəxsi mənfəət güdmədən, haqq bildiyin yolda çalışmaqdır.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "attitude-toward-a-problem",
+      "title": "Problemə münasibət",
+      "moral": "İbrət: Həll edə bildiyin problemə çarə axtar. Dəyişə bilmədiyin vəziyyətə görə isə özünü daim üzməyin faydası yoxdur.",
+      "body": [
+        "Həyatında problem varmı?",
+        "Yoxdursa, narahat olmağa dəyməz.",
+        "Problem varsa, onu həll edə bilərsənmi?",
+        "Həll edə bilirsənsə, narahat olmağa dəyməz.",
+        "Həll edə bilmirsənsə, yenə narahat olmağa dəyməz."
+      ],
+      "docx": "az/wisdom-stories/attitude-toward-a-problem-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/attitude-toward-a-problem.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: attitude-toward-a-problem\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Problemə münasibət\nBODY[1]: Həyatında problem varmı?\nBODY[2]: Yoxdursa, narahat olmağa dəyməz.\nBODY[3]: Problem varsa, onu həll edə bilərsənmi?\nBODY[4]: Həll edə bilirsənsə, narahat olmağa dəyməz.\nBODY[5]: Həll edə bilmirsənsə, yenə narahat olmağa dəyməz.\nMORAL: İbrət: Həll edə bildiyin problemə çarə axtar. Dəyişə bilmədiyin vəziyyətə görə isə özünü daim üzməyin faydası yoxdur.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "avoid-these-questions",
+      "title": "Bu suallardan çəkinin",
+      "moral": "İbrət: Bəzi suallar könül yaralayır. Belə bir sualı verməmək kimisə inciməkdən qoruya bilər.",
+      "body": [
+        "İşsizdən “Hələ də işsizsən?”, işləyəndən “Maaşın nə qədərdir?”, övladı olmayandan “Hələ də uşağınız yoxdur?”, subaydan “Nə vaxt evlənirsən?” deyə soruşmaqdan çəkinək.",
+        "Kimisə “Sən bunu bilmirdin?” sualı ilə də utandırmayaq. Bizə adi görünən bir sual başqasının ən ağrılı yerinə toxuna bilər."
+      ],
+      "docx": "az/wisdom-stories/avoid-these-questions-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/avoid-these-questions.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: avoid-these-questions\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Bu suallardan çəkinin\nBODY[1]: İşsizdən “Hələ də işsizsən?”, işləyəndən “Maaşın nə qədərdir?”, övladı olmayandan “Hələ də uşağınız yoxdur?”, subaydan “Nə vaxt evlənirsən?” deyə soruşmaqdan çəkinək.\nBODY[2]: Kimisə “Sən bunu bilmirdin?” sualı ilə də utandırmayaq. Bizə adi görünən bir sual başqasının ən ağrılı yerinə toxuna bilər.\nMORAL: İbrət: Bəzi suallar könül yaralayır. Belə bir sualı verməmək kimisə inciməkdən qoruya bilər.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "baklava",
+      "title": "Paxlava",
+      "moral": "İbrət: Kiminsə yoxsulluğuna gülmək ən böyük günahlardandır. Bir ananın öz payından, hətta son tikəsindən belə keçdiyini unutmayaq.",
+      "body": [
+        "Uşaqlıq illərimdə ailəmizin maddi vəziyyəti yaxşı deyildi. Bir gün atam evə bir az paxlava gətirdi və axşam onu çayla birlikdə yedik.",
+        "Ertəsi gün bayram idi. Anam məktəbə aparmaq üçün çantama bir paxlava, bir az zeytun və bir tikə çörək qoydu.",
+        "Sinifdə uşaqların qarşısında cürbəcür yeməklər vardı. Sevmədiyim bir uşaq mənim payımı görüb güldü:",
+        "— Yəqin, bu paxlavanı siçanlar üçün gətirmisən?",
+        "Hamı güləndə utandım, ağlaya-ağlaya evə qaçdım və anama qışqırdım:",
+        "— Mənə niyə cəmi bir paxlava qoymuşdun? Sinifdəkilərin çoxlu yeməyi vardı, məni rüsvay etdin!",
+        "Anam pərişan səslə dedi:",
+        "— Paxlavadan mənim payıma düşən yalnız o idi, övladım.",
+        "Bu sözlər məni sarsıtdı. Anam öz payına düşən yeganə paxlavanı yeməyib mənə saxlamışdı. Ona sarılmağa belə üzüm gəlmədi. O gündən bəri hərəkətimi xatırladıqca bağışlanma diləyirəm. Bir də dilimə paxlava vura bilmədim."
+      ],
+      "docx": "az/wisdom-stories/baklava-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/baklava.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: baklava\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Paxlava\nBODY[1]: Uşaqlıq illərimdə ailəmizin maddi vəziyyəti yaxşı deyildi. Bir gün atam evə bir az paxlava gətirdi və axşam onu çayla birlikdə yedik.\nBODY[2]: Ertəsi gün bayram idi. Anam məktəbə aparmaq üçün çantama bir paxlava, bir az zeytun və bir tikə çörək qoydu.\nBODY[3]: Sinifdə uşaqların qarşısında cürbəcür yeməklər vardı. Sevmədiyim bir uşaq mənim payımı görüb güldü:\nBODY[4]: — Yəqin, bu paxlavanı siçanlar üçün gətirmisən?\nBODY[5]: Hamı güləndə utandım, ağlaya-ağlaya evə qaçdım və anama qışqırdım:\nBODY[6]: — Mənə niyə cəmi bir paxlava qoymuşdun? Sinifdəkilərin çoxlu yeməyi vardı, məni rüsvay etdin!\nBODY[7]: Anam pərişan səslə dedi:\nBODY[8]: — Paxlavadan mənim payıma düşən yalnız o idi, övladım.\nBODY[9]: Bu sözlər məni sarsıtdı. Anam öz payına düşən yeganə paxlavanı yeməyib mənə saxlamışdı. Ona sarılmağa belə üzüm gəlmədi. O gündən bəri hərəkətimi xatırladıqca bağışlanma diləyirəm. Bir də dilimə paxlava vura bilmədim.\nMORAL: İbrət: Kiminsə yoxsulluğuna gülmək ən böyük günahlardandır. Bir ananın öz payından, hətta son tikəsindən belə keçdiyini unutmayaq.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "be-sure-of-your-purpose",
+      "title": "Məqsədinizdən əmin olun",
+      "moral": "İbrət: İşə başlamazdan əvvəl məqsədi dəqiqləşdir. Yoxsa saatlarla çalışıb bütün gücünü yanlış istiqamətə sərf edə bilərsən.",
+      "body": [
+        "İki nəfər ağır bir sandığı qapıdan keçirməyə çalışırdı. Xeyli əlləşdikdən sonra qan-tər içində dayanıb nəfəslərini dərdilər.",
+        "Biri dedi:",
+        "— Nə ağır sandıqdır! Heç cür içəri sala bilmədik.",
+        "Digəri təəccüblə soruşdu:",
+        "— Məgər sandığı bayıra çıxarmalı deyildikmi?"
+      ],
+      "docx": "az/wisdom-stories/be-sure-of-your-purpose-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/be-sure-of-your-purpose.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: be-sure-of-your-purpose\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Məqsədinizdən əmin olun\nBODY[1]: İki nəfər ağır bir sandığı qapıdan keçirməyə çalışırdı. Xeyli əlləşdikdən sonra qan-tər içində dayanıb nəfəslərini dərdilər.\nBODY[2]: Biri dedi:\nBODY[3]: — Nə ağır sandıqdır! Heç cür içəri sala bilmədik.\nBODY[4]: Digəri təəccüblə soruşdu:\nBODY[5]: — Məgər sandığı bayıra çıxarmalı deyildikmi?\nMORAL: İbrət: İşə başlamazdan əvvəl məqsədi dəqiqləşdir. Yoxsa saatlarla çalışıb bütün gücünü yanlış istiqamətə sərf edə bilərsən.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "bedouin-whose-camel-was-stolen",
+      "title": "Dəvəsi oğurlanmış bədəvinin hekayəsi",
+      "moral": "İbrət: Bəzən insan başına gələni ona görə gizlədir ki, başqalarının yaxşılığa inamı itməsin. Bir pis xəbər minlərlə xeyir qapısını bağlaya bilər.",
+      "body": [
+        "Dəvəsi ilə səhrada gedən bir bədəvi güclə ayaq üstə duran, dodaqları susuzluqdan qurumuş bir adama rast gəlir. Adam yalvararaq bədəvidən içmək üçün su istəyir. Bədəvi dəvəsindən düşüb ona su verir. Adam suyu içir, sonra qəflətən bədəvini itələyib dəvəyə minir və qaçmağa üz tutur.",
+        "Bədəvi dəvəsini xilas etmək üçün əlindən bir şey gəlməyəcəyini anlayanda oğrunun arxasınca bağırır:",
+        "— Eybi yoxdur, dəvəni apar, sənin olsun. Amma bu əhvalatı heç kimə danışma.",
+        "Bədəvinin bu qəribə xahişindən təəccüblənən oğru bir anlığa dayanır, geriyə boylanıb səbəbini soruşur.",
+        "— Əgər danışsan, bu əhvalat hər yerə yayılar və bir daha heç kim rastlaşdığı möhtac insanlara yardım etməz, — deyə bədəvi cavab verir."
+      ],
+      "docx": "az/wisdom-stories/bedouin-whose-camel-was-stolen-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/bedouin-whose-camel-was-stolen.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: bedouin-whose-camel-was-stolen\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Dəvəsi oğurlanmış bədəvinin hekayəsi\nBODY[1]: Dəvəsi ilə səhrada gedən bir bədəvi güclə ayaq üstə duran, dodaqları susuzluqdan qurumuş bir adama rast gəlir. Adam yalvararaq bədəvidən içmək üçün su istəyir. Bədəvi dəvəsindən düşüb ona su verir. Adam suyu içir, sonra qəflətən bədəvini itələyib dəvəyə minir və qaçmağa üz tutur.\nBODY[2]: Bədəvi dəvəsini xilas etmək üçün əlindən bir şey gəlməyəcəyini anlayanda oğrunun arxasınca bağırır:\nBODY[3]: — Eybi yoxdur, dəvəni apar, sənin olsun. Amma bu əhvalatı heç kimə danışma.\nBODY[4]: Bədəvinin bu qəribə xahişindən təəccüblənən oğru bir anlığa dayanır, geriyə boylanıb səbəbini soruşur.\nBODY[5]: — Əgər danışsan, bu əhvalat hər yerə yayılar və bir daha heç kim rastlaşdığı möhtac insanlara yardım etməz, — deyə bədəvi cavab verir.\nMORAL: İbrət: Bəzən insan başına gələni ona görə gizlədir ki, başqalarının yaxşılığa inamı itməsin. Bir pis xəbər minlərlə xeyir qapısını bağlaya bilər.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "being-human",
+      "title": "Adam olmaq",
+      "moral": "İbrət: Əsl dəyər təkcə bilikdə deyil, insanlıqdadır. Hörmət etməyi bacaran qəlbdə sevgi də, ədalət də özünə yer tapır.",
+      "body": [
+        "“Alim olmaq asandır, adam olmaq çətin” — tez-tez eşitdiyimiz bir ifadədir. Bəs adam olmaq nə deməkdir?",
+        "Adam olmaq fəzilətli, müdrik, mədəni, ədalətli, şərəfli və ləyaqətli yaşamaqdır.",
+        "Ədəbli, nəzakətli, fərasətli və təvazökar olmaq; özünü öymədən başqalarına hörmət göstərməkdir.",
+        "Hər addımını ölçüb-biçmək, müvazinəti qorumaq, əməllərində ardıcıl olmaq və çətinlik qarşısında əyilməməkdir.",
+        "Sözünün üstündə durmaq, pula və vəzifəyə sitayiş etməmək, oğurlamamaq və başqasının haqqını yeməməkdir.",
+        "Yalan danışmamaq, böhtan atmamaq, şəxsi mənfəət naminə başqasını satmamaq və haqqı müdafiə etməkdir.",
+        "İkiüzlülükdən, kindən və insanları bir-birinə qarşı qoymaqdan uzaq durmaq; sevməyi bacarmaqdır."
+      ],
+      "docx": "az/wisdom-stories/being-human-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/being-human.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: being-human\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Adam olmaq\nBODY[1]: “Alim olmaq asandır, adam olmaq çətin” — tez-tez eşitdiyimiz bir ifadədir. Bəs adam olmaq nə deməkdir?\nBODY[2]: Adam olmaq fəzilətli, müdrik, mədəni, ədalətli, şərəfli və ləyaqətli yaşamaqdır.\nBODY[3]: Ədəbli, nəzakətli, fərasətli və təvazökar olmaq; özünü öymədən başqalarına hörmət göstərməkdir.\nBODY[4]: Hər addımını ölçüb-biçmək, müvazinəti qorumaq, əməllərində ardıcıl olmaq və çətinlik qarşısında əyilməməkdir.\nBODY[5]: Sözünün üstündə durmaq, pula və vəzifəyə sitayiş etməmək, oğurlamamaq və başqasının haqqını yeməməkdir.\nBODY[6]: Yalan danışmamaq, böhtan atmamaq, şəxsi mənfəət naminə başqasını satmamaq və haqqı müdafiə etməkdir.\nBODY[7]: İkiüzlülükdən, kindən və insanları bir-birinə qarşı qoymaqdan uzaq durmaq; sevməyi bacarmaqdır.\nMORAL: İbrət: Əsl dəyər təkcə bilikdə deyil, insanlıqdadır. Hörmət etməyi bacaran qəlbdə sevgi də, ədalət də özünə yer tapır.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "count": 8,
+  "asset_rule": "Save final art as WebP 1536x1024 at output_webp; HTML paths unchanged",
+  "text_rule": "On-image Azerbaijani must match Exact quotes exactly (ə/ı/ğ/ö/ü/ş/ç)",
+  "items": [
+    {
+      "stem": "friendship-of-horses",
+      "title": "Atların dostluğu",
+      "moral": "İbrət: Rəbb bizi çətin anda tək qoymur; ehtiyacımız olanda köməyi bir insanın əli ilə göndərir. Bəzən o köməkçi olmaq isə bizim payımıza düşür.",
+      "body": [
+        "Evimin yaxınlığındakı bir fermada iki at saxlanılır. Uzaqdan baxanda bu atlar digərlərindən heç nə ilə seçilmir. Amma yaxına gələndə çox maraqlı bir şey görürsən: atlardan biri kordur. Sahibi ona qıymayıb onun üçün təhlükəsiz və rahat bir tövlə tikdirib. Təkcə bu, öz-özlüyündə olduqca heyrətamiz addımdır.",
+        "Atlara yaxınlaşanda zınqırov səsi eşidərsiniz. Zınqırov o biri, daha kiçik və sağlam atın yüyənindən asılıb. Kor at bu səsdən dostunun harada olduğunu bilib onun ardınca gedir.",
+        "Bu iki dostu diqqətlə izləsəniz, görərsiniz ki, zınqırovlu at həmişə kor atın harada olduğunu yoxlayır; kor at da öz növbəsində zınqırovun səsinə qulaq verib yavaş-yavaş sağlam atın ardınca düşür.",
+        "Zınqırovlu at hər axşam tövləyə qayıdarkən arabir dayanıb geri baxır ki, kor dostunun zınqırov səsini eşidə biləcəyi qədər yaxın olduğuna əmin olsun."
+      ],
+      "docx": "az/wisdom-stories/friendship-of-horses-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/friendship-of-horses.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: friendship-of-horses\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Atların dostluğu\nBODY[1]: Evimin yaxınlığındakı bir fermada iki at saxlanılır. Uzaqdan baxanda bu atlar digərlərindən heç nə ilə seçilmir. Amma yaxına gələndə çox maraqlı bir şey görürsən: atlardan biri kordur. Sahibi ona qıymayıb onun üçün təhlükəsiz və rahat bir tövlə tikdirib. Təkcə bu, öz-özlüyündə olduqca heyrətamiz addımdır.\nBODY[2]: Atlara yaxınlaşanda zınqırov səsi eşidərsiniz. Zınqırov o biri, daha kiçik və sağlam atın yüyənindən asılıb. Kor at bu səsdən dostunun harada olduğunu bilib onun ardınca gedir.\nBODY[3]: Bu iki dostu diqqətlə izləsəniz, görərsiniz ki, zınqırovlu at həmişə kor atın harada olduğunu yoxlayır; kor at da öz növbəsində zınqırovun səsinə qulaq verib yavaş-yavaş sağlam atın ardınca düşür.\nBODY[4]: Zınqırovlu at hər axşam tövləyə qayıdarkən arabir dayanıb geri baxır ki, kor dostunun zınqırov səsini eşidə biləcəyi qədər yaxın olduğuna əmin olsun.\nMORAL: İbrət: Rəbb bizi çətin anda tək qoymur; ehtiyacımız olanda köməyi bir insanın əli ilə göndərir. Bəzən o köməkçi olmaq isə bizim payımıza düşür.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "generous-man",
+      "title": "Əliaçıq adam",
+      "moral": "İbrət: Yaxşılıq edən insan verdiyi nemətin əsl sahibi olduğunu düşünməməlidir. O yalnız bir vasitədir; əsl verən Allahdır.",
+      "body": [
+        "Əliaçıq bir adamdan soruşurlar:",
+        "— Kasıblara payladığın nemətlərə görə onların sənə minnətdar olmasını gözləyirsənmi?",
+        "Adam cavab verir:",
+        "— Mən aşpazın əlindəki çömçə kimiyəm. Yemək çömçə ilə paylanır, amma onu verən çömçə deyil, aşpazdır."
+      ],
+      "docx": "az/wisdom-stories/generous-man-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/generous-man.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: generous-man\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Əliaçıq adam\nBODY[1]: Əliaçıq bir adamdan soruşurlar:\nBODY[2]: — Kasıblara payladığın nemətlərə görə onların sənə minnətdar olmasını gözləyirsənmi?\nBODY[3]: Adam cavab verir:\nBODY[4]: — Mən aşpazın əlindəki çömçə kimiyəm. Yemək çömçə ilə paylanır, amma onu verən çömçə deyil, aşpazdır.\nMORAL: İbrət: Yaxşılıq edən insan verdiyi nemətin əsl sahibi olduğunu düşünməməlidir. O yalnız bir vasitədir; əsl verən Allahdır.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "how-we-treat-people",
+      "title": "İnsanlara olan münasibət",
+      "moral": "İbrət: İnsanla münasibətdə ölçünü qoru: nə həddindən artıq uzaqlaş ki, soyuyasan, nə də çox yaxınlaş ki, yanasan.",
+      "body": [
+        "İnsanlara münasibətin oda münasibətin kimi olsun:",
+        "çox uzaqlaşma ki, donmayasan;",
+        "çox yaxınlaşma ki, yanmayasan.",
+        "Sədi Şirazi"
+      ],
+      "docx": "az/wisdom-stories/how-we-treat-people-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/how-we-treat-people.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: how-we-treat-people\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: İnsanlara olan münasibət\nBODY[1]: İnsanlara münasibətin oda münasibətin kimi olsun:\nBODY[2]: çox uzaqlaşma ki, donmayasan;\nBODY[3]: çox yaxınlaşma ki, yanmayasan.\nBODY[4]: Sədi Şirazi\nMORAL: İbrət: İnsanla münasibətdə ölçünü qoru: nə həddindən artıq uzaqlaş ki, soyuyasan, nə də çox yaxınlaş ki, yanasan.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "i-want-a-friend",
+      "title": "Dost istərəm",
+      "moral": "İbrət: İnsanın əsl sərvəti mal-mülk deyil, vəfalı dostdur. Dünyadan köçəndə səni rəhmətlə anacaq dost hər sərvətdən qiymətlidir.",
+      "body": [
+        "Nə mal, nə də mülk istərəm,",
+        "mən əsl dost istərəm.",
+        "Hansı mülk öləndə rəhmət oxumuş sahibinə?",
+        "Mənə rəhmət oxuyacaq dost istərəm."
+      ],
+      "docx": "az/wisdom-stories/i-want-a-friend-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/i-want-a-friend.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: i-want-a-friend\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Dost istərəm\nBODY[1]: Nə mal, nə də mülk istərəm,\nBODY[2]: mən əsl dost istərəm.\nBODY[3]: Hansı mülk öləndə rəhmət oxumuş sahibinə?\nBODY[4]: Mənə rəhmət oxuyacaq dost istərəm.\nMORAL: İbrət: İnsanın əsl sərvəti mal-mülk deyil, vəfalı dostdur. Dünyadan köçəndə səni rəhmətlə anacaq dost hər sərvətdən qiymətlidir.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "idle-devil",
+      "title": "İşsiz şeytan",
+      "moral": "İbrət: İnsanlar bir-birinə o qədər zülm edir ki, şeytana iş qalmır. Pisliyin çoxu kənardan yox, öz içimizdən gəlir.",
+      "body": [
+        "Bir dərviş fikrə dalmışdı. Birdən şeytanın yanında sakitcə oturduğunu görüb soruşdu:",
+        "— Niyə belə sakit oturmusan, heç kimə zərər vermirsən?",
+        "Şeytan yorğun halda başını qaldırdı:",
+        "— Siz insanlar bir-birinizə o qədər zərər verir, elə əzab çəkdirirsiniz ki, mənə iş qalırmı?"
+      ],
+      "docx": "az/wisdom-stories/idle-devil-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/idle-devil.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: idle-devil\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: İşsiz şeytan\nBODY[1]: Bir dərviş fikrə dalmışdı. Birdən şeytanın yanında sakitcə oturduğunu görüb soruşdu:\nBODY[2]: — Niyə belə sakit oturmusan, heç kimə zərər vermirsən?\nBODY[3]: Şeytan yorğun halda başını qaldırdı:\nBODY[4]: — Siz insanlar bir-birinizə o qədər zərər verir, elə əzab çəkdirirsiniz ki, mənə iş qalırmı?\nMORAL: İbrət: İnsanlar bir-birinə o qədər zülm edir ki, şeytana iş qalmır. Pisliyin çoxu kənardan yox, öz içimizdən gəlir.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "if-the-door-before-you-wont-open-it-is-not-your-door",
+      "title": "Açılmayan qapı bəlkə də sənin qapın deyil",
+      "moral": "İbrət: Bağlanan hər qapı əslində daha xeyirli bir yola işarə ola bilər. «Yaxşı»dan məhrum olmaq bəzən «daha yaxşı»ya aparır.",
+      "body": [
+        "Bu əhvalat bir şirkət müdiri ilə onun işçisi arasında baş verir. Bir gün Camal müdiri Səlim bəyin yanına gəlib işdə irəliləyiş olacağını eşitdiyini, özünün də gözləntiləri olduğunu bildirir. Səlim bəy Camalın işindən razı olduğunu söyləsə də, ona «sən bizə tam uyğun deyilsən» deyərək işdən azad edildiyini bəyan edir. Camal məyus halda şirkəti tərk etməli olur.",
+        "İki il keçəndən sonra onlar yenidən rastlaşırlar. Mehribancasına salamlaşıb hal-əhval tutandan sonra Camal özünə yeni bir şirkət qurduğunu və işlərinin uğurla getdiyini keçmiş müdirinə deyir. Səlim bəy çox şad olduğunu bildirir.",
+        "Camal keçmiş müdirinə təşəkkür edir:",
+        "— Əslində, məni uyğun olmadığım işdə saxlamadığınız üçün sizə minnətdaram. İşdən çıxmağım qarşıma yeni imkanlar açdı. Sevdiyim işlə məşğul olmağa başladım. İndi həyatımdan çox razıyam."
+      ],
+      "docx": "az/wisdom-stories/if-the-door-before-you-wont-open-it-is-not-your-door-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/if-the-door-before-you-wont-open-it-is-not-your-door.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: if-the-door-before-you-wont-open-it-is-not-your-door\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Açılmayan qapı bəlkə də sənin qapın deyil\nBODY[1]: Bu əhvalat bir şirkət müdiri ilə onun işçisi arasında baş verir. Bir gün Camal müdiri Səlim bəyin yanına gəlib işdə irəliləyiş olacağını eşitdiyini, özünün də gözləntiləri olduğunu bildirir. Səlim bəy Camalın işindən razı olduğunu söyləsə də, ona «sən bizə tam uyğun deyilsən» deyərək işdən azad edildiyini bəyan edir. Camal məyus halda şirkəti tərk etməli olur.\nBODY[2]: İki il keçəndən sonra onlar yenidən rastlaşırlar. Mehribancasına salamlaşıb hal-əhval tutandan sonra Camal özünə yeni bir şirkət qurduğunu və işlərinin uğurla getdiyini keçmiş müdirinə deyir. Səlim bəy çox şad olduğunu bildirir.\nBODY[3]: Camal keçmiş müdirinə təşəkkür edir:\nBODY[4]: — Əslində, məni uyğun olmadığım işdə saxlamadığınız üçün sizə minnətdaram. İşdən çıxmağım qarşıma yeni imkanlar açdı. Sevdiyim işlə məşğul olmağa başladım. İndi həyatımdan çox razıyam.\nMORAL: İbrət: Bağlanan hər qapı əslində daha xeyirli bir yola işarə ola bilər. «Yaxşı»dan məhrum olmaq bəzən «daha yaxşı»ya aparır.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "light-of-the-universe",
+      "title": "Kainat işığı",
+      "moral": "İbrət: Qəlbin qapısı yalnız içəridən açılır. Sevgi və xeyir zorla girmir — onları içəri sən özün buraxmalısan.",
+      "body": [
+        "Britaniyalı rəssam Uilyam Holman Hantın «Kainat işığı» əsəri London Kral Akademiyasında nümayiş etdirilir. Rəsmdə gecə vaxtı bir əlində fənərlə qapı önündə dayanmış, filosof görünüşlü bir adam təsvir olunub. Adam o biri əli ilə qapını döyür və onun açılacağı ümidi ilə gözləyir.",
+        "Rəsmi araşdıran bir sənətşünas Hanta müraciət edib soruşur: «Gözəl rəsmdir, amma mənasını anlaya bilmirəm. Adamın döydüyü qapı heç açılmayacaqmı? Bəlkə qapının dəstəyini çəkməyi unutmusunuz?»",
+        "Hant gülümsəyib cavab verir:",
+        "— Bu, adi qapı deyil, insan qəlbinin qapısıdır. Yalnız içəridən açıldığı üçün bayır tərəfində dəstəyi yoxdur. İçəridəki açmasa, oraya girə bilməzsiniz."
+      ],
+      "docx": "az/wisdom-stories/light-of-the-universe-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/light-of-the-universe.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: light-of-the-universe\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Kainat işığı\nBODY[1]: Britaniyalı rəssam Uilyam Holman Hantın «Kainat işığı» əsəri London Kral Akademiyasında nümayiş etdirilir. Rəsmdə gecə vaxtı bir əlində fənərlə qapı önündə dayanmış, filosof görünüşlü bir adam təsvir olunub. Adam o biri əli ilə qapını döyür və onun açılacağı ümidi ilə gözləyir.\nBODY[2]: Rəsmi araşdıran bir sənətşünas Hanta müraciət edib soruşur: «Gözəl rəsmdir, amma mənasını anlaya bilmirəm. Adamın döydüyü qapı heç açılmayacaqmı? Bəlkə qapının dəstəyini çəkməyi unutmusunuz?»\nBODY[3]: Hant gülümsəyib cavab verir:\nBODY[4]: — Bu, adi qapı deyil, insan qəlbinin qapısıdır. Yalnız içəridən açıldığı üçün bayır tərəfində dəstəyi yoxdur. İçəridəki açmasa, oraya girə bilməzsiniz.\nMORAL: İbrət: Qəlbin qapısı yalnız içəridən açılır. Sevgi və xeyir zorla girmir — onları içəri sən özün buraxmalısan.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "liver",
+      "title": "Ciyər",
+      "moral": "İbrət: Dil təsadüfən yaranmır; hər sözün arxasında bir tarix, bir inanc dayanır. Kəlmələrimiz keçmişimizin yaddaşıdır.",
+      "body": [
+        "“Ciyər” sözü ilə yaranmış ifadələr haradan gəlir? Çox yaxın, səmimi dosta “can-ciyər”, əziz övlada “ciyərguşəm”, çox sevdiyimiz adama “ciyərparəm”, qorxaq və aciz adama isə “ağciyər” deyirik.",
+        "Qədim insanlar qaraciyərin ilıq və qanlı görünüşündən təsirləndikləri üçün ilıq qanı həyat, onun yoxluğunu isə ölüm sayırdılar. Bu səbəbdən qaraciyər uzun müddət həyatın mərkəzi kimi qəbul edilib.",
+        "Məsələn, babillilər insan ruhunun qaraciyərdə yerləşdiyinə inanırdılar. Bəzi mədəniyyətlərdə qaraciyərin ilk növbədə duyğuları təmsil etdiyi düşünüldüyü üçün deyimlərdə və yazılarda qaraciyər ürəkdən əvvəl gəlir.",
+        "Qədim Yunanıstanda fəzilət və onunla bağlı cəsarət, qətiyyət kimi keyfiyyətlər ciyərə aid edilirdi. Bir insanın qaraciyəri sağlam idisə, o, fəzilət sahibi sayılırdı — bütün maneələri dəf edərək öz prinsiplərinin ardınca gedən biri kimi qəbul olunurdu."
+      ],
+      "docx": "az/wisdom-stories/liver-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/liver.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: liver\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Ciyər\nBODY[1]: “Ciyər” sözü ilə yaranmış ifadələr haradan gəlir? Çox yaxın, səmimi dosta “can-ciyər”, əziz övlada “ciyərguşəm”, çox sevdiyimiz adama “ciyərparəm”, qorxaq və aciz adama isə “ağciyər” deyirik.\nBODY[2]: Qədim insanlar qaraciyərin ilıq və qanlı görünüşündən təsirləndikləri üçün ilıq qanı həyat, onun yoxluğunu isə ölüm sayırdılar. Bu səbəbdən qaraciyər uzun müddət həyatın mərkəzi kimi qəbul edilib.\nBODY[3]: Məsələn, babillilər insan ruhunun qaraciyərdə yerləşdiyinə inanırdılar. Bəzi mədəniyyətlərdə qaraciyərin ilk növbədə duyğuları təmsil etdiyi düşünüldüyü üçün deyimlərdə və yazılarda qaraciyər ürəkdən əvvəl gəlir.\nBODY[4]: Qədim Yunanıstanda fəzilət və onunla bağlı cəsarət, qətiyyət kimi keyfiyyətlər ciyərə aid edilirdi. Bir insanın qaraciyəri sağlam idisə, o, fəzilət sahibi sayılırdı — bütün maneələri dəf edərək öz prinsiplərinin ardınca gedən biri kimi qəbul olunurdu.\nMORAL: İbrət: Dil təsadüfən yaranmır; hər sözün arxasında bir tarix, bir inanc dayanır. Kəlmələrimiz keçmişimizin yaddaşıdır.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "count": 4,
+  "asset_rule": "Save final art as WebP 1536x1024 at output_webp; HTML paths unchanged",
+  "text_rule": "On-image English must match Exact quotes exactly",
+  "items": [
+    {
+      "stem": "let-prayer-come-and-find-you",
+      "title": "May the Prayer You Need Find You",
+      "moral": "Moral: When you help those in need and show tenderness to the vulnerable, you become worthy of others’ prayers. The kindness you offer today may return to you when you need it most.",
+      "body": [
+        "Our elders used to say:",
+        "Be the hand that helps someone out of poverty, the door a person in need can knock on, the kindness that comforts an orphan, the shoes on a child’s bare feet. Bring relief in hard times, so that a prayer may find you when you need one yourself."
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/let-prayer-come-and-find-you.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: let-prayer-come-and-find-you\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: May the Prayer You Need Find You\nBODY[1]: Our elders used to say:\nBODY[2]: Be the hand that helps someone out of poverty, the door a person in need can knock on, the kindness that comforts an orphan, the shoes on a child’s bare feet. Bring relief in hard times, so that a prayer may find you when you need one yourself.\nMORAL: Moral: When you help those in need and show tenderness to the vulnerable, you become worthy of others’ prayers. The kindness you offer today may return to you when you need it most.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "my-alif-has-been-dotted",
+      "title": "My Alif Has Been Dotted",
+      "moral": "Moral: A single letter—or a single moment—can turn joy into sorrow. Expressions preserve the feelings and stories behind them.",
+      "body": [
+        "There is an expression in Turkish: “elifim noktalandı.” It comes from writing the letters “alif” (ا) and “ha” (ه) side by side in the old Ottoman script (اه). Because the “ha” after “alif” resembles a dot, people say “alifim noktalandı,” and metaphorically it means “my joy turned to sorrow.” The letter “alif,” with its long, thin appearance, expresses freedom and beauty, while the letter “ha,” with its bent, almost crushed appearance, expresses distress and collapse.",
+        "Together, the two letters form the sigh “ah.”"
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/my-alif-has-been-dotted.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: my-alif-has-been-dotted\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: My Alif Has Been Dotted\nBODY[1]: There is an expression in Turkish: “elifim noktalandı.” It comes from writing the letters “alif” (ا) and “ha” (ه) side by side in the old Ottoman script (اه). Because the “ha” after “alif” resembles a dot, people say “alifim noktalandı,” and metaphorically it means “my joy turned to sorrow.” The letter “alif,” with its long, thin appearance, expresses freedom and beauty, while the letter “ha,” with its bent, almost crushed appearance, expresses distress and collapse.\nBODY[2]: Together, the two letters form the sigh “ah.”\nMORAL: Moral: A single letter—or a single moment—can turn joy into sorrow. Expressions preserve the feelings and stories behind them.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "no-one-listens-to-constant-complainers",
+      "title": "The Same Complaint",
+      "moral": "Moral: Repetition alone changes nothing. Give your energy to finding a way forward.",
+      "body": [
+        "A wise man met a group who kept complaining about the same problems. He told them a joke, and everyone laughed. He repeated it, and only a few smiled. The third time, no one reacted.",
+        "Repeating a complaint without seeking a solution can have the same effect. Eventually, people stop listening."
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/no-one-listens-to-constant-complainers.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: no-one-listens-to-constant-complainers\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: The Same Complaint\nBODY[1]: A wise man met a group who kept complaining about the same problems. He told them a joke, and everyone laughed. He repeated it, and only a few smiled. The third time, no one reacted.\nBODY[2]: Repeating a complaint without seeking a solution can have the same effect. Eventually, people stop listening.\nMORAL: Moral: Repetition alone changes nothing. Give your energy to finding a way forward.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "not-every-sorrow-is-told-to-people",
+      "title": "Choose Your Confidants Carefully",
+      "moral": "Moral: Trust your pain to people who will treat it with care.",
+      "body": [
+        "Not every sorrow should be shared with everyone.",
+        "Some people may one day use it to hurt you."
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/not-every-sorrow-is-told-to-people.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: not-every-sorrow-is-told-to-people\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Choose Your Confidants Carefully\nBODY[1]: Not every sorrow should be shared with everyone.\nBODY[2]: Some people may one day use it to hurt you.\nMORAL: Moral: Trust your pain to people who will treat it with care.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    }
+  ]
+}

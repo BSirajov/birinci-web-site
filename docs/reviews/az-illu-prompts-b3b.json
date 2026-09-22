@@ -1,0 +1,95 @@
+{
+  "count": 6,
+  "asset_rule": "Save final art as WebP 1536x1024 at output_webp; HTML paths unchanged",
+  "text_rule": "On-image Azerbaijani must match Exact quotes exactly (ə/ı/ğ/ö/ü/ş/ç)",
+  "items": [
+    {
+      "stem": "what-it-means-to-be-late",
+      "title": "Gecikmək nə deməkdir?",
+      "moral": "İbrət: Sevgini bildirmək, bağışlamaq və üzr diləmək vaxtında gözəldir. Həyat qısadır — könül işlərini təxirə salmayaq.",
+      "body": [
+        "Gecikmək bir işi vaxtında görməməkdir. İnsanlarla münasibətdə gecikmək isə bəzən daha ağır başa gəlir.",
+        "Kiməsə sevgimizi bildirmək, kimdənsə sevgi payımızı almaq, qəlbimizi qıranları bağışlamaq, xətrinə dəydiklərimizdən üzr diləmək zamanında olanda dəyərli və gözəldir.",
+        "İnsan övladıyıq. Hər birimiz hər an səhv və ya yanlış bir hərəkət edə bilərik. Mühüm olan odur ki, etdiyimiz səhvi etiraf edib düzəltməkdə, üzr diləməkdə, könül almaqda gecikməyək. Həyat qısadır.",
+        "Gecikməyək ki, «kaş ki»lərin olmadığı, «nə yaxşı ki»lərin çox olduğu, ədalətli və səadətlə dolu bir ömür yaşaya bilək."
+      ],
+      "docx": "az/wisdom-stories/what-it-means-to-be-late-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/what-it-means-to-be-late.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: what-it-means-to-be-late\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Gecikmək nə deməkdir?\nBODY[1]: Gecikmək bir işi vaxtında görməməkdir. İnsanlarla münasibətdə gecikmək isə bəzən daha ağır başa gəlir.\nBODY[2]: Kiməsə sevgimizi bildirmək, kimdənsə sevgi payımızı almaq, qəlbimizi qıranları bağışlamaq, xətrinə dəydiklərimizdən üzr diləmək zamanında olanda dəyərli və gözəldir.\nBODY[3]: İnsan övladıyıq. Hər birimiz hər an səhv və ya yanlış bir hərəkət edə bilərik. Mühüm olan odur ki, etdiyimiz səhvi etiraf edib düzəltməkdə, üzr diləməkdə, könül almaqda gecikməyək. Həyat qısadır.\nBODY[4]: Gecikməyək ki, «kaş ki»lərin olmadığı, «nə yaxşı ki»lərin çox olduğu, ədalətli və səadətlə dolu bir ömür yaşaya bilək.\nMORAL: İbrət: Sevgini bildirmək, bağışlamaq və üzr diləmək vaxtında gözəldir. Həyat qısadır — könül işlərini təxirə salmayaq.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "you-cannot-descend-a-well-on-his-rope",
+      "title": "Onun ipi ilə quyuya enmək olmaz",
+      "moral": "İbrət: Gördüyün işin keyfiyyəti sənə etibar qazandırar, keyfiyyətsiz iş isə adını hörmətdən salar. İtirilən etibarı qaytarmaq çətindir.",
+      "body": [
+        "Bir zamanlar kətan liflərindən ip düzəltməklə məşğul olan usta Əli adında biri varmış. İşini keyfiyyətlə görmədiyindən düzəltdiyi iplər çox vaxt çürük çıxarmış. Hətta ona «ipi çürük usta Əli» deyərmişlər. Usta Əlinin ipləri tez-tez qırılar və çoxlu qəzaya səbəb olarmış.",
+        "Günlərin birində dərin bir quyuya bir quzu düşür. Quzunu çıxarmaq üçün quyuya enməyə niyyətlənən bir tanış quzunun sahibindən ip istəyir, amma ona gətirilən ipi bəyənmir:",
+        "— Mən bu ipi tanıyıram. Bu, usta Əlinin işidir. Onun ipi ilə quyuya enmək olmaz, — deyə gileylənir.",
+        "— Haqsızlıq etməyin. Niyə, usta Əlinin ipi ilə quyuya enmək olar; amma eyni iplə oradan çıxmaq olar-olmaz, onu deyə bilmərəm, — deyə quzunun sahibi təbəssümlə cavab verir."
+      ],
+      "docx": "az/wisdom-stories/you-cannot-descend-a-well-on-his-rope-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/you-cannot-descend-a-well-on-his-rope.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: you-cannot-descend-a-well-on-his-rope\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Onun ipi ilə quyuya enmək olmaz\nBODY[1]: Bir zamanlar kətan liflərindən ip düzəltməklə məşğul olan usta Əli adında biri varmış. İşini keyfiyyətlə görmədiyindən düzəltdiyi iplər çox vaxt çürük çıxarmış. Hətta ona «ipi çürük usta Əli» deyərmişlər. Usta Əlinin ipləri tez-tez qırılar və çoxlu qəzaya səbəb olarmış.\nBODY[2]: Günlərin birində dərin bir quyuya bir quzu düşür. Quzunu çıxarmaq üçün quyuya enməyə niyyətlənən bir tanış quzunun sahibindən ip istəyir, amma ona gətirilən ipi bəyənmir:\nBODY[3]: — Mən bu ipi tanıyıram. Bu, usta Əlinin işidir. Onun ipi ilə quyuya enmək olmaz, — deyə gileylənir.\nBODY[4]: — Haqsızlıq etməyin. Niyə, usta Əlinin ipi ilə quyuya enmək olar; amma eyni iplə oradan çıxmaq olar-olmaz, onu deyə bilmərəm, — deyə quzunun sahibi təbəssümlə cavab verir.\nMORAL: İbrət: Gördüyün işin keyfiyyəti sənə etibar qazandırar, keyfiyyətsiz iş isə adını hörmətdən salar. İtirilən etibarı qaytarmaq çətindir.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "attitude-toward-a-problem",
+      "title": "Problemə münasibət",
+      "moral": "İbrət: Həll edə bildiyin problemə çarə axtar. Dəyişə bilmədiyin vəziyyətə görə isə özünü daim üzməyin faydası yoxdur.",
+      "body": [
+        "Həyatında problem varmı?",
+        "Yoxdursa, narahat olmağa dəyməz.",
+        "Problem varsa, onu həll edə bilərsənmi?",
+        "Həll edə bilirsənsə, narahat olmağa dəyməz.",
+        "Həll edə bilmirsənsə, yenə narahat olmağa dəyməz."
+      ],
+      "docx": "az/wisdom-stories/attitude-toward-a-problem-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/attitude-toward-a-problem.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: attitude-toward-a-problem\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Problemə münasibət\nBODY[1]: Həyatında problem varmı?\nBODY[2]: Yoxdursa, narahat olmağa dəyməz.\nBODY[3]: Problem varsa, onu həll edə bilərsənmi?\nBODY[4]: Həll edə bilirsənsə, narahat olmağa dəyməz.\nBODY[5]: Həll edə bilmirsənsə, yenə narahat olmağa dəyməz.\nMORAL: İbrət: Həll edə bildiyin problemə çarə axtar. Dəyişə bilmədiyin vəziyyətə görə isə özünü daim üzməyin faydası yoxdur.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "be-sure-of-your-purpose",
+      "title": "Məqsədinizdən əmin olun",
+      "moral": "İbrət: İşə başlamazdan əvvəl məqsədi dəqiqləşdir. Yoxsa saatlarla çalışıb bütün gücünü yanlış istiqamətə sərf edə bilərsən.",
+      "body": [
+        "İki nəfər ağır bir sandığı qapıdan keçirməyə çalışırdı. Xeyli əlləşdikdən sonra qan-tər içində dayanıb nəfəslərini dərdilər.",
+        "Biri dedi:",
+        "— Nə ağır sandıqdır! Heç cür içəri sala bilmədik.",
+        "Digəri təəccüblə soruşdu:",
+        "— Məgər sandığı bayıra çıxarmalı deyildikmi?"
+      ],
+      "docx": "az/wisdom-stories/be-sure-of-your-purpose-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/be-sure-of-your-purpose.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: be-sure-of-your-purpose\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Məqsədinizdən əmin olun\nBODY[1]: İki nəfər ağır bir sandığı qapıdan keçirməyə çalışırdı. Xeyli əlləşdikdən sonra qan-tər içində dayanıb nəfəslərini dərdilər.\nBODY[2]: Biri dedi:\nBODY[3]: — Nə ağır sandıqdır! Heç cür içəri sala bilmədik.\nBODY[4]: Digəri təəccüblə soruşdu:\nBODY[5]: — Məgər sandığı bayıra çıxarmalı deyildikmi?\nMORAL: İbrət: İşə başlamazdan əvvəl məqsədi dəqiqləşdir. Yoxsa saatlarla çalışıb bütün gücünü yanlış istiqamətə sərf edə bilərsən.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "bedouin-whose-camel-was-stolen",
+      "title": "Dəvəsi oğurlanmış bədəvinin hekayəsi",
+      "moral": "İbrət: Bəzən insan başına gələni ona görə gizlədir ki, başqalarının yaxşılığa inamı itməsin. Bir pis xəbər minlərlə xeyir qapısını bağlaya bilər.",
+      "body": [
+        "Dəvəsi ilə səhrada gedən bir bədəvi güclə ayaq üstə duran, dodaqları susuzluqdan qurumuş bir adama rast gəlir. Adam yalvararaq bədəvidən içmək üçün su istəyir. Bədəvi dəvəsindən düşüb ona su verir. Adam suyu içir, sonra qəflətən bədəvini itələyib dəvəyə minir və qaçmağa üz tutur.",
+        "Bədəvi dəvəsini xilas etmək üçün əlindən bir şey gəlməyəcəyini anlayanda oğrunun arxasınca bağırır:",
+        "— Eybi yoxdur, dəvəni apar, sənin olsun. Amma bu əhvalatı heç kimə danışma.",
+        "Bədəvinin bu qəribə xahişindən təəccüblənən oğru bir anlığa dayanır, geriyə boylanıb səbəbini soruşur.",
+        "— Əgər danışsan, bu əhvalat hər yerə yayılar və bir daha heç kim rastlaşdığı möhtac insanlara yardım etməz, — deyə bədəvi cavab verir."
+      ],
+      "docx": "az/wisdom-stories/bedouin-whose-camel-was-stolen-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/bedouin-whose-camel-was-stolen.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: bedouin-whose-camel-was-stolen\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Dəvəsi oğurlanmış bədəvinin hekayəsi\nBODY[1]: Dəvəsi ilə səhrada gedən bir bədəvi güclə ayaq üstə duran, dodaqları susuzluqdan qurumuş bir adama rast gəlir. Adam yalvararaq bədəvidən içmək üçün su istəyir. Bədəvi dəvəsindən düşüb ona su verir. Adam suyu içir, sonra qəflətən bədəvini itələyib dəvəyə minir və qaçmağa üz tutur.\nBODY[2]: Bədəvi dəvəsini xilas etmək üçün əlindən bir şey gəlməyəcəyini anlayanda oğrunun arxasınca bağırır:\nBODY[3]: — Eybi yoxdur, dəvəni apar, sənin olsun. Amma bu əhvalatı heç kimə danışma.\nBODY[4]: Bədəvinin bu qəribə xahişindən təəccüblənən oğru bir anlığa dayanır, geriyə boylanıb səbəbini soruşur.\nBODY[5]: — Əgər danışsan, bu əhvalat hər yerə yayılar və bir daha heç kim rastlaşdığı möhtac insanlara yardım etməz, — deyə bədəvi cavab verir.\nMORAL: İbrət: Bəzən insan başına gələni ona görə gizlədir ki, başqalarının yaxşılığa inamı itməsin. Bir pis xəbər minlərlə xeyir qapısını bağlaya bilər.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "bell-to-hang-on-the-cats-neck",
+      "title": "Pişiyin boynundan asılacaq zınqırov",
+      "moral": "İbrət: Plan qurmaq asan, onu icra etmək çətindir. Həyata keçirilməyən ən parlaq fikir də dəyərsizdir.",
+      "body": [
+        "Bir dəstə siçan yığışıb başlarına bəla olmuş bir pişikdən qurtulmağın yollarını axtarır.",
+        "Çox fikir irəli sürülür, amma heç biri qəbul olunmur. Nəhayət, gənc bir siçan pişiyin boynundan zınqırov asmağı təklif edir.",
+        "Fikir belə idi: pişik yaxınlaşanda siçanlar zınqırovun səsini eşidib qaçacaq, canlarını qurtaracaqlar. Hamı bu təklifi sevinclə alqışlayır.",
+        "Elə bu vaxt bir küncdə söhbəti səssizcə dinləyən qoca siçan dillənir:",
+        "— Bu, çox ağıllı təklifdir və həyata keçsə, uğurlu olacağına şübhəm yoxdur. Amma məni bir sual düşündürür: yaxşı, deyin görüm, zınqırovu pişiyin boynundan kim asacaq?"
+      ],
+      "docx": "az/wisdom-stories/bell-to-hang-on-the-cats-neck-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/bell-to-hang-on-the-cats-neck.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: bell-to-hang-on-the-cats-neck\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Pişiyin boynundan asılacaq zınqırov\nBODY[1]: Bir dəstə siçan yığışıb başlarına bəla olmuş bir pişikdən qurtulmağın yollarını axtarır.\nBODY[2]: Çox fikir irəli sürülür, amma heç biri qəbul olunmur. Nəhayət, gənc bir siçan pişiyin boynundan zınqırov asmağı təklif edir.\nBODY[3]: Fikir belə idi: pişik yaxınlaşanda siçanlar zınqırovun səsini eşidib qaçacaq, canlarını qurtaracaqlar. Hamı bu təklifi sevinclə alqışlayır.\nBODY[4]: Elə bu vaxt bir küncdə söhbəti səssizcə dinləyən qoca siçan dillənir:\nBODY[5]: — Bu, çox ağıllı təklifdir və həyata keçsə, uğurlu olacağına şübhəm yoxdur. Amma məni bir sual düşündürür: yaxşı, deyin görüm, zınqırovu pişiyin boynundan kim asacaq?\nMORAL: İbrət: Plan qurmaq asan, onu icra etmək çətindir. Həyata keçirilməyən ən parlaq fikir də dəyərsizdir.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    }
+  ]
+}

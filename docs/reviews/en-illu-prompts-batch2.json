@@ -1,0 +1,62 @@
+{
+  "count": 5,
+  "asset_rule": "Save final art as WebP 1536x1024 at output_webp; HTML paths unchanged",
+  "text_rule": "On-image English must match Exact quotes exactly",
+  "items": [
+    {
+      "stem": "calamity-and-blessing",
+      "title": "Adversity and Blessing",
+      "moral": "Moral: A hardship that brings you closer to Allah is a blessing, while a blessing that draws you away from Him becomes a hardship. What matters is where it leads you, not how comfortable it makes you.",
+      "body": [
+        "If adversity brings you closer to Allah, it is a blessing.",
+        "If a blessing draws you away from Allah, it is a hardship."
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/calamity-and-blessing.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: calamity-and-blessing\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Adversity and Blessing\nBODY[1]: If adversity brings you closer to Allah, it is a blessing.\nBODY[2]: If a blessing draws you away from Allah, it is a hardship.\nMORAL: Moral: A hardship that brings you closer to Allah is a blessing, while a blessing that draws you away from Him becomes a hardship. What matters is where it leads you, not how comfortable it makes you.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "dont-be-words-for-mouths-dust-for-feet",
+      "title": "Neither Gossip nor Dust",
+      "moral": "Moral: Protect both your reputation and your dignity. Do not give people reason to gossip about you, and do not allow anyone to treat you without respect.",
+      "body": [
+        "“A tale on every tongue” means being the subject of gossip, rumors, or constant public discussion.",
+        "“Dust beneath anyone’s feet” means allowing others to humiliate, belittle, or treat you as worthless."
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/dont-be-words-for-mouths-dust-for-feet.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: dont-be-words-for-mouths-dust-for-feet\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Neither Gossip nor Dust\nBODY[1]: “A tale on every tongue” means being the subject of gossip, rumors, or constant public discussion.\nBODY[2]: “Dust beneath anyone’s feet” means allowing others to humiliate, belittle, or treat you as worthless.\nMORAL: Moral: Protect both your reputation and your dignity. Do not give people reason to gossip about you, and do not allow anyone to treat you without respect.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "everyone-has-work-to-do",
+      "title": "Everyone Has Work to Do",
+      "moral": "Moral: It is a very painful feeling to live knowing you are regarded as unreliable and untrustworthy.",
+      "body": [
+        "I have been fortunate to learn from wise teachers. One was my literature teacher, the esteemed Baladadash. He taught us never to leave a request or an assigned task unanswered, however small it might seem.",
+        "Everyone has things to do. When someone asks for help, it is usually because they need you, not because they have nothing better to do. Do not leave them waiting in silence. If you cannot help, say so openly. Failing to answer erodes their trust."
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/everyone-has-work-to-do.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: everyone-has-work-to-do\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Everyone Has Work to Do\nBODY[1]: I have been fortunate to learn from wise teachers. One was my literature teacher, the esteemed Baladadash. He taught us never to leave a request or an assigned task unanswered, however small it might seem.\nBODY[2]: Everyone has things to do. When someone asks for help, it is usually because they need you, not because they have nothing better to do. Do not leave them waiting in silence. If you cannot help, say so openly. Failing to answer erodes their trust.\nMORAL: Moral: It is a very painful feeling to live knowing you are regarded as unreliable and untrustworthy.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "fly-in-the-china-shop",
+      "title": "A Fly in a China Shop",
+      "moral": "Moral: A small lie whispered into an ignorant ear can cause enormous destruction. Knowledge, critical thinking, and strong moral values are our best protection against it.",
+      "body": [
+        "A fly could never wreck a china shop on its own. But if it flew into a bull’s ear, the panicked animal could destroy the whole place.",
+        "The fly represents superstition, falsehood, and prejudice. The bull represents an ignorant person who acts without thinking."
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/fly-in-the-china-shop.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: fly-in-the-china-shop\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: A Fly in a China Shop\nBODY[1]: A fly could never wreck a china shop on its own. But if it flew into a bull’s ear, the panicked animal could destroy the whole place.\nBODY[2]: The fly represents superstition, falsehood, and prejudice. The bull represents an ignorant person who acts without thinking.\nMORAL: Moral: A small lie whispered into an ignorant ear can cause enormous destruction. Knowledge, critical thinking, and strong moral values are our best protection against it.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "fortieth-day-rite",
+      "title": "The Fortieth Day",
+      "moral": "Moral: Customs can hold generations of love and blessings. A baby’s gifts express hopes for an entire lifetime.",
+      "body": [
+        "In some Turkic communities, tradition keeps a mother and newborn at home without visitors for forty days after the birth. The custom is said to date back to the Göktürks.",
+        "On the fortieth day, a close relative invites the mother and baby to visit and presents symbolic gifts: coins for prosperity; cotton for a long life and a gentle heart, even when the child’s hair turns white; sugar for sweet words and a cheerful face; wheat for abundance at home; salt for a life that never loses its flavor; and eggs for nourishment and strength."
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/fortieth-day-rite.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: fortieth-day-rite\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: The Fortieth Day\nBODY[1]: In some Turkic communities, tradition keeps a mother and newborn at home without visitors for forty days after the birth. The custom is said to date back to the Göktürks.\nBODY[2]: On the fortieth day, a close relative invites the mother and baby to visit and presents symbolic gifts: coins for prosperity; cotton for a long life and a gentle heart, even when the child’s hair turns white; sugar for sweet words and a cheerful face; wheat for abundance at home; salt for a life that never loses its flavor; and eggs for nourishment and strength.\nMORAL: Moral: Customs can hold generations of love and blessings. A baby’s gifts express hopes for an entire lifetime.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    }
+  ]
+}

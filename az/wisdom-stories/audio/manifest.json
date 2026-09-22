@@ -5503,32 +5503,6 @@
     "bytes": 897068,
     "join": "ffmpeg+loudnorm"
   },
-  "nazim-hikmet-in-bursa-prison": {
-    "title": "Nazim Hikmət Bursa həbsxanasında",
-    "category": "edalet-ve-cemiyyet",
-    "index": 4,
-    "voice": "az-AZ-BabekNeural",
-    "dialogue_voice": "az-AZ-BanuNeural",
-    "prosody": "v3-az-dual",
-    "text": "d5d6adfa3ff7a89d2e03ad59",
-    "content": "fa3c150ca61675039a4689db",
-    "roles": [
-      "title",
-      "narrative",
-      "narrative",
-      "question",
-      "question",
-      "question",
-      "narrative",
-      "narrative",
-      "dialogue",
-      "narrative",
-      "moral"
-    ],
-    "file": "nazim-hikmet-in-bursa-prison.mp3",
-    "bytes": 569180,
-    "join": "ffmpeg+loudnorm"
-  },
   "bell-to-hang-on-the-cats-neck": {
     "title": "Pişiyin boynundan asılacaq zınqırov",
     "category": "edalet-ve-cemiyyet",

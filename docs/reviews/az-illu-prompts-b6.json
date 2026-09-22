@@ -1,0 +1,197 @@
+{
+  "count": 10,
+  "asset_rule": "Save final art as WebP 1536x1024 at output_webp; HTML paths unchanged",
+  "text_rule": "On-image Azerbaijani must match Exact quotes exactly (ə/ı/ğ/ö/ü/ş/ç)",
+  "items": [
+    {
+      "stem": "early-marriage",
+      "title": "Erkən evlilik",
+      "moral": "İbrət: Bir müəllimin kiçik qayğısı bir qızın taleyini dəyişə bilər. Erkən evlilik uşaqları elmdən məhrum edir; buna göz yummayaq.",
+      "body": [
+        "Universiteti təzəcə bitirib məktəbdə müəllim işləməyə başlamışdım. Bir gün müəllimlər otağında oturub şagirdlərin imtahan vərəqlərini gözdən keçirirdim. Qız şagirdlərin səhv cavablarını silib düzəldirdim ki, yuxarı sinfə keçmək üçün yaxşı qiymət alsınlar.",
+        "Bu an müəllimlər otağına bir nəfər girib maraqla qız şagirdlərin imtahan vərəqlərini niyə dəyişdirdiyimi soruşdu. Dedim: «Əgər bu qızlar imtahandan kəsilsələr, ataları onları məktəbdən çıxarıb on iki-on üç yaşında ərə verəcək. Amma yuxarı sinfə keçsələr, evlilik yaşları heç olmasa on beş-on altı olacaq. Bu müddətdə isə ən tənbəl şagird belə dərsdə mütləq nəsə öyrənəcək.»",
+        "Təxminən yarım saat sonra direktorumuz məni çağırıb müəllimlər otağında nə işlə məşğul olduğumu soruşdu. İmtahan vərəqlərini nəzərdən keçirdiyimi dedim.",
+        "— Müəllimlər otağında bir nəfərlə rastlaşmısan. Ona nə demisən? — deyə soruşdu.",
+        "— O adam məndən sizə şikayət etdi? — deyə soruşdum.",
+        "— Əsla yox! Adam yanıma gəlib məktəbə təftiş üçün gəldiyini, amma buna heç bir ehtiyac olmadığını dedi.",
+        "— Nədən? — deyə təəccübləndim.",
+        "Direktor onun sözlərini çatdırdı:",
+        "— Dedi ki, sizin müdrik bir gənc müəlliminiz var, ona mənim təşəkkürümü yetirin."
+      ],
+      "docx": "az/wisdom-stories/early-marriage-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/early-marriage.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: early-marriage\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Erkən evlilik\nBODY[1]: Universiteti təzəcə bitirib məktəbdə müəllim işləməyə başlamışdım. Bir gün müəllimlər otağında oturub şagirdlərin imtahan vərəqlərini gözdən keçirirdim. Qız şagirdlərin səhv cavablarını silib düzəldirdim ki, yuxarı sinfə keçmək üçün yaxşı qiymət alsınlar.\nBODY[2]: Bu an müəllimlər otağına bir nəfər girib maraqla qız şagirdlərin imtahan vərəqlərini niyə dəyişdirdiyimi soruşdu. Dedim: «Əgər bu qızlar imtahandan kəsilsələr, ataları onları məktəbdən çıxarıb on iki-on üç yaşında ərə verəcək. Amma yuxarı sinfə keçsələr, evlilik yaşları heç olmasa on beş-on altı olacaq. Bu müddətdə isə ən tənbəl şagird belə dərsdə mütləq nəsə öyrənəcək.»\nBODY[3]: Təxminən yarım saat sonra direktorumuz məni çağırıb müəllimlər otağında nə işlə məşğul olduğumu soruşdu. İmtahan vərəqlərini nəzərdən keçirdiyimi dedim.\nBODY[4]: — Müəllimlər otağında bir nəfərlə rastlaşmısan. Ona nə demisən? — deyə soruşdu.\nBODY[5]: — O adam məndən sizə şikayət etdi? — deyə soruşdum.\nBODY[6]: — Əsla yox! Adam yanıma gəlib məktəbə təftiş üçün gəldiyini, amma buna heç bir ehtiyac olmadığını dedi.\nBODY[7]: — Nədən? — deyə təəccübləndim.\nBODY[8]: Direktor onun sözlərini çatdırdı:\nBODY[9]: — Dedi ki, sizin müdrik bir gənc müəlliminiz var, ona mənim təşəkkürümü yetirin.\nMORAL: İbrət: Bir müəllimin kiçik qayğısı bir qızın taleyini dəyişə bilər. Erkən evlilik uşaqları elmdən məhrum edir; buna göz yummayaq.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "everything-is-in-our-own-hands",
+      "title": "Hər şey bizim öz əlimizdədir",
+      "moral": "İbrət: Yaxşılıq da, yamanlıq da insanın öz seçimidir. Taleyimizi ağlımız yox, niyyətlərimiz müəyyən edir.",
+      "body": [
+        "(Hindistan folklorundan)",
+        "Bir gənc yaşlı rahibi çaşdırmaq fikrinə düşür. Bir quş tutub ovcunda, belinin arxasında gizlədir və rahibdən soruşur:",
+        "— Ey müdrik qoca, de görüm, əlimdəki quş diridir, ya ölü?",
+        "Özlüyündə isə belə düşünür: əgər qoca «diridir» desə, quşu boğub öldürərəm; yox, «ölüdür» desə, əlimi açıb quşu uçuraram və beləcə onu pərt edərəm.",
+        "Müdrik qoca bir müddət düşünüb deyir:",
+        "— Əziz oğlum, sualının cavabı öz əlindədir.",
+        "Oğlan duruxub başını aşağı salır.",
+        "Qoca davam edir:",
+        "— Savaş və barış, cəza və əfv, yaxşılıq və yamanlıq — bunların hamısı sənin öz əlindədir. İnsanın həyat yolunu onun ağlı yox, niyyətləri müəyyən edir. Unutma ki, hər insan həm yaxşılıq, həm də yamanlıq etmək iqtidarındadır. Amma həmişə bir seçim var və bu seçim də bizim öz əlimizdədir."
+      ],
+      "docx": "az/wisdom-stories/everything-is-in-our-own-hands-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/everything-is-in-our-own-hands.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: everything-is-in-our-own-hands\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Hər şey bizim öz əlimizdədir\nBODY[1]: (Hindistan folklorundan)\nBODY[2]: Bir gənc yaşlı rahibi çaşdırmaq fikrinə düşür. Bir quş tutub ovcunda, belinin arxasında gizlədir və rahibdən soruşur:\nBODY[3]: — Ey müdrik qoca, de görüm, əlimdəki quş diridir, ya ölü?\nBODY[4]: Özlüyündə isə belə düşünür: əgər qoca «diridir» desə, quşu boğub öldürərəm; yox, «ölüdür» desə, əlimi açıb quşu uçuraram və beləcə onu pərt edərəm.\nBODY[5]: Müdrik qoca bir müddət düşünüb deyir:\nBODY[6]: — Əziz oğlum, sualının cavabı öz əlindədir.\nBODY[7]: Oğlan duruxub başını aşağı salır.\nBODY[8]: Qoca davam edir:\nBODY[9]: — Savaş və barış, cəza və əfv, yaxşılıq və yamanlıq — bunların hamısı sənin öz əlindədir. İnsanın həyat yolunu onun ağlı yox, niyyətləri müəyyən edir. Unutma ki, hər insan həm yaxşılıq, həm də yamanlıq etmək iqtidarındadır. Amma həmişə bir seçim var və bu seçim də bizim öz əlimizdədir.\nMORAL: İbrət: Yaxşılıq da, yamanlıq da insanın öz seçimidir. Taleyimizi ağlımız yox, niyyətlərimiz müəyyən edir.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "flower-of-honesty",
+      "title": "Dürüstlük çiçəyi",
+      "moral": "İbrət: Ən dəyərli bəzək dürüstlükdür. İnsan zahiri görkəmi ilə deyil, doğru sözə və təmiz vicdana sahib olması ilə ucalır.",
+      "body": [
+        "Bir şahzadə taxta çıxmağa hazırlaşırmış. Amma qaydalara görə əvvəlcə evlənməli imiş. Uyğun namizəd seçmək üçün ölkənin ən gözəl qızlarını hüzuruna çağırtdırır.",
+        "Saraydakı xidmətçilərdən birinin qızı da şahzadəyə aşiq imiş. O da anasına şahzadənin hüzuruna çıxmaq istədiyini deyir. Anası qızını bu fikirdən daşındırmağa çalışsa da, qız qərarından dönmür və hüzura çıxmaqda israrlı olduğunu bildirir.",
+        "Gözlənilən gün gəlir. Saraya toplaşan gənc gözəl qızlar ən qəşəng libaslarını geymiş, bəzənib-düzənmiş, özlərini bəyəndirmək üçün əllərindən gələni etmişdilər.",
+        "Şahzadə qızların hər birinə bir toxum verir, onu dibçəkdə əkməyi və altı ay sonra yenidən hüzuruna gəlmələrini tapşırır. Ən gözəl çiçəyi yetişdirəni seçib onunla evlənəcəyini deyir. Qızlar toxumu alıb həyəcanla evlərinə dönürlər.",
+        "Xidmətçinin qızı da toxumu dibçəyə əkir, ona səylə qulluq edir. Amma toxum cücərmir ki, cücərmir. Qız hər yolu sınayır, bağbanlarla məsləhətləşir, yenə faydası olmur. Altı ay tamam olanda boş dibçəklə saraya gəlir. O biri qızlar isə bir-birindən gözəl çiçəklər gətiriblər.",
+        "Seçim zamanı gəlir. Şahzadə salona daxil olur, qızların arasında dolaşıb dibçəkləri bir-bir gözdən keçirir. Sonda uca səslə xidmətçinin qızını seçdiyini elan edir.",
+        "Hamı məəttəl qalır. Digər qızlar bu qərara etiraz edirlər: axı boş dibçəklə gələn qız necə olur ki, gəlinliyə namizəd seçilir?",
+        "Şahzadə qərarının səbəbini belə açıqlayır:",
+        "— Bu gənc xanım ən dəyərli çiçəyi yetişdirib mənə gətirdi. O çiçəyin adı dürüstlük çiçəyidir. Sizə payladığım toxumların hamısı saxta idi, onların çiçək açması mümkün deyildi."
+      ],
+      "docx": "az/wisdom-stories/flower-of-honesty-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/flower-of-honesty.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: flower-of-honesty\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Dürüstlük çiçəyi\nBODY[1]: Bir şahzadə taxta çıxmağa hazırlaşırmış. Amma qaydalara görə əvvəlcə evlənməli imiş. Uyğun namizəd seçmək üçün ölkənin ən gözəl qızlarını hüzuruna çağırtdırır.\nBODY[2]: Saraydakı xidmətçilərdən birinin qızı da şahzadəyə aşiq imiş. O da anasına şahzadənin hüzuruna çıxmaq istədiyini deyir. Anası qızını bu fikirdən daşındırmağa çalışsa da, qız qərarından dönmür və hüzura çıxmaqda israrlı olduğunu bildirir.\nBODY[3]: Gözlənilən gün gəlir. Saraya toplaşan gənc gözəl qızlar ən qəşəng libaslarını geymiş, bəzənib-düzənmiş, özlərini bəyəndirmək üçün əllərindən gələni etmişdilər.\nBODY[4]: Şahzadə qızların hər birinə bir toxum verir, onu dibçəkdə əkməyi və altı ay sonra yenidən hüzuruna gəlmələrini tapşırır. Ən gözəl çiçəyi yetişdirəni seçib onunla evlənəcəyini deyir. Qızlar toxumu alıb həyəcanla evlərinə dönürlər.\nBODY[5]: Xidmətçinin qızı da toxumu dibçəyə əkir, ona səylə qulluq edir. Amma toxum cücərmir ki, cücərmir. Qız hər yolu sınayır, bağbanlarla məsləhətləşir, yenə faydası olmur. Altı ay tamam olanda boş dibçəklə saraya gəlir. O biri qızlar isə bir-birindən gözəl çiçəklər gətiriblər.\nBODY[6]: Seçim zamanı gəlir. Şahzadə salona daxil olur, qızların arasında dolaşıb dibçəkləri bir-bir gözdən keçirir. Sonda uca səslə xidmətçinin qızını seçdiyini elan edir.\nBODY[7]: Hamı məəttəl qalır. Digər qızlar bu qərara etiraz edirlər: axı boş dibçəklə gələn qız necə olur ki, gəlinliyə namizəd seçilir?\nBODY[8]: Şahzadə qərarının səbəbini belə açıqlayır:\nBODY[9]: — Bu gənc xanım ən dəyərli çiçəyi yetişdirib mənə gətirdi. O çiçəyin adı dürüstlük çiçəyidir. Sizə payladığım toxumların hamısı saxta idi, onların çiçək açması mümkün deyildi.\nMORAL: İbrət: Ən dəyərli bəzək dürüstlükdür. İnsan zahiri görkəmi ilə deyil, doğru sözə və təmiz vicdana sahib olması ilə ucalır.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "hajj-pilgrimage",
+      "title": "Həcc ziyarəti",
+      "moral": "İbrət: Əsl mübarizə kənardakı şeytanla yox, insanın öz nəfsi ilədir. Kəramət daşda-tacda deyil, insanın öz içindədir.",
+      "body": [
+        "Həcc ziyarətinə gedən bir adam şeytana daş atmaq vaxtı çatanda daşı özünə vurmağa başlayır. Bunu görən bir gənc heyrətlə soruşur:",
+        "— Ay dayı, niyə özünü daşlayırsan?",
+        "Adam cavab verir:",
+        "— Oğul, bizim buradakı şeytanla nə işimiz var? Əvvəl öz içimizdəki şeytanı daşlamalı, nəfsimizi tərbiyə edib özümüzü təmizləməliyik.",
+        "* * *",
+        "Hərarət oddadır, sacda deyildir,",
+        "kəramət başdadır, tacda deyildir.",
+        "Hər nə axtarırsansa, özündə axtar,",
+        "Qüdsdə, Məkkədə, hacda deyildir."
+      ],
+      "docx": "az/wisdom-stories/hajj-pilgrimage-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/hajj-pilgrimage.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: hajj-pilgrimage\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Həcc ziyarəti\nBODY[1]: Həcc ziyarətinə gedən bir adam şeytana daş atmaq vaxtı çatanda daşı özünə vurmağa başlayır. Bunu görən bir gənc heyrətlə soruşur:\nBODY[2]: — Ay dayı, niyə özünü daşlayırsan?\nBODY[3]: Adam cavab verir:\nBODY[4]: — Oğul, bizim buradakı şeytanla nə işimiz var? Əvvəl öz içimizdəki şeytanı daşlamalı, nəfsimizi tərbiyə edib özümüzü təmizləməliyik.\nBODY[5]: * * *\nBODY[6]: Hərarət oddadır, sacda deyildir,\nBODY[7]: kəramət başdadır, tacda deyildir.\nBODY[8]: Hər nə axtarırsansa, özündə axtar,\nBODY[9]: Qüdsdə, Məkkədə, hacda deyildir.\nMORAL: İbrət: Əsl mübarizə kənardakı şeytanla yox, insanın öz nəfsi ilədir. Kəramət daşda-tacda deyil, insanın öz içindədir.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "how-to-ward-off-insults",
+      "title": "Təhqirləri necə dəf etməli",
+      "moral": "İbrət: Qəbul etmədiyin təhqir sahibinə qayıdır — eynilə geri qaytarılan hədiyyə kimi. Pisliyə pisliklə yox, təmkinlə cavab ver.",
+      "body": [
+        "(Samurayların həyatından alınmış ibrətamiz bir hekayə)",
+        "Ahıl, müdrik bir samuray varmış. O, şagirdlərinə müdrikliyin və döyüş sənətinin sirlərini öyrədərmiş. Bir gün növbəti dərs zamanı ədəbsizliyi və qəddarlığı ilə tanınan bir döyüşçü sinfə daxil olur. Bu döyüşçü rəqiblərini təhqir edib hövsələdən çıxarar, sonra da əsəbiləşmiş rəqibinin bir-birinin ardınca etdiyi səhvlərdən istifadə edib onu məğlub edərmiş. Bu dəfə də eyni taktikanı işlədir, samurayı döyüşə təhrik etmək üçün ona bir neçə təhqiramiz söz deyir. Samuray təhqirlərə məhəl qoymadan dərsinə davam edir.",
+        "Təhqirlərini bir neçə dəfə təkrarlayandan sonra da samuraydan heç bir cavab ala bilməyən döyüşçü əsəbi halda sinfi tərk edib gedir.",
+        "Bu səhnəni diqqətlə izləyən şagirdlər müəllimlərindən soruşur:",
+        "— Ustad, siz nə üçün bu təhqirlərə dözdünüz? Nədən onu döyüşə çağırmadınız?",
+        "Müdrik samuray belə cavab verir:",
+        "— Əgər kimsə sizə hədiyyə ilə gəlir və siz o hədiyyəni qəbul etmirsinizsə, onda hədiyyə kimə aid olur?",
+        "— Əvvəlki sahibinə, — deyə şagirdlər cavab verir.",
+        "— Paxıllığa, nifrətə və təhqirə də belə baxın. Qəbul etməsəniz, bu “hədiyyələr” onları verənin özündə qalar."
+      ],
+      "docx": "az/wisdom-stories/how-to-ward-off-insults-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/how-to-ward-off-insults.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: how-to-ward-off-insults\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Təhqirləri necə dəf etməli\nBODY[1]: (Samurayların həyatından alınmış ibrətamiz bir hekayə)\nBODY[2]: Ahıl, müdrik bir samuray varmış. O, şagirdlərinə müdrikliyin və döyüş sənətinin sirlərini öyrədərmiş. Bir gün növbəti dərs zamanı ədəbsizliyi və qəddarlığı ilə tanınan bir döyüşçü sinfə daxil olur. Bu döyüşçü rəqiblərini təhqir edib hövsələdən çıxarar, sonra da əsəbiləşmiş rəqibinin bir-birinin ardınca etdiyi səhvlərdən istifadə edib onu məğlub edərmiş. Bu dəfə də eyni taktikanı işlədir, samurayı döyüşə təhrik etmək üçün ona bir neçə təhqiramiz söz deyir. Samuray təhqirlərə məhəl qoymadan dərsinə davam edir.\nBODY[3]: Təhqirlərini bir neçə dəfə təkrarlayandan sonra da samuraydan heç bir cavab ala bilməyən döyüşçü əsəbi halda sinfi tərk edib gedir.\nBODY[4]: Bu səhnəni diqqətlə izləyən şagirdlər müəllimlərindən soruşur:\nBODY[5]: — Ustad, siz nə üçün bu təhqirlərə dözdünüz? Nədən onu döyüşə çağırmadınız?\nBODY[6]: Müdrik samuray belə cavab verir:\nBODY[7]: — Əgər kimsə sizə hədiyyə ilə gəlir və siz o hədiyyəni qəbul etmirsinizsə, onda hədiyyə kimə aid olur?\nBODY[8]: — Əvvəlki sahibinə, — deyə şagirdlər cavab verir.\nBODY[9]: — Paxıllığa, nifrətə və təhqirə də belə baxın. Qəbul etməsəniz, bu “hədiyyələr” onları verənin özündə qalar.\nMORAL: İbrət: Qəbul etmədiyin təhqir sahibinə qayıdır — eynilə geri qaytarılan hədiyyə kimi. Pisliyə pisliklə yox, təmkinlə cavab ver.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "most-beautiful-gift",
+      "title": "Ən gözəl hədiyyə",
+      "moral": "İbrət: Ən gözəl hədiyyə hər kəsə ehtiyac duyduğu qayğını göstərməkdir: ataya izzət, anaya hörmət, dosta vəfa, cəmiyyətə xidmət.",
+      "body": [
+        "Ata üçün — izzət,",
+        "ana üçün — hörmət,",
+        "övlad üçün — şəfqət,",
+        "həyat yoldaşı üçün — sevgi,",
+        "dost üçün — vəfa,",
+        "cəmiyyət üçün — xidmət,",
+        "rəhmətlik üçün — dua,",
+        "dünya üçün — insanlıq,",
+        "axirət üçün — dünyada yaxşılıq."
+      ],
+      "docx": "az/wisdom-stories/most-beautiful-gift-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/most-beautiful-gift.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: most-beautiful-gift\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Ən gözəl hədiyyə\nBODY[1]: Ata üçün — izzət,\nBODY[2]: ana üçün — hörmət,\nBODY[3]: övlad üçün — şəfqət,\nBODY[4]: həyat yoldaşı üçün — sevgi,\nBODY[5]: dost üçün — vəfa,\nBODY[6]: cəmiyyət üçün — xidmət,\nBODY[7]: rəhmətlik üçün — dua,\nBODY[8]: dünya üçün — insanlıq,\nBODY[9]: axirət üçün — dünyada yaxşılıq.\nMORAL: İbrət: Ən gözəl hədiyyə hər kəsə ehtiyac duyduğu qayğını göstərməkdir: ataya izzət, anaya hörmət, dosta vəfa, cəmiyyətə xidmət.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "pair-of-boots",
+      "title": "Bir cüt çəkmə",
+      "moral": "İbrət: Başqasının sevincini öz sevincindən üstün tutmaq da bir qələbədir. Əsl mərhəmət bəzən başqasının xeyrinə öz şansından keçməyi bacarmaqdır.",
+      "body": [
+        "Bir gün məktəblərin birində müəllimə şagirdlərinə istədikləri mövzuda hekayə yazmağı tapşırdı və ən gözəl hekayənin müəllifinə bir cüt çəkmə hədiyyə edəcəyini bildirdi. Şagirdlərin hamısı yazılarını tamamlayıb ona təqdim etdi.",
+        "Müəllimə hekayələri bir-bir oxudu və hər birini çox bəyəndi. Ən yaxşısını seçməkdə çətinlik çəkdiyi üçün qalibi püşklə müəyyənləşdirməyə qərar verdi.",
+        "Hər şagird adını bir kağıza yazıb qatladı və müəllimənin masasındakı qutuya atdı. Kağızlar qarışdırıldıqdan sonra müəllimə birini çəkib uca səslə dedi:",
+        "— Əminə!",
+        "Sinif alqışlara qərq oldu. Əminə çəkmələri sinəsinə sıxdı və sevinc göz yaşlarını saxlaya bilmədi.",
+        "Axşam müəllimə evə qayıdanda sinifdə baş verənləri həyat yoldaşına göz yaşları içində danışdı. Həyat yoldaşı təəccübləndi:",
+        "— Nə gözəl həll tapmısan. Bəs niyə ağlayırsan?",
+        "Müəllimə cavab verdi:",
+        "— Çünki qutudakı kağızların heç birində şagirdlərin öz adı yox idi. Hamı sinfimizin ən imkansız ailəsindən olan Əminənin adını yazmışdı. Onların hər biri çəkmələri məhz Əminənin qazanmasını istəyirdi."
+      ],
+      "docx": "az/wisdom-stories/pair-of-boots-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/pair-of-boots.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: pair-of-boots\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Bir cüt çəkmə\nBODY[1]: Bir gün məktəblərin birində müəllimə şagirdlərinə istədikləri mövzuda hekayə yazmağı tapşırdı və ən gözəl hekayənin müəllifinə bir cüt çəkmə hədiyyə edəcəyini bildirdi. Şagirdlərin hamısı yazılarını tamamlayıb ona təqdim etdi.\nBODY[2]: Müəllimə hekayələri bir-bir oxudu və hər birini çox bəyəndi. Ən yaxşısını seçməkdə çətinlik çəkdiyi üçün qalibi püşklə müəyyənləşdirməyə qərar verdi.\nBODY[3]: Hər şagird adını bir kağıza yazıb qatladı və müəllimənin masasındakı qutuya atdı. Kağızlar qarışdırıldıqdan sonra müəllimə birini çəkib uca səslə dedi:\nBODY[4]: — Əminə!\nBODY[5]: Sinif alqışlara qərq oldu. Əminə çəkmələri sinəsinə sıxdı və sevinc göz yaşlarını saxlaya bilmədi.\nBODY[6]: Axşam müəllimə evə qayıdanda sinifdə baş verənləri həyat yoldaşına göz yaşları içində danışdı. Həyat yoldaşı təəccübləndi:\nBODY[7]: — Nə gözəl həll tapmısan. Bəs niyə ağlayırsan?\nBODY[8]: Müəllimə cavab verdi:\nBODY[9]: — Çünki qutudakı kağızların heç birində şagirdlərin öz adı yox idi. Hamı sinfimizin ən imkansız ailəsindən olan Əminənin adını yazmışdı. Onların hər biri çəkmələri məhz Əminənin qazanmasını istəyirdi.\nMORAL: İbrət: Başqasının sevincini öz sevincindən üstün tutmaq da bir qələbədir. Əsl mərhəmət bəzən başqasının xeyrinə öz şansından keçməyi bacarmaqdır.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "properties-of-water",
+      "title": "Suyun xassələri",
+      "moral": "İbrət: İnsan qəlbi su kimidir: ünsiyyətdə canlanır, tənhalıqda durğunlaşıb solur. İnsanı diri saxlayan başqa insanlardır.",
+      "body": [
+        "Suyun xassələrinə baxın:",
+        "— ağacla dostluq edərsə, onu diri saxlayar;",
+        "— odla təmas edərsə, onu söndürər;",
+        "— çirkə bulaşanı təmizləyər;",
+        "— unla qarışarsa, onu xəmirə çevirər, bişməyə hazır hala salar;",
+        "— günəş işığı ilə görüşəndə göy qurşağı yaradar;",
+        "— axarsa, həyat gətirər;",
+        "— durğun qalarsa, bataqlığa çevrilib qoxumağa başlar.",
+        "İnsan qəlbi də suya bənzəyir: ünsiyyətdə olduqca canlı, tənhalıqda isə cansız olar."
+      ],
+      "docx": "az/wisdom-stories/properties-of-water-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/properties-of-water.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: properties-of-water\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Suyun xassələri\nBODY[1]: Suyun xassələrinə baxın:\nBODY[2]: — ağacla dostluq edərsə, onu diri saxlayar;\nBODY[3]: — odla təmas edərsə, onu söndürər;\nBODY[4]: — çirkə bulaşanı təmizləyər;\nBODY[5]: — unla qarışarsa, onu xəmirə çevirər, bişməyə hazır hala salar;\nBODY[6]: — günəş işığı ilə görüşəndə göy qurşağı yaradar;\nBODY[7]: — axarsa, həyat gətirər;\nBODY[8]: — durğun qalarsa, bataqlığa çevrilib qoxumağa başlar.\nBODY[9]: İnsan qəlbi də suya bənzəyir: ünsiyyətdə olduqca canlı, tənhalıqda isə cansız olar.\nMORAL: İbrət: İnsan qəlbi su kimidir: ünsiyyətdə canlanır, tənhalıqda durğunlaşıb solur. İnsanı diri saxlayan başqa insanlardır.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "to-be-self-confident",
+      "title": "Özünə inan",
+      "moral": "İbrət: Özünə dəyər ver, ümidini itirmə, ləyaqətini qoru. Özünə inam insanın ən güclü dayağıdır.",
+      "body": [
+        "Özünə dəyər ver!",
+        "Zəifliyə yol vermə!",
+        "Gücünə güc qat!",
+        "Ümidini itirmə!",
+        "Vaqif ol!",
+        "Əzmli ol!",
+        "Xoşniyyətli ol!",
+        "Ləyaqətini qoru!",
+        "İmanlı ol!"
+      ],
+      "docx": "az/wisdom-stories/to-be-self-confident-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/to-be-self-confident.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: to-be-self-confident\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Özünə inan\nBODY[1]: Özünə dəyər ver!\nBODY[2]: Zəifliyə yol vermə!\nBODY[3]: Gücünə güc qat!\nBODY[4]: Ümidini itirmə!\nBODY[5]: Vaqif ol!\nBODY[6]: Əzmli ol!\nBODY[7]: Xoşniyyətli ol!\nBODY[8]: Ləyaqətini qoru!\nBODY[9]: İmanlı ol!\nMORAL: İbrət: Özünə dəyər ver, ümidini itirmə, ləyaqətini qoru. Özünə inam insanın ən güclü dayağıdır.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "why-people-shout-when-they-argue",
+      "title": "Niyə insanlar mübahisə edəndə qışqırırlar?",
+      "moral": "İbrət: Qışqırıq qəlblərin bir-birindən uzaqlaşdığının səsidir. Sevgidə pıçıltı bəs edir — aranızdakı məsafəni böyütməyin.",
+      "body": [
+        "Bir gün dərs zamanı müəllim tələbələrinə sual verdi:",
+        "— Niyə insanlar mübahisə edəndə qışqırır?",
+        "— Ona görə ki, əsəblərini cilovlaya bilmirlər, — deyə bir tələbə cavab verdi.",
+        "— Axı o adam yanındadır. Niyə qışqırırsan? Əsəbi olsan da, onunla sakit danışa bilməzsənmi? — deyə müəllim soruşdu.",
+        "Tələbələrin hərəsi bir cavab verdi, lakin heç biri müəllimi qane etmədi. Nəhayət, o dedi:",
+        "— İnsanlar bir-birindən narazı olduqca, mübahisə etdikcə ürəkləri bir-birindən uzaqlaşır. Bu məsafədən bir-birini eşitmək üçün qışqırmalı olurlar. Nə qədər ucadan qışqırırlarsa, deməli, ürəkləri də bir o qədər bir-birindən uzaqdır.",
+        "Bir qədər susandan sonra müəllim sözünə davam etdi:",
+        "— Bəs insanlar bir-birini sevəndə nə olur? Onlar qışqırmır, əksinə, astadan danışır. Çünki ürəkləri bir-birinə çox yaxındır, aralarındakı məsafə azdır. Bəs daha güclü sevgi olanda nə baş verir? Onda astadan da danışmır, pıçıldaşırlar və bir-birinə bir az da yaxınlaşırlar. Ürəkləri yaxınlaşdıqca, hətta pıçıldaşmağa da ehtiyac duymurlar — sadəcə bir-birinə baxıb hər şeyi sözsüz anlayırlar... Əziz tələbələrim, siz də mübahisə edəndə ürəklərinizin bir-birindən uzaqlaşmasına imkan verməyin, aranızdakı məsafəni artıra biləcək sözlər deməyin.",
+        "Çünki günlərin bir günü bu məsafə o qədər böyüyə bilər ki, geri yolu tapa bilməzsiniz."
+      ],
+      "docx": "az/wisdom-stories/why-people-shout-when-they-argue-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/why-people-shout-when-they-argue.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: why-people-shout-when-they-argue\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Niyə insanlar mübahisə edəndə qışqırırlar?\nBODY[1]: Bir gün dərs zamanı müəllim tələbələrinə sual verdi:\nBODY[2]: — Niyə insanlar mübahisə edəndə qışqırır?\nBODY[3]: — Ona görə ki, əsəblərini cilovlaya bilmirlər, — deyə bir tələbə cavab verdi.\nBODY[4]: — Axı o adam yanındadır. Niyə qışqırırsan? Əsəbi olsan da, onunla sakit danışa bilməzsənmi? — deyə müəllim soruşdu.\nBODY[5]: Tələbələrin hərəsi bir cavab verdi, lakin heç biri müəllimi qane etmədi. Nəhayət, o dedi:\nBODY[6]: — İnsanlar bir-birindən narazı olduqca, mübahisə etdikcə ürəkləri bir-birindən uzaqlaşır. Bu məsafədən bir-birini eşitmək üçün qışqırmalı olurlar. Nə qədər ucadan qışqırırlarsa, deməli, ürəkləri də bir o qədər bir-birindən uzaqdır.\nBODY[7]: Bir qədər susandan sonra müəllim sözünə davam etdi:\nBODY[8]: — Bəs insanlar bir-birini sevəndə nə olur? Onlar qışqırmır, əksinə, astadan danışır. Çünki ürəkləri bir-birinə çox yaxındır, aralarındakı məsafə azdır. Bəs daha güclü sevgi olanda nə baş verir? Onda astadan da danışmır, pıçıldaşırlar və bir-birinə bir az da yaxınlaşırlar. Ürəkləri yaxınlaşdıqca, hətta pıçıldaşmağa da ehtiyac duymurlar — sadəcə bir-birinə baxıb hər şeyi sözsüz anlayırlar... Əziz tələbələrim, siz də mübahisə edəndə ürəklərinizin bir-birindən uzaqlaşmasına imkan verməyin, aranızdakı məsafəni artıra biləcək sözlər deməyin.\nBODY[9]: Çünki günlərin bir günü bu məsafə o qədər böyüyə bilər ki, geri yolu tapa bilməzsiniz.\nMORAL: İbrət: Qışqırıq qəlblərin bir-birindən uzaqlaşdığının səsidir. Sevgidə pıçıltı bəs edir — aranızdakı məsafəni böyütməyin.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    }
+  ]
+}

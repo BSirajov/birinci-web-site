@@ -1,0 +1,320 @@
+{
+  "count": 25,
+  "asset_rule": "Save final art as WebP 1536x1024 at output_webp; HTML paths unchanged",
+  "text_rule": "On-image Kyrgyz must match Exact quotes exactly",
+  "items": [
+    {
+      "stem": "festive-gift",
+      "title": "Майрамдык белек",
+      "moral": "Сабак: Майрамдын көркү алган белегиңде эле эмес, кубанткан адамыңда. Бирөөнүн батасын алып, баланын күлкүсүнө себепчи бол.",
+      "body": [
+        "— Аксакал, — деп сурадым, — майрамга эмне алайын?",
+        "Ал мындай деп жооп берди:",
+        "— Бир нече адамдын көңүлүн көтөр. Бир нече баланы кубантып, жүзүнө жылмаюу тартуула. Колуңдан келсе, бир нече жардынын батасын ал."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/festive-gift.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: festive-gift\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Майрамдык белек\nBODY[1]: — Аксакал, — деп сурадым, — майрамга эмне алайын?\nBODY[2]: Ал мындай деп жооп берди:\nBODY[3]: — Бир нече адамдын көңүлүн көтөр. Бир нече баланы кубантып, жүзүнө жылмаюу тартуула. Колуңдан келсе, бир нече жардынын батасын ал.\nMORAL: Сабак: Майрамдын көркү алган белегиңде эле эмес, кубанткан адамыңда. Бирөөнүн батасын алып, баланын күлкүсүнө себепчи бол.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "if-the-road-does-not-tire-you-it-is-because-of-your-companion",
+      "title": "Жол чарчатпаса, жолдошуңдан",
+      "moral": "Сабак: Жакшы жолдош оор жолду да жеңилдетет. Жакыныңа жүк болбой, жөлөк бол.",
+      "body": [
+        "Апам мындай деп айтып калчу: «Атаңа абдан жаш кезимде турмушка чыктым. Жарытып тамак жасай да алчу эмесмин, колума ийне алып сайма сайып, тигиш тиккенди да билчү эмесмин. Бир күнү кайненем — сенин чоң энең — кошунага барганы камынып жатып, жүнүн жууп-кургатып даярдаган жуурканды алдыма жайып: ‘Мен келгенче муну шырып бүтөсүң’, — деди. Шырый баштадым, бирок алым жетпеди. Ийне жууркандан өтпөй койду. Ыйлагым келди. Бир жагынан ийне колума сайылып, ооруганынан көзүмө жаш толсо, экинчи жагынан кайненеме эмне дээримди билбей, көз жашым тыйылбай жатты.",
+        "Ошол маалда атаң түшкү тыныгууга үйгө келди. Менин ыйлап отурганымды көрүп, ийнени колуна алды да, аз эле убакытта жуурканды шырып бүтүп, четке коюп койду. Анан тамагын ичип, кайра жумушуна кетти. Кайненеме эч нерсе айткан жок. Ал үйгө кайтып келип, жууркандын толук даяр болгонун көргөндө абдан ыраазы болду».",
+        "«Жол чарчатпаса, жолдошуңдан» деп бекеринен айтылган эмес."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/if-the-road-does-not-tire-you-it-is-because-of-your-companion.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: if-the-road-does-not-tire-you-it-is-because-of-your-companion\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Жол чарчатпаса, жолдошуңдан\nBODY[1]: Апам мындай деп айтып калчу: «Атаңа абдан жаш кезимде турмушка чыктым. Жарытып тамак жасай да алчу эмесмин, колума ийне алып сайма сайып, тигиш тиккенди да билчү эмесмин. Бир күнү кайненем — сенин чоң энең — кошунага барганы камынып жатып, жүнүн жууп-кургатып даярдаган жуурканды алдыма жайып: ‘Мен келгенче муну шырып бүтөсүң’, — деди. Шырый баштадым, бирок алым жетпеди. Ийне жууркандан өтпөй койду. Ыйлагым келди. Бир жагынан ийне колума сайылып, ооруганынан көзүмө жаш толсо, экинчи жагынан кайненеме эмне дээримди билбей, көз жашым тыйылбай жатты.\nBODY[2]: Ошол маалда атаң түшкү тыныгууга үйгө келди. Менин ыйлап отурганымды көрүп, ийнени колуна алды да, аз эле убакытта жуурканды шырып бүтүп, четке коюп койду. Анан тамагын ичип, кайра жумушуна кетти. Кайненеме эч нерсе айткан жок. Ал үйгө кайтып келип, жууркандын толук даяр болгонун көргөндө абдан ыраазы болду».\nBODY[3]: «Жол чарчатпаса, жолдошуңдан» деп бекеринен айтылган эмес.\nMORAL: Сабак: Жакшы жолдош оор жолду да жеңилдетет. Жакыныңа жүк болбой, жөлөк бол.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "those-you-should-not-befriend",
+      "title": "Достошпой турган адамдар",
+      "moral": "Сабак: Досуңду текебер сөзүнө эмес, таза пейилине карап танда. Кыйын кезде түшүнүп, жөлөк боло турган адам менен жолдош бол.",
+      "body": [
+        "— Текебер менен достошпо! Ал абалыңды да, көңүлүңдү да, жүрөгүңдү да түшүнбөйт; азап тартасың.",
+        "— Өзүн баарынан акылдуу санаган менен достошпо! Сөзү көп, маңызы аз болот; азап тартасың.",
+        "— Намарт менен достошпо! Эрдикти да, жүрөктү да, достукту да билбейт; азап тартасың."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/those-you-should-not-befriend.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: those-you-should-not-befriend\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Достошпой турган адамдар\nBODY[1]: — Текебер менен достошпо! Ал абалыңды да, көңүлүңдү да, жүрөгүңдү да түшүнбөйт; азап тартасың.\nBODY[2]: — Өзүн баарынан акылдуу санаган менен достошпо! Сөзү көп, маңызы аз болот; азап тартасың.\nBODY[3]: — Намарт менен достошпо! Эрдикти да, жүрөктү да, достукту да билбейт; азап тартасың.\nMORAL: Сабак: Досуңду текебер сөзүнө эмес, таза пейилине карап танда. Кыйын кезде түшүнүп, жөлөк боло турган адам менен жолдош бол.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "to-forgive",
+      "title": "Кечирүү",
+      "moral": "Сабак: Кечирүү бирөөнүн кылганын туура деп табуу эмес. Ал — жүрөгүңдү кектен бошотуу. Бирок алган сабагың эсиңде калсын.",
+      "body": [
+        "Бирөөнү кечирүү — аны сүйүү деген эмес; аны менен сүйлөшүүгө же мамилени улантууга милдеттүү болуу деген эмес; анын күнөөсүз же туура экенин моюнга алуу деген эмес.",
+        "Кечирүү — таарыныч менен кектин туткунунан бошонууга жол ачуу. Бирөөнүн кылганы өмүр бою жаныңды кейите бербесин деп, ички жүгүңдү жеңилдетүү.",
+        "Кечиргиле жана эркин болгула. Кечиргиле, бирок алган сабагыңарды унутпагыла, болбосо кайра жараланасыңар."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/to-forgive.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: to-forgive\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Кечирүү\nBODY[1]: Бирөөнү кечирүү — аны сүйүү деген эмес; аны менен сүйлөшүүгө же мамилени улантууга милдеттүү болуу деген эмес; анын күнөөсүз же туура экенин моюнга алуу деген эмес.\nBODY[2]: Кечирүү — таарыныч менен кектин туткунунан бошонууга жол ачуу. Бирөөнүн кылганы өмүр бою жаныңды кейите бербесин деп, ички жүгүңдү жеңилдетүү.\nBODY[3]: Кечиргиле жана эркин болгула. Кечиргиле, бирок алган сабагыңарды унутпагыла, болбосо кайра жараланасыңар.\nMORAL: Сабак: Кечирүү бирөөнүн кылганын туура деп табуу эмес. Ал — жүрөгүңдү кектен бошотуу. Бирок алган сабагың эсиңде калсын.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "if-the-door-before-you-wont-open-it-is-not-your-door",
+      "title": "Алдыңыздагы эшик ачылбаса, демек, ал сиздин эшигиңиз эмес",
+      "moral": "Сабак: Бир эшик жабылса, жол бүттү деп ойлобо. Кээде ошол тоскоолдук өзүңө ылайык башка мүмкүнчүлүккө алып барат.",
+      "body": [
+        "Бул окуя бир компаниянын жетекчиси менен анын кызматкеринин ортосунда болот. Бир күнү Жамал жетекчиси Салим мырзанын алдына келип, кызматта өсүү болорун укканын жана өзүнүн да үмүтү бар экенин айтат. Салим мырза Жамалдын ишине ыраазы экенин билдирсе да, «сен бизге толук ылайык келбейсиң» деп, анын иштен бошотулганын жарыялайт. Жамал көңүлү чөгүп, компаниядан кетүүгө аргасыз болот.",
+        "Эки жылдан кийин алар кайрадан жолугуп калышат. Жылуу учурашып, ал-жай сурашкандан кийин Жамал өзүнүн жаңы компаниясын түзгөнүн жана иштери ийгиликтүү жүрүп жатканын мурдагы жетекчисине айтып берет. Салим мырза буга абдан кубанганын билдирет.",
+        "Жамал Салим мырзага ыраазычылыгын мындайча айтат: «Чынында, мен сизге ыраазымын. Анткени мага ылайык болбогон ошол компанияда калышымды каалабай, мени бошоттуңуз. Бул мен үчүн жаңы мүмкүнчүлүк болуп, өзүм абдан жактырган иш менен алектенүүгө түрткү берди. Азыркы абалыма мен абдан ыраазымын»."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/if-the-door-before-you-wont-open-it-is-not-your-door.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: if-the-door-before-you-wont-open-it-is-not-your-door\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Алдыңыздагы эшик ачылбаса, демек, ал сиздин эшигиңиз эмес\nBODY[1]: Бул окуя бир компаниянын жетекчиси менен анын кызматкеринин ортосунда болот. Бир күнү Жамал жетекчиси Салим мырзанын алдына келип, кызматта өсүү болорун укканын жана өзүнүн да үмүтү бар экенин айтат. Салим мырза Жамалдын ишине ыраазы экенин билдирсе да, «сен бизге толук ылайык келбейсиң» деп, анын иштен бошотулганын жарыялайт. Жамал көңүлү чөгүп, компаниядан кетүүгө аргасыз болот.\nBODY[2]: Эки жылдан кийин алар кайрадан жолугуп калышат. Жылуу учурашып, ал-жай сурашкандан кийин Жамал өзүнүн жаңы компаниясын түзгөнүн жана иштери ийгиликтүү жүрүп жатканын мурдагы жетекчисине айтып берет. Салим мырза буга абдан кубанганын билдирет.\nBODY[3]: Жамал Салим мырзага ыраазычылыгын мындайча айтат: «Чынында, мен сизге ыраазымын. Анткени мага ылайык болбогон ошол компанияда калышымды каалабай, мени бошоттуңуз. Бул мен үчүн жаңы мүмкүнчүлүк болуп, өзүм абдан жактырган иш менен алектенүүгө түрткү берди. Азыркы абалыма мен абдан ыраазымын».\nMORAL: Сабак: Бир эшик жабылса, жол бүттү деп ойлобо. Кээде ошол тоскоолдук өзүңө ылайык башка мүмкүнчүлүккө алып барат.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "to-be-full-or-to-be-gone",
+      "title": "Ток болуу же жок болуу",
+      "moral": "Сабак: Бөлүшкөндүн берекеси артат, бөлүнгөндүн күчү кетет. Ынтымакты, билимибизди, руханий байлыгыбызды чогуу сактайлы.",
+      "body": [
+        "Бөлүшсөк — ток болобуз,",
+        "бөлүнсөк — жок болобуз.",
+        "Юнус Эмре"
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/to-be-full-or-to-be-gone.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: to-be-full-or-to-be-gone\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Ток болуу же жок болуу\nBODY[1]: Бөлүшсөк — ток болобуз,\nBODY[2]: бөлүнсөк — жок болобуз.\nBODY[3]: Юнус Эмре\nMORAL: Сабак: Бөлүшкөндүн берекеси артат, бөлүнгөндүн күчү кетет. Ынтымакты, билимибизди, руханий байлыгыбызды чогуу сактайлы.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "two-bowls-of-water",
+      "title": "Эки чөйчөк суу",
+      "moral": "Сабак: Өмүргө зарыл нерсе тартыш болгондо, дүнүйөнүн баасы өзгөрөт. Байлыгыңа менменсинбей, колуңдагы жөнөкөй ырыскынын баркын бил.",
+      "body": [
+        "Байыркы заманда байлыгы менен атагы чыккан бир өкүмдар болуптур. Ал кайда барбасын, байлыгынын бир бөлүгүн ала барып, элге көрсөтүп мактанчу экен. Өкүмдардын эң ишенимдүү, акылман устаты бар эле. Бир күнү андан: «Сен көптү көргөн адамсың. Менин бийлигим жана байлыгым тууралуу эмне ойлойсуң?» — деп сурайт.",
+        "Акылман анын көзүнө карап мындай дейт: «Өкүмдарым, элестетели: өтө ысык, учу-кыйыры көрүнбөгөн чөлдө калдыңыз. Өлүп калбашыңыз үчүн бир чөйчөк суу берген адамга байлыгыңыздын жарымын бересизби?» «Албетте, берем», — дейт өкүмдар. Акылман: «Бир аздан кийин суусаганыңыз андан бетер күчөдү дейли. Кийинки чөйчөк суу үчүн байлыгыңыздын калган жарымын да берет белеңиз?» Өкүмдар бир аз ойлонуп: «Өлбөш үчүн, албетте, берет элем», — дейт.",
+        "Акылман жылмайып: «Анда, өкүмдарым, анча мактанбаңыз. Анткени байлыгыңыздын баасы болгону эки чөйчөк суу экен», — дейт."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/two-bowls-of-water.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: two-bowls-of-water\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Эки чөйчөк суу\nBODY[1]: Байыркы заманда байлыгы менен атагы чыккан бир өкүмдар болуптур. Ал кайда барбасын, байлыгынын бир бөлүгүн ала барып, элге көрсөтүп мактанчу экен. Өкүмдардын эң ишенимдүү, акылман устаты бар эле. Бир күнү андан: «Сен көптү көргөн адамсың. Менин бийлигим жана байлыгым тууралуу эмне ойлойсуң?» — деп сурайт.\nBODY[2]: Акылман анын көзүнө карап мындай дейт: «Өкүмдарым, элестетели: өтө ысык, учу-кыйыры көрүнбөгөн чөлдө калдыңыз. Өлүп калбашыңыз үчүн бир чөйчөк суу берген адамга байлыгыңыздын жарымын бересизби?» «Албетте, берем», — дейт өкүмдар. Акылман: «Бир аздан кийин суусаганыңыз андан бетер күчөдү дейли. Кийинки чөйчөк суу үчүн байлыгыңыздын калган жарымын да берет белеңиз?» Өкүмдар бир аз ойлонуп: «Өлбөш үчүн, албетте, берет элем», — дейт.\nBODY[3]: Акылман жылмайып: «Анда, өкүмдарым, анча мактанбаңыз. Анткени байлыгыңыздын баасы болгону эки чөйчөк суу экен», — дейт.\nMORAL: Сабак: Өмүргө зарыл нерсе тартыш болгондо, дүнүйөнүн баасы өзгөрөт. Байлыгыңа менменсинбей, колуңдагы жөнөкөй ырыскынын баркын бил.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "eat-less-and-stay-on-the-right-path",
+      "title": "Ченемдүү тамактануу жана чынчыл жашоо",
+      "moral": "Сабак: Тамакты ченеп же, турмушта түз жүр. Ченем ден соолукту сактоого, чынчылдык чырдан алыс болууга көмөктөшөт.",
+      "body": [
+        "Тамакта ченемдүүлүк дарыгерден, чынчылдык соттон сактайт.",
+        "«Тамакты ченеми менен жеген адамга дарыгердин кереги жок» — эгер адам ашыкча тамактанбай, туура тамактанса, ден соолугун сактап калуу мүмкүнчүлүгү жогорулап, дарыгерге азыраак кайрылат. Тамакта ченемдүү болуу ачка жүрүү дегенди билдирбейт. Бул ашыкча жеп-ичүүдөн алыс болуу, өзүн кармай билүү жана ченемди сактоо дегенди түшүндүрөт.",
+        "«Чынчыл жашаган адамга соттун кереги жок» — эгер адам чынчыл, адилеттүү жана мыйзамга ылайык жашап, башкалардын укугун бузбаса, талаш-тартыштарга жана укуктук көйгөйлөргө азыраак туш болот."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/eat-less-and-stay-on-the-right-path.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: eat-less-and-stay-on-the-right-path\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Ченемдүү тамактануу жана чынчыл жашоо\nBODY[1]: Тамакта ченемдүүлүк дарыгерден, чынчылдык соттон сактайт.\nBODY[2]: «Тамакты ченеми менен жеген адамга дарыгердин кереги жок» — эгер адам ашыкча тамактанбай, туура тамактанса, ден соолугун сактап калуу мүмкүнчүлүгү жогорулап, дарыгерге азыраак кайрылат. Тамакта ченемдүү болуу ачка жүрүү дегенди билдирбейт. Бул ашыкча жеп-ичүүдөн алыс болуу, өзүн кармай билүү жана ченемди сактоо дегенди түшүндүрөт.\nBODY[3]: «Чынчыл жашаган адамга соттун кереги жок» — эгер адам чынчыл, адилеттүү жана мыйзамга ылайык жашап, башкалардын укугун бузбаса, талаш-тартыштарга жана укуктук көйгөйлөргө азыраак туш болот.\nMORAL: Сабак: Тамакты ченеп же, турмушта түз жүр. Ченем ден соолукту сактоого, чынчылдык чырдан алыс болууга көмөктөшөт.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "gods-pleasure",
+      "title": "Аллахтын ыраазылыгы",
+      "moral": "Сабак: Бирөөнүн көңүлүн көтөрүү — сооптуу иш. Жакшылык издеп жүрүп, жанындагы адамдын көңүлүн оорутуп алба.",
+      "body": [
+        "Кожо Убайдуллах Ахрар мындай дейт:",
+        "«Аллахтын ыраазылыгына алып барган бардык жолдорду изилдеп көрдүм. Алардын эң кыскасы — адамдарга кубаныч тартуулоо экенин түшүндүм.",
+        "Адамды Аллахтын ыраазылыгынан алыстаткан бардык жолдорду да изилдеп көрдүм. Алардын эң коркунучтуусу — бирөөнүн көңүлүн оорутуу экенин түшүндүм»."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/gods-pleasure.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: gods-pleasure\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Аллахтын ыраазылыгы\nBODY[1]: Кожо Убайдуллах Ахрар мындай дейт:\nBODY[2]: «Аллахтын ыраазылыгына алып барган бардык жолдорду изилдеп көрдүм. Алардын эң кыскасы — адамдарга кубаныч тартуулоо экенин түшүндүм.\nBODY[3]: Адамды Аллахтын ыраазылыгынан алыстаткан бардык жолдорду да изилдеп көрдүм. Алардын эң коркунучтуусу — бирөөнүн көңүлүн оорутуу экенин түшүндүм».\nMORAL: Сабак: Бирөөнүн көңүлүн көтөрүү — сооптуу иш. Жакшылык издеп жүрүп, жанындагы адамдын көңүлүн оорутуп алба.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "if-fate-allows-we-will-meet",
+      "title": "Буйруса, көрүшөбүз",
+      "moral": "Сабак: Жакының менен жолугушууну куру сөзгө калтырба. Бүгүн кабарлашып, бүгүн көңүлүн ал.",
+      "body": [
+        "Дайыма «көрүшөбүз» деген адам эми «буйруса, көрүшөбүз» деп калды. Мында бир кызыктык бар. Мен өзгөргөн жокмун, ага болгон мамилем да мурдагыдай жылуу. Аны менен дагы эле чоң кубанычта жолугушкум келет. Бирок бул «буйруса» деген сөз ортобузга тосмо болуп калгандай. Мен анын тагдырын билбейм, ал да меникин билбейт. Кызык, ушул эки тагдыр бири-биринен кабардар бекен, өз ара макулдашып, бизди жолуктура алар бекен?",
+        "Балким, тагдырдан эч нерсе күтпөш керек чыгар; бул болгону «көздөн далдаа — көңүлдөн оолак» деген сөздүн жүзөгө ашканыдыр?",
+        "Бул «буйруса» деген сөз мага эч качан жаккан эмес."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/if-fate-allows-we-will-meet.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: if-fate-allows-we-will-meet\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Буйруса, көрүшөбүз\nBODY[1]: Дайыма «көрүшөбүз» деген адам эми «буйруса, көрүшөбүз» деп калды. Мында бир кызыктык бар. Мен өзгөргөн жокмун, ага болгон мамилем да мурдагыдай жылуу. Аны менен дагы эле чоң кубанычта жолугушкум келет. Бирок бул «буйруса» деген сөз ортобузга тосмо болуп калгандай. Мен анын тагдырын билбейм, ал да меникин билбейт. Кызык, ушул эки тагдыр бири-биринен кабардар бекен, өз ара макулдашып, бизди жолуктура алар бекен?\nBODY[2]: Балким, тагдырдан эч нерсе күтпөш керек чыгар; бул болгону «көздөн далдаа — көңүлдөн оолак» деген сөздүн жүзөгө ашканыдыр?\nBODY[3]: Бул «буйруса» деген сөз мага эч качан жаккан эмес.\nMORAL: Сабак: Жакының менен жолугушууну куру сөзгө калтырба. Бүгүн кабарлашып, бүгүн көңүлүн ал.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "lawful-morsel",
+      "title": "Адал ырыскы",
+      "moral": "Сабак: Баланын тарбиясына айткан сөзүң да, тапкан ырыскың да таасир этет. Адал эмгек, таза абийир менен үлгү бол.",
+      "body": [
+        "Ун жаңы, суу таптаза болгону менен, ачыткы бузук болсо, камыр жакшы көтөрүлбөйт; андай камырдан да жакшы нан чыкпайт.",
+        "Мүнөзү таза бала өстүрүү үчүн аны адал ырыскы менен багуу керек.",
+        "— Имам Газали"
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/lawful-morsel.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: lawful-morsel\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Адал ырыскы\nBODY[1]: Ун жаңы, суу таптаза болгону менен, ачыткы бузук болсо, камыр жакшы көтөрүлбөйт; андай камырдан да жакшы нан чыкпайт.\nBODY[2]: Мүнөзү таза бала өстүрүү үчүн аны адал ырыскы менен багуу керек.\nBODY[3]: — Имам Газали\nMORAL: Сабак: Баланын тарбиясына айткан сөзүң да, тапкан ырыскың да таасир этет. Адал эмгек, таза абийир менен үлгү бол.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "light-of-the-universe",
+      "title": "Ааламдын жарыгы",
+      "moral": "Сабак: Жүрөккө күч менен жол таба албайсың. Мээрим менен жакшылыкты кабыл алуу адамдын өз эркинде.",
+      "body": [
+        "Британиялык сүрөтчү Уильям Холман Ханттын «Ааламдын жарыгы» аттуу чыгармасы Лондондогу Королдук академияда көргөзмөгө коюлат. Сүрөттө түн ичинде бир колуна чырак кармап, эшиктин алдында турган ойчул кейиптеги адам тартылган. Ал экинчи колу менен эшикти каккылап, ачылат деген үмүт менен күтүп турат.",
+        "Сүрөттү изилдеген бир искусство таануучу Хантка кайрылып: «Сүрөт сонун экен, бирок маанисин түшүнө албай жатам. Бул адам каккылаган эшик эч качан ачылбайбы? Балким, эшиктин туткасын тартууну унутуп калгансыз?» — деп сурайт.",
+        "Хант жылмайып жооп берет: «Бул кадимки эшик эмес. Ал адамдын жүрөгүн туюнтат. Эшик ичтен гана ачылгандыктан, сыртында туткасы жок. Ал эшик сизге ичтен ачылмайынча, кире албайсыз»."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/light-of-the-universe.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: light-of-the-universe\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Ааламдын жарыгы\nBODY[1]: Британиялык сүрөтчү Уильям Холман Ханттын «Ааламдын жарыгы» аттуу чыгармасы Лондондогу Королдук академияда көргөзмөгө коюлат. Сүрөттө түн ичинде бир колуна чырак кармап, эшиктин алдында турган ойчул кейиптеги адам тартылган. Ал экинчи колу менен эшикти каккылап, ачылат деген үмүт менен күтүп турат.\nBODY[2]: Сүрөттү изилдеген бир искусство таануучу Хантка кайрылып: «Сүрөт сонун экен, бирок маанисин түшүнө албай жатам. Бул адам каккылаган эшик эч качан ачылбайбы? Балким, эшиктин туткасын тартууну унутуп калгансыз?» — деп сурайт.\nBODY[3]: Хант жылмайып жооп берет: «Бул кадимки эшик эмес. Ал адамдын жүрөгүн туюнтат. Эшик ичтен гана ачылгандыктан, сыртында туткасы жок. Ал эшик сизге ичтен ачылмайынча, кире албайсыз».\nMORAL: Сабак: Жүрөккө күч менен жол таба албайсың. Мээрим менен жакшылыкты кабыл алуу адамдын өз эркинде.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "fathers-footprints",
+      "title": "Атанын изи",
+      "moral": "Сабак: Бала сөзүңдөн мурда ишиңден үлгү алат. Анын туура жолдо жүрүшүн кааласаң, өзүңдүн кадамыңа сак бол.",
+      "body": [
+        "Атасы уулуна:",
+        "— Уулум, баскан кадамыңа этият бол! — деди.",
+        "Уулу жооп берди:",
+        "— Өз кадамыңа өзүң этият бол, ата. Анткени мен сенин артыңдан келатам."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/fathers-footprints.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: fathers-footprints\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Атанын изи\nBODY[1]: Атасы уулуна:\nBODY[2]: — Уулум, баскан кадамыңа этият бол! — деди.\nBODY[3]: Уулу жооп берди:\nBODY[4]: — Өз кадамыңа өзүң этият бол, ата. Анткени мен сенин артыңдан келатам.\nMORAL: Сабак: Бала сөзүңдөн мурда ишиңден үлгү алат. Анын туура жолдо жүрүшүн кааласаң, өзүңдүн кадамыңа сак бол.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "friendship-of-horses",
+      "title": "Аттардын достугу",
+      "moral": "Сабак: Кыйын учурда жанга жөлөк болгон дос — чоң ырыскы. Кээде өзүң да бирөөгө жол көрсөткөн коңгуроодой бол.",
+      "body": [
+        "Үйүмдүн жанындагы фермада эки ат багылат. Алыстан караганда алар башка аттардан эч айырмаланбайт. Бирок жакын барсаң, абдан кызык нерсени көрөсүң: аттардын бири сокур. Ээси аны кыйбай, коопсуз жана жайлуу аткана салдырып берген. Мунун өзү эле өзгөчө таң каларлык камкордук.",
+        "Аттарга жакындасаңыз, коңгуроонун үнүн угасыз. Бул үн жүгөнүнө коңгуроо тагылган экинчи, кичирээк, дени сак аттан чыгат. Ошол үн сокур атка шеригинин кайда экенин сезип, артынан ээрчүүгө жардам берет.",
+        "Бул эки досту кунт коюп байкасаңыз, коңгуроолуу ат сокур аттын кайда экенин дайыма текшерип турганын көрөсүз; сокур ат болсо коңгуроонун үнүнө кулак салып, акырындан дени сак аттын артынан ээрчийт.",
+        "Коңгуроолуу ат ар күнү кечинде атканага кайтып баратканда, сокур досу коңгуроонун үнүн уга ала турганчалык жакын келе жатканына көзү жетсин деп, анда-санда токтоп, артына карайт."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/friendship-of-horses.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: friendship-of-horses\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Аттардын достугу\nBODY[1]: Үйүмдүн жанындагы фермада эки ат багылат. Алыстан караганда алар башка аттардан эч айырмаланбайт. Бирок жакын барсаң, абдан кызык нерсени көрөсүң: аттардын бири сокур. Ээси аны кыйбай, коопсуз жана жайлуу аткана салдырып берген. Мунун өзү эле өзгөчө таң каларлык камкордук.\nBODY[2]: Аттарга жакындасаңыз, коңгуроонун үнүн угасыз. Бул үн жүгөнүнө коңгуроо тагылган экинчи, кичирээк, дени сак аттан чыгат. Ошол үн сокур атка шеригинин кайда экенин сезип, артынан ээрчүүгө жардам берет.\nBODY[3]: Бул эки досту кунт коюп байкасаңыз, коңгуроолуу ат сокур аттын кайда экенин дайыма текшерип турганын көрөсүз; сокур ат болсо коңгуроонун үнүнө кулак салып, акырындан дени сак аттын артынан ээрчийт.\nBODY[4]: Коңгуроолуу ат ар күнү кечинде атканага кайтып баратканда, сокур досу коңгуроонун үнүн уга ала турганчалык жакын келе жатканына көзү жетсин деп, анда-санда токтоп, артына карайт.\nMORAL: Сабак: Кыйын учурда жанга жөлөк болгон дос — чоң ырыскы. Кээде өзүң да бирөөгө жол көрсөткөн коңгуроодой бол.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "how-we-treat-people",
+      "title": "Адамдарга болгон мамиле",
+      "moral": "Сабак: Мамиленин да ченеми бар. Элден безип алыстаба, өз кадырыңды жоготуп жакындай бербе.",
+      "body": [
+        "Адамдарга мамилең отко болгон мамилеңдей болсун:",
+        "өтө алыстаба — тоңуп каласың;",
+        "өтө жакындаба — күйүп каласың.",
+        "Саади Ширази"
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/how-we-treat-people.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: how-we-treat-people\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Адамдарга болгон мамиле\nBODY[1]: Адамдарга мамилең отко болгон мамилеңдей болсун:\nBODY[2]: өтө алыстаба — тоңуп каласың;\nBODY[3]: өтө жакындаба — күйүп каласың.\nBODY[4]: Саади Ширази\nMORAL: Сабак: Мамиленин да ченеми бар. Элден безип алыстаба, өз кадырыңды жоготуп жакындай бербе.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "i-want-a-friend",
+      "title": "Дос каалайм",
+      "moral": "Сабак: Мал-мүлк калат, достун ак тилеги уланат. Көзүң өткөндө да сени эстеп, куран окуган дос — чоң байлык.",
+      "body": [
+        "Мал да, мүлк да каалабайм,",
+        "мен чыныгы дос каалайм.",
+        "Кайсы мүлк өлгөн ээсине куран окуптур?",
+        "Мага куран окуй турган дос каалайм."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/i-want-a-friend.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: i-want-a-friend\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Дос каалайм\nBODY[1]: Мал да, мүлк да каалабайм,\nBODY[2]: мен чыныгы дос каалайм.\nBODY[3]: Кайсы мүлк өлгөн ээсине куран окуптур?\nBODY[4]: Мага куран окуй турган дос каалайм.\nMORAL: Сабак: Мал-мүлк калат, достун ак тилеги уланат. Көзүң өткөндө да сени эстеп, куран окуган дос — чоң байлык.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "chief-accountant-and-the-ceo",
+      "title": "Башкы бухгалтер жана башкы директор",
+      "moral": "Сабак: Кызматкердин билимин өстүрүүгө кеткен каражат текке кетпейт. Бүгүн окутуудан аяган акчаң эртең ишиңе чоң зыян алып келиши мүмкүн.",
+      "body": [
+        "Башкы бухгалтер башкы директорго мындай дейт:",
+        "— Кызматкерлерибиздин өсүп-өнүгүшүнө убакыт да, каражат да жумшадык дейли. Бирок ошого карабай алар компаниябыздан кетип калышты. Сиздин оюңузча, анда эмне болот?",
+        "Башкы директор жооп берет:",
+        "— Аларга убакыт да, каражат да бөлгөн жокпуз дейли, алар болсо компаниядан кетпей, иштеп кала беришти. Анда эмне болот?"
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/chief-accountant-and-the-ceo.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: chief-accountant-and-the-ceo\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Башкы бухгалтер жана башкы директор\nBODY[1]: Башкы бухгалтер башкы директорго мындай дейт:\nBODY[2]: — Кызматкерлерибиздин өсүп-өнүгүшүнө убакыт да, каражат да жумшадык дейли. Бирок ошого карабай алар компаниябыздан кетип калышты. Сиздин оюңузча, анда эмне болот?\nBODY[3]: Башкы директор жооп берет:\nBODY[4]: — Аларга убакыт да, каражат да бөлгөн жокпуз дейли, алар болсо компаниядан кетпей, иштеп кала беришти. Анда эмне болот?\nMORAL: Сабак: Кызматкердин билимин өстүрүүгө кеткен каражат текке кетпейт. Бүгүн окутуудан аяган акчаң эртең ишиңе чоң зыян алып келиши мүмкүн.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "generous-man",
+      "title": "Колу ачык адам",
+      "moral": "Сабак: Жакшылык кылсаң, аны милдет кылба. Берген ырыскыңдын түпкү ээси Жараткан экенин эстеп, өзүңдү аны жеткирген себепчи деп бил.",
+      "body": [
+        "Колу ачык бир адамдан сурашат:",
+        "— Жарды-жалчыга бөлүшкөн ырыскың үчүн ыраазычылык күтөсүңбү?",
+        "Ал мындай деп жооп берет:",
+        "— Мен өзүмдү ашпозчунун колундагы чөмүчкө окшотом. Тамак чөмүч менен бөлүштүрүлгөнү менен, аны берген чөмүч эмес, ашпозчу."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/generous-man.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: generous-man\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Колу ачык адам\nBODY[1]: Колу ачык бир адамдан сурашат:\nBODY[2]: — Жарды-жалчыга бөлүшкөн ырыскың үчүн ыраазычылык күтөсүңбү?\nBODY[3]: Ал мындай деп жооп берет:\nBODY[4]: — Мен өзүмдү ашпозчунун колундагы чөмүчкө окшотом. Тамак чөмүч менен бөлүштүрүлгөнү менен, аны берген чөмүч эмес, ашпозчу.\nMORAL: Сабак: Жакшылык кылсаң, аны милдет кылба. Берген ырыскыңдын түпкү ээси Жараткан экенин эстеп, өзүңдү аны жеткирген себепчи деп бил.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "our-qualities-can-become-our-enemies",
+      "title": "Сапаттарыбыз өзүбүзгө душман болушу мүмкүн",
+      "moral": "Сабак: Артыкчылыгың кээде алсыз жериңе айланышы мүмкүн. Сулуулугуңа, өнөрүңө ашкере ишенип, сактыгыңды жоготпо.",
+      "body": [
+        "Тоостун душманы — өз куйругу…",
+        "Булбулду капаска түшүргөн — анын таттуу тили.",
+        "Түлкүнү тузакка түшүргөн — анын кооз териси…",
+        "Өзүбүздө бар деп сыймыктанган айрым сапаттар, чынында, алсыздыгыбызга жана кырсыгыбызга айланышы мүмкүн…"
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/our-qualities-can-become-our-enemies.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: our-qualities-can-become-our-enemies\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Сапаттарыбыз өзүбүзгө душман болушу мүмкүн\nBODY[1]: Тоостун душманы — өз куйругу…\nBODY[2]: Булбулду капаска түшүргөн — анын таттуу тили.\nBODY[3]: Түлкүнү тузакка түшүргөн — анын кооз териси…\nBODY[4]: Өзүбүздө бар деп сыймыктанган айрым сапаттар, чынында, алсыздыгыбызга жана кырсыгыбызга айланышы мүмкүн…\nMORAL: Сабак: Артыкчылыгың кээде алсыз жериңе айланышы мүмкүн. Сулуулугуңа, өнөрүңө ашкере ишенип, сактыгыңды жоготпо.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "you-cannot-descend-a-well-on-his-rope",
+      "title": "Анын арканы менен кудукка түшүүгө болбойт",
+      "moral": "Сабак: Ишиңдин сапаты атыңды чыгарат же аброюңду түшүрөт. Бир жолу кеткен ишенимди кайра табуу кыйын.",
+      "body": [
+        "Илгери зыгыр буласынан аркан жасаган Али аттуу уста болуптур. Ишин сапатсыз жасагандыктан, анын аркандары көбүнчө чирик чыкчу экен. Атүгүл аны «арканы чирик уста Али» деп атап коюшуптур. Уста Алинин аркандары тез-тез үзүлүп, көп кырсыкка себеп болчу экен.",
+        "Күндөрдүн биринде терең кудукка козу түшүп кетет. Козуну алып чыгыш үчүн кудукка түшмөк болгон бир таанышы козунун ээсинен аркан сурайт, бирок алып келген арканын жактырбай:",
+        "— Мен бул арканды тааныйм. Бул — уста Алинин жасаганы. Анын арканы менен кудукка түшүүгө болбойт, — деп нааразы болот.",
+        "— Адилетсиз айтпаңыз. Уста Алинин арканы менен кудукка түшсө болот; бирок ошол эле аркан менен кайра чыгууга болобу-жокпу, аны айта албайм, — деп козунун ээси жылмайып жооп берет."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/you-cannot-descend-a-well-on-his-rope.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: you-cannot-descend-a-well-on-his-rope\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Анын арканы менен кудукка түшүүгө болбойт\nBODY[1]: Илгери зыгыр буласынан аркан жасаган Али аттуу уста болуптур. Ишин сапатсыз жасагандыктан, анын аркандары көбүнчө чирик чыкчу экен. Атүгүл аны «арканы чирик уста Али» деп атап коюшуптур. Уста Алинин аркандары тез-тез үзүлүп, көп кырсыкка себеп болчу экен.\nBODY[2]: Күндөрдүн биринде терең кудукка козу түшүп кетет. Козуну алып чыгыш үчүн кудукка түшмөк болгон бир таанышы козунун ээсинен аркан сурайт, бирок алып келген арканын жактырбай:\nBODY[3]: — Мен бул арканды тааныйм. Бул — уста Алинин жасаганы. Анын арканы менен кудукка түшүүгө болбойт, — деп нааразы болот.\nBODY[4]: — Адилетсиз айтпаңыз. Уста Алинин арканы менен кудукка түшсө болот; бирок ошол эле аркан менен кайра чыгууга болобу-жокпу, аны айта албайм, — деп козунун ээси жылмайып жооп берет.\nMORAL: Сабак: Ишиңдин сапаты атыңды чыгарат же аброюңду түшүрөт. Бир жолу кеткен ишенимди кайра табуу кыйын.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "liver",
+      "title": "Боор",
+      "moral": "Сабак: Сөздөр элдин тарыхын, ишенимин, дүйнө таанымын сактайт. Сөздүн төркүнүн билсең, маанисин да тереңирээк түшүнөсүң.",
+      "body": [
+        "«Боор» деген маанини билдирген азербайжанча «ciyər» сөзү катышкан айкаштар — бири-бирине өтө жакын, чын ыкластуу, ынак досторду билдирген «can-ciyər»; абдан сүйүктүү баланы билдирген «ciyərguşəm»; коркок, кайратсыз, алсыз адамды билдирген «ağciyər»; өтө сүйүктүү кишини билдирген «ciyərparəm» жана башка ушул сыяктуу сөздөр — кайдан келип чыккан?",
+        "Байыркы адамдар боордун жылуу жана кандуу көрүнүшүнөн таасирленип, жылуу канды өмүр, ал эми анын жоктугун өлүм деп эсептешкен. Ошондуктан боор узак убакыт бою жашоонун борбору катары кабыл алынып келген.",
+        "Мисалы, вавилондуктар адамдын жаны боордо жайгашат деп ишенишкен. Айрым маданияттарда боор, баарынан мурда, сезимдерди билдирет деп эсептелгендиктен, макал-лакаптарда жана жазма чыгармаларда ал жүрөктөн мурда аталат.",
+        "Байыркы Грекияда изгилик жана ага байланышкан эр жүрөктүк, чечкиндүүлүк сыяктуу сапаттар боорго таандык деп саналган. Эгер адамдын боору соо болсо, ал изгиликтүү — бардык тоскоолдуктарды жеңип, өз принциптерин бекем карманган адам катары кабыл алынган."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/liver.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: liver\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Боор\nBODY[1]: «Боор» деген маанини билдирген азербайжанча «ciyər» сөзү катышкан айкаштар — бири-бирине өтө жакын, чын ыкластуу, ынак досторду билдирген «can-ciyər»; абдан сүйүктүү баланы билдирген «ciyərguşəm»; коркок, кайратсыз, алсыз адамды билдирген «ağciyər»; өтө сүйүктүү кишини билдирген «ciyərparəm» жана башка ушул сыяктуу сөздөр — кайдан келип чыккан?\nBODY[2]: Байыркы адамдар боордун жылуу жана кандуу көрүнүшүнөн таасирленип, жылуу канды өмүр, ал эми анын жоктугун өлүм деп эсептешкен. Ошондуктан боор узак убакыт бою жашоонун борбору катары кабыл алынып келген.\nBODY[3]: Мисалы, вавилондуктар адамдын жаны боордо жайгашат деп ишенишкен. Айрым маданияттарда боор, баарынан мурда, сезимдерди билдирет деп эсептелгендиктен, макал-лакаптарда жана жазма чыгармаларда ал жүрөктөн мурда аталат.\nBODY[4]: Байыркы Грекияда изгилик жана ага байланышкан эр жүрөктүк, чечкиндүүлүк сыяктуу сапаттар боорго таандык деп саналган. Эгер адамдын боору соо болсо, ал изгиликтүү — бардык тоскоолдуктарды жеңип, өз принциптерин бекем карманган адам катары кабыл алынган.\nMORAL: Сабак: Сөздөр элдин тарыхын, ишенимин, дүйнө таанымын сактайт. Сөздүн төркүнүн билсең, маанисин да тереңирээк түшүнөсүң.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "pawn-and-the-king",
+      "title": "Пешка менен падыша",
+      "moral": "Сабак: Кичүүнү кемсинтпе, чоң даражага таянып бой көтөрбө. Турмуш өзгөрөт, бүгүнкү алсыз эртең күч алышы мүмкүн.",
+      "body": [
+        "Пешка деп кемсинтпе!",
+        "Күндөрдүн биринде ПАДЫША болот.",
+        "Падыша деп ишенип калба!",
+        "Күндөрдүн биринде МАТ болот."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/pawn-and-the-king.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: pawn-and-the-king\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Пешка менен падыша\nBODY[1]: Пешка деп кемсинтпе!\nBODY[2]: Күндөрдүн биринде ПАДЫША болот.\nBODY[3]: Падыша деп ишенип калба!\nBODY[4]: Күндөрдүн биринде МАТ болот.\nMORAL: Сабак: Кичүүнү кемсинтпе, чоң даражага таянып бой көтөрбө. Турмуш өзгөрөт, бүгүнкү алсыз эртең күч алышы мүмкүн.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "what-it-means-to-be-late",
+      "title": "Кечигүү деген эмне",
+      "moral": "Сабак: Көңүлгө байланышкан ишти эртеңкиге калтырба. Сүйөрүңдү бүгүн айт, кечиримди бүгүн сура. Кеч калуунун өкүнүчү оор.",
+      "body": [
+        "Кечигүү — бир ишти, бир аракетти өз убагында жасай албай калуу. Айрыкча айланабыздагы адамдар менен болгон мамиледе жана аларга жасаган мамилебизде.",
+        "Сүйөрүбүздү айтуу, мээримге мээрим менен жооп берүү, таарынычты кечирүү, көңүлүн ооруткан адамдан кечирим суроо — мунун баары өз убагында жасалганда баалуу.",
+        "Биз пендебиз. Ар бирибиз каалаган учурда жаңылышып же туура эмес иш кылып алышыбыз мүмкүн. Эң маанилүүсү — кетирген катабызды моюнга алып оңдоого, кечирим суроого, көңүл алууга кечикпөө. Өмүр кыска.",
+        "Кечикпейли: ошондо «аттиң» деген өкүнүчү жок, «жакшы болгон экен» деген шүгүрү көп, адилеттүү жана бакытка толгон өмүр сүрөбүз."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/what-it-means-to-be-late.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: what-it-means-to-be-late\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Кечигүү деген эмне\nBODY[1]: Кечигүү — бир ишти, бир аракетти өз убагында жасай албай калуу. Айрыкча айланабыздагы адамдар менен болгон мамиледе жана аларга жасаган мамилебизде.\nBODY[2]: Сүйөрүбүздү айтуу, мээримге мээрим менен жооп берүү, таарынычты кечирүү, көңүлүн ооруткан адамдан кечирим суроо — мунун баары өз убагында жасалганда баалуу.\nBODY[3]: Биз пендебиз. Ар бирибиз каалаган учурда жаңылышып же туура эмес иш кылып алышыбыз мүмкүн. Эң маанилүүсү — кетирген катабызды моюнга алып оңдоого, кечирим суроого, көңүл алууга кечикпөө. Өмүр кыска.\nBODY[4]: Кечикпейли: ошондо «аттиң» деген өкүнүчү жок, «жакшы болгон экен» деген шүгүрү көп, адилеттүү жана бакытка толгон өмүр сүрөбүз.\nMORAL: Сабак: Көңүлгө байланышкан ишти эртеңкиге калтырба. Сүйөрүңдү бүгүн айт, кечиримди бүгүн сура. Кеч калуунун өкүнүчү оор.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "church-bell",
+      "title": "Чиркөөнүн коңгуроосу",
+      "moral": "Сабак: Адилеттик жоголсо, элдин таянары калбайт. Зулумдукка көз жумбай, акыйкатты жакта.",
+      "body": [
+        "Илгери бир өлкөдө мындай эреже болуптур: карапайым адам өлсө, чиркөөнүн коңгуроосу бир жолу, ак сөөк өлсө эки жолу, падышанын жакындарынын бири өлсө үч жолу, падышанын өзү өлсө төрт жолу кагылчу экен.",
+        "Күндөрдүн биринде ар ким акыйкат издеп кайрылган сот бир жаранды адилетсиз жерден айыптайт. Ошондо чиркөөнүн коңгуроосу беш жолу кагылат.",
+        "Эл аң-таң болуп чиркөөгө келип: «Урматтуу дин кызматчы, падышадан да маанилүү ким бар, коңгуроо эмнеге беш жолу кагылды?» — деп сурайт.",
+        "Дин кызматчы: «Албетте, бар — адилеттик. Бүгүн адилеттик өлдү», — деп жооп берет."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/church-bell.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: church-bell\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Чиркөөнүн коңгуроосу\nBODY[1]: Илгери бир өлкөдө мындай эреже болуптур: карапайым адам өлсө, чиркөөнүн коңгуроосу бир жолу, ак сөөк өлсө эки жолу, падышанын жакындарынын бири өлсө үч жолу, падышанын өзү өлсө төрт жолу кагылчу экен.\nBODY[2]: Күндөрдүн биринде ар ким акыйкат издеп кайрылган сот бир жаранды адилетсиз жерден айыптайт. Ошондо чиркөөнүн коңгуроосу беш жолу кагылат.\nBODY[3]: Эл аң-таң болуп чиркөөгө келип: «Урматтуу дин кызматчы, падышадан да маанилүү ким бар, коңгуроо эмнеге беш жолу кагылды?» — деп сурайт.\nBODY[4]: Дин кызматчы: «Албетте, бар — адилеттик. Бүгүн адилеттик өлдү», — деп жооп берет.\nMORAL: Сабак: Адилеттик жоголсо, элдин таянары калбайт. Зулумдукка көз жумбай, акыйкатты жакта.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "dervishs-clothes",
+      "title": "Дербиштин кийим-кечеси",
+      "moral": "Сабак: Адамдын көркү кийиминде эле эмес, пейилинде. Ички дүйнөсү таза адамдын жүзүнөн да жарык көрүнөт.",
+      "body": [
+        "Дербиштен сурашты:",
+        "— Кийим-кечең эмнеге мынчалык тыкан эмес?",
+        "Дербиш жооп берди:",
+        "— Дайыма ички дүйнөмдү оңдоо менен алек болгондуктан, сырткы көрүнүшүмдү түзөөгө убактым жетпейт."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/dervishs-clothes.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: dervishs-clothes\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Дербиштин кийим-кечеси\nBODY[1]: Дербиштен сурашты:\nBODY[2]: — Кийим-кечең эмнеге мынчалык тыкан эмес?\nBODY[3]: Дербиш жооп берди:\nBODY[4]: — Дайыма ички дүйнөмдү оңдоо менен алек болгондуктан, сырткы көрүнүшүмдү түзөөгө убактым жетпейт.\nMORAL: Сабак: Адамдын көркү кийиминде эле эмес, пейилинде. Ички дүйнөсү таза адамдын жүзүнөн да жарык көрүнөт.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    }
+  ]
+}

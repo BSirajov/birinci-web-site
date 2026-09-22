@@ -1,0 +1,58 @@
+{
+  "count": 5,
+  "asset_rule": "Save final art as WebP 1536x1024 at output_webp; HTML paths unchanged",
+  "text_rule": "On-image English must match Exact quotes exactly",
+  "items": [
+    {
+      "stem": "o-god-give-first-to-the-mountains-and-stones",
+      "title": "O Allah, Give First to the Mountains and Stones",
+      "moral": "Moral: True generosity means thinking of others before oneself. This prayer carries within it an entire people’s tradition of sharing.",
+      "body": [
+        "An old prayer from the Turkic lands says:",
+        "“O Allah, give first to the mountains and stones, the forests, the animals, and the waters. Then give to the people, to my neighbor, and to those in need. If anything remains, give to me last.”"
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/o-god-give-first-to-the-mountains-and-stones.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: o-god-give-first-to-the-mountains-and-stones\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: O Allah, Give First to the Mountains and Stones\nBODY[1]: An old prayer from the Turkic lands says:\nBODY[2]: “O Allah, give first to the mountains and stones, the forests, the animals, and the waters. Then give to the people, to my neighbor, and to those in need. If anything remains, give to me last.”\nMORAL: Moral: True generosity means thinking of others before oneself. This prayer carries within it an entire people’s tradition of sharing.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "only-my-mother-would-weep",
+      "title": "Only My Mother’s Tears",
+      "moral": "Moral: A mother’s love is cherished for its sincerity and its willingness to ask nothing in return.",
+      "body": [
+        "Only my mother’s tears are real; all the rest are pretense."
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/only-my-mother-would-weep.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: only-my-mother-would-weep\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Only My Mother’s Tears\nBODY[1]: Only my mother’s tears are real; all the rest are pretense.\nMORAL: Moral: A mother’s love is cherished for its sincerity and its willingness to ask nothing in return.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "power-of-truth",
+      "title": "The Strength of Truth",
+      "moral": "Moral: Truth is unbending and unyielding. Even though time passes and power changes, in the end, the righteous one stands firm.",
+      "body": [
+        "Truth’s sword does not bend, and the hand that holds it does not yield."
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/power-of-truth.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: power-of-truth\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: The Strength of Truth\nBODY[1]: Truth’s sword does not bend, and the hand that holds it does not yield.\nMORAL: Moral: Truth is unbending and unyielding. Even though time passes and power changes, in the end, the righteous one stands firm.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "rose",
+      "title": "The Rose",
+      "moral": "Moral: Love and care need balance. Too much control can harm, just as neglect can; attentive care helps life flourish.",
+      "body": [
+        "If you water a rose too much, it will rot; if you water it too little, it will wither; if you water it right, it will live."
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/rose.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: rose\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: The Rose\nBODY[1]: If you water a rose too much, it will rot; if you water it too little, it will wither; if you water it right, it will live.\nMORAL: Moral: Love and care need balance. Too much control can harm, just as neglect can; attentive care helps life flourish.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "saying-the-word-in-its-place",
+      "title": "The Right Words at the Right Time",
+      "moral": "Moral: Thoughtful words spare regret. The right words at the right moment are precious.",
+      "body": [
+        "Choose your words well, and you will have less cause to apologize."
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/saying-the-word-in-its-place.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: saying-the-word-in-its-place\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: The Right Words at the Right Time\nBODY[1]: Choose your words well, and you will have less cause to apologize.\nMORAL: Moral: Thoughtful words spare regret. The right words at the right moment are precious.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    }
+  ]
+}

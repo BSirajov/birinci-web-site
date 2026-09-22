@@ -1,0 +1,43 @@
+{
+  "count": 2,
+  "asset_rule": "Save final art as WebP 1536x1024 at output_webp; HTML paths unchanged",
+  "text_rule": "On-image Azerbaijani must match Exact quotes exactly (ə/ı/ğ/ö/ü/ş/ç)",
+  "items": [
+    {
+      "stem": "it-wont-go-to-waste",
+      "title": "İtib batmaz",
+      "moral": "İbrət: Ürəkdən edilən yaxşılıq, söz və əməl heç vaxt itmir; həm başqalarının yoluna işıq salır, həm də sənin ömrünü nurlandırır.",
+      "body": [
+        "Ürəkdən edilən yaxşılıq,",
+        "sevgi ilə yoğrulmuş davranış,",
+        "səmimiyyətlə söylənmiş söz,",
+        "ədəb-ərkanlı rəftar,",
+        "eşqlə boyanmış təbəssüm,",
+        "haqq-ədalət uğrunda atılan addım,",
+        "mənəvi dəyərlərə göstərilən ehtiram —",
+        "heç vaxt itib-batmaz. Başqalarının yolunu işıqlandırar, sənin də ömrünə nur, sağlamlıq və gözəllik qatar."
+      ],
+      "docx": "az/wisdom-stories/it-wont-go-to-waste-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/it-wont-go-to-waste.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: it-wont-go-to-waste\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: İtib batmaz\nBODY[1]: Ürəkdən edilən yaxşılıq,\nBODY[2]: sevgi ilə yoğrulmuş davranış,\nBODY[3]: səmimiyyətlə söylənmiş söz,\nBODY[4]: ədəb-ərkanlı rəftar,\nBODY[5]: eşqlə boyanmış təbəssüm,\nBODY[6]: haqq-ədalət uğrunda atılan addım,\nBODY[7]: mənəvi dəyərlərə göstərilən ehtiram —\nBODY[8]: heç vaxt itib-batmaz. Başqalarının yolunu işıqlandırar, sənin də ömrünə nur, sağlamlıq və gözəllik qatar.\nMORAL: İbrət: Ürəkdən edilən yaxşılıq, söz və əməl heç vaxt itmir; həm başqalarının yoluna işıq salır, həm də sənin ömrünü nurlandırır.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "life-lesson",
+      "title": "Həyat dərsi",
+      "moral": "İbrət: Bəzən ən böyük zərəri bizə oxşayan, amma niyyəti başqa olanlardan görürük. Özünü qorumaq üçün zahiri bənzərliyə aldanmamaq, ikiüzlülüyü vaxtında sezmək lazımdır.",
+      "body": [
+        "Ata qurd balasına həyatı öyrədərkən qoyunları göstərib deyir:",
+        "— Bax, onların əti dadlı olur.",
+        "Sonra çobanı göstərir:",
+        "— Onun dəyənəyi isə acı olur. Ehtiyatlı ol.",
+        "Bala qurd çobanın yanındakı iti görüb sevinclə deyir:",
+        "— Ata, bax, o bizə oxşayır!",
+        "Ata qurd cavab verir:",
+        "— Onu görən kimi qaç, balam. Biz ən çox bizə oxşayan, amma bizdən olmayanlardan zərər çəkmişik."
+      ],
+      "docx": "az/wisdom-stories/life-lesson-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/life-lesson.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: life-lesson\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Həyat dərsi\nBODY[1]: Ata qurd balasına həyatı öyrədərkən qoyunları göstərib deyir:\nBODY[2]: — Bax, onların əti dadlı olur.\nBODY[3]: Sonra çobanı göstərir:\nBODY[4]: — Onun dəyənəyi isə acı olur. Ehtiyatlı ol.\nBODY[5]: Bala qurd çobanın yanındakı iti görüb sevinclə deyir:\nBODY[6]: — Ata, bax, o bizə oxşayır!\nBODY[7]: Ata qurd cavab verir:\nBODY[8]: — Onu görən kimi qaç, balam. Biz ən çox bizə oxşayan, amma bizdən olmayanlardan zərər çəkmişik.\nMORAL: İbrət: Bəzən ən böyük zərəri bizə oxşayan, amma niyyəti başqa olanlardan görürük. Özünü qorumaq üçün zahiri bənzərliyə aldanmamaq, ikiüzlülüyü vaxtında sezmək lazımdır.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    }
+  ]
+}

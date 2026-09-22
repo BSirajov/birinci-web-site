@@ -1,0 +1,37 @@
+{
+  "count": 3,
+  "asset_rule": "Save final art as WebP 1536x1024 at output_webp; HTML paths unchanged",
+  "text_rule": "On-image Kyrgyz must match Exact quotes exactly",
+  "items": [
+    {
+      "stem": "builder-of-the-nest",
+      "title": "Уя курган куш",
+      "moral": "Сабак: Үйдүн кутун сактап, үй-бүлөнүн ынтымагына уютку болгон аялдын мээнетин баалай бил.",
+      "body": [
+        "Уяны ургаачы куш курат."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/builder-of-the-nest.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: builder-of-the-nest\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Уя курган куш\nBODY[1]: Уяны ургаачы куш курат.\nMORAL: Сабак: Үйдүн кутун сактап, үй-бүлөнүн ынтымагына уютку болгон аялдын мээнетин баалай бил.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "fallen-teeth",
+      "title": "Түштө түшкөн тиштер",
+      "moral": "Сабак: Чындыкты айтканда да сөздүн ыңгайын тап. Бир эле ой көңүлдү оорутушу да, жубатышы да мүмкүн.",
+      "body": [
+        "Бир падыша түшүндө тиштеринин баары түшүп калганын көрөт да, түш жоруучуну чакыртып, маанисин сурайт. Ал киши: «Падышам, бул бардык тууган-туушкандарыңыз каза болуп, эң акырында сиз дүйнөдөн кайтасыз дегенди билдирет», — деп жооп берет. Падыша каарданып, аны кууп чыгат да, башка бирөөнү чакыртып, ага да ошол эле суроону берет. Андан: «Падышам, үй-бүлөңүздө эң узак өмүр сүргөн адам сиз болосуз», — деген жооп алат. Падыша бул жоопко абдан ыраазы болуп, ал кишиге сыйлык берип узатат."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/fallen-teeth.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: fallen-teeth\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Түштө түшкөн тиштер\nBODY[1]: Бир падыша түшүндө тиштеринин баары түшүп калганын көрөт да, түш жоруучуну чакыртып, маанисин сурайт. Ал киши: «Падышам, бул бардык тууган-туушкандарыңыз каза болуп, эң акырында сиз дүйнөдөн кайтасыз дегенди билдирет», — деп жооп берет. Падыша каарданып, аны кууп чыгат да, башка бирөөнү чакыртып, ага да ошол эле суроону берет. Андан: «Падышам, үй-бүлөңүздө эң узак өмүр сүргөн адам сиз болосуз», — деген жооп алат. Падыша бул жоопко абдан ыраазы болуп, ал кишиге сыйлык берип узатат.\nMORAL: Сабак: Чындыкты айтканда да сөздүн ыңгайын тап. Бир эле ой көңүлдү оорутушу да, жубатышы да мүмкүн.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "only-my-mother-would-weep",
+      "title": "Бир гана апам ыйлайт",
+      "moral": "Сабак: Эненин мээриминде эсеп да, шарт да жок. Ошол ак сүйүүнүн баркына жет.",
+      "body": [
+        "Бир гана апам чын ыйлайт, калганы жалган ыйлайт!"
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/only-my-mother-would-weep.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: only-my-mother-would-weep\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Бир гана апам ыйлайт\nBODY[1]: Бир гана апам чын ыйлайт, калганы жалган ыйлайт!\nMORAL: Сабак: Эненин мээриминде эсеп да, шарт да жок. Ошол ак сүйүүнүн баркына жет.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    }
+  ]
+}

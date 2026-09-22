@@ -1,0 +1,207 @@
+{
+  "count": 20,
+  "asset_rule": "Save final art as WebP 1536x1024 at output_webp; HTML paths unchanged",
+  "text_rule": "On-image Russian must match Exact quotes exactly",
+  "items": [
+    {
+      "stem": "aging",
+      "title": "Старость",
+      "moral": "Мораль: С возрастом силы убывают, зато опыт и мудрость помогают шире смотреть на жизнь.",
+      "body": [
+        "Старение похоже на восхождение в гору: чем выше поднимаешься, тем сильнее усталость и тяжелее дыхание, зато шире становится взгляд на мир."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/aging.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: aging\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Старость\nBODY[1]: Старение похоже на восхождение в гору: чем выше поднимаешься, тем сильнее усталость и тяжелее дыхание, зато шире становится взгляд на мир.\nMORAL: Мораль: С возрастом силы убывают, зато опыт и мудрость помогают шире смотреть на жизнь.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "blind-who-have-eyes",
+      "title": "Зрячие слепцы",
+      "moral": "Мораль: Мало смотреть — нужно ещё и понимать увиденное. Тот, кто смотрит, но не замечает, слушает, но не слышит, остаётся слеп к происходящему.",
+      "body": [
+        "Мир полон слепых людей, которые думают, что видят, потому что у них есть глаза."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/blind-who-have-eyes.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: blind-who-have-eyes\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Зрячие слепцы\nBODY[1]: Мир полон слепых людей, которые думают, что видят, потому что у них есть глаза.\nMORAL: Мораль: Мало смотреть — нужно ещё и понимать увиденное. Тот, кто смотрит, но не замечает, слушает, но не слышит, остаётся слеп к происходящему.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "builder-of-the-nest",
+      "title": "Строительница гнезда",
+      "moral": "Мораль: Женщина создаёт семейный очаг и заботится о благополучии семьи. Важно замечать её труд и ценить его.",
+      "body": [
+        "Самка птицы строит гнездо."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/builder-of-the-nest.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: builder-of-the-nest\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Строительница гнезда\nBODY[1]: Самка птицы строит гнездо.\nMORAL: Мораль: Женщина создаёт семейный очаг и заботится о благополучии семьи. Важно замечать её труд и ценить его.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "communication",
+      "title": "Общение",
+      "moral": "Мораль: У каждого возраста есть чему поучиться: у старших — опыту, у детей — искренности.",
+      "body": [
+        "Общаясь с пожилыми людьми, мы учимся житейской мудрости, а рядом с детьми вспоминаем, что такое чистота и непосредственность."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/communication.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: communication\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Общение\nBODY[1]: Общаясь с пожилыми людьми, мы учимся житейской мудрости, а рядом с детьми вспоминаем, что такое чистота и непосредственность.\nMORAL: Мораль: У каждого возраста есть чему поучиться: у старших — опыту, у детей — искренности.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "dead-remain-in-life",
+      "title": "Тот, кто остался",
+      "moral": "Мораль: Потеряв любимого человека, оставшийся жить испытывает глубокую тоску. Разлука заставляет ещё острее ощутить силу любви.",
+      "body": [
+        "Когда умирает один из двух любящих людей, тому, кто остался, кажется, будто жизнь оборвалась и для него."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/dead-remain-in-life.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: dead-remain-in-life\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Тот, кто остался\nBODY[1]: Когда умирает один из двух любящих людей, тому, кто остался, кажется, будто жизнь оборвалась и для него.\nMORAL: Мораль: Потеряв любимого человека, оставшийся жить испытывает глубокую тоску. Разлука заставляет ещё острее ощутить силу любви.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "do-not-do-these-things",
+      "title": "Не делайте этого.",
+      "moral": "Мораль: Не напоминайте человеку о том, чего у него нет. Ему нужны участие и понимание.",
+      "body": [
+        "Не говорите о своем богатстве перед бедными, о своем здоровье перед больными, о своем счастье перед нуждающимися, о своей свободе перед заключенными, о своей силе перед слабыми, о своих детях перед бездетными или о своих родителях перед сиротой."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/do-not-do-these-things.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: do-not-do-these-things\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Не делайте этого.\nBODY[1]: Не говорите о своем богатстве перед бедными, о своем здоровье перед больными, о своем счастье перед нуждающимися, о своей свободе перед заключенными, о своей силе перед слабыми, о своих детях перед бездетными или о своих родителях перед сиротой.\nMORAL: Мораль: Не напоминайте человеку о том, чего у него нет. Ему нужны участие и понимание.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "do-you-have-spending-money",
+      "title": "Есть ли у вас деньги?",
+      "moral": "Мораль: Цените своих родителей, пока они живы, удовлетворяйте их потребности делами, а не словами. Никто и ничто не сможет занять их место.",
+      "body": [
+        "Цените родителей, пока они рядом. Не ограничивайтесь вопросом: «Есть ли у вас деньги?» Помогайте им по мере сил, заботьтесь о том, в чём они нуждаются. Никто не сможет заменить их."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/do-you-have-spending-money.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: do-you-have-spending-money\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Есть ли у вас деньги?\nBODY[1]: Цените родителей, пока они рядом. Не ограничивайтесь вопросом: «Есть ли у вас деньги?» Помогайте им по мере сил, заботьтесь о том, в чём они нуждаются. Никто не сможет заменить их.\nMORAL: Мораль: Цените своих родителей, пока они живы, удовлетворяйте их потребности делами, а не словами. Никто и ничто не сможет занять их место.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "dont-open-your-mouth",
+      "title": "Не открывай рот.",
+      "moral": "Мораль: Сила слов заключается в том, чтобы использовать их уместно и во благо. Если тебе нечего сказать, молчание говорит громче слов.",
+      "body": [
+        "Если не собираешься сказать ничего доброго, лучше промолчи."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/dont-open-your-mouth.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: dont-open-your-mouth\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Не открывай рот.\nBODY[1]: Если не собираешься сказать ничего доброго, лучше промолчи.\nMORAL: Мораль: Сила слов заключается в том, чтобы использовать их уместно и во благо. Если тебе нечего сказать, молчание говорит громче слов.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "dont-say-i-couldnt-deliver-or-i-couldnt-manage",
+      "title": "Не говорите: «Я не справился, я не смог это сделать».",
+      "moral": "Мораль: Каждый день — это новая страница. Вы не можете изменить вчерашний день, но то, как вы напишете сегодняшний, в ваших руках.",
+      "body": [
+        "День сменяется днём. Кто-то встречает вечер с радостью, кто-то — с печалью. Но если сегодня что-то не получилось, не спешите опускать руки и говорить: «Я не справился, я не смог». С рассветом у вас появится новый день и новая возможность."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/dont-say-i-couldnt-deliver-or-i-couldnt-manage.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: dont-say-i-couldnt-deliver-or-i-couldnt-manage\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Не говорите: «Я не справился, я не смог это сделать».\nBODY[1]: День сменяется днём. Кто-то встречает вечер с радостью, кто-то — с печалью. Но если сегодня что-то не получилось, не спешите опускать руки и говорить: «Я не справился, я не смог». С рассветом у вас появится новый день и новая возможность.\nMORAL: Мораль: Каждый день — это новая страница. Вы не можете изменить вчерашний день, но то, как вы напишете сегодняшний, в ваших руках.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "drinking-the-sherbet-of-martyrdom",
+      "title": "Испить шербет мученичества",
+      "moral": "Мораль: За каждым выражением стоит история, жертва. Слова в нашем языке несут память о нашем прошлом.",
+      "body": [
+        "В этой истории рассказывается, что османские воины брали с собой небольшие бочонки с шербетом на воде Замзама. Смертельно раненным давали глоток сладкого напитка перед смертью. С этим обычаем рассказ связывает выражение «испить шербет мученичества»."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/drinking-the-sherbet-of-martyrdom.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: drinking-the-sherbet-of-martyrdom\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Испить шербет мученичества\nBODY[1]: В этой истории рассказывается, что османские воины брали с собой небольшие бочонки с шербетом на воде Замзама. Смертельно раненным давали глоток сладкого напитка перед смертью. С этим обычаем рассказ связывает выражение «испить шербет мученичества».\nMORAL: Мораль: За каждым выражением стоит история, жертва. Слова в нашем языке несут память о нашем прошлом.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "explaining-ones-sorrow",
+      "title": "Как мы говорим о своей боли",
+      "moral": "Мораль: Каждый переживает беду по-своему: кто-то говорит, кто-то пишет, кто-то молчит и улыбается. Самая глубокая боль порой скрыта за молчанием.",
+      "body": [
+        "Один говорит о своей беде прямо и ищет решение. Другой облекает её в красивые слова, словно писатель. Третий рассказывает о ней с любовью. А мудрец скрывает боль за улыбкой."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/explaining-ones-sorrow.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: explaining-ones-sorrow\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Как мы говорим о своей боли\nBODY[1]: Один говорит о своей беде прямо и ищет решение. Другой облекает её в красивые слова, словно писатель. Третий рассказывает о ней с любовью. А мудрец скрывает боль за улыбкой.\nMORAL: Мораль: Каждый переживает беду по-своему: кто-то говорит, кто-то пишет, кто-то молчит и улыбается. Самая глубокая боль порой скрыта за молчанием.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "go-but-come-again",
+      "title": "Уходи, но приходи снова.",
+      "moral": "Мораль: Тёплое отношение часто выражается в мелочах. Порой простой жест говорит о гостеприимстве больше любых слов.",
+      "body": [
+        "По османскому обычаю обувь гостя ставили у порога носками к дому. Этот простой жест выражал пожелание: «Уходи, но возвращайся. Здесь тебе всегда рады»."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/go-but-come-again.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: go-but-come-again\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Уходи, но приходи снова.\nBODY[1]: По османскому обычаю обувь гостя ставили у порога носками к дому. Этот простой жест выражал пожелание: «Уходи, но возвращайся. Здесь тебе всегда рады».\nMORAL: Мораль: Тёплое отношение часто выражается в мелочах. Порой простой жест говорит о гостеприимстве больше любых слов.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "homeland-and-land",
+      "title": "Родина и земля",
+      "moral": "Мораль: Земля становится родиной, когда с ней связаны любовь, память и жертвы тех, кто её защищал.",
+      "body": [
+        "Если добавить воды к земле, получится грязь; если добавить крови, получится родина."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/homeland-and-land.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: homeland-and-land\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Родина и земля\nBODY[1]: Если добавить воды к земле, получится грязь; если добавить крови, получится родина.\nMORAL: Мораль: Земля становится родиной, когда с ней связаны любовь, память и жертвы тех, кто её защищал.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "honey-or-dry-bread",
+      "title": "Мёд или сухой хлеб",
+      "moral": "Мораль: Человек, с которым вы сидите, либо возвысит вас, либо унизит. Простой хлеб учёного лучше, чем сладость невежественного человека.",
+      "body": [
+        "Лучше делить сухой хлеб с учёным, чем лакомиться мёдом в компании невежды."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/honey-or-dry-bread.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: honey-or-dry-bread\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Мёд или сухой хлеб\nBODY[1]: Лучше делить сухой хлеб с учёным, чем лакомиться мёдом в компании невежды.\nMORAL: Мораль: Человек, с которым вы сидите, либо возвысит вас, либо унизит. Простой хлеб учёного лучше, чем сладость невежественного человека.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "it-is-in-vain",
+      "title": "Бесполезно",
+      "moral": "Мораль: Выбирая круг общения, мы выбираем и то, на что уйдёт наша жизнь. Не тратьте её на бесплодные споры и ложную дружбу.",
+      "body": [
+        "Бессмысленно давать советы глупцу, спорить с невежественным человеком, дружить с лицемером."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/it-is-in-vain.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: it-is-in-vain\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Бесполезно\nBODY[1]: Бессмысленно давать советы глупцу, спорить с невежественным человеком, дружить с лицемером.\nMORAL: Мораль: Выбирая круг общения, мы выбираем и то, на что уйдёт наша жизнь. Не тратьте её на бесплодные споры и ложную дружбу.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "know-your-friend",
+      "title": "Познай своего друга",
+      "moral": "Мораль: Дружбу испытывают и невзгоды, и успех. Быть рядом в счастливые дни легко; настоящая верность видна в испытаниях.",
+      "body": [
+        "Хочешь узнать друга — посмотри, как он ведёт себя в беде, в ссоре и в трудную минуту. А потом посмотри, каким он становится, добившись успеха."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/know-your-friend.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: know-your-friend\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Познай своего друга\nBODY[1]: Хочешь узнать друга — посмотри, как он ведёт себя в беде, в ссоре и в трудную минуту. А потом посмотри, каким он становится, добившись успеха.\nMORAL: Мораль: Дружбу испытывают и невзгоды, и успех. Быть рядом в счастливые дни легко; настоящая верность видна в испытаниях.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "life-is-short",
+      "title": "Жизнь коротка.",
+      "moral": "Мораль: Жизнь коротка; проведите её с людьми, которые делают вас счастливыми и любимыми. Не тратьте время на неподходящих людей.",
+      "body": [
+        "Жизнь коротка. Проведите её с теми, рядом с кем чувствуете себя счастливыми и любимыми."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/life-is-short.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: life-is-short\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Жизнь коротка.\nBODY[1]: Жизнь коротка. Проведите её с теми, рядом с кем чувствуете себя счастливыми и любимыми.\nMORAL: Мораль: Жизнь коротка; проведите её с людьми, которые делают вас счастливыми и любимыми. Не тратьте время на неподходящих людей.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "living-in-the-past",
+      "title": "Жить прошлым",
+      "moral": "Мораль: Ходить назад — значит спотыкаться. Вы не можете изменить прошлое — поверните лицо, смотрите вперед.",
+      "body": [
+        "Жить одним прошлым — всё равно что идти спиной вперёд. Не видя дороги, легко споткнуться. При этом ни прошлое не изменишь, ни новых возможностей не заметишь."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/living-in-the-past.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: living-in-the-past\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Жить прошлым\nBODY[1]: Жить одним прошлым — всё равно что идти спиной вперёд. Не видя дороги, легко споткнуться. При этом ни прошлое не изменишь, ни новых возможностей не заметишь.\nMORAL: Мораль: Ходить назад — значит спотыкаться. Вы не можете изменить прошлое — поверните лицо, смотрите вперед.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "mature-person",
+      "title": "Зрелый человек",
+      "moral": "Мораль: Зрелость помогает выбирать отношения, в которых есть искренность и уважение, и отказываться от тех, что разрушают душевный покой.",
+      "body": [
+        "Наступает время, когда ты начинаешь больше ценить искренность старых друзей, перестаёшь стремиться к бессмысленным знакомствам и стараешься держаться подальше от невежества и отношений, причиняющих душевный вред. Именно тогда ты понимаешь, что обрёл внутреннюю зрелость."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/mature-person.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: mature-person\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Зрелый человек\nBODY[1]: Наступает время, когда ты начинаешь больше ценить искренность старых друзей, перестаёшь стремиться к бессмысленным знакомствам и стараешься держаться подальше от невежества и отношений, причиняющих душевный вред. Именно тогда ты понимаешь, что обрёл внутреннюю зрелость.\nMORAL: Мораль: Зрелость помогает выбирать отношения, в которых есть искренность и уважение, и отказываться от тех, что разрушают душевный покой.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "may-your-face-always-smile",
+      "title": "Пусть улыбка не сходит с лица",
+      "moral": "Мораль: Приветливость располагает к человеку. Улыбка ничего не стоит, а значит порой больше дорогого товара.",
+      "body": [
+        "У человека, продающего уксус с улыбкой, будет больше покупателей, чем у человека, продающего мед с хмурым видом."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/may-your-face-always-smile.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: may-your-face-always-smile\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Пусть улыбка не сходит с лица\nBODY[1]: У человека, продающего уксус с улыбкой, будет больше покупателей, чем у человека, продающего мед с хмурым видом.\nMORAL: Мораль: Приветливость располагает к человеку. Улыбка ничего не стоит, а значит порой больше дорогого товара.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    }
+  ]
+}

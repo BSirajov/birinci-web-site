@@ -1,0 +1,227 @@
+{
+  "count": 20,
+  "asset_rule": "Save final art as WebP 1536x1024 at output_webp; HTML paths unchanged",
+  "text_rule": "On-image Azerbaijani must match Exact quotes exactly (ə/ı/ğ/ö/ü/ş/ç)",
+  "items": [
+    {
+      "stem": "aging",
+      "title": "Yaşa dolmaq",
+      "moral": "İbrət: Yaşa dolduqca insanın gücü azalsa da, təcrübəsi artır, həyata baxışı genişlənir.",
+      "body": [
+        "Yaşlanmaq dağa dırmaşmağa bənzəyir: yüksəldikcə yorğunluğun artır, nəfəsin daralır, amma dünyaya baxışın genişlənir."
+      ],
+      "docx": "az/wisdom-stories/aging-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/aging.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: aging\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Yaşa dolmaq\nBODY[1]: Yaşlanmaq dağa dırmaşmağa bənzəyir: yüksəldikcə yorğunluğun artır, nəfəsin daralır, amma dünyaya baxışın genişlənir.\nMORAL: İbrət: Yaşa dolduqca insanın gücü azalsa da, təcrübəsi artır, həyata baxışı genişlənir.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "blind-who-have-eyes",
+      "title": "Gözləri olan korlar",
+      "moral": "İbrət: Görmək üçün təkcə göz yetməz, gördüyünü dərk etmək də gərəkdir. Baxıb görməyən, eşidib anlamayan insan əsl kordur.",
+      "body": [
+        "Gözləri var deyə gördüklərini zənn edən korlarla doludur yer üzü."
+      ],
+      "docx": "az/wisdom-stories/blind-who-have-eyes-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/blind-who-have-eyes.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: blind-who-have-eyes\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Gözləri olan korlar\nBODY[1]: Gözləri var deyə gördüklərini zənn edən korlarla doludur yer üzü.\nMORAL: İbrət: Görmək üçün təkcə göz yetməz, gördüyünü dərk etmək də gərəkdir. Baxıb görməyən, eşidib anlamayan insan əsl kordur.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "builder-of-the-nest",
+      "title": "Yuvanın qurucusu",
+      "moral": "İbrət: Yuvanı quran, ailənin dayağı olan qadının zəhmətini görüb qiymətləndirmək lazımdır.",
+      "body": [
+        "Yuvanı dişi quş qurar."
+      ],
+      "docx": "az/wisdom-stories/builder-of-the-nest-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/builder-of-the-nest.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: builder-of-the-nest\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Yuvanın qurucusu\nBODY[1]: Yuvanı dişi quş qurar.\nMORAL: İbrət: Yuvanı quran, ailənin dayağı olan qadının zəhmətini görüb qiymətləndirmək lazımdır.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "communication",
+      "title": "Ünsiyyət",
+      "moral": "İbrət: Yaşlıdan təcrübə, uşaqdan saflıq öyrənilir. Hər yaşın insana öyrədəcəyi bir şey var.",
+      "body": [
+        "Yaşlılar və uşaqlarla tez-tez ünsiyyətdə olsanız, birində təcrübə, digərində isə saflıq görəcəksiniz."
+      ],
+      "docx": "az/wisdom-stories/communication-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/communication.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: communication\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Ünsiyyət\nBODY[1]: Yaşlılar və uşaqlarla tez-tez ünsiyyətdə olsanız, birində təcrübə, digərində isə saflıq görəcəksiniz.\nMORAL: İbrət: Yaşlıdan təcrübə, uşaqdan saflıq öyrənilir. Hər yaşın insana öyrədəcəyi bir şey var.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "dead-remain-in-life",
+      "title": "Ölən həyatda qalandır",
+      "moral": "İbrət: Bir-birini ürəkdən sevən iki insandan biri dünyadan köçəndə geridə qalan həsrətlə yaşayır, özünü diri ikən ölmüş kimi hiss edir. Ayrılıq sevginin dərinliyini daha da duyurur.",
+      "body": [
+        "Bir-birini ürəkdən sevən iki insandan biri ölərsə, əsl ölən həyatda qalandır."
+      ],
+      "docx": "az/wisdom-stories/dead-remain-in-life-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/dead-remain-in-life.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: dead-remain-in-life\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Ölən həyatda qalandır\nBODY[1]: Bir-birini ürəkdən sevən iki insandan biri ölərsə, əsl ölən həyatda qalandır.\nMORAL: İbrət: Bir-birini ürəkdən sevən iki insandan biri dünyadan köçəndə geridə qalan həsrətlə yaşayır, özünü diri ikən ölmüş kimi hiss edir. Ayrılıq sevginin dərinliyini daha da duyurur.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "do-not-do-these-things",
+      "title": "Bunları etməyin",
+      "moral": "İbrət: Başqasının məhrum olduğu nemətlə öyünüb onun yarasını təzələmə. Onun dərdini xatırlatmağına yox, anlayışına ehtiyacı var.",
+      "body": [
+        "Kasıbın yanında malınızdan, xəstənin yanında sağlamlığınızdan, dərdlinin yanında xoşbəxtliyinizdən, məhbusun yanında azadlığınızdan, zəifin yanında gücünüzdən, övladsızın yanında övladınızdan, yetimin yanında valideynlərinizdən söhbət açmayın."
+      ],
+      "docx": "az/wisdom-stories/do-not-do-these-things-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/do-not-do-these-things.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: do-not-do-these-things\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Bunları etməyin\nBODY[1]: Kasıbın yanında malınızdan, xəstənin yanında sağlamlığınızdan, dərdlinin yanında xoşbəxtliyinizdən, məhbusun yanında azadlığınızdan, zəifin yanında gücünüzdən, övladsızın yanında övladınızdan, yetimin yanında valideynlərinizdən söhbət açmayın.\nMORAL: İbrət: Başqasının məhrum olduğu nemətlə öyünüb onun yarasını təzələmə. Onun dərdini xatırlatmağına yox, anlayışına ehtiyacı var.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "do-you-have-spending-money",
+      "title": "Xərcliyiniz varmı?",
+      "moral": "İbrət: Valideynə sağlığında dəyər ver, ehtiyacını sözlə yox, əməllə qarşıla. Onların yerini heç kim, heç nə tuta bilməz.",
+      "body": [
+        "Ata-ananızın qədrini sağ ikən bilin. “Xərcliyiniz varmı?” deyə soruşmaqla kifayətlənməyin. İmkanınız daxilində ehtiyaclarını ödəyin. Onların yerini heç kim tuta bilməz."
+      ],
+      "docx": "az/wisdom-stories/do-you-have-spending-money-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/do-you-have-spending-money.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: do-you-have-spending-money\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Xərcliyiniz varmı?\nBODY[1]: Ata-ananızın qədrini sağ ikən bilin. “Xərcliyiniz varmı?” deyə soruşmaqla kifayətlənməyin. İmkanınız daxilində ehtiyaclarını ödəyin. Onların yerini heç kim tuta bilməz.\nMORAL: İbrət: Valideynə sağlığında dəyər ver, ehtiyacını sözlə yox, əməllə qarşıla. Onların yerini heç kim, heç nə tuta bilməz.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "dont-open-your-mouth",
+      "title": "Ağzını açma",
+      "moral": "İbrət: Sözün gücü onu yerində və xeyirli işlətməkdədir. Deməyə dəyər sözün yoxdursa, sükut daha ucadan danışır.",
+      "body": [
+        "Xoş söz deməyəcəksənsə, ağzını heç açma."
+      ],
+      "docx": "az/wisdom-stories/dont-open-your-mouth-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/dont-open-your-mouth.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: dont-open-your-mouth\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Ağzını açma\nBODY[1]: Xoş söz deməyəcəksənsə, ağzını heç açma.\nMORAL: İbrət: Sözün gücü onu yerində və xeyirli işlətməkdədir. Deməyə dəyər sözün yoxdursa, sükut daha ucadan danışır.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "dont-say-i-couldnt-deliver-or-i-couldnt-manage",
+      "title": "Çatdırmadım, bacarmadım deməyin",
+      "moral": "İbrət: Hər gün yeni bir səhifədir. Dünəni dəyişə bilməzsən, amma bu günü necə yazacağın sənin əlindədir.",
+      "body": [
+        "Günlər bir-birini əvəz edir. Kimi gününü sevinclə, kimi kədərlə başa vurur. Amma bu gün görə bilmədiyiniz işlərə görə “çatdırmadım, bacarmadım” deyib ruhdan düşməyin. Ən başlıcası, ümidinizi itirməyin. Sabah günəş doğanda qarşınızda bütöv bir gün olacaq."
+      ],
+      "docx": "az/wisdom-stories/dont-say-i-couldnt-deliver-or-i-couldnt-manage-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/dont-say-i-couldnt-deliver-or-i-couldnt-manage.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: dont-say-i-couldnt-deliver-or-i-couldnt-manage\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Çatdırmadım, bacarmadım deməyin\nBODY[1]: Günlər bir-birini əvəz edir. Kimi gününü sevinclə, kimi kədərlə başa vurur. Amma bu gün görə bilmədiyiniz işlərə görə “çatdırmadım, bacarmadım” deyib ruhdan düşməyin. Ən başlıcası, ümidinizi itirməyin. Sabah günəş doğanda qarşınızda bütöv bir gün olacaq.\nMORAL: İbrət: Hər gün yeni bir səhifədir. Dünəni dəyişə bilməzsən, amma bu günü necə yazacağın sənin əlindədir.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "drinking-the-sherbet-of-martyrdom",
+      "title": "Şəhadət şərbəti içmək",
+      "moral": "İbrət: Hər ifadənin arxasında bir tarix, bir fədakarlıq dayanır. Dilimizdəki sözlər keçmişimizin yaddaşını daşıyır.",
+      "body": [
+        "Osmanlı dövründə döyüşdə ağır yaralanıb can verən əsgərlərə son nəfəslərində ağızları şirin olsun deyə şərbət içirərmişlər. Həkimlər zəmzəm suyu ilə hazırlanmış bu şərbəti kiçik çəlləklərdə özləri ilə daşıyarmışlar. “Şəhadət şərbəti içmək” ifadəsi də buradan yaranıb."
+      ],
+      "docx": "az/wisdom-stories/drinking-the-sherbet-of-martyrdom-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/drinking-the-sherbet-of-martyrdom.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: drinking-the-sherbet-of-martyrdom\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Şəhadət şərbəti içmək\nBODY[1]: Osmanlı dövründə döyüşdə ağır yaralanıb can verən əsgərlərə son nəfəslərində ağızları şirin olsun deyə şərbət içirərmişlər. Həkimlər zəmzəm suyu ilə hazırlanmış bu şərbəti kiçik çəlləklərdə özləri ilə daşıyarmışlar. “Şəhadət şərbəti içmək” ifadəsi də buradan yaranıb.\nMORAL: İbrət: Hər ifadənin arxasında bir tarix, bir fədakarlıq dayanır. Dilimizdəki sözlər keçmişimizin yaddaşını daşıyır.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "explaining-ones-sorrow",
+      "title": "Dərdini anlatmaq",
+      "moral": "İbrət: İnsan dərdini müxtəlif cür daşıyır: kimi danışır, kimi yazır, kimi susub gülümsəyir. Ən dərin dərd çox vaxt ən dərin sükutda gizlənir.",
+      "body": [
+        "Dərdini sadəcə danışan dərdlidir, gözəl sözlərlə ifadə edən ədəbiyyatçı, halı ilə bildirən aşiq, təbəssümlə gizlədən isə arifdir."
+      ],
+      "docx": "az/wisdom-stories/explaining-ones-sorrow-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/explaining-ones-sorrow.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: explaining-ones-sorrow\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Dərdini anlatmaq\nBODY[1]: Dərdini sadəcə danışan dərdlidir, gözəl sözlərlə ifadə edən ədəbiyyatçı, halı ilə bildirən aşiq, təbəssümlə gizlədən isə arifdir.\nMORAL: İbrət: İnsan dərdini müxtəlif cür daşıyır: kimi danışır, kimi yazır, kimi susub gülümsəyir. Ən dərin dərd çox vaxt ən dərin sükutda gizlənir.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "fallen-teeth",
+      "title": "Tökülən dişlər",
+      "moral": "İbrət: Eyni həqiqəti həm kobud, həm də incə dillə söyləmək olar. Söz yaralaya da bilər, məlhəm də ola bilər. Onu necə deməyi bilmək lazımdır.",
+      "body": [
+        "Bir şah yuxusunda bütün dişlərinin töküldüyünü görər, yuxuyozan birini çağırdıb bunun mənasını soruşar. Adam: «Şah sağ olsun, bu o deməkdir ki, bütün qohum-əqrəbanız öləcək, ən sonda ölən siz olacaqsınız» deyə cavab verər. Şah qəzəblənib adamı qovar, başqasını çağırdıb ona da eyni sualı verər və: «Şah sağ olsun, ailənizdə ən uzunömürlü siz olacaqsınız» cavabını alar. Şah bu cavabdan çox razı qalar və adamı mükafatlandırıb yola salar."
+      ],
+      "docx": "az/wisdom-stories/fallen-teeth-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/fallen-teeth.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: fallen-teeth\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Tökülən dişlər\nBODY[1]: Bir şah yuxusunda bütün dişlərinin töküldüyünü görər, yuxuyozan birini çağırdıb bunun mənasını soruşar. Adam: «Şah sağ olsun, bu o deməkdir ki, bütün qohum-əqrəbanız öləcək, ən sonda ölən siz olacaqsınız» deyə cavab verər. Şah qəzəblənib adamı qovar, başqasını çağırdıb ona da eyni sualı verər və: «Şah sağ olsun, ailənizdə ən uzunömürlü siz olacaqsınız» cavabını alar. Şah bu cavabdan çox razı qalar və adamı mükafatlandırıb yola salar.\nMORAL: İbrət: Eyni həqiqəti həm kobud, həm də incə dillə söyləmək olar. Söz yaralaya da bilər, məlhəm də ola bilər. Onu necə deməyi bilmək lazımdır.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "go-but-come-again",
+      "title": "Gedin, amma yenə gəlin",
+      "moral": "İbrət: Kiçik bir jestlə böyük mehribanlıq göstərmək olar. İnsana verilən dəyər çox vaxt belə xırda hərəkətlərdən bilinir.",
+      "body": [
+        "Osmanlı adətlərindən: evə gələn qonaqların bir daha gəlməsini istəyən ev sahibləri onların ayaqqabılarını ucu evə yönəlmiş şəkildə qapı önünə düzərmiş. Beləcə qonaq evdən çıxarkən sanki dala-dala yeriyərmiş; bu da «gedin, amma yenə gəlin» mənasını verərmiş."
+      ],
+      "docx": "az/wisdom-stories/go-but-come-again-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/go-but-come-again.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: go-but-come-again\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Gedin, amma yenə gəlin\nBODY[1]: Osmanlı adətlərindən: evə gələn qonaqların bir daha gəlməsini istəyən ev sahibləri onların ayaqqabılarını ucu evə yönəlmiş şəkildə qapı önünə düzərmiş. Beləcə qonaq evdən çıxarkən sanki dala-dala yeriyərmiş; bu da «gedin, amma yenə gəlin» mənasını verərmiş.\nMORAL: İbrət: Kiçik bir jestlə böyük mehribanlıq göstərmək olar. İnsana verilən dəyər çox vaxt belə xırda hərəkətlərdən bilinir.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "homeland-and-land",
+      "title": "Vətən və torpaq",
+      "moral": "İbrət: Torpağı vətənə çevirən uğrunda tökülən qandır. Vətən sadəcə bir yer deyil, uğrunda fədakarlıq etdiyimiz müqəddəs torpaqdır.",
+      "body": [
+        "Torpağa su qatsan palçıq, qan qatsan vətən olar."
+      ],
+      "docx": "az/wisdom-stories/homeland-and-land-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/homeland-and-land.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: homeland-and-land\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Vətən və torpaq\nBODY[1]: Torpağa su qatsan palçıq, qan qatsan vətən olar.\nMORAL: İbrət: Torpağı vətənə çevirən uğrunda tökülən qandır. Vətən sadəcə bir yer deyil, uğrunda fədakarlıq etdiyimiz müqəddəs torpaqdır.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "honey-or-dry-bread",
+      "title": "Bal ya quru çörək",
+      "moral": "İbrət: Oturub-durduğun adam səni ucalda da bilər, alçalda da. Cahillə bal yeməkdənsə, alimlə quru çörəyə qane olmaq yaxşıdır.",
+      "body": [
+        "Cahillə oturub bal yeməkdənsə, alimlə oturub quru çörək ye."
+      ],
+      "docx": "az/wisdom-stories/honey-or-dry-bread-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/honey-or-dry-bread.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: honey-or-dry-bread\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Bal ya quru çörək\nBODY[1]: Cahillə oturub bal yeməkdənsə, alimlə oturub quru çörək ye.\nMORAL: İbrət: Oturub-durduğun adam səni ucalda da bilər, alçalda da. Cahillə bal yeməkdənsə, alimlə quru çörəyə qane olmaq yaxşıdır.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "it-is-in-vain",
+      "title": "Boşunadır",
+      "moral": "İbrət: Kiminlə vaxt keçirməyi seçəndə ömrünü necə yaşayacağını da seçirsən. Cahillə mübahisəyə, ikiüzlü ilə dostluğa sərf olunan vaxt hədər gedir.",
+      "body": [
+        "Axmağa nəsihət vermək, cahillə mübahisə etmək, ikiüzlü ilə dost olmaq boşunadır."
+      ],
+      "docx": "az/wisdom-stories/it-is-in-vain-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/it-is-in-vain.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: it-is-in-vain\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Boşunadır\nBODY[1]: Axmağa nəsihət vermək, cahillə mübahisə etmək, ikiüzlü ilə dost olmaq boşunadır.\nMORAL: İbrət: Kiminlə vaxt keçirməyi seçəndə ömrünü necə yaşayacağını da seçirsən. Cahillə mübahisəyə, ikiüzlü ilə dostluğa sərf olunan vaxt hədər gedir.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "know-your-friend",
+      "title": "Dostunu tanı",
+      "moral": "İbrət: Dost darda, zorda və mənfəət sınağında tanınır. Rahat gündə hamı dostdur; əsl dostu çətinlik üzə çıxarır.",
+      "body": [
+        "Dostunu tanımaq istəyirsənsə, onu darda gör, çətində gör, qovğada gör. Bir də mənfəətinə toxun, onda gör."
+      ],
+      "docx": "az/wisdom-stories/know-your-friend-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/know-your-friend.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: know-your-friend\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Dostunu tanı\nBODY[1]: Dostunu tanımaq istəyirsənsə, onu darda gör, çətində gör, qovğada gör. Bir də mənfəətinə toxun, onda gör.\nMORAL: İbrət: Dost darda, zorda və mənfəət sınağında tanınır. Rahat gündə hamı dostdur; əsl dostu çətinlik üzə çıxarır.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "life-is-short",
+      "title": "Ömür qısadır",
+      "moral": "İbrət: Qısa ömrünü səni sevən, üzünü güldürən insanlarla yaşa. Vaxtını sənə yaxşılıq gətirməyən münasibətlərə sərf etmə.",
+      "body": [
+        "Ömür qısadır. Onu səni sevindirən və sevildiyini hiss etdirən insanlarla keçir."
+      ],
+      "docx": "az/wisdom-stories/life-is-short-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/life-is-short.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: life-is-short\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Ömür qısadır\nBODY[1]: Ömür qısadır. Onu səni sevindirən və sevildiyini hiss etdirən insanlarla keçir.\nMORAL: İbrət: Qısa ömrünü səni sevən, üzünü güldürən insanlarla yaşa. Vaxtını sənə yaxşılıq gətirməyən münasibətlərə sərf etmə.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "living-in-the-past",
+      "title": "Keçmişdə yaşamaq",
+      "moral": "İbrət: Daim arxaya baxan qabağındakı maneəni görməz. Keçəni qaytara bilməzsən; üzünü irəli çevir, qarşındakı imkanları gör.",
+      "body": [
+        "Keçmişdə yaşamaq arxaya baxa-baxa yerimək kimidir. Önünə baxmadığın üçün daim büdrəyib yıxılacaq, nə arxada qalanı dəyişə, nə də önündəki qapıları aça biləcəksən."
+      ],
+      "docx": "az/wisdom-stories/living-in-the-past-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/living-in-the-past.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: living-in-the-past\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Keçmişdə yaşamaq\nBODY[1]: Keçmişdə yaşamaq arxaya baxa-baxa yerimək kimidir. Önünə baxmadığın üçün daim büdrəyib yıxılacaq, nə arxada qalanı dəyişə, nə də önündəki qapıları aça biləcəksən.\nMORAL: İbrət: Daim arxaya baxan qabağındakı maneəni görməz. Keçəni qaytara bilməzsən; üzünü irəli çevir, qarşındakı imkanları gör.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "mature-person",
+      "title": "Yetkin insan",
+      "moral": "İbrət: Yetkinlik səni incidən münasibətlərdən uzaqlaşıb daxili dincliyini qorumağı bacarmaqdır. Kimdən və nədən uzaq duracağını bilmək də kamillik əlamətidir.",
+      "body": [
+        "Elə bir vaxt gəlir ki, köhnə dostların səmimiyyətini daha çox qiymətləndirirsən. Mənasız tanışlıqlar axtarmır, cahil adamlardan, səni daxilən yoran münasibətlərdən uzaq durursan. Onda anlayırsan ki, artıq yetkinləşmisən."
+      ],
+      "docx": "az/wisdom-stories/mature-person-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/mature-person.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: mature-person\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Yetkin insan\nBODY[1]: Elə bir vaxt gəlir ki, köhnə dostların səmimiyyətini daha çox qiymətləndirirsən. Mənasız tanışlıqlar axtarmır, cahil adamlardan, səni daxilən yoran münasibətlərdən uzaq durursan. Onda anlayırsan ki, artıq yetkinləşmisən.\nMORAL: İbrət: Yetkinlik səni incidən münasibətlərdən uzaqlaşıb daxili dincliyini qorumağı bacarmaqdır. Kimdən və nədən uzaq duracağını bilmək də kamillik əlamətidir.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    }
+  ]
+}

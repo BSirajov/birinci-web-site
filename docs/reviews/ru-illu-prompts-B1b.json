@@ -1,0 +1,116 @@
+{
+  "count": 10,
+  "asset_rule": "Save final art as WebP 1536x1024 at output_webp; HTML paths unchanged",
+  "text_rule": "On-image Russian must match Exact quotes exactly",
+  "items": [
+    {
+      "stem": "spare-time",
+      "title": "Свободное время",
+      "moral": "Мораль: Время — единственное богатство, которое никогда не вернется. Цените человека, который охотно тратит его на вас.",
+      "body": [
+        "Одни общаются с вами, когда появляется свободная минутка. Другие специально находят время, чтобы побыть с вами."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/spare-time.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: spare-time\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Свободное время\nBODY[1]: Одни общаются с вами, когда появляется свободная минутка. Другие специально находят время, чтобы побыть с вами.\nMORAL: Мораль: Время — единственное богатство, которое никогда не вернется. Цените человека, который охотно тратит его на вас.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "other-peoples-opinions",
+      "title": "Мнения других людей",
+      "moral": "Мораль: Человек, который теряет свои собственные ценности и корни одну за другой, наполняется чужими идеями. Если не защищать свои духовные корни, в конце концов перестанешь быть собой.",
+      "body": [
+        "Однажды человек потерял запятую — и слова смешались. Потом потерял точку — мысли стали бесконечными, и он разучился их завершать. Исчез восклицательный знак — ушли радость, гнев и удивление. Пропал вопросительный — человек перестал спрашивать и начал принимать всё как данность. Наконец исчезло двоеточие: он больше не умел ничего пояснить.",
+        "К концу жизни у него остались лишь кавычки. В них помещались чужие мнения."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/other-peoples-opinions.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: other-peoples-opinions\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Мнения других людей\nBODY[1]: Однажды человек потерял запятую — и слова смешались. Потом потерял точку — мысли стали бесконечными, и он разучился их завершать. Исчез восклицательный знак — ушли радость, гнев и удивление. Пропал вопросительный — человек перестал спрашивать и начал принимать всё как данность. Наконец исчезло двоеточие: он больше не умел ничего пояснить.\nBODY[2]: К концу жизни у него остались лишь кавычки. В них помещались чужие мнения.\nMORAL: Мораль: Человек, который теряет свои собственные ценности и корни одну за другой, наполняется чужими идеями. Если не защищать свои духовные корни, в конце концов перестанешь быть собой.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "pay-rent-for-the-water",
+      "title": "Аренда за воду",
+      "moral": "Мораль: Хитрость, направленная против другого, может обернуться против самого хитреца. Справедливость учитывает права обеих сторон.",
+      "body": [
+        "Человек купил у односельчанина колодец. Но когда пришёл набрать воды, прежний хозяин остановил его: «Я продал колодец, а не воду!» Они заспорили и отправились к судье.",
+        "Судья говорит продавцу: «Поскольку вода ваша, вы не можете хранить её в чужом колодце! Либо возьмите свою воду и уходите, либо платите арендную плату владельцу колодца за то, что он хранит её там»."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/pay-rent-for-the-water.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: pay-rent-for-the-water\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Аренда за воду\nBODY[1]: Человек купил у односельчанина колодец. Но когда пришёл набрать воды, прежний хозяин остановил его: «Я продал колодец, а не воду!» Они заспорили и отправились к судье.\nBODY[2]: Судья говорит продавцу: «Поскольку вода ваша, вы не можете хранить её в чужом колодце! Либо возьмите свою воду и уходите, либо платите арендную плату владельцу колодца за то, что он хранит её там».\nMORAL: Мораль: Хитрость, направленная против другого, может обернуться против самого хитреца. Справедливость учитывает права обеих сторон.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "pray-while-washing-your-dishes",
+      "title": "Молитесь, моя посуду.",
+      "moral": "Мораль: Будьте благодарны за простые вещи, которые у вас есть: наличие посуды, которую нужно мыть, означает, что у вас есть стол, у вас есть любимые люди. Благодарность имеет огромное значение.",
+      "body": [
+        "Молитесь, моя посуду. Будьте благодарны за то, что у вас есть посуда, которую нужно мыть. Потому что это показывает, что у вас есть еда, что вы накормили кого-то, что вы позаботились о ком-то, что вы приготовили еду и накрыли стол.",
+        "Вспомните тех, кому нечего поставить на стол или не с кем разделить еду."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/pray-while-washing-your-dishes.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: pray-while-washing-your-dishes\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Молитесь, моя посуду.\nBODY[1]: Молитесь, моя посуду. Будьте благодарны за то, что у вас есть посуда, которую нужно мыть. Потому что это показывает, что у вас есть еда, что вы накормили кого-то, что вы позаботились о ком-то, что вы приготовили еду и накрыли стол.\nBODY[2]: Вспомните тех, кому нечего поставить на стол или не с кем разделить еду.\nMORAL: Мораль: Будьте благодарны за простые вещи, которые у вас есть: наличие посуды, которую нужно мыть, означает, что у вас есть стол, у вас есть любимые люди. Благодарность имеет огромное значение.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "ramadan-prayer",
+      "title": "Молитва в Рамадан",
+      "moral": "Мораль: Искренняя молитва наполняет сердце надеждой и милосердием. Желание благословения, исцеления и прощения приближает человека к Творцу.",
+      "body": [
+        "Пусть Всемогущий Аллах примет наши молитвы, благословит наше пропитание, исцелит наших больных, простит наши грехи, откроет для нас двери добра и наполнит наши сердца любовью и милосердием!",
+        "Благословенного вам Рамадана!"
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/ramadan-prayer.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: ramadan-prayer\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Молитва в Рамадан\nBODY[1]: Пусть Всемогущий Аллах примет наши молитвы, благословит наше пропитание, исцелит наших больных, простит наши грехи, откроет для нас двери добра и наполнит наши сердца любовью и милосердием!\nBODY[2]: Благословенного вам Рамадана!\nMORAL: Мораль: Искренняя молитва наполняет сердце надеждой и милосердием. Желание благословения, исцеления и прощения приближает человека к Творцу.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "say-what-you-know",
+      "title": "Расскажите, что знаете.",
+      "moral": "Мораль: Умей говорить, слушать и вовремя молчать. Не унижай человека и не возводи на пьедестал — старайся видеть его таким, каков он есть.",
+      "body": [
+        "Делись знаниями, но не поучай свысока. Слушай внимательно, но не принимай на веру всё услышанное.",
+        "Так же, как молчание не означает, что вы ничего не знаете, слишком много говорить не означает, что вы много знаете. Глупо унижать человека, а чрезмерно восхвалять его — трусость."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/say-what-you-know.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: say-what-you-know\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Расскажите, что знаете.\nBODY[1]: Делись знаниями, но не поучай свысока. Слушай внимательно, но не принимай на веру всё услышанное.\nBODY[2]: Так же, как молчание не означает, что вы ничего не знаете, слишком много говорить не означает, что вы много знаете. Глупо унижать человека, а чрезмерно восхвалять его — трусость.\nMORAL: Мораль: Умей говорить, слушать и вовремя молчать. Не унижай человека и не возводи на пьедестал — старайся видеть его таким, каков он есть.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "secret-of-living-well-and-longevity",
+      "title": "Секрет долгой и счастливой жизни",
+      "moral": "Мораль: Ешь мало, ходи много, смейся много, люби бесконечно. Секрет долгой и счастливой жизни кроется в простоте и любви.",
+      "body": [
+        "Вдвое меньше еды, вдвое больше прогулок, втрое больше смеха и не ставьте границ своей любви.",
+        "Тибетская пословица."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/secret-of-living-well-and-longevity.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: secret-of-living-well-and-longevity\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Секрет долгой и счастливой жизни\nBODY[1]: Вдвое меньше еды, вдвое больше прогулок, втрое больше смеха и не ставьте границ своей любви.\nBODY[2]: Тибетская пословица.\nMORAL: Мораль: Ешь мало, ходи много, смейся много, люби бесконечно. Секрет долгой и счастливой жизни кроется в простоте и любви.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "strength-and-sorrow",
+      "title": "Сила и боль",
+      "moral": "Мораль: Человек должен либо просить силы, чтобы вынести свою боль, либо боль, соответствующую его силам. Не падай под бремя, превышающее твои силы.",
+      "body": [
+        "Боже, дай мне сил вынести мою боль или пошли испытание по силам.",
+        "Мухаммад Фузули"
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/strength-and-sorrow.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: strength-and-sorrow\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Сила и боль\nBODY[1]: Боже, дай мне сил вынести мою боль или пошли испытание по силам.\nBODY[2]: Мухаммад Фузули\nMORAL: Мораль: Человек должен либо просить силы, чтобы вынести свою боль, либо боль, соответствующую его силам. Не падай под бремя, превышающее твои силы.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "three-essential-things-for-a-city",
+      "title": "Три важных вещи для города",
+      "moral": "Мораль: Город должен содержать в чистоте и тело, и душу. Библиотека очищает душу, баня очищает тело, а канализация очищает город.",
+      "body": [
+        "Городу нужны три вещи: канализация, баня и библиотека. Первая очищает улицы, вторая — тело, третья — душу.",
+        "Фатих Султан Мехмет"
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/three-essential-things-for-a-city.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: three-essential-things-for-a-city\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Три важных вещи для города\nBODY[1]: Городу нужны три вещи: канализация, баня и библиотека. Первая очищает улицы, вторая — тело, третья — душу.\nBODY[2]: Фатих Султан Мехмет\nMORAL: Мораль: Город должен содержать в чистоте и тело, и душу. Библиотека очищает душу, баня очищает тело, а канализация очищает город.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "to-meet-and-to-know",
+      "title": "Познакомиться и узнать",
+      "moral": "Мораль: Приятное первое впечатление не всегда выдерживает близкое знакомство. Иногда правда о человеке приносит разочарование.",
+      "body": [
+        "О некоторых из них мы можем сказать только одно:",
+        "Познакомились — обрадовались. Узнали ближе — огорчились."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/to-meet-and-to-know.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: to-meet-and-to-know\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Познакомиться и узнать\nBODY[1]: О некоторых из них мы можем сказать только одно:\nBODY[2]: Познакомились — обрадовались. Узнали ближе — огорчились.\nMORAL: Мораль: Приятное первое впечатление не всегда выдерживает близкое знакомство. Иногда правда о человеке приносит разочарование.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    }
+  ]
+}

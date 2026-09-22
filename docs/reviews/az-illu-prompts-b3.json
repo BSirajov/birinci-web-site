@@ -1,0 +1,91 @@
+{
+  "count": 6,
+  "asset_rule": "Save final art as WebP 1536x1024 at output_webp; HTML paths unchanged",
+  "text_rule": "On-image Azerbaijani must match Exact quotes exactly (ə/ı/ğ/ö/ü/ş/ç)",
+  "items": [
+    {
+      "stem": "most-beautiful-portion",
+      "title": "Ən gözəl nəsib",
+      "moral": "İbrət: Səni səmimi qəlbdən dinləmək istəyən birinə rast gəlmək böyük nemətdir. Dinlənildiyini hiss etmək sevilmək kimidir.",
+      "body": [
+        "Dərvişdən soruşdular:",
+        "— İnsana nəsib ola biləcək ən gözəl şey nədir?",
+        "Dərviş dedi:",
+        "— Səni dinləmək istəyən birinə rast gəlməkdir."
+      ],
+      "docx": "az/wisdom-stories/most-beautiful-portion-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/most-beautiful-portion.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: most-beautiful-portion\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Ən gözəl nəsib\nBODY[1]: Dərvişdən soruşdular:\nBODY[2]: — İnsana nəsib ola biləcək ən gözəl şey nədir?\nBODY[3]: Dərviş dedi:\nBODY[4]: — Səni dinləmək istəyən birinə rast gəlməkdir.\nMORAL: İbrət: Səni səmimi qəlbdən dinləmək istəyən birinə rast gəlmək böyük nemətdir. Dinlənildiyini hiss etmək sevilmək kimidir.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "our-qualities-can-become-our-enemies",
+      "title": "Üstünlüyümüz bəlamıza çevrilə bilər",
+      "moral": "İbrət: Bəzən öyündüyümüz xüsusiyyət elə bizim zəif nöqtəmizdir. Tovuzu quyruğu, bülbülü dili ələ verir — üstünlüyünə həddindən artıq arxalanma.",
+      "body": [
+        "Tovuz quşunun düşməni öz quyruğudur...",
+        "Bülbülü qəfəsə salan şirin dilidir.",
+        "Tülkünü tələyə salan bəzəkli kürküdür...",
+        "Özümüzdə bəyənib sevdiyimiz bəzi cəhətlər bəzən zəif yerimizə çevrilir, başımıza bəla gətirir."
+      ],
+      "docx": "az/wisdom-stories/our-qualities-can-become-our-enemies-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/our-qualities-can-become-our-enemies.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: our-qualities-can-become-our-enemies\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Üstünlüyümüz bəlamıza çevrilə bilər\nBODY[1]: Tovuz quşunun düşməni öz quyruğudur...\nBODY[2]: Bülbülü qəfəsə salan şirin dilidir.\nBODY[3]: Tülkünü tələyə salan bəzəkli kürküdür...\nBODY[4]: Özümüzdə bəyənib sevdiyimiz bəzi cəhətlər bəzən zəif yerimizə çevrilir, başımıza bəla gətirir.\nMORAL: İbrət: Bəzən öyündüyümüz xüsusiyyət elə bizim zəif nöqtəmizdir. Tovuzu quyruğu, bülbülü dili ələ verir — üstünlüyünə həddindən artıq arxalanma.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "pawn-and-the-king",
+      "title": "Piyada və şah",
+      "moral": "İbrət: Heç kimi kiçik görüb alçaltma, öz mövqeyinə də arxayın olma. Bu gün gücsüz görünən sabah yüksələ, güclü görünən isə məğlub ola bilər.",
+      "body": [
+        "Piyadadır deyə kiçik görmə!",
+        "Gün gələr, ŞAH olar.",
+        "Şahdır deyə güvənmə!",
+        "Gün gələr, MAT olar."
+      ],
+      "docx": "az/wisdom-stories/pawn-and-the-king-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/pawn-and-the-king.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: pawn-and-the-king\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Piyada və şah\nBODY[1]: Piyadadır deyə kiçik görmə!\nBODY[2]: Gün gələr, ŞAH olar.\nBODY[3]: Şahdır deyə güvənmə!\nBODY[4]: Gün gələr, MAT olar.\nMORAL: İbrət: Heç kimi kiçik görüb alçaltma, öz mövqeyinə də arxayın olma. Bu gün gücsüz görünən sabah yüksələ, güclü görünən isə məğlub ola bilər.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "stoning-the-devil",
+      "title": "Şeytanı daşlama",
+      "moral": "İbrət: Əsl mübarizə kənardakı şeytanla yox, insanın öz nəfsi ilədir. Özünü paklamaq başqasını qınamaqdan çətin, amma dəyərlidir.",
+      "body": [
+        "Həcc ziyarətində olan biri şeytana daş atma vaxtı gələndə daşı atmaq əvəzinə onunla özünü döyməyə başlayır. Ətrafındakı bir cavan heyrətlə soruşur:",
+        "— Ay dayı, niyə daşla özünü döyürsən?",
+        "Adam belə cavab verir:",
+        "— Oğul, bizim buradakı şeytanla nə işimiz var? Əvvəl öz içimizdəki şeytanı daşlamalı, nəfsimizi tərbiyə edib özümüzü təmizləməliyik."
+      ],
+      "docx": "az/wisdom-stories/stoning-the-devil-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/stoning-the-devil.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: stoning-the-devil\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Şeytanı daşlama\nBODY[1]: Həcc ziyarətində olan biri şeytana daş atma vaxtı gələndə daşı atmaq əvəzinə onunla özünü döyməyə başlayır. Ətrafındakı bir cavan heyrətlə soruşur:\nBODY[2]: — Ay dayı, niyə daşla özünü döyürsən?\nBODY[3]: Adam belə cavab verir:\nBODY[4]: — Oğul, bizim buradakı şeytanla nə işimiz var? Əvvəl öz içimizdəki şeytanı daşlamalı, nəfsimizi tərbiyə edib özümüzü təmizləməliyik.\nMORAL: İbrət: Əsl mübarizə kənardakı şeytanla yox, insanın öz nəfsi ilədir. Özünü paklamaq başqasını qınamaqdan çətin, amma dəyərlidir.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "to-be-alone",
+      "title": "Tənha olmaq",
+      "moral": "İbrət: Ən böyük dərd insanların içində belə özünü tənha hiss etməkdir. Yanındakının tənhalığını görmək əsl həssaslıqdır.",
+      "body": [
+        "Bir tanışımın ziyarətinə getmişdim. Evinə daxil oldum, otağına girdim. Başını aşağı əymiş halda səssiz oturmuşdu. Qəmli görünürdü.",
+        "— Kədərlisən? — deyə soruşdum.",
+        "Başını qaldırıb gözlərimə baxdı:",
+        "— Yox, tənhayam."
+      ],
+      "docx": "az/wisdom-stories/to-be-alone-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/to-be-alone.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: to-be-alone\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Tənha olmaq\nBODY[1]: Bir tanışımın ziyarətinə getmişdim. Evinə daxil oldum, otağına girdim. Başını aşağı əymiş halda səssiz oturmuşdu. Qəmli görünürdü.\nBODY[2]: — Kədərlisən? — deyə soruşdum.\nBODY[3]: Başını qaldırıb gözlərimə baxdı:\nBODY[4]: — Yox, tənhayam.\nMORAL: İbrət: Ən böyük dərd insanların içində belə özünü tənha hiss etməkdir. Yanındakının tənhalığını görmək əsl həssaslıqdır.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "two-bowls-of-water",
+      "title": "İki qab su",
+      "moral": "İbrət: Var-dövlətin dəyəri şəraitdən asılıdır: səhrada bütün sərvətin cəmi iki qab su edər. Sərvətinlə öyünmə — onun qiyməti keçicidir.",
+      "body": [
+        "Qədim zamanlarda öz var-dövləti ilə məşhur bir hökmdar varmış. Bu hökmdar getdiyi hər yerə sərvətinin bir hissəsini aparar və onu nümayiş etdirməklə öyünərmiş. Hökmdarın ən çox güvəndiyi müdrik bir müəllimi varmış. Bir gün hökmdar ondan soruşur: «Sən dünyagörmüş adamsan. De görüm, mənim hökmdarlığım və sərvətim haqqında nə düşünürsən?»",
+        "Müdrik adam hökmdarın gözlərinə baxıb belə deyir: «Tutaq ki, hökmdarım, çox isti, ucu-bucağı görünməyən bir səhradasınız. Ölməməyiniz üçün sizə bir qab su verənə sərvətinizin yarısını verərsinizmi?» «Verərəm, təbii» deyə hökmdar cavab verir. Müdrik adam: «Tutaq ki, bir müddət sonra susuzluğunuz bir az da artdı. Növbəti qab su üçün sərvətinizin o biri yarısını da verərdinizmi?» Hökmdar bir az düşünüb: «Ölməmək üçün, əlbəttə, verərdim» deyir.",
+        "Müdrik gülümsəyib deyir:",
+        "— Elə isə sərvətinizlə çox öyünməyin, hökmdarım. Deməli, onun qiyməti cəmi iki qab sudur."
+      ],
+      "docx": "az/wisdom-stories/two-bowls-of-water-AZ-redakte.docx",
+      "output_webp": "az/wisdom-stories/illustrations/two-bowls-of-water.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. Azerbaijani text only. No English, Russian, Kyrgyz, or Turkish text. Every letter of Azerbaijani text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, and special letters ə vs e, ı vs i, ğ, ö, ü, ş, ç). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Azerbaijani string appears in BODY. Watch ə/ı/ğ/ö/ü/ş/ç carefully.\n\nStory stem: two-bowls-of-water\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: İki qab su\nBODY[1]: Qədim zamanlarda öz var-dövləti ilə məşhur bir hökmdar varmış. Bu hökmdar getdiyi hər yerə sərvətinin bir hissəsini aparar və onu nümayiş etdirməklə öyünərmiş. Hökmdarın ən çox güvəndiyi müdrik bir müəllimi varmış. Bir gün hökmdar ondan soruşur: «Sən dünyagörmüş adamsan. De görüm, mənim hökmdarlığım və sərvətim haqqında nə düşünürsən?»\nBODY[2]: Müdrik adam hökmdarın gözlərinə baxıb belə deyir: «Tutaq ki, hökmdarım, çox isti, ucu-bucağı görünməyən bir səhradasınız. Ölməməyiniz üçün sizə bir qab su verənə sərvətinizin yarısını verərsinizmi?» «Verərəm, təbii» deyə hökmdar cavab verir. Müdrik adam: «Tutaq ki, bir müddət sonra susuzluğunuz bir az da artdı. Növbəti qab su üçün sərvətinizin o biri yarısını da verərdinizmi?» Hökmdar bir az düşünüb: «Ölməmək üçün, əlbəttə, verərdim» deyir.\nBODY[3]: Müdrik gülümsəyib deyir:\nBODY[4]: — Elə isə sərvətinizlə çox öyünməyin, hökmdarım. Deməli, onun qiyməti cəmi iki qab sudur.\nMORAL: İbrət: Var-dövlətin dəyəri şəraitdən asılıdır: səhrada bütün sərvətin cəmi iki qab su edər. Sərvətinlə öyünmə — onun qiyməti keçicidir.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    }
+  ]
+}

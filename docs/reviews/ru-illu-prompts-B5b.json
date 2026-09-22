@@ -1,0 +1,143 @@
+{
+  "count": 8,
+  "asset_rule": "Save final art as WebP 1536x1024 at output_webp; HTML paths unchanged",
+  "text_rule": "On-image Russian must match Exact quotes exactly",
+  "items": [
+    {
+      "stem": "i-am-tired-mother",
+      "title": "Я устал, мама.",
+      "moral": "Мораль: Рядом с матерью мы снова чувствуем себя защищёнными. Цените её тепло, пока можете к нему вернуться.",
+      "body": [
+        "— Я устал, мама…",
+        "— Что, сынок?",
+        "— Я устал от всего: от работы, от друзей, от путешествий, от постоянной необходимости кому-то угождать, я так устал.",
+        "— Положи голову мне на колени и расслабься, сынок, забудь обо всем на мгновение… отдай мне свою боль…",
+        "— Спасибо, мама, хорошо, что ты здесь; с тобой я забываю о своем возрасте, о своей жизни. Будь рядом, мама.",
+        "— Я твоя мама, сынок. Где бы ты ни был, моё сердце всегда с тобой.",
+        "— Мама, мы тоже тебя сильно утомляем, прости нас.",
+        "— Ты меня не утомляешь, сынок. Я устаю от того, что у меня самой больше нет мамы. Некому положить голову на колени. Береги то, что у тебя есть."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/i-am-tired-mother.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: i-am-tired-mother\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Я устал, мама.\nBODY[1]: — Я устал, мама…\nBODY[2]: — Что, сынок?\nBODY[3]: — Я устал от всего: от работы, от друзей, от путешествий, от постоянной необходимости кому-то угождать, я так устал.\nBODY[4]: — Положи голову мне на колени и расслабься, сынок, забудь обо всем на мгновение… отдай мне свою боль…\nBODY[5]: — Спасибо, мама, хорошо, что ты здесь; с тобой я забываю о своем возрасте, о своей жизни. Будь рядом, мама.\nBODY[6]: — Я твоя мама, сынок. Где бы ты ни был, моё сердце всегда с тобой.\nBODY[7]: — Мама, мы тоже тебя сильно утомляем, прости нас.\nBODY[8]: — Ты меня не утомляешь, сынок. Я устаю от того, что у меня самой больше нет мамы. Некому положить голову на колени. Береги то, что у тебя есть.\nMORAL: Мораль: Рядом с матерью мы снова чувствуем себя защищёнными. Цените её тепло, пока можете к нему вернуться.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "if-i-dont-do-it-these-days-the-world-wont-collapse",
+      "title": "Мир не рухнет",
+      "moral": "Мораль: Держать слово — значит беречь доверие. Без него невозможно надёжное сотрудничество.",
+      "body": [
+        "Когда я спросил одного из наших сотрудников, на каком этапе находится выполнение порученного ему задания, его ответ меня глубоко разочаровал:",
+        "«Если я этого не сделаю в эти дни, мир не рухнет…»",
+        "Я на мгновение задумался: Да, мир не рухнет. Но как же доверие между нами? Разве оно тоже не разрушится? Разве такие отношения не навредят нашему сотрудничеству, взаимному уважению и общей работе, которую мы выполняем?",
+        "Дело было не в задержке на несколько дней, а в отношении к обещанию. Ответственность — это ещё и умение держать слово, уважать чужое время и оставаться человеком, на которого можно положиться.",
+        "Я думаю, что не следует подходить к любым взятым на себя обязательствам таким безответственным образом. Еще более прискорбно то, как был выражен этот подход. Для меня такой ответ звучит как минимум грубо и показывает, что время, усилия и доверие другой стороны недостаточно ценятся.",
+        "Должен признать, эти слова разбили мне сердце. В тот момент я понял, что наше сотрудничество не может продолжаться как прежде. Потому что основой любых профессиональных отношений является доверие. Когда доверие пошатнуто, сотрудничество также подвергается серьезному испытанию.",
+        "Больше всего огорчило, что коллега, даже поняв неуместность своих слов, не извинился и не выполнил задание. Пришлось искать другой способ решить задачу.",
+        "Этот случай напомнил мне: важнейшая ценность в совместной работе — доверие. Его можно завоёвывать годами и потерять одной неосторожной фразой."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/if-i-dont-do-it-these-days-the-world-wont-collapse.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: if-i-dont-do-it-these-days-the-world-wont-collapse\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Мир не рухнет\nBODY[1]: Когда я спросил одного из наших сотрудников, на каком этапе находится выполнение порученного ему задания, его ответ меня глубоко разочаровал:\nBODY[2]: «Если я этого не сделаю в эти дни, мир не рухнет…»\nBODY[3]: Я на мгновение задумался: Да, мир не рухнет. Но как же доверие между нами? Разве оно тоже не разрушится? Разве такие отношения не навредят нашему сотрудничеству, взаимному уважению и общей работе, которую мы выполняем?\nBODY[4]: Дело было не в задержке на несколько дней, а в отношении к обещанию. Ответственность — это ещё и умение держать слово, уважать чужое время и оставаться человеком, на которого можно положиться.\nBODY[5]: Я думаю, что не следует подходить к любым взятым на себя обязательствам таким безответственным образом. Еще более прискорбно то, как был выражен этот подход. Для меня такой ответ звучит как минимум грубо и показывает, что время, усилия и доверие другой стороны недостаточно ценятся.\nBODY[6]: Должен признать, эти слова разбили мне сердце. В тот момент я понял, что наше сотрудничество не может продолжаться как прежде. Потому что основой любых профессиональных отношений является доверие. Когда доверие пошатнуто, сотрудничество также подвергается серьезному испытанию.\nBODY[7]: Больше всего огорчило, что коллега, даже поняв неуместность своих слов, не извинился и не выполнил задание. Пришлось искать другой способ решить задачу.\nBODY[8]: Этот случай напомнил мне: важнейшая ценность в совместной работе — доверие. Его можно завоёвывать годами и потерять одной неосторожной фразой.\nMORAL: Мораль: Держать слово — значит беречь доверие. Без него невозможно надёжное сотрудничество.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "it-wont-go-to-waste",
+      "title": "Не пропадёт даром",
+      "moral": "Мораль: Доброта, слова и дела от сердца никогда не исчезают; они освещают путь другим и озаряют вашу жизнь.",
+      "body": [
+        "Доброта, совершённая от сердца,",
+        "поступок, замешанный на любви,",
+        "слово, сказанное искренне,",
+        "вежливость в обращении,",
+        "улыбка, окрашенная нежностью,",
+        "шаг, сделанный ради правды и справедливости,",
+        "уважение к нравственным ценностям —",
+        "всё это не пропадает даром. Освещая путь другим, мы делаем светлее и собственную жизнь."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/it-wont-go-to-waste.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: it-wont-go-to-waste\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Не пропадёт даром\nBODY[1]: Доброта, совершённая от сердца,\nBODY[2]: поступок, замешанный на любви,\nBODY[3]: слово, сказанное искренне,\nBODY[4]: вежливость в обращении,\nBODY[5]: улыбка, окрашенная нежностью,\nBODY[6]: шаг, сделанный ради правды и справедливости,\nBODY[7]: уважение к нравственным ценностям —\nBODY[8]: всё это не пропадает даром. Освещая путь другим, мы делаем светлее и собственную жизнь.\nMORAL: Мораль: Доброта, слова и дела от сердца никогда не исчезают; они освещают путь другим и озаряют вашу жизнь.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "life-lesson",
+      "title": "Урок жизни",
+      "moral": "Мораль: Внешнее сходство ещё не означает близости намерений. Умейте различать союзника и противника по поступкам.",
+      "body": [
+        "Обучая волчонка жизни, отец-волк показал ему овец:",
+        "— Смотри, их мясо очень вкусное.",
+        "Затем он указал на пастуха:",
+        "— А его палка бывает очень горькой. Будь осторожен.",
+        "Увидев собаку рядом с пастухом, волчонок радостно воскликнул:",
+        "— Папа, смотри, она похожа на нас!",
+        "Отец ответил:",
+        "— Как только увидишь её, беги, сынок. Больше всего мы страдали от тех, кто похож на нас, но не принадлежит к нам."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/life-lesson.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: life-lesson\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Урок жизни\nBODY[1]: Обучая волчонка жизни, отец-волк показал ему овец:\nBODY[2]: — Смотри, их мясо очень вкусное.\nBODY[3]: Затем он указал на пастуха:\nBODY[4]: — А его палка бывает очень горькой. Будь осторожен.\nBODY[5]: Увидев собаку рядом с пастухом, волчонок радостно воскликнул:\nBODY[6]: — Папа, смотри, она похожа на нас!\nBODY[7]: Отец ответил:\nBODY[8]: — Как только увидишь её, беги, сынок. Больше всего мы страдали от тех, кто похож на нас, но не принадлежит к нам.\nMORAL: Мораль: Внешнее сходство ещё не означает близости намерений. Умейте различать союзника и противника по поступкам.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "sharing-justice",
+      "title": "Радость, которой делятся",
+      "moral": "Мораль: Человечность проявляется в готовности делиться хлебом, радостью и любовью. Нет справедливости там, где одни празднуют, не замечая чужих слёз.",
+      "body": [
+        "Либо пусть никто не плачет,",
+        "либо пусть чужие слёзы тревожат тех, кто смеётся.",
+        "Либо пусть деньги перестанут быть болезнью,",
+        "либо пусть богатые научатся делиться.",
+        "Либо не говорите о любви,",
+        "либо покажите, что значит любить по-настоящему.",
+        "Либо откажитесь от праздников,",
+        "либо позаботьтесь, чтобы в праздник у каждого было угощение."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/sharing-justice.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: sharing-justice\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Радость, которой делятся\nBODY[1]: Либо пусть никто не плачет,\nBODY[2]: либо пусть чужие слёзы тревожат тех, кто смеётся.\nBODY[3]: Либо пусть деньги перестанут быть болезнью,\nBODY[4]: либо пусть богатые научатся делиться.\nBODY[5]: Либо не говорите о любви,\nBODY[6]: либо покажите, что значит любить по-настоящему.\nBODY[7]: Либо откажитесь от праздников,\nBODY[8]: либо позаботьтесь, чтобы в праздник у каждого было угощение.\nMORAL: Мораль: Человечность проявляется в готовности делиться хлебом, радостью и любовью. Нет справедливости там, где одни празднуют, не замечая чужих слёз.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "shepherds-word",
+      "title": "Слово пастуха",
+      "moral": "Мораль: Истинное богатство человека — это не его богатство, а его слово, совесть и доверие.",
+      "body": [
+        "Жил-был когда-то в одной деревне бедный, но честный пастух по имени Хасан. Однажды староста деревни позвал его и сказал:",
+        "— Эй, Хасан, я слышал, что ты хорошо знаком с горными пастбищами. Я поручаю тебе стадо этим летом. Если осенью мои животные вернутся здоровыми и упитанными, я дам тебе корову.",
+        "Всё лето Хасан пас стадо в любую погоду, а по ночам стерёг его, не смыкая глаз. Осенью животные вернулись здоровыми и упитанными.",
+        "Хасан пришел к старосте, надеясь получить обещанную корову. Староста насмешливо улыбнулся и сказал:",
+        "— Я не собирался давать тебе корову, эти слова были сказаны лишь для того, чтобы подбодрить тебя. Если ты и так беден, что ты будешь делать с коровой?",
+        "Глаза Хасана наполнились слезами. Но он спокойно и с достоинством ответил:",
+        "— Я беден, это правда. Но совесть у меня есть, и слово я держу. А если вашему слову нельзя верить, какое же это богатство?",
+        "Об этом разговоре узнала вся деревня. Староста потерял доброе имя, и люди перестали иметь с ним дело. Слишком поздно он понял: цену человеку определяет верность слову, а не достаток."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/shepherds-word.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: shepherds-word\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Слово пастуха\nBODY[1]: Жил-был когда-то в одной деревне бедный, но честный пастух по имени Хасан. Однажды староста деревни позвал его и сказал:\nBODY[2]: — Эй, Хасан, я слышал, что ты хорошо знаком с горными пастбищами. Я поручаю тебе стадо этим летом. Если осенью мои животные вернутся здоровыми и упитанными, я дам тебе корову.\nBODY[3]: Всё лето Хасан пас стадо в любую погоду, а по ночам стерёг его, не смыкая глаз. Осенью животные вернулись здоровыми и упитанными.\nBODY[4]: Хасан пришел к старосте, надеясь получить обещанную корову. Староста насмешливо улыбнулся и сказал:\nBODY[5]: — Я не собирался давать тебе корову, эти слова были сказаны лишь для того, чтобы подбодрить тебя. Если ты и так беден, что ты будешь делать с коровой?\nBODY[6]: Глаза Хасана наполнились слезами. Но он спокойно и с достоинством ответил:\nBODY[7]: — Я беден, это правда. Но совесть у меня есть, и слово я держу. А если вашему слову нельзя верить, какое же это богатство?\nBODY[8]: Об этом разговоре узнала вся деревня. Староста потерял доброе имя, и люди перестали иметь с ним дело. Слишком поздно он понял: цену человеку определяет верность слову, а не достаток.\nMORAL: Мораль: Истинное богатство человека — это не его богатство, а его слово, совесть и доверие.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "spinach",
+      "title": "Шпинат",
+      "moral": "Мораль: Материнскую жертву мы порой понимаем лишь спустя годы. Любовь может скрываться даже в тарелке самой простой еды.",
+      "body": [
+        "Мы жили в глухой деревне, куда даже дороги хорошей не было. После смерти отца мама словно помешалась на шпинате. Ребёнком я не мог этого понять.",
+        "«Ешь, он придаёт силы», — говорила мама. Утром, днём и вечером на столе был шпинат и немного кукурузного хлеба. Я терпеть его не мог.",
+        "Однажды я заявил: «Вырасту, найду работу, женюсь — и в моём доме шпината не будет!» Мама ответила, что ждёт этого дня и обязательно станцует на моей свадьбе, сколько бы ей ни было лет.",
+        "Позже я уехал учиться в город. На небольшую стипендию еле сводил концы с концами. Домой приезжал раз в месяц, но к маминому шпинату не притрагивался: ждал возвращения в общежитие, где еда казалась вкуснее.",
+        "Я окончил университет, затем магистратуру и защитил диссертацию, пользуясь государственными займами на учёбу. Мама к тому времени состарилась и сгорбилась. На моей свадьбе она, как и обещала, танцевала и плакала. Я тогда не понимал этих слёз.",
+        "Прошли годы. Моя мать умерла два года назад.",
+        "Однажды я нашел в старом сундуке записную книжку, которую моя мать хранила в то время. На одной из страниц блокнота моя мать написала: «У меня остались только семена шпината. Я постоянно сажала шпинат и немного кукурузы. У меня ничего не было под рукой или в кармане. Я готовила это блюдо, чтобы мои дети не голодали. Но я не бунтовала. «Шпинат очень полезен, поэтому я даю его вам три раза в день», — мое сердце сжималось от боли, когда я это говорила. Это все, что я могла сделать для своих детей. Я люблю их всем сердцем».",
+        "Я полюбил шпинат только в пятьдесят лет. Жена удивляется, почему так часто его покупаю, и думает, что дело во вкусе. Но каждый раз его запах напоминает мне о маме, о её самоотверженности и о том, как она танцевала на моей свадьбе со слезами на глазах."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/spinach.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: spinach\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Шпинат\nBODY[1]: Мы жили в глухой деревне, куда даже дороги хорошей не было. После смерти отца мама словно помешалась на шпинате. Ребёнком я не мог этого понять.\nBODY[2]: «Ешь, он придаёт силы», — говорила мама. Утром, днём и вечером на столе был шпинат и немного кукурузного хлеба. Я терпеть его не мог.\nBODY[3]: Однажды я заявил: «Вырасту, найду работу, женюсь — и в моём доме шпината не будет!» Мама ответила, что ждёт этого дня и обязательно станцует на моей свадьбе, сколько бы ей ни было лет.\nBODY[4]: Позже я уехал учиться в город. На небольшую стипендию еле сводил концы с концами. Домой приезжал раз в месяц, но к маминому шпинату не притрагивался: ждал возвращения в общежитие, где еда казалась вкуснее.\nBODY[5]: Я окончил университет, затем магистратуру и защитил диссертацию, пользуясь государственными займами на учёбу. Мама к тому времени состарилась и сгорбилась. На моей свадьбе она, как и обещала, танцевала и плакала. Я тогда не понимал этих слёз.\nBODY[6]: Прошли годы. Моя мать умерла два года назад.\nBODY[7]: Однажды я нашел в старом сундуке записную книжку, которую моя мать хранила в то время. На одной из страниц блокнота моя мать написала: «У меня остались только семена шпината. Я постоянно сажала шпинат и немного кукурузы. У меня ничего не было под рукой или в кармане. Я готовила это блюдо, чтобы мои дети не голодали. Но я не бунтовала. «Шпинат очень полезен, поэтому я даю его вам три раза в день», — мое сердце сжималось от боли, когда я это говорила. Это все, что я могла сделать для своих детей. Я люблю их всем сердцем».\nBODY[8]: Я полюбил шпинат только в пятьдесят лет. Жена удивляется, почему так часто его покупаю, и думает, что дело во вкусе. Но каждый раз его запах напоминает мне о маме, о её самоотверженности и о том, как она танцевала на моей свадьбе со слезами на глазах.\nMORAL: Мораль: Материнскую жертву мы порой понимаем лишь спустя годы. Любовь может скрываться даже в тарелке самой простой еды.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "telling-lies",
+      "title": "Ложь",
+      "moral": "Мораль: Иногда добрые слова, которые вы говорите себе — «ты можешь это сделать» — становятся той силой, которая движет вас вперед. Человек настолько силен, насколько он верит в себя.",
+      "body": [
+        "— Вы лжете?",
+        "— Да.",
+        "— Что это за ложь?",
+        "— Я говорю эту ложь только себе. То есть, каждый день я говорю себе: «Ты сильнее всех, образованнее всех, способнее всех» и так далее.",
+        "— Может быть, это правда?",
+        "— Нет, такое утверждение не может быть правдой. Потому что есть люди сильнее меня, и есть люди способнее меня.",
+        "— Тогда почему вы говорите себе эту ложь?",
+        "— Эти слова придают мне сил. Мне хочется учиться, становиться сильнее и больше работать над собой."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/telling-lies.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: telling-lies\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Ложь\nBODY[1]: — Вы лжете?\nBODY[2]: — Да.\nBODY[3]: — Что это за ложь?\nBODY[4]: — Я говорю эту ложь только себе. То есть, каждый день я говорю себе: «Ты сильнее всех, образованнее всех, способнее всех» и так далее.\nBODY[5]: — Может быть, это правда?\nBODY[6]: — Нет, такое утверждение не может быть правдой. Потому что есть люди сильнее меня, и есть люди способнее меня.\nBODY[7]: — Тогда почему вы говорите себе эту ложь?\nBODY[8]: — Эти слова придают мне сил. Мне хочется учиться, становиться сильнее и больше работать над собой.\nMORAL: Мораль: Иногда добрые слова, которые вы говорите себе — «ты можешь это сделать» — становятся той силой, которая движет вас вперед. Человек настолько силен, насколько он верит в себя.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    }
+  ]
+}

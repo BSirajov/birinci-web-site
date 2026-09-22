@@ -1,0 +1,39 @@
+{
+  "article_count": 121,
+  "tallies": {
+    "az": {
+      "Excellent": 26,
+      "Good": 89,
+      "Needs improvement": 6,
+      "Poor–overly literal": 0
+    },
+    "ru": {
+      "Excellent": 114,
+      "Good": 7,
+      "Needs improvement": 0,
+      "Poor–overly literal": 0
+    },
+    "ky": {
+      "Excellent": 11,
+      "Good": 105,
+      "Needs improvement": 5,
+      "Poor–overly literal": 0
+    }
+  },
+  "az_ni": [
+    "1.1",
+    "3.11",
+    "4.8",
+    "4.18",
+    "6.8",
+    "6.11"
+  ],
+  "ky_ni": [
+    "1.8",
+    "1.15",
+    "3.11",
+    "4.18",
+    "6.8"
+  ],
+  "master": "c:\\dev\\birinci-web-site\\docs\\reviews\\discovery-localization-review-2026-09-17.docx"
+}

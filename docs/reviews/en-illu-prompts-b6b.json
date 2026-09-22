@@ -1,0 +1,153 @@
+{
+  "count": 8,
+  "asset_rule": "Save final art as WebP 1536x1024 at output_webp; HTML paths unchanged",
+  "text_rule": "On-image English must match Exact quotes exactly",
+  "items": [
+    {
+      "stem": "mullah-and-the-scholar",
+      "title": "The Mullah and the Scholar",
+      "moral": "Moral: The same sign is read differently in each person’s world. We often see the other in the mirror of our own thoughts.",
+      "body": [
+        "A visiting scholar came to Tamerlane’s court and asked, through an interpreter, to meet the country’s learned men. None dared debate him. At last, the Mullah volunteered.",
+        "At the gathering, the scholar drew a circle on the ground. The Mullah divided it in half, then into quarters, claiming three for himself and offering one to the visitor. The scholar nodded. Next, he held out a fist with the back of his hand downward. The Mullah turned his own hand over, pointing his fingers toward the ground. Again, the scholar nodded.",
+        "Finally, the visitor mimed eating. The Mullah took an egg from his pocket and flapped his arms. The scholar laughed, kissed his hand, and the exchange ended.",
+        "Afterward, Tamerlane asked the visitor through the interpreter, “What did those gestures mean? We understood none of them.”",
+        "“The circle represented the round earth,” the scholar explained. “He drew the equator, then divided the globe into three parts water and one part land. I asked about plant life, and he showed that plants depend on rain and sunlight.",
+        "“Finally, I asked about humans and animals. With the egg, he reminded me to include birds.”",
+        "After the visitor had gone, Tamerlane summoned the Mullah for his explanation.",
+        "“The scholar?” said the Mullah. “I thought he would be a learned man, but he was only hungry. First he drew a circle, meaning a pan of omelet. I divided it in half: ‘You can’t have it all—there’s me to consider.’ He still looked dissatisfied, so I divided it into four and claimed three shares to teach him a lesson about greed. He agreed. Then he raised his hand, asking for a pot of pilaf.",
+        "“I turned my hand down to say I’d have the topping. Then he rubbed his stomach to show he was hungry from traveling. I took out my egg and told him, ‘I’m hungrier than you, and this is all I have. Don’t ask me to share it!’”"
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/mullah-and-the-scholar.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: mullah-and-the-scholar\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: The Mullah and the Scholar\nBODY[1]: A visiting scholar came to Tamerlane’s court and asked, through an interpreter, to meet the country’s learned men. None dared debate him. At last, the Mullah volunteered.\nBODY[2]: At the gathering, the scholar drew a circle on the ground. The Mullah divided it in half, then into quarters, claiming three for himself and offering one to the visitor. The scholar nodded. Next, he held out a fist with the back of his hand downward. The Mullah turned his own hand over, pointing his fingers toward the ground. Again, the scholar nodded.\nBODY[3]: Finally, the visitor mimed eating. The Mullah took an egg from his pocket and flapped his arms. The scholar laughed, kissed his hand, and the exchange ended.\nBODY[4]: Afterward, Tamerlane asked the visitor through the interpreter, “What did those gestures mean? We understood none of them.”\nBODY[5]: “The circle represented the round earth,” the scholar explained. “He drew the equator, then divided the globe into three parts water and one part land. I asked about plant life, and he showed that plants depend on rain and sunlight.\nBODY[6]: “Finally, I asked about humans and animals. With the egg, he reminded me to include birds.”\nBODY[7]: After the visitor had gone, Tamerlane summoned the Mullah for his explanation.\nBODY[8]: “The scholar?” said the Mullah. “I thought he would be a learned man, but he was only hungry. First he drew a circle, meaning a pan of omelet. I divided it in half: ‘You can’t have it all—there’s me to consider.’ He still looked dissatisfied, so I divided it into four and claimed three shares to teach him a lesson about greed. He agreed. Then he raised his hand, asking for a pot of pilaf.\nBODY[9]: “I turned my hand down to say I’d have the topping. Then he rubbed his stomach to show he was hungry from traveling. I took out my egg and told him, ‘I’m hungrier than you, and this is all I have. Don’t ask me to share it!’”\nMORAL: Moral: The same sign is read differently in each person’s world. We often see the other in the mirror of our own thoughts.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "pair-of-boots",
+      "title": "A Pair of Boots",
+      "moral": "Moral: The finest victory is to value another person’s joy above one’s own. True compassion is revealed in the willingness to surrender an opportunity for someone else.",
+      "body": [
+        "One day, a schoolteacher asked her pupils to write a story on any subject and promised a pair of boots to the author of the best one. Every child completed a story and handed it in.",
+        "The teacher read each piece and liked them all. Unable to choose the best, she decided to draw the winner by lot.",
+        "Each pupil wrote a name on a slip of paper, folded it, and placed it in a box on the teacher’s desk. After mixing the slips, she drew one and announced:",
+        "“Amina!”",
+        "The classroom erupted in applause. Amina pressed the boots to her chest and could not hold back tears of joy.",
+        "That evening, the teacher returned home and tearfully told her husband what had happened. He was puzzled:",
+        "“You found a wonderful solution. Why are you crying?”",
+        "The teacher replied:",
+        "“Because every slip said Amina. Not one child wrote their own name. They all wanted the girl from the poorest family to have those boots.”"
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/pair-of-boots.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: pair-of-boots\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: A Pair of Boots\nBODY[1]: One day, a schoolteacher asked her pupils to write a story on any subject and promised a pair of boots to the author of the best one. Every child completed a story and handed it in.\nBODY[2]: The teacher read each piece and liked them all. Unable to choose the best, she decided to draw the winner by lot.\nBODY[3]: Each pupil wrote a name on a slip of paper, folded it, and placed it in a box on the teacher’s desk. After mixing the slips, she drew one and announced:\nBODY[4]: “Amina!”\nBODY[5]: The classroom erupted in applause. Amina pressed the boots to her chest and could not hold back tears of joy.\nBODY[6]: That evening, the teacher returned home and tearfully told her husband what had happened. He was puzzled:\nBODY[7]: “You found a wonderful solution. Why are you crying?”\nBODY[8]: The teacher replied:\nBODY[9]: “Because every slip said Amina. Not one child wrote their own name. They all wanted the girl from the poorest family to have those boots.”\nMORAL: Moral: The finest victory is to value another person’s joy above one’s own. True compassion is revealed in the willingness to surrender an opportunity for someone else.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "properties-of-water",
+      "title": "What Water Teaches Us",
+      "moral": "Moral: Human connection keeps the heart alive, just as movement keeps water fresh.",
+      "body": [
+        "Consider water:",
+        "It nourishes a tree.",
+        "It puts out a fire.",
+        "It washes away dirt.",
+        "Mixed with flour, it makes dough.",
+        "Meeting sunlight, it forms a rainbow.",
+        "Flowing, it brings life.",
+        "Standing still, it can grow stagnant.",
+        "The heart is like water: it is renewed through connection, but can grow stagnant in isolation."
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/properties-of-water.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: properties-of-water\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: What Water Teaches Us\nBODY[1]: Consider water:\nBODY[2]: It nourishes a tree.\nBODY[3]: It puts out a fire.\nBODY[4]: It washes away dirt.\nBODY[5]: Mixed with flour, it makes dough.\nBODY[6]: Meeting sunlight, it forms a rainbow.\nBODY[7]: Flowing, it brings life.\nBODY[8]: Standing still, it can grow stagnant.\nBODY[9]: The heart is like water: it is renewed through connection, but can grow stagnant in isolation.\nMORAL: Moral: Human connection keeps the heart alive, just as movement keeps water fresh.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "to-be-self-confident",
+      "title": "Believe in Yourself",
+      "moral": "Moral: Value yourself, do not lose hope, protect your dignity. Self-confidence is a person's strongest support.",
+      "body": [
+        "Value yourself!",
+        "Do not give in to weakness.",
+        "Build on your strengths.",
+        "Do not lose hope!",
+        "Keep learning.",
+        "Be determined!",
+        "Act with good intentions.",
+        "Protect your dignity!",
+        "Be faithful!"
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/to-be-self-confident.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: to-be-self-confident\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Believe in Yourself\nBODY[1]: Value yourself!\nBODY[2]: Do not give in to weakness.\nBODY[3]: Build on your strengths.\nBODY[4]: Do not lose hope!\nBODY[5]: Keep learning.\nBODY[6]: Be determined!\nBODY[7]: Act with good intentions.\nBODY[8]: Protect your dignity!\nBODY[9]: Be faithful!\nMORAL: Moral: Value yourself, do not lose hope, protect your dignity. Self-confidence is a person's strongest support.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "why-people-shout-when-they-argue",
+      "title": "Why Do We Shout?",
+      "moral": "Moral: Screaming is the sound of hearts drifting apart. A whisper is enough in love — don't increase the distance between you.",
+      "body": [
+        "One day during class, a teacher asked his students:",
+        "“Why do people shout when they argue?”",
+        "“Because they lose their temper,” a student replied.",
+        "“But the other person is right beside them. Why raise their voices instead of speaking calmly?”",
+        "Each of the students gave an answer, but none of them satisfied the teacher. Finally, he said:",
+        "“When people quarrel, their hearts seem to move apart. They shout as though trying to make themselves heard across that distance.”",
+        "After a moment of silence, the teacher continued:",
+        "“When people love each other, they speak softly. As they grow closer, they may need only a whisper. Sometimes a look is enough. So when you argue, do not use words that drive your hearts farther apart.",
+        "“One day, the distance may become too great to find your way back.”"
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/why-people-shout-when-they-argue.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: why-people-shout-when-they-argue\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Why Do We Shout?\nBODY[1]: One day during class, a teacher asked his students:\nBODY[2]: “Why do people shout when they argue?”\nBODY[3]: “Because they lose their temper,” a student replied.\nBODY[4]: “But the other person is right beside them. Why raise their voices instead of speaking calmly?”\nBODY[5]: Each of the students gave an answer, but none of them satisfied the teacher. Finally, he said:\nBODY[6]: “When people quarrel, their hearts seem to move apart. They shout as though trying to make themselves heard across that distance.”\nBODY[7]: After a moment of silence, the teacher continued:\nBODY[8]: “When people love each other, they speak softly. As they grow closer, they may need only a whisper. Sometimes a look is enough. So when you argue, do not use words that drive your hearts farther apart.\nBODY[9]: “One day, the distance may become too great to find your way back.”\nMORAL: Moral: Screaming is the sound of hearts drifting apart. A whisper is enough in love — don't increase the distance between you.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "with-this-nation-the-world-can-be-conquered",
+      "title": "The Strength of a Generous People",
+      "moral": "Moral: A people’s strength rests in honesty and generosity. Winning hearts is a greater victory than winning territory.",
+      "body": [
+        "A king went into the city in disguise to see how his people lived. He walked through the markets, observing the goods, prices, and shopkeepers.",
+        "The king entered the first shop at the beginning of the street. He greeted and said:",
+        "“Half a batman of butter, half a batman of honey, and some cheese, please.” The batman was a traditional measure of weight.",
+        "The shopkeeper greeted him warmly and weighed out the butter.",
+        "“I can sell you the honey and cheese too,” he said, “but this is my first sale today. My neighbor has not yet had one. Would you buy the rest from him?”",
+        "Pleased, the king paid and crossed the street. There he asked for the honey and cheese. The second shopkeeper weighed the honey, then said:",
+        "“Thank Allah, I’ve made my first sale. Would you buy your cheese next door? That shopkeeper is still waiting for his.”",
+        "The king, who was very impressed by what he saw, went to the shop next door and made his purchase, and said:",
+        "“With people of such character, one could conquer the world,” he said, leaving the market delighted."
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/with-this-nation-the-world-can-be-conquered.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: with-this-nation-the-world-can-be-conquered\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: The Strength of a Generous People\nBODY[1]: A king went into the city in disguise to see how his people lived. He walked through the markets, observing the goods, prices, and shopkeepers.\nBODY[2]: The king entered the first shop at the beginning of the street. He greeted and said:\nBODY[3]: “Half a batman of butter, half a batman of honey, and some cheese, please.” The batman was a traditional measure of weight.\nBODY[4]: The shopkeeper greeted him warmly and weighed out the butter.\nBODY[5]: “I can sell you the honey and cheese too,” he said, “but this is my first sale today. My neighbor has not yet had one. Would you buy the rest from him?”\nBODY[6]: Pleased, the king paid and crossed the street. There he asked for the honey and cheese. The second shopkeeper weighed the honey, then said:\nBODY[7]: “Thank Allah, I’ve made my first sale. Would you buy your cheese next door? That shopkeeper is still waiting for his.”\nBODY[8]: The king, who was very impressed by what he saw, went to the shop next door and made his purchase, and said:\nBODY[9]: “With people of such character, one could conquer the world,” he said, leaving the market delighted.\nMORAL: Moral: A people’s strength rests in honesty and generosity. Winning hearts is a greater victory than winning territory.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "albrecht-durer",
+      "title": "Albrecht Dürer",
+      "moral": "Moral: Behind success there often stands an unseen sacrifice. To recognize and honor that sacrifice is one of the finest expressions of humanity.",
+      "body": [
+        "In a small village near Nuremberg lived a family with ten children. Their father worked eighteen hours a day to support the household. Despite their hardship, the two eldest sons, Albrecht and Albert, dreamed of becoming renowned artists. They knew their father could not afford to educate them both at once.",
+        "After long discussions by candlelight, the brothers decided to draw lots. The winner would study at the academy in Nuremberg, while the other worked in a nearby mine to support him. After four years, they would exchange places.",
+        "Albrecht won the draw. He left for the academy, and Albert began working in the mine.",
+        "For four years, one brother studied art while the other labored underground. Albrecht’s work soon attracted wide attention; some said that it surpassed the work of many of his teachers.",
+        "By the time he completed his studies, Albrecht was earning a good income. He returned home joyfully and told his brother:",
+        "“Dear brother, now it is your turn. Go and pursue your dream; this time I will support you.”",
+        "Albert held out his hands and answered softly:",
+        "“No, brother. It is too late. Four years in the mine have damaged my hands and every one of my fingers. I can no longer draw.”",
+        "Albrecht took his brother’s hands in his own and wept.",
+        "Centuries later, the works of Albrecht Dürer (1471–1528) continue to be displayed in leading galleries around the world. The famous drawing associated with his brother’s sacrifice is known as Praying Hands."
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/albrecht-durer.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: albrecht-durer\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Albrecht Dürer\nBODY[1]: In a small village near Nuremberg lived a family with ten children. Their father worked eighteen hours a day to support the household. Despite their hardship, the two eldest sons, Albrecht and Albert, dreamed of becoming renowned artists. They knew their father could not afford to educate them both at once.\nBODY[2]: After long discussions by candlelight, the brothers decided to draw lots. The winner would study at the academy in Nuremberg, while the other worked in a nearby mine to support him. After four years, they would exchange places.\nBODY[3]: Albrecht won the draw. He left for the academy, and Albert began working in the mine.\nBODY[4]: For four years, one brother studied art while the other labored underground. Albrecht’s work soon attracted wide attention; some said that it surpassed the work of many of his teachers.\nBODY[5]: By the time he completed his studies, Albrecht was earning a good income. He returned home joyfully and told his brother:\nBODY[6]: “Dear brother, now it is your turn. Go and pursue your dream; this time I will support you.”\nBODY[7]: Albert held out his hands and answered softly:\nBODY[8]: “No, brother. It is too late. Four years in the mine have damaged my hands and every one of my fingers. I can no longer draw.”\nBODY[9]: Albrecht took his brother’s hands in his own and wept.\nBODY[10]: Centuries later, the works of Albrecht Dürer (1471–1528) continue to be displayed in leading galleries around the world. The famous drawing associated with his brother’s sacrifice is known as Praying Hands.\nMORAL: Moral: Behind success there often stands an unseen sacrifice. To recognize and honor that sacrifice is one of the finest expressions of humanity.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "beware-of-those-you-love",
+      "title": "Take Care of Those You Love",
+      "moral": "Moral: Every extra moment with those you love is a gift. Before it is too late, give them five more minutes today.",
+      "body": [
+        "On a sunny day in the park, a woman told the man beside her that the boy in the red shirt on the swings was her son. The man smiled and pointed to the boy in blue: that was his son, Jamil.",
+        "After a while, he checked his watch and called:",
+        "“Jamil, it is time to go home.”",
+        "“Five more minutes, Dad, please!”",
+        "The father agreed. Later he called again, but the boy asked for another five minutes. Once more, the man said yes.",
+        "The woman remarked admiringly:",
+        "“You are a very patient father.”",
+        "The man answered with a sorrowful smile:",
+        "“This isn’t patience. Last year my older son, Kamal, was hit nearby by a drunk driver. I had never given him enough of my time. Now I would give anything for five more minutes with him. I promised myself I wouldn’t make the same mistake with Jamil.",
+        "“He thinks he’s getting five more minutes to play. But I’m the one receiving a gift: five more minutes of happiness watching him.”"
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/beware-of-those-you-love.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: beware-of-those-you-love\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Take Care of Those You Love\nBODY[1]: On a sunny day in the park, a woman told the man beside her that the boy in the red shirt on the swings was her son. The man smiled and pointed to the boy in blue: that was his son, Jamil.\nBODY[2]: After a while, he checked his watch and called:\nBODY[3]: “Jamil, it is time to go home.”\nBODY[4]: “Five more minutes, Dad, please!”\nBODY[5]: The father agreed. Later he called again, but the boy asked for another five minutes. Once more, the man said yes.\nBODY[6]: The woman remarked admiringly:\nBODY[7]: “You are a very patient father.”\nBODY[8]: The man answered with a sorrowful smile:\nBODY[9]: “This isn’t patience. Last year my older son, Kamal, was hit nearby by a drunk driver. I had never given him enough of my time. Now I would give anything for five more minutes with him. I promised myself I wouldn’t make the same mistake with Jamil.\nBODY[10]: “He thinks he’s getting five more minutes to play. But I’m the one receiving a gift: five more minutes of happiness watching him.”\nMORAL: Moral: Every extra moment with those you love is a gift. Before it is too late, give them five more minutes today.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    }
+  ]
+}

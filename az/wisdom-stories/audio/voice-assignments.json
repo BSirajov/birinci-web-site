@@ -4,8 +4,8 @@
   "narrator_voice": "az-AZ-BabekNeural",
   "female_voice": "az-AZ-BanuNeural",
   "male_voice": "az-AZ-BabekNeural",
-  "story_count": 250,
-  "dialogue_story_count": 131,
+  "story_count": 249,
+  "dialogue_story_count": 130,
   "extra_speaker_story_count": 6,
   "stories": {
     "friend-of-god": {
@@ -2980,28 +2980,6 @@
           "voice": "az-AZ-BabekNeural",
           "delivery": "primary",
           "sample": "Dülgər 800 qulden tapıb, tacir isə 900 qulden itirib. Deməli, dülgərin tapdığı pul tacirin deyil. Buna görə də sahibi tapılmadığından bu 800 qulden dülgərə veri"
-        }
-      ]
-    },
-    "nazim-hikmet-in-bursa-prison": {
-      "title": "Nazim Hikmət Bursa həbsxanasında",
-      "category": "edalet-ve-cemiyyet",
-      "narrator": "az-AZ-BabekNeural",
-      "dialogue": true,
-      "speakers": [
-        {
-          "id": 0,
-          "gender": "female",
-          "voice": "az-AZ-BanuNeural",
-          "delivery": "primary",
-          "sample": "Ömər Xəyyamı tanıyırsınızmı?"
-        },
-        {
-          "id": 1,
-          "gender": "male",
-          "voice": "az-AZ-BabekNeural",
-          "delivery": "primary",
-          "sample": "Əlbəttə. Onu tanımamaq olarmı?"
         }
       ]
     },

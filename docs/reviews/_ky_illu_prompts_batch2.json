@@ -1,0 +1,61 @@
+{
+  "count": 5,
+  "asset_rule": "Save final art as WebP 1536x1024 at output_webp; HTML paths unchanged",
+  "text_rule": "On-image Kyrgyz must match Exact quotes exactly",
+  "items": [
+    {
+      "stem": "his-hand-is-at-work",
+      "title": "Колу иште",
+      "moral": "Сабак: Элге иштеп жаткандай көрүнүү башка, иштен майнап чыгаруу башка. Куру көрүнүш үчүн убактыңды, каражатыңды текке кетирбе.",
+      "body": [
+        "Бир киши он жумуртканы он тыйынга сатып алып, тогуз тыйынга сатчу экен. Тааныштары мындай таң калыштуу сооданын максатын сураганда, ал мындай деп жооп берет:",
+        "— Зыян тартып жатканыма карабагыла; соода кылып жүргөнүмдү көрүп, баары мени соодагер деп эсептейт, колум иште экенин көрүшөт."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/his-hand-is-at-work.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: his-hand-is-at-work\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Колу иште\nBODY[1]: Бир киши он жумуртканы он тыйынга сатып алып, тогуз тыйынга сатчу экен. Тааныштары мындай таң калыштуу сооданын максатын сураганда, ал мындай деп жооп берет:\nBODY[2]: — Зыян тартып жатканыма карабагыла; соода кылып жүргөнүмдү көрүп, баары мени соодагер деп эсептейт, колум иште экенин көрүшөт.\nMORAL: Сабак: Элге иштеп жаткандай көрүнүү башка, иштен майнап чыгаруу башка. Куру көрүнүш үчүн убактыңды, каражатыңды текке кетирбе.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "fly-in-the-china-shop",
+      "title": "Фарфор дүкөнүндөгү чымын",
+      "moral": "Сабак: Ойлонбой иш кылган адам жалган сөзгө азгырылып, чоң бүлүк салышы мүмкүн. Укканыңды текшерип, акылга салып чеч.",
+      "body": [
+        "Бир чымын фарфор идиштер сатылган дүкөндү талкалагысы келсе да, ага күчү жетпейт. Бирок ал өгүздүн кулагына кирип кетсе, үркүп кеткен өгүз бүт дүкөндү талкалап салышы мүмкүн.",
+        "Бул чымын — ырым-жырымдын, жалгандын жана бир жактуу көз караштын белгиси. Өгүз болсо ойлонбой иш кылган наадан адамды билдирет."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/fly-in-the-china-shop.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: fly-in-the-china-shop\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Фарфор дүкөнүндөгү чымын\nBODY[1]: Бир чымын фарфор идиштер сатылган дүкөндү талкалагысы келсе да, ага күчү жетпейт. Бирок ал өгүздүн кулагына кирип кетсе, үркүп кеткен өгүз бүт дүкөндү талкалап салышы мүмкүн.\nBODY[2]: Бул чымын — ырым-жырымдын, жалгандын жана бир жактуу көз караштын белгиси. Өгүз болсо ойлонбой иш кылган наадан адамды билдирет.\nMORAL: Сабак: Ойлонбой иш кылган адам жалган сөзгө азгырылып, чоң бүлүк салышы мүмкүн. Укканыңды текшерип, акылга салып чеч.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "idle-devil",
+      "title": "Ишсиз шайтан",
+      "moral": "Сабак: Кылган жамандыгыңды шайтанга шылтаба. Адам адегенде өз ниетин, өз ишин оңдосун.",
+      "body": [
+        "Бир дербиш ойго батып отуруп, капысынан жанындагы шайтанды көрүп калат. «Эмнеге мынчалык жоош отурасың?» — деп андан сурайт.",
+        "Шайтан чарчаңкы башын көтөрүп, суроого суроо менен жооп берет: «Силер, адамдар, бири-бириңерге ушунчалык көп зыян келтирип, ушунчалык азап чектиресиңер — мага кылар иш калдыбы деги?»"
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/idle-devil.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: idle-devil\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Ишсиз шайтан\nBODY[1]: Бир дербиш ойго батып отуруп, капысынан жанындагы шайтанды көрүп калат. «Эмнеге мынчалык жоош отурасың?» — деп андан сурайт.\nBODY[2]: Шайтан чарчаңкы башын көтөрүп, суроого суроо менен жооп берет: «Силер, адамдар, бири-бириңерге ушунчалык көп зыян келтирип, ушунчалык азап чектиресиңер — мага кылар иш калдыбы деги?»\nMORAL: Сабак: Кылган жамандыгыңды шайтанга шылтаба. Адам адегенде өз ниетин, өз ишин оңдосун.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "pray-while-washing-your-dishes",
+      "title": "Идиш-аягыңызды жууп жатып дуба кылыңыз",
+      "moral": "Сабак: Күнүмдүк тиричиликтин өзүнөн да шүгүр кылчу нерсе тап. Жууй турган идишиң — үйүңдө дасторкон жайылганынын белгиси.",
+      "body": [
+        "Идиш-аягыңызды жууп жатып дуба кылыңыз. Жуучу идишиңиз бар экенине шүгүр айтыңыз. Анткени бул жей турган тамагыңыз болгонун, бирөөнү тойгузганыңызды, кимдир бирөөгө кам көргөнүңүздү, тамак жасап, дасторкон жайганыңызды билдирет.",
+        "Ошол учурда жууй турган бир да идиши, дасторкон жая турган эч кими жок адамдарды ойлонуңуз."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/pray-while-washing-your-dishes.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: pray-while-washing-your-dishes\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Идиш-аягыңызды жууп жатып дуба кылыңыз\nBODY[1]: Идиш-аягыңызды жууп жатып дуба кылыңыз. Жуучу идишиңиз бар экенине шүгүр айтыңыз. Анткени бул жей турган тамагыңыз болгонун, бирөөнү тойгузганыңызды, кимдир бирөөгө кам көргөнүңүздү, тамак жасап, дасторкон жайганыңызды билдирет.\nBODY[2]: Ошол учурда жууй турган бир да идиши, дасторкон жая турган эч кими жок адамдарды ойлонуңуз.\nMORAL: Сабак: Күнүмдүк тиричиликтин өзүнөн да шүгүр кылчу нерсе тап. Жууй турган идишиң — үйүңдө дасторкон жайылганынын белгиси.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "woman-whose-house-was-robbed",
+      "title": "Үйү тонолгон аял",
+      "moral": "Сабак: Эл бийликке таянып, бейпил жашоону күтөт. Ошол ишенимди актоо — жетекчинин жоопкерчилиги.",
+      "body": [
+        "Байыркы заманда бир шаарда жашаган кемпирдин үйүн ууру тоноп кетет. Кемпир кайгырып, падышага даттанганы барат. Падыша аны угуп, ачуулана: «Үйүңө ууру киргенин да сезбей калгыдай эмнеге мынчалык катуу уктадың?» — деп сурайт. Кемпир: «Падышам, биз сиз ойгоо жүрөт деп ойлоп, үйүбүздө бейкапар уктап жатканбыз», — деп жооп берет."
+      ],
+      "output_webp": "ky/wisdom-stories/illustrations/woman-whose-house-was-robbed.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English text. Every letter of Kyrgyz text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly.\n\nStory stem: woman-whose-house-was-robbed\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Үйү тонолгон аял\nBODY[1]: Байыркы заманда бир шаарда жашаган кемпирдин үйүн ууру тоноп кетет. Кемпир кайгырып, падышага даттанганы барат. Падыша аны угуп, ачуулана: «Үйүңө ууру киргенин да сезбей калгыдай эмнеге мынчалык катуу уктадың?» — деп сурайт. Кемпир: «Падышам, биз сиз ойгоо жүрөт деп ойлоп, үйүбүздө бейкапар уктап жатканбыз», — деп жооп берет.\nMORAL: Сабак: Эл бийликке таянып, бейпил жашоону күтөт. Ошол ишенимди актоо — жетекчинин жоопкерчилиги.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    }
+  ]
+}

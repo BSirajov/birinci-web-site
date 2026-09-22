@@ -5489,32 +5489,6 @@
     "bytes": 125516,
     "join": "ffmpeg+loudnorm"
   },
-  "nazim-hikmet-in-bursa-prison": {
-    "title": "Nazim Hikmet in Bursa Prison",
-    "category": "edalet-ve-cemiyyet",
-    "index": 3,
-    "voice": "en-US-GuyNeural",
-    "dialogue_voice": "en-US-JennyNeural",
-    "prosody": "v3-az-dual",
-    "text": "cc37583ddcb83f23713beb34",
-    "content": "11aeb9b160be22dd8a0fc324",
-    "roles": [
-      "title",
-      "narrative",
-      "narrative",
-      "question",
-      "question",
-      "question",
-      "narrative",
-      "narrative",
-      "dialogue",
-      "narrative",
-      "moral"
-    ],
-    "file": "nazim-hikmet-in-bursa-prison.mp3",
-    "bytes": 561260,
-    "join": "ffmpeg+loudnorm"
-  },
   "sharing-justice": {
     "title": "Sharing justice",
     "category": "edalet-ve-cemiyyet",

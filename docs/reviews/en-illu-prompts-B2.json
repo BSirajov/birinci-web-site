@@ -1,0 +1,127 @@
+{
+  "count": 10,
+  "asset_rule": "Save final art as WebP 1536x1024 at output_webp; HTML paths unchanged",
+  "text_rule": "On-image English must match Exact quotes exactly",
+  "items": [
+    {
+      "stem": "eat-less-and-stay-on-the-right-path",
+      "title": "Eating Moderately and Living Honestly",
+      "moral": "Moral: Eat in moderation and act with integrity, so that you need neither a doctor nor a judge.",
+      "body": [
+        "Moderate eating keeps the doctor away; honest living keeps the judge away.",
+        "“Moderate eating keeps the doctor away” means that avoiding excess and practicing self-control can help protect your health.",
+        "“Honest living keeps the judge away” means that acting fairly, obeying the law, and respecting others’ rights can help you avoid disputes and legal trouble."
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/eat-less-and-stay-on-the-right-path.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: eat-less-and-stay-on-the-right-path\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Eating Moderately and Living Honestly\nBODY[1]: Moderate eating keeps the doctor away; honest living keeps the judge away.\nBODY[2]: “Moderate eating keeps the doctor away” means that avoiding excess and practicing self-control can help protect your health.\nBODY[3]: “Honest living keeps the judge away” means that acting fairly, obeying the law, and respecting others’ rights can help you avoid disputes and legal trouble.\nMORAL: Moral: Eat in moderation and act with integrity, so that you need neither a doctor nor a judge.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "festive-gift",
+      "title": "A Festive Gift",
+      "moral": "Moral: The most precious gift is measured not by money, but by kindness and attention. What makes a celebration meaningful is sometimes not what you receive, but what you give.",
+      "body": [
+        "“Wise elder,” I asked, “what should I buy for the holiday?”",
+        "He replied:",
+        "“Cheer a few people up. Make a few children smile. And, if you can, help someone in need enough to earn their blessing.”"
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/festive-gift.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: festive-gift\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: A Festive Gift\nBODY[1]: “Wise elder,” I asked, “what should I buy for the holiday?”\nBODY[2]: He replied:\nBODY[3]: “Cheer a few people up. Make a few children smile. And, if you can, help someone in need enough to earn their blessing.”\nMORAL: Moral: The most precious gift is measured not by money, but by kindness and attention. What makes a celebration meaningful is sometimes not what you receive, but what you give.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "gods-pleasure",
+      "title": "The Pleasure of Allah",
+      "moral": "Moral: Bringing joy to others draws us closer to Allah, while breaking someone’s heart leads us away from Him.",
+      "body": [
+        "Haja Ubaydullah Ahrar says:",
+        "“I have explored every path that leads to Allah’s pleasure. The shortest I have found is bringing joy to others.",
+        "“I have explored every path that leads away from Him. The most dangerous I have found is breaking someone’s heart.”"
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/gods-pleasure.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: gods-pleasure\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: The Pleasure of Allah\nBODY[1]: Haja Ubaydullah Ahrar says:\nBODY[2]: “I have explored every path that leads to Allah’s pleasure. The shortest I have found is bringing joy to others.\nBODY[3]: “I have explored every path that leads away from Him. The most dangerous I have found is breaking someone’s heart.”\nMORAL: Moral: Bringing joy to others draws us closer to Allah, while breaking someone’s heart leads us away from Him.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "if-fate-allows-we-will-meet",
+      "title": "If Fate Allows",
+      "moral": "Moral: Do not let distance grow between you and those you care about. Instead of leaving a meeting to fate, make time for one another.",
+      "body": [
+        "Someone who used to say, “We’ll meet soon,” now says, “We’ll meet if fate allows.” I find that strange. My feelings toward him have not changed; I would still be delighted to see him. Yet those words seem to place a barrier between us. I know nothing of his fate, and he knows nothing of mine. Do our two fates know each other? Can they arrange a meeting on our behalf?",
+        "Perhaps fate has nothing to do with it. Perhaps this is simply another way of saying, “Out of sight, out of mind.”",
+        "I have never liked the phrase “if fate allows.”"
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/if-fate-allows-we-will-meet.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: if-fate-allows-we-will-meet\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: If Fate Allows\nBODY[1]: Someone who used to say, “We’ll meet soon,” now says, “We’ll meet if fate allows.” I find that strange. My feelings toward him have not changed; I would still be delighted to see him. Yet those words seem to place a barrier between us. I know nothing of his fate, and he knows nothing of mine. Do our two fates know each other? Can they arrange a meeting on our behalf?\nBODY[2]: Perhaps fate has nothing to do with it. Perhaps this is simply another way of saying, “Out of sight, out of mind.”\nBODY[3]: I have never liked the phrase “if fate allows.”\nMORAL: Moral: Do not let distance grow between you and those you care about. Instead of leaving a meeting to fate, make time for one another.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "if-the-door-before-you-wont-open-it-is-not-your-door",
+      "title": "When One Door Closes",
+      "moral": "Moral: A closed door can lead to a better path. Losing one opportunity sometimes creates room for another.",
+      "body": [
+        "Jamal heard that a promotion might be available and went to speak to his manager, Salim Bey. He hoped he would be considered. Salim Bey said he was satisfied with Jamal’s work, but then unexpectedly dismissed him. “You’re not the right fit for us,” he said. Jamal left deeply disappointed.",
+        "Two years later, they met again and exchanged friendly greetings. Jamal said he had started his own company and that business was going well. Salim Bey was delighted.",
+        "“In fact, I owe you thanks,” Jamal said. “You let me go instead of keeping me somewhere I didn’t belong. That gave me the push to do work I truly enjoy. I’m very happy now.”"
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/if-the-door-before-you-wont-open-it-is-not-your-door.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: if-the-door-before-you-wont-open-it-is-not-your-door\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: When One Door Closes\nBODY[1]: Jamal heard that a promotion might be available and went to speak to his manager, Salim Bey. He hoped he would be considered. Salim Bey said he was satisfied with Jamal’s work, but then unexpectedly dismissed him. “You’re not the right fit for us,” he said. Jamal left deeply disappointed.\nBODY[2]: Two years later, they met again and exchanged friendly greetings. Jamal said he had started his own company and that business was going well. Salim Bey was delighted.\nBODY[3]: “In fact, I owe you thanks,” Jamal said. “You let me go instead of keeping me somewhere I didn’t belong. That gave me the push to do work I truly enjoy. I’m very happy now.”\nMORAL: Moral: A closed door can lead to a better path. Losing one opportunity sometimes creates room for another.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "if-the-road-does-not-tire-you-it-is-because-of-your-companion",
+      "title": "A Good Companion Lightens the Journey",
+      "moral": "Moral: It's not the road that tires you or lightens your load, but the person next to you. A true companion makes even the hardest task easier.",
+      "body": [
+        "My mother used to tell me, “I was very young when I married your father. I could barely cook or sew. One day, before visiting a neighbor, your grandmother laid a freshly washed blanket in front of me. ‘Finish stitching this before I get back,’ she said. I tried, but the needle would hardly pass through the thick fabric. I kept pricking my fingers. Soon I was crying from the pain and from fear of what I would tell her.",
+        "“Then your father came home for lunch. Seeing my tears, he took the needle, quickly finished the stitching, and put the blanket aside. He ate and returned to work without mentioning it to his mother. When she came home, she was delighted to find the work done.”",
+        "As the saying goes, “When the road does not tire you, thank your companion.”"
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/if-the-road-does-not-tire-you-it-is-because-of-your-companion.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: if-the-road-does-not-tire-you-it-is-because-of-your-companion\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: A Good Companion Lightens the Journey\nBODY[1]: My mother used to tell me, “I was very young when I married your father. I could barely cook or sew. One day, before visiting a neighbor, your grandmother laid a freshly washed blanket in front of me. ‘Finish stitching this before I get back,’ she said. I tried, but the needle would hardly pass through the thick fabric. I kept pricking my fingers. Soon I was crying from the pain and from fear of what I would tell her.\nBODY[2]: “Then your father came home for lunch. Seeing my tears, he took the needle, quickly finished the stitching, and put the blanket aside. He ate and returned to work without mentioning it to his mother. When she came home, she was delighted to find the work done.”\nBODY[3]: As the saying goes, “When the road does not tire you, thank your companion.”\nMORAL: Moral: It's not the road that tires you or lightens your load, but the person next to you. A true companion makes even the hardest task easier.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "lawful-morsel",
+      "title": "A Lawful Morsel",
+      "moral": "Moral: A child’s moral formation begins with the food placed on the family table. Lawful earnings and honest nourishment help lay the foundation of sound character.",
+      "body": [
+        "Fresh flour and clean water cannot make good dough if the yeast is spoiled. Nor can spoiled dough produce good bread.",
+        "To raise a child of good character, one must nourish that child with lawful and honestly earned food.",
+        "— Imam al-Ghazali"
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/lawful-morsel.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: lawful-morsel\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: A Lawful Morsel\nBODY[1]: Fresh flour and clean water cannot make good dough if the yeast is spoiled. Nor can spoiled dough produce good bread.\nBODY[2]: To raise a child of good character, one must nourish that child with lawful and honestly earned food.\nBODY[3]: — Imam al-Ghazali\nMORAL: Moral: A child’s moral formation begins with the food placed on the family table. Lawful earnings and honest nourishment help lay the foundation of sound character.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "light-of-the-universe",
+      "title": "The Door of the Heart",
+      "moral": "Moral: The door of the heart opens only from the inside. Love and goodness do not force their way in - you must let them in yourself.",
+      "body": [
+        "A story about the British painter William Holman Hunt describes a picture of a figure standing at a closed door at night, holding a lantern in one hand and knocking with the other.",
+        "An art critic asked him, “It’s a beautiful painting, but how can that door open? Have you forgotten to paint a handle?”",
+        "Hunt replied with a smile, “This is no ordinary door. It represents the human heart, and it opens only from within. There is no handle outside. Unless someone opens it for you, you cannot enter.”"
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/light-of-the-universe.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: light-of-the-universe\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: The Door of the Heart\nBODY[1]: A story about the British painter William Holman Hunt describes a picture of a figure standing at a closed door at night, holding a lantern in one hand and knocking with the other.\nBODY[2]: An art critic asked him, “It’s a beautiful painting, but how can that door open? Have you forgotten to paint a handle?”\nBODY[3]: Hunt replied with a smile, “This is no ordinary door. It represents the human heart, and it opens only from within. There is no handle outside. Unless someone opens it for you, you cannot enter.”\nMORAL: Moral: The door of the heart opens only from the inside. Love and goodness do not force their way in - you must let them in yourself.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "those-you-should-not-befriend",
+      "title": "Choose Your Friends Wisely",
+      "moral": "Moral: Arrogance, conceit, and cowardice can make friendship painful. Look for kindness, humility, and loyalty.",
+      "body": [
+        "Be wary of an arrogant friend who has no understanding of your feelings.",
+        "Be wary of someone convinced of their own brilliance, who talks endlessly but listens little.",
+        "Be wary of a coward who will not stand by you when courage is needed."
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/those-you-should-not-befriend.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: those-you-should-not-befriend\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Choose Your Friends Wisely\nBODY[1]: Be wary of an arrogant friend who has no understanding of your feelings.\nBODY[2]: Be wary of someone convinced of their own brilliance, who talks endlessly but listens little.\nBODY[3]: Be wary of a coward who will not stand by you when courage is needed.\nMORAL: Moral: Arrogance, conceit, and cowardice can make friendship painful. Look for kindness, humility, and loyalty.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "to-be-alone",
+      "title": "Loneliness",
+      "moral": "Moral: The biggest pain is to feel lonely even among people. Seeing the loneliness of someone next to you is true sensitivity.",
+      "body": [
+        "I visited an acquaintance and found him sitting quietly with his head bowed.",
+        "“Are you sad?” I asked.",
+        "He looked up. “No. I’m lonely.”"
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/to-be-alone.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: to-be-alone\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Loneliness\nBODY[1]: I visited an acquaintance and found him sitting quietly with his head bowed.\nBODY[2]: “Are you sad?” I asked.\nBODY[3]: He looked up. “No. I’m lonely.”\nMORAL: Moral: The biggest pain is to feel lonely even among people. Seeing the loneliness of someone next to you is true sensitivity.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    }
+  ]
+}

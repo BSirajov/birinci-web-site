@@ -1,0 +1,109 @@
+{
+  "count": 6,
+  "asset_rule": "Save final art as WebP 1536x1024 at output_webp; HTML paths unchanged",
+  "text_rule": "On-image Russian must match Exact quotes exactly",
+  "items": [
+    {
+      "stem": "three-landscapes",
+      "title": "Три сцены",
+      "moral": "Мораль: Хвастовство обесценивает добро, нераскаянный проступок ведёт к новым, а мудрый наставник помогает выбрать верный путь.",
+      "body": [
+        "Молодой человек в пути сталкивается с тремя странными сценами.",
+        "Первая странная сцена: несколько человек сеют пшеницу на поле. Зерна пшеницы прорастают и растут, как только попадают на землю, и в этот момент дают урожай, но вместо того, чтобы собрать урожай, земледельцы сжигают поле.",
+        "Вторая странная сцена: человек пытается поднять большой камень с земли, но не может. Он может поднять его только после того, как кладёт другой камень сверху. Когда он кладёт третий камень, он поднимает его легче. Сколько бы молодой человек ни смотрел, он ничего не понимает и продолжает свой путь.",
+        "Наконец он увидел человека верхом на овце. Ещё несколько людей держались за его плечи. Овца мчалась вперёд, а бегущие следом никак не могли её догнать.",
+        "Как бы молодой человек ни размышлял над увиденным, он не может понять никакого смысла и прибывает в город. Он видит сияющего старика у входных ворот и приветствует его. Старик принимает приветствие, останавливает его и заводит разговор. Мальчик рассказывает о том, что видел по дороге, и старик объясняет это следующим образом:",
+        "— Знаешь ли ты, кто эти земледельцы, пшеничное поле и люди, которые его сожгли? Те, кто сначала делают добро, а потом говорят о добре, которое они совершили здесь и там, принижая его ценность.",
+        "— Смысл сцены, где человек поднимает камень, таков: совершить грех впервые очень трудно человеку. Но если человек не раскаивается после совершения греха, последующие грехи даются ему очень легко. Грех без раскаяния — это открытая дверь для другого греха.",
+        "— Что касается овцы и людей на её спине, не забывайте, что овца — это животное рая, и она несёт тех, кто едет на ней, в рай. Первыми на овце едут учёные. На плечах учёных висят верующие из всех слоёв общества. Те, кто за ними гонится, — неверующие и безбожники."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/three-landscapes.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: three-landscapes\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Три сцены\nBODY[1]: Молодой человек в пути сталкивается с тремя странными сценами.\nBODY[2]: Первая странная сцена: несколько человек сеют пшеницу на поле. Зерна пшеницы прорастают и растут, как только попадают на землю, и в этот момент дают урожай, но вместо того, чтобы собрать урожай, земледельцы сжигают поле.\nBODY[3]: Вторая странная сцена: человек пытается поднять большой камень с земли, но не может. Он может поднять его только после того, как кладёт другой камень сверху. Когда он кладёт третий камень, он поднимает его легче. Сколько бы молодой человек ни смотрел, он ничего не понимает и продолжает свой путь.\nBODY[4]: Наконец он увидел человека верхом на овце. Ещё несколько людей держались за его плечи. Овца мчалась вперёд, а бегущие следом никак не могли её догнать.\nBODY[5]: Как бы молодой человек ни размышлял над увиденным, он не может понять никакого смысла и прибывает в город. Он видит сияющего старика у входных ворот и приветствует его. Старик принимает приветствие, останавливает его и заводит разговор. Мальчик рассказывает о том, что видел по дороге, и старик объясняет это следующим образом:\nBODY[6]: — Знаешь ли ты, кто эти земледельцы, пшеничное поле и люди, которые его сожгли? Те, кто сначала делают добро, а потом говорят о добре, которое они совершили здесь и там, принижая его ценность.\nBODY[7]: — Смысл сцены, где человек поднимает камень, таков: совершить грех впервые очень трудно человеку. Но если человек не раскаивается после совершения греха, последующие грехи даются ему очень легко. Грех без раскаяния — это открытая дверь для другого греха.\nBODY[8]: — Что касается овцы и людей на её спине, не забывайте, что овца — это животное рая, и она несёт тех, кто едет на ней, в рай. Первыми на овце едут учёные. На плечах учёных висят верующие из всех слоёв общества. Те, кто за ними гонится, — неверующие и безбожники.\nMORAL: Мораль: Хвастовство обесценивает добро, нераскаянный проступок ведёт к новым, а мудрый наставник помогает выбрать верный путь.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "to-be-fasting",
+      "title": "Пост",
+      "moral": "Мораль: Смысл поста не исчерпывается отказом от пищи. Он требует удерживать себя также от лжи, злословия и дурных поступков.",
+      "body": [
+        "Несколько молодых людей видят старика, сидящего в углу и едящего во время Рамадана. Они подходят к нему и в шутку спрашивают:",
+        "— Ну же, дядя, вы едите, а не поститесь?",
+        "Старик: — Конечно, я пощусь, я просто пью воду и ем.",
+        "Молодые люди смеются: — Что это за пост?",
+        "— Я не лгу, не унижаю людей, не насмехаюсь, не сплетничаю, не завидую и не расточительствую. А от еды не могу отказаться из-за болезни желудка.",
+        "Он посмотрел на юношей и спросил:",
+        "— А вы, поститесь?",
+        "Молодые люди смущенно опускают головы: — Нет, мы не постимся, мы просто не едим."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/to-be-fasting.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: to-be-fasting\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Пост\nBODY[1]: Несколько молодых людей видят старика, сидящего в углу и едящего во время Рамадана. Они подходят к нему и в шутку спрашивают:\nBODY[2]: — Ну же, дядя, вы едите, а не поститесь?\nBODY[3]: Старик: — Конечно, я пощусь, я просто пью воду и ем.\nBODY[4]: Молодые люди смеются: — Что это за пост?\nBODY[5]: — Я не лгу, не унижаю людей, не насмехаюсь, не сплетничаю, не завидую и не расточительствую. А от еды не могу отказаться из-за болезни желудка.\nBODY[6]: Он посмотрел на юношей и спросил:\nBODY[7]: — А вы, поститесь?\nBODY[8]: Молодые люди смущенно опускают головы: — Нет, мы не постимся, мы просто не едим.\nMORAL: Мораль: Смысл поста не исчерпывается отказом от пищи. Он требует удерживать себя также от лжи, злословия и дурных поступков.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "we-are-rich",
+      "title": "Мы богаты",
+      "moral": "Мораль: Истинное богатство не в казне, а в благополучии народа. Величие лидера не в его должности, а в том смысле, который он вкладывает в свою работу.",
+      "body": [
+        "В конце IV века император Нинтоку, занимавший трон Японии, однажды поднялся на высокую башню и осмотрел свою страну. Не увидев ни единого клубка дыма, поднимающегося в небо, он понял, что его народ живет в нищете и никто не может готовить еду дома.",
+        "Он немедленно издал указ, предписывающий его народу работать только на себя в течение трех лет. Он также отправил рабочих из своего дворца домой. Люди, работавшие на себя и не платившие налоги, через три года разбогатели.",
+        "Через три года Нинтоку снова поднялся на башню и увидел дым, поднимающийся со всех сторон, убедившись, что печи горят по всей стране, и радостно сказал своей жене, стоявшей рядом:",
+        "— Теперь мы богаты!",
+        "А императрица указала на дворец, обветшавший за три года запустения, с протекающей крышей и увядшими цветами:",
+        "— Вы называете это богатством? — спросила она.",
+        "Ответ Нинтоку запомнился японцам на протяжении веков:",
+        "— Бедность нашего народа — это наша бедность, а их богатство — это наше богатство."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/we-are-rich.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: we-are-rich\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Мы богаты\nBODY[1]: В конце IV века император Нинтоку, занимавший трон Японии, однажды поднялся на высокую башню и осмотрел свою страну. Не увидев ни единого клубка дыма, поднимающегося в небо, он понял, что его народ живет в нищете и никто не может готовить еду дома.\nBODY[2]: Он немедленно издал указ, предписывающий его народу работать только на себя в течение трех лет. Он также отправил рабочих из своего дворца домой. Люди, работавшие на себя и не платившие налоги, через три года разбогатели.\nBODY[3]: Через три года Нинтоку снова поднялся на башню и увидел дым, поднимающийся со всех сторон, убедившись, что печи горят по всей стране, и радостно сказал своей жене, стоявшей рядом:\nBODY[4]: — Теперь мы богаты!\nBODY[5]: А императрица указала на дворец, обветшавший за три года запустения, с протекающей крышей и увядшими цветами:\nBODY[6]: — Вы называете это богатством? — спросила она.\nBODY[7]: Ответ Нинтоку запомнился японцам на протяжении веков:\nBODY[8]: — Бедность нашего народа — это наша бедность, а их богатство — это наше богатство.\nMORAL: Мораль: Истинное богатство не в казне, а в благополучии народа. Величие лидера не в его должности, а в том смысле, который он вкладывает в свою работу.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "why-injustice-when-there-is-justice",
+      "title": "Зачем несправедливость, когда есть справедливость?",
+      "moral": "Мораль: Когда есть возможность выбрать мир, любовь и справедливость, за выбор вражды и ненависти отвечает сам человек.",
+      "body": [
+        "Хаджи Бекташ Вели:",
+        "Зачем ненависть, когда есть любовь?",
+        "Зачем война, когда есть мир?",
+        "Зачем ссоры, когда есть братство?",
+        "Зачем вражда, когда есть дружба?",
+        "Зачем нетерпимость, когда есть терпимость?",
+        "Зачем плен, когда есть свобода?",
+        "Зачем несправедливость, когда есть справедливость?"
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/why-injustice-when-there-is-justice.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: why-injustice-when-there-is-justice\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Зачем несправедливость, когда есть справедливость?\nBODY[1]: Хаджи Бекташ Вели:\nBODY[2]: Зачем ненависть, когда есть любовь?\nBODY[3]: Зачем война, когда есть мир?\nBODY[4]: Зачем ссоры, когда есть братство?\nBODY[5]: Зачем вражда, когда есть дружба?\nBODY[6]: Зачем нетерпимость, когда есть терпимость?\nBODY[7]: Зачем плен, когда есть свобода?\nBODY[8]: Зачем несправедливость, когда есть справедливость?\nMORAL: Мораль: Когда есть возможность выбрать мир, любовь и справедливость, за выбор вражды и ненависти отвечает сам человек.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "woman-and-the-mirror",
+      "title": "Женщина и зеркало",
+      "moral": "Мораль: Умение радоваться зависит и от нашего взгляда на жизнь. Ищите повод для улыбки даже тогда, когда обстоятельства меняются не к лучшему.",
+      "body": [
+        "Женщина утром просыпается и смотрит в зеркало. Видит, что на голове осталось три волоска.",
+        "«Хм… — говорит. — Сегодня заплету косу…» Заплетает — и день проходит отлично…",
+        "Назавтра снова смотрит в зеркало… Видит: осталось два волоска.",
+        "«Хм… — говорит. — Сегодня разделю на две части…» Делает так — и снова прекрасный день…",
+        "На следующий день просыпается и видит в зеркале один волосок.",
+        "«Ничего, ладно… — говорит. — Сегодня сделаю хвостик…» Так и делает — и день выходит великолепный…",
+        "Ещё в один день смотрит в зеркало — волос уже нет.",
+        "«Ой!… — радостно восклицает. — Как хорошо: сегодня никаких забот о волосах!»"
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/woman-and-the-mirror.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: woman-and-the-mirror\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Женщина и зеркало\nBODY[1]: Женщина утром просыпается и смотрит в зеркало. Видит, что на голове осталось три волоска.\nBODY[2]: «Хм… — говорит. — Сегодня заплету косу…» Заплетает — и день проходит отлично…\nBODY[3]: Назавтра снова смотрит в зеркало… Видит: осталось два волоска.\nBODY[4]: «Хм… — говорит. — Сегодня разделю на две части…» Делает так — и снова прекрасный день…\nBODY[5]: На следующий день просыпается и видит в зеркале один волосок.\nBODY[6]: «Ничего, ладно… — говорит. — Сегодня сделаю хвостик…» Так и делает — и день выходит великолепный…\nBODY[7]: Ещё в один день смотрит в зеркало — волос уже нет.\nBODY[8]: «Ой!… — радостно восклицает. — Как хорошо: сегодня никаких забот о волосах!»\nMORAL: Мораль: Умение радоваться зависит и от нашего взгляда на жизнь. Ищите повод для улыбки даже тогда, когда обстоятельства меняются не к лучшему.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "your-hand-at-work-your-hope-in-god",
+      "title": "Трудись своими руками, уповай на Аллаха",
+      "moral": "Мораль: Человек, который смотрит на долю нуждающихся, несмотря на свои силы, не доверяет Аллаху — он просто прикрывает свою лень верой.",
+      "body": [
+        "Жил-был когда-то дервиш. Большую часть своих дней он проводил в уединении и поклонении. Однако ему не нравилось нуждаться в людях, поэтому он посвящал часть дня работе: он немного трудился, покупал хлеб на заработанные своими руками деньги и раздавал излишки бедным.",
+        "Однажды в пустыне дервиш увидел лису с покалеченными лапами. Она едва передвигалась. «Как же она добывает пищу? — удивился он. — Охотиться не может. Кто её кормит?»",
+        "Вскоре появился лев с добытой газелью. Он поел и ушёл, оставив часть мяса. Лиса подползла к остаткам и насытилась.",
+        "Дервиш восхитился тем, как Аллах устроил пропитание беспомощной лисы. Затем подумал: «Если ей достаётся пища без труда, разве обо мне Господь не позаботится? Лучше отдам работе меньше времени, а молитве — больше. Перестану трудиться и буду ждать Его милости».",
+        "Он оставил работу и посвятил дни и ночи поклонению. Но никто не приносил ему хлеба. От голода дервиш слабел, пока от него не остались кожа да кости.",
+        "Наконец, однажды, когда он был измучен, он услышал голос из невидимого мира:",
+        "— Тебе даны здоровье, сильные руки и крепкие ноги. Почему ты решил подражать беспомощной лисе, а не льву? Встань, трудись, добывай пропитание и делись с теми, кто не может позаботиться о себе. Корми себя и помогай другим.",
+        "Дервиш устыдился, раскаялся и снова взялся за работу. С тех пор он жил собственным трудом и помогал бедным."
+      ],
+      "output_webp": "ru/wisdom-stories/illustrations/your-hand-at-work-your-hope-in-god.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. No English, Azerbaijani, Kyrgyz, or Turkish text. Every letter of Russian text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization, ё vs е). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that begin with — or «…»). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact Russian string appears in BODY.\n\nStory stem: your-hand-at-work-your-hope-in-god\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Трудись своими руками, уповай на Аллаха\nBODY[1]: Жил-был когда-то дервиш. Большую часть своих дней он проводил в уединении и поклонении. Однако ему не нравилось нуждаться в людях, поэтому он посвящал часть дня работе: он немного трудился, покупал хлеб на заработанные своими руками деньги и раздавал излишки бедным.\nBODY[2]: Однажды в пустыне дервиш увидел лису с покалеченными лапами. Она едва передвигалась. «Как же она добывает пищу? — удивился он. — Охотиться не может. Кто её кормит?»\nBODY[3]: Вскоре появился лев с добытой газелью. Он поел и ушёл, оставив часть мяса. Лиса подползла к остаткам и насытилась.\nBODY[4]: Дервиш восхитился тем, как Аллах устроил пропитание беспомощной лисы. Затем подумал: «Если ей достаётся пища без труда, разве обо мне Господь не позаботится? Лучше отдам работе меньше времени, а молитве — больше. Перестану трудиться и буду ждать Его милости».\nBODY[5]: Он оставил работу и посвятил дни и ночи поклонению. Но никто не приносил ему хлеба. От голода дервиш слабел, пока от него не остались кожа да кости.\nBODY[6]: Наконец, однажды, когда он был измучен, он услышал голос из невидимого мира:\nBODY[7]: — Тебе даны здоровье, сильные руки и крепкие ноги. Почему ты решил подражать беспомощной лисе, а не льву? Встань, трудись, добывай пропитание и делись с теми, кто не может позаботиться о себе. Корми себя и помогай другим.\nBODY[8]: Дервиш устыдился, раскаялся и снова взялся за работу. С тех пор он жил собственным трудом и помогал бедным.\nMORAL: Мораль: Человек, который смотрит на долю нуждающихся, несмотря на свои силы, не доверяет Аллаху — он просто прикрывает свою лень верой.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    }
+  ]
+}

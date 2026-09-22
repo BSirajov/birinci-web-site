@@ -1,0 +1,87 @@
+{
+  "count": 8,
+  "asset_rule": "Save final art as WebP 1536x1024 at output_webp; HTML paths unchanged",
+  "text_rule": "On-image English must match Exact quotes exactly",
+  "items": [
+    {
+      "stem": "aging",
+      "title": "Aging",
+      "moral": "Moral: Growing older brings more than a loss of strength. Experience and wisdom can also give us a broader view of life.",
+      "body": [
+        "Aging is like climbing a mountain: the higher you rise, the more tired you become and the shorter your breath, yet the wider your view of the world grows."
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/aging.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: aging\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Aging\nBODY[1]: Aging is like climbing a mountain: the higher you rise, the more tired you become and the shorter your breath, yet the wider your view of the world grows.\nMORAL: Moral: Growing older brings more than a loss of strength. Experience and wisdom can also give us a broader view of life.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "blind-who-have-eyes",
+      "title": "Eyes That Do Not See",
+      "moral": "Moral: True sight requires understanding as well as eyes. We can look without seeing and listen without understanding.",
+      "body": [
+        "The world is full of blind people who think they see because they have eyes."
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/blind-who-have-eyes.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: blind-who-have-eyes\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Eyes That Do Not See\nBODY[1]: The world is full of blind people who think they see because they have eyes.\nMORAL: Moral: True sight requires understanding as well as eyes. We can look without seeing and listen without understanding.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "builder-of-the-nest",
+      "title": "The Nest Builder",
+      "moral": "Moral: A woman’s work builds a home and holds a family together. That work deserves recognition and appreciation.",
+      "body": [
+        "The female bird builds the nest."
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/builder-of-the-nest.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: builder-of-the-nest\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: The Nest Builder\nBODY[1]: The female bird builds the nest.\nMORAL: Moral: A woman’s work builds a home and holds a family together. That work deserves recognition and appreciation.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "communication",
+      "title": "Communication",
+      "moral": "Moral: Older people offer the wisdom of experience, while children remind us of innocence. Every stage of life has something to teach us.",
+      "body": [
+        "Spend time with older people and children, and you will find experience in one and innocence in the other."
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/communication.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: communication\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Communication\nBODY[1]: Spend time with older people and children, and you will find experience in one and innocence in the other.\nMORAL: Moral: Older people offer the wisdom of experience, while children remind us of innocence. Every stage of life has something to teach us.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "dead-remain-in-life",
+      "title": "The One Left Behind",
+      "moral": "Moral: The person left behind carries both love and longing. Separation can make the depth of that love painfully clear.",
+      "body": [
+        "When two people love each other wholeheartedly and one dies, the survivor may feel that they, too, have ceased to live."
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/dead-remain-in-life.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: dead-remain-in-life\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: The One Left Behind\nBODY[1]: When two people love each other wholeheartedly and one dies, the survivor may feel that they, too, have ceased to live.\nMORAL: Moral: The person left behind carries both love and longing. Separation can make the depth of that love painfully clear.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "do-not-do-these-things",
+      "title": "Be Mindful of What You Say",
+      "moral": "Moral: Be careful not to deepen another person’s sense of loss. They need understanding, not reminders of what they lack.",
+      "body": [
+        "Do not dwell on your wealth in front of someone who is poor, your health in front of someone who is ill, or your happiness in front of someone who is suffering. Be equally thoughtful when speaking of freedom to a prisoner, strength to someone who is weak, children to someone who has none, or parents to an orphan."
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/do-not-do-these-things.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: do-not-do-these-things\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Be Mindful of What You Say\nBODY[1]: Do not dwell on your wealth in front of someone who is poor, your health in front of someone who is ill, or your happiness in front of someone who is suffering. Be equally thoughtful when speaking of freedom to a prisoner, strength to someone who is weak, children to someone who has none, or parents to an orphan.\nMORAL: Moral: Be careful not to deepen another person’s sense of loss. They need understanding, not reminders of what they lack.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "do-you-have-spending-money",
+      "title": "Do You Have Enough Money?",
+      "moral": "Moral: Show your parents that you value them through practical care. No one and nothing can replace them.",
+      "body": [
+        "Value your parents while they are alive. Instead of merely asking, “Do you have enough money?” do what you can to meet their needs. No one can take their place."
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/do-you-have-spending-money.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: do-you-have-spending-money\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Do You Have Enough Money?\nBODY[1]: Value your parents while they are alive. Instead of merely asking, “Do you have enough money?” do what you can to meet their needs. No one can take their place.\nMORAL: Moral: Show your parents that you value them through practical care. No one and nothing can replace them.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    },
+    {
+      "stem": "dont-open-your-mouth",
+      "title": "Speak Kindly or Remain Silent",
+      "moral": "Moral: Words have value when we use them thoughtfully and for good. If you have nothing worthwhile to say, silence may be the wiser choice.",
+      "body": [
+        "If you're not going to open your mouth to say something nice, don't open it at all."
+      ],
+      "output_webp": "en/wisdom-stories/illustrations/dont-open-your-mouth.webp",
+      "prompt": "Multi-panel storybook comic illustration, 1536x1024 landscape. Warm digital painting, clear panel borders, numbered reading order. Title banner at top and moral banner at bottom. English text only. No Russian, Azerbaijani, Kyrgyz, or Turkish text. Every letter of English text on the image must match the Exact quotes below character-for-character (spelling, punctuation, capitalization). Do not paraphrase, translate, or invent dialogue.\n\nPut spoken lines in speech bubbles using only quoted dialogue from BODY (lines that use quotation marks or dialogue attribution). Put narrative captions only when needed, copied verbatim from BODY. Moral banner must use MORAL exactly. Do not invent shop signs, price tags, or labels unless that exact English string appears in BODY.\n\nStory stem: dont-open-your-mouth\n\nExact quotes (copy verbatim onto the image where text appears):\n\nTITLE: Speak Kindly or Remain Silent\nBODY[1]: If you're not going to open your mouth to say something nice, don't open it at all.\nMORAL: Moral: Words have value when we use them thoughtfully and for good. If you have nothing worthwhile to say, silence may be the wiser choice.\n\nScene: depict the characters, setting, and key actions from this story in chronological panel order so a reader who knows the text recognizes it."
+    }
+  ]
+}

@@ -5541,32 +5541,6 @@
     "bytes": 728588,
     "join": "ffmpeg+loudnorm"
   },
-  "nazim-hikmet-in-bursa-prison": {
-    "title": "Назим Хикмет в Бурсской тюрьме",
-    "category": "edalet-ve-cemiyyet",
-    "index": 5,
-    "voice": "ru-RU-DmitryNeural",
-    "dialogue_voice": "ru-RU-SvetlanaNeural",
-    "prosody": "v3-az-dual",
-    "text": "2068c86f5b9d8e756cf1d85a",
-    "content": "4e46f5f1dc59e5dba3ab3bf2",
-    "roles": [
-      "title",
-      "narrative",
-      "narrative",
-      "question",
-      "question",
-      "question",
-      "narrative",
-      "narrative",
-      "dialogue",
-      "dialogue",
-      "moral"
-    ],
-    "file": "nazim-hikmet-in-bursa-prison.mp3",
-    "bytes": 608060,
-    "join": "ffmpeg+loudnorm"
-  },
   "sharing-justice": {
     "title": "Разделение справедливости",
     "category": "edalet-ve-cemiyyet",
