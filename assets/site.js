@@ -3129,6 +3129,60 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     });
   };
 
+  const parseLangSwitchCsv = (raw) => {
+    if (Array.isArray(raw)) return raw.map(String).map((s) => s.trim()).filter(Boolean);
+    return String(raw || "")
+      .split(",")
+      .map((s) => s.trim())
+      .filter(Boolean);
+  };
+
+  /**
+   * After clearLangSwitchFilters, re-apply q/cat/period from the stashed language
+   * switch context so equivalent filters survive AZ↔EN↔RU↔KY navigation.
+   * Category/period slugs are shared across locales.
+   */
+  const restoreLangSwitchFilters = (ctx) => {
+    if (!ctx || typeof ctx !== "object") return;
+    const q = String(ctx.q || "").trim();
+    document.querySelectorAll("[data-tools-search], #inventionsSearch").forEach((input) => {
+      if (input && "value" in input) input.value = q;
+    });
+    document.querySelectorAll(".tools-bar__search").forEach((wrap) => {
+      const chip = wrap.querySelector("[data-search-filter]");
+      const textEl = wrap.querySelector("[data-search-filter-text]");
+      if (q) {
+        wrap.classList.add("tools-bar__search--active");
+        if (chip) chip.hidden = false;
+        if (textEl) textEl.textContent = q;
+      } else {
+        wrap.classList.remove("tools-bar__search--active");
+        if (chip) chip.hidden = true;
+        if (textEl) textEl.textContent = "";
+      }
+    });
+
+    const mf = window.KT_CATALOG_MULTI_FILTER;
+    if (!mf || typeof mf.setActiveValues !== "function") return;
+    const cats = parseLangSwitchCsv(ctx.cat);
+    const periods = parseLangSwitchCsv(ctx.period);
+    const isInv =
+      document.body.classList.contains("page-inventions") ||
+      document.body.classList.contains("inventions-preview-page");
+    if (isInv) {
+      mf.setActiveValues("filterCategory", cats, { silent: true });
+      mf.setActiveValues("filterPeriod", periods, { silent: true });
+      if (typeof window.__birinciApplyInventionsFilters === "function") {
+        window.__birinciApplyInventionsFilters({ resetWindow: true });
+      }
+    } else if (
+      document.body.classList.contains("page-home") ||
+      document.body.classList.contains("page-category")
+    ) {
+      mf.setActiveValues("filterStoryCategory", cats, { silent: true });
+    }
+  };
+
   const alignElementHeaderBelowSticky = (el) => {
     if (!el) return false;
     const headerEl =
@@ -3218,7 +3272,17 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     // Only run when a language switch stashed browse context.
     if (!ctx || typeof ctx !== "object") return;
 
-    clearLangSwitchFilters();
+    // Prefer restoring stashed q/cat/period over a full wipe so language switch
+    // keeps equivalent filters (shared category/period slugs across locales).
+    const hasBrowseFilters =
+      !!String(ctx.q || "").trim() ||
+      parseLangSwitchCsv(ctx.cat).length > 0 ||
+      parseLangSwitchCsv(ctx.period).length > 0;
+    if (hasBrowseFilters) {
+      restoreLangSwitchFilters(ctx);
+    } else {
+      clearLangSwitchFilters();
+    }
 
     let targetId = "";
     try {
@@ -3237,19 +3301,34 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       if (nextView && typeof window.__birinciSetInventionsView === "function") {
         window.__birinciSetInventionsView(nextView);
       }
+      // View switch can rebuild the list; re-apply restored filters afterward.
+      if (hasBrowseFilters) restoreLangSwitchFilters(ctx);
+      else if (typeof window.__birinciApplyInventionsFilters === "function") {
+        window.__birinciApplyInventionsFilters({ resetWindow: true });
+      }
     } else if (document.body.classList.contains("page-home") && typeof window.__birinciSetHomeView === "function") {
       if (nextView) {
         window.__birinciSetHomeView(nextView, {
           scrollTools: false,
           animate: false,
-          forceList: !!targetId,
+          forceList: !!targetId || hasBrowseFilters,
         });
+      }
+      // setView writes URL from live filter state — re-assert after chrome updates.
+      if (hasBrowseFilters) {
+        restoreLangSwitchFilters(ctx);
+        document.dispatchEvent(
+          new CustomEvent("kt-catalog-filter-change", {
+            detail: { id: "filterStoryCategory" },
+          })
+        );
       }
     } else if (
       document.body.classList.contains("page-category") &&
       typeof window.__birinciSetHomeView === "function"
     ) {
       if (nextView) window.__birinciSetHomeView(nextView, { animate: false });
+      if (hasBrowseFilters) restoreLangSwitchFilters(ctx);
     }
 
     if (targetId && document.getElementById(targetId)) {

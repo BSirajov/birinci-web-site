@@ -802,6 +802,10 @@
     if (typeof applyFilters === "function") applyFilters({ resetWindow: true });
   };
 
+  window.__birinciApplyInventionsFilters = function (options) {
+    if (typeof applyFilters === "function") applyFilters(options || {});
+  };
+
   function itemMatches(el, q) {
     var mf = window.KT_CATALOG_MULTI_FILTER;
     var cardsView = !isInventionsListView();
