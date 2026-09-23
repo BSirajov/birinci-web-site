@@ -15,6 +15,16 @@ PUBLISH_DISCOVERIES_ENV = "BIRINCI_PUBLISH_DISCOVERIES"
 # in tools/build_deployment.py (and flip this flag).
 OMIT_AUDIO_FROM_PUBLISH = True
 
+# Authoring / editorial junk that must never land in deployment/ (basename
+# fnmatch patterns for shutil.copytree ignore). Kept here so SEO/docs and the
+# deployment builder share one list.
+AUTHORING_JUNK_IGNORE_PATTERNS = (
+    "*Comparison_Report*",
+    "*_Stories_25.08*",
+    "*.zip",
+    "desktop.ini",
+)
+
 
 def publish_discoveries_enabled(*, flag: bool | None = None) -> bool:
     """Return whether Discoveries should appear in public SEO / deployment.

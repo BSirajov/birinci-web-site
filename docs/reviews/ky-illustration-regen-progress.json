@@ -3533,7 +3533,7 @@
         "nazim-hikmet-in-bursa-prison"
       ],
       "status": "skipped",
-      "note": "nazim orphan HTML/sitemap refs removed from KY; no webp regen"
+      "note": "nazim skipped: no KY story HTML/webp; also scrubbed from stories-data.js + search-index.js (249 stems, matches az/en/ru); category/sitemap already clean; no webp regen"
     },
     {
       "id": "B1",

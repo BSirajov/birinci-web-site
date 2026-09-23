@@ -51,6 +51,17 @@ Locale trees in the repo still keep Discoveries for local preview (nav/pages). H
 
 Listen UI stays off (`AUDIO_CONTROLS_ENABLED=false`) until stories/articles reach professional language quality. Do not re-enable publish of audio until that gate is lifted (see `OMIT_AUDIO_FROM_PUBLISH` in `tools/publish_policy.py`).
 
+## Authoring junk (never publish)
+
+`build_deployment.py` also skips these basename patterns (see `AUTHORING_JUNK_IGNORE_PATTERNS` in `tools/publish_policy.py`):
+
+- `*Comparison_Report*` — editorial comparison report folders/files
+- `*_Stories_25.08*` — dated Word/batch source folders
+- `*.zip` — archives under locale trees
+- `desktop.ini` — Windows folder metadata
+
+Plus existing skips for `*.pdf` / `*.docx` (and audio when omitted). Locale trees may still keep these for authoring.
+
 To publish Discoveries intentionally:
 
 ```bash

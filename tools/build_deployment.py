@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 from i18n_config import SUPPORTED_LANGS  # noqa: E402
 from publish_policy import (  # noqa: E402
+    AUTHORING_JUNK_IGNORE_PATTERNS,
     OMIT_AUDIO_FROM_PUBLISH,
     PUBLISH_DISCOVERIES_ENV,
     publish_discoveries_enabled,
@@ -35,6 +36,8 @@ DISCOVERY_ONLY_ASSETS = (
 )
 
 # Word/PDF sources are local authoring inputs — never publish them.
+# Comparison reports, dated Stories_25.08* folders, zips, and desktop.ini are
+# authoring junk (see AUTHORING_JUNK_IGNORE_PATTERNS in publish_policy).
 # Audio media (MP3s and audio/ trees under wisdom-stories / discovery-articles)
 # stays in locale trees for local work but is omitted from deployment/ while
 # OMIT_AUDIO_FROM_PUBLISH is True (listen UI gated off until copy is ready).
@@ -44,6 +47,7 @@ _IGNORE_PUBLISH_PATTERNS = [
     "*.docx",
     "*.DOCX",
     "Age10-14*",
+    *AUTHORING_JUNK_IGNORE_PATTERNS,
 ]
 if OMIT_AUDIO_FROM_PUBLISH:
     _IGNORE_PUBLISH_PATTERNS.extend(
