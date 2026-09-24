@@ -1353,7 +1353,16 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
   const storyIllustrationUrl = (img) => {
     if (!img) return "";
-    return (img.getAttribute("data-src") || "").trim();
+    let url = (img.getAttribute("data-src") || "").trim();
+    // Cache-bust query breaks file:// (browser looks for a literal "?v=…" filename).
+    if (
+      url &&
+      typeof location !== "undefined" &&
+      String(location.protocol || "").toLowerCase() === "file:"
+    ) {
+      url = url.replace(/\?[^#]*$/, "");
+    }
+    return url;
   };
 
   const isStoryIllustrationReady = (story) => {
@@ -6547,11 +6556,14 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const figAlt = escapeHtml(
         tUi("illustration_alt", "{title} illüstrasiyası").replace("{title}", story.title || "")
       );
+      // Dedicated illustration bust (independent of SITE_ASSET_VERSION) so
+      // restored originals load after regenerated images were cached.
+      const illustVersion = "20260924restore";
       const figureHtml = story.hasImage
         ? `
     <figure class="story__figure" id="figure-${escapeHtml(story.stem)}">
       <button type="button" class="story__figure-open" aria-label="${enlargeLabel}">
-        <img data-src="wisdom-stories/illustrations/${escapeHtml(story.stem)}.webp" alt="${figAlt}" loading="lazy" width="1536" height="1024" />
+        <img data-src="wisdom-stories/illustrations/${escapeHtml(story.stem)}.webp?v=${escapeHtml(illustVersion)}" alt="${figAlt}" loading="lazy" width="1536" height="1024" />
       </button>
     </figure>`
         : "";
@@ -8988,7 +9000,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
     const setAllFigures = (visible) => {
       document.querySelectorAll("article.story").forEach((story) => {
-        setFigureState(story, visible, { ensureOther: !visible });
+        setFigureState(story, visible, { ensureOther: !visible, load: visible });
       });
       syncAllStoryMediaGuards();
     };

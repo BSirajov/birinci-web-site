@@ -154,15 +154,26 @@ _STORY_ARTICLE_OPEN_RE = re.compile(r'<article class="story news-card([^"]*)"')
 
 
 def dehydrate_story_illustrations(html: str) -> str:
-    """Move Wisdom illustration src to data-src and start figures hidden."""
+    """Move Wisdom illustration src to data-src and start figures hidden.
+
+    Idempotent: repeated calls must not stack ``data-`` onto existing
+    ``data-src`` (``src=`` is a suffix of ``data-src=``).
+    """
     if not html or (
         "story__figure" not in html
         and "wisdom-stories/illustrations/" not in html
         and "/illustrations/" not in html
     ):
         return html
+    # Collapse accidental data-data-…-src from prior non-idempotent runs.
+    html = re.sub(
+        r"(?:data-)+src=\"((?:\.\./)?(?:wisdom-stories/)?illustrations/)",
+        r'data-src="\1',
+        html,
+    )
     for prefix in _STORY_ILLUSTRATION_SRC_PREFIXES:
-        html = html.replace(prefix, "data-" + prefix)
+        # (?<![\w-]) avoids matching the ``src=`` inside ``data-src=``.
+        html = re.sub(r"(?<![\w-])" + re.escape(prefix), "data-" + prefix, html)
 
     def hide_article(match: re.Match[str]) -> str:
         classes = match.group(1)

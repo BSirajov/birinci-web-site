@@ -182,9 +182,10 @@
       return job;
     });
 
-  const illustrationUrl = (lang, storyStem, assetQuery) =>
+  const illustrationUrl = (lang, storyStem, _assetQuery) =>
     new URL(
-      "../../" + lang + "/wisdom-stories/illustrations/" + storyStem + ".webp" + assetQuery(),
+      // Dedicated illust bust so restored originals are not masked by cached regen images.
+      "../../" + lang + "/wisdom-stories/illustrations/" + storyStem + ".webp?v=20260924restore",
       window.location.href
     ).href;
 
