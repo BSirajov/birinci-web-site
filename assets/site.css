@@ -6785,13 +6785,32 @@ body.articles-drawer-open .articles-drawer-backdrop:not([hidden]) {
   position: relative;
   z-index: 2;
 }
-.page-sitemap .sitemap-jump {
+/* Jump chips + page search stick together under header/breadcrumbs. */
+.page-sitemap .sitemap-sticky-chrome {
   position: sticky;
   top: calc(var(--sticky-stack-bottom, 7rem) - 0.15rem);
   z-index: 8;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: stretch;
   margin: 0.35rem 0 0;
+  padding: 0.15rem 0 0.45rem;
+  /* Opaque band so list content does not flash through while stuck */
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--color-surface-news, #f5fbff) 96%, transparent) 0%,
+    color-mix(in srgb, var(--color-surface-news, #f5fbff) 92%, transparent) 70%,
+    color-mix(in srgb, var(--color-surface-news, #f5fbff) 78%, transparent) 100%
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.page-sitemap .sitemap-jump {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  margin: 0;
   padding: 0 16px;
 }
 .page-sitemap .sitemap-jump__inner {
@@ -6821,11 +6840,13 @@ body.articles-drawer-open .articles-drawer-backdrop:not([hidden]) {
   gap: 0.4rem;
 }
 .page-sitemap .sitemap-search {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.45rem;
-  margin: 0.7rem 0 0;
+  margin: 0.55rem 0 0;
   padding: 0 16px;
 }
 .page-sitemap .sitemap-search__field {
@@ -6929,7 +6950,8 @@ body.articles-drawer-open .articles-drawer-backdrop:not([hidden]) {
 .page-sitemap .sitemap-section {
   --section-accent: var(--blue-mid);
   margin: 2.4rem 0 0;
-  scroll-margin-top: calc(var(--sticky-stack-bottom, 5.5rem) + 4.2rem);
+  /* Header stack + sticky jump/search chrome */
+  scroll-margin-top: calc(var(--sticky-stack-bottom, 5.5rem) + 7.6rem);
 }
 .page-sitemap .sitemap-section--overview { --section-accent: #0284c7; }
 .page-sitemap .sitemap-section--stories { --section-accent: #059669; }
@@ -7472,6 +7494,7 @@ body.articles-drawer-open .articles-drawer-backdrop:not([hidden]) {
     grid-template-columns: 1fr;
   }
   .page-sitemap .sitemap-jump,
+  .page-sitemap .sitemap-search,
   .page-sitemap .sitemap-main {
     padding-left: 12px;
     padding-right: 12px;

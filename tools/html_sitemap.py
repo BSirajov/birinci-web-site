@@ -410,8 +410,10 @@ def build_sitemap_inner_html(lang: str) -> str:
         "      </div>\n"
         "    </div>\n"
         "  </section>\n"
-        f"  {jump}\n"
-        f"  {search}\n"
+        f'  <div class="sitemap-sticky-chrome">\n'
+        f"    {jump}\n"
+        f"    {search}\n"
+        f"  </div>\n"
         '  <div class="sitemap-main">\n'
         f'    <section class="sitemap-section sitemap-section--overview" id="sitemap-overview" aria-labelledby="sitemap-overview-title">\n'
         f'      {section_head("sitemap-overview-title", copy["overview_title"])}\n'
