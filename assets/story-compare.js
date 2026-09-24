@@ -182,12 +182,14 @@
       return job;
     });
 
-  const illustrationUrl = (lang, storyStem, _assetQuery) =>
-    new URL(
-      // Dedicated illust bust so restored originals are not masked by cached regen images.
-      "../../" + lang + "/wisdom-stories/illustrations/" + storyStem + ".webp?v=20260924restore",
+  const illustrationUrl = (lang, storyStem, assetQuery) => {
+    const q = typeof assetQuery === "function" ? assetQuery() : "";
+    const stamp = lang === "ky" ? "?v=20260924kyill" : q;
+    return new URL(
+      "../../" + lang + "/wisdom-stories/illustrations/" + storyStem + ".webp" + stamp,
       window.location.href
     ).href;
+  };
 
   const audioUrl = (code, ctx) => {
     const story = ctx.state.byLang[code];

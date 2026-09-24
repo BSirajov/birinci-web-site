@@ -6556,9 +6556,14 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const figAlt = escapeHtml(
         tUi("illustration_alt", "{title} illüstrasiyası").replace("{title}", story.title || "")
       );
-      // Dedicated illustration bust (independent of SITE_ASSET_VERSION) so
-      // restored originals load after regenerated images were cached.
-      const illustVersion = "20260924restore";
+      // Kyrgyz illustrations were regenerated in place. Their own stamp keeps
+      // the new files from being served from an older cached URL. Other languages
+      // keep the page asset stamp.
+      const pageLang = (document.documentElement.lang || "").toLowerCase();
+      const kyIllust = pageLang === "ky" || pageLang.startsWith("ky-");
+      const illustVersion = kyIllust
+        ? "20260924kyill"
+        : assetVersion || assetQuery().replace(/^\?v=/, "");
       const figureHtml = story.hasImage
         ? `
     <figure class="story__figure" id="figure-${escapeHtml(story.stem)}">

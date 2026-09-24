@@ -74,7 +74,7 @@ After upload, confirm live `sitemap.xml` matches that choice (0 Discoveries locs
 
 ## Asset cache bust
 
-Shared CSS/JS use `?v=<SITE_ASSET_VERSION>`. After changing `assets/site.css`, `assets/site.js`, or inventions CSS/JS, bump the stamp, re-pin HTML, rebuild `deployment/`, then hard-refresh the browser.
+`python tools/build_deployment.py` writes a new publish stamp into `deployment/` and a root `.htaccess`. Upload that folder as usual. Pages are not stored, and images, CSS, and scripts are rechecked, so the previous upload is not kept.
 
 ## Auth / API (optional, later)
 
@@ -92,8 +92,7 @@ Do not ship `api/.env` or mailbox credential files.
 - [ ] `python tools/build_deployment.py` (Discoveries flag deliberate)
 - [ ] Confirm `deployment/` has no `.mp3` / `audio/` trees (default policy)
 - [ ] `python tools/full_site_qa.py` → FAIL=0 (or `--structural` for a fast gate)
-- [ ] Upload **only** `deployment/` contents to web root
+- [ ] Upload **only** `deployment/` contents to web root, including `.htaccess`
 - [ ] Live sitemap matches Discoveries publish policy
-- [ ] Hard-refresh after asset stamp change
 - [ ] Auth UI still off unless API prod hardening is done
 - [ ] CI green on the commit you publish (Site QA workflow)

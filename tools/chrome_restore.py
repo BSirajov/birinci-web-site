@@ -97,7 +97,7 @@ def install_resilient_path_writes() -> None:
 DISABLE_DISCOVERY_VIDEOS = True
 
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
-SITE_ASSET_VERSION = "20260921modlead"
+SITE_ASSET_VERSION = "20260924img"
 # Keep in sync with assets/site.js AUDIO_CONTROLS_ENABLED.
 # False = bake Listen/Stop as visible + disabled until suitable voices are ready.
 AUDIO_CONTROLS_ENABLED = False
@@ -973,7 +973,7 @@ def ensure_site_css_chrome(css: str) -> str:
     if '@import url("fonts.css")' not in css and "@import url('fonts.css')" not in css:
         css = '@import url("fonts.css");\n' + css
 
-    return css
+    return stamp_css_image_urls(css)
 
 
 def ensure_site_js_go_to_bottom(js: str) -> str:
@@ -1513,8 +1513,13 @@ _TOOLBAR_MOBILE_JS_RE = re.compile(
     r"^[ \t]*<script[^>]+kt-catalog-toolbar-mobile\.js[^>]*></script>\s*\n?",
     re.M,
 )
-_ASSET_VERSION_RE = re.compile(r"(\?v=)2026\d{4}[a-zA-Z0-9]*")
+_ASSET_VERSION_RE = re.compile(r"(\?v=)(20\d{6,}[A-Za-z0-9]*)")
 _DATA_ASSET_VERSION_RE = re.compile(r'data-asset-version="[^"]*"')
+_PEARL_SRC_RE = re.compile(r'(src="[^"]*?pearl\.webp)(?:\?v=[^"]*)?(")', re.I)
+_CSS_IMAGE_URL_RE = re.compile(
+    r"url\((['\"]?)([^'\")]+?\.(?:png|jpe?g|webp))(?:\?[^'\")]+)?\1\)",
+    re.I,
+)
 _DATA_AUDIO_RE = re.compile(r'\s+data-audio="[^"]*"')
 _DATA_SEARCH_RE = re.compile(r'\s+data-search="[^"]*"')
 _SEO_BLOCK_RE = re.compile(
@@ -1589,9 +1594,21 @@ def strip_unused_inventions_scripts(html: str) -> str:
     return _TOOLBAR_MOBILE_JS_RE.sub("", html)
 
 
+def stamp_css_image_urls(css: str) -> str:
+    """Put the asset stamp on CSS image URLs so replaced files are not cached."""
+
+    def _repl(match: re.Match[str]) -> str:
+        quote = match.group(1)
+        path = match.group(2)
+        return f"url({quote}{path}?v={SITE_ASSET_VERSION}{quote})"
+
+    return _CSS_IMAGE_URL_RE.sub(_repl, css)
+
+
 def pin_asset_versions(html: str) -> str:
     html = _ASSET_VERSION_RE.sub(rf"\g<1>{SITE_ASSET_VERSION}", html)
     html = _DATA_ASSET_VERSION_RE.sub(f'data-asset-version="{SITE_ASSET_VERSION}"', html)
+    html = _PEARL_SRC_RE.sub(rf"\1?v={SITE_ASSET_VERSION}\2", html)
     return html
 
 
@@ -4160,6 +4177,12 @@ def apply_shared_assets() -> None:
     update_locale_search_fail()
     css_path = ROOT / "assets" / "site.css"
     css_path.write_text(ensure_site_css_chrome(css_path.read_text(encoding="utf-8")), encoding="utf-8")
+    bridge_path = ROOT / "assets" / "inventions" / "inventions-bridge.css"
+    if bridge_path.is_file():
+        bridge_path.write_text(
+            stamp_css_image_urls(bridge_path.read_text(encoding="utf-8")),
+            encoding="utf-8",
+        )
 
     shared_path = ROOT / "assets" / "site.js"
     shared_src = ""

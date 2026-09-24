@@ -7,6 +7,7 @@ import json
 import re
 import shutil
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -282,6 +283,59 @@ def find_discovery_leaks(tree: Path) -> list[tuple[str, str]]:
     return leaks
 
 
+# Sent with every publish. Pages are never stored. Images, CSS, and scripts
+# must be rechecked, so a replaced file is not served from an earlier upload.
+PRODUCTION_HTACCESS = """\
+# Written by tools/build_deployment.py. Do not cache published pages or media.
+<IfModule mod_headers.c>
+  <FilesMatch "\\.(html|htm)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+  <FilesMatch "\\.(css|js|mjs|png|jpe?g|gif|webp|svg|ico|avif|woff2?)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>
+<IfModule mod_expires.c>
+  ExpiresActive Off
+</IfModule>
+<IfModule LiteSpeed>
+  CacheDisable public /
+</IfModule>
+"""
+
+_TEXT_STAMP_SUFFIXES = {".html", ".css", ".js"}
+
+
+def fresh_cache_stamp() -> str:
+    return datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
+
+
+def apply_deploy_cache_stamp(tree: Path, stamp: str) -> int:
+    """Give this publish its own asset addresses so earlier copies are not reused."""
+    import chrome_restore
+
+    previous = chrome_restore.SITE_ASSET_VERSION
+    chrome_restore.SITE_ASSET_VERSION = stamp
+    changed = 0
+    try:
+        for path in tree.rglob("*"):
+            if not path.is_file() or path.suffix.lower() not in _TEXT_STAMP_SUFFIXES:
+                continue
+            text = path.read_text(encoding="utf-8")
+            updated = chrome_restore.pin_asset_versions(text)
+            if path.suffix.lower() == ".css":
+                updated = chrome_restore.stamp_css_image_urls(updated)
+            if updated != text:
+                path.write_text(updated, encoding="utf-8", newline="\n")
+                changed += 1
+    finally:
+        chrome_restore.SITE_ASSET_VERSION = previous
+    (tree / ".htaccess").write_text(PRODUCTION_HTACCESS, encoding="utf-8", newline="\n")
+    return changed
+
+
 def reset_deploy_dir(path: Path) -> None:
     """Remove a prior publish tree; on Windows keep the folder if it is locked open."""
     if not path.exists():
@@ -351,6 +405,10 @@ def main() -> None:
                 "Publish tree still reaches Discoveries:\n  "
                 + "\n  ".join(f"{path}: {marker}" for path, marker in leaks[:10])
             )
+
+    stamp = fresh_cache_stamp()
+    stamped = apply_deploy_cache_stamp(DEPLOY, stamp)
+    print(f"cache: publish stamp {stamp} on {stamped} files; pages and images are rechecked")
 
     files = sum(1 for p in DEPLOY.rglob("*") if p.is_file())
     size_mb = sum(p.stat().st_size for p in DEPLOY.rglob("*") if p.is_file()) / (1024 * 1024)
