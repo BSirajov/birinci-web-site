@@ -2623,6 +2623,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
   const setControlTooltip = (el, text) => {
     if (!el || !text) return;
+    if (el === document.documentElement || el === document.body) return;
     el.title = text;
     el.setAttribute("aria-label", text);
   };
@@ -2640,13 +2641,14 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       if (el) el.textContent = tUi(key, fallback);
     });
 
+    document.documentElement.removeAttribute("title");
     document
-      .querySelectorAll("[data-home-view='cards'], [data-inventions-view='cards']")
+      .querySelectorAll("button[data-home-view='cards'], button[data-inventions-view='cards']")
       .forEach((btn) => {
         setControlTooltip(btn, tUi("view_cards", "Təsnifatlı"));
       });
     document
-      .querySelectorAll("[data-home-view='list'], [data-inventions-view='list']")
+      .querySelectorAll("button[data-home-view='list'], button[data-inventions-view='list']")
       .forEach((btn) => {
         setControlTooltip(btn, tUi("view_list", "Ardıcıl"));
       });
@@ -4860,6 +4862,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         const params = new URLSearchParams();
         const q = searchInput.value.trim();
         if (q) params.set("q", q);
+        if (new URLSearchParams(window.location.search).get("edit") === "1") params.set("edit", "1");
         const url = new URL(window.location.href);
         url.search = params.toString();
         url.hash = pendingStem || (window.location.hash || "").replace(/^#/, "");
@@ -6304,6 +6307,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         if (view === "list" && q) params.set("q", q);
         const cats = activeStoryCategorySlugs();
         if (cats.length) params.set("cat", cats.join(","));
+        if (new URLSearchParams(window.location.search).get("edit") === "1") params.set("edit", "1");
         const url = new URL(window.location.href);
         url.search = params.toString();
         if (view === "cards") url.hash = "";
@@ -6495,7 +6499,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const foldAzI = (s) => String(s || "").replace(/[İIı]/g, "i");
       const srcRe = /(internet\s+sources|internet\s+mənb|internet\s+kaynak|открыт\w*\s+источник|интернет|(?:source|mənbə|kaynak|источник|булак|булагы)\s*:)/i;
       const moralRe = /^(ibrət|ibret|moral|мораль|үлгү)\s*:/i;
-      const authorSrcStems = { "everyone-has-work-to-do": 1, "weeds-must-be-pulled-from-the-root": 1, "silent-corridor": 1, "if-fate-allows-we-will-meet": 1 };
+      const authorSrcStems = { "everyone-has-work-to-do": 1, "weeds-must-be-pulled-from-the-root": 1, "silent-corridor": 1, "if-fate-allows-we-will-meet": 1, "discussion-and-conflict": 1 };
       const authorSrc = !!(stem && authorSrcStems[stem]);
       const lastIsSrc = last >= 0 && (authorSrc || srcRe.test(foldAzI(paragraphs[last] || "")));
       const srcLabel = (I18N.ui && I18N.ui.story_source) || "";
@@ -6556,14 +6560,16 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const figAlt = escapeHtml(
         tUi("illustration_alt", "{title} illüstrasiyası").replace("{title}", story.title || "")
       );
-      // Kyrgyz illustrations were regenerated in place. Their own stamp keeps
-      // the new files from being served from an older cached URL. Other languages
-      // keep the page asset stamp.
+      // Regenerated Kyrgyz and Azerbaijani illustrations keep their own stamps
+      // so a cached page cannot keep serving the previous picture. English and
+      // Russian keep the page asset stamp.
       const pageLang = (document.documentElement.lang || "").toLowerCase();
-      const kyIllust = pageLang === "ky" || pageLang.startsWith("ky-");
-      const illustVersion = kyIllust
-        ? "20260924kyill"
-        : assetVersion || assetQuery().replace(/^\?v=/, "");
+      const illustVersion =
+        pageLang === "ky" || pageLang.startsWith("ky-")
+          ? "20260924kyill"
+          : pageLang === "az" || pageLang.startsWith("az-")
+            ? "20260925azill"
+            : assetVersion || assetQuery().replace(/^\?v=/, "");
       const figureHtml = story.hasImage
         ? `
     <figure class="story__figure" id="figure-${escapeHtml(story.stem)}">
@@ -6581,7 +6587,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 <article class="story news-card${story.hasImage ? " story--figure-hidden" : ""}" id="${escapeHtml(story.stem)}" data-stem="${escapeHtml(story.stem)}" data-title="${escapeHtml(story.title)}" data-category-slug="${escapeHtml(story.categorySlug || "")}"${audioAttr}>
   <div class="card-header">
     ${multilingualBtn}
-    <h2 class="card-title story__title">${titleInner}</h2>
+    <h2 class="card-title story__title" data-story-file="${escapeHtml(story.stem)}.docx">${titleInner}</h2>
   </div>
   <div class="card-body">
     <div class="story__content">
@@ -8959,12 +8965,15 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       if (document.body.classList.contains("dev-story-edit")) return;
       if (event.target.closest("a.story-multilingual-btn, [data-story-multilingual]")) return;
       if (event.target.closest("[contenteditable='true'], [contenteditable='']")) return;
-      if (event.target.closest("button, a, input, select, textarea, label, .story__actions")) return;
-      const textEl = event.target.closest(".story__text, .story .card-text");
-      if (!textEl) return;
-      const story = textEl.closest("article.story");
+      if (event.target.closest("button, a, input, select, textarea, label, .story__actions, .story-lang-switcher")) return;
+      const titleEl = event.target.closest(
+        "article.story .card-header .story__title, article.story .card-header .card-title"
+      );
+      if (!titleEl) return;
+      const story = titleEl.closest("article.story");
       if (!story || story.classList.contains("story--text-hidden")) return;
-      if (textEl.closest(".text-lightbox")) return;
+      const textEl = story.querySelector(".story__text, .story .card-text");
+      if (!textEl || textEl.closest(".text-lightbox")) return;
       event.preventDefault();
       open(story, textEl);
     });
@@ -10366,8 +10375,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     console.error("initStoryTts failed", err);
   }
   const initDevStoryEditor = () => {
-    // Temporarily off. Set to true when local story editing should return.
-    const DEV_STORY_EDIT_ENABLED = false;
+    // Local only. The panel stays hidden on production hosts.
+    const DEV_STORY_EDIT_ENABLED = true;
     if (!DEV_STORY_EDIT_ENABLED) return;
 
     const host = (location.hostname || "").toLowerCase();
@@ -10436,7 +10445,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         .map((p) => (p.textContent || "").replace(/\s+/g, " ").trim())
         .filter(Boolean);
       const moral = ((moralEl && moralEl.textContent) || "").replace(/\s+/g, " ").trim();
-      return { stem, title, body, moral, titleEl, textEl, moralEl };
+      const source = ((sourceEl && sourceEl.textContent) || "").replace(/\s+/g, " ").trim();
+      return { stem, title, body, moral, source, titleEl, textEl, moralEl };
     };
 
     const markEditable = (on) => {
@@ -10517,6 +10527,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
             title: data.title,
             body: data.body,
             moral: data.moral,
+            source: data.source,
           }),
         });
         const json = await res.json().catch(() => ({}));
@@ -10866,6 +10877,82 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     initAccountEntry();
   } catch (err) {
     console.error("initAccountEntry failed", err);
+  }
+
+  const initStoryFileTips = () => {
+    const fileNameFor = (story) => {
+      const stem = ((story && (story.getAttribute("data-stem") || story.id)) || "").trim();
+      return stem ? `${stem}.docx` : "";
+    };
+    const stamp = (root) => {
+      const scope = root && root.querySelectorAll ? root : document;
+      scope.querySelectorAll("article.story").forEach((story) => {
+        const name = fileNameFor(story);
+        if (!name) return;
+        const titleEl = story.querySelector(".card-header .story__title, .card-header .card-title");
+        if (titleEl) titleEl.setAttribute("data-story-file", name);
+      });
+    };
+    let tip = null;
+    let current = null;
+    const place = (titleEl) => {
+      if (!tip) return;
+      const rect = titleEl.getBoundingClientRect();
+      const tipRect = tip.getBoundingClientRect();
+      const half = tipRect.width / 2;
+      const left = Math.max(half + 8, Math.min(rect.left + rect.width / 2, window.innerWidth - half - 8));
+      let top = rect.bottom + 6;
+      if (top + tipRect.height > window.innerHeight - 8) top = Math.max(8, rect.top - tipRect.height - 6);
+      tip.style.left = `${left}px`;
+      tip.style.top = `${top}px`;
+    };
+    const hide = () => {
+      current = null;
+      if (tip) tip.hidden = true;
+    };
+    const show = (titleEl) => {
+      const name = titleEl.getAttribute("data-story-file") || fileNameFor(titleEl.closest("article.story"));
+      if (!name) return;
+      if (!tip) {
+        tip = document.createElement("div");
+        tip.className = "story-file-tip";
+        tip.setAttribute("role", "tooltip");
+        tip.hidden = true;
+        document.body.appendChild(tip);
+      }
+      current = titleEl;
+      tip.textContent = name;
+      tip.hidden = false;
+      place(titleEl);
+    };
+    const titleFromEvent = (event) => {
+      const raw = event.target;
+      const el = raw && raw.nodeType === 1 ? raw : raw && raw.parentElement;
+      if (!el || !el.closest) return null;
+      return el.closest("article.story .card-header .story__title, article.story .card-header .card-title");
+    };
+    document.addEventListener("mouseover", (event) => {
+      const titleEl = titleFromEvent(event);
+      if (!titleEl || titleEl === current) return;
+      const from = event.relatedTarget;
+      if (from && titleEl.contains(from)) return;
+      show(titleEl);
+    });
+    document.addEventListener("mouseout", (event) => {
+      const titleEl = titleFromEvent(event);
+      if (!titleEl) return;
+      const to = event.relatedTarget;
+      if (to && titleEl.contains(to)) return;
+      hide();
+    });
+    window.addEventListener("scroll", hide, true);
+    stamp(document);
+  };
+
+  try {
+    initStoryFileTips();
+  } catch (err) {
+    console.error("initStoryFileTips failed", err);
   }
 
   try {

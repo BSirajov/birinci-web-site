@@ -55,7 +55,13 @@ def _visible_paragraphs(doc: Document) -> list:
     return [p for p in doc.paragraphs if (p.text or "").strip()]
 
 
-def update_docx(path: Path, title: str, body: list[str], moral: str) -> None:
+def update_docx(
+    path: Path,
+    title: str,
+    body: list[str],
+    moral: str,
+    source: str | None = None,
+) -> None:
     if not path.is_file():
         raise FileNotFoundError(f"missing docx: {path}")
     doc = Document(str(path))
@@ -64,8 +70,13 @@ def update_docx(path: Path, title: str, body: list[str], moral: str) -> None:
         raise ValueError("docx has too few paragraphs")
 
     last = visible[-1].text.strip()
-    keep_source = bool(SOURCE_RE.search(last)) and not MORAL_RE.match(last)
-    source_text = last if keep_source else None
+    explicit = (source or "").strip()
+    if explicit:
+        keep_source = True
+        source_text = explicit
+    else:
+        keep_source = bool(SOURCE_RE.search(last)) and not MORAL_RE.match(last)
+        source_text = last if keep_source else None
 
     target = [title, *[p for p in body if p.strip()], moral]
     if keep_source and source_text:
@@ -328,17 +339,18 @@ def save_story(payload: dict[str, Any]) -> dict[str, Any]:
         raise ValueError("body required")
     if not moral:
         raise ValueError("moral required")
+    source = " ".join(str(payload.get("source") or "").split()).strip()
 
     slug, old_title = find_story_meta(lang, stem)
     if not slug:
         raise ValueError("category slug missing")
 
     docx_path = ROOT / lang / "wisdom-stories" / f"{stem}.docx"
-    update_docx(docx_path, title, body, moral)
-    update_stories_data(lang, stem, title, body, moral)
+    update_docx(docx_path, title, body, moral, source=source or None)
+    update_stories_data(lang, stem, title, body, moral, source=source or None)
     cat_title = category_title_for_slug(lang, slug)
-    update_search_index(lang, stem, title, body, moral, cat_title)
-    update_category_html(lang, slug, stem, title, body, moral, old_title)
+    update_search_index(lang, stem, title, body, moral, cat_title, source=source or None)
+    update_category_html(lang, slug, stem, title, body, moral, old_title, source=source or None)
     update_sitemap(lang, stem, slug, title)
 
     return {

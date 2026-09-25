@@ -6,7 +6,7 @@
   --ink-soft: #345f86;
   --color-surface-news: #f5fbff;
   --color-site-bg-scrim: rgba(255, 255, 255, 0.07);
-  --site-bg-image: url("diaspor-body-top-bg.png?v=20260924img");
+  --site-bg-image: url("diaspor-body-top-bg.jpg?v=20260924bg");
   --site-bg-position: top center;
   --site-bg-size: cover;
   --site-bg-repeat: no-repeat;
@@ -128,7 +128,7 @@ body {
       var(--color-site-bg-scrim, rgba(255, 255, 255, 0.07)),
       var(--color-site-bg-scrim, rgba(255, 255, 255, 0.07))
     ),
-    var(--site-bg-image, url("diaspor-body-top-bg.png?v=20260924img"));
+    var(--site-bg-image, url("diaspor-body-top-bg.jpg?v=20260924bg"));
   background-position: center, var(--site-bg-position, top center);
   background-size: 100% 100%, var(--site-bg-size, cover);
   background-repeat: no-repeat, var(--site-bg-repeat, no-repeat);
@@ -4141,10 +4141,34 @@ html.is-phone article.story .story__actions:not(:has(.story__action-group:has([d
   min-width: 0;
   text-align: center;
 }
-/* Keep the Multilingual View control clickable over the stretched title. */
+/* Title opens the zoom modal. Header controls stay above it and keep their own clicks. */
 body:not(.dev-story-edit) .story .card-header .story__title,
 body:not(.dev-story-edit) .story .card-header .card-title {
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
+  cursor: zoom-in;
+}
+.story-file-tip {
+  position: fixed;
+  z-index: 10060;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 0.22rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(8, 28, 48, 0.94);
+  color: #fff;
+  font-family: var(--font-ui, "Source Sans 3", sans-serif);
+  font-size: 0.75rem;
+  font-weight: 650;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
   pointer-events: none;
+  box-shadow: 0 8px 18px rgba(0, 20, 40, 0.28);
+}
+.story-file-tip[hidden] {
+  display: none !important;
 }
 .story-multilingual-btn {
   position: absolute;
@@ -4423,7 +4447,6 @@ body.story-compare-open {
   text-justify: inter-word;
   hyphens: auto;
   box-sizing: border-box;
-  cursor: zoom-in;
 }
 .story__text:focus-visible,
 .story .card-text:focus-visible {

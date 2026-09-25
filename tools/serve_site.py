@@ -34,6 +34,16 @@ CREATE_NO_WINDOW = 0x08000000
 WIN_EADDRINUSE = 10048
 
 
+class NoCacheRequestHandler(SimpleHTTPRequestHandler):
+    """Do not let the browser keep old HTML, CSS, or images."""
+
+    def end_headers(self) -> None:
+        self.send_header("Cache-Control", "no-store, no-cache, must-revalidate")
+        self.send_header("Pragma", "no-cache")
+        self.send_header("Expires", "0")
+        super().end_headers()
+
+
 class ExclusiveThreadingHTTPServer(ThreadingHTTPServer):
     """Refuse a second bind on the same host:port.
 
@@ -440,7 +450,7 @@ def serve_foreground(host: str, port: int) -> int:
     if already_running(host, port):
         return 0
 
-    handler = partial(SimpleHTTPRequestHandler, directory=str(ROOT))
+    handler = partial(NoCacheRequestHandler, directory=str(ROOT))
     try:
         httpd = ExclusiveThreadingHTTPServer((host, port), handler)
     except OSError as err:

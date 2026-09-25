@@ -184,7 +184,8 @@
 
   const illustrationUrl = (lang, storyStem, assetQuery) => {
     const q = typeof assetQuery === "function" ? assetQuery() : "";
-    const stamp = lang === "ky" ? "?v=20260924kyill" : q;
+    const stamp =
+      lang === "ky" ? "?v=20260924kyill" : lang === "az" ? "?v=20260925azill" : q;
     return new URL(
       "../../" + lang + "/wisdom-stories/illustrations/" + storyStem + ".webp" + stamp,
       window.location.href

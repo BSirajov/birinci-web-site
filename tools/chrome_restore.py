@@ -790,9 +790,10 @@ def ensure_site_css_chrome(css: str) -> str:
             1,
         )
 
-    # Only the PNG exists on disk. Do not rewrite it to a missing WebP.
-    if (ROOT / "assets" / "diaspor-body-top-bg.png").is_file():
-        css = css.replace("diaspor-body-top-bg.webp", "diaspor-body-top-bg.png")
+    # The background file is JPEG data named .jpg. Do not point CSS at a missing WebP or PNG.
+    if (ROOT / "assets" / "diaspor-body-top-bg.jpg").is_file():
+        css = css.replace("diaspor-body-top-bg.webp", "diaspor-body-top-bg.jpg")
+        css = css.replace("diaspor-body-top-bg.png", "diaspor-body-top-bg.jpg")
 
     if ".page-jump {" not in css:
         if not _BACK_TO_TOP_BLOCK_RE.search(css):
@@ -1606,7 +1607,18 @@ def stamp_css_image_urls(css: str) -> str:
 
 
 def pin_asset_versions(html: str) -> str:
-    html = _ASSET_VERSION_RE.sub(rf"\g<1>{SITE_ASSET_VERSION}", html)
+    def _repl(match: re.Match[str]) -> str:
+        stamp = match.group(2)
+        # Kyrgyz illustration scripts use their own stamp. The background
+        # stylesheets use 20260924bg so a cached copy cannot keep the old .png URL.
+        if stamp in ("20260924kyill", "20260925azill"):
+            return match.group(0)
+        window = html[max(0, match.start() - 96) : match.start()]
+        if window.endswith("site.css") or window.endswith("inventions-bridge.css"):
+            return match.group(1) + "20260924bg"
+        return match.group(1) + SITE_ASSET_VERSION
+
+    html = _ASSET_VERSION_RE.sub(_repl, html)
     html = _DATA_ASSET_VERSION_RE.sub(f'data-asset-version="{SITE_ASSET_VERSION}"', html)
     html = _PEARL_SRC_RE.sub(rf"\1?v={SITE_ASSET_VERSION}\2", html)
     return html
