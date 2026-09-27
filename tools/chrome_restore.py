@@ -1609,12 +1609,30 @@ def stamp_css_image_urls(css: str) -> str:
 def pin_asset_versions(html: str) -> str:
     def _repl(match: re.Match[str]) -> str:
         stamp = match.group(2)
+        window = html[max(0, match.start() - 96) : match.start()]
+        # Shared story chrome. A new stamp so phones pick up illustration controls.
+        if window.endswith("site.js") or window.endswith("site.css"):
+            return match.group(1) + "20260927phone"
+        # Wisdom-story illustrations use a language stamp, not the shared page stamp.
+        lookback = html[max(0, match.start() - 220) : match.start()]
+        if "/illustrations/" in lookback and lookback.rstrip().endswith(".webp"):
+            if stamp in (
+                "20260924kyill",
+                "20260925azill",
+                "20260927ill2",
+                "20260927frame",
+                "20260927dishes",
+                "20260927ruside",
+                "20260927kyframe",
+                "20260927marry",
+            ):
+                return match.group(0)
+            return match.group(1) + "20260927frame"
         # Kyrgyz illustration scripts use their own stamp. The background
         # stylesheets use 20260924bg so a cached copy cannot keep the old .png URL.
         if stamp in ("20260924kyill", "20260925azill"):
             return match.group(0)
-        window = html[max(0, match.start() - 96) : match.start()]
-        if window.endswith("site.css") or window.endswith("inventions-bridge.css"):
+        if window.endswith("inventions-bridge.css"):
             return match.group(1) + "20260924bg"
         return match.group(1) + SITE_ASSET_VERSION
 

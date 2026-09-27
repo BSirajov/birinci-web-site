@@ -1445,13 +1445,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     let showImages = !!imagesVisible;
     let showTexts = !!textsVisible;
     const onPhone = isPhoneDevice();
-    // Discoveries always shows article copy and illustrations; Wisdom phone chrome is unchanged.
+    // Discoveries always shows article copy and illustrations.
     if (isDiscoveriesCatalogPage()) {
       showImages = true;
       showTexts = true;
     } else if (onPhone) {
-      // Phones hide Image/Text controls, so keep copy on-screen and illustrations unloaded.
-      showImages = false;
+      // Phones keep story text on screen. Illustrations follow the same preference as other screens.
       showTexts = true;
     }
     if (!showImages && !showTexts) showTexts = true;
@@ -1473,12 +1472,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       btn.setAttribute("aria-pressed", pressed ? "true" : "false");
     });
 
-    if (!onPhone) {
-      try {
-        localStorage.setItem(IMAGES_COLLAPSED_KEY, showImages ? "0" : "1");
+    try {
+      localStorage.setItem(IMAGES_COLLAPSED_KEY, showImages ? "0" : "1");
+      if (!onPhone) {
         localStorage.setItem("birinci-texts-collapsed", showTexts ? "0" : "1");
-      } catch (_) {}
-    }
+      }
+    } catch (_) {}
 
     const syncFigures =
       opts.forceAll || showImages !== prevImages || (!showImages && !showTexts);
@@ -1542,7 +1541,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
   /** Never start with both media channels off. */
   const resolveInitialMediaCollapsed = () => {
-    if (isPhoneDevice()) return { imagesCollapsed: true, textsCollapsed: false };
+    if (isPhoneDevice()) {
+      return { imagesCollapsed: readImagesCollapsedPref(), textsCollapsed: false };
+    }
     let imagesCollapsed = readImagesCollapsedPref();
     let textsCollapsed = readTextsCollapsedPref();
     if (imagesCollapsed && textsCollapsed) textsCollapsed = false;
@@ -6560,16 +6561,21 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const figAlt = escapeHtml(
         tUi("illustration_alt", "{title} illüstrasiyası").replace("{title}", story.title || "")
       );
-      // Regenerated Kyrgyz and Azerbaijani illustrations keep their own stamps
-      // so a cached page cannot keep serving the previous picture. English and
-      // Russian keep the page asset stamp.
+      // Each language's illustrations keep their own stamp so a cached page
+      // cannot keep serving the previous picture.
       const pageLang = (document.documentElement.lang || "").toLowerCase();
-      const illustVersion =
-        pageLang === "ky" || pageLang.startsWith("ky-")
-          ? "20260924kyill"
+      const ruSideFix =
+        (pageLang === "ru" || pageLang.startsWith("ru-")) &&
+        /^(sowing-millet-at-the-bottom|teacher-hello-do-you-remember-me|skins-of-the-lambs|you-cannot-descend-a-well-on-his-rope|raising-children)$/.test(
+          story.stem || ""
+        );
+      const illustVersion = ruSideFix
+        ? "20260927ruside"
+        : pageLang === "ky" || pageLang.startsWith("ky-")
+          ? "20260927kyframe"
           : pageLang === "az" || pageLang.startsWith("az-")
             ? "20260925azill"
-            : assetVersion || assetQuery().replace(/^\?v=/, "");
+            : "20260927frame";
       const figureHtml = story.hasImage
         ? `
     <figure class="story__figure" id="figure-${escapeHtml(story.stem)}">

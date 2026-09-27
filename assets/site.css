@@ -3283,22 +3283,20 @@ body.has-page-toolbar .page-category .category-layout > .category-hero {
 }
 
 /*
-  Phone-only Wisdom controls (html.is-phone from assets/site.js).
+  Phone text controls stay hidden (html.is-phone from assets/site.js).
+  Image controls and illustrations follow the same rules as wider screens.
   JS detects iPhone/iPod and Android+Mobile, and excludes iPad / iPadOS
   desktop-mode UA, Android tablets (no "Mobile"), and Tablet/Silk/Kindle.
-  Desktop and tablets never get .is-phone, so these rules do not apply.
   Discoveries (.page-inventions) is out of scope.
 */
-html.is-phone :is(.page-home, .page-category) .tools-bar__field:has([data-tools-images]),
 html.is-phone :is(.page-home, .page-category) .tools-bar__field:has([data-tools-texts]),
-html.is-phone article.story .story__action-group:has([data-images-mode]),
 html.is-phone article.story .story__action-group:has([data-texts-mode]) {
   display: none !important;
 }
 html.is-phone article.story.story--text-hidden .story__text {
   display: block;
 }
-html.is-phone article.story .story__actions:not(:has(.story__action-group:has([data-story-tts]):not([hidden]))) {
+html.is-phone article.story .story__actions:not(:has(.story__action-group:has([data-story-tts]):not([hidden]))):not(:has([data-images-mode])) {
   display: none;
 }
 .tools-empty {

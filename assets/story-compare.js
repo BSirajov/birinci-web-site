@@ -182,10 +182,19 @@
       return job;
     });
 
-  const illustrationUrl = (lang, storyStem, assetQuery) => {
-    const q = typeof assetQuery === "function" ? assetQuery() : "";
-    const stamp =
-      lang === "ky" ? "?v=20260924kyill" : lang === "az" ? "?v=20260925azill" : q;
+  const illustrationUrl = (lang, storyStem) => {
+    const ruSideFix =
+      lang === "ru" &&
+      /^(sowing-millet-at-the-bottom|teacher-hello-do-you-remember-me|skins-of-the-lambs|you-cannot-descend-a-well-on-his-rope|raising-children)$/.test(
+        storyStem || ""
+      );
+    const stamp = ruSideFix
+      ? "?v=20260927ruside"
+      : lang === "ky"
+        ? "?v=20260927kyframe"
+        : lang === "az"
+          ? "?v=20260925azill"
+          : "?v=20260927frame";
     return new URL(
       "../../" + lang + "/wisdom-stories/illustrations/" + storyStem + ".webp" + stamp,
       window.location.href
