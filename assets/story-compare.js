@@ -188,8 +188,15 @@
       /^(sowing-millet-at-the-bottom|teacher-hello-do-you-remember-me|skins-of-the-lambs|you-cannot-descend-a-well-on-his-rope|raising-children)$/.test(
         storyStem || ""
       );
+    const enSideFix =
+      lang === "en" &&
+      /^(architect-sinan-dies-in-a-house-without-water|bedouin-whose-camel-was-stolen|being-human|builder-of-the-nest|calamity-and-blessing|can-a-broken-heart-love-again|credit-ledger|dervishs-robe|diderot-effect|different-path|do-not-complain-about-any-day-you-have-lived|dont-be-words-for-mouths-dust-for-feet|dont-open-your-mouth|dont-say-i-couldnt-deliver-or-i-couldnt-manage|eat-less-and-stay-on-the-right-path|education-or-character|elephant-and-the-rope|expressions-you-should-stay-away-from|fallen-teeth|father-and-son|flower-of-honesty|forbidden-money|former-minister-at-the-seminar|friend-of-god|friendship-and-love|friendship-of-horses|from-a-wise-fathers-advice-to-his-son|from-the-memoirs-of-a-lady-from-istanbul|grocery-shop-and-the-supermarket|handful-of-roasted-chickpeas|help-yourself-o-exalted-god|henry-fords-choice|his-hand-is-at-work|honey-or-dry-bread|hot-bread|how-can-i-escape-my-thoughts|how-to-ward-off-insults|how-we-treat-people|human-emerged|i-want-a-friend|i-would-not-trade-it-for-anything|idle-devil|lions-footprint|most-beautiful-portion|mothers-advice-fakir-baykurt-never-forgot|mullah-and-the-scholar|not-leaving-the-right-path|raising-children|silence|skins-of-the-lambs|sowing-millet-at-the-bottom|stoning-the-devil|teacher-hello-do-you-remember-me|that-was-not-your-right|think-speak-and-act-positively)$/.test(
+        storyStem || ""
+      );
     const stamp = ruSideFix
       ? "?v=20260927ruside"
+      : enSideFix
+        ? "?v=20260928enside"
       : lang === "ky"
         ? "?v=20260927kyframe"
         : lang === "az"

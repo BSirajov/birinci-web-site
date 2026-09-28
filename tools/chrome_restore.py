@@ -1623,6 +1623,7 @@ def pin_asset_versions(html: str) -> str:
                 "20260927frame",
                 "20260927dishes",
                 "20260927ruside",
+                "20260928enside",
                 "20260927kyframe",
                 "20260927marry",
             ):
