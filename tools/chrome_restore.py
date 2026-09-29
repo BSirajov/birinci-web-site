@@ -1615,7 +1615,7 @@ def pin_asset_versions(html: str) -> str:
             return match.group(1) + "20260927phone"
         # Wisdom-story illustrations use a language stamp, not the shared page stamp.
         lookback = html[max(0, match.start() - 220) : match.start()]
-        if "/illustrations/" in lookback and lookback.rstrip().endswith(".webp"):
+        if "/illustrations/" in lookback and lookback.rstrip().endswith((".webp", ".png")):
             if stamp in (
                 "20260924kyill",
                 "20260925azill",
@@ -1625,6 +1625,11 @@ def pin_asset_versions(html: str) -> str:
                 "20260927ruside",
                 "20260928enside",
                 "20260927kyframe",
+                "20260928kystyle",
+                "20260928kyhead",
+                "20260928kytitle",
+                "20260928kyen",
+                "20260929kyfit",
                 "20260927marry",
             ):
                 return match.group(0)

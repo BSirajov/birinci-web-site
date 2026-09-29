@@ -12,6 +12,258 @@
   const flagImgHtml = CW.flagImgHtml;
   const VIEW_ICONS = CW.VIEW_ICONS;
 
+  const KY_ILLUST_SIZE = {
+    "advice-for-those-who-marry": [1522, 816],
+    "aging": [1522, 816],
+    "albrecht-durer": [1536, 845],
+    "ant-that-carries-water": [1536, 816],
+    "architect-sinan-dies-in-a-house-without-water": [1536, 816],
+    "attitude-toward-a-problem": [1536, 816],
+    "avoid-these-questions": [1536, 816],
+    "baklava": [1536, 816],
+    "be-sure-of-your-purpose": [1536, 796],
+    "bedouin-whose-camel-was-stolen": [1536, 816],
+    "being-human": [1536, 816],
+    "bell-to-hang-on-the-cats-neck": [1536, 816],
+    "beloved-is-one-who-gives-love-to-people": [1536, 816],
+    "beware-of-those-you-love": [1536, 816],
+    "blessings-god-has-given": [1536, 810],
+    "blind-well": [1536, 816],
+    "blind-who-have-eyes": [1536, 816],
+    "bookstore": [1536, 816],
+    "builder-of-the-nest": [1536, 816],
+    "calamity-and-blessing": [1536, 816],
+    "can-a-broken-heart-love-again": [1536, 816],
+    "candles-conversation": [1514, 796],
+    "chief-accountant-and-the-ceo": [1536, 816],
+    "church-bell": [1536, 816],
+    "communication": [1536, 816],
+    "compassion": [1536, 816],
+    "compliment": [1530, 816],
+    "credit-ledger": [1536, 796],
+    "dead-remain-in-life": [1520, 796],
+    "dervishs-clothes": [1536, 816],
+    "dervishs-robe": [1536, 871],
+    "dervishs-spoons": [1536, 816],
+    "diderot-effect": [1536, 816],
+    "different-path": [1536, 816],
+    "discussion-and-conflict": [1536, 816],
+    "do-not-complain-about-any-day-you-have-lived": [1536, 796],
+    "do-not-do-these-things": [1536, 816],
+    "do-not-let-your-hearts-part": [1536, 816],
+    "do-you-have-spending-money": [1536, 816],
+    "doctors-appointment": [1536, 816],
+    "donkeys-law": [1536, 816],
+    "dont-be-words-for-mouths-dust-for-feet": [1536, 816],
+    "dont-open-your-mouth": [1536, 816],
+    "dont-say-i-couldnt-deliver-or-i-couldnt-manage": [1536, 816],
+    "drinking-the-sherbet-of-martyrdom": [1536, 816],
+    "early-marriage": [1536, 816],
+    "eat-less-and-stay-on-the-right-path": [1536, 816],
+    "education-or-character": [1536, 796],
+    "elephant-and-the-rope": [1536, 816],
+    "everyone-has-work-to-do": [1536, 816],
+    "everyone-is-the-same-here": [1536, 816],
+    "everything-is-in-our-own-hands": [1536, 816],
+    "explaining-ones-sorrow": [1536, 816],
+    "expressions-you-should-stay-away-from": [1536, 816],
+    "faith-is-half-of-success": [1536, 816],
+    "fallen-teeth": [1536, 816],
+    "father-and-son": [1536, 904],
+    "fathers-footprints": [1536, 816],
+    "festive-gift": [1536, 816],
+    "fish-shop": [1536, 816],
+    "flower-of-honesty": [1530, 816],
+    "fly-in-the-china-shop": [1536, 816],
+    "for-those-who-have-reached-sixty": [1536, 796],
+    "forbidden-money": [1536, 816],
+    "former-minister-at-the-seminar": [1536, 816],
+    "fortieth-day-rite": [1536, 816],
+    "friend-of-god": [1536, 816],
+    "friendship-and-love": [1536, 796],
+    "friendship-of-horses": [1536, 816],
+    "from-a-wise-fathers-advice-to-his-son": [1536, 816],
+    "from-the-memoirs-of-a-lady-from-istanbul": [1536, 796],
+    "garden-and-the-gardener": [1536, 816],
+    "generous-man": [1536, 816],
+    "glass-of-milk": [1536, 796],
+    "go-but-come-again": [1536, 816],
+    "gods-pleasure": [1536, 816],
+    "goose-to-be-plucked": [1536, 816],
+    "gossip": [1536, 816],
+    "grandfather-and-grandson-at-the-market": [1536, 816],
+    "grocery-shop-and-the-supermarket": [1536, 796],
+    "hajj-pilgrimage": [1536, 816],
+    "handful-of-roasted-chickpeas": [1536, 816],
+    "hayats-life-story": [1536, 816],
+    "he-would-not-have-given-so-little": [1536, 816],
+    "help-yourself-o-exalted-god": [1536, 796],
+    "henry-fords-choice": [1530, 816],
+    "his-hand-is-at-work": [1536, 809],
+    "hold-my-hand": [1536, 796],
+    "homeland-and-land": [1536, 796],
+    "honey-or-dry-bread": [1536, 816],
+    "hot-bread": [1536, 810],
+    "how-can-i-escape-my-thoughts": [1536, 796],
+    "how-to-ward-off-insults": [1536, 816],
+    "how-we-treat-people": [1536, 796],
+    "human-emerged": [1536, 796],
+    "humanity": [1536, 816],
+    "hunters-description": [1523, 816],
+    "i-am-aware-now": [1536, 816],
+    "i-am-tired-mother": [1536, 816],
+    "i-am-waiting-for-the-teeth": [1536, 816],
+    "i-got-busy-with-cleaning": [1536, 816],
+    "i-kiss-your-eyes": [1536, 816],
+    "i-love-you": [1536, 816],
+    "i-want-a-friend": [1536, 816],
+    "i-would-not-trade-it-for-anything": [1536, 816],
+    "idle-devil": [1536, 816],
+    "if-fate-allows-we-will-meet": [1523, 816],
+    "if-i-dont-do-it-these-days-the-world-wont-collapse": [1536, 816],
+    "if-the-door-before-you-wont-open-it-is-not-your-door": [1536, 796],
+    "if-the-road-does-not-tire-you-it-is-because-of-your-companion": [1536, 816],
+    "it-is-in-vain": [1536, 796],
+    "it-wont-go-to-waste": [1536, 816],
+    "just-verdict-of-the-frankfurt-judge": [1536, 796],
+    "know-your-friend": [1536, 816],
+    "lawful-morsel": [1536, 816],
+    "lecturer-and-the-groom": [1536, 816],
+    "let-prayer-come-and-find-you": [1536, 816],
+    "life-is-short": [1536, 816],
+    "life-lesson": [1536, 816],
+    "light-of-the-universe": [1536, 816],
+    "lions-footprint": [1536, 816],
+    "liver": [1536, 816],
+    "living-in-the-past": [1536, 816],
+    "loving-from-afar": [1536, 816],
+    "magnificent-lesson": [1536, 816],
+    "mature-person": [1536, 816],
+    "may-your-face-always-smile": [1536, 816],
+    "meaningless-question": [1536, 816],
+    "meddling-in-others-lives": [1536, 816],
+    "mercedes": [1516, 816],
+    "mihrimah-sultan-and-architect-sinan": [1536, 796],
+    "mockery-is-unacceptable": [1536, 816],
+    "more-effective-way": [1536, 796],
+    "most-beautiful-gift": [1536, 816],
+    "most-beautiful-places-in-the-world": [1536, 796],
+    "most-beautiful-portion": [1536, 816],
+    "mother-and-son": [1536, 816],
+    "mother-of-pearl-flower": [1536, 816],
+    "mothers-advice-fakir-baykurt-never-forgot": [1536, 816],
+    "mothers-love": [1536, 816],
+    "mullah-and-the-scholar": [1524, 816],
+    "my-alif-has-been-dotted": [1536, 816],
+    "newtons-second-law": [1521, 816],
+    "no-need-to-be-sane-when-everyone-is-mad": [1536, 816],
+    "no-one-listens-to-constant-complainers": [1536, 816],
+    "not-every-sorrow-is-told-to-people": [1536, 816],
+    "not-leaving-the-right-path": [1536, 816],
+    "nothing-is-ever-truly-lost": [1536, 789],
+    "o-god-give-first-to-the-mountains-and-stones": [1536, 816],
+    "o-god-heal-our-sorrows": [1536, 796],
+    "one-who-knows-and-the-one-who-does-not": [1536, 816],
+    "only-my-mother-would-weep": [1536, 796],
+    "organization-without-an-action-plan": [1536, 816],
+    "other-peoples-opinions": [1536, 816],
+    "our-qualities-can-become-our-enemies": [1536, 816],
+    "pair-of-boots": [1536, 816],
+    "pawn-and-the-king": [1536, 816],
+    "pay-rent-for-the-water": [1536, 816],
+    "people-who-need-something-from-you": [1536, 816],
+    "permission-or-apology": [1536, 816],
+    "power-of-truth": [1536, 816],
+    "pray-while-washing-your-dishes": [1536, 816],
+    "price-of-a-miracle": [1536, 816],
+    "properties-of-water": [1536, 816],
+    "puppies-for-sale": [1536, 816],
+    "purple-jacket": [1536, 816],
+    "raising-children": [1536, 816],
+    "ramadan-prayer": [1536, 816],
+    "red-dress": [1536, 816],
+    "road-to-the-cotton-field": [1536, 816],
+    "rose": [1536, 796],
+    "rotten-seed": [1536, 816],
+    "sacrificial-meat": [1536, 816],
+    "say-what-you-know": [1536, 816],
+    "saying-the-word-in-its-place": [1536, 816],
+    "scarf-seller": [1536, 816],
+    "searching": [1536, 816],
+    "secret-of-living-well-and-longevity": [1536, 796],
+    "sharing-justice": [1536, 816],
+    "shepherd-must-be-called": [1536, 816],
+    "shepherds-word": [1536, 816],
+    "silence": [1536, 816],
+    "silent-corridor": [1536, 816],
+    "skins-of-the-lambs": [1536, 816],
+    "sound-of-the-doorbell": [1536, 816],
+    "sowing-millet-at-the-bottom": [1536, 816],
+    "spare-time": [1536, 816],
+    "spend-your-time-with-people": [1536, 816],
+    "spinach": [1536, 816],
+    "stoning-the-devil": [1536, 816],
+    "strength-and-sorrow": [1536, 796],
+    "strongest-shield": [1536, 816],
+    "teacher-hello-do-you-remember-me": [1536, 816],
+    "telling-lies": [1536, 816],
+    "that-was-not-your-right": [1536, 816],
+    "think-speak-and-act-positively": [1536, 796],
+    "this-boat-is-empty-too": [1536, 816],
+    "those-you-should-not-befriend": [1536, 816],
+    "three-best-things": [1536, 816],
+    "three-essential-things-for-a-city": [1536, 816],
+    "three-landscapes": [1536, 816],
+    "three-questions": [1536, 816],
+    "three-statues": [1536, 816],
+    "to-be-alone": [1536, 816],
+    "to-be-cool-headed": [1536, 796],
+    "to-be-fasting": [1536, 816],
+    "to-be-full-or-to-be-gone": [1536, 796],
+    "to-be-self-confident": [1536, 796],
+    "to-dream": [1536, 816],
+    "to-forgive": [1536, 816],
+    "to-give-up": [1536, 816],
+    "to-meet-and-to-know": [1536, 816],
+    "tongue": [1536, 816],
+    "true-love": [1536, 816],
+    "try-to-think-this-way": [1536, 816],
+    "turning-hardship-into-opportunity": [1536, 816],
+    "turtles-wrong-calculation": [1536, 816],
+    "two-bowls-of-water": [1536, 816],
+    "two-donkeys": [1536, 816],
+    "value-of-your-family": [1536, 816],
+    "we-are-rich": [1536, 816],
+    "weeds-must-be-pulled-from-the-root": [1536, 796],
+    "weight-of-the-oil": [1536, 816],
+    "welcome-my-bey": [1536, 796],
+    "what-breaks-a-marriage": [1536, 816],
+    "what-changed-after-sixty": [1536, 816],
+    "what-do-i-need-it-for": [1536, 816],
+    "what-is-a-word": [1536, 816],
+    "what-is-loyalty": [1536, 816],
+    "what-it-means-to-be-late": [1536, 816],
+    "what-matters-in-life": [1536, 816],
+    "what-we-learn-in-life": [1536, 816],
+    "what-women-have-endured-in-this-world": [1536, 816],
+    "where-does-calamity-come-from": [1536, 816],
+    "where-does-this-road-go": [1536, 816],
+    "who-handles-honey-licks-his-finger": [1536, 816],
+    "why-am-i-poor": [1536, 816],
+    "why-are-you-waiting-for-the-last-day-of-the-world": [1536, 816],
+    "why-injustice-when-there-is-justice": [1536, 816],
+    "why-people-shout-when-they-argue": [1536, 816],
+    "windmill-turning-in-still-air": [1536, 816],
+    "with-this-nation-the-world-can-be-conquered": [1536, 816],
+    "woman-and-the-mirror": [1536, 728],
+    "woman-whose-house-was-robbed": [1536, 816],
+    "word-and-silence": [1536, 816],
+    "yellow-and-red-flowers": [1536, 816],
+    "you-cannot-descend-a-well-on-his-rope": [1536, 816],
+    "your-friends": [1536, 816],
+    "your-hand-at-work-your-hope-in-god": [1536, 816],
+  };
+
   const foldAzI = (s) => String(s || "").replace(/[İIı]/g, "i");
 
   const classifyParagraphs = (paragraphs, storyStem) => {
@@ -193,17 +445,39 @@
       /^(architect-sinan-dies-in-a-house-without-water|bedouin-whose-camel-was-stolen|being-human|builder-of-the-nest|calamity-and-blessing|can-a-broken-heart-love-again|credit-ledger|dervishs-robe|diderot-effect|different-path|do-not-complain-about-any-day-you-have-lived|dont-be-words-for-mouths-dust-for-feet|dont-open-your-mouth|dont-say-i-couldnt-deliver-or-i-couldnt-manage|eat-less-and-stay-on-the-right-path|education-or-character|elephant-and-the-rope|expressions-you-should-stay-away-from|fallen-teeth|father-and-son|flower-of-honesty|forbidden-money|former-minister-at-the-seminar|friend-of-god|friendship-and-love|friendship-of-horses|from-a-wise-fathers-advice-to-his-son|from-the-memoirs-of-a-lady-from-istanbul|grocery-shop-and-the-supermarket|handful-of-roasted-chickpeas|help-yourself-o-exalted-god|henry-fords-choice|his-hand-is-at-work|honey-or-dry-bread|hot-bread|how-can-i-escape-my-thoughts|how-to-ward-off-insults|how-we-treat-people|human-emerged|i-want-a-friend|i-would-not-trade-it-for-anything|idle-devil|lions-footprint|most-beautiful-portion|mothers-advice-fakir-baykurt-never-forgot|mullah-and-the-scholar|not-leaving-the-right-path|raising-children|silence|skins-of-the-lambs|sowing-millet-at-the-bottom|stoning-the-devil|teacher-hello-do-you-remember-me|that-was-not-your-right|think-speak-and-act-positively)$/.test(
         storyStem || ""
       );
-    const stamp = ruSideFix
+    const kyEnFix =
+      lang === "ky" &&
+      /^(my-alif-has-been-dotted|woman-and-the-mirror|mullah-and-the-scholar|expressions-you-should-stay-away-from|hayats-life-story|ramadan-prayer|not-leaving-the-right-path|help-yourself-o-exalted-god|mothers-advice-fakir-baykurt-never-forgot|i-love-you|yellow-and-red-flowers|if-the-road-does-not-tire-you-it-is-because-of-your-companion|that-was-not-your-right|dont-open-your-mouth|tongue|human-emerged|secret-of-living-well-and-longevity|what-it-means-to-be-late|why-injustice-when-there-is-justice|with-this-nation-the-world-can-be-conquered|bedouin-whose-camel-was-stolen|do-not-complain-about-any-day-you-have-lived|your-friends|word-and-silence|what-women-have-endured-in-this-world|why-people-shout-when-they-argue|what-is-loyalty|what-is-a-word|what-do-i-need-it-for|to-give-up|two-bowls-of-water|two-donkeys)$/.test(
+        storyStem || ""
+      );
+    const kyHeadFix =
+      lang === "ky" &&
+      /^(ramadan-prayer|not-leaving-the-right-path|help-yourself-o-exalted-god|mothers-advice-fakir-baykurt-never-forgot|i-love-you|yellow-and-red-flowers|if-the-road-does-not-tire-you-it-is-because-of-your-companion|that-was-not-your-right|dont-open-your-mouth|tongue|human-emerged|secret-of-living-well-and-longevity|what-it-means-to-be-late|why-injustice-when-there-is-justice|with-this-nation-the-world-can-be-conquered|bedouin-whose-camel-was-stolen)$/.test(
+        storyStem || ""
+      );
+    const kyFit =
+      lang === "ky" &&
+      /^(advice-for-those-who-marry|albrecht-durer|candles-conversation|dervishs-robe|father-and-son|mercedes|aging|blessings-god-has-given|compliment|dead-remain-in-life|flower-of-honesty|henry-fords-choice|his-hand-is-at-work|hot-bread|hunters-description|if-fate-allows-we-will-meet|mullah-and-the-scholar|newtons-second-law|nothing-is-ever-truly-lost)$/.test(
+        storyStem || ""
+      );
+    const stamp = kyFit
+      ? "?v=20260929kyfit"
+      : ruSideFix
       ? "?v=20260927ruside"
       : enSideFix
         ? "?v=20260928enside"
+      : kyEnFix
+        ? "?v=20260928kyen"
+      : kyHeadFix
+        ? "?v=20260928kytitle"
       : lang === "ky"
-        ? "?v=20260927kyframe"
+        ? "?v=20260928kystyle"
         : lang === "az"
           ? "?v=20260925azill"
           : "?v=20260927frame";
+    const illustExt = ".webp";
     return new URL(
-      "../../" + lang + "/wisdom-stories/illustrations/" + storyStem + ".webp" + stamp,
+      "../../" + lang + "/wisdom-stories/illustrations/" + storyStem + illustExt + stamp,
       window.location.href
     ).href;
   };
@@ -266,13 +540,20 @@
       "{title}",
       title || (story && story.stem) || ""
     );
+    const kyBox = code === "ky" && story && story.stem ? KY_ILLUST_SIZE[story.stem] : null;
+    const illustW = kyBox ? String(kyBox[0]) : "768";
+    const illustH = kyBox ? String(kyBox[1]) : "512";
     const figureHtml = showImage
       ? '<figure class="sc-col__figure">' +
         '<img class="sc-col__image" src="' +
         escapeHtml(illustrationUrl(code, story.stem, ctx.assetQuery)) +
         '" alt="' +
         escapeHtml(alt) +
-        '" loading="lazy" decoding="async" width="768" height="512" onerror="this.closest(\'figure\').hidden=true" />' +
+        '" loading="lazy" decoding="async" width="' +
+        illustW +
+        '" height="' +
+        illustH +
+        '" onerror="this.closest(\'figure\').hidden=true" />' +
         "</figure>"
       : "";
     return (

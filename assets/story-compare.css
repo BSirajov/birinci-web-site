@@ -598,8 +598,8 @@ body.sc-page[data-sc-show-illus="false"] .sc-col__figure {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
   vertical-align: middle;
 }
 
