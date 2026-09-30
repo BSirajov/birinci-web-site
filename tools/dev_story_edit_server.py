@@ -295,7 +295,9 @@ def update_sitemap(lang: str, stem: str, slug: str, title: str) -> None:
         count=1,
     )
     if n:
-        path.write_text(text2, encoding="utf-8", newline="\n")
+        tmp = path.with_suffix(path.suffix + ".tmp")
+        tmp.write_text(text2, encoding="utf-8", newline="\n")
+        tmp.replace(path)
 
 
 def category_title_for_slug(lang: str, slug: str) -> str | None:

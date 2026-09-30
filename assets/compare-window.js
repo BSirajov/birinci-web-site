@@ -555,12 +555,100 @@
       }
     };
 
+    const clearEqualHeights = () => {
+      if (!els.grid) return;
+      els.grid.querySelectorAll(".sc-col__copy").forEach((el) => {
+        el.style.minHeight = "";
+      });
+      els.grid.querySelectorAll(".sc-col").forEach((el) => {
+        el.style.minHeight = "";
+      });
+    };
+
+    const columnsAreStacked = () => {
+      if (!els.grid) return true;
+      const cols = Array.prototype.slice.call(els.grid.querySelectorAll(".sc-col"));
+      if (cols.length < 2) return true;
+      const top0 = cols[0].getBoundingClientRect().top;
+      for (let i = 1; i < cols.length; i++) {
+        if (Math.abs(cols[i].getBoundingClientRect().top - top0) > 1) return true;
+      }
+      return false;
+    };
+
+    const maxRectHeight = (nodes) => {
+      let max = 0;
+      nodes.forEach((el) => {
+        const h = el.getBoundingClientRect().height;
+        if (h > max) max = h;
+      });
+      return max;
+    };
+
+    // Side-by-side only: equalize text blocks (image tops), then outer cards (bottoms).
+    // Extra space stays in the card below the image — never stretch bitmaps.
+    const equalizeColumnHeights = () => {
+      clearEqualHeights();
+      if (!els.grid || columnsAreStacked()) return;
+
+      const copies = Array.prototype.slice.call(els.grid.querySelectorAll(".sc-col__copy"));
+      if (copies.length >= 2) {
+        const maxCopy = maxRectHeight(copies);
+        if (maxCopy > 0) {
+          const copyPx = Math.ceil(maxCopy) + "px";
+          copies.forEach((el) => {
+            el.style.minHeight = copyPx;
+          });
+        }
+      }
+
+      const cols = Array.prototype.slice.call(els.grid.querySelectorAll(".sc-col"));
+      if (cols.length < 2) return;
+      const maxCol = maxRectHeight(cols);
+      if (maxCol <= 0) return;
+      const colPx = Math.ceil(maxCol) + "px";
+      cols.forEach((el) => {
+        el.style.minHeight = colPx;
+      });
+    };
+
+    let equalizeRaf = 0;
+    let equalizeTimer = 0;
+    const scheduleEqualizeColumnHeights = () => {
+      if (equalizeRaf) window.cancelAnimationFrame(equalizeRaf);
+      if (equalizeTimer) window.clearTimeout(equalizeTimer);
+      equalizeRaf = window.requestAnimationFrame(() => {
+        equalizeRaf = 0;
+        equalizeColumnHeights();
+        // Second pass after layout/fonts/images settle; avoid a stale height.
+        equalizeTimer = window.setTimeout(() => {
+          equalizeTimer = 0;
+          equalizeColumnHeights();
+        }, 50);
+      });
+    };
+
+    const bindColumnImageLoads = () => {
+      if (!els.grid) return;
+      els.grid.querySelectorAll(".sc-col__image").forEach((img) => {
+        if (img.complete) return;
+        const onDone = () => {
+          img.removeEventListener("load", onDone);
+          img.removeEventListener("error", onDone);
+          scheduleEqualizeColumnHeights();
+        };
+        img.addEventListener("load", onDone);
+        img.addEventListener("error", onDone);
+      });
+    };
+
     const renderGrid = () => {
       if (!els.grid) return;
       const langs = visibleLangs();
       els.grid.style.setProperty("--sc-cols", String(Math.max(langs.length, 1)));
       if (!langs.length) {
         stopColumnAudio();
+        clearEqualHeights();
         els.grid.innerHTML = "";
         return;
       }
@@ -571,6 +659,8 @@
         )
         .join("");
       syncColumnAudioButtons();
+      bindColumnImageLoads();
+      scheduleEqualizeColumnHeights();
     };
 
     const formatPagerValue = (current, total) =>
@@ -1041,6 +1131,17 @@
       applyToolbarGlobe(fromLang);
       window.addEventListener("pagehide", persistVisibleLangs);
       window.addEventListener("beforeunload", persistVisibleLangs);
+      window.addEventListener("resize", scheduleEqualizeColumnHeights);
+      if (document.fonts && typeof document.fonts.ready !== "undefined") {
+        document.fonts.ready.then(scheduleEqualizeColumnHeights).catch(() => {});
+      }
+      if (typeof ResizeObserver === "function" && els.scroll) {
+        try {
+          const ro = new ResizeObserver(() => scheduleEqualizeColumnHeights());
+          ro.observe(els.scroll);
+          if (els.grid) ro.observe(els.grid);
+        } catch (_) {}
+      }
       window.addEventListener("message", (event) => {
         const data = event && event.data;
         if (!data) return;

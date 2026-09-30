@@ -564,6 +564,9 @@
 
   function enhanceSelect(select) {
     if (!select || !select.id) return null;
+    // Author is a single-select filter; multi-checkbox UX inverts intent
+    // (clicking Bakhtiyar while "all" is checked unchecks him and leaves Etibar).
+    if (select.id === "filterStoryAuthor") return null;
     if (instances[select.id]) return instances[select.id];
     return buildUi(select);
   }

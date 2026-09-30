@@ -2688,7 +2688,9 @@
     var stem = entry && entry.id ? entry.id : "";
     var stemAttr = stem ? ' data-story-stem="' + stem.replace(/"/g, "&quot;") + '"' : "";
     var audioEnabled = window.__BIRINCI_AUDIO_CONTROLS_ENABLED__ === true;
-    var disabledAttrs = audioEnabled ? "" : ' disabled aria-disabled="true"';
+    var disabledAttrs = audioEnabled
+      ? ""
+      : ' disabled aria-disabled="true" tabindex="-1" hidden';
     var actions = document.createElement("div");
     actions.className = "story__actions inventions-entry-actions";
 

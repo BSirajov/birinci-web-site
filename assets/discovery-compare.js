@@ -230,12 +230,17 @@
     const listenTip = escapeHtml(tUi("listen", "Listen"));
     const stopTip = escapeHtml(tUi("stop", "Stop"));
     const audioEnabled = window.__BIRINCI_AUDIO_CONTROLS_ENABLED__ === true;
-    const disabledAttrs = audioEnabled ? "" : ' disabled aria-disabled="true"';
+    const disabledAttrs = audioEnabled
+      ? ""
+      : ' disabled aria-disabled="true" tabindex="-1" hidden';
+    const audioHiddenAttrs = audioEnabled ? "" : " hidden aria-hidden=\"true\"";
     const audioHtml = !article
       ? ""
       : '<div class="sc-col__audio" role="group" aria-label="' +
         audioLabel +
-        '">' +
+        '"' +
+        audioHiddenAttrs +
+        ">" +
         '<button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-sc-tts="listen" data-lang="' +
         code +
         '" aria-pressed="false" title="' +
@@ -273,6 +278,7 @@
       "</span>" +
       "</header>" +
       '<div class="sc-col__body">' +
+      '<div class="sc-col__copy">' +
       '<div class="sc-col__title-row">' +
       '<h2 class="sc-col__title">' +
       escapeHtml(title || "—") +
@@ -280,6 +286,7 @@
       audioHtml +
       "</div>" +
       bodyHtml +
+      "</div>" +
       "</div>" +
       "</article>"
     );

@@ -29,27 +29,39 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   )
     .toLowerCase()
     .split(/[-_]/)[0];
-  // Flip to true when suitable TTS voices are ready. One change re-enables
-  // Listen/Stop for Wisdom Stories and Discoveries (all locales).
+  // Flip to true when story audio files exist. One change re-enables Listen/Stop
+  // buttons for Wisdom Stories and Discoveries (all locales). CSS key:
+  // html.audio-buttons-enabled (see assets/site.css).
   const AUDIO_CONTROLS_ENABLED = false;
   window.__BIRINCI_AUDIO_CONTROLS_ENABLED__ = AUDIO_CONTROLS_ENABLED;
-  // Visibility is always on; AUDIO_CONTROLS_ENABLED gates interactivity only.
-  let SHOW_AUDIO_CONTROLS = true;
-  let SHOW_DISCOVERY_LISTEN = true;
+  let SHOW_AUDIO_CONTROLS = AUDIO_CONTROLS_ENABLED;
+  let SHOW_DISCOVERY_LISTEN = AUDIO_CONTROLS_ENABLED;
   const applyAudioFlags = () => {
-    SHOW_AUDIO_CONTROLS = true;
-    SHOW_DISCOVERY_LISTEN = true;
+    SHOW_AUDIO_CONTROLS = AUDIO_CONTROLS_ENABLED;
+    SHOW_DISCOVERY_LISTEN = AUDIO_CONTROLS_ENABLED;
+    document.documentElement.classList.toggle(
+      "audio-buttons-enabled",
+      AUDIO_CONTROLS_ENABLED
+    );
   };
   const audioControlDisabledAttrs = () =>
-    AUDIO_CONTROLS_ENABLED ? "" : ' disabled aria-disabled="true"';
+    AUDIO_CONTROLS_ENABLED ? "" : ' disabled aria-disabled="true" tabindex="-1"';
   const setAudioButtonEnabled = (el, enabled) => {
     if (!el || !el.setAttribute) return;
     if (enabled) {
       el.removeAttribute("disabled");
       el.removeAttribute("aria-disabled");
+      el.removeAttribute("tabindex");
+      el.removeAttribute("aria-hidden");
+      el.hidden = false;
+      el.removeAttribute("hidden");
     } else {
       el.setAttribute("disabled", "");
       el.setAttribute("aria-disabled", "true");
+      el.setAttribute("tabindex", "-1");
+      el.setAttribute("aria-hidden", "true");
+      el.hidden = true;
+      el.setAttribute("hidden", "");
     }
   };
   let LOCALE_TAG = I18N.lang || document.documentElement.lang || "az";
@@ -102,7 +114,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   };
   applyPhoneUiClass();
   window.__birinciIsPhoneDevice = isPhoneDevice;
-  // Audio buttons stay visible; AUDIO_CONTROLS_ENABLED controls disabled state.
+  applyAudioFlags();
   document.documentElement.classList.remove("discovery-audio-hidden");
 
   const isDiscoveriesCatalogPage = () =>
@@ -128,32 +140,32 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     return true;
   };
 
+  const AUDIO_CHROME_GROUP_SEL =
+    ".story__action-group:has([data-story-tts]), .story__action-group:has([data-discovery-tts]), .story__action-group:has([data-article-tts]), .tools-bar__field:has([data-tools-play-visible]), .text-lightbox__tts, .inventions-entry__tts, .sc-col__audio";
+  const AUDIO_CHROME_BTN_SEL =
+    "[data-story-tts], [data-discovery-tts], [data-article-tts], [data-tools-play-visible], [data-sc-tts], [data-lightbox-tts], .cat-card__listen";
+
   const hideAudioChrome = (root = document) => {
-    // Keep Listen/Stop visible on stories and discoveries; disable until voices are ready.
+    // Hide (or show) Listen/Stop chrome from one flag. Markup stays in the DOM.
     const scope = root || document;
-    scope
-      .querySelectorAll(
-        ".story__action-group[hidden], .tools-bar__field[hidden], .text-lightbox__tts[hidden], .inventions-entry__tts[hidden], .sc-col__audio[hidden]"
-      )
-      .forEach((el) => {
-        if (
-          el.querySelector(
-            "[data-story-tts], [data-discovery-tts], [data-article-tts], [data-tools-play-visible], [data-sc-tts]"
-          )
-        ) {
-          el.hidden = false;
-          el.removeAttribute("hidden");
-        }
-      });
-    scope
-      .querySelectorAll(
-        "[data-story-tts], [data-discovery-tts], [data-article-tts], [data-tools-play-visible], [data-sc-tts], [data-lightbox-tts]"
-      )
-      .forEach((el) => {
+    const show = AUDIO_CONTROLS_ENABLED;
+    applyAudioFlags();
+    scope.querySelectorAll(AUDIO_CHROME_GROUP_SEL).forEach((el) => {
+      // Never hide image/text control groups (audio lives in its own group).
+      if (el.querySelector("[data-images-mode], [data-texts-mode]")) return;
+      if (show) {
         el.hidden = false;
         el.removeAttribute("hidden");
-        setAudioButtonEnabled(el, AUDIO_CONTROLS_ENABLED);
-      });
+        el.removeAttribute("aria-hidden");
+      } else {
+        el.hidden = true;
+        el.setAttribute("hidden", "");
+        el.setAttribute("aria-hidden", "true");
+      }
+    });
+    scope.querySelectorAll(AUDIO_CHROME_BTN_SEL).forEach((el) => {
+      setAudioButtonEnabled(el, show);
+    });
   };
   const liveI18n = () => window.__BIRINCI_I18N__ || I18N;
   const tUi = (key, fallback) => {
@@ -659,6 +671,271 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     }
   };
 
+  const STORY_AUTHOR_ETIBAR = "etibar";
+  const STORY_AUTHOR_BAKHTIYAR = "bakhtiyar";
+  // Known Etibar corpus stems (credit may be missing/localized in some locale packs).
+  const STORY_AUTHOR_ETIBAR_STEMS = new Set([
+    "caring-call-brightens-the-day",
+    "changing-times-enduring-friendship",
+    "cherish-today-with-loved-ones",
+    "cherishing-flowers-in-spring",
+    "day-gratefully-lived",
+    "from-reflection-to-hope",
+    "hopeful-journey-through-life",
+    "humanity-rebuilds-in-peace",
+    "kindness-builds-stronger-bonds",
+    "nails-lasting-lesson",
+    "quarantine-days-hopeful-hearts",
+    "small-changes-big-meaning",
+  ]);
+  // Live source credits (and close spellings already on the site).
+  const STORY_AUTHOR_ETIBAR_CREDIT_RE =
+    /Etibar\s+Siracsoy|Этибар\s+Сираджсой|Этибар\s+Сиражсой/i;
+  const STORY_AUTHOR_BAKHTIYAR_CREDIT_RE =
+    /Bakhtiyar|Baxhtiyar|Bəxtiyar|Бахтияр|Sirajov|Siracov|Сираджов|Сиражов/i;
+  const storyAuthorBakhtiyarLabel = () =>
+    tUi("author_bakhtiyar", "Bəxtiyar Siracov");
+  const storyAuthorEtibarLabel = () =>
+    tUi("author_etibar", "Etibar Siracsoy");
+
+  const isEtibarAuthorCredit = (text) =>
+    STORY_AUTHOR_ETIBAR_CREDIT_RE.test(String(text || ""));
+
+  const isBakhtiyarAuthorCredit = (text) => {
+    const s = String(text || "");
+    if (!s.trim()) return false;
+    // Etibar credits must never be classified as Bakhtiyar.
+    if (isEtibarAuthorCredit(s)) return false;
+    return STORY_AUTHOR_BAKHTIYAR_CREDIT_RE.test(s);
+  };
+
+  const storySourceTextFromParagraphs = (paragraphs) => {
+    const paras = Array.isArray(paragraphs) ? paragraphs : [];
+    if (!paras.length) return "";
+    return String(paras[paras.length - 1] || "");
+  };
+
+  const rememberEtibarStemsFromCatalog = (catalog) => {
+    const set = new Set(STORY_AUTHOR_ETIBAR_STEMS);
+    const visit = (story) => {
+      if (!story || !story.stem) return;
+      if (isEtibarAuthorCredit(storySourceTextFromParagraphs(story.paragraphs))) {
+        set.add(story.stem);
+      }
+    };
+    (catalog && catalog.categories ? catalog.categories : []).forEach((cat) => {
+      (cat.stories || []).forEach(visit);
+    });
+    []
+      .concat((catalog && catalog.uncategorized) || [])
+      .concat((catalog && catalog.stories) || [])
+      .forEach(visit);
+    window.__BIRINCI_ETIBAR_STEMS__ = set;
+    return set;
+  };
+
+  const etibarStemSet = () => {
+    if (window.__BIRINCI_ETIBAR_STEMS__ instanceof Set) {
+      return window.__BIRINCI_ETIBAR_STEMS__;
+    }
+    if (window.__BIRINCI_STORIES__) {
+      return rememberEtibarStemsFromCatalog(window.__BIRINCI_STORIES__);
+    }
+    return STORY_AUTHOR_ETIBAR_STEMS;
+  };
+
+  const storyAuthorKeyFromParagraphs = (paragraphs, stem) => {
+    const id = String(stem || "").trim();
+    if (id && STORY_AUTHOR_ETIBAR_STEMS.has(id)) return STORY_AUTHOR_ETIBAR;
+    const known = etibarStemSet();
+    if (known && id && known.has(id)) return STORY_AUTHOR_ETIBAR;
+    const src = storySourceTextFromParagraphs(paragraphs);
+    if (isEtibarAuthorCredit(src)) return STORY_AUTHOR_ETIBAR;
+    if (isBakhtiyarAuthorCredit(src)) return STORY_AUTHOR_BAKHTIYAR;
+    // Empty source or a different credit → All authors only.
+    return "";
+  };
+
+  const storyAuthorKeyForStem = (stem, article) => {
+    const id = String(stem || "").trim();
+    if (id && STORY_AUTHOR_ETIBAR_STEMS.has(id)) return STORY_AUTHOR_ETIBAR;
+    const known = etibarStemSet();
+    if (known && id && known.has(id)) return STORY_AUTHOR_ETIBAR;
+    const el =
+      article ||
+      (id
+        ? document.getElementById(id) ||
+          document.querySelector(`article.story[data-stem="${cssEscapeAttr(id)}"]`)
+        : null);
+    if (el) {
+      const srcEl = el.querySelector(".story__source");
+      const src = srcEl ? srcEl.textContent : "";
+      if (isEtibarAuthorCredit(src)) return STORY_AUTHOR_ETIBAR;
+      if (isBakhtiyarAuthorCredit(src)) return STORY_AUTHOR_BAKHTIYAR;
+      const paras = el.querySelectorAll(".story__text p, .card-text p");
+      if (paras.length) {
+        const last = paras[paras.length - 1].textContent;
+        if (isEtibarAuthorCredit(last)) return STORY_AUTHOR_ETIBAR;
+        if (isBakhtiyarAuthorCredit(last)) return STORY_AUTHOR_BAKHTIYAR;
+      }
+    } else if (window.__BIRINCI_STORIES__) {
+      // Sidebar / pre-DOM path: resolve from the live catalog source paragraph.
+      let found = null;
+      const visit = (story) => {
+        if (found || !story || story.stem !== id) return;
+        found = story;
+      };
+      (window.__BIRINCI_STORIES__.categories || []).forEach((cat) => {
+        (cat.stories || []).forEach(visit);
+      });
+      []
+        .concat(window.__BIRINCI_STORIES__.uncategorized || [])
+        .concat(window.__BIRINCI_STORIES__.stories || [])
+        .forEach(visit);
+      if (found) return storyAuthorKeyFromParagraphs(found.paragraphs || [], id);
+    }
+    return "";
+  };
+
+  const activeStoryAuthorFilter = () => {
+    const select = document.getElementById("filterStoryAuthor");
+    const value = select ? String(select.value || "").trim() : "";
+    if (value === STORY_AUTHOR_ETIBAR || value === STORY_AUTHOR_BAKHTIYAR) return value;
+    return "";
+  };
+
+  const storyPassesAuthorFilter = (authorKey, filter = activeStoryAuthorFilter()) => {
+    // All authors (empty filter): every story — credited, uncredited, or other.
+    if (!filter) return true;
+    return authorKey === filter;
+  };
+
+  const syncStoryAuthorFilterChrome = () => {
+    const label = tUi("author_filter", "Müəllif");
+    const allLabel = tUi("all_authors", "Bütün müəlliflər");
+    const bakLabel = storyAuthorBakhtiyarLabel();
+    const etibarLabel = storyAuthorEtibarLabel();
+    const clear = tUi("clear_filter", "Filtri sil");
+    const labelEl = document.getElementById("story-author-label");
+    if (labelEl) labelEl.textContent = label;
+    const select = document.getElementById("filterStoryAuthor");
+    if (select) {
+      const placeholder = select.querySelector('option[value=""]');
+      if (placeholder) placeholder.textContent = allLabel;
+      const etibarOpt = select.querySelector(`option[value="${STORY_AUTHOR_ETIBAR}"]`);
+      if (etibarOpt) etibarOpt.textContent = etibarLabel;
+      const bakOpt = select.querySelector(`option[value="${STORY_AUTHOR_BAKHTIYAR}"]`);
+      if (bakOpt) bakOpt.textContent = bakLabel;
+      select.setAttribute("aria-label", label);
+      const wrap = select.closest(".sel-wrap");
+      if (wrap) wrap.classList.toggle("active", !!select.value);
+    }
+    const clearBtn = document.querySelector('.sel-clear[data-for="filterStoryAuthor"]');
+    if (clearBtn) {
+      clearBtn.title = clear;
+      clearBtn.setAttribute("aria-label", clear);
+    }
+  };
+
+  const fillStoryAuthorSelect = (select, selected) => {
+    if (!select) return;
+    const keep =
+      selected === STORY_AUTHOR_ETIBAR || selected === STORY_AUTHOR_BAKHTIYAR
+        ? selected
+        : activeStoryAuthorFilter();
+    const label = tUi("author_filter", "Müəllif");
+    const allLabel = tUi("all_authors", "Bütün müəlliflər");
+    const bakLabel = storyAuthorBakhtiyarLabel();
+    const etibarLabel = storyAuthorEtibarLabel();
+    select.innerHTML =
+      `<option value="">${escapeStoryNav(allLabel)}</option>` +
+      `<option value="${STORY_AUTHOR_BAKHTIYAR}">${escapeStoryNav(bakLabel)}</option>` +
+      `<option value="${STORY_AUTHOR_ETIBAR}">${escapeStoryNav(etibarLabel)}</option>`;
+    select.value = keep || "";
+    select.setAttribute("aria-label", label);
+    syncStoryAuthorFilterChrome();
+  };
+
+  const bindStoryAuthorFilter = (bar, { initialAuthor, onChange } = {}) => {
+    if (!bar) return null;
+    let field = bar.querySelector("[data-story-author-filter]");
+    if (!field) {
+      const label = tUi("author_filter", "Müəllif");
+      const allLabel = tUi("all_authors", "Bütün müəlliflər");
+      const bakLabel = storyAuthorBakhtiyarLabel();
+      const etibarLabel = storyAuthorEtibarLabel();
+      const clear = tUi("clear_filter", "Filtri sil");
+      field = document.createElement("div");
+      field.className = "tools-bar__field tools-bar__field--filter";
+      field.setAttribute("data-story-author-filter", "");
+      field.innerHTML =
+        `<span class="visually-hidden" id="story-author-label">${escapeStoryNav(label)}</span>` +
+        `<div class="sel-wrap">` +
+        `<select id="filterStoryAuthor" aria-labelledby="story-author-label" aria-label="${escapeStoryNav(
+          label
+        )}">` +
+        `<option value="">${escapeStoryNav(allLabel)}</option>` +
+        `<option value="${STORY_AUTHOR_BAKHTIYAR}">${escapeStoryNav(bakLabel)}</option>` +
+        `<option value="${STORY_AUTHOR_ETIBAR}">${escapeStoryNav(etibarLabel)}</option>` +
+        `</select>` +
+        `<button class="sel-clear" data-for="filterStoryAuthor" title="${escapeStoryNav(
+          clear
+        )}" type="button" aria-label="${escapeStoryNav(clear)}">×</button>` +
+        `</div>`;
+      ensureStoryToolsSearchRow(bar);
+      const searchRow = bar.querySelector(":scope > .tools-bar__search-row");
+      const search =
+        (searchRow && searchRow.querySelector(".tools-bar__search")) ||
+        bar.querySelector(".tools-bar__search");
+      if (search) search.after(field);
+      else if (searchRow) searchRow.insertBefore(field, searchRow.firstChild);
+      else bar.insertBefore(field, bar.firstChild);
+    } else {
+      const existingLabel = field.querySelector(
+        "#story-author-label, :scope > .tools-bar__label"
+      );
+      if (existingLabel) {
+        existingLabel.classList.remove("tools-bar__label");
+        existingLabel.classList.add("visually-hidden");
+        if (!existingLabel.id) existingLabel.id = "story-author-label";
+      }
+    }
+    const select = field.querySelector("#filterStoryAuthor");
+    fillStoryAuthorSelect(select, initialAuthor || activeStoryAuthorFilter());
+    const clearBtn = field.querySelector(".sel-clear");
+    if (clearBtn && clearBtn.getAttribute("data-story-author-clear") !== "1") {
+      clearBtn.setAttribute("data-story-author-clear", "1");
+      clearBtn.addEventListener("click", (event) => {
+        event.stopPropagation();
+        select.value = "";
+        select.dispatchEvent(new Event("change", { bubbles: true }));
+      });
+    }
+    if (!select.dataset.storyAuthorBound) {
+      select.dataset.storyAuthorBound = "1";
+      select.addEventListener("change", () => {
+        const wrap = select.closest(".sel-wrap");
+        if (wrap) wrap.classList.toggle("active", !!select.value);
+        if (typeof onChange === "function") onChange(activeStoryAuthorFilter());
+      });
+    }
+    window.__birinciRefreshStoryAuthorFilter = () => {
+      fillStoryAuthorSelect(select, activeStoryAuthorFilter() || initialAuthor);
+    };
+    ensureStoryToolsSearchRow(bar);
+    ensureStoryToolsControlRow(bar);
+    return select;
+  };
+
+  const isStoryAuthorFilter = (el) =>
+    !!(
+      el &&
+      el.nodeType === 1 &&
+      (el.matches("[data-story-author-filter]") ||
+        (el.classList.contains("tools-bar__field--filter") &&
+          el.querySelector("#filterStoryAuthor")))
+    );
+
   const fillStoryCategorySelect = (select, selected) => {
     if (!select) return;
     const cats = storyCategoriesForFilter();
@@ -795,7 +1072,13 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       return false;
     }
     if (el.querySelector("[data-tools-play-visible]")) return false;
-    if (isStoryCategoryFilter(el) || isInventionsFilterField(el)) return false;
+    if (
+      isStoryCategoryFilter(el) ||
+      isStoryAuthorFilter(el) ||
+      isInventionsFilterField(el)
+    ) {
+      return false;
+    }
     if (el.matches("[data-home-list-only], [data-inventions-list-only]")) {
       return !!el.querySelector(TOOLBAR_CONTROL_SELECTORS);
     }
@@ -809,23 +1092,44 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     if (!bar || !bar.classList.contains("tools-bar--inventions")) return;
     const search =
       bar.querySelector(":scope > .tools-bar__search") ||
-      bar.querySelector(":scope > .tools-bar__control-row > .tools-bar__search");
+      bar.querySelector(":scope > .tools-bar__control-row > .tools-bar__search") ||
+      bar.querySelector(":scope > .tools-bar__search-row > .tools-bar__search");
+    const authorFilters = Array.from(
+      bar.querySelectorAll(
+        ":scope > [data-story-author-filter], :scope > .tools-bar__search-row > [data-story-author-filter], :scope > .tools-bar__control-row > [data-story-author-filter]"
+      )
+    ).filter(isStoryAuthorFilter);
     const filters = Array.from(
       bar.querySelectorAll(
-        ":scope > [data-story-cat-filter], :scope > .tools-bar__field--filter, :scope > .tools-bar__control-row > [data-story-cat-filter], :scope > .tools-bar__control-row > .tools-bar__field--filter"
+        ":scope > [data-story-cat-filter], :scope > .tools-bar__field--filter, :scope > .tools-bar__control-row > [data-story-cat-filter], :scope > .tools-bar__control-row > .tools-bar__field--filter, :scope > .tools-bar__search-row > [data-story-cat-filter], :scope > .tools-bar__search-row > .tools-bar__field--filter"
       )
-    ).filter((el) => isStoryCategoryFilter(el) || isInventionsFilterField(el));
-    if (!search && !filters.length) return;
+    ).filter(
+      (el) =>
+        (isStoryCategoryFilter(el) || isInventionsFilterField(el)) &&
+        !isStoryAuthorFilter(el)
+    );
+    if (!search && !authorFilters.length && !filters.length) return;
 
     let row = bar.querySelector(":scope > .tools-bar__search-row");
     if (!row) {
       row = document.createElement("div");
       row.className = "tools-bar__search-row";
       row.setAttribute("role", "group");
-      const anchor = search || filters[0] || bar.firstChild;
+      const anchor = search || authorFilters[0] || filters[0] || bar.firstChild;
       bar.insertBefore(row, anchor);
     }
     if (search && search.parentElement !== row) row.appendChild(search);
+    authorFilters.forEach((field) => {
+      if (field.parentElement !== row) {
+        if (search && search.parentElement === row) search.after(field);
+        else row.insertBefore(field, row.firstChild);
+      } else if (search && search.parentElement === row) {
+        const nodes = Array.from(row.children);
+        const searchIdx = nodes.indexOf(search);
+        const fieldIdx = nodes.indexOf(field);
+        if (fieldIdx !== searchIdx + 1) search.after(field);
+      }
+    });
     filters.forEach((field) => {
       if (field.parentElement !== row) row.appendChild(field);
     });
@@ -1250,7 +1554,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const stop = tUi("stop", "Dayandır");
     const audioLabel = tUi("story_audio_label", "Səs");
     const disabledAttrs = audioControlDisabledAttrs();
-    // Always mount Listen (visible). AUDIO_CONTROLS_ENABLED gates clicks.
+    // Mount Listen markup always; AUDIO_CONTROLS_ENABLED gates visibility + clicks.
     document.querySelectorAll("article.story").forEach((story) => {
       const actions = story.querySelector(".story__actions");
       if (!actions || actions.querySelector("[data-story-tts]")) return;
@@ -1655,6 +1959,26 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       let cat = String(params.get("cat") || "").trim();
       let period = String(params.get("period") || "").trim();
       let sort = String(params.get("sort") || "").trim();
+      let author = "";
+      const authorSelect = document.getElementById("filterStoryAuthor");
+      if (authorSelect) {
+        const liveAuthor = String(authorSelect.value || "").trim();
+        if (
+          liveAuthor === STORY_AUTHOR_ETIBAR ||
+          liveAuthor === STORY_AUTHOR_BAKHTIYAR
+        ) {
+          author = liveAuthor;
+        }
+      }
+      if (!author) {
+        const fromParam = String(params.get("author") || "").trim();
+        if (
+          fromParam === STORY_AUTHOR_ETIBAR ||
+          fromParam === STORY_AUTHOR_BAKHTIYAR
+        ) {
+          author = fromParam;
+        }
+      }
       let tocCollapsed = [];
 
       if (isInventions && typeof window.__birinciInventionsContext === "function") {
@@ -1691,6 +2015,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         cat,
         period,
         sort,
+        author,
         stem,
         categoryId,
         tocCollapsed,
@@ -1720,6 +2045,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       if (ctx.cat) params.set("cat", ctx.cat);
       if (ctx.period) params.set("period", ctx.period);
       if (ctx.sort) params.set("sort", ctx.sort);
+      if (ctx.author) params.set("author", ctx.author);
 
       const qs = params.toString();
       let hash = "";
@@ -1743,6 +2069,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
             period: ctx.period || "",
             view: ctx.view || "",
             sort: ctx.sort || "",
+            author: ctx.author || "",
             ts: Date.now(),
           })
         );
@@ -2862,6 +3189,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     }
 
     syncToolsBarTooltips();
+    syncStoryCategoryFilterChrome();
+    syncStoryAuthorFilterChrome();
   };
 
   const applyFetchedStories = (doc) => {
@@ -3018,18 +3347,24 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
   const syncAudioChromeForLang = () => {
     applyAudioFlags();
-    document.querySelectorAll(".story__action-group[hidden], .tools-bar__field[hidden], .text-lightbox__tts[hidden]").forEach((el) => {
-      if (el.querySelector("[data-story-tts], [data-tools-play-visible], [data-discovery-tts]")) {
-        if (
-          el.hasAttribute("data-inventions-list-only") &&
-          !document.body.classList.contains("inventions-view-list")
-        ) {
-          return;
-        }
-        el.hidden = false;
-        el.removeAttribute("hidden");
-      }
-    });
+    if (AUDIO_CONTROLS_ENABLED) {
+      document
+        .querySelectorAll(
+          ".story__action-group[hidden], .tools-bar__field[hidden], .text-lightbox__tts[hidden]"
+        )
+        .forEach((el) => {
+          if (el.querySelector("[data-story-tts], [data-tools-play-visible], [data-discovery-tts]")) {
+            if (
+              el.hasAttribute("data-inventions-list-only") &&
+              !document.body.classList.contains("inventions-view-list")
+            ) {
+              return;
+            }
+            el.hidden = false;
+            el.removeAttribute("hidden");
+          }
+        });
+    }
     ensureStoryListenButtons(document);
     ensurePageListenButtons();
     hideAudioChrome(document);
@@ -3090,6 +3425,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     } else {
       syncStoryCategoryFilterChrome();
     }
+    if (typeof window.__birinciRefreshStoryAuthorFilter === "function") {
+      window.__birinciRefreshStoryAuthorFilter();
+    } else {
+      syncStoryAuthorFilterChrome();
+    }
+    rememberEtibarStemsFromCatalog(catalog);
     if (window.__birinciQuietStoryRefresh) {
       if (typeof window.__birinciOnStoriesCatalog === "function") {
         window.__birinciOnStoriesCatalog(catalog, { quiet: true });
@@ -3193,6 +3534,18 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     ) {
       mf.setActiveValues("filterStoryCategory", cats, { silent: true });
     }
+
+    const authorSelect = document.getElementById("filterStoryAuthor");
+    if (authorSelect) {
+      const nextAuthor =
+        ctx.author === STORY_AUTHOR_ETIBAR || ctx.author === STORY_AUTHOR_BAKHTIYAR
+          ? ctx.author
+          : "";
+      authorSelect.value = nextAuthor;
+      const wrap = authorSelect.closest(".sel-wrap");
+      if (wrap) wrap.classList.toggle("active", !!nextAuthor);
+      syncStoryAuthorFilterChrome();
+    }
   };
 
   const alignElementHeaderBelowSticky = (el) => {
@@ -3289,7 +3642,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const hasBrowseFilters =
       !!String(ctx.q || "").trim() ||
       parseLangSwitchCsv(ctx.cat).length > 0 ||
-      parseLangSwitchCsv(ctx.period).length > 0;
+      parseLangSwitchCsv(ctx.period).length > 0 ||
+      ctx.author === STORY_AUTHOR_ETIBAR ||
+      ctx.author === STORY_AUTHOR_BAKHTIYAR;
     if (hasBrowseFilters) {
       restoreLangSwitchFilters(ctx);
     } else {
@@ -4651,6 +5006,10 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const cardsByStem = new Map(allCards.map((card) => [card.dataset.stem, card]));
     allCards.sort((a, b) => localeCompareAz(a.dataset.title, b.dataset.title));
     if (cardGrid) allCards.forEach((card) => cardGrid.appendChild(card));
+    // Seed Etibar stems so Bakhtiyar/Etibar filtering works before catalog load.
+    if (!(window.__BIRINCI_ETIBAR_STEMS__ instanceof Set)) {
+      window.__BIRINCI_ETIBAR_STEMS__ = new Set(STORY_AUTHOR_ETIBAR_STEMS);
+    }
     const currentCategorySlug = (() => {
       try {
         const path = window.location.pathname || "";
@@ -4820,11 +5179,39 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
     window.__birinciOnStoriesCatalog = (catalog, opts) => {
       const quiet = !!(opts && opts.quiet);
+      if (catalog) rememberEtibarStemsFromCatalog(catalog);
       applyCatalogStoryOrder();
       if (!quiet) renderList();
+      else renderList({ soft: true, skipPaint: true });
       refreshSidebarNav();
       bindStoryCategoryToggles(list);
+      syncStoryAuthorFilterChrome();
     };
+    bindStoryAuthorFilter(bar, {
+      initialAuthor: (() => {
+        try {
+          const raw = String(
+            new URLSearchParams(window.location.search || "").get("author") || ""
+          ).trim();
+          return raw === STORY_AUTHOR_ETIBAR || raw === STORY_AUTHOR_BAKHTIYAR
+            ? raw
+            : "";
+        } catch (_) {
+          return "";
+        }
+      })(),
+      onChange: () => {
+        pendingStem = null;
+        // Author filter is list-oriented; leave cards view so both the sidebar
+        // title list and the story articles refresh together.
+        if (document.body.classList.contains("category-view-cards")) {
+          applyCategoryView("list", { animate: false });
+        }
+        renderList({ resetWindow: true });
+        refreshSidebarNav();
+        bindStoryCategoryToggles(list);
+      },
+    });
     bindStoryCategoryFilter(bar, {
       initialSlugs: currentCategorySlug ? [currentCategorySlug] : [],
       onChange: (slugs) => {
@@ -4836,13 +5223,21 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         const params = new URLSearchParams();
         params.set("view", "list");
         if (slugs.length) params.set("cat", slugs.join(","));
+        const author = activeStoryAuthorFilter();
+        if (author) params.set("author", author);
         window.location.assign(`../index.html?${params.toString()}`);
       },
     });
     loadStoriesCatalog(storiesCatalogUrl).then(() => {
       applyCatalogStoryOrder();
+      if (window.__BIRINCI_STORIES__) {
+        rememberEtibarStemsFromCatalog(window.__BIRINCI_STORIES__);
+      }
       if (typeof window.__birinciRefreshStoryCategoryFilter === "function") {
         window.__birinciRefreshStoryCategoryFilter();
+      }
+      if (typeof window.__birinciRefreshStoryAuthorFilter === "function") {
+        window.__birinciRefreshStoryAuthorFilter();
       }
       renderList();
       refreshSidebarNav();
@@ -4863,6 +5258,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         const params = new URLSearchParams();
         const q = searchInput.value.trim();
         if (q) params.set("q", q);
+        const author = activeStoryAuthorFilter();
+        if (author) params.set("author", author);
         if (new URLSearchParams(window.location.search).get("edit") === "1") params.set("edit", "1");
         const url = new URL(window.location.href);
         url.search = params.toString();
@@ -4895,7 +5292,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const renderList = ({ resetWindow = false, soft = false, skipPaint = false } = {}) => {
       if (!soft && typeof window.__birinciStopStoryTts === "function") window.__birinciStopStoryTts();
       const q = searchInput.value.trim().toLocaleLowerCase(LOCALE_TAG);
-      filtered = allStories.filter((story) => !q || storySearchHay(story).includes(q));
+      filtered = allStories.filter((story) => {
+        if (q && !storySearchHay(story).includes(q)) return false;
+        return storyPassesAuthorFilter(
+          storyAuthorKeyForStem(story.dataset.stem, story)
+        );
+      });
 
       const total = filtered.length;
       syncSearchFilterUi(searchInput.value.trim(), total);
@@ -5069,6 +5471,17 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           const params = new URLSearchParams(window.location.search || "");
           const qParam = String(params.get("q") || "").trim();
           searchInput.value = qParam;
+          const authorSelect = document.getElementById("filterStoryAuthor");
+          if (authorSelect) {
+            const raw = String(params.get("author") || "").trim();
+            const nextAuthor =
+              raw === STORY_AUTHOR_ETIBAR || raw === STORY_AUTHOR_BAKHTIYAR
+                ? raw
+                : "";
+            authorSelect.value = nextAuthor;
+            const wrap = authorSelect.closest(".sel-wrap");
+            if (wrap) wrap.classList.toggle("active", !!nextAuthor);
+          }
           let hash = "";
           try {
             hash = decodeURIComponent((window.location.hash || "").replace(/^#/, ""));
@@ -5205,15 +5618,44 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     };
 
     const syncDrawerLabels = () => {
+      const label = drawerLabel();
+      const openLabel = drawerOpenLabel();
+      const closeLabel = drawerCloseLabel();
+      if (nav) nav.setAttribute("aria-label", label);
+      const titleEl =
+        (widget &&
+          (widget.querySelector(".widget-head__title") ||
+            widget.querySelector(".widget-head > span"))) ||
+        null;
+      if (titleEl) {
+        let textNode = null;
+        for (let node = titleEl.firstChild; node; node = node.nextSibling) {
+          if (node.nodeType === 3 && String(node.textContent || "").trim()) {
+            textNode = node;
+            break;
+          }
+        }
+        if (!textNode) {
+          titleEl.appendChild(document.createTextNode(""));
+          textNode = titleEl.lastChild;
+        }
+        const countMatch = String(textNode.textContent || "").match(/\((\d+)\)\s*$/);
+        const countSuffix = countMatch ? ` (${countMatch[1]})` : "";
+        textNode.textContent = ` ${label}${countSuffix}`;
+      }
+      if (toggle) {
+        const open = !!(widget && widget.classList.contains("events-open"));
+        toggle.setAttribute("aria-label", open ? closeLabel : openLabel);
+      }
       if (launchBtn) {
-        const label = launchBtn.querySelector(".stories-drawer-launch__label");
-        if (label) label.textContent = drawerLabel();
-        launchBtn.setAttribute("aria-label", drawerOpenLabel());
-        launchBtn.title = drawerLabel();
+        const launchLabel = launchBtn.querySelector(".stories-drawer-launch__label");
+        if (launchLabel) launchLabel.textContent = label;
+        launchBtn.setAttribute("aria-label", openLabel);
+        launchBtn.title = label;
       }
       if (closeBtn) {
-        closeBtn.setAttribute("aria-label", drawerCloseLabel());
-        closeBtn.title = drawerCloseLabel();
+        closeBtn.setAttribute("aria-label", closeLabel);
+        closeBtn.title = closeLabel;
       }
     };
     window.__birinciSyncStoriesDrawerLabels = syncDrawerLabels;
@@ -6293,6 +6735,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         view: params.get("view"),
         q: params.get("q"),
         cat: parseStoryCatParam(params),
+        author: params.get("author"),
         stem: hash || null,
       };
     };
@@ -6308,6 +6751,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         if (view === "list" && q) params.set("q", q);
         const cats = activeStoryCategorySlugs();
         if (cats.length) params.set("cat", cats.join(","));
+        const author = activeStoryAuthorFilter();
+        if (author) params.set("author", author);
         if (new URLSearchParams(window.location.search).get("edit") === "1") params.set("edit", "1");
         const url = new URL(window.location.href);
         url.search = params.toString();
@@ -6438,6 +6883,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           categorySlug: categorySlug || "",
           hasAudio: !!story.hasAudio,
           hasImage: !!story.hasImage,
+          authorKey: storyAuthorKeyFromParagraphs(story.paragraphs || [], stem),
           hay: `${story.title || ""} ${(story.paragraphs || []).join(" ")}`.toLocaleLowerCase(LOCALE_TAG),
         });
       };
@@ -6481,6 +6927,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         })
         .then((catalog) => {
           window.__BIRINCI_STORIES__ = catalog;
+          rememberEtibarStemsFromCatalog(catalog);
           allStories = flattenStories(catalog);
           return allStories;
         })
@@ -6499,8 +6946,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const last = paragraphs.length - 1;
       const foldAzI = (s) => String(s || "").replace(/[İIı]/g, "i");
       const srcRe = /(internet\s+sources|internet\s+mənb|internet\s+kaynak|открыт\w*\s+источник|интернет|(?:source|mənbə|kaynak|источник|булак|булагы)\s*:)/i;
-      const moralRe = /^(ibrət|ibret|moral|мораль|үлгү)\s*:/i;
-      const authorSrcStems = { "everyone-has-work-to-do": 1, "weeds-must-be-pulled-from-the-root": 1, "silent-corridor": 1, "if-fate-allows-we-will-meet": 1, "discussion-and-conflict": 1 };
+      const moralRe = /^(ibrət|ibret|moral|мораль|үлгү|сабак)\s*:/i;
+      const authorSrcStems = {"caring-call-brightens-the-day": 1, "changing-times-enduring-friendship": 1, "cherish-today-with-loved-ones": 1, "cherishing-flowers-in-spring": 1, "day-gratefully-lived": 1, "discussion-and-conflict": 1, "everyone-has-work-to-do": 1, "from-reflection-to-hope": 1, "hopeful-journey-through-life": 1, "humanity-rebuilds-in-peace": 1, "if-fate-allows-we-will-meet": 1, "kindness-builds-stronger-bonds": 1, "nails-lasting-lesson": 1, "quarantine-days-hopeful-hearts": 1, "silent-corridor": 1, "small-changes-big-meaning": 1, "weeds-must-be-pulled-from-the-root": 1};
       const authorSrc = !!(stem && authorSrcStems[stem]);
       const lastIsSrc = last >= 0 && (authorSrc || srcRe.test(foldAzI(paragraphs[last] || "")));
       const srcLabel = (I18N.ui && I18N.ui.story_source) || "";
@@ -6523,7 +6970,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     };
 
     const KY_ILLUST_SIZE = {
-      "advice-for-those-who-marry": [1522, 816],
+      "advice-for-those-who-marry": [1522, 849],
       "aging": [1522, 816],
       "albrecht-durer": [1536, 845],
       "ant-that-carries-water": [1536, 816],
@@ -6773,6 +7220,270 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       "your-friends": [1536, 816],
       "your-hand-at-work-your-hope-in-god": [1536, 816],
     };
+    const AZ_ILLUST_SIZE = {
+      "advice-for-those-who-marry": [1536, 1024],
+      "aging": [1536, 1099],
+      "albrecht-durer": [1536, 1033],
+      "ant-that-carries-water": [1536, 1181],
+      "architect-sinan-dies-in-a-house-without-water": [1536, 1024],
+      "attitude-toward-a-problem": [1536, 1144],
+      "avoid-these-questions": [1536, 1024],
+      "baklava": [1536, 1029],
+      "be-sure-of-your-purpose": [1536, 1075],
+      "bedouin-whose-camel-was-stolen": [1536, 1127],
+      "being-human": [1536, 1024],
+      "bell-to-hang-on-the-cats-neck": [1536, 1010],
+      "beloved-is-one-who-gives-love-to-people": [1536, 1068],
+      "beware-of-those-you-love": [1536, 1048],
+      "blessings-god-has-given": [1536, 1024],
+      "blind-well": [1536, 1121],
+      "blind-who-have-eyes": [1536, 1177],
+      "bookstore": [1536, 784],
+      "builder-of-the-nest": [1536, 799],
+      "calamity-and-blessing": [1536, 1024],
+      "can-a-broken-heart-love-again": [1536, 762],
+      "candles-conversation": [1536, 788],
+      "caring-call-brightens-the-day": [1536, 1024],
+      "changing-times-enduring-friendship": [1536, 1024],
+      "cherish-today-with-loved-ones": [1536, 1024],
+      "cherishing-flowers-in-spring": [1536, 1024],
+      "chief-accountant-and-the-ceo": [1536, 1024],
+      "church-bell": [1536, 1024],
+      "communication": [1536, 1024],
+      "compassion": [1536, 780],
+      "compliment": [1536, 1024],
+      "credit-ledger": [1536, 1024],
+      "day-gratefully-lived": [1536, 1024],
+      "dead-remain-in-life": [1536, 721],
+      "dervishs-clothes": [1536, 754],
+      "dervishs-robe": [1536, 784],
+      "dervishs-spoons": [1536, 856],
+      "diderot-effect": [1536, 754],
+      "different-path": [1536, 840],
+      "discussion-and-conflict": [1536, 1024],
+      "do-not-complain-about-any-day-you-have-lived": [1536, 642],
+      "do-not-do-these-things": [1536, 778],
+      "do-not-let-your-hearts-part": [1536, 756],
+      "do-you-have-spending-money": [1536, 780],
+      "doctors-appointment": [1536, 555],
+      "donkeys-law": [1536, 735],
+      "dont-be-words-for-mouths-dust-for-feet": [1536, 712],
+      "dont-open-your-mouth": [1536, 674],
+      "dont-say-i-couldnt-deliver-or-i-couldnt-manage": [1536, 736],
+      "drinking-the-sherbet-of-martyrdom": [1536, 1024],
+      "early-marriage": [1536, 729],
+      "eat-less-and-stay-on-the-right-path": [1536, 839],
+      "education-or-character": [1536, 731],
+      "elephant-and-the-rope": [1536, 825],
+      "everyone-has-work-to-do": [1536, 1024],
+      "everyone-is-the-same-here": [1536, 838],
+      "everything-is-in-our-own-hands": [1536, 788],
+      "explaining-ones-sorrow": [1536, 730],
+      "expressions-you-should-stay-away-from": [1536, 736],
+      "faith-is-half-of-success": [1536, 703],
+      "fallen-teeth": [1536, 846],
+      "father-and-son": [1536, 741],
+      "fathers-footprints": [1536, 570],
+      "festive-gift": [1536, 749],
+      "fish-shop": [1536, 780],
+      "flower-of-honesty": [1536, 644],
+      "fly-in-the-china-shop": [1536, 604],
+      "for-those-who-have-reached-sixty": [1536, 759],
+      "forbidden-money": [1536, 729],
+      "former-minister-at-the-seminar": [1536, 759],
+      "fortieth-day-rite": [1536, 784],
+      "friend-of-god": [1536, 760],
+      "friendship-and-love": [1536, 806],
+      "friendship-of-horses": [1536, 777],
+      "from-a-wise-fathers-advice-to-his-son": [1536, 784],
+      "from-reflection-to-hope": [1536, 1024],
+      "from-the-memoirs-of-a-lady-from-istanbul": [1536, 838],
+      "garden-and-the-gardener": [1536, 762],
+      "generous-man": [1536, 771],
+      "glass-of-milk": [1536, 825],
+      "go-but-come-again": [1536, 772],
+      "gods-pleasure": [1536, 766],
+      "goose-to-be-plucked": [1536, 807],
+      "gossip": [1536, 659],
+      "grandfather-and-grandson-at-the-market": [1536, 776],
+      "grocery-shop-and-the-supermarket": [1536, 794],
+      "hajj-pilgrimage": [1536, 669],
+      "handful-of-roasted-chickpeas": [1536, 757],
+      "hayats-life-story": [1536, 770],
+      "he-would-not-have-given-so-little": [1536, 665],
+      "help-yourself-o-exalted-god": [1536, 736],
+      "henry-fords-choice": [1536, 720],
+      "his-hand-is-at-work": [1536, 705],
+      "hold-my-hand": [1536, 767],
+      "homeland-and-land": [1536, 785],
+      "honey-or-dry-bread": [1536, 768],
+      "hopeful-journey-through-life": [1536, 1024],
+      "hot-bread": [1536, 771],
+      "how-can-i-escape-my-thoughts": [1536, 753],
+      "how-to-ward-off-insults": [1536, 722],
+      "how-we-treat-people": [1536, 644],
+      "human-emerged": [1536, 750],
+      "humanity": [1536, 806],
+      "humanity-rebuilds-in-peace": [1536, 1024],
+      "hunters-description": [1536, 669],
+      "i-am-aware-now": [1536, 550],
+      "i-am-tired-mother": [1536, 759],
+      "i-am-waiting-for-the-teeth": [1536, 702],
+      "i-got-busy-with-cleaning": [1536, 774],
+      "i-kiss-your-eyes": [1536, 805],
+      "i-love-you": [1536, 744],
+      "i-want-a-friend": [1536, 782],
+      "i-would-not-trade-it-for-anything": [1536, 795],
+      "idle-devil": [1536, 817],
+      "if-fate-allows-we-will-meet": [1536, 1024],
+      "if-i-dont-do-it-these-days-the-world-wont-collapse": [1536, 751],
+      "if-the-door-before-you-wont-open-it-is-not-your-door": [1536, 738],
+      "if-the-road-does-not-tire-you-it-is-because-of-your-companion": [1536, 640],
+      "it-is-in-vain": [1536, 696],
+      "it-wont-go-to-waste": [1536, 747],
+      "just-verdict-of-the-frankfurt-judge": [1536, 1024],
+      "kindness-builds-stronger-bonds": [1536, 1024],
+      "know-your-friend": [1536, 1024],
+      "lawful-morsel": [1536, 1024],
+      "lecturer-and-the-groom": [1536, 793],
+      "let-prayer-come-and-find-you": [1536, 733],
+      "life-is-short": [1536, 595],
+      "life-lesson": [1536, 804],
+      "light-of-the-universe": [1536, 765],
+      "lions-footprint": [1536, 755],
+      "liver": [1536, 1052],
+      "living-in-the-past": [1536, 1047],
+      "loving-from-afar": [1536, 1029],
+      "magnificent-lesson": [1536, 1024],
+      "mature-person": [1536, 755],
+      "may-your-face-always-smile": [1536, 1024],
+      "meaningless-question": [1536, 1024],
+      "meddling-in-others-lives": [1536, 738],
+      "mercedes": [1536, 1024],
+      "mihrimah-sultan-and-architect-sinan": [1536, 1024],
+      "mockery-is-unacceptable": [1536, 638],
+      "more-effective-way": [1536, 750],
+      "most-beautiful-gift": [1536, 719],
+      "most-beautiful-places-in-the-world": [1536, 712],
+      "most-beautiful-portion": [1536, 681],
+      "mother-and-son": [1536, 779],
+      "mother-of-pearl-flower": [1536, 1024],
+      "mothers-advice-fakir-baykurt-never-forgot": [1536, 790],
+      "mothers-love": [1536, 762],
+      "mullah-and-the-scholar": [1536, 1024],
+      "my-alif-has-been-dotted": [1536, 679],
+      "nails-lasting-lesson": [1536, 1024],
+      "newtons-second-law": [1536, 756],
+      "no-need-to-be-sane-when-everyone-is-mad": [1536, 808],
+      "no-one-listens-to-constant-complainers": [1536, 757],
+      "not-every-sorrow-is-told-to-people": [1536, 768],
+      "not-leaving-the-right-path": [1536, 659],
+      "nothing-is-ever-truly-lost": [1536, 717],
+      "o-god-give-first-to-the-mountains-and-stones": [1536, 779],
+      "o-god-heal-our-sorrows": [1536, 815],
+      "one-who-knows-and-the-one-who-does-not": [1536, 1024],
+      "only-my-mother-would-weep": [1536, 579],
+      "organization-without-an-action-plan": [1536, 1024],
+      "other-peoples-opinions": [1536, 1024],
+      "our-qualities-can-become-our-enemies": [1536, 1097],
+      "pair-of-boots": [1536, 1013],
+      "pawn-and-the-king": [1536, 1024],
+      "pay-rent-for-the-water": [1536, 1024],
+      "people-who-need-something-from-you": [1536, 1024],
+      "permission-or-apology": [1536, 1024],
+      "power-of-truth": [1536, 1024],
+      "pray-while-washing-your-dishes": [1536, 1097],
+      "price-of-a-miracle": [1536, 1024],
+      "properties-of-water": [1536, 1024],
+      "puppies-for-sale": [1536, 1024],
+      "purple-jacket": [1536, 1024],
+      "quarantine-days-hopeful-hearts": [1536, 1024],
+      "raising-children": [1536, 1024],
+      "ramadan-prayer": [1536, 1024],
+      "red-dress": [1536, 1024],
+      "road-to-the-cotton-field": [1536, 1024],
+      "rose": [1536, 974],
+      "rotten-seed": [1536, 1024],
+      "sacrificial-meat": [1536, 1024],
+      "say-what-you-know": [1536, 1024],
+      "saying-the-word-in-its-place": [1536, 961],
+      "scarf-seller": [1536, 1117],
+      "searching": [1536, 1106],
+      "secret-of-living-well-and-longevity": [1536, 1076],
+      "sharing-justice": [1536, 1024],
+      "shepherd-must-be-called": [1536, 1070],
+      "shepherds-word": [1536, 1092],
+      "silence": [1536, 1036],
+      "silent-corridor": [1536, 1024],
+      "skins-of-the-lambs": [1536, 1024],
+      "small-changes-big-meaning": [1536, 1024],
+      "sound-of-the-doorbell": [1536, 1051],
+      "sowing-millet-at-the-bottom": [1536, 1097],
+      "spare-time": [1536, 1066],
+      "spend-your-time-with-people": [1536, 1107],
+      "spinach": [1536, 1024],
+      "stoning-the-devil": [1536, 1110],
+      "strength-and-sorrow": [1536, 911],
+      "strongest-shield": [1536, 1108],
+      "teacher-hello-do-you-remember-me": [1536, 1051],
+      "telling-lies": [1536, 1111],
+      "that-was-not-your-right": [1536, 1019],
+      "think-speak-and-act-positively": [1536, 1024],
+      "this-boat-is-empty-too": [1536, 1012],
+      "those-you-should-not-befriend": [1536, 1068],
+      "three-best-things": [1536, 1158],
+      "three-essential-things-for-a-city": [1536, 1024],
+      "three-landscapes": [1536, 1115],
+      "three-questions": [1536, 1115],
+      "three-statues": [1536, 1110],
+      "to-be-alone": [1536, 1024],
+      "to-be-cool-headed": [1536, 1085],
+      "to-be-fasting": [1536, 1107],
+      "to-be-full-or-to-be-gone": [1536, 1125],
+      "to-be-self-confident": [1536, 1099],
+      "to-dream": [1536, 1035],
+      "to-forgive": [1536, 909],
+      "to-give-up": [1536, 1029],
+      "to-meet-and-to-know": [1536, 1129],
+      "tongue": [1536, 1071],
+      "true-love": [1536, 1112],
+      "try-to-think-this-way": [1536, 1039],
+      "turning-hardship-into-opportunity": [1536, 1097],
+      "turtles-wrong-calculation": [1536, 1065],
+      "two-bowls-of-water": [1536, 1146],
+      "two-donkeys": [1536, 1132],
+      "value-of-your-family": [1536, 1123],
+      "we-are-rich": [1536, 1114],
+      "weeds-must-be-pulled-from-the-root": [1536, 1024],
+      "weight-of-the-oil": [1536, 1084],
+      "welcome-my-bey": [1536, 1130],
+      "what-breaks-a-marriage": [1536, 1021],
+      "what-changed-after-sixty": [1536, 1078],
+      "what-do-i-need-it-for": [1536, 1139],
+      "what-is-a-word": [1536, 1028],
+      "what-is-loyalty": [1536, 1093],
+      "what-it-means-to-be-late": [1536, 1032],
+      "what-matters-in-life": [1536, 1079],
+      "what-we-learn-in-life": [1536, 1092],
+      "what-women-have-endured-in-this-world": [1536, 1050],
+      "where-does-calamity-come-from": [1536, 1025],
+      "where-does-this-road-go": [1536, 1011],
+      "who-handles-honey-licks-his-finger": [1536, 1122],
+      "why-am-i-poor": [1536, 1128],
+      "why-are-you-waiting-for-the-last-day-of-the-world": [1536, 1070],
+      "why-injustice-when-there-is-justice": [1536, 1091],
+      "why-people-shout-when-they-argue": [1536, 1049],
+      "windmill-turning-in-still-air": [1536, 1166],
+      "with-this-nation-the-world-can-be-conquered": [1536, 1105],
+      "woman-and-the-mirror": [1536, 1024],
+      "woman-whose-house-was-robbed": [1536, 1072],
+      "word-and-silence": [1536, 1064],
+      "yellow-and-red-flowers": [1536, 1057],
+      "you-cannot-descend-a-well-on-his-rope": [1536, 1125],
+      "your-friends": [1536, 840],
+      "your-hand-at-work-your-hope-in-god": [1536, 1024],
+
+    };
     const storyArticleHtml = (story, numInfo) => {
       const audioAttr = story.hasAudio
         ? ` data-audio="wisdom-stories/audio/${escapeHtml(story.stem)}.mp3?v=${escapeHtml(audioVersion)}"`
@@ -6792,6 +7503,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
             </button>
             </div>
           </div>`;
+      // Each language's illustrations keep their own stamp so a cached page
+      // cannot keep serving the previous picture.
+      const pageLang = (document.documentElement.lang || "").toLowerCase();
+      const kyPageEarly = pageLang === "ky" || pageLang.startsWith("ky-");
+      // KY illustrations: cream title/moral text bands around the image (HTML/CSS only).
+      const kyIllustChrome = kyPageEarly && !!story.hasImage;
       const figureToggle = story.hasImage
         ? `
           <div class="story__action-group">
@@ -6812,9 +7529,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const figAlt = escapeHtml(
         tUi("illustration_alt", "{title} illüstrasiyası").replace("{title}", story.title || "")
       );
-      // Each language's illustrations keep their own stamp so a cached page
-      // cannot keep serving the previous picture.
-      const pageLang = (document.documentElement.lang || "").toLowerCase();
       const ruSideFix =
         (pageLang === "ru" || pageLang.startsWith("ru-")) &&
         /^(sowing-millet-at-the-bottom|teacher-hello-do-you-remember-me|skins-of-the-lambs|you-cannot-descend-a-well-on-his-rope|raising-children)$/.test(
@@ -6853,15 +7567,41 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         : pageLang === "ky" || pageLang.startsWith("ky-")
           ? "20260928kystyle"
           : pageLang === "az" || pageLang.startsWith("az-")
-            ? "20260925azill"
+            ? "20260929azcap2"
             : "20260927frame";
       const illustExt = "webp";
-      const kyPage = pageLang === "ky" || pageLang.startsWith("ky-");
+      const kyPage = kyPageEarly;
+      const azPage = pageLang === "az" || pageLang.startsWith("az-");
       const kyBox = kyPage ? KY_ILLUST_SIZE[story.stem] : null;
-      const illustWidth = kyBox ? String(kyBox[0]) : "1536";
-      const illustHeight = kyBox ? String(kyBox[1]) : "1024";
+      const azBox = azPage ? AZ_ILLUST_SIZE[story.stem] : null;
+      const box = kyBox || azBox;
+      const illustWidth = box ? String(box[0]) : "1536";
+      const illustHeight = box ? String(box[1]) : "1024";
+      let kyChromeTitle = "";
+      let kyChromeMoral = "";
+      if (kyIllustChrome) {
+        kyChromeTitle = String(story.title || "").trim();
+        const paras = Array.isArray(story.paragraphs) ? story.paragraphs : [];
+        const moralHit = paras.find((p) =>
+          /^\s*сабак\s*:/i.test(String(p || "").trim())
+        );
+        kyChromeMoral = String(moralHit || "").trim();
+      }
       const figureHtml = story.hasImage
-        ? `
+        ? kyIllustChrome
+          ? `
+    <figure class="story__figure story__figure--illust-chrome" id="figure-${escapeHtml(story.stem)}" data-illust-chrome="${escapeHtml(story.stem)}">
+      <header class="story__illust-band story__illust-band--title">
+        <p class="story__illust-title">${escapeHtml(kyChromeTitle)}</p>
+      </header>
+      <button type="button" class="story__figure-open" aria-label="${enlargeLabel}">
+        <img data-src="wisdom-stories/illustrations/${escapeHtml(story.stem)}.${illustExt}?v=${escapeHtml(illustVersion)}" alt="${figAlt}" loading="lazy" width="${illustWidth}" height="${illustHeight}" />
+      </button>
+      <footer class="story__illust-band story__illust-band--moral">
+        <p class="story__illust-moral">${escapeHtml(kyChromeMoral)}</p>
+      </footer>
+    </figure>`
+          : `
     <figure class="story__figure" id="figure-${escapeHtml(story.stem)}">
       <button type="button" class="story__figure-open" aria-label="${enlargeLabel}">
         <img data-src="wisdom-stories/illustrations/${escapeHtml(story.stem)}.${illustExt}?v=${escapeHtml(illustVersion)}" alt="${figAlt}" loading="lazy" width="${illustWidth}" height="${illustHeight}" />
@@ -6941,9 +7681,13 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       renderList({ force: true });
     };
     window.__birinciOnStoriesCatalog = (catalog, opts) => {
-      allStories = flattenStories(catalog || window.__BIRINCI_STORIES__);
+      const next = catalog || window.__BIRINCI_STORIES__;
+      if (next) rememberEtibarStemsFromCatalog(next);
+      allStories = flattenStories(next);
       if (opts && opts.quiet) {
-        refreshSidebarNav();
+        if (view === "list") renderList({ soft: true, skipPaint: true });
+        else refreshSidebarNav();
+        syncStoryAuthorFilterChrome();
         return;
       }
       listRenderKey = "";
@@ -6954,6 +7698,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         applyCards();
         refreshSidebarNav();
       }
+      syncStoryAuthorFilterChrome();
     };
 
     const bindHomeNav = () => {
@@ -7015,18 +7760,29 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         pool = (allStories || []).filter((story) => storyCategoryPasses(story.categorySlug));
       }
 
-      filtered = pool.filter((story) => !q || story.hay.includes(q));
+      filtered = pool.filter((story) => {
+        if (q && !story.hay.includes(q)) return false;
+        const key =
+          typeof story.authorKey === "string"
+            ? story.authorKey
+            : storyAuthorKeyFromParagraphs(story.paragraphs, story.stem);
+        return storyPassesAuthorFilter(key);
+      });
       const total = filtered.length;
       syncSearchFilterUi(searchInput.value.trim(), total);
       const visibleStories = filtered;
 
       lastShownCount = visibleStories.length;
       lastVisibleStems = new Set(visibleStories.map((s) => s.stem));
-      const poolKey = `${pool.map((s) => s.stem).join("\n")}|u${noneSelected ? 1 : 0}`;
+      const authorFilter = activeStoryAuthorFilter();
+      const poolKey = `${pool.map((s) => s.stem).join("\n")}|u${noneSelected ? 1 : 0}|a:${authorFilter}`;
+      // Paint the filtered set into the DOM when author is active so Etibar/Bakhtiyar
+      // changes cannot leave the opposite author's articles merely "hidden".
+      const paintStories = authorFilter ? filtered : pool;
       const needRebuild =
         force ||
         poolKey !== listPoolKey ||
-        storiesList.querySelectorAll("article.story").length !== pool.length;
+        storiesList.querySelectorAll("article.story").length !== paintStories.length;
 
       if (needRebuild) {
         if (typeof window.__birinciStopStoryTts === "function") window.__birinciStopStoryTts();
@@ -7035,7 +7791,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
             ? new Set()
             : collectCollapsedStoryCategories(storiesList);
         if (pendingStem) {
-          const reveal = pool.find(
+          const reveal = paintStories.find(
             (story) => story.stem === pendingStem || story.categorySlug === pendingStem
           );
           if (reveal) collapsed.delete(reveal.categorySlug);
@@ -7047,9 +7803,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         listRenderKey = poolKey;
         if (noneSelected) {
           // Flat list: story titles only — no category section headings.
-          storiesList.innerHTML = pool.map((story) => storyArticleHtml(story, null)).join("");
+          storiesList.innerHTML = paintStories.map((story) => storyArticleHtml(story, null)).join("");
         } else {
-          const groups = groupStoriesByCategory(pool, catalog);
+          const groups = groupStoriesByCategory(paintStories, catalog);
           storiesList.innerHTML = groups
             .map((group) => {
               const collapsedClass = collapsed.has(group.slug) ? " is-collapsed" : "";
@@ -7295,6 +8051,25 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     }
     if (urlState.q) searchInput.value = urlState.q;
 
+    // Seed Etibar stems even before the catalog script finishes loading.
+    if (!(window.__BIRINCI_ETIBAR_STEMS__ instanceof Set)) {
+      window.__BIRINCI_ETIBAR_STEMS__ = new Set(STORY_AUTHOR_ETIBAR_STEMS);
+    }
+
+    bindStoryAuthorFilter(bar, {
+      initialAuthor: (() => {
+        const raw = String(urlState.author || "").trim();
+        return raw === STORY_AUTHOR_ETIBAR || raw === STORY_AUTHOR_BAKHTIYAR ? raw : "";
+      })(),
+      onChange: () => {
+        pendingStem = null;
+        if (view !== "list") {
+          setView("list", { persist: true, forceList: true });
+          return;
+        }
+        renderList({ resetWindow: true, force: true });
+      },
+    });
     bindStoryCategoryFilter(bar, {
       initialSlugs: urlState.cat,
       onChange: (slugs) => {
@@ -7329,6 +8104,17 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           const catApi = window.KT_CATALOG_MULTI_FILTER;
           if (catApi && typeof catApi.setActiveValues === "function") {
             catApi.setActiveValues("filterStoryCategory", state.cat || [], { silent: true });
+          }
+          const authorSelect = document.getElementById("filterStoryAuthor");
+          if (authorSelect) {
+            const nextAuthor =
+              state.author === STORY_AUTHOR_ETIBAR ||
+              state.author === STORY_AUTHOR_BAKHTIYAR
+                ? state.author
+                : "";
+            authorSelect.value = nextAuthor;
+            const wrap = authorSelect.closest(".sel-wrap");
+            if (wrap) wrap.classList.toggle("active", !!nextAuthor);
           }
           const nextView = state.stem ? "list" : state.view === "list" ? "list" : "cards";
           setView(nextView, { persist: false, scrollTools: false, animate: false });
@@ -8936,7 +9722,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   const initIllustrationLightbox = () => {
     let overlay = null;
     let dialog = null;
+    let frameEl = null;
     let imageEl = null;
+    let titleBand = null;
+    let moralBand = null;
+    let titleEl = null;
+    let moralEl = null;
     let captionEl = null;
     let closeBtn = null;
     let lastFocus = null;
@@ -8951,14 +9742,25 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         <div class="illustration-lightbox__dialog" role="dialog" aria-modal="true" aria-label="${tUi("lightbox_illustration", "Böyüdülmüş illüstrasiya")}">
           <button type="button" class="illustration-lightbox__close" aria-label="${tUi("close", "Bağla")}">&times;</button>
           <div class="illustration-lightbox__frame">
+            <header class="story__illust-band story__illust-band--title" hidden>
+              <p class="story__illust-title"></p>
+            </header>
             <img class="illustration-lightbox__image" alt="" />
+            <footer class="story__illust-band story__illust-band--moral" hidden>
+              <p class="story__illust-moral"></p>
+            </footer>
           </div>
           <p class="illustration-lightbox__caption"></p>
         </div>
       `.trim();
       document.body.appendChild(overlay);
       dialog = overlay.querySelector(".illustration-lightbox__dialog");
+      frameEl = overlay.querySelector(".illustration-lightbox__frame");
       imageEl = overlay.querySelector(".illustration-lightbox__image");
+      titleBand = overlay.querySelector(".story__illust-band--title");
+      moralBand = overlay.querySelector(".story__illust-band--moral");
+      titleEl = overlay.querySelector(".story__illust-title");
+      moralEl = overlay.querySelector(".story__illust-moral");
       captionEl = overlay.querySelector(".illustration-lightbox__caption");
       closeBtn = overlay.querySelector(".illustration-lightbox__close");
 
@@ -8967,6 +9769,25 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       });
       if (closeBtn) closeBtn.addEventListener("click", close);
       return overlay;
+    };
+
+    const clearChrome = () => {
+      if (frameEl) {
+        frameEl.classList.remove(
+          "illustration-lightbox__frame--illust-chrome",
+          "story__figure--illust-chrome"
+        );
+      }
+      if (titleBand) {
+        titleBand.hidden = true;
+        titleBand.setAttribute("hidden", "");
+      }
+      if (moralBand) {
+        moralBand.hidden = true;
+        moralBand.setAttribute("hidden", "");
+      }
+      if (titleEl) titleEl.textContent = "";
+      if (moralEl) moralEl.textContent = "";
     };
 
     const close = () => {
@@ -8978,7 +9799,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         imageEl.removeAttribute("src");
         imageEl.alt = "";
       }
-      if (captionEl) captionEl.textContent = "";
+      if (captionEl) {
+        captionEl.textContent = "";
+        captionEl.hidden = false;
+        captionEl.removeAttribute("hidden");
+      }
+      clearChrome();
       if (lastFocus && typeof lastFocus.focus === "function") {
         try {
           lastFocus.focus();
@@ -8987,7 +9813,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       lastFocus = null;
     };
 
-    const open = (img) => {
+    const open = (img, sourceFigure) => {
       if (!img || !img.getAttribute("src")) return;
       ensureOverlay();
       lastFocus = document.activeElement;
@@ -8995,8 +9821,44 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const alt = img.getAttribute("alt") || "";
       imageEl.src = src;
       imageEl.alt = alt;
-      captionEl.textContent = alt;
-      captionEl.hidden = !alt;
+
+      const chromeFigure =
+        sourceFigure && sourceFigure.classList.contains("story__figure--illust-chrome")
+          ? sourceFigure
+          : img.closest(".story__figure--illust-chrome");
+      const srcTitle = chromeFigure && chromeFigure.querySelector(".story__illust-title");
+      const srcMoral = chromeFigure && chromeFigure.querySelector(".story__illust-moral");
+      const titleText = srcTitle ? srcTitle.textContent.trim() : "";
+      const moralText = srcMoral ? srcMoral.textContent.trim() : "";
+      if (chromeFigure && (titleText || moralText)) {
+        frameEl.classList.add(
+          "illustration-lightbox__frame--illust-chrome",
+          "story__figure--illust-chrome"
+        );
+        if (titleEl) titleEl.textContent = titleText;
+        if (moralEl) moralEl.textContent = moralText;
+        if (titleBand) {
+          titleBand.hidden = !titleText;
+          if (titleText) titleBand.removeAttribute("hidden");
+          else titleBand.setAttribute("hidden", "");
+        }
+        if (moralBand) {
+          moralBand.hidden = !moralText;
+          if (moralText) moralBand.removeAttribute("hidden");
+          else moralBand.setAttribute("hidden", "");
+        }
+        // Title/moral bands replace the plain alt caption for KY chrome.
+        captionEl.textContent = "";
+        captionEl.hidden = true;
+        captionEl.setAttribute("hidden", "");
+      } else {
+        clearChrome();
+        captionEl.textContent = alt;
+        captionEl.hidden = !alt;
+        if (alt) captionEl.removeAttribute("hidden");
+        else captionEl.setAttribute("hidden", "");
+      }
+
       overlay.hidden = false;
       overlay.removeAttribute("hidden");
       document.body.classList.add("illustration-lightbox-open");
@@ -9013,7 +9875,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const img = openBtn.querySelector("img");
       if (!img) return;
       event.preventDefault();
-      open(img);
+      open(img, openBtn.closest(".story__figure"));
     });
 
     document.addEventListener("keydown", (event) => {
@@ -9043,8 +9905,15 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       if (closeBtn) closeBtn.setAttribute("aria-label", tUi("close", "Bağla"));
       const ttsWrap = overlay.querySelector(".text-lightbox__tts");
       if (ttsWrap) {
-        ttsWrap.hidden = false;
-        ttsWrap.removeAttribute("hidden");
+        if (AUDIO_CONTROLS_ENABLED) {
+          ttsWrap.hidden = false;
+          ttsWrap.removeAttribute("hidden");
+          ttsWrap.removeAttribute("aria-hidden");
+        } else {
+          ttsWrap.hidden = true;
+          ttsWrap.setAttribute("hidden", "");
+          ttsWrap.setAttribute("aria-hidden", "true");
+        }
         const label = ttsWrap.querySelector(".tools-bar__label");
         const views = ttsWrap.querySelector(".tools-bar__views");
         const audio = tUi("story_audio_label", "Səsləndir");
@@ -9078,15 +9947,44 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           (srcImg && (srcImg.getAttribute("src") || "").trim()) ||
           storyIllustrationUrl(srcImg);
         if (src) {
+          const srcFigure = srcImg && srcImg.closest(".story__figure--illust-chrome");
           const figure = document.createElement("figure");
-          figure.className = "text-lightbox__figure";
           const img = document.createElement("img");
           img.src = src;
           img.alt = (srcImg && srcImg.getAttribute("alt")) || "";
           img.width = Number(srcImg && srcImg.getAttribute("width")) || 1536;
           img.height = Number(srcImg && srcImg.getAttribute("height")) || 1024;
           img.decoding = "async";
-          figure.appendChild(img);
+          if (srcFigure) {
+            figure.className =
+              "text-lightbox__figure text-lightbox__figure--illust-chrome story__figure--illust-chrome";
+            const srcTitle = srcFigure.querySelector(".story__illust-title");
+            const srcMoral = srcFigure.querySelector(".story__illust-moral");
+            const titleText = srcTitle ? srcTitle.textContent.trim() : "";
+            const moralText = srcMoral ? srcMoral.textContent.trim() : "";
+            if (titleText) {
+              const header = document.createElement("header");
+              header.className = "story__illust-band story__illust-band--title";
+              const p = document.createElement("p");
+              p.className = "story__illust-title";
+              p.textContent = titleText;
+              header.appendChild(p);
+              figure.appendChild(header);
+            }
+            figure.appendChild(img);
+            if (moralText) {
+              const footer = document.createElement("footer");
+              footer.className = "story__illust-band story__illust-band--moral";
+              const p = document.createElement("p");
+              p.className = "story__illust-moral";
+              p.textContent = moralText;
+              footer.appendChild(p);
+              figure.appendChild(footer);
+            }
+          } else {
+            figure.className = "text-lightbox__figure";
+            figure.appendChild(img);
+          }
           bodyEl.appendChild(figure);
         }
       }
@@ -10746,10 +11644,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         data.titleEl.contentEditable = on ? "true" : "false";
         data.titleEl.spellcheck = true;
         Array.from(data.textEl.querySelectorAll("p")).forEach((p) => {
-          if (p.classList.contains("story__source")) {
-            p.contentEditable = "false";
-            return;
-          }
           p.contentEditable = on ? "true" : "false";
           p.spellcheck = true;
         });
@@ -10762,7 +11656,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
             save.className = "tools-bar__view-btn story__dev-save";
             save.setAttribute("data-dev-story-save", "1");
             save.textContent = "Save";
-            save.title = "Save title, body, and moral to DOCX + site files";
+            save.title = "Save title, body, moral, and source to DOCX + site files";
             if (actions) actions.appendChild(save);
             else story.querySelector(".card-header")?.appendChild(save);
           }
@@ -10843,10 +11737,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
             (cat.stories || []).forEach((row) => {
               if (row.stem === data.stem) {
                 row.title = data.title;
-                row.paragraphs = data.body.concat([
-                  data.moral,
-                  (row.paragraphs && row.paragraphs[row.paragraphs.length - 1]) || "",
-                ]);
+                row.paragraphs = data.body.concat([data.moral, data.source]);
               }
             });
           });

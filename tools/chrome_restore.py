@@ -1631,6 +1631,17 @@ def pin_asset_versions(html: str) -> str:
                 "20260928kyen",
                 "20260929kyfit",
                 "20260927marry",
+                "20260929azcap",
+                "20260929azcap2",
+                "20260929azundo",
+                "20260929azcut",
+                "20260930azes",
+                "20260930rues",
+                "20260930enes",
+                "20260930kysrc",
+                "20260930rusrc",
+                "20260930ensrc",
+                "20260930azsrc",
             ):
                 return match.group(0)
             return match.group(1) + "20260927frame"

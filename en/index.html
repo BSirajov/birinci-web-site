@@ -237,7 +237,7 @@
         var foldAzI = function (s) { return String(s || "").replace(/[İIı]/g, "i"); };
         var srcRe = /(internet\s+sources|internet\s+mənb|internet\s+kaynak|открыт\w*\s+источник|интернет|(?:source|mənbə|kaynak|источник|булак|булагы)\s*:)/i;
         var moralRe = /^(ibrət|ibret|moral|мораль|үлгү)\s*:/i;
-        var authorSrcStems = { "everyone-has-work-to-do": 1, "weeds-must-be-pulled-from-the-root": 1, "the-silent-corridor": 1, "if-fate-allows-we-will-meet": 1 };
+        var authorSrcStems = { "everyone-has-work-to-do": 1, "weeds-must-be-pulled-from-the-root": 1, "the-silent-corridor": 1, "if-fate-allows-we-will-meet": 1, "caring-call-brightens-the-day": 1, "kindness-builds-stronger-bonds": 1, "nails-lasting-lesson": 1, "cherish-today-with-loved-ones": 1, "humanity-rebuilds-in-peace": 1, "day-gratefully-lived": 1, "small-changes-big-meaning": 1 };
         var authorSrc = !!(story.stem && authorSrcStems[story.stem]);
         var lastIsSrc = last >= 0 && (authorSrc || srcRe.test(foldAzI(list[last] || "")));
         var srcLabel = (window.__BIRINCI_I18N__ && window.__BIRINCI_I18N__.ui && window.__BIRINCI_I18N__.ui.story_source) || "";
