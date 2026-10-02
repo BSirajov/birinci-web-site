@@ -1630,6 +1630,7 @@ def pin_asset_versions(html: str) -> str:
                 "20260928kytitle",
                 "20260928kyen",
                 "20260929kyfit",
+                "20261001kywebp",
                 "20260927marry",
                 "20260929azcap",
                 "20260929azcap2",

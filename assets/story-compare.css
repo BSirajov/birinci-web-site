@@ -360,16 +360,35 @@ body.sc-page[data-sc-show-illus="false"] .sc-col__figure {
   height: var(--sc-toolbar-btn-height);
   min-height: var(--sc-toolbar-btn-height);
   padding: 0 0.7rem 0 0.4rem;
-  border: 1px solid rgba(0, 105, 180, 0.22);
+  border: 1px solid rgba(0, 105, 180, 0.16);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.78);
-  color: var(--sc-ink);
+  background: rgba(255, 255, 255, 0.42);
+  color: #5e7a8c;
   font-family: inherit;
   font-size: 0.78rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.04em;
   cursor: pointer;
   user-select: none;
+  box-shadow: inset 0 1px 2px rgba(0, 78, 140, 0.1);
+  opacity: 1;
+  transition:
+    background 0.18s ease,
+    color 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.sc-lang:hover:not(:disabled):not([aria-pressed="true"]),
+.sc-lang:focus-visible:not(:disabled):not([aria-pressed="true"]) {
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--sc-ink-soft);
+  border-color: rgba(0, 105, 180, 0.28);
+}
+
+.sc-lang:focus-visible {
+  outline: 2px solid var(--sc-blue);
+  outline-offset: 2px;
 }
 
 .sc-lang input {
@@ -389,17 +408,39 @@ body.sc-page[data-sc-show-illus="false"] .sc-col__figure {
   user-select: none;
 }
 
-.sc-lang.is-on {
-  border-color: rgba(0, 105, 180, 0.45);
-  background: linear-gradient(180deg, #fff, var(--sc-blue-soft));
-  box-shadow: 0 0 0 2px rgba(0, 105, 180, 0.12);
-  color: var(--sc-blue);
+.sc-lang[aria-pressed="false"] .sc-lang__flag {
+  opacity: 0.78;
+  filter: saturate(0.55);
+}
+
+.sc-lang.is-on,
+.sc-lang[aria-pressed="true"] {
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--sc-blue), #2e9fd4);
+  box-shadow: 0 4px 12px rgba(0, 90, 154, 0.22);
+  color: #fff;
+  font-weight: 800;
+  opacity: 1;
+}
+
+.sc-lang.is-on .sc-lang__flag,
+.sc-lang[aria-pressed="true"] .sc-lang__flag {
+  opacity: 1;
+  filter: none;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.55);
+}
+
+.sc-lang.is-on:hover:not(:disabled),
+.sc-lang[aria-pressed="true"]:hover:not(:disabled) {
+  color: #fff;
+  filter: brightness(1.06);
 }
 
 .sc-lang.is-disabled,
 .sc-lang:disabled {
   opacity: 0.45;
   cursor: not-allowed;
+  box-shadow: none;
 }
 
 .sc-lang.is-locked {
@@ -591,8 +632,13 @@ body.sc-page[data-sc-show-illus="false"] .sc-col__figure {
 }
 
 .sc-col__figure {
+  position: relative;
   flex: 0 0 auto;
   align-self: stretch;
+  width: 100%;
+  max-width: 100%;
+  /* Shared 3:2 box (1536×1024) so every language stays the same height. */
+  aspect-ratio: 3 / 2;
   margin: 0;
   padding: 0;
   border: 0;
@@ -609,12 +655,75 @@ body.sc-page[data-sc-show-illus="false"] .sc-col__figure {
 }
 
 .sc-col__image {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  max-width: 100%;
   object-fit: contain;
   object-position: center;
-  vertical-align: middle;
+}
+
+/* Kyrgyz plates are baked into the bitmap. The figure stays the shared 3:2
+   box. Top and bottom slices show the title and moral plates at full column
+   width (uniform scale, nothing cropped). The middle slice is only the
+   artwork: same width scale, overflow hidden, vertically centered. */
+.sc-col__figure--ky {
+  aspect-ratio: 3 / 2;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  overflow: hidden;
+  background: #f3ecdc;
+}
+
+.sc-ky-slice {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  flex: 0 0 auto;
+}
+
+.sc-ky-slice--top {
+  aspect-ratio: calc(var(--ky-w) / var(--ky-top-px));
+}
+
+.sc-ky-slice--bot {
+  aspect-ratio: calc(var(--ky-w) / var(--ky-bot-px));
+}
+
+.sc-ky-slice--mid {
+  flex: 1 1 0%;
+  min-height: 0;
+}
+
+.sc-col__figure--ky .sc-col__image {
+  position: absolute;
+  inset: auto;
+  left: 0;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  min-width: 0;
+  object-fit: unset;
+  object-position: center top;
+}
+
+.sc-ky-slice--top .sc-col__image {
+  top: 0;
+}
+
+.sc-ky-slice--bot .sc-col__image {
+  bottom: 0;
+}
+
+.sc-ky-slice--mid .sc-col__image {
+  top: var(--ky-mid-top, 0%);
 }
 
 @media (max-width: 900px) {
