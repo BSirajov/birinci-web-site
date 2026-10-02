@@ -1643,6 +1643,7 @@ def pin_asset_versions(html: str) -> str:
                 "20260930rusrc",
                 "20260930ensrc",
                 "20260930azsrc",
+                "20261002illust",
             ):
                 return match.group(0)
             return match.group(1) + "20260927frame"
