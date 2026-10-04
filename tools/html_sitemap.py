@@ -15,6 +15,11 @@ if str(TOOLS) not in __import__("sys").path:
     __import__("sys").path.insert(0, str(TOOLS))
 
 from stories_catalog import load_stories_catalog  # noqa: E402
+from legal_meta import (  # noqa: E402
+    FOOTER_LEGAL_ITEMS,
+    FOOTER_LEGAL_LABEL_FALLBACKS,
+    render_breadcrumbs_nav,
+)
 
 LIVE_LANGS = ("az", "en", "ru", "ky")
 
@@ -81,6 +86,8 @@ def _sitemap_copy(lang: str) -> dict:
         "about_section": (ui.get("about") or {}).get("kicker", ""),
         "languages_section": ui.get("lang_switcher_label", "Language"),
         "languages_lead": "",
+        "legal_section": "Legal",
+        "legal_lead": "",
         "stories_count": "{n}",
         "articles_count": "{n}",
         "browse_chapter": "",
@@ -140,6 +147,7 @@ _SITEMAP_ICONS = {
     "stories": '<path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/>',
     "discoveries": '<path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/>',
     "about": '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>',
+    "legal": '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/>',
 }
 
 
@@ -357,11 +365,23 @@ def build_sitemap_inner_html(lang: str) -> str:
             f"<span>{_esc(item.get('name', code))}</span></span></a>"
         )
 
+    ui_labels = loc.get("ui") or {}
+    fallbacks = FOOTER_LEGAL_LABEL_FALLBACKS.get(lang) or FOOTER_LEGAL_LABEL_FALLBACKS["en"]
+    legal_links = []
+    for filename, key in FOOTER_LEGAL_ITEMS:
+        if filename == "sitemap.html":
+            continue
+        title = str(ui_labels.get(key) or fallbacks.get(key) or filename)
+        legal_links.append(
+            f'<li><a href="{html.escape(filename, quote=True)}"><span>{_esc(title)}</span></a></li>'
+        )
+
     jump_items = (
         ("overview", "#sitemap-overview", copy["overview_title"]),
         ("stories", "#sitemap-stories", copy["stories_section"]),
         ("discoveries", "#sitemap-discoveries", copy["discoveries_section"]),
         ("about", "#sitemap-about", copy["about_section"]),
+        ("legal", "#sitemap-legal", copy["legal_section"]),
         ("languages", "#sitemap-languages", copy["languages_section"]),
     )
     jump_chips = "".join(
@@ -438,6 +458,14 @@ def build_sitemap_inner_html(lang: str) -> str:
         "</a>\n"
         "      </div>\n"
         "    </section>\n"
+        f'    <section class="sitemap-section sitemap-section--legal" id="sitemap-legal" aria-labelledby="sitemap-legal-title">\n'
+        f'      {section_head("sitemap-legal-title", copy["legal_section"])}\n'
+        f'      <p class="sitemap-langs__lead">{_esc(copy.get("legal_lead") or "")}</p>\n'
+        '      <article class="sitemap-block sitemap-block--about">\n'
+        f'        {_orb_icon("legal", 18)}\n'
+        f'        <ul class="sitemap-links">\n{" ".join(legal_links)}\n        </ul>\n'
+        "      </article>\n"
+        "    </section>\n"
         f'    <section class="sitemap-section sitemap-section--languages" id="sitemap-languages" aria-labelledby="sitemap-languages-title">\n'
         f'      {section_head("sitemap-languages-title", copy["languages_section"])}\n'
         f'      <p class="sitemap-langs__lead">{_esc(copy["languages_lead"])}</p>\n'
@@ -455,6 +483,7 @@ def build_sitemap_page_html(index_html: str, lang: str) -> str:
     title = f"{copy['page_title']} · {site}"
     desc = copy["page_description"]
     home = loc.get("home_crumb", "Home")
+    about = ((loc.get("ui") or {}).get("about") or {}).get("kicker") or "About"
     markup = index_html
     markup = _TITLE_RE.sub(f"<title>{html.escape(title)}</title>", markup, count=1)
     meta = (
@@ -472,15 +501,13 @@ def build_sitemap_page_html(index_html: str, lang: str) -> str:
         return f'<body class="page-home page-sitemap" data-lang-page="sitemap.html"{attrs}>'
 
     markup = _BODY_RE.sub(_body, markup, count=1)
-    crumbs = (
-        '  <nav class="breadcrumbs" aria-label="Breadcrumb">\n'
-        '  <div class="breadcrumbs__inner">\n'
-        '    <ol class="breadcrumbs__list">\n'
-        f'      <li class="breadcrumbs__item"><a href="index.html">{_esc(home)}</a></li>'
-        f'<li class="breadcrumbs__item" aria-current="page"><span>{_esc(copy["page_title"])}</span></li>\n'
-        "    </ol>\n"
-        "  </div>\n"
-        "</nav>\n"
+    crumbs = render_breadcrumbs_nav(
+        [
+            ("index.html", home, False),
+            ("about/mission-vision-values.html", about, False),
+            (None, copy["page_title"], True),
+        ],
+        lang,
     )
     if _BREADCRUMBS_RE.search(markup):
         markup = _BREADCRUMBS_RE.sub(crumbs, markup, count=1)
@@ -502,6 +529,8 @@ def write_html_sitemaps(patch_html) -> int:
         markup = build_sitemap_page_html(src.read_text(encoding="utf-8"), lang)
         markup = patch_html(markup, lang, rel_path=f"{lang}/sitemap.html")
         dest = ROOT / lang / "sitemap.html"
-        dest.write_text(markup, encoding="utf-8")
+        tmp = dest.with_suffix(".html.tmp")
+        tmp.write_text(markup, encoding="utf-8", newline="\n")
+        tmp.replace(dest)
         n += 1
     return n

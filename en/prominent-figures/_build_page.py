@@ -240,7 +240,7 @@ def main() -> None:
   </main>
   <footer class="site-footer">
     <div class="footer-bottom">
-      <div class="footer-copy">© 2026 Birİnci · Prominent figures preview (not published in nav)</div>
+      <div class="footer-copy">© Birİnci - All rights reserved</div>
     </div>
   </footer>
   <script src="../../assets/inventions/kt-sidebar-toc-groups.js?v={INV_V}" defer></script>

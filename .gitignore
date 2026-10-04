@@ -34,6 +34,7 @@ assets/lexicon/*.PDF
 tools/.serve_site.pid
 tools/.serve_site.*.pid
 tools/.serve_site.log
+tools/.feedback-outbox/
 
 # Local build artifacts
 en/prominent-figures/_extract.json

@@ -19,6 +19,15 @@ if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 from brand_one_mark import ensure_brand_one_mark  # noqa: E402
 from html_sitemap import write_html_sitemaps  # noqa: E402
+from legal_meta import (  # noqa: E402
+    ABOUT_LEGAL_AND,
+    ABOUT_LEGAL_GROUP_TITLE,
+    ABOUT_LEGAL_NESTED_FILES,
+    FOOTER_LEGAL_ITEMS,
+    FOOTER_LEGAL_LABEL_FALLBACKS,
+    LEGAL_HTML_FILES,
+    render_breadcrumbs_nav,
+)
 from i18n_config import (  # noqa: E402
     dehydrate_story_illustrations,
     rewrite_content_media_paths,
@@ -327,6 +336,41 @@ _LIT_PANEL_LINK_CSS = """
   font-size: 0.9rem;
   font-weight: 700;
   color: inherit;
+}
+"""
+_ABOUT_NAV_LEGAL_CSS = """
+.nav-dropdown--about > .nav-dropdown-panel {
+  min-width: 18rem;
+  max-width: min(380px, 92vw);
+  overflow: visible;
+}
+.nav-dropdown--about .nav-mega-links--about {
+  min-width: 16rem;
+}
+.nav-dropdown--about .nav-dropdown--nested[data-nav-legal-group] {
+  margin-top: 2px;
+}
+.nav-dropdown--about .nav-dropdown--nested[data-nav-legal-group] > .nav-dropdown-panel--mega .nav-mega-links {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 16rem;
+}
+.nav-dropdown--about .nav-dropdown--nested.is-current > .nav-dropdown-toggle {
+  color: var(--nav-blue-deep);
+  background: rgba(0, 105, 180, 0.08);
+  border-color: var(--line-14);
+}
+@media (hover: hover) and (pointer: fine) and (min-width: 1401px) {
+  .nav-dropdown--about .nav-dropdown--nested.nav-dropdown--has-mega > .nav-dropdown-panel--mega {
+    left: auto;
+    right: calc(100% - 4px);
+    top: 0;
+    width: max-content;
+    min-width: 16.5rem;
+    max-width: min(22rem, calc(100vw - 24px));
+    z-index: 61;
+  }
 }
 """
 
@@ -823,6 +867,9 @@ def ensure_site_css_chrome(css: str) -> str:
 
     if ".nav-dropdown--literature > .nav-dropdown-panel > .nav-dropdown-link {" not in css:
         css = css.rstrip() + "\n" + _LIT_PANEL_LINK_CSS.strip() + "\n"
+
+    if ".nav-dropdown--about .nav-dropdown--nested[data-nav-legal-group]" not in css:
+        css = css.rstrip() + "\n" + _ABOUT_NAV_LEGAL_CSS.strip() + "\n"
 
     if ".page-home:not(.page-root-home) .about-hero__panel" not in css:
         css = css.rstrip() + (
@@ -2198,7 +2245,7 @@ def infer_html_rel_path(html: str, lang: str, *, inventions: bool = False) -> st
         # Nested under {lang}/categories/ — keep asset depth correct even
         # when the slug is unknown (build overlays should pass rel_path).
         return f"{lang}/categories/index.html"
-    if "page-home" in html:
+    if "page-home" in html and "page-legal" not in html and "page-sitemap" not in html:
         return f"{lang}/index.html"
     cat = _CATEGORY_HREF_RE.search(html)
     if cat:
@@ -2476,6 +2523,57 @@ def _apply_footer_contact_titles(markup: str, website: str, email: str) -> str:
         return open_tag + inner + match.group(4)
 
     return _FOOTER_CONTACT_LINK_RE.sub(repl, markup)
+
+
+_FOOTER_BOTTOM_RE = re.compile(
+    r'(<div class="footer-bottom">)[\s\S]*?(</div>\s*)(?=</footer>)',
+    re.I,
+)
+
+
+def _legal_href_prefix(rel_path: str, lang: str) -> str:
+    posix = Path(str(rel_path or "").replace("\\", "/")).as_posix()
+    parts = [p for p in posix.split("/") if p]
+    if not parts or parts[0] not in LIVE_LANGS:
+        return f"{lang}/"
+    rest = parts[1:]
+    if len(rest) <= 1:
+        return ""
+    return "../" * (len(rest) - 1)
+
+
+def _footer_legal_labels(lang: str) -> dict[str, str]:
+    fallback = dict(FOOTER_LEGAL_LABEL_FALLBACKS.get(lang) or FOOTER_LEGAL_LABEL_FALLBACKS["en"])
+    try:
+        ui = _load_locale(lang).get("ui") or {}
+    except (OSError, json.JSONDecodeError, TypeError):
+        ui = {}
+    for key in fallback:
+        if ui.get(key):
+            fallback[key] = str(ui[key])
+    return fallback
+
+
+def ensure_footer_legal_nav(markup: str, lang: str = "az", rel_path: str = "") -> str:
+    if "footer-bottom" not in markup:
+        return markup
+    labels = _footer_legal_labels(lang)
+    prefix = _legal_href_prefix(rel_path, lang)
+    current_name = Path(str(rel_path).replace("\\", "/")).name if rel_path else ""
+    items = []
+    for filename, key in FOOTER_LEGAL_ITEMS:
+        href = prefix + filename
+        label = html.escape(labels.get(key) or filename)
+        current = ' aria-current="page"' if current_name == filename else ""
+        items.append(f'<li><a href="{html.escape(href, quote=True)}"{current}>{label}</a></li>')
+    nav_label = html.escape(labels.get("footer_legal_nav") or "Legal")
+    inner = (
+        f'\n      <nav class="footer-legal" aria-label="{nav_label}">\n'
+        f"        <ul>\n          {' '.join(items)}\n        </ul>\n"
+        "      </nav>\n"
+        '      <div class="footer-copy">© Birİnci - All rights reserved</div>\n    '
+    )
+    return _FOOTER_BOTTOM_RE.sub(rf"\1{inner}\2", markup, count=1)
 
 
 def ensure_footer_contact_html(markup: str, lang: str = "az") -> str:
@@ -2768,6 +2866,8 @@ def build_about_hero_html(lang: str) -> str:
 
 def ensure_about_hero_html(html: str, lang: str) -> str:
     """Mission / Vision / Values hero uses the shared Wisdom-style .intro."""
+    if "page-legal" in html:
+        return html
     if "page-about" not in html and "about-page" not in html:
         return html
     html = _strip_hero_hearth_panel(html)
@@ -3957,6 +4057,216 @@ def _sitemap_nav_href(markup: str) -> str:
     return "sitemap.html"
 
 
+_ABOUT_NAV_ICONS = {
+    "sparkles": (
+        '<span class="menu-icon menu-icon--sparkles" aria-hidden="true" '
+        'style="--icon-from:#7c5cff;--icon-to:#b44dff;--icon-glow:#a78bfa">'
+        '<svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" fill="none" '
+        'stroke="#fff" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round">'
+        '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>'
+        '<path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/>'
+        "</svg></span>"
+    ),
+    "message": (
+        '<span class="menu-icon menu-icon--message" aria-hidden="true" '
+        'style="--icon-from:#3b82f6;--icon-to:#1d4ed8;--icon-glow:#60a5fa">'
+        '<svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" fill="none" '
+        'stroke="#fff" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round">'
+        '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></span>'
+    ),
+    "scale": (
+        '<span class="menu-icon menu-icon--scale" aria-hidden="true" '
+        'style="--icon-from:#6366f1;--icon-to:#4f46e5;--icon-glow:#818cf8">'
+        '<svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" fill="none" '
+        'stroke="#fff" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round">'
+        '<path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>'
+        '<path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>'
+        '<path d="M7 21h10"/><path d="M12 3v18"/>'
+        '<path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg></span>'
+    ),
+    "shield": (
+        '<span class="menu-icon menu-icon--shield" aria-hidden="true" '
+        'style="--icon-from:#f59e0b;--icon-to:#d97706;--icon-glow:#fbbf24">'
+        '<svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" fill="none" '
+        'stroke="#fff" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round">'
+        '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>'
+        "</svg></span>"
+    ),
+    "file": (
+        '<span class="menu-icon menu-icon--file" aria-hidden="true" '
+        'style="--icon-from:#64748b;--icon-to:#334155;--icon-glow:#94a3b8">'
+        '<svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" fill="none" '
+        'stroke="#fff" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round">'
+        '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/>'
+        '<path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/>'
+        '<path d="M16 17H8"/></svg></span>'
+    ),
+    "cookie": (
+        '<span class="menu-icon menu-icon--cookie" aria-hidden="true" '
+        'style="--icon-from:#d97706;--icon-to:#b45309;--icon-glow:#fbbf24">'
+        '<svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" fill="none" '
+        'stroke="#fff" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round">'
+        '<path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/>'
+        '<path d="M8.5 8.5h.01"/><path d="M16 15.5h.01"/><path d="M11.5 14.5h.01"/>'
+        "</svg></span>"
+    ),
+    "landmark": (
+        '<span class="menu-icon menu-icon--landmark" aria-hidden="true" '
+        'style="--icon-from:#eab308;--icon-to:#ca8a04;--icon-glow:#facc15">'
+        '<svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" fill="none" '
+        'stroke="#fff" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round">'
+        '<path d="M10 18v-7"/><path d="M11.12 2.198a2 2 0 0 1 1.76.006l7.866 3.847c.10.0.0.5-.22.949H3.474c-.53 0-.695-.716-.22-.949z"/>'
+        '<path d="M14 18v-7"/><path d="M18 18v-7"/><path d="M3 22h18"/><path d="M6 18v-7"/>'
+        "</svg></span>"
+    ),
+}
+
+
+def _about_nav_copy(lang: str) -> dict:
+    labels = _footer_legal_labels(lang)
+    loc = _load_locale(lang)
+    ui = loc.get("ui") or {}
+    about = ui.get("about") or {}
+    mission_title = about.get("nav_item") or about.get("page_title") or ""
+    mission_desc = (about.get("page_description") or "").strip()
+    if len(mission_desc) > 110:
+        mission_desc = mission_desc[: mission_desc.rfind(" ", 0, 110)].rstrip(".,;:") + "…"
+    group_title = str(ui.get("nav_legal_group") or ABOUT_LEGAL_GROUP_TITLE.get(lang) or "Legal")
+    privacy = labels.get("footer_privacy") or ""
+    terms = labels.get("footer_terms") or ""
+    cookies = labels.get("footer_cookies") or ""
+    imprint = labels.get("footer_imprint") or ""
+    connector = ABOUT_LEGAL_AND.get(lang, "and")
+    group_desc = f"{privacy}, {terms}, {cookies} {connector} {imprint}".strip()
+    from legal_copy import page_for  # noqa: WPS433
+
+    def _lead(slug: str) -> str:
+        try:
+            return str(page_for(lang, slug).get("lead") or "")
+        except (KeyError, TypeError):
+            return ""
+
+    return {
+        "summary": about.get("kicker") or "",
+        "mission_title": mission_title,
+        "mission_desc": mission_desc,
+        "feedback_title": labels.get("footer_feedback") or "",
+        "feedback_desc": _lead("feedback"),
+        "legal_title": group_title,
+        "legal_desc": group_desc,
+        "privacy_title": privacy,
+        "privacy_desc": _lead("privacy-notice"),
+        "terms_title": terms,
+        "terms_desc": _lead("terms-of-use"),
+        "cookies_title": cookies,
+        "cookies_desc": _lead("cookie-policy"),
+        "imprint_title": imprint,
+        "imprint_desc": _lead("legal-notice"),
+        "sitemap_title": labels.get("footer_sitemap") or _sitemap_nav_label(lang),
+    }
+
+
+def _about_nav_link(href: str, nav_id: str, icon: str, title: str, desc: str = "") -> str:
+    extra = ""
+    if desc:
+        extra = f'<span class="nav-dropdown-link-desc">{html.escape(desc)}</span>'
+    return (
+        f'<a class="nav-dropdown-link" href="{html.escape(href, quote=True)}" data-nav-id="{nav_id}">'
+        f"{icon}<span class=\"nav-dropdown-link-copy\">"
+        f'<span class="nav-dropdown-link-title">{html.escape(title)}</span>{extra}'
+        f"</span></a>"
+    )
+
+
+def _build_about_nav_dropdown(markup: str, lang: str, rel_path: str = "") -> str:
+    copy = _about_nav_copy(lang)
+    prefix = _legal_href_prefix(rel_path or infer_html_rel_path(markup, lang), lang)
+    mission_href = f"{prefix}about/mission-vision-values.html"
+    feedback_href = f"{prefix}feedback.html"
+    sitemap_href = f"{prefix}sitemap.html"
+    nested_links = []
+    nested_icons = {
+        "privacy-notice.html": "shield",
+        "terms-of-use.html": "file",
+        "cookie-policy.html": "cookie",
+        "legal-notice.html": "landmark",
+    }
+    nested_ids = {
+        "privacy-notice.html": ("privacy", "privacy_title", "privacy_desc"),
+        "terms-of-use.html": ("terms", "terms_title", "terms_desc"),
+        "cookie-policy.html": ("cookies", "cookies_title", "cookies_desc"),
+        "legal-notice.html": ("imprint", "imprint_title", "imprint_desc"),
+    }
+    for filename in ABOUT_LEGAL_NESTED_FILES:
+        nav_id, title_key, desc_key = nested_ids[filename]
+        nested_links.append(
+            _about_nav_link(
+                f"{prefix}{filename}",
+                nav_id,
+                _ABOUT_NAV_ICONS[nested_icons[filename]],
+                copy[title_key],
+                copy[desc_key],
+            )
+        )
+    legal_block = (
+        '<div class="nav-dropdown--nested nav-dropdown--has-mega" data-nav-legal-group '
+        'data-nav-branch="legal">\n'
+        '            <button type="button" class="nav-dropdown-toggle" aria-expanded="false" '
+        'aria-controls="about-legal-panel" data-nav-mega-toggle>\n'
+        f"              {_ABOUT_NAV_ICONS['scale']}\n"
+        '              <span class="nav-dropdown-toggle__copy">\n'
+        f'                <span class="nav-dropdown-link-title">{html.escape(copy["legal_title"])}</span>\n'
+        f'                <span class="nav-dropdown-link-desc">{html.escape(copy["legal_desc"])}</span>\n'
+        "              </span>\n"
+        '              <span class="nav-dropdown-caret" aria-hidden="true"></span>\n'
+        "            </button>\n"
+        '            <div class="nav-dropdown-panel nav-dropdown-panel--mega" id="about-legal-panel" '
+        'role="menu">\n'
+        f'              <div class="nav-mega-links">{"".join(nested_links)}</div>\n'
+        "            </div>\n"
+        "          </div>"
+    )
+    links = (
+        _about_nav_link(
+            mission_href,
+            "mission",
+            _ABOUT_NAV_ICONS["sparkles"],
+            copy["mission_title"],
+            copy["mission_desc"],
+        )
+        + _about_nav_link(
+            feedback_href,
+            "feedback",
+            _ABOUT_NAV_ICONS["message"],
+            copy["feedback_title"],
+            copy["feedback_desc"],
+        )
+        + legal_block
+        + _about_nav_link(
+            sitemap_href,
+            "about-sitemap",
+            _SITEMAP_NAV_ICON,
+            copy["sitemap_title"],
+        )
+    )
+    return (
+        '<details class="nav-dropdown nav-dropdown--about">'
+        '<summary class="nav-dropdown__summary">'
+        f"{_ICON_INFO}<span>{html.escape(copy['summary'])}</span></summary>"
+        '<div class="nav-dropdown-panel nav-dropdown-panel--about">'
+        f'<div class="nav-mega-links nav-mega-links--about">{links}</div>'
+        "</div></details>"
+    )
+
+
+def ensure_about_nav(markup: str, lang: str, rel_path: str = "") -> str:
+    """Rebuild the About dropdown to match DAAB: mission, feedback, nested legal, sitemap."""
+    if "nav-dropdown--about" not in markup:
+        return markup
+    block = _build_about_nav_dropdown(markup, lang, rel_path)
+    return _replace_balanced_details(markup, "nav-dropdown--about", block)
+
+
 def ensure_sitemap_nav_link(markup: str, lang: str) -> str:
     """Add or refresh the top-navbar Sitemap item."""
     active = (
@@ -4115,17 +4425,18 @@ def ensure_lang_switcher_dropdown(markup: str, lang: str, rel_path: str = "") ->
     code = (lang or "az").lower()[:2]
     if code not in LIVE_LANGS:
         code = "az"
+    resolved = rel_path or infer_html_rel_path(markup, code)
     label = "Language"
     try:
         label = str((_load_locale(code).get("ui") or {}).get("lang_switcher_label") or label)
     except (OSError, json.JSONDecodeError, TypeError, KeyError):
         pass
-    prefix = _rel_depth_prefix(rel_path) if rel_path else "../"
+    prefix = _rel_depth_prefix(resolved) if resolved else "../"
     short, title = _LANG_SWITCHER_META[code]
     options: list[str] = []
     for other in LIVE_LANGS:
         o_short, o_title = _LANG_SWITCHER_META[other]
-        href = _sibling_lang_href(rel_path, other) if rel_path else f"{prefix}{other}/index.html"
+        href = _sibling_lang_href(resolved, other) if resolved else f"{prefix}{other}/index.html"
         flag = f"{prefix}flags/{other}.svg"
         selected = "true" if other == code else "false"
         options.append(
@@ -4159,8 +4470,10 @@ ensure_lang_switcher_pills = ensure_lang_switcher_dropdown
 def patch_emitted_html(
     html: str, lang: str, *, inventions: bool = False, rel_path: str = ""
 ) -> str:
+    rel_path = rel_path or infer_html_rel_path(html, lang, inventions=inventions)
     html = hide_empty_top_nav(html)
     html = ensure_discoveries_nav_link(html, lang)
+    html = ensure_about_nav(html, lang, rel_path=rel_path)
     html = ensure_sitemap_nav_link(html, lang)
     html = ensure_page_jump_html(html, lang)
     html = ensure_literature_submenu(html, lang)
@@ -4170,8 +4483,10 @@ def patch_emitted_html(
     html = ensure_footer_about_html(html, lang)
     html = ensure_footer_qr_html(html, lang, rel_path=rel_path)
     html = ensure_footer_contact_html(html, lang)
+    html = ensure_footer_legal_nav(html, lang, rel_path=rel_path)
     html = ensure_footer_logo_link(html)
     html = ensure_brand_home_href(html)
+    html = ensure_info_page_breadcrumbs(html, lang, rel_path=rel_path)
     html = ensure_breadcrumb_home_href(html)
     html = ensure_stories_hero_html(html, lang)
     html = ensure_about_hero_html(html, lang)
@@ -4272,6 +4587,86 @@ _BREADCRUMBS_RE = re.compile(
     r"[ \t]*<nav class=\"breadcrumbs\"[\s\S]*?</nav>\s*",
     re.I,
 )
+
+
+def _home_crumb_label(lang: str) -> str:
+    return str(_load_locale(lang).get("home_crumb") or "Home")
+
+
+def _about_kicker_label(lang: str) -> str:
+    about = (_load_locale(lang).get("ui") or {}).get("about") or {}
+    return str(about.get("kicker") or "About")
+
+
+def _legal_group_crumb_label(lang: str) -> str:
+    ui = _load_locale(lang).get("ui") or {}
+    return str(
+        ui.get("nav_legal_group")
+        or ui.get("legal_crumb")
+        or ABOUT_LEGAL_GROUP_TITLE.get(lang)
+        or "Legal information"
+    )
+
+
+def _info_page_filename(html: str, rel_path: str) -> str:
+    page = _LANG_PAGE_RE.search(html)
+    if page:
+        return Path(page.group(1).replace("\\", "/")).name
+    posix = Path(str(rel_path or "").replace("\\", "/")).as_posix()
+    return posix.rsplit("/", 1)[-1] if posix else ""
+
+
+def ensure_info_page_breadcrumbs(html: str, lang: str, rel_path: str = "") -> str:
+    """Keep About / legal / sitemap sticky crumbs aligned with the About dropdown IA."""
+    if 'class="breadcrumbs"' not in html:
+        return html
+    filename = _info_page_filename(html, rel_path)
+    home = _home_crumb_label(lang)
+    about = _about_kicker_label(lang)
+    items: list[tuple[str | None, str, bool]] | None = None
+    if filename in LEGAL_HTML_FILES or "page-legal" in html:
+        from legal_copy import page_for  # noqa: WPS433
+
+        slug = filename.replace(".html", "")
+        try:
+            page_title = str(page_for(lang, slug).get("title") or "")
+        except (KeyError, TypeError):
+            page_title = ""
+        if not page_title:
+            return html
+        items = [
+            ("index.html", home, False),
+            ("about/mission-vision-values.html", about, False),
+        ]
+        if filename in ABOUT_LEGAL_NESTED_FILES:
+            items.append((None, _legal_group_crumb_label(lang), False))
+        items.append((None, page_title, True))
+    elif "page-sitemap" in html or filename == "sitemap.html":
+        loc = _load_locale(lang)
+        title = str(((loc.get("ui") or {}).get("sitemap") or {}).get("page_title") or "Sitemap")
+        items = [
+            ("index.html", home, False),
+            ("about/mission-vision-values.html", about, False),
+            (None, title, True),
+        ]
+    elif "page-about" in html or filename == "mission-vision-values.html":
+        about_ui = (_load_locale(lang).get("ui") or {}).get("about") or {}
+        title = str(about_ui.get("page_title") or about_ui.get("nav_item") or "")
+        if not title:
+            return html
+        items = [
+            ("index.html", home, False),
+            (None, about, False),
+            (None, title, True),
+        ]
+    else:
+        return html
+    crumbs = render_breadcrumbs_nav(items, lang)
+    if _BREADCRUMBS_RE.search(html):
+        return _BREADCRUMBS_RE.sub(crumbs, html, count=1)
+    return html
+
+
 _INTRO_RE = re.compile(
     r"<section class=\"intro\">[\s\S]*?</section>",
     re.I,
@@ -4357,6 +4752,8 @@ ROOT_CHROME_UI_KEYS = (
     "footer_address",
     "footer_email",
     "footer_website",
+    "footer_build",
+    "footer_rights_reserved",
     "site_description",
 )
 
@@ -4477,9 +4874,19 @@ _ROOT_ENTRY_SCRIPT = """\
       document.querySelector(".nav-dropdown--about .nav-dropdown__summary > span:not(.menu-icon)"),
       L.about_label
     );
-    var aboutLink = document.querySelector(".nav-dropdown--about .nav-dropdown-link");
-    if (aboutLink && L.about_href) aboutLink.setAttribute("href", L.about_href);
-    setText(document.querySelector(".nav-dropdown--about .nav-dropdown-link-title"), L.about_item);
+    (L.about_menu || []).forEach(function (item) {
+      if (!item || !item.id) return;
+      var el = document.querySelector('.nav-dropdown--about [data-nav-id="' + item.id + '"]');
+      if (!el) return;
+      if (item.href) el.setAttribute("href", item.href);
+      setText(el.querySelector(".nav-dropdown-link-title"), item.title);
+    });
+    var legalTitle = document.querySelector(
+      ".nav-dropdown--about [data-nav-legal-group] .nav-dropdown-link-title"
+    );
+    if (legalTitle && L.about_legal && L.about_legal.title) {
+      legalTitle.textContent = L.about_legal.title;
+    }
     var searchToggle = document.getElementById("global-search-toggle");
     setAttr(searchToggle, "title", ui.global_search_title_attr);
     setAttr(searchToggle, "aria-label", ui.global_search_toggle);
@@ -4664,6 +5071,48 @@ def _root_entry_locale_pack(lang: str) -> dict:
         "about_label": about.get("kicker", ""),
         "about_item": about.get("nav_item") or about.get("page_title", ""),
         "about_href": f"{lang}/about/mission-vision-values.html",
+        "about_menu": [
+            {
+                "id": "mission",
+                "href": f"{lang}/about/mission-vision-values.html",
+                "title": about.get("nav_item") or about.get("page_title", ""),
+            },
+            {
+                "id": "feedback",
+                "href": f"{lang}/feedback.html",
+                "title": ui.get("footer_feedback") or "",
+            },
+            {
+                "id": "privacy",
+                "href": f"{lang}/privacy-notice.html",
+                "title": ui.get("footer_privacy") or "",
+            },
+            {
+                "id": "terms",
+                "href": f"{lang}/terms-of-use.html",
+                "title": ui.get("footer_terms") or "",
+            },
+            {
+                "id": "cookies",
+                "href": f"{lang}/cookie-policy.html",
+                "title": ui.get("footer_cookies") or "",
+            },
+            {
+                "id": "imprint",
+                "href": f"{lang}/legal-notice.html",
+                "title": ui.get("footer_imprint") or "",
+            },
+            {
+                "id": "about-sitemap",
+                "href": f"{lang}/sitemap.html",
+                "title": (ui.get("sitemap") or {}).get("nav_item")
+                or ui.get("footer_sitemap")
+                or "",
+            },
+        ],
+        "about_legal": {
+            "title": ui.get("nav_legal_group") or ABOUT_LEGAL_GROUP_TITLE.get(lang, "Legal"),
+        },
         "ui": {key: ui[key] for key in ROOT_CHROME_UI_KEYS if key in ui},
         "js": data.get("js") or {},
     }
@@ -4741,6 +5190,8 @@ def build_root_home_html(az_html: str) -> str:
     html = html.replace('href="discoveries/', 'href="az/discoveries/')
     html = html.replace('href="about/', 'href="az/about/')
     html = html.replace('href="sitemap.html"', 'href="az/sitemap.html"')
+    for legal_name in LEGAL_HTML_FILES:
+        html = html.replace(f'href="{legal_name}"', f'href="az/{legal_name}"')
     html = html.replace('href="index.html?view=list"', 'href="az/index.html?view=list"')
     html = html.replace(
         'data-search-index="assets/search-index.js',
@@ -4766,6 +5217,7 @@ def write_root_home() -> None:
     html = strip_stories_json_refs(html)
     html = ensure_shared_site_js_tags(html, "az", "index.html")
     html = ensure_story_sidebar_toc_assets(html, "az", "index.html")
+    html = ensure_footer_legal_nav(html, "az", "index.html")
     html = pin_asset_versions(html)
     html = ensure_seo_head(html, "az", "index.html")
     (ROOT / "index.html").write_text(html, encoding="utf-8")
@@ -4831,6 +5283,10 @@ def write_public_seo_files(*, include_discoveries: bool | None = None) -> None:
         sitemap = ROOT / lang / "sitemap.html"
         if sitemap.is_file():
             urls.append(_public_url(f"{lang}/sitemap.html"))
+        for legal_name in LEGAL_HTML_FILES:
+            legal = ROOT / lang / legal_name
+            if legal.is_file():
+                urls.append(_public_url(f"{lang}/{legal_name}"))
         if with_discoveries:
             disc = ROOT / lang / "discoveries" / "discoveries-and-inventions.html"
             if disc.is_file():
@@ -4924,6 +5380,10 @@ def apply_all_html() -> int:
         sitemap = base / "sitemap.html"
         if sitemap.is_file():
             paths.append(sitemap)
+        for legal_name in LEGAL_HTML_FILES:
+            legal = base / legal_name
+            if legal.is_file():
+                paths.append(legal)
         disc = base / "discoveries" / "discoveries-and-inventions.html"
         if disc.is_file():
             paths.append(disc)
@@ -4955,6 +5415,13 @@ def apply_review_fixes() -> int:
     apply_shared_assets()
     apply_story_audio_cleanup()
     apply_invention_source_bodies()
+    from legal_pages import write_legal_pages  # noqa: WPS433
+
+    write_legal_pages(
+        lambda markup, lang, rel_path="": patch_emitted_html(
+            markup, lang, rel_path=rel_path
+        )
+    )
     n = apply_all_html()
     n += write_html_sitemaps(
         lambda markup, lang, rel_path="": patch_emitted_html(

@@ -17,6 +17,7 @@ import subprocess
 import sys
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -42,6 +43,24 @@ class NoCacheRequestHandler(SimpleHTTPRequestHandler):
         self.send_header("Pragma", "no-cache")
         self.send_header("Expires", "0")
         super().end_headers()
+
+    def do_POST(self) -> None:
+        path = urllib.parse.urlparse(self.path).path
+        if not path.endswith("/mail-feedback.php") and path != "/mail-feedback.php":
+            self.send_error(405, "Method Not Allowed")
+            return
+        length = int(self.headers.get("Content-Length") or 0)
+        body = self.rfile.read(length)
+        sys.path.insert(0, str(ROOT / "tools"))
+        from feedback_mail import handle_post  # noqa: WPS433
+
+        status, text = handle_post(self.headers.get("Content-Type") or "", body)
+        payload = text.encode("utf-8")
+        self.send_response(status)
+        self.send_header("Content-Type", "text/plain; charset=UTF-8")
+        self.send_header("Content-Length", str(len(payload)))
+        self.end_headers()
+        self.wfile.write(payload)
 
 
 class ExclusiveThreadingHTTPServer(ThreadingHTTPServer):

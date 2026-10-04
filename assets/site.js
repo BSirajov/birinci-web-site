@@ -1173,6 +1173,32 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     return stripped.replace(/\/index\.html$/i, "/").replace(/\/+$/, "") || "/";
   };
 
+  const localePathRest = (pathname) => {
+    const path = String(pathname || "/").replace(/\\/g, "/");
+    const match = path.match(/\/(az|en|ru|ky)\/(.*)$/i);
+    if (!match) return "";
+    const rest = String(match[2] || "").replace(/\/+$/, "");
+    return rest || "index.html";
+  };
+
+  const isLocaleCatalogBody = (body) => {
+    const el = body || document.body;
+    if (!el || !el.classList) return false;
+    if (
+      el.classList.contains("page-legal") ||
+      el.classList.contains("page-sitemap") ||
+      el.classList.contains("page-about")
+    ) {
+      return false;
+    }
+    return (
+      el.classList.contains("page-category") ||
+      el.classList.contains("page-inventions") ||
+      el.classList.contains("inventions-preview-page") ||
+      el.classList.contains("page-home")
+    );
+  };
+
   const normalizeHistoryHref = (href) => {
     try {
       const url = new URL(String(href || ""), window.location.href);
@@ -1941,11 +1967,17 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const typedQ = searchInput ? String(searchInput.value || "").trim() : "";
       const q = typedQ || String(params.get("q") || "").trim();
       const isCategory = document.body.classList.contains("page-category");
-      const isHome = document.body.classList.contains("page-home");
+      const isLegal = document.body.classList.contains("page-legal");
+      const isSitemap = document.body.classList.contains("page-sitemap");
+      const isAbout = document.body.classList.contains("page-about");
+      const isHome =
+        document.body.classList.contains("page-home") && !isLegal && !isSitemap;
       const isInventions =
         document.body.classList.contains("page-inventions") ||
         document.body.classList.contains("inventions-preview-page");
-      const langPage = String(document.body.getAttribute("data-lang-page") || "").replace(/^\/+/, "");
+      const langPage = String(
+        document.body.getAttribute("data-lang-page") || localePathRest(window.location.pathname) || ""
+      ).replace(/^\/+/, "");
       const catMatch = (window.location.pathname || "").match(/\/categories\/([^/]+)\.html$/i);
       let view = params.get("view");
       if (isHome) {
@@ -2009,7 +2041,11 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       return {
         isCategory,
         isHome,
+        isLegal,
+        isSitemap,
+        isAbout,
         isInventions,
+        isBrowse: isCategory || isHome || isInventions,
         langPage,
         slug: catMatch ? catMatch[1] : "",
         view: view === "list" ? "list" : view === "cards" ? "cards" : "",
@@ -2027,14 +2063,19 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     };
 
     const hrefForLang = (code, ctx) => {
+      const langPage = String(ctx.langPage || "").replace(/^\/+/, "");
       let path = `../${code}/index.html`;
       if (ctx.isCategory && ctx.slug) {
         path = `../../${code}/categories/${encodeURIComponent(ctx.slug)}.html`;
-      } else if (ctx.langPage) {
-        const depth = ctx.langPage.split("/").filter(Boolean).length;
-        path = `${"../".repeat(depth)}${code}/${ctx.langPage}`;
-      } else if (ctx.isHome) {
+      } else if (langPage && langPage !== "index.html") {
+        const depth = langPage.split("/").filter(Boolean).length;
+        path = `${"../".repeat(Math.max(1, depth))}${code}/${langPage}`;
+      } else if (ctx.isHome || langPage === "index.html") {
         path = `../${code}/index.html`;
+      }
+
+      if (!ctx.isBrowse) {
+        return `${path}${window.location.search || ""}${window.location.hash || ""}`;
       }
 
       const params = new URLSearchParams();
@@ -2192,19 +2233,21 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       if (!link) return;
       const ctx = browseContext();
       syncLangHrefs();
-      stashLangContext(ctx);
+      if (ctx.isBrowse) stashLangContext(ctx);
       const code = (link.getAttribute("data-lang") || "").toLowerCase();
       try {
         localStorage.setItem("birinci-lang", code);
       } catch (_) {}
-      if (typeof window.__birinciSetLiveLang === "function") {
+      if (ctx.isBrowse && typeof window.__birinciSetLiveLang === "function") {
         event.preventDefault();
         closeMenu();
         window.__birinciSetLiveLang(code).catch(() => {
           if (modalHostOpen()) return;
           window.location.href = link.href;
         });
+        return;
       }
+      closeMenu();
     });
 
     window.__birinciSyncLangHrefs = syncLangHrefs;
@@ -3040,6 +3083,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     if (typeof window.__birinciSyncArticlesDrawerLabels === "function") {
       window.__birinciSyncArticlesDrawerLabels();
     }
+    if (typeof window.__birinciRenderFooterBuild === "function") {
+      window.__birinciRenderFooterBuild();
+    }
   };
 
   window.__birinciSyncToolsBarTooltips = syncToolsBarTooltips;
@@ -3069,13 +3115,28 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         const fromSum = fromAbout.querySelector(".nav-dropdown__summary > span:not(.menu-icon)");
         const toSum = toAbout.querySelector(".nav-dropdown__summary > span:not(.menu-icon)");
         if (fromSum && toSum) toSum.textContent = fromSum.textContent;
-        const fromTitle = fromAbout.querySelector(".nav-dropdown-link-title");
-        const toTitle = toAbout.querySelector(".nav-dropdown-link-title");
-        if (fromTitle && toTitle) toTitle.textContent = fromTitle.textContent;
-        const fromHref = fromAbout.querySelector(".nav-dropdown-link");
-        const toHref = toAbout.querySelector(".nav-dropdown-link");
-        if (fromHref && toHref && fromHref.getAttribute("href")) {
-          toHref.setAttribute("href", fromHref.getAttribute("href"));
+        fromAbout.querySelectorAll("[data-nav-id]").forEach((fromLink) => {
+          const id = fromLink.getAttribute("data-nav-id");
+          const toLink = toAbout.querySelector(`[data-nav-id="${id}"]`);
+          if (!toLink) return;
+          const href = fromLink.getAttribute("href");
+          if (href) toLink.setAttribute("href", href);
+          const fromTitle = fromLink.querySelector(".nav-dropdown-link-title");
+          const toTitle = toLink.querySelector(".nav-dropdown-link-title");
+          if (fromTitle && toTitle) toTitle.textContent = fromTitle.textContent;
+          const fromDesc = fromLink.querySelector(".nav-dropdown-link-desc");
+          const toDesc = toLink.querySelector(".nav-dropdown-link-desc");
+          if (fromDesc && toDesc) toDesc.textContent = fromDesc.textContent;
+        });
+        const fromLegal = fromAbout.querySelector("[data-nav-legal-group] .nav-dropdown-toggle");
+        const toLegal = toAbout.querySelector("[data-nav-legal-group] .nav-dropdown-toggle");
+        if (fromLegal && toLegal) {
+          const fromLt = fromLegal.querySelector(".nav-dropdown-link-title");
+          const toLt = toLegal.querySelector(".nav-dropdown-link-title");
+          if (fromLt && toLt) toLt.textContent = fromLt.textContent;
+          const fromLd = fromLegal.querySelector(".nav-dropdown-link-desc");
+          const toLd = toLegal.querySelector(".nav-dropdown-link-desc");
+          if (fromLd && toLd) toLd.textContent = fromLd.textContent;
         }
       }
       toNav.setAttribute("aria-label", tUi("main_menu", "Əsas menyu"));
@@ -3101,6 +3162,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const fromTag = fromFooter.querySelector(".footer-logo__tagline");
       const toTag = toFooter.querySelector(".footer-logo__tagline");
       if (fromTag && toTag) toTag.textContent = fromTag.textContent;
+      const fromLegal = fromFooter.querySelector(".footer-legal");
+      const toLegal = toFooter.querySelector(".footer-legal");
+      if (fromLegal && toLegal) replaceNodeInner(toLegal, fromLegal);
     }
 
     const fromSearch = doc.querySelector("#global-search");
@@ -3193,6 +3257,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     syncToolsBarTooltips();
     syncStoryCategoryFilterChrome();
     syncStoryAuthorFilterChrome();
+    if (typeof window.__birinciRenderFooterBuild === "function") {
+      window.__birinciRenderFooterBuild();
+    }
   };
 
   const applyFetchedStories = (doc) => {
@@ -3629,6 +3696,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   };
 
   const applyLangSwitchBrowseReset = () => {
+    if (!isLocaleCatalogBody(document.body)) {
+      try {
+        sessionStorage.removeItem("birinci-lang-ctx");
+      } catch (_) {}
+      return;
+    }
     let ctx = null;
     try {
       const raw = sessionStorage.getItem("birinci-lang-ctx") || "";
@@ -3753,6 +3826,11 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const href =
         (typeof window.__birinciHrefForLang === "function" && window.__birinciHrefForLang(next)) ||
         "";
+      if (!isLocaleCatalogBody(document.body) && !fromHistory) {
+        if (!href) throw new Error("lang-href");
+        window.location.assign(new URL(href, location.href).href);
+        return;
+      }
       const target = href ? new URL(href, location.href) : null;
       if (!target) throw new Error("lang-href");
       const [doc] = await Promise.all([fetchParsedDocument(target.href), loadI18nForLang(next)]);
@@ -3774,11 +3852,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         commitHistoryHref(nextUrl);
       }
       applyFetchedChrome(doc);
-      const liveBody = document.body.className || "";
-      if (
-        !keepModal &&
-        !/page-category|page-home|page-inventions|inventions-preview-page/.test(liveBody)
-      ) {
+      if (!keepModal && !isLocaleCatalogBody(document.body)) {
         const fromMain = doc.getElementById("main");
         const toMain = document.getElementById("main");
         if (fromMain && toMain) toMain.innerHTML = fromMain.innerHTML;
@@ -3786,8 +3860,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       applyFetchedStories(doc);
       applyFetchedInventions(doc);
       if (
-        document.body.classList.contains("page-home") ||
-        document.body.classList.contains("page-category")
+        isLocaleCatalogBody(document.body) &&
+        (document.body.classList.contains("page-home") ||
+          document.body.classList.contains("page-category"))
       ) {
         try {
           const storiesRes = await fetch(langAssetUrl(next, "stories-data.js"), {
@@ -3880,6 +3955,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   // Full-page language navigation: clear filters, keep target + view, scroll to item header.
   (function restoreGenericLangScroll() {
     if (document.body.classList.contains("page-inventions")) return;
+    if (!isLocaleCatalogBody(document.body)) {
+      try {
+        sessionStorage.removeItem("birinci-lang-ctx");
+      } catch (_) {}
+      return;
+    }
     let raw = "";
     try {
       raw = sessionStorage.getItem("birinci-lang-ctx") || "";
@@ -4421,10 +4502,27 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       body.classList.contains("page-sitemap") ||
       pageHint === "sitemap.html" ||
       /\/sitemap\.html$/.test(path);
+    const legalFiles = new Set([
+      "feedback.html",
+      "privacy-notice.html",
+      "terms-of-use.html",
+      "cookie-policy.html",
+      "legal-notice.html",
+    ]);
+    const nestedLegalFiles = new Set([
+      "privacy-notice.html",
+      "terms-of-use.html",
+      "cookie-policy.html",
+      "legal-notice.html",
+    ]);
+    const pathFile = fileOf(pageHint) || fileOf(path);
+    const isLegal =
+      body.classList.contains("page-legal") || legalFiles.has(pathFile);
     const isAbout =
       body.classList.contains("page-about") ||
       pageHint.startsWith("about/") ||
-      /\/about\//.test(path);
+      /\/about\//.test(path) ||
+      isLegal;
     const isDiscoveries =
       body.classList.contains("page-inventions") ||
       pageHint.startsWith("discoveries/") ||
@@ -4460,6 +4558,15 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
     if (isSitemap) {
       setLinkCurrent(nav.querySelector("[data-nav-sitemap]"));
+      const about = nav.querySelector(".nav-dropdown--about");
+      if (about) {
+        about.classList.add("is-current");
+        const child = about.querySelector('[data-nav-id="about-sitemap"]');
+        if (child) {
+          child.classList.add("is-active");
+          child.setAttribute("aria-current", "page");
+        }
+      }
       return;
     }
     if (isDiscoveries) {
@@ -4473,13 +4580,17 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const about = nav.querySelector(".nav-dropdown--about");
       if (!about) return;
       about.classList.add("is-current");
-      const currentFile = fileOf(pageHint) || fileOf(path);
+      const currentFile = pathFile;
       about.querySelectorAll(".nav-dropdown-link").forEach((link) => {
         const match = fileOf(link.getAttribute("href")) === currentFile;
         link.classList.toggle("is-active", match);
         if (match) link.setAttribute("aria-current", "page");
         else link.removeAttribute("aria-current");
       });
+      const legalGroup = about.querySelector("[data-nav-legal-group]");
+      if (legalGroup) {
+        legalGroup.classList.toggle("is-current", nestedLegalFiles.has(currentFile));
+      }
       return;
     }
     if (isStories) {
@@ -11458,6 +11569,53 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     initHomeViews();
   } catch (err) {
     console.error("initHomeViews failed", err);
+  }
+  const assetsDirFromSiteJs = () => {
+    const el = document.querySelector('script[src*="site.js"]');
+    const src = (el && (el.getAttribute("src") || el.src)) || "../assets/site.js";
+    return String(src).replace(/site\.js(\?.*)?$/i, "");
+  };
+  const FOOTER_COPY_LINE = "© Birİnci - All rights reserved";
+  const renderFooterBuildStamp = () => {
+    const info = window.__BIRINCI_BUILD__;
+    if (!info || !info.id) return;
+    document.querySelectorAll(".footer-copy").forEach((el) => {
+      el.replaceChildren();
+      el.appendChild(document.createTextNode(FOOTER_COPY_LINE));
+      const stamp = document.createElement("span");
+      stamp.className = "footer-build";
+      stamp.textContent = " | Build " + info.id;
+      el.appendChild(stamp);
+    });
+  };
+  window.__birinciRenderFooterBuild = renderFooterBuildStamp;
+  const loadFooterBuildStamp = () => {
+    const url = assetsDirFromSiteJs() + "build-info.json";
+    return fetch(url, { credentials: "same-origin", cache: "no-cache" })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!data || !data.id) return;
+        window.__BIRINCI_BUILD__ = {
+          id: String(data.id),
+          builtAt: data.builtAt != null ? String(data.builtAt) : "",
+        };
+        renderFooterBuildStamp();
+      })
+      .catch(() => {});
+  };
+  try {
+    loadFooterBuildStamp();
+  } catch (err) {
+    console.error("loadFooterBuildStamp failed", err);
+  }
+  document.addEventListener("birinci:lang-change", () => {
+    renderFooterBuildStamp();
+  });
+  if (document.body) {
+    new MutationObserver(() => renderFooterBuildStamp()).observe(document.body, {
+      attributes: true,
+      attributeFilter: ["data-lang"],
+    });
   }
   try {
     syncToolsBarTooltips();

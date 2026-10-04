@@ -12,6 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
+from build_info import write_build_info  # noqa: E402
 from i18n_config import SUPPORTED_LANGS  # noqa: E402
 from publish_policy import (  # noqa: E402
     AUTHORING_JUNK_IGNORE_PATTERNS,
@@ -26,7 +27,16 @@ COPY_DIRS = ("assets", "categories")
 CONTENT_DIRS = ("wisdom-stories", "discovery-articles")
 OPTIONAL_PAGE_DIRS = ("about", "discoveries", "stories")
 OPTIONAL_DIRS = ("data",)
-COPY_FILES = ("index.html", "sitemap.html")
+COPY_FILES = (
+    "index.html",
+    "sitemap.html",
+    "feedback.html",
+    "privacy-notice.html",
+    "terms-of-use.html",
+    "cookie-policy.html",
+    "legal-notice.html",
+    "mail-feedback.php",
+)
 
 # Discoveries is authored but not public yet: the publish tree leaves it out
 # unless asked for it. The locale trees themselves always keep the section, so
@@ -287,6 +297,8 @@ def find_discovery_leaks(tree: Path) -> list[tuple[str, str]]:
 # must be rechecked, so a replaced file is not served from an earlier upload.
 PRODUCTION_HTACCESS = """\
 # Written by tools/build_deployment.py. Do not cache published pages or media.
+# Missing addresses use the site page, not the host default.
+ErrorDocument 404 /404.html
 <IfModule mod_headers.c>
   <FilesMatch "\\.(html|htm)$">
     Header set Cache-Control "no-cache, no-store, must-revalidate"
@@ -409,6 +421,12 @@ def main() -> None:
     stamp = fresh_cache_stamp()
     stamped = apply_deploy_cache_stamp(DEPLOY, stamp)
     print(f"cache: publish stamp {stamp} on {stamped} files; pages and images are rechecked")
+
+    public_stamp = write_build_info(ROOT / "assets")
+    deploy_assets = DEPLOY / "assets"
+    if deploy_assets.is_dir():
+        shutil.copy2(public_stamp, deploy_assets / public_stamp.name)
+    print(f"build-info: {public_stamp.name} written for local trees and deployment/")
 
     files = sum(1 for p in DEPLOY.rglob("*") if p.is_file())
     size_mb = sum(p.stat().st_size for p in DEPLOY.rglob("*") if p.is_file()) / (1024 * 1024)
