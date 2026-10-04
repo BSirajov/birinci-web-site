@@ -30,6 +30,8 @@ HEALTH_PATH = "/index.html"
 # Another local app (for example DAAB) often uses 8765. Only treat this
 # repo's listener as healthy.
 HEALTH_MARKERS = ("Birİnci", "birinci.cloud", 'data-lang="az"')
+# Tried after 8765 when that port is a foreign site or cannot bind.
+FALLBACK_PORTS = (8775, 8776, 8777, 8778, 8779, 8780, 8766, 8767, 8769, 8770)
 
 CREATE_NEW_PROCESS_GROUP = 0x00000200
 DETACHED_PROCESS = 0x00000008
@@ -45,6 +47,8 @@ class NoCacheRequestHandler(SimpleHTTPRequestHandler):
         self.send_header("Cache-Control", "no-store, no-cache, must-revalidate")
         self.send_header("Pragma", "no-cache")
         self.send_header("Expires", "0")
+        # So file:// pages can confirm this preview is Birİnci before bouncing.
+        self.send_header("Access-Control-Allow-Origin", "*")
         super().end_headers()
 
     def do_POST(self) -> None:
@@ -114,6 +118,57 @@ def foreign_listener(host: str, port: int) -> bool:
         return False
     status, body = preview
     return 200 <= status < 400 and not is_this_site(body)
+
+
+def port_candidates(preferred: int = DEFAULT_PORT) -> list[int]:
+    ordered: list[int] = []
+    for port in (preferred,) + FALLBACK_PORTS:
+        if port > 0 and port not in ordered:
+            ordered.append(port)
+    return ordered
+
+
+def _url_path() -> Path:
+    return ROOT / "tools" / ".serve_site.url"
+
+
+def write_preview_url(host: str, port: int) -> str:
+    url = "http://{host}:{port}/".format(host=host, port=port)
+    try:
+        _url_path().write_text(url + "\n", encoding="utf-8")
+    except OSError:
+        pass
+    return url
+
+
+def _can_bind(host: str, port: int) -> bool:
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    try:
+        if sys.platform == "win32":
+            sock.setsockopt(socket.SOL_SOCKET, socket.SO_EXCLUSIVEADDRUSE, 1)
+        sock.bind((host, port))
+        return True
+    except OSError:
+        return False
+    finally:
+        sock.close()
+
+
+def choose_listen_port(host: str, preferred: int = DEFAULT_PORT) -> int | None:
+    """Prefer a live Birİnci listener, else the first bindable non-foreign port."""
+    for port in port_candidates(preferred):
+        if is_healthy(host, port):
+            return port
+        if foreign_listener(host, port):
+            continue
+        reclaim_dead_listeners(host, port)
+        if is_healthy(host, port):
+            return port
+        if foreign_listener(host, port):
+            continue
+        if _can_bind(host, port):
+            return port
+    return None
 
 
 def _pid_path(port: int) -> Path:
@@ -351,16 +406,13 @@ def already_running(host: str, port: int) -> bool:
     if not (is_healthy(host, port) and len(pids) <= 1):
         return False
     pid = _remember_running_pid(port, pids)
+    url = write_preview_url(host, port)
     if pid:
         sys.stdout.write(
-            "already running: http://{host}:{port}/ (pid {pid})\n".format(
-                host=host, port=port, pid=pid
-            )
+            "already running: {url} (pid {pid})\n".format(url=url, pid=pid)
         )
     else:
-        sys.stdout.write(
-            "already running: http://{host}:{port}/\n".format(host=host, port=port)
-        )
+        sys.stdout.write("already running: {url}\n".format(url=url))
     sys.stdout.flush()
     return True
 
@@ -425,7 +477,7 @@ def detach(host: str, port: int) -> int:
     if foreign_listener(host, port):
         sys.stderr.write(
             "Port {port} is already serving a different site at http://{host}:{port}/. "
-            "Start Birİnci with --port <free-port>.\n".format(host=host, port=port)
+            "Start BirInci with --port <free-port>.\n".format(host=host, port=port)
         )
         return 1
     killed = reclaim_dead_listeners(host, port)
@@ -451,9 +503,10 @@ def detach(host: str, port: int) -> int:
             shown = live[0] if live else proc.pid
             if shown != proc.pid:
                 _write_pid(port, shown)
+            url = write_preview_url(host, port)
             sys.stdout.write(
-                "Serving {root} at http://{host}:{port}/ (detached pid {pid})\n".format(
-                    root=ROOT, host=host, port=port, pid=shown
+                "Serving {root} at {url} (detached pid {pid})\n".format(
+                    root=ROOT, url=url, pid=shown
                 )
             )
             sys.stdout.flush()
@@ -526,7 +579,8 @@ def serve_foreground(host: str, port: int) -> int:
         return 1
 
     _write_pid(port, os.getpid())
-    sys.stdout.write("Serving {root} at http://{host}:{port}/\n".format(root=ROOT, host=host, port=port))
+    url = write_preview_url(host, port)
+    sys.stdout.write("Serving {root} at {url}\n".format(root=ROOT, url=url))
     sys.stdout.flush()
     try:
         httpd.serve_forever()
@@ -543,14 +597,39 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--host", default=DEFAULT_HOST)
     parser.add_argument("--port", type=int, default=DEFAULT_PORT)
     parser.add_argument(
+        "--auto-port",
+        action="store_true",
+        help="If --port is a foreign site or busy, use 8775 or the next free fallback.",
+    )
+    parser.add_argument(
         "--foreground",
         action="store_true",
         help="Serve in this process. Default is to detach so agent shells cannot kill the listener.",
     )
     args = parser.parse_args(argv)
+    host = args.host
+    port = args.port
+    if args.auto_port:
+        chosen = choose_listen_port(host, port)
+        if chosen is None:
+            sys.stderr.write(
+                "No free local port for BirInci (tried {ports}).\n".format(
+                    ports=", ".join(str(p) for p in port_candidates(port))
+                )
+            )
+            return 1
+        if chosen != port:
+            sys.stdout.write(
+                "Port {wanted} is already serving a different site. "
+                "BirInci will use http://{host}:{chosen}/\n".format(
+                    wanted=port, host=host, chosen=chosen
+                )
+            )
+            sys.stdout.flush()
+        port = chosen
     if args.foreground:
-        return serve_foreground(args.host, args.port)
-    return detach(args.host, args.port)
+        return serve_foreground(host, port)
+    return detach(host, port)
 
 
 if __name__ == "__main__":

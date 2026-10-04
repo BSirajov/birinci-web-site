@@ -4,10 +4,10 @@ cd /d "%~dp0"
 
 rem Local development: Discoveries stays available (locale trees + optional publish tree).
 set "BIRINCI_PUBLISH_DISCOVERIES=1"
+set "PYTHONIOENCODING=utf-8"
 set "HOST=127.0.0.1"
 set "SITE_PORT=8765"
 set "EDIT_PORT=8768"
-set "START_URL=http://%HOST%:%SITE_PORT%/index.html"
 
 where python >nul 2>&1
 if errorlevel 1 (
@@ -18,23 +18,33 @@ if errorlevel 1 (
 )
 
 echo Starting BirInci local development...
-echo   Site:         %START_URL%
+echo   Preferred:    http://%HOST%:%SITE_PORT%/
 echo   Edit API:     http://%HOST%:%EDIT_PORT%/api/dev/ping
+echo   If port %SITE_PORT% is another site, BirInci uses 8775+ instead.
 echo.
 
-echo Checking %START_URL% ...
-python tools\serve_site.py --host %HOST% --port %SITE_PORT%
+python tools\serve_site.py --host %HOST% --port %SITE_PORT% --auto-port
 if errorlevel 1 (
-  echo Could not start the site server on port %SITE_PORT%.
+  echo Could not start the BirInci site server.
   pause
   exit /b 1
 )
+
+set "START_URL="
+if exist "tools\.serve_site.url" (
+  set /p START_URL=<tools\.serve_site.url
+)
+if not defined START_URL set "START_URL=http://%HOST%:%SITE_PORT%/"
+
+echo.
+echo BirInci URL: %START_URL%
+echo.
 
 start "BirInci story edit API" /min cmd /c "cd /d ""%~dp0"" && python tools\dev_story_edit_server.py"
 
 set /a _n=0
 :wait_site
-python -c "import urllib.request,sys; urllib.request.urlopen('http://127.0.0.1:8765/index.html', timeout=2)" >nul 2>&1
+python -c "import sys; from pathlib import Path; sys.path.insert(0,'tools'); import serve_site; p=Path('tools/.serve_site.url'); u=p.read_text(encoding='utf-8').strip().rstrip('/') if p.exists() else ''; sys.exit(1) if not u else None; host,port=u.split('://',1)[-1].rsplit(':',1); sys.exit(0 if serve_site.is_healthy(host,int(port)) else 1)" >nul 2>&1
 if not errorlevel 1 goto site_ok
 set /a _n+=1
 if %_n% geq 20 goto site_fail
@@ -47,9 +57,10 @@ pause
 exit /b 1
 
 :site_ok
+echo Opening %START_URL%
 start "" "%START_URL%"
 
 echo The site server stays up after this window closes.
-echo Opening this script again reuses the same listener; it will not stack another.
+echo Opening this script again reuses the same BirInci listener; it will not stack another.
 echo.
 pause

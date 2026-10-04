@@ -25,15 +25,15 @@ FEEDBACK_LEAD = {
     ),
     "en": (
         "Your feedback helps us improve the site. "
-        "Share a suggestion, a correction, or a problem you found."
+        "Share a suggestion, a correction, or a problem you have run into."
     ),
     "ru": (
         "Ваш отзыв помогает улучшить сайт. "
-        "Напишите предложение, исправление или найденную проблему."
+        "Напишите предложение, исправление или проблему, с которой вы столкнулись."
     ),
     "ky": (
         "Пикириңиз сайтты жакшыртууга жардам берет. "
-        "Сунуш, оңдоо же тапкан көйгөйүңүздү жазыңыз."
+        "Сунуш, оңдоо же жолуккан көйгөйүңүздү бизге билдириңиз."
     ),
 }
 
@@ -54,15 +54,15 @@ def _page(title, lead, description, highlights, sections, form=None, panel=None)
 def pages_en():
     privacy = _page(
         "Privacy notice",
-        "How Birİnci handles information on the public website.",
+        "How Birİnci uses information on this public website.",
         "Privacy notice for the Birİnci website: how preferences are stored, what we do not collect, and how to contact us.",
         [
-            "The public site is a static, multilingual collection of wisdom stories. Our pages do not set advertising or analytics cookies.",
+            "The public site is a static, multilingual collection of wisdom stories. We do not place advertising or analytics cookies on our pages.",
             "We do not sell personal data.",
             "You do not need an account to read the site.",
-            "The only public contact address published on the site is " + CONTACT_EMAIL + ".",
+            "The only contact address published on the site is " + CONTACT_EMAIL + ".",
             "Birİnci is registered in Austria. This notice follows the GDPR and the Austrian Data Protection Act (DSG).",
-            "A street address, telephone number, Firmenbuch number, UID/VAT number, names of managing directors, and a named data-protection officer are not yet published. They will be listed here when they are available.",
+            "We have not yet published a street address, telephone number, Firmenbuch number, UID/VAT number, names of managing directors, or a named data-protection officer. Those details will appear here when they are available.",
         ],
         [
             _sec(
@@ -71,7 +71,7 @@ def pages_en():
                 _p(
                     "Birİnci is a knowledge hearth registered in Austria. It publishes wisdom stories at https://"
                     + SITE_HOST
-                    + ". This notice describes the public website as offered for ordinary hosting, not unpublished development features.",
+                    + ". This notice covers the public website as it is hosted for readers. It does not describe unpublished development features.",
                     "The controller is established in Austria and processes personal data under Regulation (EU) 2016/679 (GDPR) and the Austrian Data Protection Act (Datenschutzgesetz — DSG).",
                     "The legal form, Firmenbuch number (FN), UID/VAT number, registered-office street address, and a named data-protection officer (Datenschutzbeauftragte/r) are not yet published. Those details will appear here when they are available. Until then, write to "
                     + CONTACT_EMAIL
@@ -81,7 +81,7 @@ def pages_en():
             _sec(
                 "what",
                 "2. What information may arise",
-                _p("Depending on how you use the site, the following may arise:"),
+                _p("Depending on how you use the site, the following information may arise:"),
                 [
                     "Browsing: pages are static HTML. Our scripts do not include Google Analytics, gtag, Plausible, or Meta/Facebook Pixel.",
                     "Preferences on your device: language, list or card view, whether story illustrations or text are collapsed, and playback speed, volume, and mute for listen controls. These use localStorage and, in some cases, sessionStorage — not tracking cookies that we set.",
@@ -89,8 +89,8 @@ def pages_en():
                     + CONTACT_EMAIL
                     + " (including from the Feedback page), we receive whatever you include in that message.",
                     "Hosting: the site is served from Hostinger. The host may keep technical logs (for example IP address, browser type, and the requested address) as part of running a web server. We do not run a separate analytics product on the published pages.",
-                    "Accounts: sign-in and account pages are switched off on the public website. Do not assume that accounts, session cookies, or comment profiles are available there.",
-                    "Speech and audio: some languages can use the browser’s speech features. Story audio files are omitted from the public site. Listen controls may be unavailable or may fall back to the browser.",
+                    "Accounts: sign-in and account pages are not available on the public website. Do not assume that accounts, session cookies, or comment profiles exist there.",
+                    "Speech and audio: some languages can use the browser’s speech features. Story audio files are not included on the public site. Listen controls may be missing, or they may use the browser’s own speech features instead.",
                     "Compare pages may load Google Fonts from Google’s servers. Ordinary story and home pages use fonts stored with the site.",
                 ],
             ),
@@ -120,7 +120,7 @@ def pages_en():
                 "retention",
                 "5. How long it is kept",
                 _p(
-                    "Preferences remain in your browser until you clear site data. Email is kept only as long as needed to reply and for ordinary correspondence. Hosting logs follow the host’s retention rules. We have not published a separate company archive schedule."
+                    "Preferences remain in your browser until you clear site data. Email is kept only as long as needed to reply and for ordinary correspondence. Hosting logs follow the host’s retention rules. We have not published a separate company timetable for how long records are kept."
                 ),
             ),
             _sec(
@@ -129,7 +129,7 @@ def pages_en():
                 _p(
                     "You may request access, rectification, erasure, restriction, and data portability, and you may object to processing based on legitimate interests. For this static site, the personal data we actually hold is mainly email you sent us, plus whatever the host stores in server logs. Write to "
                     + CONTACT_EMAIL
-                    + ". A named data-protection officer is not published.",
+                    + ". We have not published the name of a data-protection officer.",
                     "You may lodge a complaint with the Austrian Data Protection Authority (Österreichische Datenschutzbehörde), Barichgasse 40-42, 1030 Vienna, Austria, https://www.dsb.gv.at/. If you live in another EU or EEA country, you may also contact your local supervisory authority.",
                 ),
             ),
@@ -137,14 +137,14 @@ def pages_en():
                 "children",
                 "7. Children",
                 _p(
-                    "The site offers educational reading. We do not knowingly run sign-up or profiling aimed at children. Do not send us personal data about a child unless you are that child’s parent or guardian and need to contact us."
+                    "The site offers educational reading. We do not knowingly run sign-up or profiling aimed at children. Do not send us a child’s personal data unless you are that child’s parent or guardian and you need to contact us."
                 ),
             ),
             _sec(
                 "security",
                 "8. Security",
                 _p(
-                    "Pages are served over HTTPS on the public domain. No method of transmission is perfectly secure. Do not send passwords or identity documents to the feedback address unless we specifically ask through a verified channel."
+                    "The public website is served over HTTPS. No method of transmission is perfectly secure. Do not send passwords or identity documents to the feedback address unless we specifically ask through a verified channel."
                 ),
             ),
             _sec(
@@ -160,7 +160,7 @@ def pages_en():
                 _p(
                     "Email: " + CONTACT_EMAIL + ".",
                     "Website: https://" + SITE_HOST + ".",
-                    "Telephone, postal address, legal-entity identifiers, and a named privacy contact will be published here when they are available. They are not yet listed with real values in the site footer.",
+                    "Telephone, postal address, legal-entity identifiers, and a named privacy contact will be published here when they are available. The site footer does not yet show real values for those fields.",
                 ),
             ),
         ],
@@ -171,9 +171,9 @@ def pages_en():
         "Cookie and local-storage practices for the public Birİnci website.",
         [
             "The public pages do not set advertising or analytics cookies.",
-            "There is no cookie banner because we do not load consent-gated trackers.",
+            "There is no cookie banner, because we do not load trackers that would require consent.",
             "Display preferences use localStorage on your device.",
-            "The web host may still set strictly technical cookies; those are not defined in our front-end code.",
+            "The web host may still set strictly technical cookies. Those cookies are not set by our page code.",
         ],
         [
             _sec(
@@ -202,15 +202,15 @@ def pages_en():
                 "host",
                 "3. Hosting and other cookies",
                 _p(
-                    "Hostinger (or a content-delivery network in front of it) may set cookies needed to deliver the site, balance traffic, or protect against abuse. We cannot list every host cookie because they are not authored on these pages.",
-                    "Account or session cookies would exist only if an optional account service were enabled in production. The public static site does not turn that interface on.",
+                    "Hostinger (or a content-delivery network in front of it) may set cookies needed to deliver the site, balance traffic, or protect against abuse. We cannot list every host cookie here, because they are not created by these pages.",
+                    "Account or session cookies would exist only if an optional account service were turned on in production. The public static site does not enable that interface.",
                 ),
             ),
             _sec(
                 "fonts",
                 "4. Third-party requests",
                 _p(
-                    "Main pages load fonts from this site. Some compare views still request fonts.googleapis.com. That can allow Google to see the request if you open those pages. Ordinary wisdom-story pages do not load Google Fonts.",
+                    "Main pages load fonts from this site. Some compare views still request fonts.googleapis.com. If you open those pages, Google may see that request. Ordinary wisdom-story pages do not load Google Fonts.",
                     "YouTube and other video hosts are not embedded on the public story home. Discoveries and inventions is a development section and is not part of the public site; it is not described here as a live catalogue.",
                 ),
             ),
@@ -220,14 +220,14 @@ def pages_en():
                 _p(
                     "Use your browser to clear site data for "
                     + SITE_HOST
-                    + " if you want preferences reset. Blocking all storage may forget language and layout choices. There is no in-page cookie manager because we do not run a tracker-consent platform."
+                    + " if you want preferences reset. If you block all storage, the site may forget your language and layout choices. There is no cookie settings panel on these pages, because we do not use a consent platform for trackers."
                 ),
             ),
         ],
     )
     terms = _page(
         "Terms of use",
-        "The conditions for reading and reusing Birİnci’s public pages.",
+        "The rules for reading and using Birİnci’s public pages.",
         "Terms of use for the Birİnci wisdom-stories website.",
         [
             "The site is for personal reading, learning, and reflection.",
@@ -239,7 +239,7 @@ def pages_en():
                 "service",
                 "1. The site",
                 _p(
-                    "Birİnci publishes a static multilingual website of wisdom stories, together with pages about our mission. The public site does not include Discoveries and inventions, and story audio files are not part of the public publish.",
+                    "Birİnci publishes a static multilingual website of wisdom stories, together with pages about our mission. The public site does not include Discoveries and inventions, and story audio files are not part of the public website.",
                     "Pages are provided “as is”. We work to keep texts careful and sourced, but we do not warrant completeness or fitness for a particular purpose.",
                 ),
             ),
@@ -281,13 +281,13 @@ def pages_en():
     )
     imprint = _page(
         "Legal notice (Imprint)",
-        "Austrian and EU imprint information (MedienG / ECG). Only verified details are filled in.",
+        "Imprint information required under Austrian and EU law (MedienG / ECG). Only details we can verify are filled in.",
         "Imprint for Birİnci: Austria-registered publisher, verified public contacts, and unpublished registration identifiers.",
         [
             "Birİnci is registered in Austria.",
             "Public website: https://" + SITE_HOST + ".",
             "Public email: " + CONTACT_EMAIL + ".",
-            "Firmenbuch number, UID, street address, telephone, and names of managing directors are not yet published and are not invented here.",
+            "Firmenbuch number, UID, street address, telephone, and names of managing directors are not yet published. This page does not invent them.",
         ],
         [
             _sec(
@@ -295,25 +295,25 @@ def pages_en():
                 "1. Media owner / publisher (Medieninhaber)",
                 _p(
                     "The website is published under the name Birİnci (pearl of knowledge and moral values).",
-                    "Country of registration: Austria. This page is intended to meet the information duties under the Austrian Media Act (Mediengesetz — MedienG) and the e-Commerce Act (ECG / § 5 ECG), so far as those duties apply to this online offering.",
+                    "Country of registration: Austria. This page is meant to meet the information duties under the Austrian Media Act (Mediengesetz — MedienG) and the e-Commerce Act (ECG / § 5 ECG), so far as those duties apply to this online offering.",
                     "Legal form (for example GmbH, association, or sole trader), Firmenbuch number (FN), commercial court, and UID (ATU…) are not yet published. Those details will appear here when they are available.",
                 ),
             ),
             _sec(
                 "published",
                 "2. Details that can be verified on the site",
-                _p("The following appear in the site footer and related chrome:"),
+                _p("The following appear in the site footer and nearby site elements:"),
                 [
                     "Website: https://" + SITE_HOST + ".",
                     "Email: " + CONTACT_EMAIL + ".",
-                    "A QR code pointing at the same public origin.",
+                    "A QR code pointing to the same public website.",
                 ],
             ),
             _sec(
                 "missing",
                 "3. Mandatory imprint fields still missing",
                 _p(
-                    "The live footer shows telephone and address labels without real values (placeholders such as “Address to be added”). Until official records are added to the site we do not invent:"
+                    "The site footer currently shows telephone and address labels without real values (placeholders such as “Address to be added”). Until official records are added to the site we do not invent:"
                 ),
                 [
                     "registered office (Anschrift / Sitz);",
@@ -347,7 +347,7 @@ def pages_en():
         "Send comments, suggestions, and website problems to Birİnci.",
         [],
         [],
-        panel="Share a suggestion, a correction, or a problem. Messages go to "
+        panel="Share a suggestion, a correction, or a problem you have run into. Messages go to "
         + CONTACT_EMAIL
         + ".",
         form={
@@ -356,25 +356,25 @@ def pages_en():
             "email_placeholder": "example@email.com",
             "type_label": "Feedback type",
             "subject_label": "Subject",
-            "subject_hint": "(for example: a broken link, a page that does not open, a spelling correction, etc.)",
+            "subject_hint": "(for example: a broken link, a page that does not open, a spelling correction, and similar issues)",
             "message_label": "Your feedback",
             "url_label": "Related page URL",
             "url_optional": "(optional)",
-            "url_hint": "Filled in automatically when you arrive from a page-specific feedback link.",
+            "url_hint": "This field is filled in automatically when you arrive from a page-specific feedback link.",
             "url_placeholder": "https://birinci.cloud/en/…",
-            "privacy_label": "I have read the Privacy notice and understand that this feedback will be used as described there",
+            "privacy_label": "I have read the Privacy notice and understand that this message will be used as described there",
             "privacy_link": "Privacy notice",
             "section_title": "Your feedback",
             "section_sub": "Comments, suggestions, and website problems",
             "intro": FEEDBACK_LEAD["en"],
             "required_note": "Fields marked with * are required.",
-            "submit": "Send your Feedback",
+            "submit": "Send feedback",
             "file_label": "Screenshot or attachment",
             "file_hint": "JPG, PNG, WEBP, GIF, or PDF. Maximum 5 MB.",
             "file_choose": "Choose file",
             "file_replace": "Replace",
             "file_remove": "Remove",
-            "file_ready": "Ready to submit",
+            "file_ready": "Ready to send",
             "honeypot_label": "Website",
             "success_title": "Thank you. Your feedback has been sent.",
             "success_body": "We read every message and use it to improve the website.",
@@ -393,15 +393,15 @@ def pages_en():
 def pages_az():
     privacy = _page(
         "Məxfilik bildirişi",
-        "Birİnci ictimai saytda məlumatları necə emal edir.",
+        "Birİnci bu ictimai saytda məlumatları necə istifadə edir.",
         "Birİnci saytının məxfilik bildirişi: tərcihlərin saxlanması, toplanmayan məlumatlar və əlaqə.",
         [
-            "İctimai sayt statik, çoxdilli hikmət hekayələri toplusudur. Səhifələrimiz reklam və ya analitika kukisi qoymur.",
+            "İctimai sayt statik, çoxdilli hikmət hekayələri toplusudur. Səhifələrimizdə reklam və ya analitika kukisi qoymuruq.",
             "Şəxsi məlumat satmırıq.",
             "Saytı oxumaq üçün hesab lazım deyil.",
-            "Saytda dərc olunmuş yeganə ictimai e-poçt ünvanı " + CONTACT_EMAIL + "-dir.",
+            "Saytda dərc olunmuş yeganə əlaqə ünvanı " + CONTACT_EMAIL + "-dir.",
             "Birİnci Avstriyada qeydiyyatdan keçib. Bu bildiriş GDPR və Avstriya Məlumatların Qorunması Qanununa (DSG) əsaslanır.",
-            "Küçə ünvanı, telefon, Firmenbuch nömrəsi, UID/ƏDV, idarəedici adları və məlumatların qorunması üzrə məsul şəxs hələ dərc olunmayıb. Mövcud olanda burada göstəriləcək.",
+            "Küçə ünvanı, telefon, Firmenbuch nömrəsi, UID/ƏDV, idarəedici adları və məlumatların qorunması üzrə məsul şəxs hələ dərc olunmayıb. Bu məlumatlar mövcud olanda burada göstəriləcək.",
         ],
         [
             _sec(
@@ -410,7 +410,7 @@ def pages_az():
                 _p(
                     "Birİnci Avstriyada qeydiyyatdan keçmiş bilik ocağıdır və hikmət hekayələrini https://"
                     + SITE_HOST
-                    + " ünvanında dərc edir. Bu bildiriş adi hosting üçün təqdim olunan ictimai saytı təsvir edir, dərc olunmamış inkişaf xüsusiyyətlərini yox.",
+                    + " ünvanında dərc edir. Bu bildiriş oxucular üçün yerləşdirilmiş ictimai saytı əhatə edir; dərc olunmamış inkişaf funksiyalarını təsvir etmir.",
                     "Nəzarətçi Avstriyada yerləşir və şəxsi məlumatları (Aİ) 2016/679 Qaydası (GDPR) və Avstriya Məlumatların Qorunması Qanunu (Datenschutzgesetz — DSG) əsasında emal edir.",
                     "Hüquqi forma, Firmenbuch nömrəsi (FN), UID/ƏDV, qeydiyyat ünvanı və adlandırılmış Datenschutzbeauftragte hələ dərc olunmayıb. Bu məlumatlar mövcud olanda burada görünəcək. Hələlik "
                     + CONTACT_EMAIL
@@ -419,8 +419,8 @@ def pages_az():
             ),
             _sec(
                 "what",
-                "2. Hansı məlumatlar ola bilər",
-                _p("Saytdan necə istifadə etdiyinizdən asılı olaraq aşağıdakılar yarana bilər:"),
+                "2. Hansı məlumatlar yarana bilər",
+                _p("Saytdan necə istifadə etdiyinizdən asılı olaraq aşağıdakı məlumatlar yarana bilər:"),
                 [
                     "Baxış: səhifələr statik HTML-dir. Skriptlərimizdə Google Analytics, gtag, Plausible və ya Meta/Facebook Pixel yoxdur.",
                     "Cihazınızdakı tərcihlər: dil, siyahı və ya kart görünüşü, illüstrasiya və mətnin yığılması, dinləmə sürəti, səs və susdurma. Bunlar localStorage və bəzən sessionStorage ilə saxlanır — bizim qoyduğumuz izləmə kukisi deyil.",
@@ -428,8 +428,8 @@ def pages_az():
                     + CONTACT_EMAIL
                     + " ünvanına (o cümlədən Rəy səhifəsindən) yazsanız, mesajdakı məlumat bizə çatır.",
                     "Hosting: sayt Hostinger-də saxlanır. Host texniki jurnallar (məsələn IP ünvanı, brauzer növü və sorğu ünvanı) apara bilər. Dərc olunan səhifələrdə ayrıca analitika məhsulu yoxdur.",
-                    "Hesablar: ictimai saytda giriş və hesab səhifələri sönülüdür. Orada hesab, sessiya kukisi və ya şərh profili olduğunu güman etməyin.",
-                    "Nitq və audio: bəzi dillər brauzerin nitq xüsusiyyətlərindən istifadə edə bilər. Hekayə audio faylları ictimai sayta daxil edilmir. Dinləmə düymələri əlçatmaz ola və ya brauzerə keçə bilər.",
+                    "Hesablar: ictimai saytda giriş və hesab səhifələri yoxdur. Orada hesab, sessiya kukisi və ya şərh profili olduğunu güman etməyin.",
+                    "Nitq və audio: bəzi dillər brauzerin nitq xüsusiyyətlərindən istifadə edə bilər. Hekayə audio faylları ictimai sayta daxil edilmir. Dinləmə idarələri olmaya bilər, ya da brauzerin öz nitq funksiyasına keçə bilər.",
                     "Müqayisə səhifələri Google Fonts yükləyə bilər. Adi hekayə və ana səhifələr saytdakı şriftlərdən istifadə edir.",
                 ],
             ),
@@ -466,7 +466,7 @@ def pages_az():
                 _p(
                     "Məlumat almaq, düzəliş, silinmə, məhdudlaşdırma, daşınma hüququnuz var və qanuni maraq əsasında emala etiraz edə bilərsiniz. Bu statik saytda əlimizdəki şəxsi məlumat əsasən göndərdiyiniz e-poçt və host jurnallarıdır. "
                     + CONTACT_EMAIL
-                    + " ünvanına yazın. Adlandırılmış məlumatların qorunması məmuru dərc olunmayıb.",
+                    + " ünvanına yazın. Məlumatların qorunması üzrə məsul şəxsin adı dərc olunmayıb.",
                     "Şikayəti Avstriya Məlumatların Qorunması Orqanına (Österreichische Datenschutzbehörde), Barichgasse 40-42, 1030 Vyana, Avstriya, https://www.dsb.gv.at/ ünvanına verə bilərsiniz. Aİ və ya AEE-nin başqa ölkəsində yaşayırsınızsa, yerli nəzarət orqanına da müraciət edə bilərsiniz.",
                 ),
             ),
@@ -474,14 +474,14 @@ def pages_az():
                 "children",
                 "7. Uşaqlar",
                 _p(
-                    "Sayt maarifləndirici oxu təqdim edir. Uşaqlara yönəlmiş qeydiyyat və ya profil yaratmırıq. Uşaq haqqında şəxsi məlumat göndərməyin, o uşağın valideyni və ya qəyyumu kimi bizimlə əlaqə saxlamaq zəruri deyilsə."
+                    "Sayt maarifləndirici oxu təqdim edir. Uşaqlara yönəlmiş qeydiyyat və ya profil yaratmırıq. Uşaq haqqında şəxsi məlumat göndərməyin, əgər o uşağın valideyni və ya qəyyumu deyilsinizsə, yaxud bizimlə əlaqə saxlamağa ehtiyac yoxdursa."
                 ),
             ),
             _sec(
                 "security",
                 "8. Təhlükəsizlik",
                 _p(
-                    "İctimai domen HTTPS ilə verilir. Heç bir ötürmə tam təhlükəsiz deyil. Təsdiqlənmiş kanal xahiş etməyibsə, rəy ünvanına parol və ya şəxsiyyət sənədi göndərməyin."
+                    "İctimai sayt HTTPS ilə verilir. Heç bir ötürmə tam təhlükəsiz deyil. Təsdiqlənmiş kanaldan xahiş etməmişiksə, rəy ünvanına parol və ya şəxsiyyət sənədi göndərməyin."
                 ),
             ),
             _sec(
@@ -497,7 +497,7 @@ def pages_az():
                 _p(
                     "E-poçt: " + CONTACT_EMAIL + ".",
                     "Sayt: https://" + SITE_HOST + ".",
-                    "Telefon, poçt ünvanı, hüquqi şəxs rekvizitləri və adlandırılmış məxfilik əlaqəsi mövcud olanda burada dərc olunacaq. Sayt futerində hələ real dəyərlər yoxdur.",
+                    "Telefon, poçt ünvanı, hüquqi şəxs rekvizitləri və məxfilik üzrə adlı əlaqə şəxsi mövcud olanda burada dərc olunacaq. Saytın aşağı hissəsində bu sahələr hələ real dəyərlə doldurulmayıb.",
                 ),
             ),
         ],
@@ -509,8 +509,8 @@ def pages_az():
         [
             "İctimai səhifələr reklam və ya analitika kukisi qoymur.",
             "Razılıq tələb edən izləyici yükləmədiyimiz üçün kuki banneri yoxdur.",
-            "Görünüş tərcihləri cihazınızdakı localStorage-dən istifadə edir.",
-            "Host hələ də yalnız texniki kuki qoya bilər; onlar ön tərəf kodumuzda təyin olunmayıb.",
+            "Görünüş tərcihləri cihazınızdakı localStorage-də saxlanır.",
+            "Host hələ də yalnız texniki kuki qoya bilər. Bu kukilər səhifə kodumuzda təyin olunmayıb.",
         ],
         [
             _sec(
@@ -537,8 +537,8 @@ def pages_az():
                 "host",
                 "3. Hosting və digər kukilər",
                 _p(
-                    "Hostinger (və ya qarşısındakı məzmun çatdırma şəbəkəsi) saytı çatdırmaq, yükü bölüşdürmək və ya sui-istifadənin qarşısını almaq üçün kuki qoya bilər. Hər host kukisini burada sadalaya bilmərik, çünki onlar bu səhifələrdə yazılmayıb.",
-                    "Hesab və ya sessiya kukiləri yalnız isteğe bağlı hesab xidməti istehsalda açıq olsa mövcud olardı. İctimai statik sayt bu interfeysi açmır.",
+                    "Hostinger (və ya qarşısındakı məzmun çatdırma şəbəkəsi) saytı çatdırmaq, yükü bölüşdürmək və ya sui-istifadənin qarşısını almaq üçün kuki qoya bilər. Hər host kukisini burada sadalaya bilmərik, çünki onlar bu səhifələrdə yaradılmayıb.",
+                    "Hesab və ya sessiya kukiləri yalnız istəyə bağlı hesab xidməti istehsal mühitində açıq olsa mövcud olardı. İctimai statik sayt bu interfeysi açmır.",
                 ),
             ),
             _sec(
@@ -555,26 +555,26 @@ def pages_az():
                 _p(
                     "Tərcihləri sıfırlamaq üçün brauzerdə "
                     + SITE_HOST
-                    + " sayt məlumatını silin. Bütün yaddaşı bloklamaq dil və görünüş seçimini unutdura bilər. İzləyici razılığı platformamız olmadığı üçün səhifədaxili kuki meneceri yoxdur."
+                    + " sayt məlumatını silin. Bütün yaddaşı bloklasanız, sayt dil və görünüş seçiminizi unuda bilər. İzləyici üçün razılıq platformasından istifadə etmədiyimizə görə bu səhifələrdə kuki tənzimləmə paneli yoxdur."
                 ),
             ),
         ],
     )
     terms = _page(
         "İstifadə şərtləri",
-        "Birİnci-nin ictimai səhifələrini oxumaq və istifadə etmək şərtləri.",
+        "Birİnci-nin ictimai səhifələrini oxumaq və istifadə etmək qaydaları.",
         "Birİnci hikmət hekayələri saytının istifadə şərtləri.",
         [
             "Sayt şəxsi oxu, öyrənmə və düşüncə üçündür.",
             "Hekayələr açıq internet mənbələrindən götürülüb; illüstrasiyalar süni intellektlə yaradılıb (saytda qeyd olunur).",
-            "Kolleksiyanı icazəsiz yığıb yenidən dərc etməyin və ya öz məhsulunuz kimi təqdim etməyin.",
+            "Kolleksiyanı icazəsiz avtomatik yığmayın, yenidən dərc etməyin və öz məhsulunuz kimi təqdim etməyin.",
         ],
         [
             _sec(
                 "service",
                 "1. Sayt",
                 _p(
-                    "Birİnci hikmət hekayələrinin statik çoxdilli saytını və məram səhifələrini dərc edir. İctimai sayta Kəşf və ixtiralar daxil deyil; hekayə audio faylları ictimai yayıma daxil edilmir.",
+                    "Birİnci hikmət hekayələrinin statik çoxdilli saytını və məram səhifələrini dərc edir. İctimai sayta Kəşf və ixtiralar daxil deyil; hekayə audio faylları ictimai sayta daxil edilmir.",
                     "Səhifələr «olduğu kimi» verilir. Mətnlərə diqqət yetiririk, lakin tamlıq və ya xüsusi məqsədə uyğunluq təminatı vermirik.",
                 ),
             ),
@@ -583,7 +583,7 @@ def pages_az():
                 "2. Qəbul edilən istifadə",
                 _p("Səhifələri oxuya və keçid paylaşa bilərsiniz. Aşağıdakılar olmaz:"),
                 [
-                    "hostu hücum etmək, yükləmək və ya yoxlamaq;",
+                    "hosta hücum etmək, onu həddən artıq yükləmək və ya yoxlamaq;",
                     "saytı dövlət, dini və ya akademik qurum kimi təqdim etmək;",
                     "xidməti zədələyən avtomatik yığım;",
                     "sonradan əlavə olunacaq formalarda qanunsuz məzmun yerləşdirmək.",
@@ -601,7 +601,7 @@ def pages_az():
                 "liability",
                 "4. Məsuliyyət",
                 _p(
-                    "Qanunun icazə verdiyi həddə Birİnci saytdan istifadə, hosting fasiləsi və ya hekayəyə bel bağlamaqdan yaranan zərərə görə məsuliyyət daşımır. Qanunla məhdudlaşdırıla bilməyən məsuliyyət saxlanılır."
+                    "Qanunun icazə verdiyi həddə Birİnci saytdan istifadə, hosting fasiləsi və ya hekayəyə bel bağlamaqdan yaranan zərərə görə məsuliyyət daşımır. Qanunla məhdudlaşdırıla bilməyən məsuliyyət bu şərtlərlə azaldılmır."
                 ),
             ),
             _sec(
@@ -616,13 +616,13 @@ def pages_az():
     )
     imprint = _page(
         "Hüquqi rekvizitlər (Impressum)",
-        "Avstriya və Aİ imprint məlumatı (MedienG / ECG). Yalnız yoxlanılmış sahələr doldurulur.",
+        "Avstriya və Aİ hüququna görə tələb olunan imprint məlumatı (MedienG / ECG). Yalnız yoxlana bilən məlumatlar doldurulur.",
         "Birİnci imprint: Avstriyada qeydiyyat, təsdiqlənmiş ictimai əlaqə, dərc olunmamış qeydiyyat identifikatorları.",
         [
             "Birİnci Avstriyada qeydiyyatdan keçib.",
             "İctimai sayt: https://" + SITE_HOST + ".",
             "İctimai e-poçt: " + CONTACT_EMAIL + ".",
-            "Firmenbuch nömrəsi, UID, küçə ünvanı, telefon və idarəedici adları hələ dərc olunmayıb və burada uydurulmur.",
+            "Firmenbuch nömrəsi, UID, küçə ünvanı, telefon və idarəedici adları hələ dərc olunmayıb. Bu səhifədə onlar uydurulmur.",
         ],
         [
             _sec(
@@ -630,14 +630,14 @@ def pages_az():
                 "1. Media sahibi / nəşriyyatçı (Medieninhaber)",
                 _p(
                     "Sayt Birİnci adı ilə dərc olunur (bilik və mənəvi dəyərlər incisi).",
-                    "Qeydiyyat ölkəsi: Avstriya. Səhifə Avstriya Media Qanunu (Mediengesetz — MedienG) və E-ticarət Qanunu (ECG / § 5 ECG) üzrə məlumatlandırma vəzifələrinə, tətbiq olunduğu həddə, uyğun hazırlanıb.",
+                    "Qeydiyyat ölkəsi: Avstriya. Səhifə Avstriya Media Qanunu (Mediengesetz — MedienG) və Elektron ticarət qanunu (ECG / § 5 ECG) üzrə məlumatlandırma vəzifələrinə, tətbiq olunduğu həddə, cavab vermək üçündür.",
                     "Hüquqi forma (məsələn GmbH, dərnək və ya fərdi sahibkar), Firmenbuch nömrəsi (FN), kommersiya məhkəməsi və UID (ATU…) hələ dərc olunmayıb. Bu məlumatlar mövcud olanda burada görünəcək.",
                 ),
             ),
             _sec(
                 "published",
                 "2. Saytda yoxlana bilənlər",
-                _p("Futer və əlaqəli hissələrdə görünənlər:"),
+                _p("Saytın aşağı hissəsində və yaxın elementlərdə görünənlər:"),
                 [
                     "Sayt: https://" + SITE_HOST + ".",
                     "E-poçt: " + CONTACT_EMAIL + ".",
@@ -648,7 +648,7 @@ def pages_az():
                 "missing",
                 "3. Hələ əskik imprint sahələri",
                 _p(
-                    "Canlı futerdə telefon və ünvan etiketləridir, real dəyər yoxdur (məsələn «Ünvan əlavə olunacaq»). Rəsmi qeydlər əlavə olunana qədər uydurmadığımız:"
+                    "Saytın aşağı hissəsində telefon və ünvan etiketləri var, real dəyər yoxdur (məsələn «Ünvan əlavə olunacaq»). Rəsmi qeydlər sayta əlavə olunana qədər aşağıdakıları uydurmuruz:"
                 ),
                 [
                     "qeydiyyat ünvanı (Anschrift / Sitz);",
@@ -678,7 +678,7 @@ def pages_az():
     )
     feedback = _page(
         "Rəy",
-        FEEDBACK_LEAD["en"],
+        FEEDBACK_LEAD["az"],
         "Birİnci-yə şərh, təklif və sayt problemləri göndərin.",
         [],
         [],
@@ -689,21 +689,21 @@ def pages_az():
             "name_label": "Ad",
             "email_label": "E-poçt ünvanı",
             "email_placeholder": "nümunə@email.com",
-            "type_label": "Rəyin növü",
+            "type_label": "Rəy növü",
             "subject_label": "Mövzu",
-            "subject_hint": "(məsələn: sınmış keçid, açılmayan səhifə, imla düzəlişi və s.)",
+            "subject_hint": "(məsələn: sınmış keçid, açılmayan səhifə, imla düzəlişi və oxşar hallar)",
             "message_label": "Rəyiniz",
             "url_label": "Əlaqəli səhifənin ünvanı",
             "url_optional": "(istəyə bağlı)",
-            "url_hint": "Səhifəyə aid rəy keçidindən gəldikdə avtomatik doldurulur.",
+            "url_hint": "Səhifəyə aid rəy keçidindən gəldikdə bu sahə avtomatik doldurulur.",
             "url_placeholder": "https://birinci.cloud/az/…",
-            "privacy_label": "Məxfilik bildirişini oxudum və bu rəyin orada təsvir olunduğu kimi istifadə olunacağını başa düşürəm",
+            "privacy_label": "Məxfilik bildirişini oxudum və bu mesajın orada təsvir olunduğu kimi istifadə olunacağını başa düşürəm",
             "privacy_link": "Məxfilik bildirişini",
             "section_title": "Rəyiniz",
             "section_sub": "Şərhlər, təkliflər və sayt problemləri",
             "intro": FEEDBACK_LEAD["az"],
             "required_note": "* ilə işarələnən sahələr məcburidir.",
-            "submit": "Rəyinizi göndərin",
+            "submit": "Rəyi göndər",
             "file_label": "Ekran şəkli və ya əlavə",
             "file_hint": "JPG, PNG, WEBP, GIF və ya PDF. Ən çoxu 5 MB.",
             "file_choose": "Fayl seçin",
@@ -728,15 +728,15 @@ def pages_az():
 def pages_ru():
     privacy = _page(
         "Уведомление о конфиденциальности",
-        "Как Birİnci обрабатывает сведения на общедоступном сайте.",
+        "Как Birİnci использует сведения на этом общедоступном сайте.",
         "Уведомление о конфиденциальности сайта Birİnci: как хранятся настройки, чего мы не собираем и как с нами связаться.",
         [
-            "Общедоступный сайт — статическое многоязычное собрание историй мудрости. Наши страницы не устанавливают рекламные или аналитические cookie.",
+            "Общедоступный сайт — статическое многоязычное собрание историй мудрости. На наших страницах нет рекламных или аналитических cookie.",
             "Мы не продаём персональные данные.",
             "Для чтения сайта аккаунт не нужен.",
-            "Единственный опубликованный на сайте адрес — " + CONTACT_EMAIL + ".",
+            "Единственный контактный адрес, опубликованный на сайте, — " + CONTACT_EMAIL + ".",
             "Birİnci зарегистрирован в Австрии. Это уведомление основано на GDPR и австрийском Законе о защите данных (DSG).",
-            "Почтовый адрес, телефон, номер Firmenbuch, UID/НДС, имена руководителей и назначенный сотрудник по защите данных ещё не опубликованы. Они появятся здесь, когда будут доступны.",
+            "Почтовый адрес, телефон, номер Firmenbuch, UID/НДС, имена руководителей и назначенный сотрудник по защите данных ещё не опубликованы. Эти сведения появятся здесь, когда будут доступны.",
         ],
         [
             _sec(
@@ -745,7 +745,7 @@ def pages_ru():
                 _p(
                     "Birİnci — очаг знаний, зарегистрированный в Австрии. Истории мудрости публикуются на https://"
                     + SITE_HOST
-                    + ". Это уведомление описывает общедоступный сайт в том виде, в каком он предлагается для обычного хостинга, а не неопубликованные функции разработки.",
+                    + ". Это уведомление относится к общедоступному сайту в том виде, в каком он размещён для читателей. Неопубликованные функции разработки здесь не описываются.",
                     "Контроллер учреждён в Австрии и обрабатывает персональные данные в соответствии с Регламентом (ЕС) 2016/679 (GDPR) и австрийским Законом о защите данных (Datenschutzgesetz — DSG).",
                     "Правовая форма, номер Firmenbuch (FN), UID/НДС, адрес регистрации и имя сотрудника по защите данных (Datenschutzbeauftragte/r) ещё не опубликованы. Эти сведения появятся здесь, когда будут доступны. До тех пор пишите на "
                     + CONTACT_EMAIL
@@ -754,8 +754,8 @@ def pages_ru():
             ),
             _sec(
                 "what",
-                "2. Какие сведения могут возникать",
-                _p("В зависимости от того, как вы пользуетесь сайтом, могут возникать:"),
+                "2. Какие сведения могут появляться",
+                _p("В зависимости от того, как вы пользуетесь сайтом, могут появляться:"),
                 [
                     "Просмотр: страницы — статический HTML. В наших скриптах нет Google Analytics, gtag, Plausible и Meta/Facebook Pixel.",
                     "Настройки на вашем устройстве: язык, вид списка или карточек, свёрнутость иллюстраций и текста, скорость, громкость и отключение звука для кнопок прослушивания. Они хранятся в localStorage и иногда в sessionStorage — это не установленные нами трекинговые cookie.",
@@ -763,8 +763,8 @@ def pages_ru():
                     + CONTACT_EMAIL
                     + " (в том числе со страницы обратной связи), мы получаем то, что вы включили в сообщение.",
                     "Хостинг: сайт обслуживается Hostinger. Хостер может вести технические журналы (например IP-адрес, тип браузера и запрошенный адрес). Отдельного аналитического продукта на опубликованных страницах нет.",
-                    "Аккаунты: вход и страницы учётной записи на общедоступном сайте выключены. Не предполагайте, что там есть аккаунты, сессионные cookie или профили комментариев.",
-                    "Речь и аудио: в некоторых языках можно использовать речевые возможности браузера. Аудиофайлы историй на общедоступный сайт не входят. Кнопки прослушивания могут быть недоступны или переключаться на браузер.",
+                    "Аккаунты: вход и страницы учётной записи на общедоступном сайте недоступны. Не предполагайте, что там есть аккаунты, сессионные cookie или профили комментариев.",
+                    "Речь и аудио: в некоторых языках можно использовать речевые возможности браузера. Аудиофайлы историй на общедоступный сайт не входят. Элементы управления прослушиванием могут отсутствовать или использовать функции браузера.",
                     "Страницы сравнения могут загружать Google Fonts с серверов Google. Обычные страницы историй и главная используют шрифты, хранящиеся на сайте.",
                 ],
             ),
@@ -794,7 +794,7 @@ def pages_ru():
                 "retention",
                 "5. Срок хранения",
                 _p(
-                    "Настройки остаются в браузере, пока вы не очистите данные сайта. Письма хранятся столько, сколько нужно для ответа и обычной переписки. Журналы хостинга подчиняются правилам хостера. Отдельный график корпоративного архива не опубликован."
+                    "Настройки остаются в браузере, пока вы не очистите данные сайта. Письма хранятся столько, сколько нужно для ответа и обычной переписки. Журналы хостинга подчиняются правилам хостера. Отдельный корпоративный график сроков хранения не опубликован."
                 ),
             ),
             _sec(
@@ -811,14 +811,14 @@ def pages_ru():
                 "children",
                 "7. Дети",
                 _p(
-                    "Сайт предназначен для познавательного чтения. Мы сознательно не ведём регистрацию и профилирование, нацеленные на детей. Не присылайте персональные данные ребёнка, если вы не являетесь его родителем или опекуном и вам не нужно с нами связаться."
+                    "Сайт предназначен для познавательного чтения. Мы сознательно не ведём регистрацию и профилирование, нацеленные на детей. Не присылайте персональные данные ребёнка, если вы не его родитель или опекун либо вам не нужно с нами связаться."
                 ),
             ),
             _sec(
                 "security",
                 "8. Безопасность",
                 _p(
-                    "Страницы отдаются по HTTPS на общедоступном домене. Ни один способ передачи не является абсолютно безопасным. Не отправляйте пароли и документы, удостоверяющие личность, на адрес обратной связи, если мы специально не попросили об этом по проверенному каналу."
+                    "Общедоступный сайт отдаётся по HTTPS. Ни один способ передачи не является абсолютно безопасным. Не отправляйте пароли и документы, удостоверяющие личность, на адрес обратной связи, если мы специально не попросили об этом по проверенному каналу."
                 ),
             ),
             _sec(
@@ -834,7 +834,7 @@ def pages_ru():
                 _p(
                     "Эл. почта: " + CONTACT_EMAIL + ".",
                     "Сайт: https://" + SITE_HOST + ".",
-                    "Телефон, почтовый адрес, идентификаторы юридического лица и назначенный контакт по вопросам конфиденциальности будут опубликованы здесь, когда появятся. В подвале сайта пока нет реальных значений.",
+                    "Телефон, почтовый адрес, идентификаторы юридического лица и назначенный контакт по вопросам конфиденциальности будут опубликованы здесь, когда появятся. В подвале сайта эти поля пока не заполнены реальными значениями.",
                 ),
             ),
         ],
@@ -847,7 +847,7 @@ def pages_ru():
             "Общедоступные страницы не устанавливают рекламные или аналитические cookie.",
             "Баннера cookie нет: трекеры, требующие согласия, не подключаются.",
             "Настройки вида хранятся в localStorage на вашем устройстве.",
-            "Хостер всё же может ставить строго технические cookie; они не заданы в нашем коде страниц.",
+            "Хостер всё же может ставить строго технические cookie. Они не задаются кодом наших страниц.",
         ],
         [
             _sec(
@@ -876,7 +876,7 @@ def pages_ru():
                 "host",
                 "3. Cookie хостинга и прочие",
                 _p(
-                    "Hostinger (или сеть доставки контента перед ним) может ставить cookie, нужные для выдачи сайта, распределения нагрузки или защиты от злоупотреблений. Мы не можем перечислить все cookie хостера, потому что они не задаются на этих страницах.",
+                    "Hostinger (или сеть доставки контента перед ним) может ставить cookie, нужные для выдачи сайта, распределения нагрузки или защиты от злоупотреблений. Мы не можем перечислить все cookie хостера, потому что они не создаются этими страницами.",
                     "Cookie аккаунта или сессии появились бы только если необязательная служба учётных записей была включена в производственной среде. Общедоступный статический сайт этот интерфейс не включает.",
                 ),
             ),
@@ -894,35 +894,35 @@ def pages_ru():
                 _p(
                     "Чтобы сбросить настройки, очистите в браузере данные сайта "
                     + SITE_HOST
-                    + ". Блокировка всего хранилища может забыть язык и вид страниц. Отдельной панели согласия нет, потому что платформы согласия на трекеры мы не используем."
+                    + ". Если заблокировать всё хранилище, сайт может забыть язык и вид страниц. Отдельной панели согласия нет, потому что платформы согласия на трекеры мы не используем."
                 ),
             ),
         ],
     )
     terms = _page(
         "Условия использования",
-        "Условия чтения и повторного использования открытых страниц Birİnci.",
+        "Условия чтения и использования общедоступных страниц Birİnci.",
         "Условия использования сайта историй мудрости Birİnci.",
         [
             "Сайт предназначен для личного чтения, обучения и размышления.",
             "Истории собраны из открытых интернет-источников; иллюстрации созданы искусственным интеллектом, как указано на сайте.",
-            "Не собирайте автоматически, не переиздавайте и не выдавайте собрание за свой продукт без разрешения.",
+            "Не выгружайте сайт автоматически, не переиздавайте собрание и не выдавайте его за свой продукт без разрешения.",
         ],
         [
             _sec(
                 "service",
                 "1. Сайт",
                 _p(
-                    "Birİnci публикует статический многоязычный сайт историй мудрости и страницы о нашей миссии. Общедоступный сайт не включает раздел «Открытия и изобретения»; аудиофайлы историй в общедоступную выкладку не входят.",
+                    "Birİnci публикует статический многоязычный сайт историй мудрости и страницы о нашей миссии. Общедоступный сайт не включает раздел «Открытия и изобретения»; аудиофайлы историй в общедоступный сайт не входят.",
                     "Страницы предоставляются «как есть». Мы стремимся к аккуратным и обоснованным текстам, но не гарантируем полноту и пригодность для конкретной цели.",
                 ),
             ),
             _sec(
                 "use",
                 "2. Допустимое использование",
-                _p("Можно просматривать, читать и делиться ссылками на открытые страницы. Нельзя:"),
+                _p("Можно просматривать, читать и делиться ссылками на общедоступные страницы. Нельзя:"),
                 [
-                    "атаковать, перегружать или зондировать хост;",
+                    "атаковать, перегружать или сканировать хост;",
                     "выдавать сайт за государственный, религиозный или академический орган;",
                     "использовать автоматический сбор данных во вред службе;",
                     "размещать незаконные материалы в любых формах, которые мы позже добавим.",
@@ -955,13 +955,13 @@ def pages_ru():
     )
     imprint = _page(
         "Юридическое уведомление (Impressum)",
-        "Австрийские и европейские сведения imprint (MedienG / ECG). Заполнены только проверяемые поля.",
+        "Сведения imprint по австрийскому и европейскому праву (MedienG / ECG). Заполнены только проверяемые поля.",
         "Импринт Birİnci: регистрация в Австрии, проверенные общедоступные контакты, неопубликованные регистрационные идентификаторы.",
         [
             "Birİnci зарегистрирован в Австрии.",
             "Общедоступный сайт: https://" + SITE_HOST + ".",
             "Общедоступная почта: " + CONTACT_EMAIL + ".",
-            "Номер Firmenbuch, UID, улица, телефон и имена руководителей ещё не опубликованы и здесь не выдуманы.",
+            "Номер Firmenbuch, UID, почтовый адрес, телефон и имена руководителей ещё не опубликованы. Эта страница их не выдумывает.",
         ],
         [
             _sec(
@@ -976,7 +976,7 @@ def pages_ru():
             _sec(
                 "published",
                 "2. Что уже можно проверить на сайте",
-                _p("В подвале сайта и связанном оформлении указано:"),
+                _p("В подвале сайта и рядом с ним указано:"),
                 [
                     "Сайт: https://" + SITE_HOST + ".",
                     "Эл. почта: " + CONTACT_EMAIL + ".",
@@ -987,7 +987,7 @@ def pages_ru():
                 "missing",
                 "3. Обязательные поля imprint, которых ещё нет",
                 _p(
-                    "В действующем подвале есть подписи «телефон» и «адрес» без реальных значений (заполнители вроде «Адрес будет добавлен»). Пока официальные сведения не внесены на сайт, мы не выдумываем:"
+                    "В подвале сайта сейчас есть подписи «телефон» и «адрес» без реальных значений (заполнители вроде «Адрес будет добавлен»). Пока официальные сведения не внесены на сайт, мы не выдумываем:"
                 ),
                 [
                     "зарегистрированный адрес (Anschrift / Sitz);",
@@ -1017,11 +1017,11 @@ def pages_ru():
     )
     feedback = _page(
         "Обратная связь",
-        FEEDBACK_LEAD["en"],
-        "Отправьте Birİnci комментарии, предложения и проблемы сайта.",
+        FEEDBACK_LEAD["ru"],
+        "Отправьте Birİnci комментарии, предложения и сообщения о проблемах сайта.",
         [],
         [],
-        panel="Напишите предложение, правку или найденную проблему. Сообщения приходят на "
+        panel="Напишите предложение, исправление или проблему, с которой вы столкнулись. Сообщения приходят на "
         + CONTACT_EMAIL
         + ".",
         form={
@@ -1030,13 +1030,13 @@ def pages_ru():
             "email_placeholder": "example@email.com",
             "type_label": "Тип отзыва",
             "subject_label": "Тема",
-            "subject_hint": "(например: неработающая ссылка, страница не открывается, исправление опечатки и т. д.)",
+            "subject_hint": "(например: неработающая ссылка, страница не открывается, исправление опечатки и похожие случаи)",
             "message_label": "Ваш отзыв",
             "url_label": "Адрес связанной страницы",
             "url_optional": "(необязательно)",
-            "url_hint": "Заполняется автоматически, если вы пришли по ссылке обратной связи со страницы.",
+            "url_hint": "Это поле заполняется автоматически, если вы пришли по ссылке обратной связи со страницы.",
             "url_placeholder": "https://birinci.cloud/ru/…",
-            "privacy_label": "Я прочитал(а) уведомление о конфиденциальности и понимаю, что этот отзыв будет использован как там описано",
+            "privacy_label": "Я прочитал(а) уведомление о конфиденциальности и понимаю, что это сообщение будет использовано как там описано",
             "privacy_link": "уведомление о конфиденциальности",
             "section_title": "Ваш отзыв",
             "section_sub": "Замечания, предложения и проблемы сайта",
@@ -1067,15 +1067,15 @@ def pages_ru():
 def pages_ky():
     privacy = _page(
         "Купуялык билдирүүсү",
-        "Birİnci коомдук сайтта маалыматты кантип иштетет.",
+        "Birİnci бул коомдук сайтта маалыматты кантип колдонот.",
         "Birİnci сайтынын купуялык билдирүүсү: жөндөөлөр кантип сакталат, эмне чогултулбайт жана кантип байланышуу керек.",
         [
-            "Коомдук сайт — статикалык, көп тилдүү акылмандык окуялар жыйнагы. Барактарыбыз жарнама же аналитика cookie койбойт.",
+            "Коомдук сайт — статикалык, көп тилдүү акылмандык окуялар жыйнагы. Барактарыбызда жарнама же аналитика cookie койбойбуз.",
             "Жеке маалыматты сатпайбыз.",
             "Сайтты окуу үчүн аккаунт керек эмес.",
-            "Сайтта жарыяланган жалгыз коомдук дарек — " + CONTACT_EMAIL + ".",
+            "Сайтта жарыяланган жалгыз байланыш дареги — " + CONTACT_EMAIL + ".",
             "Birİnci Австрияда катталган. Бул билдирүү GDPR жана Австриянын Маалыматтарды коргоо мыйзамына (DSG) негизделген.",
-            "Көчө дареги, телефон, Firmenbuch номери, UID/КНС, жетекчилердин ысымдары жана аталган маалымат коргоо кызматкери азырынча жарыялана элек. Алар болгондо бул жерде көрсөтүлөт.",
+            "Көчө дареги, телефон, Firmenbuch номери, UID/КНС, жетекчилердин аттары жана аталган маалымат коргоо кызматкери азырынча жарыялана элек. Бул маалыматтар болгондо бул жерде көрсөтүлөт.",
         ],
         [
             _sec(
@@ -1084,7 +1084,7 @@ def pages_ky():
                 _p(
                     "Birİnci Австрияда катталган билим очогу. Акылмандык окуялар https://"
                     + SITE_HOST
-                    + " дарегинде жарыяланат. Бул билдирүү кадимки хостинг үчүн сунушталган коомдук сайтты сүрөттөйт, жарыялана элек иштеп чыгуу өзгөчөлүктөрүн эмес.",
+                    + " дарегинде жарыяланат. Бул билдирүү окурмандар үчүн жайгаштырылган коомдук сайтты камтыйт; жарыялана элек иштеп чыгуу мүмкүнчүлүктөрүн сүрөттөбөйт.",
                     "Контроллер Австрияда жайгашкан жана жеке маалыматты (ЕБ) 2016/679 Регламенти (GDPR) жана Австриянын Маалыматтарды коргоо мыйзамы (Datenschutzgesetz — DSG) боюнча иштетет.",
                     "Юридикалык форма, Firmenbuch номери (FN), UID/КНС, каттоо дареги жана аталган Datenschutzbeauftragte/r азырынча жарыялана элек. Бул маалыматтар болгондо бул жерде көрүнөт. Азырынча "
                     + CONTACT_EMAIL
@@ -1102,8 +1102,8 @@ def pages_ky():
                     + CONTACT_EMAIL
                     + " дарегине (анын ичинде Пикир барагынан) жазсаңыз, каттагы маалымат бизге жетет.",
                     "Хостинг: сайтты Hostinger тейлейт. Хост техникалык журналдарга (мисалы IP дарек, браузер түрү жана суралган дарек) ээ болушу мүмкүн. Жарыяланган барактарда өзүнчө аналитика продуктусу жок.",
-                    "Аккаунттар: коомдук сайтта кирүү жана аккаунт барактары өчүрүлгөн. Ал жерде аккаунт, сессия cookie же комментарий профили бар деп ойлобоңуз.",
-                    "Сүйлөө жана аудио: кээ бир тилдер браузердин сүйлөө мүмкүнчүлүгүн колдоно алат. Окуя аудио файлдары коомдук сайтка кирбейт. Угуу баскычтары жеткиликсиз болушу же браузерге өтүшү мүмкүн.",
+                    "Аккаунттар: коомдук сайтта кирүү жана аккаунт барактары жок. Ал жерде аккаунт, сессия cookie же комментарий профили бар деп ойлобоңуз.",
+                    "Сүйлөө жана аудио: кээ бир тилдер браузердин сүйлөө мүмкүнчүлүгүн колдоно алат. Окуя аудио файлдары коомдук сайтка кирбейт. Угуу башкаруусу жок болушу же браузердин өз функциясына өтүшү мүмкүн.",
                     "Салыштыруу барактары Google’дун серверлеринен Google Fonts жүктөшү мүмкүн. Кадимки окуя жана башкы барактар сайтта сакталган шрифттерди колдонот.",
                 ],
             ),
@@ -1150,14 +1150,14 @@ def pages_ky():
                 "children",
                 "7. Балдар",
                 _p(
-                    "Сайт таалим-тарбия окуусун сунуштайт. Балдарга багытталган каттоо же профилдөөнү атайылап жүргүзбөйбүз. Бала жөнүндө жеке маалыматты, сиз ошол баланын ата-энеси же камкорчусу болуп, биз менен байланышуу керек болбосо, жөнөтпөңүз."
+                    "Сайт таалим берүүчү окууну сунуштайт. Балдарга багытталган каттоо же профилдөөнү атайылап жүргүзбөйбүз. Баланын ата-энеси же камкорчусу болбосоңуз, же биз менен байланышуу зарыл болбосо, бала жөнүндө жеке маалымат жөнөтпөңүз."
                 ),
             ),
             _sec(
                 "security",
                 "8. Коопсуздук",
                 _p(
-                    "Барактар коомдук доменде HTTPS аркылуу берилет. Эч бир өткөрүү ыкмасы толук коопсуз эмес. Текшерилген канал аркылуу атайын сурабасак, сырсөздү же инсандык документтерди пикир дарегине жөнөтпөңүз."
+                    "Коомдук сайт HTTPS аркылуу берилет. Эч бир өткөрүү ыкмасы толук коопсуз эмес. Текшерилген канал аркылуу атайын сурабасак, сырсөздү же инсандык документтерди пикир дарегине жөнөтпөңүз."
                 ),
             ),
             _sec(
@@ -1173,7 +1173,7 @@ def pages_ky():
                 _p(
                     "Электрондук почта: " + CONTACT_EMAIL + ".",
                     "Сайт: https://" + SITE_HOST + ".",
-                    "Телефон, почта дареги, юридикалык жактын идентификаторлору жана аталган купуялык байланышы болгондо бул жерде жарыяланат. Сайт футеринде азырынча чыныгы маанилер жок.",
+                    "Телефон, почта дареги, юридикалык жактын идентификаторлору жана аталган купуялык байланышы болгондо бул жерде жарыяланат. Сайттын төмөнкү бөлүгүндө бул талаалар азырынча чыныгы маани менен толтурула элек.",
                 ),
             ),
         ],
@@ -1186,12 +1186,12 @@ def pages_ky():
             "Коомдук барактар жарнама же аналитика cookie койбойт.",
             "Макулдук талап кылган трекерлер жүктөлбөгөндүктөн cookie баннери жок.",
             "Көрүнүш жөндөөлөрү түзмөгүңүздөгү localStorage аркылуу сакталат.",
-            "Хост дагы эле техникалык cookie коюшу мүмкүн; алар биздин барак кодунда аныкталган эмес.",
+            "Хост дагы эле техникалык cookie коюшу мүмкүн. Алар биздин барак кодунда аныкталган эмес.",
         ],
         [
             _sec(
                 "none-analytics",
-                "1. Койбогон cookie’лер",
+                "1. Биз койбогон cookie файлдары",
                 _p(
                     "Коомдук барактарда Google Analytics, gtag, Google Tag Manager, Plausible же Facebook Pixel жок. Статикалык сайтта аудиторияны өлчөө үчүн cookie койбойбуз."
                 ),
@@ -1215,8 +1215,8 @@ def pages_ky():
                 "host",
                 "3. Хостинг жана башка cookie’лер",
                 _p(
-                    "Hostinger (же анын алдындагы контент жеткирүү тармагы) сайтты берүү, жүктү бөлүштүрүү же кыянаттыктан коргоо үчүн cookie коюшу мүмкүн. Хосттун бардык cookie’лерин бул жерде тизмелей албайбыз, анткени алар бул барактарда жазылган эмес.",
-                    "Аккаунт же сессия cookie’лери кошумча аккаунт кызматы өндүрүштө күйгүзүлсө гана пайда болмок. Коомдук статикалык сайт бул интерфейсти күйгүзбөйт.",
+                    "Hostinger (же анын алдындагы контент жеткирүү тармагы) сайтты берүү, жүктү бөлүштүрүү же кыянаттыктан коргоо үчүн cookie коюшу мүмкүн. Хосттун бардык cookie файлдарын бул жерде тизмелей албайбыз, анткени алар бул барактарда түзүлгөн эмес.",
+                    "Аккаунт же сессия cookie файлдары кошумча аккаунт кызматы өндүрүштө күйгүзүлсө гана пайда болмок. Коомдук статикалык сайт бул интерфейсти күйгүзбөйт.",
                 ),
             ),
             _sec(
@@ -1233,14 +1233,14 @@ def pages_ky():
                 _p(
                     "Жөндөөлөрдү кайра коюу үчүн браузерде "
                     + SITE_HOST
-                    + " үчүн сайт маалыматын тазалаңыз. Бардык сактоону бөгөттөө тил жана көрүнүш тандоолорун унуттурушу мүмкүн. Трекерге макулдук платформабыз жок болгондуктан барак ичиндеги cookie башкаруучусу жок."
+                    + " үчүн сайт маалыматын тазалаңыз. Бардык сактоону бөгөттөсөңүз, сайт тил жана көрүнүш тандоолорун унутушу мүмкүн. Трекерге макулдук платформабыз жок болгондуктан бул барактарда cookie башкаруу панели жок."
                 ),
             ),
         ],
     )
     terms = _page(
         "Колдонуу шарттары",
-        "Birİnci’нин коомдук барактарын окуу жана кайра пайдалануу шарттары.",
+        "Birİnciнин коомдук барактарын окуу жана колдонуу шарттары.",
         "Birİnci акылмандык окуялар сайтынын колдонуу шарттары.",
         [
             "Сайт жеке окуу, үйрөнүү жана ой жүгүртүү үчүн.",
@@ -1252,8 +1252,8 @@ def pages_ky():
                 "service",
                 "1. Сайт",
                 _p(
-                    "Birİnci акылмандык окуялардын статикалык көп тилдүү сайтын жана миссия барактарын жарыялайт. Коомдук сайтка «Ачылыштар жана ойлоп табуулар» кирбейт; окуя аудио файлдары коомдук жарыялоого кирбейт.",
-                    "Барактар «бар болгондой» берилет. Тексттерге кылдат мамиле кылабыз, бирок толуктукка же белгилүү бир максатка ылайыктуулукка кепилдик бербейбиз.",
+                    "Birİnci акылмандык окуялардын статикалык көп тилдүү сайтын жана миссия барактарын жарыялайт. Коомдук сайтка «Ачылыштар жана ойлоп табуулар» кирбейт; окуя аудио файлдары коомдук сайтка кирбейт.",
+                    "Барактар азыркы абалында берилет. Тексттерге кылдат мамиле кылабыз, бирок толуктукка же белгилүү бир максатка ылайыктуулукка кепилдик бербейбиз.",
                 ),
             ),
             _sec(
@@ -1294,18 +1294,18 @@ def pages_ky():
     )
     imprint = _page(
         "Юридикалык билдирүү (Impressum)",
-        "Австрия жана ЕБ imprint маалыматы (MedienG / ECG). Текшерилген талаалар гана толтурулат.",
+        "Австрия жана ЕБ укугу боюнча талап кылынган imprint маалыматы (MedienG / ECG). Текшерилген талаалар гана толтурулат.",
         "Birİnci импринти: Австрияда каттоо, текшерилген коомдук байланыш, жарыялана элек каттоо идентификаторлору.",
         [
             "Birİnci Австрияда катталган.",
             "Коомдук сайт: https://" + SITE_HOST + ".",
             "Коомдук почта: " + CONTACT_EMAIL + ".",
-            "Firmenbuch номери, UID, көчө дареги, телефон жана жетекчилердин ысымдары азырынча жарыялана элек жана бул жерде ойлоп табылбайт.",
+            "Firmenbuch номери, UID, көчө дареги, телефон жана жетекчилердин аттары азырынча жарыялана элек. Бул барак аларды ойлоп таппайт.",
         ],
         [
             _sec(
                 "identity",
-                "1. Медиа ээси / басма (Medieninhaber)",
+                "1. Медиа ээси / жарыялоочу (Medieninhaber)",
                 _p(
                     "Сайт Birİnci аты менен чыгат (билим жана адеп-ахлак баалуулуктарынын бермети).",
                     "Каттоо өлкөсү: Австрия. Бул барак Австриянын Медиа мыйзамы (Mediengesetz — MedienG) жана Электрондук коммерция мыйзамы (ECG / § 5 ECG) боюнча маалымат милдеттерине, колдонулган чекке чейин, жооп берүү үчүн даярдалган.",
@@ -1315,7 +1315,7 @@ def pages_ky():
             _sec(
                 "published",
                 "2. Сайттан текшерилүүчү маалымат",
-                _p("Сайт футеринде жана байланыштуу бөлүктөрдө көрүнгөндөр:"),
+                _p("Сайттын төмөнкү бөлүгүндө жана жакын элементтерде көрүнгөндөр:"),
                 [
                     "Сайт: https://" + SITE_HOST + ".",
                     "Электрондук почта: " + CONTACT_EMAIL + ".",
@@ -1326,14 +1326,14 @@ def pages_ky():
                 "missing",
                 "3. Азырынча жок милдеттүү imprint талаалары",
                 _p(
-                    "Жандуу футерде телефон жана дарек энбелгилери бар, чыныгы маани жок (мисалы «Дарек кошулат»). Расмий жазуулар сайтка кошулганга чейин ойлоп таппайбыз:"
+                    "Сайттын төмөнкү бөлүгүндө телефон жана дарек энбелгилери бар, чыныгы маани жок (мисалы «Дарек кошулат»). Расмий жазуулар сайтка кошулганга чейин төмөнкүлөрдү ойлоп таппайбыз:"
                 ),
                 [
                     "катталган дарек (Anschrift / Sitz);",
                     "телефон номери;",
                     "Firmenbuch номери жана каттоо соту;",
                     "UID / КНС идентификатору;",
-                    "жетекчилердин (Geschäftsführer) же бирикме кызмат адамдарынын ысымдары;",
+                    "жетекчилердин (Geschäftsführer) же бирикме кызмат адамдарынын аттары;",
                     "редакциялык мазмунга жооптуу адам (medienrechtlich Verantwortliche/r).",
                 ],
             ),
@@ -1341,26 +1341,26 @@ def pages_ky():
                 "hosting",
                 "4. Хостинг",
                 _p(
-                    "Коомдук файлдар Hostinger’де жайгаштыруу үчүн арналган. Hostinger хостинг провайдери, медиа ээси же тексттердин автору эмес."
+                    "Коомдук файлдар Hostingerде жайгаштыруу үчүн арналган. Hostinger хостинг провайдери, медиа ээси же тексттердин автору эмес."
                 ),
             ),
             _sec(
                 "dispute",
                 "5. Талаш-тартыштар / юрисдикция",
                 _p(
-                    "Басма Австрияда жайгашкан. ЕБ керектөөчүлөрү колдонула турган жерде Европа Комиссиясынын ODR платформасын (https://ec.europa.eu/consumers/odr/) колдоно алышат. Австрия мыйзамы талап кылбаса, керектөөчү арбитражына катышууга милдеттүү эмеспиз; мындай катышуу бул жерде жарыяланган эмес.",
-                    "ЕБ’нин милдеттүү керектөөчү эрежелери башка форум бербесе, жарандык-укуктук талаштар Австрия сотторуна баш ийет. Каттоо дареги жарыяланганда конкреттүү сот жери кошулат.",
+                    "Жарыялоочу Австрияда жайгашкан. ЕБ керектөөчүлөрү колдонула турган жерде Европа Комиссиясынын ODR платформасын (https://ec.europa.eu/consumers/odr/) колдоно алышат. Австрия мыйзамы талап кылбаса, керектөөчү арбитражына катышууга милдеттүү эмеспиз; мындай катышуу бул жерде жарыяланган эмес.",
+                    "ЕБнин милдеттүү керектөөчү эрежелери башка форум бербесе, жарандык-укуктук талаштар Австрия сотторуна баш ийет. Каттоо дареги жарыяланганда конкреттүү сот жери кошулат.",
                 ),
             ),
         ],
     )
     feedback = _page(
         "Пикир",
-        FEEDBACK_LEAD["en"],
-        "Birİnci’ге пикир, сунуш жана сайт көйгөйлөрүн жөнөтүңүз.",
+        FEEDBACK_LEAD["ky"],
+        "Birİnciге пикир, сунуш жана сайт көйгөйлөрүн жөнөтүңүз.",
         [],
         [],
-        panel="Сунуш, оңдоо же тапкан көйгөйүңүздү жазыңыз. Каттар "
+        panel="Сунуш, оңдоо же жолуккан көйгөйүңүздү бизге билдириңиз. Каттар "
         + CONTACT_EMAIL
         + " дарегине келет.",
         form={
@@ -1369,19 +1369,19 @@ def pages_ky():
             "email_placeholder": "misal@email.com",
             "type_label": "Пикирдин түрү",
             "subject_label": "Тема",
-            "subject_hint": "(мисалы: иштебеген шилтеме, ачылбаган барак, орфография оңдоо ж. б.)",
+            "subject_hint": "(мисалы: иштебеген шилтеме, ачылбаган барак, орфография оңдоо жана ушул сыяктуулар)",
             "message_label": "Пикириңиз",
             "url_label": "Байланыштуу барактын дареги",
             "url_optional": "(милдеттүү эмес)",
-            "url_hint": "Баракка тиешелүү пикир шилтемесинен келгенде автоматтык толтурулат.",
+            "url_hint": "Баракка тиешелүү пикир шилтемесинен келгенде бул талаа автоматтык толтурулат.",
             "url_placeholder": "https://birinci.cloud/ky/…",
-            "privacy_label": "Купуялык билдирүүсүн окудум жана бул пикир ал жерде сүрөттөлгөндөй колдонуларын түшүнөм",
+            "privacy_label": "Купуялык билдирүүсүн окудум жана бул кат ал жерде сүрөттөлгөндөй колдонуларын түшүнөм",
             "privacy_link": "Купуялык билдирүүсүн",
             "section_title": "Пикириңиз",
             "section_sub": "Пикирлер, сунуштар жана сайт көйгөйлөрү",
             "intro": FEEDBACK_LEAD["ky"],
             "required_note": "* менен белгиленген талаалар милдеттүү.",
-            "submit": "Пикириңизди жөнөтүңүз",
+            "submit": "Пикир жөнөтүү",
             "file_label": "Экран сүрөтү же тиркеме",
             "file_hint": "JPG, PNG, WEBP, GIF же PDF. Эң көбү 5 МБ.",
             "file_choose": "Файл тандаңыз",
@@ -1415,7 +1415,7 @@ HIGHLIGHTS_TITLE = {
     "az": "Əsas məqamlar",
     "en": "Key takeaways",
     "ru": "Главное",
-    "ky": "Негизги жыйынтыктар",
+    "ky": "Негизги пункттар",
 }
 
 PLAIN_LABEL = {
@@ -1465,7 +1465,7 @@ CALLOUTS = {
     },
     "en": {
         "privacy-notice": "This text is an information notice under the GDPR and the Austrian Data Protection Act (DSG). It is not legal advice.",
-        "legal-notice": "This page is intended to meet information duties under the Austrian Media Act (MedienG) and the e-Commerce Act (ECG), so far as they apply. Mandatory fields that are not yet published are listed as missing — they are not invented.",
+        "legal-notice": "This page is meant to meet information duties under the Austrian Media Act (MedienG) and the e-Commerce Act (ECG), so far as they apply. Mandatory fields that are not yet published are listed as missing — they are not invented.",
         "cookie-policy": "The public site does not load analytics cookies, so there is no consent banner.",
         "terms-of-use": "These terms are governed by Austrian and EU law.",
     },
@@ -1485,8 +1485,8 @@ CALLOUTS = {
 
 PLAINS = {
     "az": {
-        "privacy-notice": "Nəzarətçi sizin məlumatlarınızın necə istifadə olunduğuna cavabdeh təşkilatdır. Birİnci Avstriyada qeydiyyatdadır. Bu səhifə nə topladığımızı (əsasən göndərdiyiniz e-poçt və host jurnalı), niyə və GDPR hüquqlarınızı izah edir. Küçə ünvanı, Firmenbuch, UID və adlı məlumatların qorunması məmuru hələ dərc olunmayıb.",
-        "legal-notice": "İmprint (künye) saytı hüquqi cəhətdən kimin dərc etdiyini göstərir. Təsdiqlənmiş əlaqə: vebsayt və e-poçt. Qeydiyyat identifikatorları və küçə ünvanı dərc olunanda burada görünəcək.",
+        "privacy-notice": "Nəzarətçi sizin məlumatlarınızın necə istifadə olunduğuna cavabdeh təşkilatdır. Birİnci Avstriyada qeydiyyatdadır. Bu səhifə nə topladığımızı (əsasən göndərdiyiniz e-poçt və host jurnalı), niyə və GDPR hüquqlarınızı izah edir. Küçə ünvanı, Firmenbuch, UID və məlumatların qorunması üzrə adlı məsul şəxs hələ dərc olunmayıb.",
+        "legal-notice": "Hüquqi rekvizitlər (imprint) saytı hüquqi cəhətdən kimin dərc etdiyini göstərir. Təsdiqlənmiş əlaqə: vebsayt və e-poçt. Qeydiyyat identifikatorları və küçə ünvanı dərc olunanda burada görünəcək.",
         "cookie-policy": "Oxumaq üçün kuki razılığı lazım deyil. Dil və görünüş seçimləri sizin cihazınızdakı localStorage-də qalır.",
         "terms-of-use": "Səhifələri oxuya və keçid paylaşa bilərsiniz. Kolleksiyanı öz məhsulunuz kimi təqdim etməyin. Məcburi istehlakçı hüquqları qüvvədə qalır.",
     },
@@ -1497,15 +1497,15 @@ PLAINS = {
         "terms-of-use": "You may read pages and share links. Do not present the collection as your own product. Mandatory consumer-protection rules still apply.",
     },
     "ru": {
-        "privacy-notice": "Контроллер — организация, отвечающая за использование ваших данных. Birİnci учреждён в Австрии. Здесь описано, что мы собираем (в основном письма, которые вы нам пишете, и журналы хостинга), зачем, и ваши права по GDPR. Улица, Firmenbuch, UID и назначенный сотрудник по защите данных ещё не опубликованы.",
-        "legal-notice": "Импринт показывает, кто юридически отвечает за сайт. Подтверждённые контакты — сайт и электронная почта. Идентификаторы регистрации и улица появятся здесь, когда будут опубликованы.",
+        "privacy-notice": "Контроллер — организация, отвечающая за использование ваших данных. Birİnci учреждён в Австрии. Здесь описано, что мы собираем (в основном письма, которые вы нам пишете, и журналы хостинга), зачем, и ваши права по GDPR. Почтовый адрес, Firmenbuch, UID и назначенный сотрудник по защите данных ещё не опубликованы.",
+        "legal-notice": "Импринт показывает, кто юридически отвечает за сайт. Подтверждённые контакты — сайт и электронная почта. Идентификаторы регистрации и почтовый адрес появятся здесь, когда будут опубликованы.",
         "cookie-policy": "Чтобы читать сайт, баннер cookie не нужен. Язык и вид страниц хранятся в localStorage на вашем устройстве.",
         "terms-of-use": "Можно читать страницы и делиться ссылками. Не представляйте собрание как свой продукт. Обязательные нормы защиты потребителей сохраняются.",
     },
     "ky": {
         "privacy-notice": "Контроллер — маалыматыңыздын кантип колдонуларын жоопкерчиликке алган уюм. Birİnci Австрияда катталган. Бул барак эмнени чогултаарыбызды (негизинен сиз жөнөткөн почта жана хост журналы), эмне үчүн жана GDPR укуктарыңызды түшүндүрөт. Көчө дареги, Firmenbuch, UID жана аталган маалымат коргоо кызматкери азырынча жарыялана элек.",
         "legal-notice": "Импринт сайтты юридикалык жактан ким чыгарарын көрсөтөт. Тастыкталган байланыш — сайт жана электрондук почта. Каттоо идентификаторлору жана көчө дареги жарыяланганда бул жерде көрүнөт.",
-        "cookie-policy": "Окуу үчүн cookie баннери керек эмес. Тил жана көрүнүш тандоолору түзмөгүңүздө localStorage’де калат.",
+        "cookie-policy": "Окуу үчүн cookie баннери керек эмес. Тил жана көрүнүш тандоолору түзмөгүңүздө localStorageде калат.",
         "terms-of-use": "Барактарды окуп, шилтеме бөлүшсөңүз болот. Жыйнакты өз продуктуңуз катары көрсөтпөңүз. Милдеттүү керектөөчү укуктары күчүндө калат.",
     },
 }

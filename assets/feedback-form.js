@@ -11,52 +11,52 @@
 
   var COPY = {
     az: {
-      nameRequired: "Ad mütləqdir.",
+      nameRequired: "Adı yazın.",
       nameInvalid: "Zəhmət olmasa adı hərflərlə yazın.",
       unsafe:
         "Zəhmət olmasa bunu adi dildə yazın. Kod və sayta zərər verə biləcək mətn göndərilə bilməz.",
       emailInvalid: "Zəhmət olmasa etibarlı e-poçt ünvanı daxil edin.",
-      emailRequired: "E-poçt ünvanı mütləqdir.",
-      subjectRequired: "Mövzu mütləqdir.",
-      messageRequired: "Rəy mətni mütləqdir.",
-      typeRequired: "Rəyin növünü seçin.",
-      urlInvalid: "Səhifə ünvanı http və ya https ilə başlamalıdır.",
+      emailRequired: "E-poçt ünvanı lazımdır.",
+      subjectRequired: "Mövzunu yazın.",
+      messageRequired: "Rəy mətnini yazın.",
+      typeRequired: "Rəy növünü seçin.",
+      urlInvalid: "Səhifə ünvanı http:// və ya https:// ilə başlamalıdır.",
       privacyRequired: "Davam etmək üçün məxfilik bildirişini təsdiq edin.",
       fileType: "Əlavə JPG, PNG, WEBP, GIF və ya PDF olmalıdır.",
       fileSize: "Əlavə 5 MB-dan böyük ola bilməz.",
       submitting: "Göndərilir…",
-      submit: "Rəyinizi göndərin",
+      submit: "Rəyi göndər",
       submitFailed:
-        "Rəy göndərilmədi. Məlumatlarınız formada qalıb — yenidən cəhd edin.",
+        "Rəy göndərilmədi. Yazdıqlarınız formada qalıb — yenidən cəhd edin.",
       phpUnavailable:
-        "Bu baxış serveri e-poçt göndərə bilmir. Canlı saytda rəy info@birinci.cloud ünvanına çatdırılır. Məlumatlarınız formada qalıb.",
+        "Bu baxış serveri e-poçt göndərə bilmir. Dərc olunmuş saytda rəy info@birinci.cloud ünvanına çatır. Yazdıqlarınız formada qalıb.",
       networkError:
-        "Bağlantı kəsildi. Məlumatlarınız formada qalıb — yenidən cəhd edin.",
+        "Bağlantı kəsildi. Yazdıqlarınız formada qalıb — yenidən cəhd edin.",
       fileReady: "Göndərməyə hazırdır"
     },
     en: {
-      nameRequired: "A name is required.",
+      nameRequired: "Please enter your name.",
       nameInvalid: "Please enter your name using letters.",
       unsafe:
         "Please rewrite this in plain language. Code and other text that could harm the site cannot be sent.",
       emailInvalid: "Please enter a valid email address.",
-      emailRequired: "An email address is required.",
-      subjectRequired: "Subject is required.",
-      messageRequired: "Your feedback is required.",
-      typeRequired: "Choose a feedback type.",
+      emailRequired: "Please enter your email address.",
+      subjectRequired: "Please enter a subject.",
+      messageRequired: "Please enter your feedback.",
+      typeRequired: "Please choose a feedback type.",
       urlInvalid: "The page address must start with http:// or https://.",
       privacyRequired: "Please confirm the privacy notice before sending.",
       fileType: "The attachment must be a JPG, PNG, WEBP, GIF, or PDF file.",
       fileSize: "The attachment must be 5 MB or smaller.",
       submitting: "Sending…",
-      submit: "Send your Feedback",
+      submit: "Send feedback",
       submitFailed:
         "Your feedback could not be sent. What you entered is still in the form — please try again.",
       phpUnavailable:
-        "This preview server cannot send email. On the live site, feedback is delivered to info@birinci.cloud. What you entered is still in the form.",
+        "This preview server cannot send email. On the published site, feedback is delivered to info@birinci.cloud. What you entered is still in the form.",
       networkError:
         "The connection failed. What you entered is still in the form — please try again.",
-      fileReady: "Ready to submit"
+      fileReady: "Ready to send"
     },
     ru: {
       nameRequired: "Укажите имя.",
@@ -64,46 +64,46 @@
       unsafe:
         "Напишите обычным языком. Код и текст, который может навредить сайту, отправить нельзя.",
       emailInvalid: "Введите действительный адрес электронной почты.",
-      emailRequired: "Нужен адрес электронной почты.",
-      subjectRequired: "Тема обязательна.",
-      messageRequired: "Нужен текст отзыва.",
+      emailRequired: "Укажите адрес электронной почты.",
+      subjectRequired: "Укажите тему.",
+      messageRequired: "Напишите текст отзыва.",
       typeRequired: "Выберите тип отзыва.",
       urlInvalid: "Адрес страницы должен начинаться с http:// или https://.",
-      privacyRequired: "Подтвердите уведомление о конфиденциальности.",
+      privacyRequired: "Подтвердите, что ознакомились с уведомлением о конфиденциальности.",
       fileType: "Вложение должно быть JPG, PNG, WEBP, GIF или PDF.",
       fileSize: "Вложение не больше 5 МБ.",
       submitting: "Отправка…",
       submit: "Отправить отзыв",
       submitFailed:
-        "Отзыв не отправлен. Данные остались в форме — попробуйте ещё раз.",
+        "Отзыв не отправлен. Введённые данные остались в форме — попробуйте ещё раз.",
       phpUnavailable:
-        "Этот просмотр не отправляет почту. На живом сайте отзыв уходит на info@birinci.cloud. Данные остались в форме.",
+        "Этот сервер предварительного просмотра не отправляет почту. На опубликованном сайте отзыв уходит на info@birinci.cloud. Введённые данные остались в форме.",
       networkError:
-        "Связь прервалась. Данные остались в форме — попробуйте ещё раз.",
+        "Связь прервалась. Введённые данные остались в форме — попробуйте ещё раз.",
       fileReady: "Готово к отправке"
     },
     ky: {
-      nameRequired: "Аты керек.",
+      nameRequired: "Атыңызды жазыңыз.",
       nameInvalid: "Атыңызды тамгалар менен жазыңыз.",
       unsafe:
         "Муну жөнөкөй тилде жазыңыз. Код жана сайтка зыян келтире турган текст жөнөтүлбөйт.",
       emailInvalid: "Жарактуу электрондук почта дарегин киргизиңиз.",
-      emailRequired: "Электрондук почта дареги керек.",
-      subjectRequired: "Тема керек.",
-      messageRequired: "Пикир тексти керек.",
+      emailRequired: "Электрондук почта дарегин жазыңыз.",
+      subjectRequired: "Теманы жазыңыз.",
+      messageRequired: "Пикир текстин жазыңыз.",
       typeRequired: "Пикирдин түрүн тандаңыз.",
       urlInvalid: "Барактын дареги http:// же https:// менен башталышы керек.",
-      privacyRequired: "Купуялык билдирүүсүн ырастаңыз.",
+      privacyRequired: "Купуялык билдирүүсүн окуганыңызды ырастаңыз.",
       fileType: "Тиркеме JPG, PNG, WEBP, GIF же PDF болушу керек.",
       fileSize: "Тиркеме 5 МБдан чоң болбошу керек.",
       submitting: "Жөнөтүлүүдө…",
-      submit: "Пикириңизди жөнөтүңүз",
+      submit: "Пикир жөнөтүү",
       submitFailed:
-        "Пикир жөнөтүлгөн жок. Маалыматыңыз формада калды — кайра аракет кылыңыз.",
+        "Пикир жөнөтүлгөн жок. Жазганыңыз формада калды — кайра аракет кылыңыз.",
       phpUnavailable:
-        "Бул алдын ала көрүү сервери почта жөнөтө албайт. Жандуу сайтта пикир info@birinci.cloud дарегине жетет. Маалыматыңыз формада калды.",
+        "Бул алдын ала көрүү сервери почта жөнөтө албайт. Жарыяланган сайтта пикир info@birinci.cloud дарегине жетет. Жазганыңыз формада калды.",
       networkError:
-        "Байланыш үзүлдү. Маалыматыңыз формада калды — кайра аракет кылыңыз.",
+        "Байланыш үзүлдү. Жазганыңыз формада калды — кайра аракет кылыңыз.",
       fileReady: "Жөнөтүүгө даяр"
     }
   };

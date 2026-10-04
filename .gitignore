@@ -34,6 +34,7 @@ assets/lexicon/*.PDF
 tools/.serve_site.pid
 tools/.serve_site.*.pid
 tools/.serve_site.log
+tools/.serve_site.url
 tools/.feedback-outbox/
 
 # Local build artifacts
