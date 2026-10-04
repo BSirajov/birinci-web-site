@@ -107,6 +107,58 @@ DISABLE_DISCOVERY_VIDEOS = True
 
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
 SITE_ASSET_VERSION = "20260924img"
+# Shared site.css / site.js (phone illustration-control chrome).
+SITE_CHROME_ASSET_VERSION = "20260927phone"
+INVENTIONS_BRIDGE_ASSET_VERSION = "20260924bg"
+# Discoveries catalog JS (view=list URL cache-bust). Independent of site chrome.
+KT_INVENTIONS_JS_VERSION = "20261004qa1"
+STORY_COMPARE_CSS_VERSION = "20261002langon"
+STORY_COMPARE_JS_VERSION = "20261002illust"
+COMPARE_WINDOW_JS_VERSION = "20260929plainky1"
+DISCOVERY_COMPARE_ASSET_VERSION = "20260929eqbox"
+ILLUSTRATION_STAMPS = frozenset(
+    {
+        "20260924kyill",
+        "20260925azill",
+        "20260927ill2",
+        "20260927frame",
+        "20260927dishes",
+        "20260927ruside",
+        "20260928enside",
+        "20260927kyframe",
+        "20260928kystyle",
+        "20260928kyhead",
+        "20260928kytitle",
+        "20260928kyen",
+        "20260929kyfit",
+        "20261001kywebp",
+        "20260927marry",
+        "20260929azcap",
+        "20260929azcap2",
+        "20260929azundo",
+        "20260929azcut",
+        "20260930azes",
+        "20260930rues",
+        "20260930enes",
+        "20260930kysrc",
+        "20260930rusrc",
+        "20260930ensrc",
+        "20260930azsrc",
+        "20261002illust",
+    }
+)
+KNOWN_ASSET_STAMPS = frozenset(
+    {
+        SITE_ASSET_VERSION,
+        SITE_CHROME_ASSET_VERSION,
+        INVENTIONS_BRIDGE_ASSET_VERSION,
+        KT_INVENTIONS_JS_VERSION,
+        STORY_COMPARE_CSS_VERSION,
+        STORY_COMPARE_JS_VERSION,
+        COMPARE_WINDOW_JS_VERSION,
+        DISCOVERY_COMPARE_ASSET_VERSION,
+    }
+) | ILLUSTRATION_STAMPS
 # Keep in sync with assets/site.js AUDIO_CONTROLS_ENABLED.
 # False = bake Listen/Stop as visible + disabled until suitable voices are ready.
 AUDIO_CONTROLS_ENABLED = False
@@ -128,7 +180,7 @@ _NOT_FOUND_HTML = """\
   <meta name="robots" content="noindex" />
   <title>Birİnci — Page not found</title>
   <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32" />
-  <link rel="stylesheet" href="/assets/site.css?v=SITE_ASSET_VERSION" />
+  <link rel="stylesheet" href="/assets/site.css?v=SITE_CHROME_ASSET_VERSION" />
 </head>
 <body class="page-home" id="top">
   <main class="intro" id="main" style="padding:4rem 1.5rem">
@@ -149,7 +201,7 @@ _NOT_FOUND_HTML = """\
   </main>
 </body>
 </html>
-""".replace("SITE_ASSET_VERSION", SITE_ASSET_VERSION)
+""".replace("SITE_CHROME_ASSET_VERSION", SITE_CHROME_ASSET_VERSION)
 
 DEAD_INVENTION_VIDEO_KEYS = ("watch_video", "video_series", "close_video", "video_note")
 STORY_I18N_UI_KEYS = (
@@ -1659,39 +1711,25 @@ def pin_asset_versions(html: str) -> str:
         window = html[max(0, match.start() - 96) : match.start()]
         # Shared story chrome. A new stamp so phones pick up illustration controls.
         if window.endswith("site.js") or window.endswith("site.css"):
-            return match.group(1) + "20260927phone"
+            return match.group(1) + SITE_CHROME_ASSET_VERSION
+        if window.endswith("kt-inventions.js"):
+            return match.group(1) + KT_INVENTIONS_JS_VERSION
+        if window.endswith("story-compare.js"):
+            return match.group(1) + STORY_COMPARE_JS_VERSION
+        if window.endswith("story-compare.css"):
+            if stamp in (STORY_COMPARE_CSS_VERSION, DISCOVERY_COMPARE_ASSET_VERSION):
+                return match.group(0)
+            return match.group(1) + STORY_COMPARE_CSS_VERSION
+        if window.endswith("compare-window.js"):
+            if stamp in (COMPARE_WINDOW_JS_VERSION, DISCOVERY_COMPARE_ASSET_VERSION):
+                return match.group(0)
+            return match.group(1) + COMPARE_WINDOW_JS_VERSION
+        if window.endswith("discovery-compare.js"):
+            return match.group(1) + DISCOVERY_COMPARE_ASSET_VERSION
         # Wisdom-story illustrations use a language stamp, not the shared page stamp.
         lookback = html[max(0, match.start() - 220) : match.start()]
         if "/illustrations/" in lookback and lookback.rstrip().endswith((".webp", ".png")):
-            if stamp in (
-                "20260924kyill",
-                "20260925azill",
-                "20260927ill2",
-                "20260927frame",
-                "20260927dishes",
-                "20260927ruside",
-                "20260928enside",
-                "20260927kyframe",
-                "20260928kystyle",
-                "20260928kyhead",
-                "20260928kytitle",
-                "20260928kyen",
-                "20260929kyfit",
-                "20261001kywebp",
-                "20260927marry",
-                "20260929azcap",
-                "20260929azcap2",
-                "20260929azundo",
-                "20260929azcut",
-                "20260930azes",
-                "20260930rues",
-                "20260930enes",
-                "20260930kysrc",
-                "20260930rusrc",
-                "20260930ensrc",
-                "20260930azsrc",
-                "20261002illust",
-            ):
+            if stamp in ILLUSTRATION_STAMPS:
                 return match.group(0)
             return match.group(1) + "20260927frame"
         # Kyrgyz illustration scripts use their own stamp. The background
@@ -1699,7 +1737,7 @@ def pin_asset_versions(html: str) -> str:
         if stamp in ("20260924kyill", "20260925azill"):
             return match.group(0)
         if window.endswith("inventions-bridge.css"):
-            return match.group(1) + "20260924bg"
+            return match.group(1) + INVENTIONS_BRIDGE_ASSET_VERSION
         return match.group(1) + SITE_ASSET_VERSION
 
     html = _ASSET_VERSION_RE.sub(_repl, html)

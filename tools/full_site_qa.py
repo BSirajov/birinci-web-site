@@ -19,7 +19,11 @@ LANGS = ("az", "en", "ru", "ky")
 WIDTHS = (360, 390, 768, 1024, 1440)
 if str(ROOT / "tools") not in sys.path:
     sys.path.insert(0, str(ROOT / "tools"))
-from chrome_restore import SITE_ASSET_VERSION  # noqa: E402
+from chrome_restore import (  # noqa: E402
+    KNOWN_ASSET_STAMPS,
+    SITE_ASSET_VERSION,
+    SITE_CHROME_ASSET_VERSION,
+)
 
 lines: list[str] = []
 fails = 0
@@ -45,60 +49,136 @@ def warn(name: str, detail: str = "") -> None:
     log(f"[WARN] {name}" + (f" — {detail}" if detail else ""))
 
 
-def file_hash(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()[:16]
+_V_QUERY_RE = re.compile(r"\?v=[^\"')\s]+")
+
+
+def asset_fingerprint(path: Path) -> str:
+    """Hash shared assets, ignoring publish-time CSS image ?v= restamps and newlines."""
+    data = path.read_bytes()
+    if path.suffix.lower() in {".css", ".js"}:
+        text = data.decode("utf-8").replace("\r\n", "\n")
+        if path.suffix.lower() == ".css":
+            text = _V_QUERY_RE.sub("", text)
+        data = text.encode("utf-8")
+    return hashlib.sha256(data).hexdigest()[:16]
 
 
 def structural() -> None:
     log("=== Structural / cache / deploy ===")
+    builder = ROOT / "tools" / "build_website.py"
+    check("build_website.py entrypoint present", builder.is_file(), str(builder.relative_to(ROOT)))
+    # *.pyc is gitignored; CI never has tools/_bytecode_backup/*.pyc. Structural QA
+    # does not invoke the CPython 3.14 bytecode builder.
     pyc = ROOT / "tools" / "_bytecode_backup" / "build_website.cpython-314.pyc"
-    check(
-        "build_website CPython 3.14 bytecode backup present",
-        pyc.is_file(),
-        str(pyc.relative_to(ROOT)) if pyc.is_file() else "missing tools/_bytecode_backup/build_website.cpython-314.pyc",
-    )
-    # Asset version drift on live locale HTML (exclude deployment for primary)
-    # Only stylesheet/script cache-bust under /assets/ (ignore icons & YouTube)
-    ver_re = re.compile(
-        r"""(?:href|src)=["'][^"']*?/assets/[^"']*?\.(?:css|js)\?v=([^"'&\s]+)""",
+    if pyc.is_file():
+        log(f"[PASS] local CPython 3.14 bytecode backup present — {pyc.relative_to(ROOT)}")
+    else:
+        log("[SKIP] CPython 3.14 bytecode backup (*.pyc gitignored; not required for Site QA)")
+
+    # Stylesheet/script cache-bust under /assets/. Different families may use
+    # different stamps (site chrome vs inventions vs illustrations).
+    asset_ref_re = re.compile(
+        r"""(?:href|src)=["']([^"']*?/assets/[^"'?]*\.(?:css|js))(\?[^"']*)?["']""",
         re.I,
     )
+    skip_unstamped = {"force-local-http.js"}
     versions: Counter[str] = Counter()
-    per_file_versions: list[tuple[str, set[str]]] = []
+    missing_v: list[str] = []
+    empty_v: list[str] = []
+    unknown_v: list[str] = []
+    basename_conflicts: list[str] = []
+    chrome_stamps: dict[str, set[str]] = {"site.css": set(), "site.js": set()}
+    pages_with_assets = 0
+
+    def scan_html(rel: str, text: str) -> None:
+        nonlocal pages_with_assets
+        by_base: dict[str, set[str]] = {}
+        saw_asset = False
+        for match in asset_ref_re.finditer(text):
+            url = match.group(1)
+            query = match.group(2) or ""
+            base = url.rsplit("/", 1)[-1]
+            saw_asset = True
+            vm = re.search(r"[?&]v=([^&]*)", query)
+            stamp = vm.group(1).strip() if vm else ""
+            if base in skip_unstamped:
+                continue
+            loc = f"{rel}:{base}"
+            if not query or "v=" not in query:
+                missing_v.append(loc)
+                continue
+            if not stamp:
+                empty_v.append(loc)
+                continue
+            versions[stamp] += 1
+            by_base.setdefault(base, set()).add(stamp)
+            if stamp not in KNOWN_ASSET_STAMPS:
+                unknown_v.append(f"{loc}?v={stamp}")
+            if base in chrome_stamps:
+                chrome_stamps[base].add(stamp)
+        if saw_asset:
+            pages_with_assets += 1
+        for base, stamps in by_base.items():
+            if len(stamps) > 1:
+                basename_conflicts.append(f"{rel}:{base}={sorted(stamps)}")
+
     for lang in LANGS:
         for p in (ROOT / lang).rglob("*.html"):
-            text = p.read_text(encoding="utf-8", errors="replace")
-            found = set(ver_re.findall(text))
-            if found:
-                per_file_versions.append((str(p.relative_to(ROOT)), found))
-                versions.update(found)
-    # Root index
+            scan_html(str(p.relative_to(ROOT)), p.read_text(encoding="utf-8", errors="replace"))
     if (ROOT / "index.html").exists():
-        found = set(ver_re.findall((ROOT / "index.html").read_text(encoding="utf-8")))
-        per_file_versions.append(("index.html", found))
-        versions.update(found)
+        scan_html("index.html", (ROOT / "index.html").read_text(encoding="utf-8"))
     not_found = ROOT / "404.html"
     if not_found.exists():
-        nf_vers = set(ver_re.findall(not_found.read_text(encoding="utf-8")))
+        nf_text = not_found.read_text(encoding="utf-8")
+        scan_html("404.html", nf_text)
+        nf_site = set(
+            re.findall(
+                r"""/assets/site\.css\?v=([^"'&\s]+)""",
+                nf_text,
+                flags=re.I,
+            )
+        )
         check(
-            "404.html uses current CSS/JS asset stamp",
-            nf_vers == {SITE_ASSET_VERSION},
-            str(sorted(nf_vers)),
+            "404.html site.css uses current site chrome stamp",
+            nf_site == {SITE_CHROME_ASSET_VERSION},
+            str(sorted(nf_site)),
         )
 
     top = versions.most_common(8)
     log(f"Asset CSS/JS ?v= frequency (top): {top}")
-    multi = [(f, sorted(s)) for f, s in per_file_versions if len(s) > 1]
     check(
-        "CSS/JS cache-bust unified per page (single ?v= stamp preferred)",
-        len(multi) == 0,
-        f"{len(multi)} pages still mix CSS/JS versions: {multi[:5]}"
-        if multi
-        else f"ok ({len(per_file_versions)} pages)",
+        "CSS/JS /assets/ refs have ?v= (except local-only force-local-http.js)",
+        not missing_v,
+        f"{len(missing_v)} missing: {missing_v[:8]}" if missing_v else f"ok ({pages_with_assets} pages)",
     )
     check(
-        "Dominant CSS/JS asset version is current pass stamp",
-        bool(top) and top[0][0] == SITE_ASSET_VERSION,
+        "CSS/JS ?v= is non-empty",
+        not empty_v,
+        f"{len(empty_v)} empty: {empty_v[:8]}" if empty_v else "ok",
+    )
+    check(
+        "CSS/JS ?v= stamps are on the known allowlist",
+        not unknown_v,
+        f"{len(unknown_v)} unknown: {unknown_v[:8]}" if unknown_v else f"ok ({len(KNOWN_ASSET_STAMPS)} allowed)",
+    )
+    check(
+        "same CSS/JS basename is not mixed on one page",
+        not basename_conflicts,
+        f"{len(basename_conflicts)}: {basename_conflicts[:8]}" if basename_conflicts else "ok",
+    )
+    mixed_chrome = {
+        name: sorted(stamps)
+        for name, stamps in chrome_stamps.items()
+        if stamps and stamps != {SITE_CHROME_ASSET_VERSION}
+    }
+    check(
+        "shared site.css/site.js use one chrome stamp",
+        not mixed_chrome,
+        str(mixed_chrome) if mixed_chrome else SITE_CHROME_ASSET_VERSION,
+    )
+    check(
+        "Default inventions/search stamp is current SITE_ASSET_VERSION",
+        bool(top) and SITE_ASSET_VERSION in versions,
         str(top[:3]),
     )
 
@@ -129,8 +209,8 @@ def structural() -> None:
                 continue
             check(
                 f"deployment matches {rel}",
-                file_hash(src) == file_hash(dep),
-                f"src={file_hash(src)} dep={file_hash(dep)}",
+                asset_fingerprint(src) == asset_fingerprint(dep),
+                f"src={asset_fingerprint(src)} dep={asset_fingerprint(dep)}",
             )
 
     # Landmarks + page-jump on sample pages
