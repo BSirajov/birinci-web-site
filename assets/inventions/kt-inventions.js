@@ -22,6 +22,16 @@
     );
   }
 
+  (function applyDiscoveriesViewFromUrl() {
+    if (!document.body) return;
+    try {
+      var v = String(new URLSearchParams(window.location.search || "").get("view") || "");
+      if (v !== "list" && v !== "cards") return;
+      document.body.classList.toggle("inventions-view-cards", v === "cards");
+      document.body.classList.toggle("inventions-view-list", v === "list");
+    } catch (_) {}
+  })();
+
   function pageCatalogLocale() {
     return (
       (document.body && document.body.getAttribute("data-lang")) ||
@@ -876,6 +886,9 @@
       var periods = activeFilterValues("filterPeriod");
       if (periods.length) params.set("period", periods.join(","));
       else params.delete("period");
+
+      if (isInventionsListView()) params.set("view", "list");
+      else params.set("view", "cards");
 
       params.delete("start");
       params.delete("batch");
@@ -3480,9 +3493,17 @@
 
   if (viewBtns.length) {
     var savedView = "cards";
+    var urlView = "";
     try {
-      savedView = localStorage.getItem(viewStorageKey) || "cards";
+      urlView = String(new URLSearchParams(window.location.search || "").get("view") || "");
     } catch (_) {}
+    if (urlView === "list" || urlView === "cards") {
+      savedView = urlView;
+    } else {
+      try {
+        savedView = localStorage.getItem(viewStorageKey) || "cards";
+      } catch (_) {}
+    }
     if (savedView === "category") savedView = "cards";
     if (hasSectionHash) savedView = "list";
     setInventionsView(savedView);

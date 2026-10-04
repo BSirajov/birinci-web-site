@@ -262,7 +262,7 @@ def _form_html(lang: str, form: dict) -> str:
         f'<label class="field-label" for="privacyconfirm">{_privacy_label_html(form)}</label>\n'
         "</div>\n"
         "</div>\n"
-        '<div class="app-honeypot" aria-hidden="true">\n'
+        '<div class="app-honeypot" aria-hidden="true" hidden>\n'
         f'<label for="website">{_esc(form["honeypot_label"])}</label>\n'
         '<input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />\n'
         "</div>\n"

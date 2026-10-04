@@ -1980,6 +1980,10 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       ).replace(/^\/+/, "");
       const catMatch = (window.location.pathname || "").match(/\/categories\/([^/]+)\.html$/i);
       let view = params.get("view");
+      if (isInventions && (view !== "list" && view !== "cards")) {
+        if (document.body.classList.contains("inventions-view-list")) view = "list";
+        else if (document.body.classList.contains("inventions-view-cards")) view = "cards";
+      }
       if (isHome) {
         const stemProbe = resolveActiveAnchor() || decodeHash();
         if (stemProbe) view = "list";

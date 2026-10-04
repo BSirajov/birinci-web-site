@@ -27,6 +27,9 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_HOST = "127.0.0.1"
 DEFAULT_PORT = 8765
 HEALTH_PATH = "/index.html"
+# Another local app (for example DAAB) often uses 8765. Only treat this
+# repo's listener as healthy.
+HEALTH_MARKERS = ("Birİnci", "birinci.cloud", 'data-lang="az"')
 
 CREATE_NEW_PROCESS_GROUP = 0x00000200
 DETACHED_PROCESS = 0x00000008
@@ -83,12 +86,34 @@ def _health_url(host: str, port: int) -> str:
     return "http://{host}:{port}{path}".format(host=host, port=port, path=HEALTH_PATH)
 
 
-def is_healthy(host: str, port: int) -> bool:
+def _http_preview(host: str, port: int) -> tuple[int, str] | None:
     try:
         with urllib.request.urlopen(_health_url(host, port), timeout=2) as resp:
-            return 200 <= getattr(resp, "status", 200) < 400
+            status = int(getattr(resp, "status", 200) or 200)
+            body = resp.read(12000).decode("utf-8", errors="replace")
+            return status, body
     except (urllib.error.URLError, TimeoutError, OSError):
+        return None
+
+
+def is_this_site(body: str) -> bool:
+    return any(marker in body for marker in HEALTH_MARKERS)
+
+
+def is_healthy(host: str, port: int) -> bool:
+    preview = _http_preview(host, port)
+    if not preview:
         return False
+    status, body = preview
+    return 200 <= status < 400 and is_this_site(body)
+
+
+def foreign_listener(host: str, port: int) -> bool:
+    preview = _http_preview(host, port)
+    if not preview:
+        return False
+    status, body = preview
+    return 200 <= status < 400 and not is_this_site(body)
 
 
 def _pid_path(port: int) -> Path:
@@ -287,6 +312,8 @@ def reclaim_dead_listeners(host: str, port: int) -> list[int]:
     healthy = is_healthy(host, port)
     if healthy and len(pids) <= 1:
         return []
+    if foreign_listener(host, port):
+        return []
 
     recorded = _read_pid(port)
     targets = set(pids)
@@ -395,6 +422,12 @@ def _spawn_detached(host: str, port: int) -> subprocess.Popen | _PidProc:
 def detach(host: str, port: int) -> int:
     if already_running(host, port):
         return 0
+    if foreign_listener(host, port):
+        sys.stderr.write(
+            "Port {port} is already serving a different site at http://{host}:{port}/. "
+            "Start Birİnci with --port <free-port>.\n".format(host=host, port=port)
+        )
+        return 1
     killed = reclaim_dead_listeners(host, port)
     if killed:
         sys.stdout.write(
