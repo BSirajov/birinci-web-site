@@ -1,0 +1,1854 @@
+{
+  "checked_at_utc": "2026-10-19T22:51:26.886471+00:00",
+  "base_url": "https://birinci.cloud/",
+  "request_count": 358,
+  "languages": {
+    "az": {
+      "expected_stories": 261,
+      "catalog_matches": 261,
+      "catalog_differences": [],
+      "page_differences": [],
+      "page_article_matches": 261,
+      "search_differences": [],
+      "deployed_stories": 261
+    },
+    "en": {
+      "expected_stories": 256,
+      "catalog_matches": 256,
+      "catalog_differences": [],
+      "page_differences": [],
+      "page_article_matches": 256,
+      "search_differences": [],
+      "deployed_stories": 256
+    },
+    "ru": {
+      "expected_stories": 256,
+      "catalog_matches": 256,
+      "catalog_differences": [],
+      "page_differences": [],
+      "page_article_matches": 256,
+      "search_differences": [],
+      "deployed_stories": 256
+    },
+    "ky": {
+      "expected_stories": 256,
+      "catalog_matches": 256,
+      "catalog_differences": [],
+      "page_differences": [],
+      "page_article_matches": 256,
+      "search_differences": [],
+      "deployed_stories": 256
+    },
+    "de": {
+      "expected_stories": 256,
+      "catalog_matches": 256,
+      "catalog_differences": [],
+      "page_differences": [
+        {
+          "file": "de/stories/do-not-deepen-anothers-pain.html",
+          "error": {
+            "error": "<urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>",
+            "status": null
+          },
+          "affected_stories": [
+            "do-not-deepen-anothers-pain"
+          ]
+        }
+      ],
+      "page_article_matches": 525,
+      "search_differences": [],
+      "deployed_stories": 256
+    }
+  },
+  "requests": {
+    "az/about/mission-vision-values.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/az/about/mission-vision-values.html",
+      "sha256": "09fdd61f7c7575a855f43db58c7e154a34605461b0291eb830ff0b1183c5fa61"
+    },
+    "az/assets/search-index.js": {
+      "status": 200,
+      "url": "https://birinci.cloud/az/assets/search-index.js",
+      "sha256": "c2372b5c6f3ad22268a6b0defad953780e1148d9aca81a267b646bfd1e7eff22"
+    },
+    "az/assets/stories-data.js": {
+      "status": 200,
+      "url": "https://birinci.cloud/az/assets/stories-data.js",
+      "sha256": "dacf437fbbf9fde8f09380129fce5f71d4b65135b0aaee7580033ab0b11d1776"
+    },
+    "az/categories/aile-ve-terbiye.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/az/categories/aile-ve-terbiye.html",
+      "sha256": "329b7d7157edeb8e9d6b7c0325ce29b9a7bb9b8a57f07616fa61a867302feefa"
+    },
+    "az/categories/dostluq-ve-insan-munasibetleri.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/az/categories/dostluq-ve-insan-munasibetleri.html",
+      "sha256": "8bbe4b5f7d4351eb56791990ddfc5938cc33768ca88a23a7b0b6b43ccc439493"
+    },
+    "az/categories/edalet-ve-cemiyyet.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/az/categories/edalet-ve-cemiyyet.html",
+      "sha256": "c072fad10c90d45db9ab54a3ae23454806c438bd9cabee773c0c68f1beb92ece"
+    },
+    "az/categories/emek-ruzi-ve-servet.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/az/categories/emek-ruzi-ve-servet.html",
+      "sha256": "d26eef9ed43b1777175cc7d0458c3b700adb86c652333c85a0c51e0555f42ff0"
+    },
+    "az/categories/exlaq-ve-xarakter.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/az/categories/exlaq-ve-xarakter.html",
+      "sha256": "e38658e70da8c25d0203119b576d1e983f1196553e606975b4dd29bcc9428a9c"
+    },
+    "az/categories/hikmet-ve-heyat-dersleri.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/az/categories/hikmet-ve-heyat-dersleri.html",
+      "sha256": "d2f78a50b693dbf46e0c137ffe62816d378c5d942d2504bf99084c198f5da224"
+    },
+    "az/categories/iman-ve-meneviyyat.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/az/categories/iman-ve-meneviyyat.html",
+      "sha256": "c0b11fb4fbec538a732ad54a33a633653520f3658d7c6b881d8a8ecc1aea9634"
+    },
+    "az/categories/sevgi-ve-evlilik.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/az/categories/sevgi-ve-evlilik.html",
+      "sha256": "ca14c4ac96a40d94dc8e3d0077040c6d24e84fac9c39889e59ed1be3a62fb7ba"
+    },
+    "az/categories/soz-sukut-ve-unsiyyet.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/az/categories/soz-sukut-ve-unsiyyet.html",
+      "sha256": "b2b5e31f6554ea612a646dd51dbe7e9dbbdf69fd8912b1b2d54108449bc4ff69"
+    },
+    "az/categories/tarix-ve-taninmish-shexsiyyetler.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/az/categories/tarix-ve-taninmish-shexsiyyetler.html",
+      "sha256": "db71765519fef9604ebc60f00e3bc198ba993b84cbe7d751d5ea39855ca37489"
+    },
+    "az/categories/temsiller-ve-meseller.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/az/categories/temsiller-ve-meseller.html",
+      "sha256": "ab83bd9608d310ac3ec0db100d744654c4aa9ec5cb413a7332fd1065b24ad399"
+    },
+    "az/categories/yaslanma-ve-zaman.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/az/categories/yaslanma-ve-zaman.html",
+      "sha256": "765314a78d202aea134d487308c264a399f81c871c2996834b3a60b1ef97814d"
+    },
+    "az/cookie-policy.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/az/cookie-policy.html",
+      "sha256": "7d8309906499236788937fd2b549889b7bb55c30de8067d48ae0e0589a0919c9"
+    },
+    "az/index.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/az/index.html",
+      "sha256": "3ab03f962c5a37fed1d10864b2478462bcd00eee9e67bc7e1ce33158f45b16ce"
+    },
+    "az/legal-notice.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/az/legal-notice.html",
+      "sha256": "cfcea3af9380810f692894555ba058885c067a499cce964aa81d04cb82f2ec10"
+    },
+    "az/privacy-notice.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/az/privacy-notice.html",
+      "sha256": "40e444d3315065acac8d345a310c1bb5b07626767bf016360328e63db89ee1fe"
+    },
+    "az/sitemap.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/az/sitemap.html",
+      "sha256": "1157b09de906a19ee7c08273ddb72033c5710812dd0c4f63e29c9a5728100033"
+    },
+    "az/terms-of-use.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/az/terms-of-use.html",
+      "sha256": "1e694d90cd852e3d92bd02baffd0e70b1b3ea97c5ba0632584e8d9f3e9c1f45d"
+    },
+    "de/assets/search-index.js": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/assets/search-index.js",
+      "sha256": "cd5dc4b6cf845302e64a57ab9544730e047e4bc20c198dc3ff42fbc912481e9b"
+    },
+    "de/assets/stories-data.js": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/assets/stories-data.js",
+      "sha256": "79c4b402d5ad32c7afcaae2b9cbec7fa727b68800b319b541abe8f6be4d1d5ce"
+    },
+    "de/authors/bakhtiyar.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/authors/bakhtiyar.html",
+      "sha256": "ed81bddf2434d6ab718bf9d2928b6a5279811b88d1f68ada5d91aa5432b43f18"
+    },
+    "de/authors/etibar.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/authors/etibar.html",
+      "sha256": "5cbfd395f4ff0b09f7a30ddbd3cfd5f4f0f26e5c75f1b5a69a7cec557a91f0d8"
+    },
+    "de/categories/aile-ve-terbiye.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/categories/aile-ve-terbiye.html",
+      "sha256": "5dae608734efe3ce6a4c8ec96ea96b6d29f96896049ee306b248fcfe1a99d102"
+    },
+    "de/categories/dostluq-ve-insan-munasibetleri.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/categories/dostluq-ve-insan-munasibetleri.html",
+      "sha256": "9ab625bdfb60bd825af4ac5e09e3c48bece8a1de53857626215ad01f863f64df"
+    },
+    "de/categories/edalet-ve-cemiyyet.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/categories/edalet-ve-cemiyyet.html",
+      "sha256": "863abd8873e87306511931bf00d25eae553df0a83be8b5bf0d4fdf23cdc38f5f"
+    },
+    "de/categories/emek-ruzi-ve-servet.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/categories/emek-ruzi-ve-servet.html",
+      "sha256": "36c61bda8cf1c6ff0a2a2e2fe5c17cfa1221ced2889f9b256a8f0c0e40b3d0d2"
+    },
+    "de/categories/exlaq-ve-xarakter.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/categories/exlaq-ve-xarakter.html",
+      "sha256": "9f2d6ff01b608d418db7b722f22edd23b76ad309dfff34010e1428ffc8cf0715"
+    },
+    "de/categories/hikmet-ve-heyat-dersleri.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/categories/hikmet-ve-heyat-dersleri.html",
+      "sha256": "e27050c3a196d824dad2501ac901597c437f1e5126b650bec41cb32d94c35460"
+    },
+    "de/categories/iman-ve-meneviyyat.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/categories/iman-ve-meneviyyat.html",
+      "sha256": "69697bb3a974b721678520915c7318ce8ca13154f170a632bd6b88d86918354f"
+    },
+    "de/categories/sevgi-ve-evlilik.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/categories/sevgi-ve-evlilik.html",
+      "sha256": "aee0545e3c38fd326542f57834c3b531e35b30e8745a88209df9e7486abc6f32"
+    },
+    "de/categories/soz-sukut-ve-unsiyyet.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/categories/soz-sukut-ve-unsiyyet.html",
+      "sha256": "791b2463b5505558a02837e68ccaec05a187e6287799a06ce70d98dc9a1cff8c"
+    },
+    "de/categories/tarix-ve-taninmish-shexsiyyetler.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/categories/tarix-ve-taninmish-shexsiyyetler.html",
+      "sha256": "bb3bcdc818b4d37b3eb75d173733b2d9967ee6230607bb4788d243f51b0e683d"
+    },
+    "de/categories/temsiller-ve-meseller.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/categories/temsiller-ve-meseller.html",
+      "sha256": "92c5e2db32d58cba4706f5cf07f23cdf9871d9439de0b4f3f8919ac3cb216b75"
+    },
+    "de/categories/yaslanma-ve-zaman.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/categories/yaslanma-ve-zaman.html",
+      "sha256": "8691d967fe86a1aa8f104f37063a02ff018b69b2485b7a5a9fb362572b9d4912"
+    },
+    "de/index.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/index.html",
+      "sha256": "ba806d1a621d08dc097dc9e47537f209f962b5f31965d94d4745a1f429cdf19a"
+    },
+    "de/sitemap.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/sitemap.html",
+      "sha256": "9c8ae4e391217c6d0fbeb6b6871955ea6bb26be15647f7b55d379c31109aa154"
+    },
+    "de/stories/adversity-and-blessing.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/adversity-and-blessing.html",
+      "sha256": "310e3b6dec39a2855122b1d32025de8277cd97596a831bff232f4633dd457220"
+    },
+    "de/stories/aging.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/aging.html",
+      "sha256": "17fb95e69a31cddd159c05a086432043588f7c12a2ef62382fd08e06e3a8fa66"
+    },
+    "de/stories/albrecht-durer.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/albrecht-durer.html",
+      "sha256": "99d79e7c91c98eae3be1b786f7fd5cf4e36777e369203c741ab5448ab3026cf4"
+    },
+    "de/stories/alis-unreliable-rope.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/alis-unreliable-rope.html",
+      "sha256": "a9bb5129b227da5d339fe85eca188e3e0ab9244104a2acac0ab142ec0f056fd7"
+    },
+    "de/stories/another-day.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/another-day.html",
+      "sha256": "db3eb9b028fbdc5a21b599598941307fca2869d9fde768d1e7b404666632d480"
+    },
+    "de/stories/ant-carrying-water.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/ant-carrying-water.html",
+      "sha256": "4aeed594d999d6a343ca60d37d8a6a41a4af533e79a0f23d9b6dd1aa1f3dcf93"
+    },
+    "de/stories/audience-of-one.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/audience-of-one.html",
+      "sha256": "b81ced60aea59fda29331da0a03d7bda14e7e72d0bd3b85f31e520672d81509a"
+    },
+    "de/stories/avoid-these-questions.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/avoid-these-questions.html",
+      "sha256": "4b5f4cad80d24132d1007b2e6f24a826c9333f4dd7c2ccb72536796de9ca6590"
+    },
+    "de/stories/baklava.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/baklava.html",
+      "sha256": "1b45dabab96b4ea173016d86697c1ed2d1597c9582412f5cd6f90c53c573b0d6"
+    },
+    "de/stories/before-it-is-too-late.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/before-it-is-too-late.html",
+      "sha256": "452ee46935a9c29fbc2a4c493f7e4357ba92d580666075c28a097fde345a0339"
+    },
+    "de/stories/before-you-marry.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/before-you-marry.html",
+      "sha256": "e046ce86af724279b979f16a3a826594df7c894d6f64d1eeb2c2125b82a2b226"
+    },
+    "de/stories/begin-with-self-examination.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/begin-with-self-examination.html",
+      "sha256": "7240408af7fa62b10ce120374d9f2e6cb39264138ad2cc0ec89b204255cb569e"
+    },
+    "de/stories/being-human.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/being-human.html",
+      "sha256": "8a04c4d0bb0cdebfbbf9575f3384a727f3b08a5468d0f57a89c343b4ed1b82ad"
+    },
+    "de/stories/being-lonely.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/being-lonely.html",
+      "sha256": "6590e17a102ab8bc885eea5589ed36c07cd6d78ef423117cb83452625440e54b"
+    },
+    "de/stories/believe-in-yourself.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/believe-in-yourself.html",
+      "sha256": "33d65d12aaa6359ab8b216a8706c95f316bbf6d5d38208196bbe3bd0bba0d430"
+    },
+    "de/stories/belling-the-cat.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/belling-the-cat.html",
+      "sha256": "e8ec5e64ea3247330299212ea2d1fe370117e71d22dd0e9f580066e2a8a7f001"
+    },
+    "de/stories/beyond-complaining.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/beyond-complaining.html",
+      "sha256": "28154bef0e3c290e9efd6d2e6bf0a079b3948cc824c81fdb3b2125b60c5481af"
+    },
+    "de/stories/beyond-first-impressions.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/beyond-first-impressions.html",
+      "sha256": "4aa7f5d24b0b9e11a4727ee7461a302e5d1260276885dfa508bf538a9baf9264"
+    },
+    "de/stories/beyond-the-cotton-field.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/beyond-the-cotton-field.html",
+      "sha256": "36a52de332e865d677d769f110aa79d79062910edd2bbde9695f89b71be66121"
+    },
+    "de/stories/bookstore.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/bookstore.html",
+      "sha256": "d18ba199db3a828d85ffe8b3234f7dc220048194ef345e58b4b52db9bdd7b085"
+    },
+    "de/stories/busy-but-unproductive.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/busy-but-unproductive.html",
+      "sha256": "5ab5aa456d7565f7e689e745b2c017e024b49a9adad869b7f740c177e3fceb38"
+    },
+    "de/stories/butter-price-war.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/butter-price-war.html",
+      "sha256": "94a25d24df79138ae6113db5d592e54a4e6e28758f53f77ad4c774670cd57165"
+    },
+    "de/stories/call-the-shepherd.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/call-the-shepherd.html",
+      "sha256": "b17807db89a7fe9b84d63e5ccfbf882783c96256572c2ddded4fab9bf7471044"
+    },
+    "de/stories/can-a-broken-heart-love-again.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/can-a-broken-heart-love-again.html",
+      "sha256": "1635ecfb2d7c4bb1da3e9dbdebb1dcc52b1b079c279c5811df603932d889847e"
+    },
+    "de/stories/candles-conversation.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/candles-conversation.html",
+      "sha256": "fc9af139ccb1d8143f942226b5a4bfa64b0f2473986c74912ad1f3683ccd6a23"
+    },
+    "de/stories/choose-justice.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/choose-justice.html",
+      "sha256": "99100b7270bbb61203bc4d425c76cd8265f6e16aa0f4f07640d882bdc1304c13"
+    },
+    "de/stories/choose-your-confidant.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/choose-your-confidant.html",
+      "sha256": "979aca57e70845b58a1467e6a669670d599cf66df3bff6c5f48aac12631953f8"
+    },
+    "de/stories/choosing-friends.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/choosing-friends.html",
+      "sha256": "2d03dac0a4f9128db090644cd99c261930afe29db4fb86a03e1bdf007490edc4"
+    },
+    "de/stories/church-bell.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/church-bell.html",
+      "sha256": "4c5b01435bc4dbceafc47ea55f43a6310b1ce6b798feabf179155403c17c780c"
+    },
+    "de/stories/communication.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/communication.html",
+      "sha256": "2f6e86eafaaa5036dc20297727d24ac5c99a384dd37642bd5a5f164672f7857f"
+    },
+    "de/stories/compassion.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/compassion.html",
+      "sha256": "f1bc7a45d2945919f25e939436c6398d2a4a680956b4df97a18e2092bd641770"
+    },
+    "de/stories/compliment.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/compliment.html",
+      "sha256": "64a5e47f21baee195597d69692832a0e60b3e72c2bebef3e53c099b7677c7cab"
+    },
+    "de/stories/confidence-is-half-the-battle.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/confidence-is-half-the-battle.html",
+      "sha256": "355bb37b1e3ee1db66d04787baa6870a4a2a21ab44a624f48444d93bd6b4ac90"
+    },
+    "de/stories/cost-of-indifference.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/cost-of-indifference.html",
+      "sha256": "14574dcdd5d4eda750a4acb749cebd6cf6df1db8cb5485a72583941ebe774191"
+    },
+    "de/stories/credit-ledger.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/credit-ledger.html",
+      "sha256": "463d9415f97ce24e0dbe07745b8d8734a9f180dd774e0a02faf31f71424a8341"
+    },
+    "de/stories/dervishs-appearance.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/dervishs-appearance.html",
+      "sha256": "e70c00d72008847b3503979f4151d817bb6dd7ee77eff533aba11bbec720253a"
+    },
+    "de/stories/dervishs-long-spoons.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/dervishs-long-spoons.html",
+      "sha256": "5f18218d142c31a96aa97b5c5db25cc4ee0a6632fd114248fa52ac830dc869cf"
+    },
+    "de/stories/dervishs-robe.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/dervishs-robe.html",
+      "sha256": "2c3cfa3e0b0fed376ae48b81dd4d3c6dad3205c30b96dc9d2c88a4d09118b504"
+    },
+    "de/stories/devil-out-of-work.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/devil-out-of-work.html",
+      "sha256": "f5df2c5652a078053323cf4f2af8141e4e340af9bb1b525e8da1717a3d3b8f3f"
+    },
+    "de/stories/diderot-effect.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/diderot-effect.html",
+      "sha256": "b4a81e2e70fa725756d6992c977019c382096dd69e32dc2bf0c75f2ff3edf48d"
+    },
+    "de/stories/different-door.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/different-door.html",
+      "sha256": "2453ada597ffdf097752f4dca9354121035c8c762c23334466cc8577e8df452c"
+    },
+    "de/stories/different-path.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/different-path.html",
+      "sha256": "c80fa61abdadb24a501c48d69f46a2595a59370578e264ce8a76abf7c68f03d4"
+    },
+    "de/stories/discussion-and-conflict.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/discussion-and-conflict.html",
+      "sha256": "8e01a58f6f2ea7aa3e93e675de422916f495a4d6aebaa9cafadb0104a98ba51e"
+    },
+    "de/stories/do-not-deepen-anothers-pain.html": {
+      "error": "<urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>",
+      "status": null
+    },
+    "de/stories/do-you-remember-me.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/do-you-remember-me.html",
+      "sha256": "7dde1a1f81989a953856d45128e81142292623706f6ab4559a2e32084616a9e0"
+    },
+    "de/stories/doctors-office.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/doctors-office.html",
+      "sha256": "3fc1803b4804f76f04d6da832cb61ed784d22bb2fbb2e4c99fde1fadcd3fe687"
+    },
+    "de/stories/donkeys-law.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/donkeys-law.html",
+      "sha256": "59b9346dfc52fe2e19d009181c8b226b7badf26401ae6746dc99de877f837270"
+    },
+    "de/stories/door-to-the-heart.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/door-to-the-heart.html",
+      "sha256": "90a8e6367474f44fd8a47560c9196f5338f296845a274f8a3e3f852faacc3373"
+    },
+    "de/stories/doorbell.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/doorbell.html",
+      "sha256": "df99d6380be3736ac002e3ac08af37c339549764c3d9a344435c4605112002d9"
+    },
+    "de/stories/draining-the-coffers.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/draining-the-coffers.html",
+      "sha256": "c7298d5fe7341d8f0e5a9bf713036b7c2acd42ad7aae0322c0c95f32298d5985"
+    },
+    "de/stories/dreaming.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/dreaming.html",
+      "sha256": "f86385c416f129bd1429a11c01f45ee508685b852f7eb6aa6c888984d8c62ac1"
+    },
+    "de/stories/drinking-the-sherbet-of-martyrdom.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/drinking-the-sherbet-of-martyrdom.html",
+      "sha256": "602c5f8b3d7655f9a33cdd12338358923a174fd1329bd578124043d7baa1563a"
+    },
+    "de/stories/dry-well.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/dry-well.html",
+      "sha256": "e327ab75e2f2d3f93dac8de691529594041f460a3f54ee33e370ce4439c08cda"
+    },
+    "de/stories/early-marriage.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/early-marriage.html",
+      "sha256": "c7c807278de0bc35afb13d24dd3175b83cab656abe71abd311b994020e9835c6"
+    },
+    "de/stories/education-or-character.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/education-or-character.html",
+      "sha256": "8b1df4942125097cc612f4ff4635bcb7a4f68b3c7403d375b2d734098ff3cc98"
+    },
+    "de/stories/elephant-and-the-rope.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/elephant-and-the-rope.html",
+      "sha256": "f853cd11ec2854ac28c475af0e82fa97c5e00cef8bb405776257e0629106e2f4"
+    },
+    "de/stories/empty-boat.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/empty-boat.html",
+      "sha256": "874aa619c57b1f6f7e846c7c2ab8b7b1de747369a6d74b43b521d71c2aea94d3"
+    },
+    "de/stories/eraser-in-marriage.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/eraser-in-marriage.html",
+      "sha256": "d4ba9c7c51b8602ce49b218f91c83c6983a32a0b10d323f6665743ff881c5d64"
+    },
+    "de/stories/every-day-has-meaning.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/every-day-has-meaning.html",
+      "sha256": "73eb833ea04824501b39b3892b42419649392807cd4632be12259fa1eedc7016"
+    },
+    "de/stories/everyone-has-work-to-do.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/everyone-has-work-to-do.html",
+      "sha256": "b94a2ec84c95e5ebff1b5459718508c6361b083c906dfe9cd4adcbe084256c1c"
+    },
+    "de/stories/everyone-is-equal-here.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/everyone-is-equal-here.html",
+      "sha256": "ff60bc1686e7520c9b320f50f0433fa0129e8b47b1d1e6578c394939ebe6f868"
+    },
+    "de/stories/facing-a-problem.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/facing-a-problem.html",
+      "sha256": "c570ff70998eee10c2598199d1cfaf67e7d5aa5388b74e525b54bc087b833dfe"
+    },
+    "de/stories/fallen-teeth.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/fallen-teeth.html",
+      "sha256": "52df64b11d876a20408a6446c5f28809ebb7e25ff460f01306ce50e14b97cfc2"
+    },
+    "de/stories/fasting.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/fasting.html",
+      "sha256": "5a578ea4c5ccc304ce36381231a47c68d0d08645f90e6aaad4d0ae8a3e1c8b7b"
+    },
+    "de/stories/father-and-son.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/father-and-son.html",
+      "sha256": "81ddb4f555638fa8544c79de4842c4382e1125866c062b1991eed7f8c8530304"
+    },
+    "de/stories/fathers-advice.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/fathers-advice.html",
+      "sha256": "068a7a6a0cd61335cb748f1e9f1fd67aac13980c6a88356ab44fc7a0a6bff9e1"
+    },
+    "de/stories/fathers-footsteps.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/fathers-footsteps.html",
+      "sha256": "92ac5195e359b2e911e842708d0b9553d356eaceb7c2a65b43c354d31e39f67f"
+    },
+    "de/stories/festive-gift.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/festive-gift.html",
+      "sha256": "a47fe1f44942f9322898ac152b5e0ac9337cbf895472ca12bf687679f1d94614"
+    },
+    "de/stories/fish-shop.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/fish-shop.html",
+      "sha256": "ad0f18be6bdd1db2a066ca187bd94d0b9b80b48f7fd4b3db044794970245dc96"
+    },
+    "de/stories/five-more-minutes.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/five-more-minutes.html",
+      "sha256": "4f05597c0ea9ef8175bba4a8fe2735deac991a45a06906a4404dd188bc2dcac4"
+    },
+    "de/stories/flower-of-honesty.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/flower-of-honesty.html",
+      "sha256": "697eaa2d8722a889f5b5c3f240fa13906bc5a5bd1c5a952fffdcc606fd2f2d2f"
+    },
+    "de/stories/flower.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/flower.html",
+      "sha256": "fba97bd05cf3d479783b5b47b1847ebba4f677d8051c07a8be5dc44f5e227182"
+    },
+    "de/stories/fly-in-a-china-shop.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/fly-in-a-china-shop.html",
+      "sha256": "fc63acbea8521c4dd3bdde28fc68450a4d5c08131774148dae99c0a75027f614"
+    },
+    "de/stories/forgiveness.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/forgiveness.html",
+      "sha256": "19fb0f13071161c62cc2e4e5eb5e19b43bfa5fd941d8d070dbb6d51ea79ac9f6"
+    },
+    "de/stories/fortieth-day-rite.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/fortieth-day-rite.html",
+      "sha256": "297be37e7385d1b67c83dc700ca35f381ff872b41af766f10d030702aa9866e6"
+    },
+    "de/stories/free-time.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/free-time.html",
+      "sha256": "f8fe1c76df87accb77af9049102f1fc8e73ab5eca5b9f5a3e52388202c024ec4"
+    },
+    "de/stories/friend-of-allah.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/friend-of-allah.html",
+      "sha256": "5f7a7637989a7c290f7b7d084f9d3b327c3da9560111a83bcdcc0d846b290512"
+    },
+    "de/stories/friendship-and-love.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/friendship-and-love.html",
+      "sha256": "fe5d5df4fc0cadc861e149e94045ad77cb36bd73330cbaa707cb957248b6afbc"
+    },
+    "de/stories/friendship-of-horses.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/friendship-of-horses.html",
+      "sha256": "d985680f50d7271a2e93fb3daba8b0e49f258ac3dce6e3a9aeb477a54119c9f8"
+    },
+    "de/stories/garden-and-the-gardener.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/garden-and-the-gardener.html",
+      "sha256": "e160ea18c455d3bd00a7cc5c87edc9d81981496f3863440fa11d8b3144896a55"
+    },
+    "de/stories/generous-man.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/generous-man.html",
+      "sha256": "3c8b7045852ca2e37ee35130c4daf3cf52e0aad63616adc795fe1b2d8ea9cc71"
+    },
+    "de/stories/gifts-of-allah.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/gifts-of-allah.html",
+      "sha256": "c27d2d3e0a3c6c36fad984e45eef891b80f152d575adb3472344e202497cab70"
+    },
+    "de/stories/give-to-me-last.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/give-to-me-last.html",
+      "sha256": "c89ab0a4521e0c7a3ead1d191550bee643e9cf910b004d31ee9253e571a67c9c"
+    },
+    "de/stories/giving-without-money.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/giving-without-money.html",
+      "sha256": "a101a2190f9e3ea7686bc2acb1fb3197b4d1f24b7ffc9ef84a7dd135ef9401dd"
+    },
+    "de/stories/glass-of-milk.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/glass-of-milk.html",
+      "sha256": "04efaebef83bca359a7036bfc3955b3afe22b2dbd5a59322a770ba74ac0dfe2d"
+    },
+    "de/stories/go-but-come-again.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/go-but-come-again.html",
+      "sha256": "5513152c672621e7225a3790ebee8e80e27e303504754030bbe11a4864794bb6"
+    },
+    "de/stories/gossip.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/gossip.html",
+      "sha256": "3fde3554b026ec4345cac836cac316219e8249b08eb6c2590778e994daf13da2"
+    },
+    "de/stories/gratitude-at-the-sink.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/gratitude-at-the-sink.html",
+      "sha256": "537f717e3bbcdbcde57e0af3f26a31223ca99af2195f5e528d532e3e9325420c"
+    },
+    "de/stories/grocers-sticky-fingers.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/grocers-sticky-fingers.html",
+      "sha256": "9824157d09cd2b92966189232e1ddafa7cb1fde5bea113cb1af9cf073ce0c893"
+    },
+    "de/stories/hajj-pilgrimage.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/hajj-pilgrimage.html",
+      "sha256": "97cecda39e3f2356c007b3a59396f8ad2be1e1bf89633770ceca433df450c604"
+    },
+    "de/stories/handful-of-roasted-chickpeas.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/handful-of-roasted-chickpeas.html",
+      "sha256": "c66f8f9a3c240a52a7377f4fdc1b12ae662ed735427f4ee0935b7260a63e2c35"
+    },
+    "de/stories/hands-at-work-hope-in-god.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/hands-at-work-hope-in-god.html",
+      "sha256": "dd8dcca75a87564cbc3a7f3b8a82119d6c3a469643e4f0f3b8344e194551d87b"
+    },
+    "de/stories/hayats-life-story.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/hayats-life-story.html",
+      "sha256": "3596c2fa22bf3e2c4fa2c9fd4f4820521bf0f32dbfca3fdd7e15c3f3e4bdec20"
+    },
+    "de/stories/henry-fords-choice.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/henry-fords-choice.html",
+      "sha256": "4cf08e9a4bf86f965d67b156c3c7263ac9677e156a3a34ffc934b468bc0a7c4d"
+    },
+    "de/stories/hold-my-hand.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/hold-my-hand.html",
+      "sha256": "73c9bb44ab21894ab2ff79fb81bb272cb20fbffd362377814b2cc723c0a84fb3"
+    },
+    "de/stories/honestly-earned-morsel.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/honestly-earned-morsel.html",
+      "sha256": "4c92ed2afc4bf81921d898583c4a831cc4dd078d160ced8f1765c8513383b466"
+    },
+    "de/stories/honey-or-dry-bread.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/honey-or-dry-bread.html",
+      "sha256": "36ea7d92501d3aea769b0ec9ebb59e1a532b46f233f0c6260800f30a32d65f73"
+    },
+    "de/stories/hot-bread.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/hot-bread.html",
+      "sha256": "465af4a18e58e20bfc4364ea4fa6a891475739c33bbe0900de28a2cb3e490f72"
+    },
+    "de/stories/hour-with-dad.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/hour-with-dad.html",
+      "sha256": "5870a1661cd03cf8491c2461a87e0584cfb9de198f7976a3b305bb05208d284d"
+    },
+    "de/stories/how-we-express-sorrow.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/how-we-express-sorrow.html",
+      "sha256": "583f733c2083be5424e8b1fe9f66b4e6903378af85ab158f049020bc2fdc13fb"
+    },
+    "de/stories/how-we-treat-people.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/how-we-treat-people.html",
+      "sha256": "0d768baf9bc75e2fc5a587bc02f030fdb79ca63de31eb049b88f00c02e666700"
+    },
+    "de/stories/human-being-emerged.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/human-being-emerged.html",
+      "sha256": "ebf2c50f3c51ccc4a1c901d358eeced641b33cc36af2ad74e3fa876ab0228f69"
+    },
+    "de/stories/humanity-etibar-siracsoy.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/humanity-etibar-siracsoy.html",
+      "sha256": "f0da0ba4b119242258617302eb676a3af0a595c35308fb70ba2939b8cd127e64"
+    },
+    "de/stories/humanity.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/humanity.html",
+      "sha256": "fe50fb91d37baa10c57d6d7381cf8513b50dddd4522dc6b0404c7bbdce26b18e"
+    },
+    "de/stories/i-kiss-your-eyes.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/i-kiss-your-eyes.html",
+      "sha256": "5cfd092f376d74e757d926abceed0562a02195570219014e44f02c991cf1f597"
+    },
+    "de/stories/i-love-you.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/i-love-you.html",
+      "sha256": "f8d9b4d23d38e29c417b2ce0061724f19df2a343cf905c730637f44694d2f8ab"
+    },
+    "de/stories/i-wish-for-a-friend.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/i-wish-for-a-friend.html",
+      "sha256": "31348d447315f8cbd7732d743bc453e98ac4dea8818a140d892a63ac4d2385f1"
+    },
+    "de/stories/if-fate-allows.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/if-fate-allows.html",
+      "sha256": "598b0c283e914869e015e1335713d2b1618e15ce66893e3b721843646a3c71ca"
+    },
+    "de/stories/ill-gotten-money.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/ill-gotten-money.html",
+      "sha256": "a026bdb627256e2ac05ad0bcb485d7e9f5ee29be30a8f0baeea5b86b6d3077ba"
+    },
+    "de/stories/im-tired-mom.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/im-tired-mom.html",
+      "sha256": "f66ef4df5ad98af74c7f631374aa219532cf8eec09f4a7c50a87bb82d975250e"
+    },
+    "de/stories/in-your-hands.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/in-your-hands.html",
+      "sha256": "591a065db53070b4395e1387276db0c13f8e579e557867c5026f5f6b17ebf51a"
+    },
+    "de/stories/inner-housekeeping.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/inner-housekeeping.html",
+      "sha256": "55720e614902ed07bc9e25dd55ec55138dee07ffe00583bae19d9a04f9d90c06"
+    },
+    "de/stories/investing-in-people.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/investing-in-people.html",
+      "sha256": "4c54212c5152ae0281430bb24b37b05d53022034f13f7bfb1d72025b344b4066"
+    },
+    "de/stories/istanbul-woman-remembers.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/istanbul-woman-remembers.html",
+      "sha256": "708f813e963b2922fdd2889d67a7c760d3c6193fc83e9ec4a9c955eaad28ca10"
+    },
+    "de/stories/its-pointless.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/its-pointless.html",
+      "sha256": "db6422aa65b0fae2db87b3156407b54eefbdfb8190b9076c6457027580bffcbf"
+    },
+    "de/stories/judges-answer.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/judges-answer.html",
+      "sha256": "7435cf2612db682442c0d04024db5dc567065fa5778e9843f9878eceaa6da776"
+    },
+    "de/stories/justice-and-compassion.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/justice-and-compassion.html",
+      "sha256": "24d1f05fc1a51282b464c2b1dfc14aac56c47106f9bacb1de29a82c700a11171"
+    },
+    "de/stories/keep-your-hearts-close.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/keep-your-hearts-close.html",
+      "sha256": "5636439b061670e731b123254f1bac3912e22efcb193f8c3f738e83a8e0be985"
+    },
+    "de/stories/keep-your-self-respect.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/keep-your-self-respect.html",
+      "sha256": "6579b19c3e38d288a72c9988a4a8dbaabb707bb9ab2db3b604efc004d03638eb"
+    },
+    "de/stories/keeping-your-cool.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/keeping-your-cool.html",
+      "sha256": "65d9a82ddd8bd39284bc59c74bc14d85062b257263ca274f7da7bbe57be49eec"
+    },
+    "de/stories/kings-generosity.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/kings-generosity.html",
+      "sha256": "b35848bdad49700a39acc928241c55b90dbedd03156b5c0c2240fbe8e22c6aee"
+    },
+    "de/stories/know-your-friend.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/know-your-friend.html",
+      "sha256": "6cb2215bc56fad0b477c293f54df303b7a1ba9609bdb796c01aaf53705096c68"
+    },
+    "de/stories/knowing-what-you-know.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/knowing-what-you-know.html",
+      "sha256": "261f114f6775504c4edd253cf398b0757d378e63b0a061f3c6cecece188e5748"
+    },
+    "de/stories/lambs-skins.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/lambs-skins.html",
+      "sha256": "e7caef6684b9b7b9cb23121322f65cd253131da52579632cccb31464017a1a67"
+    },
+    "de/stories/land-and-homeland.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/land-and-homeland.html",
+      "sha256": "083da044788c763856f8f17ff37383526d8650a18c0bd1c0cf99785b87633319"
+    },
+    "de/stories/language.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/language.html",
+      "sha256": "6efebeb77e21d60c3165933da803730cb1d7b1fe0692bcb6419894a9275432fc"
+    },
+    "de/stories/learning-from-loss.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/learning-from-loss.html",
+      "sha256": "b398e9fba5cea78131c0065f00aa3f4245eaba0072bb3592a79723e0d7bfdf73"
+    },
+    "de/stories/learning-to-say-yet.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/learning-to-say-yet.html",
+      "sha256": "5a3aed1cec6b3a1ebb90e3188efd061f4f3ad94deefdf155e241fe8825f4d3ca"
+    },
+    "de/stories/letting-go-of-painful-thoughts.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/letting-go-of-painful-thoughts.html",
+      "sha256": "fac7521d6af148d8dfbd387885bba250e2a9b48d5ca5ee5336788d10c97dacba"
+    },
+    "de/stories/letting-go.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/letting-go.html",
+      "sha256": "afc4cbbbff106d5d4b6addc78fac53b2decd16b9c9733fb15a2efd983b0beeed"
+    },
+    "de/stories/life-after-sixty.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/life-after-sixty.html",
+      "sha256": "0678e29621926cf55f716f8a2c5ab2e63535673a762ff7668473ed558d45210d"
+    },
+    "de/stories/life-flows-silently.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/life-flows-silently.html",
+      "sha256": "4fe15c7cb316788d8a4a532131134cabc38b4c586825aec6c5f1f6e8824a67e9"
+    },
+    "de/stories/life-is-short.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/life-is-short.html",
+      "sha256": "bb716565fd409bd27fd6b7283491783ab221597292c9e6d83ae7a594d420f253"
+    },
+    "de/stories/lifes-finest-blessing.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/lifes-finest-blessing.html",
+      "sha256": "d1fb4a87604b67c5e06451d79f6397f13580feb699d01216dbe1dcb71d983ce2"
+    },
+    "de/stories/lifes-lessons.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/lifes-lessons.html",
+      "sha256": "87a79f743f6a8aae319cbb455062f8b08904a7d582f6d82234c1a81ed52d805f"
+    },
+    "de/stories/light-of-the-world.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/light-of-the-world.html",
+      "sha256": "5c810646244320e4db3fe0a3bc7b598138aa2cfe7ac6c724b8ce4efebe3e0f1a"
+    },
+    "de/stories/lions-tracks.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/lions-tracks.html",
+      "sha256": "895e1c4c5a1a496721613f05ada64757faac637ad862f9820cdeba41543d3eab"
+    },
+    "de/stories/lions-untold-story.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/lions-untold-story.html",
+      "sha256": "f25fa9c1f3a974f0ac995c592998687c02dd579e2c5fd56c4dd0be8386ad52dd"
+    },
+    "de/stories/liver.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/liver.html",
+      "sha256": "06f92aa1e78fa34b6fe5807035553095e7eb9445a7e5ed5193f76372c73597ff"
+    },
+    "de/stories/living-in-the-past.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/living-in-the-past.html",
+      "sha256": "e5cca8287103c7263d91613a7f4aebbbe1420d1bb859a1fbea9e958a39f5b715"
+    },
+    "de/stories/living-well.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/living-well.html",
+      "sha256": "5a75616c7219112059d514280568ca0142f3dec3026954f6f7d6ab9e7a7abed8"
+    },
+    "de/stories/living-with-loss.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/living-with-loss.html",
+      "sha256": "2a192063fd3f237cea22ccb6fd573fecf3780740dae882c8b20c9f30a6e94c38"
+    },
+    "de/stories/loving-from-afar.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/loving-from-afar.html",
+      "sha256": "5524e3ddc3eeb62e13d014a476f99983e8e53720b66d4d8ce5f97a4f3669e3fa"
+    },
+    "de/stories/make-time-for-people.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/make-time-for-people.html",
+      "sha256": "43baf511228ce7c7265e7db739eea0bcb1e043686307cf50a212dd0fdc4e4ef1"
+    },
+    "de/stories/market-of-good-neighbors.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/market-of-good-neighbors.html",
+      "sha256": "30a0dd14170fc9268b92676d700d0718b0062b9fe648322ffa779ba57dc301ac"
+    },
+    "de/stories/mature-person.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/mature-person.html",
+      "sha256": "628fd300ce6ffcdafa353bea1e9e784ff004f9349f70b31f7967e3e9e26197c7"
+    },
+    "de/stories/mercedes.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/mercedes.html",
+      "sha256": "f3a875f96856a620ce2ef04274d2999ce4d8600e6b1c922bcb7ecd7677fa9fca"
+    },
+    "de/stories/mihrimah-and-sinan.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/mihrimah-and-sinan.html",
+      "sha256": "32604e60dddf2d0e2f6de7bd0e095a047f3c131c37c99360c8a4aa1151f27f33"
+    },
+    "de/stories/mockery-is-unacceptable.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/mockery-is-unacceptable.html",
+      "sha256": "83768948649d405e8f24229a2d0abc4b5c89e189a1553b3f49db0ddd562ec10e"
+    },
+    "de/stories/moderation-and-honesty.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/moderation-and-honesty.html",
+      "sha256": "e821989a11a7af2ba4e427e40cd941bf43d127aabfd0d1c95672272fb5ab3c8f"
+    },
+    "de/stories/more-than-money.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/more-than-money.html",
+      "sha256": "957ade55e37f4e1a0437793f8865c35107bff51b85b87e2a40be4fe50b65c396"
+    },
+    "de/stories/most-beautiful-gift.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/most-beautiful-gift.html",
+      "sha256": "930ec2bfe7c7d9d5882c9bf852a540611a45da37506a7e4477ccc58a9cb59ab0"
+    },
+    "de/stories/mother-and-son.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/mother-and-son.html",
+      "sha256": "4dc8c41eba3b4406776a21ad6adfde3e6024d7472beae941f9c072a8ab926c02"
+    },
+    "de/stories/mother-of-pearl-flower.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/mother-of-pearl-flower.html",
+      "sha256": "4eee6cf71f0909554841e1f85fee62d61f54bcbd6207876766cf6da154b7846c"
+    },
+    "de/stories/mothers-lasting-lesson.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/mothers-lasting-lesson.html",
+      "sha256": "4c04db275fde81ce0b3f32a07c378c1bf4426eec5892fc2d2e06bceee5510a46"
+    },
+    "de/stories/mothers-love.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/mothers-love.html",
+      "sha256": "1bacc4544781843b9339a86fcabdcbae5b89aa932ad6eb40f891c4d469e004e9"
+    },
+    "de/stories/my-alif-has-been-dotted.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/my-alif-has-been-dotted.html",
+      "sha256": "fd009dcebf04baf7c8d438c5d5311338941b355321af26768225bd357d1148a3"
+    },
+    "de/stories/nails-lesson.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/nails-lesson.html",
+      "sha256": "bc3e3c7d71b1cb930c20e464d22e4cba1d4eb326a42d8309737b3f9016385cea"
+    },
+    "de/stories/nest-builder.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/nest-builder.html",
+      "sha256": "d3fd6db5a7fb6e88c8692a9bf2358b570cc60ff37bd163990afda4376ec22541"
+    },
+    "de/stories/never-lost.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/never-lost.html",
+      "sha256": "5720c2a86804c0a558a8bc8664aacb9b4177f2a48fa43381eb8337345dc6d57b"
+    },
+    "de/stories/newtons-second-law.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/newtons-second-law.html",
+      "sha256": "95aae02fd69647240c17ec31ba099be0a5b57e095f117fc2e1fd8b33bed95b78"
+    },
+    "de/stories/not-my-concern.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/not-my-concern.html",
+      "sha256": "dcd2d1ade6a595f3e654cedf4b78bfa4e3aca51c7d1d1e77c9ceb6febda085db"
+    },
+    "de/stories/now-i-understand.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/now-i-understand.html",
+      "sha256": "5c02250ffd8a62192b2d8c63736a0786ca5dcee97286939ac6a4d18a675c8db6"
+    },
+    "de/stories/obstacles-and-opportunities.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/obstacles-and-opportunities.html",
+      "sha256": "d64ac8e82fb8474665eddca6d5756b52ed7c73df7866c35702a28f79eb23c30b"
+    },
+    "de/stories/only-my-mother-truly-weeps.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/only-my-mother-truly-weeps.html",
+      "sha256": "9add43170e66d09385033f85ba6450e134cd9879e2fc3e775dd45fd395101c6d"
+    },
+    "de/stories/other-peoples-thoughts.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/other-peoples-thoughts.html",
+      "sha256": "c6c1b7369b43bf2866bf1201064937835ea6029225181578d950f9e4486010a8"
+    },
+    "de/stories/pair-of-boots.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/pair-of-boots.html",
+      "sha256": "8bcc4822a9f7c5f2589c726a2d3fa37bc31c5e5f05be5580783db9d68c59a8cc"
+    },
+    "de/stories/pawn-and-the-king.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/pawn-and-the-king.html",
+      "sha256": "ce55ad676a7649895c31aa8a193dab665d02f02b6a75cc4953b2b2c78e591d45"
+    },
+    "de/stories/pay-rent-for-the-water.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/pay-rent-for-the-water.html",
+      "sha256": "f52cf5bf772de677f0438dbe4e0c9699316b3aa26af1bb5f520e3c7d216f6654"
+    },
+    "de/stories/permission-or-forgiveness.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/permission-or-forgiveness.html",
+      "sha256": "de6acc75fa02b144a6fafd9e45ce12fc8a87d5e534ee5dbc319d59e67ccd44fe"
+    },
+    "de/stories/place-in-loving-hearts.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/place-in-loving-hearts.html",
+      "sha256": "b7beb39e4958e4d424b78e864404c5e2587691ad561ffd4e862b5f827b9641cd"
+    },
+    "de/stories/plastic-cup.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/plastic-cup.html",
+      "sha256": "7b9aaaeb26f0523fcd8c66ee952cd9e381b2f3d676dbbdbe59e669cd32b596ad"
+    },
+    "de/stories/pleasure-of-allah.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/pleasure-of-allah.html",
+      "sha256": "ae7c437bd77371d2fb784e18350176eae7397a4d2c0ce7c84a0518f988448d74"
+    },
+    "de/stories/plucking-the-goose.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/plucking-the-goose.html",
+      "sha256": "9da67a84e420b2c3c37f32a8a9c875e7e2f67bf7d66b46ea860b004db09402b6"
+    },
+    "de/stories/power-of-justice.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/power-of-justice.html",
+      "sha256": "19691b6458ba05e38cff3fdef4cf17ddb756a8f0578e888f024f9a74cbd6125a"
+    },
+    "de/stories/prayer-finds-you.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/prayer-finds-you.html",
+      "sha256": "744689a1814c586d844cbd4354145528da4b7820ad7de9c7235f9dfdf7381aac"
+    },
+    "de/stories/prayer-for-everyone.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/prayer-for-everyone.html",
+      "sha256": "47e4c82bb7b977d57c814626758f277bd4f4f8d617abde53f151ed716d5b92da"
+    },
+    "de/stories/prayer-for-relief.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/prayer-for-relief.html",
+      "sha256": "036e543ee1a10b4fd5253e6f52354ed2b660851e1cfb0ec8abbbccd9dcaf98fa"
+    },
+    "de/stories/price-of-a-miracle.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/price-of-a-miracle.html",
+      "sha256": "dedb85276f9bba2063ab604ddd4aa41fa8446863230a3a4d276401ea140e3968"
+    },
+    "de/stories/price-of-belonging.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/price-of-belonging.html",
+      "sha256": "14469fc238d9ea02facb25c3d9a151602d1f06d045b6577b176f38b3a4ae7bd5"
+    },
+    "de/stories/puppies-for-sale.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/puppies-for-sale.html",
+      "sha256": "2cac38fd9fab19d845a11a0a2662ac036bb815be8df13abe0e6afbbceeb118c8"
+    },
+    "de/stories/purple-jacket.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/purple-jacket.html",
+      "sha256": "54d22be4331380f609aefadce503ce3a8c0f8e26478d2329171c5e7b74717f1d"
+    },
+    "de/stories/qualities-of-water.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/qualities-of-water.html",
+      "sha256": "2240b789fd0319980988e847a8d5ad9f7ec57eab3a8228f5b6a093650aad4f59"
+    },
+    "de/stories/question-the-question.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/question-the-question.html",
+      "sha256": "db66427431dc8032b1aa5d512342fad8f406b28edb3622c7d41d85a5619f8f45"
+    },
+    "de/stories/raising-a-child.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/raising-a-child.html",
+      "sha256": "e6a5833452fd2875264484e8d9daeafb9379ac2709e9ec21db9194d65308c351"
+    },
+    "de/stories/ramadan-prayer.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/ramadan-prayer.html",
+      "sha256": "2186c84e9da0454dd09bb3ccc55b0cae824c7b52de9311399da12b826c015950"
+    },
+    "de/stories/red-dress.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/red-dress.html",
+      "sha256": "e75821cfd1fdb923025a38d296570fe8cfafcd8cdd3e892eb68987ea316d7518"
+    },
+    "de/stories/relationships.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/relationships.html",
+      "sha256": "a602d32af5781abdf7459ea4ba2f9351d593e49d7ab435b2d1ddd02d3ef3c4a4"
+    },
+    "de/stories/remarkable-lesson.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/remarkable-lesson.html",
+      "sha256": "dcd9b5a450a1ad8c26a7e3346754e7c6c0e2e1894ae8507bc9678ff6474df2ae"
+    },
+    "de/stories/request-for-help.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/request-for-help.html",
+      "sha256": "57661cda27f5dfa90203a966b4e9dd1bb108b7699341f74d46872f2cf53a53c1"
+    },
+    "de/stories/respecting-boundaries.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/respecting-boundaries.html",
+      "sha256": "2d0940f024a24de1be772d66c0a1b25fb4448539f56fa7a520a0532bdfcf555e"
+    },
+    "de/stories/rotten-seed.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/rotten-seed.html",
+      "sha256": "c10dce38b9ef66a12cde88f4766840754a2052cd296bbf53e2739cd459f1c5d8"
+    },
+    "de/stories/sacrificial-meat.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/sacrificial-meat.html",
+      "sha256": "dd9df9ecfcf6276195b66dcb69c897540f33edcff21b734590e78fb6bb52fa05"
+    },
+    "de/stories/scarf-seller.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/scarf-seller.html",
+      "sha256": "4f885714bc5c7b17fb34c28dd114e273ac0cce8ff18b7d3a78b2fd8dc5bb699c"
+    },
+    "de/stories/searching.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/searching.html",
+      "sha256": "0e414c3f1c398b4da0d393068d44ff01bec67f3eb69b491bea58c845ef89f739"
+    },
+    "de/stories/seeing-without-understanding.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/seeing-without-understanding.html",
+      "sha256": "57bf8f9175a486fd5775356603b3e8ee0ef92c303559ca96daa8fa3ee9d18f17"
+    },
+    "de/stories/share-what-you-know.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/share-what-you-know.html",
+      "sha256": "e9ceec064e7b7023df42af40e99426c94194c655601add5ecfe702da641f9d76"
+    },
+    "de/stories/shared-goal.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/shared-goal.html",
+      "sha256": "c8486fc409b335f9944ef9af209a27252e078d539f193cca00e7e843b83bd149"
+    },
+    "de/stories/sharing-justice.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/sharing-justice.html",
+      "sha256": "a0d3f4abc1d1819e0563a8c9700d7fa082aa0b63d5c6b420c70d1a1a9475a540"
+    },
+    "de/stories/sharing-the-burden.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/sharing-the-burden.html",
+      "sha256": "794c781a5d243b2ab4240d25757f2a56b02e1b2e9babd0db5f09eb411bb5c089"
+    },
+    "de/stories/sharpen-the-axe.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/sharpen-the-axe.html",
+      "sha256": "3b03887708d4e41b66591dfc52fb4e52b625cb6bfc3e4cbea71dcc26340ee003"
+    },
+    "de/stories/shepherds-word.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/shepherds-word.html",
+      "sha256": "714de058b608f155d13392830686b4ef8b7bdd312678c101444f7f4156a187df"
+    },
+    "de/stories/silence.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/silence.html",
+      "sha256": "6b3be18852fcfab785a6c6be39fecd7f5236a92aa758a64a259f9e5728e65eac"
+    },
+    "de/stories/silent-corridor.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/silent-corridor.html",
+      "sha256": "e983ccea02342640635a9a1f7f29ad8419db2a3987f51bbfc74e7453fdcebc6d"
+    },
+    "de/stories/sinans-waterless-house.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/sinans-waterless-house.html",
+      "sha256": "30b4346341c531695ca5a098a0005b31877e84e2b3c4df5b02d28dc26853acbb"
+    },
+    "de/stories/small-changes-great-value.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/small-changes-great-value.html",
+      "sha256": "ba4f487cd747cd60e85e13159e970787d44e9ca903a36560959df65d59ecd669"
+    },
+    "de/stories/spinach.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/spinach.html",
+      "sha256": "6bed884df87f34dec8a09290c184fab5a7954a1bcda60d227f2de3a601b0241c"
+    },
+    "de/stories/stay-calm-arif.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/stay-calm-arif.html",
+      "sha256": "9a4dc6e09f600cd4c6a264bc437fee881eef04acfa26ad404c2f5ee518dd6e0c"
+    },
+    "de/stories/staying-on-the-right-path.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/staying-on-the-right-path.html",
+      "sha256": "1e916a335ddcee3f7a0f54cdd9d52625ad794fe2b40d850d448c3ee61747aadc"
+    },
+    "de/stories/stolen-camel.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/stolen-camel.html",
+      "sha256": "bd92f81930c6fd554209333441dc04327da55134391ea56c32f05fe9ef8ed15c"
+    },
+    "de/stories/stoning-the-devil.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/stoning-the-devil.html",
+      "sha256": "738e86552480d59909abcf3a0eb926ac38bf65b397f33aab429568d14743fe40"
+    },
+    "de/stories/strength-and-sorrow.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/strength-and-sorrow.html",
+      "sha256": "580fab1dc3249565b8b6cf10fda818985658e7d4bfaff385bebeb699fd7ecf37"
+    },
+    "de/stories/strengths-and-vulnerabilities.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/strengths-and-vulnerabilities.html",
+      "sha256": "0cb44d7bc18afc0f736d4d7ee4b8d2338138d9e9d8f1dd2d2fce01fe5cc5c312"
+    },
+    "de/stories/stronger-together.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/stronger-together.html",
+      "sha256": "e61e0e4b06af09dec0439821cbaeda482b6d5e7d6022ce2797e994ce783e2fca"
+    },
+    "de/stories/strongest-shield.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/strongest-shield.html",
+      "sha256": "2cdb7b87b289f63444adac6ab2cebda7d586c50068e4f13f2c05f6ebc543bd11"
+    },
+    "de/stories/sunlit-day.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/sunlit-day.html",
+      "sha256": "88937f15e0528859496d1233d789578bad0fe6af3f12dee7cda177f9443544ec"
+    },
+    "de/stories/telling-lies.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/telling-lies.html",
+      "sha256": "d872fb6ef062cadc6f4987200a5f33c9ed90b2f923fe6451f95711005ca7eb2b"
+    },
+    "de/stories/think-before-speaking.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/think-before-speaking.html",
+      "sha256": "4de9c4b3976e569c06ae17064f188eba72b653ea171f63de0a7e5c4625de3965"
+    },
+    "de/stories/those-who-give-love-receive-love.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/those-who-give-love-receive-love.html",
+      "sha256": "94807001d46573a8869bf628c2296686678a6b87fb7f68a456550f7dba00babc"
+    },
+    "de/stories/thought-word-and-deed.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/thought-word-and-deed.html",
+      "sha256": "2a5af64de860646aea7e7105e170411e89e20267fbb21fac819db2d97ca6b287"
+    },
+    "de/stories/thoughtfulness.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/thoughtfulness.html",
+      "sha256": "e7fcb0d2d727da4bded032ff78f9208bf1edf2405d33089581ece393a2934a62"
+    },
+    "de/stories/three-best-things.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/three-best-things.html",
+      "sha256": "b9681a041bdae4277c6202d1b540b23524bb0072db7efceb230dfaab865da023"
+    },
+    "de/stories/three-essentials-for-a-city.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/three-essentials-for-a-city.html",
+      "sha256": "ffa5790a5ee4c04714157edd622f168acece1f4eb5620e6279ca00db6cab85e6"
+    },
+    "de/stories/three-questions.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/three-questions.html",
+      "sha256": "67adea2960efc9374181f54558a938efe7cadef089a3ce99de2ce9b651878a5b"
+    },
+    "de/stories/three-scenes.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/three-scenes.html",
+      "sha256": "c57b2654d751f0fdedb7118150d7ca489b1250e4ddd882c6b92858d4277c33b4"
+    },
+    "de/stories/three-statues.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/three-statues.html",
+      "sha256": "55b5eb06663b5a06ec56fd6c8f5a47e4337e58bf010b97548730cc9a278bb40d"
+    },
+    "de/stories/tortoises-miscalculation.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/tortoises-miscalculation.html",
+      "sha256": "15ba875abbeb274c627d5c3510f5910423207d4e0cee18b23c6f09312bf5ee54"
+    },
+    "de/stories/true-love.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/true-love.html",
+      "sha256": "2a741ed1048eff714e6cddaf8769be0998fcdba1a47ba142dcfb66ee31604bbe"
+    },
+    "de/stories/try-again.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/try-again.html",
+      "sha256": "2c4f0d0285066d25cae5459afd3cb1acf6988808a925899ae668c5fb5cb53a19"
+    },
+    "de/stories/two-bowls-of-water.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/two-bowls-of-water.html",
+      "sha256": "e67ed4424fd4b0979b7937cb94d05551ca7a4a8c89fd4fdff64c373762d62fef"
+    },
+    "de/stories/two-donkeys.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/two-donkeys.html",
+      "sha256": "f47a197c2187b09c9f7657309c39c35c8f234d91258204f1e110ab4476404746"
+    },
+    "de/stories/unwelcome-gifts.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/unwelcome-gifts.html",
+      "sha256": "778fbbfae1655599d75e8764055f437ef81ebfcd70a679dd39c5d13e1d117a5d"
+    },
+    "de/stories/vizier-and-the-scholar.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/vizier-and-the-scholar.html",
+      "sha256": "076e9072c9b92a68b02863a328c64cd8b984249589b98ef4edf3e527492b5492"
+    },
+    "de/stories/waiting-for-the-teeth.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/waiting-for-the-teeth.html",
+      "sha256": "708b1aeb58a4bbb4342d5b56c37618761aaed512e006689d2ffd59e35e49c8ff"
+    },
+    "de/stories/we-are-rich.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/we-are-rich.html",
+      "sha256": "2b1dd581063d5a7d30342396c6b179534cf03ca5f5aff99942e783c973e2b27a"
+    },
+    "de/stories/weeds.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/weeds.html",
+      "sha256": "65c975498270689dec6d243b772a4a853bba5f095c0462bd67a1f8815ef468d2"
+    },
+    "de/stories/weight-of-the-butter.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/weight-of-the-butter.html",
+      "sha256": "ac78f40fb4335a5c6138eb80ebb967110892f02ef78470eec16d32292d8dfc81"
+    },
+    "de/stories/welcome-home-my-dear.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/welcome-home-my-dear.html",
+      "sha256": "83b00057b64696a8eefb132e55a99e20ac57533d407cf7877dc1aa1a68b6127f"
+    },
+    "de/stories/welcoming-smile.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/welcoming-smile.html",
+      "sha256": "40f3f5a2d56055c76731de22524304acd44bae792456dfe333c13e0b28d145be"
+    },
+    "de/stories/well-chosen-words.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/well-chosen-words.html",
+      "sha256": "f080e6c7bf959046949fafbc04c46116a09ddd896f5868cc1527c2818daf0897"
+    },
+    "de/stories/what-changed-after-sixty.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/what-changed-after-sixty.html",
+      "sha256": "c33bc0f188f8ed9951bba78e2c0ae1e90dac41805d67adc8aa93aa95d46fb5e0"
+    },
+    "de/stories/what-is-a-word.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/what-is-a-word.html",
+      "sha256": "dab5afbbd06badb5713c671fdc2fabb74cd4911b99e0f32dc998fe10e28e2e9d"
+    },
+    "de/stories/what-is-loyalty.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/what-is-loyalty.html",
+      "sha256": "9356b0d64ddcf5211d258b0c080eaca745513378bf183f75758d62189d25e262"
+    },
+    "de/stories/what-matters-in-life.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/what-matters-in-life.html",
+      "sha256": "60cea23b4407d6ba48925619c2736dedad187002bd2d79b8f3220ff3e260460b"
+    },
+    "de/stories/what-women-endure.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/what-women-endure.html",
+      "sha256": "d978af969bc74ee707e1f433bc3dd3505f53c082ffcd7f5b1fbcbe40eb9ecb1b"
+    },
+    "de/stories/where-does-this-road-go.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/where-does-this-road-go.html",
+      "sha256": "b9f5f75ce979248ce5b4250a106220ce863c3b63902e0f8f8f235cb4067afa68"
+    },
+    "de/stories/who-was-keeping-watch.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/who-was-keeping-watch.html",
+      "sha256": "a8fc5cc4b70dd6869d0ac201b500f8e478bddfb62ccee06bee16b46965eaf4f1"
+    },
+    "de/stories/why-shout.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/why-shout.html",
+      "sha256": "7fb78174308b7cd027cb51c0597a3d09f36c8ccf76ba2dcd0a87e8845bbb2390"
+    },
+    "de/stories/why-wait.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/why-wait.html",
+      "sha256": "791fe84b9f073e3d9a1a1b9bbfc280d88d35f027adea1cbcdac9a21c5aad0fa1"
+    },
+    "de/stories/windmill-turning-without-wind.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/windmill-turning-without-wind.html",
+      "sha256": "67b7238ef687a26c6e07a58a0659835ef0bc68616cfa64c01d92f12825c188ff"
+    },
+    "de/stories/without-a-plan.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/without-a-plan.html",
+      "sha256": "afd0244012f4f73d5b06ee4f7f9b02b9c1f945177e00b0e5ae6cb1f5abc274bc"
+    },
+    "de/stories/woman-and-the-mirror.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/woman-and-the-mirror.html",
+      "sha256": "784d7f7cbe577c9878a4b5f6c9883b9015ae01d85c0dde54aef05fb176fea2a5"
+    },
+    "de/stories/words-and-silence.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/words-and-silence.html",
+      "sha256": "d7e5bfff522418a36047f88d19e5f4122445aa5442997c97ed492935b86d0fc0"
+    },
+    "de/stories/words-to-avoid.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/words-to-avoid.html",
+      "sha256": "20063b05761d90333db296374182b1e5b7292f9c1ca5eedac94dbb89255325c4"
+    },
+    "de/stories/yellow-and-red-flowers.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/yellow-and-red-flowers.html",
+      "sha256": "52f4e66c50e344729ed44fa67a11f595dbb128b862cd84114982cd57e37d0294"
+    },
+    "de/stories/your-friends.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/de/stories/your-friends.html",
+      "sha256": "24a0a5ab4cc91428b1ff155a070cfb32f7b91d3b3bb2ad07bd058f1f7c0fc8fd"
+    },
+    "en/about/mission-vision-values.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/en/about/mission-vision-values.html",
+      "sha256": "9572e2cd138209a451f0cc98a03af6635bbb29e2fba9de034b8d7b1879199abe"
+    },
+    "en/assets/search-index.js": {
+      "status": 200,
+      "url": "https://birinci.cloud/en/assets/search-index.js",
+      "sha256": "d6797c7fde82e290a20441a5b167d891a30fd50ba8933d9d4db84fbd8ecf00c5"
+    },
+    "en/assets/stories-data.js": {
+      "status": 200,
+      "url": "https://birinci.cloud/en/assets/stories-data.js",
+      "sha256": "958a3baf7615830bd255ff3b24336a389ea2fb8ab9af0306876003425d5d8830"
+    },
+    "en/categories/aile-ve-terbiye.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/en/categories/aile-ve-terbiye.html",
+      "sha256": "345271b0ea5878799d4ea709b22ee3edc1a88ee14d7a24bab88a26541a75a709"
+    },
+    "en/categories/dostluq-ve-insan-munasibetleri.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/en/categories/dostluq-ve-insan-munasibetleri.html",
+      "sha256": "43e0fa2bce65dd28cac4d8960e4e2f532115bb4a7c663b4bd23347aa311e2a6c"
+    },
+    "en/categories/edalet-ve-cemiyyet.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/en/categories/edalet-ve-cemiyyet.html",
+      "sha256": "1f69340483cd0b937d51d57762fd4795ca356fbeb6ec13f3b6a635a030db3fca"
+    },
+    "en/categories/emek-ruzi-ve-servet.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/en/categories/emek-ruzi-ve-servet.html",
+      "sha256": "d8c3750a946491e1bac6e6b6d92c9f2e35738bf7f74026f79b30491b8ba4e221"
+    },
+    "en/categories/exlaq-ve-xarakter.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/en/categories/exlaq-ve-xarakter.html",
+      "sha256": "9150d4eec3abc6c1271b7e7c8b1526fcb89a3fd8b7d1d7ed321428d1b9e7adc6"
+    },
+    "en/categories/hikmet-ve-heyat-dersleri.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/en/categories/hikmet-ve-heyat-dersleri.html",
+      "sha256": "341d5ff8caa2729b88abd99ea09f933a32f01cc42b749b78c3c56baa291f3dad"
+    },
+    "en/categories/iman-ve-meneviyyat.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/en/categories/iman-ve-meneviyyat.html",
+      "sha256": "ec3f3f7c6eb1e0c14b0157df160c695827c28363af732401b470c1d1519d9953"
+    },
+    "en/categories/sevgi-ve-evlilik.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/en/categories/sevgi-ve-evlilik.html",
+      "sha256": "e078c338242e57756558d5475e34c6768e920a7eb45a51dee8a55ae3b092e6d5"
+    },
+    "en/categories/soz-sukut-ve-unsiyyet.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/en/categories/soz-sukut-ve-unsiyyet.html",
+      "sha256": "e136d41026bb4c43e3ab0e1ccef083dd4d1c05608d575fefa61abc8e79aa137f"
+    },
+    "en/categories/tarix-ve-taninmish-shexsiyyetler.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/en/categories/tarix-ve-taninmish-shexsiyyetler.html",
+      "sha256": "2e0b6f79b4ce8f6e0208b8273710e0308ee118ed7b3b94805eef8cb8a14fc935"
+    },
+    "en/categories/temsiller-ve-meseller.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/en/categories/temsiller-ve-meseller.html",
+      "sha256": "f171498b4539c8fdac3f3cf6e704f4f0faccf26f65a8562a524320bb54dfaa8c"
+    },
+    "en/categories/yaslanma-ve-zaman.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/en/categories/yaslanma-ve-zaman.html",
+      "sha256": "60019e9b2b2f2c56431194d8658c48732fd091e23e3e6ba5e99a2fbebecfda16"
+    },
+    "en/cookie-policy.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/en/cookie-policy.html",
+      "sha256": "14f80893ddf8e26e690638e7b1d161c341c8db5e75c51e3b4e4f8f5b28cdf8c6"
+    },
+    "en/index.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/en/index.html",
+      "sha256": "2f2b19740d66a6c5cb4025a6c9fa52f33c37906021b141f1f78414b0706537fd"
+    },
+    "en/legal-notice.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/en/legal-notice.html",
+      "sha256": "0884fb008b55a692a7da6ae8da42aefb117e7c828201d32b929654fd648170c2"
+    },
+    "en/privacy-notice.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/en/privacy-notice.html",
+      "sha256": "28d325293074c661c5303f3765c8f0da14ac804cef08e6707fa32aac9d122017"
+    },
+    "en/sitemap.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/en/sitemap.html",
+      "sha256": "6e279df97d6d4d24894aba54a07de0ac908446cc9c200ddaa24653e3437332df"
+    },
+    "en/terms-of-use.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/en/terms-of-use.html",
+      "sha256": "548df4cde4ae5a9876721564405094a420006427ea2353c1c11aad167e1abf31"
+    },
+    "ky/about/mission-vision-values.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ky/about/mission-vision-values.html",
+      "sha256": "a22f11e3c59e508497b2b2f6f7a0b60d87fb1cc3d3bcdad103be2fbe498c80fa"
+    },
+    "ky/assets/search-index.js": {
+      "status": 200,
+      "url": "https://birinci.cloud/ky/assets/search-index.js",
+      "sha256": "1491dc028a63290d8ce1b0d42e19343a2197baf67dffd8d00b752d60a6808f7e"
+    },
+    "ky/assets/stories-data.js": {
+      "status": 200,
+      "url": "https://birinci.cloud/ky/assets/stories-data.js",
+      "sha256": "c32ceb83e8980ea29cdfaeeb3edc8c633a2c249cfa1045993a23d6238e8b2cd9"
+    },
+    "ky/categories/aile-ve-terbiye.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ky/categories/aile-ve-terbiye.html",
+      "sha256": "c660d47b48162b70ef2bc14f24ebb5fa7332955c3adea2f0dc581419f63ead42"
+    },
+    "ky/categories/dostluq-ve-insan-munasibetleri.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ky/categories/dostluq-ve-insan-munasibetleri.html",
+      "sha256": "98e0f09adb390888bd56e951589832423b660c76189a34ad1160ba584a940117"
+    },
+    "ky/categories/edalet-ve-cemiyyet.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ky/categories/edalet-ve-cemiyyet.html",
+      "sha256": "05a26bc9ed12489256cb295cdbe24e8cfe00f1d3f87c6e82aaaef39894ec2210"
+    },
+    "ky/categories/emek-ruzi-ve-servet.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ky/categories/emek-ruzi-ve-servet.html",
+      "sha256": "d8307c30b9e7da24cb63f13fec83940d877b66389f3e185018b1324ed6f95dbd"
+    },
+    "ky/categories/exlaq-ve-xarakter.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ky/categories/exlaq-ve-xarakter.html",
+      "sha256": "ab31e239ee9e4bf4fc64a06c46f010b57d73b2a94b6988554a65f75f43d3584b"
+    },
+    "ky/categories/hikmet-ve-heyat-dersleri.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ky/categories/hikmet-ve-heyat-dersleri.html",
+      "sha256": "e363eecfd2b735a60ad39f6a9c6c1339a28e18e4311dbe2517143863b4fcdd3e"
+    },
+    "ky/categories/iman-ve-meneviyyat.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ky/categories/iman-ve-meneviyyat.html",
+      "sha256": "278bf3548af75e94e0f99e224effbfe28a720e80ab6f19e7131edd18d9570992"
+    },
+    "ky/categories/sevgi-ve-evlilik.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ky/categories/sevgi-ve-evlilik.html",
+      "sha256": "1460e41946879af35b99ad797d880c7eb6fa860ad9c0e7fe41098a995d1db196"
+    },
+    "ky/categories/soz-sukut-ve-unsiyyet.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ky/categories/soz-sukut-ve-unsiyyet.html",
+      "sha256": "9e7fc16e5fdb3d291818a03be91963afeec33c3aa7bbe798cb237d59b92979ea"
+    },
+    "ky/categories/tarix-ve-taninmish-shexsiyyetler.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ky/categories/tarix-ve-taninmish-shexsiyyetler.html",
+      "sha256": "962dede030e4720c8887bf5df13c6fbb33b7d73dd1cfde8223f79dc3cca738e7"
+    },
+    "ky/categories/temsiller-ve-meseller.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ky/categories/temsiller-ve-meseller.html",
+      "sha256": "359c1edd532e432ab6808aa175a17efbcb34a9975dd2ef1ac489d84c2bcb39bd"
+    },
+    "ky/categories/yaslanma-ve-zaman.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ky/categories/yaslanma-ve-zaman.html",
+      "sha256": "5c857197dcaf0802a8d25a7b247da27217f8a727665b25e97f968580e6a8211f"
+    },
+    "ky/cookie-policy.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ky/cookie-policy.html",
+      "sha256": "2feba949c8e10f645eeb482ac139b02630101699bde13cf69b7d19fcfe4db0a2"
+    },
+    "ky/index.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ky/index.html",
+      "sha256": "fa9bdac70c65992e9b23c2c2a21daa0ff81f4d0f3df635e98dd067e27a648b1c"
+    },
+    "ky/legal-notice.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ky/legal-notice.html",
+      "sha256": "780ae91f3f5792d25275e41c1a0052d2744c86879e79752ca980d80545cd0653"
+    },
+    "ky/privacy-notice.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ky/privacy-notice.html",
+      "sha256": "08b1c1a712bb834160eb7ae0d5a1e3ab1245de4f7b46ddb17b2b6ed5be682874"
+    },
+    "ky/sitemap.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ky/sitemap.html",
+      "sha256": "7d65db5c5aa810a6296b8d5bf33fc0f47556d587ff392b7fcfd9df191bf36e9d"
+    },
+    "ky/terms-of-use.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ky/terms-of-use.html",
+      "sha256": "5b4c1ae2d9db8840aa9e73f1a5fe17ab1fde7bcaee2f12b7ed3c8b1fc0e2dc99"
+    },
+    "ru/about/mission-vision-values.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ru/about/mission-vision-values.html",
+      "sha256": "f93181886ccafa2a4d2f4243dd78c7369c994bc1aff49523454ffc0df899f984"
+    },
+    "ru/assets/search-index.js": {
+      "status": 200,
+      "url": "https://birinci.cloud/ru/assets/search-index.js",
+      "sha256": "dc6a56a7c62bcb3b9dad2bcd9964994742135973dd9a7169866f6e6cb2b70da4"
+    },
+    "ru/assets/stories-data.js": {
+      "status": 200,
+      "url": "https://birinci.cloud/ru/assets/stories-data.js",
+      "sha256": "adabfe21d8924487bd523211aea0f3ab3bf8fdce10859c129e794c153c4843c1"
+    },
+    "ru/categories/aile-ve-terbiye.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ru/categories/aile-ve-terbiye.html",
+      "sha256": "5362e5db18f8543dc1501626cab4c34a170be1b92816fb888d84b1ace771299c"
+    },
+    "ru/categories/dostluq-ve-insan-munasibetleri.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ru/categories/dostluq-ve-insan-munasibetleri.html",
+      "sha256": "e43116d47f1761c036399f41001f91a8a9f37a5e22924e39a8a04dd82e81070d"
+    },
+    "ru/categories/edalet-ve-cemiyyet.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ru/categories/edalet-ve-cemiyyet.html",
+      "sha256": "96645db9e6e2defe50cc4e95981f564630f78b122d61d02edc204b7b7cb8473c"
+    },
+    "ru/categories/emek-ruzi-ve-servet.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ru/categories/emek-ruzi-ve-servet.html",
+      "sha256": "99ef646d922a9a6bc787502bb3f93187a08c10b10eb8f5a159a95adbf6838c7e"
+    },
+    "ru/categories/exlaq-ve-xarakter.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ru/categories/exlaq-ve-xarakter.html",
+      "sha256": "b5abcae61a7efca6e2b004de69785f71a7b0392f7c5fe789fd1a87ef789ab23b"
+    },
+    "ru/categories/hikmet-ve-heyat-dersleri.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ru/categories/hikmet-ve-heyat-dersleri.html",
+      "sha256": "36feffd67b0244816d15e9e8cee5ec6c90ad31d02a2928f2af5291417f11129d"
+    },
+    "ru/categories/iman-ve-meneviyyat.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ru/categories/iman-ve-meneviyyat.html",
+      "sha256": "91a60dfbe1a1dab8b959088d9c100215b2a3c4f72e322e06af965a15dde91106"
+    },
+    "ru/categories/sevgi-ve-evlilik.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ru/categories/sevgi-ve-evlilik.html",
+      "sha256": "ee596844cabff09f4a1a782a51d6ad50510be927af57ed82f97b7b8bf964afce"
+    },
+    "ru/categories/soz-sukut-ve-unsiyyet.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ru/categories/soz-sukut-ve-unsiyyet.html",
+      "sha256": "ab4855126cdf4a9350f149b1599414972c0b4854a27b50e756ecbc696afb25f0"
+    },
+    "ru/categories/tarix-ve-taninmish-shexsiyyetler.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ru/categories/tarix-ve-taninmish-shexsiyyetler.html",
+      "sha256": "65448d77f696c437726cea31dadf3e564ec3e6262758a1800248f30363aac4ac"
+    },
+    "ru/categories/temsiller-ve-meseller.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ru/categories/temsiller-ve-meseller.html",
+      "sha256": "78c76b5493b58e7e8677c87cca473753e1baf45d1c3b77a22c696181b93490e2"
+    },
+    "ru/categories/yaslanma-ve-zaman.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ru/categories/yaslanma-ve-zaman.html",
+      "sha256": "b748f112ec3028db4000c8bcf1db24f1e97fc46c5f3770e983021d42c2c858e8"
+    },
+    "ru/cookie-policy.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ru/cookie-policy.html",
+      "sha256": "ab6f70f10742bfbee9c796a6c72ac5245070c138a5ecb944931bbc32f75cbe6f"
+    },
+    "ru/index.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ru/index.html",
+      "sha256": "64e63f475aa57063272cd02e0d89c1c8ab300dee9228d35fb142dab817250767"
+    },
+    "ru/legal-notice.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ru/legal-notice.html",
+      "sha256": "f4c7b653017c7ad0d0f1f013896b8ce8586a1f895888aa9ca6b537234dd6a64a"
+    },
+    "ru/privacy-notice.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ru/privacy-notice.html",
+      "sha256": "05dbeab8ecfb372d61819b9b0ce40b4c745add561db6d39b37dd1391a6df1abb"
+    },
+    "ru/sitemap.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ru/sitemap.html",
+      "sha256": "f70bc9b25ad3f58ff0baa7b4ab2118860779054310ee365248342e537e80e292"
+    },
+    "ru/terms-of-use.html": {
+      "status": 200,
+      "url": "https://birinci.cloud/ru/terms-of-use.html",
+      "sha256": "6d0d8cc66e2fea6f3264dd812295c58500632f203996dbd872361b7f91a64887"
+    }
+  }
+}

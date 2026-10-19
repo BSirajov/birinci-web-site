@@ -538,8 +538,8 @@
     if (!list.length) return { body: [], moral: "", source: "" };
     const last = list.length - 1;
     const srcRe =
-      /(internet\s+sources|internetquellen|internet\s+mənb|internet\s+kaynak|открыт\w*\s+источник|интернет|(?:source|quelle|quellen|mənbə|kaynak|источник|булак|булагы)\s*:)/i;
-    const moralRe = /^(ibrət|ibret|moral|lehre|мораль|үлгү|сабак)\s*:/i;
+      /(internet|открыт\w*\s+источник|интернет|(?:source|quelle|quellen|mənbə|kaynak|источник|булак|булагы)\s*:)/i;
+    const moralRe = /^(ibrət|ibret|nəticə|moral|lesson|lehre|мораль|урок|үлгү|сабак)\s*:/i;
     const authorSrcStems = {      "thoughtfulness": 1,
       "discussion-and-conflict": 1,
       "without-a-plan": 1,
@@ -571,7 +571,7 @@
         break;
       }
     }
-    if (moralI < 0 && lang !== "de") moralI = lastIsSrc && last >= 1 ? last - 1 : last;
+    // Poems may intentionally have no moral; never turn their last stanza into one.
     const body = [];
     let moral = "";
     let source = "";
@@ -971,12 +971,10 @@
     const story = ctx.state.byLang[code];
     const meta = ctx.LANG_META[code];
     const parts = classifyParagraphs(story ? story.paragraphs : [], ctx.state.stem, code);
-    const bodyHtml = (code === "de" ? ((story && story.paragraphs) || []) : parts.body)
-      .map((p) => '<p class="sc-col__text' + (code === "de" && p === parts.moral ? " sc-col__moral" : code === "de" && p === parts.source ? " sc-col__source" : "") + '"' + (code === "de" ? ' style="white-space: pre-line"' : "") + '>' + escapeHtml(p) + "</p>")
+    const bodyHtml = ((story && story.paragraphs) || [])
+      .map((p) => '<p class="sc-col__text' + (p === parts.moral ? " sc-col__moral" : p === parts.source ? " sc-col__source" : "") + '" style="white-space: pre-line">' + escapeHtml(p) + "</p>")
       .join("");
-    const moralHtml = code !== "de" && parts.moral
-      ? '<p class="sc-col__text sc-col__moral">' + escapeHtml(parts.moral) + "</p>"
-      : "";
+    const moralHtml = "";
     const title = (story && story.title) || "";
     const showImage = !!(story && story.stem && story.hasImage !== false);
     const alt = (code === "de" ? "Illustration zu „{title}“" : tUi("illustration_alt", "{title} illustration")).replace(

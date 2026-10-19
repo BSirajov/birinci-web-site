@@ -23,13 +23,12 @@
     }
   },
   "chrome_cache_stamps": [
-    "20261019222417"
+    "20261019225110"
   ],
   "errors": [],
-  "deployment_status": "AWAITING_HOSTINGER_ACCESS",
+  "deployment_status": "LOCAL_QA_FIXES_NOT_DEPLOYED",
   "known_legacy_QA_findings": [
-    "Source-tree cache stamps differ; publish copy has one fresh stamp.",
-    "Audio manifest refers to old story identifiers; audio is excluded from publication.",
-    "German preservation manifest predates the 29 approved DOCX edits; editorial verification covers those changes."
+    "The prior cache-reference, audio-manifest, and German-baseline findings were corrected in this QA audit.",
+    "See deep-qa-20261020.md for current verification limits and remaining findings."
   ]
 }

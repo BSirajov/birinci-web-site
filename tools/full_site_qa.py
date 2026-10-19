@@ -12,10 +12,14 @@ import sys
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
+from contextlib import contextmanager
+from functools import partial
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
+from threading import Thread
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORT = ROOT / "tools" / "_qa_report.txt"
-LANGS = ("az", "en", "ru", "ky")
+LANGS = ("az", "en", "ru", "ky", "de")
 WIDTHS = (360, 390, 768, 1024, 1440)
 if str(ROOT / "tools") not in sys.path:
     sys.path.insert(0, str(ROOT / "tools"))
@@ -217,6 +221,8 @@ def structural() -> None:
     samples = [
         ROOT / "en" / "index.html",
         ROOT / "az" / "index.html",
+        ROOT / "de" / "index.html",
+        ROOT / "de" / "stories" / "three-questions.html",
         ROOT / "en" / "categories" / "exlaq-ve-xarakter.html",
         ROOT / "en" / "discoveries" / "discoveries-and-inventions.html",
         ROOT / "ru" / "discoveries" / "discoveries-and-inventions.html",
@@ -417,6 +423,20 @@ def structural() -> None:
     )
 
 
+@contextmanager
+def preview_server():
+    """Use an isolated HTTP origin; file:// triggers local-preview redirects."""
+    server = ThreadingHTTPServer(('127.0.0.1', 0), partial(SimpleHTTPRequestHandler, directory=str(ROOT)))
+    thread = Thread(target=server.serve_forever, daemon=True)
+    thread.start()
+    try:
+        yield f'http://127.0.0.1:{server.server_port}/'
+    finally:
+        server.shutdown()
+        server.server_close()
+        thread.join(timeout=5)
+
+
 def playwright_matrix() -> None:
     log("=== Playwright matrix ===")
     try:
@@ -432,16 +452,20 @@ def playwright_matrix() -> None:
         ("en/about/mission-vision-values.html", "about"),
         ("ru/discoveries/discoveries-and-inventions.html", "discoveries-ru"),
         ("ky/index.html", "home-ky"),
+        ("az/index.html", "home-az"),
+        ("ru/index.html", "home-ru"),
+        ("de/index.html", "home-de"),
+        ("de/stories/three-questions.html", "story-de"),
     ]
 
-    with sync_playwright() as p:
+    with preview_server() as base_url, sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         for rel, label in pages:
             path = ROOT / rel
             if not path.exists():
                 check(f"Playwright page {rel}", False)
                 continue
-            uri = path.as_uri()
+            uri = base_url + rel
             for w in WIDTHS:
                 page = browser.new_page(viewport={"width": w, "height": 900})
                 page.goto(uri, wait_until="domcontentloaded", timeout=60000)
@@ -605,7 +629,7 @@ def playwright_matrix() -> None:
 
 
 def crumbs_expected(label: str) -> bool:
-    return label not in ("home", "home-ky")  # root-ish homes may still have crumbs; check anyway soft
+    return not label.startswith("home")
 
 
 def main(argv: list[str] | None = None) -> int:

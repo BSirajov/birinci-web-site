@@ -107,6 +107,6 @@ def write_outbox(kind: str, to_email: str, subject: str, body: str) -> Path:
     outbox = API_DIR / "var" / "outbox"
     outbox.mkdir(parents=True, exist_ok=True)
     stamp = datetime.now(UTC).strftime("%Y%m%d-%H%M%S")
-    path = outbox / f"{stamp}-{kind}.txt"
+    path = outbox / f"{stamp}-{kind}-{secrets.token_hex(8)}.txt"
     path.write_text(f"To: {to_email}\nSubject: {subject}\n\n{body}\n", encoding="utf-8")
     return path

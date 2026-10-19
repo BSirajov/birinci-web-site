@@ -1,6 +1,8 @@
 # Site tooling (QA, chrome restore helpers, publish policy tests).
 # API deps live in api/requirements.txt.
 pytest>=8.0,<9
+lxml>=5,<7
+python-docx>=1.1,<2
 # Starlette TestClient (api/app/test_auth.py) — required on current starlette releases.
 httpx2>=2.0.0
 # Optional: full browser matrix — pip install playwright && playwright install chromium

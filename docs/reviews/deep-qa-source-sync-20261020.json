@@ -1,0 +1,96 @@
+{
+  "languages": {
+    "az": {
+      "sources": 261,
+      "stories": 261,
+      "article_copies": 261,
+      "title_presentation_exceptions": [
+        {
+          "stem": "my-lifes-journey",
+          "word": "ÖMÜR YOLUM",
+          "website": "Ömür yolum"
+        },
+        {
+          "stem": "nails-lesson",
+          "word": "BİR MİSMARIN HEKAYƏSİ",
+          "website": "Bir mismarın hekayəsi"
+        },
+        {
+          "stem": "thoughtfulness",
+          "word": "DİQQƏT",
+          "website": "Diqqət"
+        },
+        {
+          "stem": "relationships",
+          "word": "MÜNASİBƏTLƏR",
+          "website": "Münasibətlər"
+        },
+        {
+          "stem": "time-has-passed",
+          "word": "ÖTDÜ DÖVRAN",
+          "website": "Ötdü dövran"
+        },
+        {
+          "stem": "another-day",
+          "word": "BİR GÜN DƏ YAŞADIM...",
+          "website": "Bir gün də yaşadım..."
+        },
+        {
+          "stem": "reflections",
+          "word": "DÜŞÜNCƏLƏR",
+          "website": "Düşüncələr"
+        },
+        {
+          "stem": "flowers",
+          "word": "GÜLLƏR",
+          "website": "Güllər"
+        },
+        {
+          "stem": "small-changes-great-value",
+          "word": "KİÇİK YENİLİKLƏR, BÖYÜK DƏYƏRLƏR...",
+          "website": "Kiçik yeniliklər, böyük dəyərlər..."
+        },
+        {
+          "stem": "pandemic-and-quarantine",
+          "word": "PANDEMİYA, KARANTİN",
+          "website": "Pandemiya, karantin"
+        },
+        {
+          "stem": "humanity-etibar-siracsoy",
+          "word": "İNSANLIQ",
+          "website": "İnsanlıq"
+        },
+        {
+          "stem": "life-flows-silently",
+          "word": "ZAMAN — SƏSSİZ AXAN ÖMÜR",
+          "website": "Zaman — səssiz axan ömür"
+        }
+      ]
+    },
+    "en": {
+      "sources": 256,
+      "stories": 256,
+      "article_copies": 256,
+      "title_presentation_exceptions": []
+    },
+    "ru": {
+      "sources": 256,
+      "stories": 256,
+      "article_copies": 256,
+      "title_presentation_exceptions": []
+    },
+    "ky": {
+      "sources": 256,
+      "stories": 256,
+      "article_copies": 256,
+      "title_presentation_exceptions": []
+    },
+    "de": {
+      "sources": 256,
+      "stories": 256,
+      "article_copies": 526,
+      "title_presentation_exceptions": []
+    }
+  },
+  "errors": []
+}

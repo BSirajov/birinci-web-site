@@ -32,15 +32,24 @@ jobs:
           pip install -r tools/requirements.txt
           pip install -r api/requirements.txt
 
-      - name: Publish-policy unit tests
-        run: python -m pytest tools/test_publish_policy.py -q
+      - name: Site tooling regression tests
+        run: python -m pytest tools -q
+
+      - name: Verify all reviewed story sources
+        run: python tools/audit_story_sync.py --output docs/reviews/ci-story-sync.json
+
+      - name: German integration and preservation
+        run: python tools/test_german_wisdom.py
 
       - name: API auth + config-guard tests
         working-directory: api
-        run: python -m pytest app/test_auth.py app/test_config_guard.py -q
+        run: python -m pytest app -q
 
       - name: Build local deployment tree
         run: python tools/build_deployment.py
 
       - name: Structural full-site QA
         run: python tools/full_site_qa.py --structural
+
+      - name: Crawl publish links and check authoring-file exclusions
+        run: python tools/audit_publish_tree.py --output docs/reviews/ci-publish-tree.json

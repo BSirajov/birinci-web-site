@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import email.policy
 import re
+import secrets
 from datetime import datetime, timezone
 from email.parser import BytesParser
 from pathlib import Path
@@ -115,7 +116,7 @@ def validate(fields: dict[str, str], files: dict[str, tuple[str, bytes]]) -> str
 
 def store(fields: dict[str, str], files: dict[str, tuple[str, bytes]]) -> None:
     OUTBOX.mkdir(parents=True, exist_ok=True)
-    stamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S") + '-' + secrets.token_hex(8)
     dest = OUTBOX / f"{stamp}-feedback.txt"
     lines = [
         f"Name: {fields.get('name', '')}",

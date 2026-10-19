@@ -6,12 +6,14 @@ Phase 1–2: sign-up, login, email verify, password reset, session cookies, pref
 
 | Piece | Where |
 |-------|--------|
-| Static site (`az`/`en`/`ru`/`ky`, assets) | Hostinger **web hosting** |
+| Static site (`az`/`en`/`ru`/`ky`/`de`, assets) | Hostinger **web hosting** |
 | Database | Hostinger **MySQL / MariaDB** (hPanel → Databases) |
 | FastAPI API | Small **VPS** (venv + systemd; no containers) |
 | Prefer | Same domain path `/api` (Nginx reverse proxy) so session cookies stay same-origin |
 
 See [docs/HOSTINGER_DEPLOYMENT.md](../docs/HOSTINGER_DEPLOYMENT.md) for the full checklist.
+
+When the API serves static pages in production, it requires the generated `deployment/` directory (including `index.html`). Run `python tools/build_deployment.py` from the repository root before starting it. Production never falls back to the authoring directories, which contain Word sources. Development continues to serve the repository tree.
 
 ## Storage
 

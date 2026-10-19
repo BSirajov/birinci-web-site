@@ -301,7 +301,7 @@ class Audit:
         return size
 
     def preservation(self, docs, images):
-        path = self.root / "de/_reviews/wisdom-stories/web-integration/preservation-baseline.json"
+        path = self.root / "docs/reviews/de-preservation-baseline-20261020.json"
         try:
             baseline = json.loads(path.read_text(encoding="utf-8-sig"))
             expected = {self.label(p) for p in [*docs.values(), *images.values()]}
