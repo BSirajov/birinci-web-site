@@ -556,62 +556,9 @@ body.sc-page[data-sc-show-illus="false"] .sc-col__figure {
   color: var(--sc-ink);
 }
 
-.sc-col__audio {
-  display: inline-flex;
-  align-items: center;
-  flex: 0 0 auto;
-  margin-left: auto;
-  padding: 0.15rem;
-  border: 1px solid rgba(0, 78, 140, 0.14);
-  border-radius: 999px;
-  background: rgba(229, 244, 251, 0.7);
-  box-shadow: 0 1px 2px rgba(0, 78, 140, 0.05) inset;
-  gap: 0.15rem;
-}
-
-/* Compare-column audio is hidden until AUDIO_CONTROLS_ENABLED (html.audio-buttons-enabled). */
-.sc-col__audio .tools-bar__view-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  width: 2.05rem;
-  min-width: 2.05rem;
-  height: 2.05rem;
-  min-height: 2.05rem;
-  padding: 0;
-  border: 0;
-  border-radius: 999px;
-  background: transparent;
-  color: var(--sc-ink-soft);
-  cursor: pointer;
-}
-
-.sc-col__audio .tools-bar__view-btn:hover {
-  color: var(--sc-blue);
-}
-
-.sc-col__audio .tools-bar__view-btn:disabled,
-.sc-col__audio .tools-bar__view-btn[aria-disabled="true"] {
-  opacity: 0.42;
-  cursor: not-allowed;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-.sc-col__audio .tools-bar__view-btn:disabled:hover,
-.sc-col__audio .tools-bar__view-btn[aria-disabled="true"]:hover {
-  color: var(--sc-ink-soft);
-}
-
-.sc-col__audio .tools-bar__view-btn[aria-pressed="true"] {
-  background: linear-gradient(135deg, var(--sc-blue), #2e9fd4);
-  color: #fff;
-  box-shadow: 0 4px 12px rgba(0, 90, 154, 0.22);
-}
-
-.sc-col__audio .tools-bar__glyph {
-  display: block;
+.sc-col__audio,
+.sc-page [data-sc-tts] {
+  display: none !important;
 }
 
 .sc-col__text {

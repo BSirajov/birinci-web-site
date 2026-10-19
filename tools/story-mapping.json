@@ -13,17 +13,17 @@
       "az_stem": "Ailənizin dəyəri",
       "story_file": "Ailənizin dəyəri.docx",
       "image_file": "Ailənizin dəyəri.png",
-      "en_stem": "value-of-your-family",
-      "new_story_file": "value-of-your-family.docx",
-      "new_image_file": "value-of-your-family.png"
+      "en_stem": "hour-with-dad",
+      "new_story_file": "hour-with-dad.docx",
+      "new_image_file": "hour-with-dad.png"
     },
     {
       "az_stem": "Alaq otlarını kökündən qoparmaq lazımdır",
       "story_file": "Alaq otlarını kökündən qoparmaq lazımdır.docx",
       "image_file": "Alaq otlarını kökündən qoparmaq lazımdır.png",
-      "en_stem": "weeds-must-be-pulled-from-the-root",
-      "new_story_file": "weeds-must-be-pulled-from-the-root.docx",
-      "new_image_file": "weeds-must-be-pulled-from-the-root.png"
+      "en_stem": "weeds",
+      "new_story_file": "weeds.docx",
+      "new_image_file": "weeds.png"
     },
     {
       "az_stem": "Albrecht Dürer",
@@ -37,25 +37,25 @@
       "az_stem": "Allahın dostu",
       "story_file": "Allahın dostu.docx",
       "image_file": "Allahın dostu.png",
-      "en_stem": "friend-of-god",
-      "new_story_file": "friend-of-god.docx",
-      "new_image_file": "friend-of-god.png"
+      "en_stem": "friend-of-allah",
+      "new_story_file": "friend-of-allah.docx",
+      "new_image_file": "friend-of-allah.png"
     },
     {
       "az_stem": "Allahın rizası",
       "story_file": "Allahın rizası.docx",
       "image_file": "Allahın rizası.png",
-      "en_stem": "gods-pleasure",
-      "new_story_file": "gods-pleasure.docx",
-      "new_image_file": "gods-pleasure.png"
+      "en_stem": "pleasure-of-allah",
+      "new_story_file": "pleasure-of-allah.docx",
+      "new_image_file": "pleasure-of-allah.png"
     },
     {
       "az_stem": "Allahın verdiyi nemətlər",
       "story_file": "Allahın verdiyi nemətlər.docx",
       "image_file": "Allahın verdiyi nemətlər.png",
-      "en_stem": "blessings-god-has-given",
-      "new_story_file": "blessings-god-has-given.docx",
-      "new_image_file": "blessings-god-has-given.png"
+      "en_stem": "gifts-of-allah",
+      "new_story_file": "gifts-of-allah.docx",
+      "new_image_file": "gifts-of-allah.png"
     },
     {
       "az_stem": "Altmışdan sonra nə dəyişdi",
@@ -69,9 +69,9 @@
       "az_stem": "Altmışı haqlamış olanlar üçün",
       "story_file": "Altmışı haqlamış olanlar üçün.docx",
       "image_file": "Altmışı haqlamış olanlar üçün.png",
-      "en_stem": "for-those-who-have-reached-sixty",
-      "new_story_file": "for-those-who-have-reached-sixty.docx",
-      "new_image_file": "for-those-who-have-reached-sixty.png"
+      "en_stem": "life-after-sixty",
+      "new_story_file": "life-after-sixty.docx",
+      "new_image_file": "life-after-sixty.png"
     },
     {
       "az_stem": "Ana sevgisi",
@@ -93,17 +93,17 @@
       "az_stem": "Artıq fərqindəyəm",
       "story_file": "Artıq fərqindəyəm.docx",
       "image_file": "Artıq fərqindəyəm.png",
-      "en_stem": "i-am-aware-now",
-      "new_story_file": "i-am-aware-now.docx",
-      "new_image_file": "i-am-aware-now.png"
+      "en_stem": "now-i-understand",
+      "new_story_file": "now-i-understand.docx",
+      "new_image_file": "now-i-understand.png"
     },
     {
       "az_stem": "Aslanın izi",
       "story_file": "Aslanın izi.docx",
       "image_file": "Aslanın izi.png",
-      "en_stem": "lions-footprint",
-      "new_story_file": "lions-footprint.docx",
-      "new_image_file": "lions-footprint.png"
+      "en_stem": "lions-tracks",
+      "new_story_file": "lions-tracks.docx",
+      "new_image_file": "lions-tracks.png"
     },
     {
       "az_stem": "Ata və oğul",
@@ -117,9 +117,9 @@
       "az_stem": "Atanın izləri",
       "story_file": "Atanın izləri.docx",
       "image_file": "Atanın izləri.png",
-      "en_stem": "fathers-footprints",
-      "new_story_file": "fathers-footprints.docx",
-      "new_image_file": "fathers-footprints.png"
+      "en_stem": "fathers-footsteps",
+      "new_story_file": "fathers-footsteps.docx",
+      "new_image_file": "fathers-footsteps.png"
     },
     {
       "az_stem": "Atların dostluğu",
@@ -141,41 +141,41 @@
       "az_stem": "Az yeyən və düz gedən",
       "story_file": "Az yeyən və düz gedən.docx",
       "image_file": "Az yeyən və düz gedən.png",
-      "en_stem": "eat-less-and-stay-on-the-right-path",
-      "new_story_file": "eat-less-and-stay-on-the-right-path.docx",
-      "new_image_file": "eat-less-and-stay-on-the-right-path.png"
+      "en_stem": "moderation-and-honesty",
+      "new_story_file": "moderation-and-honesty.docx",
+      "new_image_file": "moderation-and-honesty.png"
     },
     {
       "az_stem": "Ağzını açma",
       "story_file": "Ağzını açma.docx",
       "image_file": "Ağzını açma.png",
-      "en_stem": "dont-open-your-mouth",
-      "new_story_file": "dont-open-your-mouth.docx",
-      "new_image_file": "dont-open-your-mouth.png"
+      "en_stem": "think-before-speaking",
+      "new_story_file": "think-before-speaking.docx",
+      "new_image_file": "think-before-speaking.png"
     },
     {
       "az_stem": "Ağızlara söz, ayaqlara toz olma",
       "story_file": "Ağızlara söz, ayaqlara toz olma.docx",
       "image_file": "Ağızlara söz, ayaqlara toz olma.png",
-      "en_stem": "dont-be-words-for-mouths-dust-for-feet",
-      "new_story_file": "dont-be-words-for-mouths-dust-for-feet.docx",
-      "new_image_file": "dont-be-words-for-mouths-dust-for-feet.png"
+      "en_stem": "keep-your-self-respect",
+      "new_story_file": "keep-your-self-respect.docx",
+      "new_image_file": "keep-your-self-respect.png"
     },
     {
       "az_stem": "Baba və nəvəsi bazarlıqda",
       "story_file": "Baba və nəvəsi bazarlıqda.docx",
       "image_file": "Baba və nəvəsi bazarlıqda.png",
-      "en_stem": "grandfather-and-grandson-at-the-market",
-      "new_story_file": "grandfather-and-grandson-at-the-market.docx",
-      "new_image_file": "grandfather-and-grandson-at-the-market.png"
+      "en_stem": "stay-calm-arif",
+      "new_story_file": "stay-calm-arif.docx",
+      "new_image_file": "stay-calm-arif.png"
     },
     {
       "az_stem": "Bal tutan barmağını yalayar",
       "story_file": "Bal tutan barmağını yalayar.docx",
       "image_file": "Bal tutan barmağını yalayar.png",
-      "en_stem": "who-handles-honey-licks-his-finger",
-      "new_story_file": "who-handles-honey-licks-his-finger.docx",
-      "new_image_file": "who-handles-honey-licks-his-finger.png"
+      "en_stem": "grocers-sticky-fingers",
+      "new_story_file": "grocers-sticky-fingers.docx",
+      "new_image_file": "grocers-sticky-fingers.png"
     },
     {
       "az_stem": "Bal ya quru çörək",
@@ -197,9 +197,9 @@
       "az_stem": "Baqqal dükanı və supermarket",
       "story_file": "Baqqal dükanı və supermarket.docx",
       "image_file": "Baqqal dükanı və supermarket.png",
-      "en_stem": "grocery-shop-and-the-supermarket",
-      "new_story_file": "grocery-shop-and-the-supermarket.docx",
-      "new_image_file": "grocery-shop-and-the-supermarket.png"
+      "en_stem": "butter-price-war",
+      "new_story_file": "butter-price-war.docx",
+      "new_image_file": "butter-price-war.png"
     },
     {
       "az_stem": "Bayrama hədiyyə",
@@ -221,33 +221,33 @@
       "az_stem": "Baş mühasib və baş direktor",
       "story_file": "Baş mühasib və baş direktor.docx",
       "image_file": "Baş mühasib və baş direktor.png",
-      "en_stem": "chief-accountant-and-the-ceo",
-      "new_story_file": "chief-accountant-and-the-ceo.docx",
-      "new_image_file": "chief-accountant-and-the-ceo.png"
+      "en_stem": "investing-in-people",
+      "new_story_file": "investing-in-people.docx",
+      "new_image_file": "investing-in-people.png"
     },
     {
       "az_stem": "Başqalarının həyatına qarışmaq",
       "story_file": "Başqalarının həyatına qarışmaq.docx",
       "image_file": "Başqalarının həyatına qarışmaq.png",
-      "en_stem": "meddling-in-others-lives",
-      "new_story_file": "meddling-in-others-lives.docx",
-      "new_image_file": "meddling-in-others-lives.png"
+      "en_stem": "respecting-boundaries",
+      "new_story_file": "respecting-boundaries.docx",
+      "new_image_file": "respecting-boundaries.png"
     },
     {
       "az_stem": "Bildiklərini söylə",
       "story_file": "Bildiklərini söylə.docx",
       "image_file": "Bildiklərini söylə.png",
-      "en_stem": "say-what-you-know",
-      "new_story_file": "say-what-you-know.docx",
-      "new_image_file": "say-what-you-know.png"
+      "en_stem": "share-what-you-know",
+      "new_story_file": "share-what-you-know.docx",
+      "new_image_file": "share-what-you-know.png"
     },
     {
       "az_stem": "Bilən və bilməyən",
       "story_file": "Bilən və bilməyən.docx",
       "image_file": "Bilən və bilməyən.png",
-      "en_stem": "one-who-knows-and-the-one-who-does-not",
-      "new_story_file": "one-who-knows-and-the-one-who-does-not.docx",
-      "new_image_file": "one-who-knows-and-the-one-who-does-not.png"
+      "en_stem": "knowing-what-you-know",
+      "new_story_file": "knowing-what-you-know.docx",
+      "new_image_file": "knowing-what-you-know.png"
     },
     {
       "az_stem": "Bir cüt çəkmə",
@@ -277,9 +277,9 @@
       "az_stem": "Bir tək anam ağlar",
       "story_file": "Bir tək anam ağlar.docx",
       "image_file": "Bir tək anam ağlar.png",
-      "en_stem": "only-my-mother-would-weep",
-      "new_story_file": "only-my-mother-would-weep.docx",
-      "new_image_file": "only-my-mother-would-weep.png"
+      "en_stem": "only-my-mother-truly-weeps",
+      "new_story_file": "only-my-mother-truly-weeps.docx",
+      "new_image_file": "only-my-mother-truly-weeps.png"
     },
     {
       "az_stem": "Biz zənginik",
@@ -293,57 +293,57 @@
       "az_stem": "Bizdə hamı eynidir",
       "story_file": "Bizdə hamı eynidir.docx",
       "image_file": "Bizdə hamı eynidir.png",
-      "en_stem": "everyone-is-the-same-here",
-      "new_story_file": "everyone-is-the-same-here.docx",
-      "new_image_file": "everyone-is-the-same-here.png"
+      "en_stem": "everyone-is-equal-here",
+      "new_story_file": "everyone-is-equal-here.docx",
+      "new_image_file": "everyone-is-equal-here.png"
     },
     {
       "az_stem": "Boş vaxt",
       "story_file": "Boş vaxt.docx",
       "image_file": "Boş vaxt.png",
-      "en_stem": "spare-time",
-      "new_story_file": "spare-time.docx",
-      "new_image_file": "spare-time.png"
+      "en_stem": "free-time",
+      "new_story_file": "free-time.docx",
+      "new_image_file": "free-time.png"
     },
     {
       "az_stem": "Boşunadır",
       "story_file": "Boşunadır.docx",
       "image_file": "Boşunadır.png",
-      "en_stem": "it-is-in-vain",
-      "new_story_file": "it-is-in-vain.docx",
-      "new_image_file": "it-is-in-vain.png"
+      "en_stem": "its-pointless",
+      "new_story_file": "its-pointless.docx",
+      "new_image_file": "its-pointless.png"
     },
     {
       "az_stem": "Bu günlərdə etməsəm, dünya dağılmaz ki",
       "story_file": "Bu günlərdə etməsəm, dünya dağılmaz ki.docx",
       "image_file": "Bu günlərdə etməsəm, dünya dağılmaz ki.png",
-      "en_stem": "if-i-dont-do-it-these-days-the-world-wont-collapse",
-      "new_story_file": "if-i-dont-do-it-these-days-the-world-wont-collapse.docx",
-      "new_image_file": "if-i-dont-do-it-these-days-the-world-wont-collapse.png"
+      "en_stem": "cost-of-indifference",
+      "new_story_file": "cost-of-indifference.docx",
+      "new_image_file": "cost-of-indifference.png"
     },
     {
       "az_stem": "Bu millət ilə dünya fəth edilə bilər",
       "story_file": "Bu millət ilə dünya fəth edilə bilər.docx",
       "image_file": "Bu millət ilə dünya fəth edilə bilər.png",
-      "en_stem": "with-this-nation-the-world-can-be-conquered",
-      "new_story_file": "with-this-nation-the-world-can-be-conquered.docx",
-      "new_image_file": "with-this-nation-the-world-can-be-conquered.png"
+      "en_stem": "market-of-good-neighbors",
+      "new_story_file": "market-of-good-neighbors.docx",
+      "new_image_file": "market-of-good-neighbors.png"
     },
     {
       "az_stem": "Bu qayıq da boşdur",
       "story_file": "Bu qayıq da boşdur.docx",
       "image_file": "Bu qayıq da boşdur.png",
-      "en_stem": "this-boat-is-empty-too",
-      "new_story_file": "this-boat-is-empty-too.docx",
-      "new_image_file": "this-boat-is-empty-too.png"
+      "en_stem": "empty-boat",
+      "new_story_file": "empty-boat.docx",
+      "new_image_file": "empty-boat.png"
     },
     {
       "az_stem": "Bu qədər az verməzdi",
       "story_file": "Bu qədər az verməzdi.docx",
       "image_file": "Bu qədər az verməzdi.png",
-      "en_stem": "he-would-not-have-given-so-little",
-      "new_story_file": "he-would-not-have-given-so-little.docx",
-      "new_image_file": "he-would-not-have-given-so-little.png"
+      "en_stem": "kings-generosity",
+      "new_story_file": "kings-generosity.docx",
+      "new_image_file": "kings-generosity.png"
     },
     {
       "az_stem": "Bu suallardan çəkinin",
@@ -365,9 +365,9 @@
       "az_stem": "Bunları etməyin",
       "story_file": "Bunları etməyin.docx",
       "image_file": "Bunları etməyin.png",
-      "en_stem": "do-not-do-these-things",
-      "new_story_file": "do-not-do-these-things.docx",
-      "new_image_file": "do-not-do-these-things.png"
+      "en_stem": "do-not-deepen-anothers-pain",
+      "new_story_file": "do-not-deepen-anothers-pain.docx",
+      "new_image_file": "do-not-deepen-anothers-pain.png"
     },
     {
       "az_stem": "Bənövşəyi çəpkən",
@@ -389,9 +389,9 @@
       "az_stem": "Daha effektiv yol",
       "story_file": "Daha effektiv yol.docx",
       "image_file": "Daha effektiv yol.png",
-      "en_stem": "more-effective-way",
-      "new_story_file": "more-effective-way.docx",
-      "new_image_file": "more-effective-way.png"
+      "en_stem": "sharpen-the-axe",
+      "new_story_file": "sharpen-the-axe.docx",
+      "new_image_file": "sharpen-the-axe.png"
     },
     {
       "az_stem": "Dedi-qodu",
@@ -405,9 +405,9 @@
       "az_stem": "Dibinə darı əkmək",
       "story_file": "Dibinə darı əkmək.docx",
       "image_file": "Dibinə darı əkmək.png",
-      "en_stem": "sowing-millet-at-the-bottom",
-      "new_story_file": "sowing-millet-at-the-bottom.docx",
-      "new_image_file": "sowing-millet-at-the-bottom.png"
+      "en_stem": "draining-the-coffers",
+      "new_story_file": "draining-the-coffers.docx",
+      "new_image_file": "draining-the-coffers.png"
     },
     {
       "az_stem": "Didro effekti",
@@ -421,33 +421,33 @@
       "az_stem": "Dil",
       "story_file": "Dil.docx",
       "image_file": "Dil.png",
-      "en_stem": "tongue",
-      "new_story_file": "tongue.docx",
-      "new_image_file": "tongue.png"
+      "en_stem": "language",
+      "new_story_file": "language.docx",
+      "new_image_file": "language.png"
     },
     {
       "az_stem": "Dişləri gözləyirəm",
       "story_file": "Dişləri gözləyirəm.docx",
       "image_file": "Dişləri gözləyirəm.png",
-      "en_stem": "i-am-waiting-for-the-teeth",
-      "new_story_file": "i-am-waiting-for-the-teeth.docx",
-      "new_image_file": "i-am-waiting-for-the-teeth.png"
+      "en_stem": "waiting-for-the-teeth",
+      "new_story_file": "waiting-for-the-teeth.docx",
+      "new_image_file": "waiting-for-the-teeth.png"
     },
     {
       "az_stem": "Dost istərəm",
       "story_file": "Dost istərəm.docx",
       "image_file": "Dost istərəm.png",
-      "en_stem": "i-want-a-friend",
-      "new_story_file": "i-want-a-friend.docx",
-      "new_image_file": "i-want-a-friend.png"
+      "en_stem": "i-wish-for-a-friend",
+      "new_story_file": "i-wish-for-a-friend.docx",
+      "new_image_file": "i-wish-for-a-friend.png"
     },
     {
       "az_stem": "Dostluq etməyəcəklərin",
       "story_file": "Dostluq etməyəcəklərin.docx",
       "image_file": "Dostluq etməyəcəklərin.png",
-      "en_stem": "those-you-should-not-befriend",
-      "new_story_file": "those-you-should-not-befriend.docx",
-      "new_image_file": "those-you-should-not-befriend.png"
+      "en_stem": "choosing-friends",
+      "new_story_file": "choosing-friends.docx",
+      "new_image_file": "choosing-friends.png"
     },
     {
       "az_stem": "Dostluq və sevgi",
@@ -469,33 +469,33 @@
       "az_stem": "Doğru yoldan ayrılmamaq",
       "story_file": "Doğru yoldan ayrılmamaq.docx",
       "image_file": "Doğru yoldan ayrılmamaq.png",
-      "en_stem": "not-leaving-the-right-path",
-      "new_story_file": "not-leaving-the-right-path.docx",
-      "new_image_file": "not-leaving-the-right-path.png"
+      "en_stem": "staying-on-the-right-path",
+      "new_story_file": "staying-on-the-right-path.docx",
+      "new_image_file": "staying-on-the-right-path.png"
     },
     {
       "az_stem": "Dua gəlib tapsın səni",
       "story_file": "Dua gəlib tapsın səni.docx",
       "image_file": "Dua gəlib tapsın səni.png",
-      "en_stem": "let-prayer-come-and-find-you",
-      "new_story_file": "let-prayer-come-and-find-you.docx",
-      "new_image_file": "let-prayer-come-and-find-you.png"
+      "en_stem": "prayer-finds-you",
+      "new_story_file": "prayer-finds-you.docx",
+      "new_image_file": "prayer-finds-you.png"
     },
     {
       "az_stem": "Durmadan şikayət edənə kimsə qulaq verməz",
       "story_file": "Durmadan şikayət edənə kimsə qulaq verməz.docx",
       "image_file": "Durmadan şikayət edənə kimsə qulaq verməz.png",
-      "en_stem": "no-one-listens-to-constant-complainers",
-      "new_story_file": "no-one-listens-to-constant-complainers.docx",
-      "new_image_file": "no-one-listens-to-constant-complainers.png"
+      "en_stem": "beyond-complaining",
+      "new_story_file": "beyond-complaining.docx",
+      "new_image_file": "beyond-complaining.png"
     },
     {
       "az_stem": "Dünyada ən gözəl yerlər",
       "story_file": "Dünyada ən gözəl yerlər.docx",
       "image_file": "Dünyada ən gözəl yerlər.png",
-      "en_stem": "most-beautiful-places-in-the-world",
-      "new_story_file": "most-beautiful-places-in-the-world.docx",
-      "new_image_file": "most-beautiful-places-in-the-world.png"
+      "en_stem": "place-in-loving-hearts",
+      "new_story_file": "place-in-loving-hearts.docx",
+      "new_image_file": "place-in-loving-hearts.png"
     },
     {
       "az_stem": "Dürüstlük çiçəyi",
@@ -509,25 +509,25 @@
       "az_stem": "Düşüncələrimdən necə qurtula bilərəm",
       "story_file": "Düşüncələrimdən necə qurtula bilərəm.docx",
       "image_file": "Düşüncələrimdən necə qurtula bilərəm.png",
-      "en_stem": "how-can-i-escape-my-thoughts",
-      "new_story_file": "how-can-i-escape-my-thoughts.docx",
-      "new_image_file": "how-can-i-escape-my-thoughts.png"
+      "en_stem": "letting-go-of-painful-thoughts",
+      "new_story_file": "letting-go-of-painful-thoughts.docx",
+      "new_image_file": "letting-go-of-painful-thoughts.png"
     },
     {
       "az_stem": "Dərdi izah etmək",
       "story_file": "Dərdi izah etmək.docx",
       "image_file": "Dərdi izah etmək.png",
-      "en_stem": "explaining-ones-sorrow",
-      "new_story_file": "explaining-ones-sorrow.docx",
-      "new_image_file": "explaining-ones-sorrow.png"
+      "en_stem": "how-we-express-sorrow",
+      "new_story_file": "how-we-express-sorrow.docx",
+      "new_image_file": "how-we-express-sorrow.png"
     },
     {
       "az_stem": "Dərviş qaşıqları",
       "story_file": "Dərviş qaşıqları.docx",
       "image_file": "Dərviş qaşıqları.png",
-      "en_stem": "dervishs-spoons",
-      "new_story_file": "dervishs-spoons.docx",
-      "new_image_file": "dervishs-spoons.png"
+      "en_stem": "dervishs-long-spoons",
+      "new_story_file": "dervishs-long-spoons.docx",
+      "new_image_file": "dervishs-long-spoons.png"
     },
     {
       "az_stem": "Dərviş əbası",
@@ -541,17 +541,17 @@
       "az_stem": "Dərvişin üst-başı",
       "story_file": "Dərvişin üst-başı.docx",
       "image_file": "Dərvişin üst-başı.png",
-      "en_stem": "dervishs-clothes",
-      "new_story_file": "dervishs-clothes.docx",
-      "new_image_file": "dervishs-clothes.png"
+      "en_stem": "dervishs-appearance",
+      "new_story_file": "dervishs-appearance.docx",
+      "new_image_file": "dervishs-appearance.png"
     },
     {
       "az_stem": "Dəvəsi oğurlanmış bədəvinin hekayəsi",
       "story_file": "Dəvəsi oğurlanmış bədəvinin hekayəsi.docx",
       "image_file": "Dəvəsi oğurlanmış bədəvinin hekayəsi.png",
-      "en_stem": "bedouin-whose-camel-was-stolen",
-      "new_story_file": "bedouin-whose-camel-was-stolen.docx",
-      "new_image_file": "bedouin-whose-camel-was-stolen.png"
+      "en_stem": "stolen-camel",
+      "new_story_file": "stolen-camel.docx",
+      "new_image_file": "stolen-camel.png"
     },
     {
       "az_stem": "Erkən evlilik",
@@ -565,41 +565,41 @@
       "az_stem": "Evi qarət olunan qadın",
       "story_file": "Evi qarət olunan qadın.docx",
       "image_file": "Evi qarət olunan qadın.png",
-      "en_stem": "woman-whose-house-was-robbed",
-      "new_story_file": "woman-whose-house-was-robbed.docx",
-      "new_image_file": "woman-whose-house-was-robbed.png"
+      "en_stem": "who-was-keeping-watch",
+      "new_story_file": "who-was-keeping-watch.docx",
+      "new_image_file": "who-was-keeping-watch.png"
     },
     {
       "az_stem": "Evlilikdə pozan",
       "story_file": "Evlilikdə pozan.docx",
       "image_file": "Evlilikdə pozan.png",
-      "en_stem": "what-breaks-a-marriage",
-      "new_story_file": "what-breaks-a-marriage.docx",
-      "new_image_file": "what-breaks-a-marriage.png"
+      "en_stem": "eraser-in-marriage",
+      "new_story_file": "eraser-in-marriage.docx",
+      "new_image_file": "eraser-in-marriage.png"
     },
     {
       "az_stem": "Evlənənlərə tövsiyə",
       "story_file": "Evlənənlərə tövsiyə.docx",
       "image_file": "Evlənənlərə tövsiyə.png",
-      "en_stem": "advice-for-those-who-marry",
-      "new_story_file": "advice-for-those-who-marry.docx",
-      "new_image_file": "advice-for-those-who-marry.png"
+      "en_stem": "before-you-marry",
+      "new_story_file": "before-you-marry.docx",
+      "new_image_file": "before-you-marry.png"
     },
     {
       "az_stem": "Ey Allahım, dərdlərimizə çarə et",
       "story_file": "Ey Allahım, dərdlərimizə çarə et.docx",
       "image_file": "Ey Allahım, dərdlərimizə çarə et.png",
-      "en_stem": "o-god-heal-our-sorrows",
-      "new_story_file": "o-god-heal-our-sorrows.docx",
-      "new_image_file": "o-god-heal-our-sorrows.png"
+      "en_stem": "prayer-for-relief",
+      "new_story_file": "prayer-for-relief.docx",
+      "new_image_file": "prayer-for-relief.png"
     },
     {
       "az_stem": "Ey Allahım, əvvəlcə dağa-daşa ver",
       "story_file": "Ey Allahım, əvvəlcə dağa-daşa ver.docx",
       "image_file": "Ey Allahım, əvvəlcə dağa-daşa ver.png",
-      "en_stem": "o-god-give-first-to-the-mountains-and-stones",
-      "new_story_file": "o-god-give-first-to-the-mountains-and-stones.docx",
-      "new_image_file": "o-god-give-first-to-the-mountains-and-stones.png"
+      "en_stem": "give-to-me-last",
+      "new_story_file": "give-to-me-last.docx",
+      "new_image_file": "give-to-me-last.png"
     },
     {
       "az_stem": "Eşşəyin qanunu",
@@ -613,9 +613,9 @@
       "az_stem": "Fakir Baykurtun unutmadığı ana nəsihəti",
       "story_file": "Fakir Baykurtun unutmadığı ana nəsihəti.docx",
       "image_file": "Fakir Baykurtun unutmadığı ana nəsihəti.png",
-      "en_stem": "mothers-advice-fakir-baykurt-never-forgot",
-      "new_story_file": "mothers-advice-fakir-baykurt-never-forgot.docx",
-      "new_image_file": "mothers-advice-fakir-baykurt-never-forgot.png"
+      "en_stem": "mothers-lasting-lesson",
+      "new_story_file": "mothers-lasting-lesson.docx",
+      "new_image_file": "mothers-lasting-lesson.png"
     },
     {
       "az_stem": "Fil və ip",
@@ -629,17 +629,17 @@
       "az_stem": "Frankfurt hakiminin ədalətli hökmü",
       "story_file": "Frankfurt hakiminin ədalətli hökmü.docx",
       "image_file": "Frankfurt hakiminin ədalətli hökmü.png",
-      "en_stem": "just-verdict-of-the-frankfurt-judge",
-      "new_story_file": "just-verdict-of-the-frankfurt-judge.docx",
-      "new_image_file": "just-verdict-of-the-frankfurt-judge.png"
+      "en_stem": "judges-answer",
+      "new_story_file": "judges-answer.docx",
+      "new_image_file": "judges-answer.png"
     },
     {
       "az_stem": "Fəaliyyət planı olmayan təşkilat",
       "story_file": "Fəaliyyət planı olmayan təşkilat.docx",
       "image_file": "Fəaliyyət planı olmayan təşkilat.png",
-      "en_stem": "organization-without-an-action-plan",
-      "new_story_file": "organization-without-an-action-plan.docx",
-      "new_image_file": "organization-without-an-action-plan.png"
+      "en_stem": "without-a-plan",
+      "new_story_file": "without-a-plan.docx",
+      "new_image_file": "without-a-plan.png"
     },
     {
       "az_stem": "Fərqli yol",
@@ -653,9 +653,9 @@
       "az_stem": "Gecikmək nə deməkdir",
       "story_file": "Gecikmək nə deməkdir.docx",
       "image_file": "Gecikmək nə deməkdir.png",
-      "en_stem": "what-it-means-to-be-late",
-      "new_story_file": "what-it-means-to-be-late.docx",
-      "new_image_file": "what-it-means-to-be-late.png"
+      "en_stem": "before-it-is-too-late",
+      "new_story_file": "before-it-is-too-late.docx",
+      "new_image_file": "before-it-is-too-late.png"
     },
     {
       "az_stem": "Gedin amma yenə gəlin",
@@ -669,9 +669,9 @@
       "az_stem": "Gözləri olan korlar",
       "story_file": "Gözləri olan korlar.docx",
       "image_file": "Gözləri olan korlar.png",
-      "en_stem": "blind-who-have-eyes",
-      "new_story_file": "blind-who-have-eyes.docx",
-      "new_image_file": "blind-who-have-eyes.png"
+      "en_stem": "seeing-without-understanding",
+      "new_story_file": "seeing-without-understanding.docx",
+      "new_image_file": "seeing-without-understanding.png"
     },
     {
       "az_stem": "Gözlərindən öpərəm",
@@ -693,9 +693,9 @@
       "az_stem": "Gül",
       "story_file": "Gül.docx",
       "image_file": "Gül.png",
-      "en_stem": "rose",
-      "new_story_file": "rose.docx",
-      "new_image_file": "rose.png"
+      "en_stem": "flower",
+      "new_story_file": "flower.docx",
+      "new_image_file": "flower.png"
     },
     {
       "az_stem": "Hacc ziyarəti",
@@ -709,17 +709,17 @@
       "az_stem": "Halal tikə",
       "story_file": "Halal tikə.docx",
       "image_file": "Halal tikə.png",
-      "en_stem": "lawful-morsel",
-      "new_story_file": "lawful-morsel.docx",
-      "new_image_file": "lawful-morsel.png"
+      "en_stem": "honestly-earned-morsel",
+      "new_story_file": "honestly-earned-morsel.docx",
+      "new_image_file": "honestly-earned-morsel.png"
     },
     {
       "az_stem": "Hamı dəli olanda ağıllı olmağa gərək yoxdur",
       "story_file": "Hamı dəli olanda ağıllı olmağa gərək yoxdur.docx",
       "image_file": "Hamı dəli olanda ağıllı olmağa gərək yoxdur.png",
-      "en_stem": "no-need-to-be-sane-when-everyone-is-mad",
-      "new_story_file": "no-need-to-be-sane-when-everyone-is-mad.docx",
-      "new_image_file": "no-need-to-be-sane-when-everyone-is-mad.png"
+      "en_stem": "price-of-belonging",
+      "new_story_file": "price-of-belonging.docx",
+      "new_image_file": "price-of-belonging.png"
     },
     {
       "az_stem": "Hamının işi-gücü var",
@@ -733,17 +733,17 @@
       "az_stem": "Haqqın qüdrəti",
       "story_file": "Haqqın qüdrəti.docx",
       "image_file": "Haqqın qüdrəti.png",
-      "en_stem": "power-of-truth",
-      "new_story_file": "power-of-truth.docx",
-      "new_image_file": "power-of-truth.png"
+      "en_stem": "power-of-justice",
+      "new_story_file": "power-of-justice.docx",
+      "new_image_file": "power-of-justice.png"
     },
     {
       "az_stem": "Haram pul",
       "story_file": "Haram pul.docx",
       "image_file": "Haram pul.png",
-      "en_stem": "forbidden-money",
-      "new_story_file": "forbidden-money.docx",
-      "new_image_file": "forbidden-money.png"
+      "en_stem": "ill-gotten-money",
+      "new_story_file": "ill-gotten-money.docx",
+      "new_image_file": "ill-gotten-money.png"
     },
     {
       "az_stem": "Henri Fordun seçimi",
@@ -757,17 +757,17 @@
       "az_stem": "Heç bir şeyə dəyişmərəm",
       "story_file": "Heç bir şeyə dəyişmərəm.docx",
       "image_file": "Heç bir şeyə dəyişmərəm.png",
-      "en_stem": "i-would-not-trade-it-for-anything",
-      "new_story_file": "i-would-not-trade-it-for-anything.docx",
-      "new_image_file": "i-would-not-trade-it-for-anything.png"
+      "en_stem": "sunlit-day",
+      "new_story_file": "sunlit-day.docx",
+      "new_image_file": "sunlit-day.png"
     },
     {
       "az_stem": "Həkim qəbulunda",
       "story_file": "Həkim qəbulunda.docx",
       "image_file": "Həkim qəbulunda.png",
-      "en_stem": "doctors-appointment",
-      "new_story_file": "doctors-appointment.docx",
-      "new_image_file": "doctors-appointment.png"
+      "en_stem": "doctors-office",
+      "new_story_file": "doctors-office.docx",
+      "new_image_file": "doctors-office.png"
     },
     {
       "az_stem": "Həqiqi eşq",
@@ -781,25 +781,25 @@
       "az_stem": "Hər dərd insanlara söylənməz",
       "story_file": "Hər dərd insanlara söylənməz.docx",
       "image_file": "Hər dərd insanlara söylənməz.png",
-      "en_stem": "not-every-sorrow-is-told-to-people",
-      "new_story_file": "not-every-sorrow-is-told-to-people.docx",
-      "new_image_file": "not-every-sorrow-is-told-to-people.png"
+      "en_stem": "choose-your-confidant",
+      "new_story_file": "choose-your-confidant.docx",
+      "new_image_file": "choose-your-confidant.png"
     },
     {
       "az_stem": "Hər şey bizim öz əlimizdədir",
       "story_file": "Hər şey bizim öz əlimizdədir.docx",
       "image_file": "Hər şey bizim öz əlimizdədir.png",
-      "en_stem": "everything-is-in-our-own-hands",
-      "new_story_file": "everything-is-in-our-own-hands.docx",
-      "new_image_file": "everything-is-in-our-own-hands.png"
+      "en_stem": "in-your-hands",
+      "new_story_file": "in-your-hands.docx",
+      "new_image_file": "in-your-hands.png"
     },
     {
       "az_stem": "Həyat dərsi",
       "story_file": "Həyat dərsi.docx",
       "image_file": "Həyat dərsi.png",
-      "en_stem": "life-lesson",
-      "new_story_file": "life-lesson.docx",
-      "new_image_file": "life-lesson.png"
+      "en_stem": "light-of-the-world",
+      "new_story_file": "light-of-the-world.docx",
+      "new_image_file": "light-of-the-world.png"
     },
     {
       "az_stem": "Həyatda önəmli olan nədir",
@@ -813,9 +813,9 @@
       "az_stem": "Həyatda öyrəndiklərimiz",
       "story_file": "Həyatda öyrəndiklərimiz.docx",
       "image_file": "Həyatda öyrəndiklərimiz.png",
-      "en_stem": "what-we-learn-in-life",
-      "new_story_file": "what-we-learn-in-life.docx",
-      "new_image_file": "what-we-learn-in-life.png"
+      "en_stem": "lifes-lessons",
+      "new_story_file": "lifes-lessons.docx",
+      "new_image_file": "lifes-lessons.png"
     },
     {
       "az_stem": "Həyatın həyat hekayəsi",
@@ -829,9 +829,9 @@
       "az_stem": "İcazə, yoxsa üzr istəmək",
       "story_file": "İcazə, yoxsa üzr istəmək.docx",
       "image_file": "İcazə, yoxsa üzr istəmək.png",
-      "en_stem": "permission-or-apology",
-      "new_story_file": "permission-or-apology.docx",
-      "new_image_file": "permission-or-apology.png"
+      "en_stem": "permission-or-forgiveness",
+      "new_story_file": "permission-or-forgiveness.docx",
+      "new_image_file": "permission-or-forgiveness.png"
     },
     {
       "az_stem": "İki qab su",
@@ -861,17 +861,17 @@
       "az_stem": "İnam uğurun yarısıdır",
       "story_file": "İnam uğurun yarısıdır.docx",
       "image_file": "İnam uğurun yarısıdır.png",
-      "en_stem": "faith-is-half-of-success",
-      "new_story_file": "faith-is-half-of-success.docx",
-      "new_image_file": "faith-is-half-of-success.png"
+      "en_stem": "confidence-is-half-the-battle",
+      "new_story_file": "confidence-is-half-the-battle.docx",
+      "new_image_file": "confidence-is-half-the-battle.png"
     },
     {
       "az_stem": "İnsan çıxdı",
       "story_file": "İnsan çıxdı.docx",
       "image_file": "İnsan çıxdı.png",
-      "en_stem": "human-emerged",
-      "new_story_file": "human-emerged.docx",
-      "new_image_file": "human-emerged.png"
+      "en_stem": "human-being-emerged",
+      "new_story_file": "human-being-emerged.docx",
+      "new_image_file": "human-being-emerged.png"
     },
     {
       "az_stem": "İnsanlara olan münasibət",
@@ -901,9 +901,9 @@
       "az_stem": "İstanbullu bir xanımın xatirələrindən",
       "story_file": "İstanbullu bir xanımın xatirələrindən.docx",
       "image_file": "İstanbullu bir xanımın xatirələrindən.png",
-      "en_stem": "from-the-memoirs-of-a-lady-from-istanbul",
-      "new_story_file": "from-the-memoirs-of-a-lady-from-istanbul.docx",
-      "new_image_file": "from-the-memoirs-of-a-lady-from-istanbul.png"
+      "en_stem": "istanbul-woman-remembers",
+      "new_story_file": "istanbul-woman-remembers.docx",
+      "new_image_file": "istanbul-woman-remembers.png"
     },
     {
       "az_stem": "İsti çörək",
@@ -917,41 +917,41 @@
       "az_stem": "İtib batmaz",
       "story_file": "İtib batmaz.docx",
       "image_file": "İtib batmaz.png",
-      "en_stem": "it-wont-go-to-waste",
-      "new_story_file": "it-wont-go-to-waste.docx",
-      "new_image_file": "it-wont-go-to-waste.png"
+      "en_stem": "never-lost",
+      "new_story_file": "never-lost.docx",
+      "new_image_file": "never-lost.png"
     },
     {
       "az_stem": "İtirdim deyə bir şey yoxdur",
       "story_file": "İtirdim deyə bir şey yoxdur.docx",
       "image_file": "İtirdim deyə bir şey yoxdur.png",
-      "en_stem": "nothing-is-ever-truly-lost",
-      "new_story_file": "nothing-is-ever-truly-lost.docx",
-      "new_image_file": "nothing-is-ever-truly-lost.png"
+      "en_stem": "learning-from-loss",
+      "new_story_file": "learning-from-loss.docx",
+      "new_image_file": "learning-from-loss.png"
     },
     {
       "az_stem": "İşsiz şeytan",
       "story_file": "İşsiz şeytan.docx",
       "image_file": "İşsiz şeytan.png",
-      "en_stem": "idle-devil",
-      "new_story_file": "idle-devil.docx",
-      "new_image_file": "idle-devil.png"
+      "en_stem": "devil-out-of-work",
+      "new_story_file": "devil-out-of-work.docx",
+      "new_image_file": "devil-out-of-work.png"
     },
     {
       "az_stem": "Kainat işığı",
       "story_file": "Kainat işığı.docx",
       "image_file": "Kainat işığı.png",
-      "en_stem": "light-of-the-universe",
-      "new_story_file": "light-of-the-universe.docx",
-      "new_image_file": "light-of-the-universe.png"
+      "en_stem": "door-to-the-heart",
+      "new_story_file": "door-to-the-heart.docx",
+      "new_image_file": "door-to-the-heart.png"
     },
     {
       "az_stem": "Keçmiş nazir seminarda",
       "story_file": "Keçmiş nazir seminarda.docx",
       "image_file": "Keçmiş nazir seminarda.png",
-      "en_stem": "former-minister-at-the-seminar",
-      "new_story_file": "former-minister-at-the-seminar.docx",
-      "new_image_file": "former-minister-at-the-seminar.png"
+      "en_stem": "plastic-cup",
+      "new_story_file": "plastic-cup.docx",
+      "new_image_file": "plastic-cup.png"
     },
     {
       "az_stem": "Keçmişdə yaşamaq",
@@ -981,25 +981,25 @@
       "az_stem": "Kor quyu",
       "story_file": "Kor quyu.docx",
       "image_file": "Kor quyu.png",
-      "en_stem": "blind-well",
-      "new_story_file": "blind-well.docx",
-      "new_image_file": "blind-well.png"
+      "en_stem": "dry-well",
+      "new_story_file": "dry-well.docx",
+      "new_image_file": "dry-well.png"
     },
     {
       "az_stem": "Küləksiz havada fırlanan yel dəyirmanı",
       "story_file": "Küləksiz havada fırlanan yel dəyirmanı.docx",
       "image_file": "Küləksiz havada fırlanan yel dəyirmanı.png",
-      "en_stem": "windmill-turning-in-still-air",
-      "new_story_file": "windmill-turning-in-still-air.docx",
-      "new_image_file": "windmill-turning-in-still-air.png"
+      "en_stem": "windmill-turning-without-wind",
+      "new_story_file": "windmill-turning-without-wind.docx",
+      "new_image_file": "windmill-turning-without-wind.png"
     },
     {
       "az_stem": "Memar Sinan susuz evdə vəfat edir",
       "story_file": "Memar Sinan susuz evdə vəfat edir.docx",
       "image_file": "Memar Sinan susuz evdə vəfat edir.png",
-      "en_stem": "architect-sinan-dies-in-a-house-without-water",
-      "new_story_file": "architect-sinan-dies-in-a-house-without-water.docx",
-      "new_image_file": "architect-sinan-dies-in-a-house-without-water.png"
+      "en_stem": "sinans-waterless-house",
+      "new_story_file": "sinans-waterless-house.docx",
+      "new_image_file": "sinans-waterless-house.png"
     },
     {
       "az_stem": "Mercedes",
@@ -1013,25 +1013,25 @@
       "az_stem": "Mihrimah sultan və Memar Sinan",
       "story_file": "Mihrimah sultan və Memar Sinan.docx",
       "image_file": "Mihrimah sultan və Memar Sinan.png",
-      "en_stem": "mihrimah-sultan-and-architect-sinan",
-      "new_story_file": "mihrimah-sultan-and-architect-sinan.docx",
-      "new_image_file": "mihrimah-sultan-and-architect-sinan.png"
+      "en_stem": "mihrimah-and-sinan",
+      "new_story_file": "mihrimah-and-sinan.docx",
+      "new_image_file": "mihrimah-and-sinan.png"
     },
     {
       "az_stem": "Milçək çini qablar dükanında",
       "story_file": "Milçək çini qablar dükanında.docx",
       "image_file": "Milçək çini qablar dükanında.png",
-      "en_stem": "fly-in-the-china-shop",
-      "new_story_file": "fly-in-the-china-shop.docx",
-      "new_image_file": "fly-in-the-china-shop.png"
+      "en_stem": "fly-in-a-china-shop",
+      "new_story_file": "fly-in-a-china-shop.docx",
+      "new_image_file": "fly-in-a-china-shop.png"
     },
     {
       "az_stem": "Molla və alim",
       "story_file": "Molla və alim.docx",
       "image_file": "Molla və alim.png",
-      "en_stem": "mullah-and-the-scholar",
-      "new_story_file": "mullah-and-the-scholar.docx",
-      "new_image_file": "mullah-and-the-scholar.png"
+      "en_stem": "vizier-and-the-scholar",
+      "new_story_file": "vizier-and-the-scholar.docx",
+      "new_image_file": "vizier-and-the-scholar.png"
     },
     {
       "az_stem": "Möcüzənin qiyməti",
@@ -1045,41 +1045,41 @@
       "az_stem": "Möhtəşəm dərs",
       "story_file": "Möhtəşəm dərs.docx",
       "image_file": "Möhtəşəm dərs.png",
-      "en_stem": "magnificent-lesson",
-      "new_story_file": "magnificent-lesson.docx",
-      "new_image_file": "magnificent-lesson.png"
+      "en_stem": "remarkable-lesson",
+      "new_story_file": "remarkable-lesson.docx",
+      "new_image_file": "remarkable-lesson.png"
     },
     {
       "az_stem": "Müdrik atanın oğluna öyüd-nəsihətlərindən",
       "story_file": "Müdrik atanın oğluna öyüd-nəsihətlərindən.docx",
       "image_file": "Müdrik atanın oğluna öyüd-nəsihətlərindən.png",
-      "en_stem": "from-a-wise-fathers-advice-to-his-son",
-      "new_story_file": "from-a-wise-fathers-advice-to-his-son.docx",
-      "new_image_file": "from-a-wise-fathers-advice-to-his-son.png"
+      "en_stem": "fathers-advice",
+      "new_story_file": "fathers-advice.docx",
+      "new_image_file": "fathers-advice.png"
     },
     {
       "az_stem": "Mühazirəçi və mehtər",
       "story_file": "Mühazirəçi və mehtər.docx",
       "image_file": "Mühazirəçi və mehtər.png",
-      "en_stem": "lecturer-and-the-groom",
-      "new_story_file": "lecturer-and-the-groom.docx",
-      "new_image_file": "lecturer-and-the-groom.png"
+      "en_stem": "audience-of-one",
+      "new_story_file": "audience-of-one.docx",
+      "new_image_file": "audience-of-one.png"
     },
     {
       "az_stem": "Müsibət nədən gəlir",
       "story_file": "Müsibət nədən gəlir.docx",
       "image_file": "Müsibət nədən gəlir.png",
-      "en_stem": "where-does-calamity-come-from",
-      "new_story_file": "where-does-calamity-come-from.docx",
-      "new_image_file": "where-does-calamity-come-from.png"
+      "en_stem": "begin-with-self-examination",
+      "new_story_file": "begin-with-self-examination.docx",
+      "new_image_file": "begin-with-self-examination.png"
     },
     {
       "az_stem": "Müsibət və nemət",
       "story_file": "Müsibət və nemət.docx",
       "image_file": "Müsibət və nemət.png",
-      "en_stem": "calamity-and-blessing",
-      "new_story_file": "calamity-and-blessing.docx",
-      "new_image_file": "calamity-and-blessing.png"
+      "en_stem": "adversity-and-blessing",
+      "new_story_file": "adversity-and-blessing.docx",
+      "new_image_file": "adversity-and-blessing.png"
     },
     {
       "az_stem": "Müzakirə və münaqişə",
@@ -1093,33 +1093,33 @@
       "az_stem": "Müəllim, salam, xatırladınız məni",
       "story_file": "Müəllim, salam, xatırladınız məni.docx",
       "image_file": "Müəllim, salam, xatırladınız məni.png",
-      "en_stem": "teacher-hello-do-you-remember-me",
-      "new_story_file": "teacher-hello-do-you-remember-me.docx",
-      "new_image_file": "teacher-hello-do-you-remember-me.png"
+      "en_stem": "do-you-remember-me",
+      "new_story_file": "do-you-remember-me.docx",
+      "new_image_file": "do-you-remember-me.png"
     },
     {
       "az_stem": "Mən niyə kasıbam",
       "story_file": "Mən niyə kasıbam.docx",
       "image_file": "Mən niyə kasıbam.png",
-      "en_stem": "why-am-i-poor",
-      "new_story_file": "why-am-i-poor.docx",
-      "new_image_file": "why-am-i-poor.png"
+      "en_stem": "giving-without-money",
+      "new_story_file": "giving-without-money.docx",
+      "new_image_file": "giving-without-money.png"
     },
     {
       "az_stem": "Mənasız sual",
       "story_file": "Mənasız sual.docx",
       "image_file": "Mənasız sual.png",
-      "en_stem": "meaningless-question",
-      "new_story_file": "meaningless-question.docx",
-      "new_image_file": "meaningless-question.png"
+      "en_stem": "question-the-question",
+      "new_story_file": "question-the-question.docx",
+      "new_image_file": "question-the-question.png"
     },
     {
       "az_stem": "Məqsədinizdən əmin olun",
       "story_file": "Məqsədinizdən əmin olun.docx",
       "image_file": "Məqsədinizdən əmin olun.png",
-      "en_stem": "be-sure-of-your-purpose",
-      "new_story_file": "be-sure-of-your-purpose.docx",
-      "new_image_file": "be-sure-of-your-purpose.png"
+      "en_stem": "shared-goal",
+      "new_story_file": "shared-goal.docx",
+      "new_image_file": "shared-goal.png"
     },
     {
       "az_stem": "Mərhəmət",
@@ -1149,17 +1149,17 @@
       "az_stem": "Niyə dünyanın son gününü gözləyirsiniz",
       "story_file": "Niyə dünyanın son gününü gözləyirsiniz.docx",
       "image_file": "Niyə dünyanın son gününü gözləyirsiniz.png",
-      "en_stem": "why-are-you-waiting-for-the-last-day-of-the-world",
-      "new_story_file": "why-are-you-waiting-for-the-last-day-of-the-world.docx",
-      "new_image_file": "why-are-you-waiting-for-the-last-day-of-the-world.png"
+      "en_stem": "why-wait",
+      "new_story_file": "why-wait.docx",
+      "new_image_file": "why-wait.png"
     },
     {
       "az_stem": "Niyə insanlar mübahisə edəndə qışqırırlar",
       "story_file": "Niyə insanlar mübahisə edəndə qışqırırlar.docx",
       "image_file": "Niyə insanlar mübahisə edəndə qışqırırlar.png",
-      "en_stem": "why-people-shout-when-they-argue",
-      "new_story_file": "why-people-shout-when-they-argue.docx",
-      "new_image_file": "why-people-shout-when-they-argue.png"
+      "en_stem": "why-shout",
+      "new_story_file": "why-shout.docx",
+      "new_image_file": "why-shout.png"
     },
     {
       "az_stem": "Nyutonun 2-ci qanunu",
@@ -1173,57 +1173,57 @@
       "az_stem": "Nələr çəkdi qadın bu dünyada",
       "story_file": "Nələr çəkdi qadın bu dünyada.docx",
       "image_file": "Nələr çəkdi qadın bu dünyada.png",
-      "en_stem": "what-women-have-endured-in-this-world",
-      "new_story_file": "what-women-have-endured-in-this-world.docx",
-      "new_image_file": "what-women-have-endured-in-this-world.png"
+      "en_stem": "what-women-endure",
+      "new_story_file": "what-women-endure.docx",
+      "new_image_file": "what-women-endure.png"
     },
     {
       "az_stem": "Nəyimə lazımdır",
       "story_file": "Nəyimə lazımdır.docx",
       "image_file": "Nəyimə lazımdır.png",
-      "en_stem": "what-do-i-need-it-for",
-      "new_story_file": "what-do-i-need-it-for.docx",
-      "new_image_file": "what-do-i-need-it-for.png"
+      "en_stem": "not-my-concern",
+      "new_story_file": "not-my-concern.docx",
+      "new_image_file": "not-my-concern.png"
     },
     {
       "az_stem": "O sənin haqqın deyildi",
       "story_file": "O sənin haqqın deyildi.docx",
       "image_file": "O sənin haqqın deyildi.png",
-      "en_stem": "that-was-not-your-right",
-      "new_story_file": "that-was-not-your-right.docx",
-      "new_image_file": "that-was-not-your-right.png"
+      "en_stem": "justice-and-compassion",
+      "new_story_file": "justice-and-compassion.docx",
+      "new_image_file": "justice-and-compassion.png"
     },
     {
       "az_stem": "Onun ipi ilə quyuya enmək olmaz",
       "story_file": "Onun ipi ilə quyuya enmək olmaz.docx",
       "image_file": "Onun ipi ilə quyuya enmək olmaz.png",
-      "en_stem": "you-cannot-descend-a-well-on-his-rope",
-      "new_story_file": "you-cannot-descend-a-well-on-his-rope.docx",
-      "new_image_file": "you-cannot-descend-a-well-on-his-rope.png"
+      "en_stem": "alis-unreliable-rope",
+      "new_story_file": "alis-unreliable-rope.docx",
+      "new_image_file": "alis-unreliable-rope.png"
     },
     {
       "az_stem": "Oruclu olmaq",
       "story_file": "Oruclu olmaq.docx",
       "image_file": "Oruclu olmaq.png",
-      "en_stem": "to-be-fasting",
-      "new_story_file": "to-be-fasting.docx",
-      "new_image_file": "to-be-fasting.png"
+      "en_stem": "fasting",
+      "new_story_file": "fasting.docx",
+      "new_image_file": "fasting.png"
     },
     {
       "az_stem": "Ovçunun vəsfi",
       "story_file": "Ovçunun vəsfi.docx",
       "image_file": "Ovçunun vəsfi.png",
-      "en_stem": "hunters-description",
-      "new_story_file": "hunters-description.docx",
-      "new_image_file": "hunters-description.png"
+      "en_stem": "lions-untold-story",
+      "new_story_file": "lions-untold-story.docx",
+      "new_image_file": "lions-untold-story.png"
     },
     {
       "az_stem": "Pambıq tarlasına gedən yol",
       "story_file": "Pambıq tarlasına gedən yol.docx",
       "image_file": "Pambıq tarlasına gedən yol.png",
-      "en_stem": "road-to-the-cotton-field",
-      "new_story_file": "road-to-the-cotton-field.docx",
-      "new_image_file": "road-to-the-cotton-field.png"
+      "en_stem": "beyond-the-cotton-field",
+      "new_story_file": "beyond-the-cotton-field.docx",
+      "new_image_file": "beyond-the-cotton-field.png"
     },
     {
       "az_stem": "Paxlava",
@@ -1245,33 +1245,33 @@
       "az_stem": "Pişiyin boynundan asılacaq zınqırov",
       "story_file": "Pişiyin boynundan asılacaq zınqırov.docx",
       "image_file": "Pişiyin boynundan asılacaq zınqırov.png",
-      "en_stem": "bell-to-hang-on-the-cats-neck",
-      "new_story_file": "bell-to-hang-on-the-cats-neck.docx",
-      "new_image_file": "bell-to-hang-on-the-cats-neck.png"
+      "en_stem": "belling-the-cat",
+      "new_story_file": "belling-the-cat.docx",
+      "new_image_file": "belling-the-cat.png"
     },
     {
       "az_stem": "Pozitiv düşünün, danışın, davranın",
       "story_file": "Pozitiv düşünün, danışın, davranın.docx",
       "image_file": "Pozitiv düşünün, danışın, davranın.png",
-      "en_stem": "think-speak-and-act-positively",
-      "new_story_file": "think-speak-and-act-positively.docx",
-      "new_image_file": "think-speak-and-act-positively.png"
+      "en_stem": "thought-word-and-deed",
+      "new_story_file": "thought-word-and-deed.docx",
+      "new_image_file": "thought-word-and-deed.png"
     },
     {
       "az_stem": "Problemə münasibət",
       "story_file": "Problemə münasibət.docx",
       "image_file": "Problemə münasibət.png",
-      "en_stem": "attitude-toward-a-problem",
-      "new_story_file": "attitude-toward-a-problem.docx",
-      "new_image_file": "attitude-toward-a-problem.png"
+      "en_stem": "facing-a-problem",
+      "new_story_file": "facing-a-problem.docx",
+      "new_image_file": "facing-a-problem.png"
     },
     {
       "az_stem": "Qab-qacağınızı yuyarkən dua edin",
       "story_file": "Qab-qacağınızı yuyarkən dua edin.docx",
       "image_file": "Qab-qacağınızı yuyarkən dua edin.png",
-      "en_stem": "pray-while-washing-your-dishes",
-      "new_story_file": "pray-while-washing-your-dishes.docx",
-      "new_image_file": "pray-while-washing-your-dishes.png"
+      "en_stem": "gratitude-at-the-sink",
+      "new_story_file": "gratitude-at-the-sink.docx",
+      "new_image_file": "gratitude-at-the-sink.png"
     },
     {
       "az_stem": "Qadın və güzgü",
@@ -1285,17 +1285,17 @@
       "az_stem": "Qapı zənginin səsi",
       "story_file": "Qapı zənginin səsi.docx",
       "image_file": "Qapı zənginin səsi.png",
-      "en_stem": "sound-of-the-doorbell",
-      "new_story_file": "sound-of-the-doorbell.docx",
-      "new_image_file": "sound-of-the-doorbell.png"
+      "en_stem": "doorbell",
+      "new_story_file": "doorbell.docx",
+      "new_image_file": "doorbell.png"
     },
     {
       "az_stem": "Qismət olarsa görüşərik",
       "story_file": "Qismət olarsa görüşərik.docx",
       "image_file": "Qismət olarsa görüşərik.png",
-      "en_stem": "if-fate-allows-we-will-meet",
-      "new_story_file": "if-fate-allows-we-will-meet.docx",
-      "new_image_file": "if-fate-allows-we-will-meet.png"
+      "en_stem": "if-fate-allows",
+      "new_story_file": "if-fate-allows.docx",
+      "new_image_file": "if-fate-allows.png"
     },
     {
       "az_stem": "Qurban əti",
@@ -1309,9 +1309,9 @@
       "az_stem": "Quzuların dərisi",
       "story_file": "Quzuların dərisi.docx",
       "image_file": "Quzuların dərisi.png",
-      "en_stem": "skins-of-the-lambs",
-      "new_story_file": "skins-of-the-lambs.docx",
-      "new_image_file": "skins-of-the-lambs.png"
+      "en_stem": "lambs-skins",
+      "new_story_file": "lambs-skins.docx",
+      "new_image_file": "lambs-skins.png"
     },
     {
       "az_stem": "Qırmızı don",
@@ -1333,9 +1333,9 @@
       "az_stem": "Qəlblərinizin ayrılmasına imkan verməyin",
       "story_file": "Qəlblərinizin ayrılmasına imkan verməyin.docx",
       "image_file": "Qəlblərinizin ayrılmasına imkan verməyin.png",
-      "en_stem": "do-not-let-your-hearts-part",
-      "new_story_file": "do-not-let-your-hearts-part.docx",
-      "new_image_file": "do-not-let-your-hearts-part.png"
+      "en_stem": "keep-your-hearts-close",
+      "new_story_file": "keep-your-hearts-close.docx",
+      "new_image_file": "keep-your-hearts-close.png"
     },
     {
       "az_stem": "Ramazan duası",
@@ -1365,41 +1365,41 @@
       "az_stem": "Sevdiklərinizdən muğayat olun",
       "story_file": "Sevdiklərinizdən muğayat olun.docx",
       "image_file": "Sevdiklərinizdən muğayat olun.png",
-      "en_stem": "beware-of-those-you-love",
-      "new_story_file": "beware-of-those-you-love.docx",
-      "new_image_file": "beware-of-those-you-love.png"
+      "en_stem": "five-more-minutes",
+      "new_story_file": "five-more-minutes.docx",
+      "new_image_file": "five-more-minutes.png"
     },
     {
       "az_stem": "Sevilən insan sevgisini insanlara verən insandır",
       "story_file": "Sevilən insan sevgisini insanlara verən insandır.docx",
       "image_file": "Sevilən insan sevgisini insanlara verən insandır.png",
-      "en_stem": "beloved-is-one-who-gives-love-to-people",
-      "new_story_file": "beloved-is-one-who-gives-love-to-people.docx",
-      "new_image_file": "beloved-is-one-who-gives-love-to-people.png"
+      "en_stem": "those-who-give-love-receive-love",
+      "new_story_file": "those-who-give-love-receive-love.docx",
+      "new_image_file": "those-who-give-love-receive-love.png"
     },
     {
       "az_stem": "Sizə işi düşən adamlar",
       "story_file": "Sizə işi düşən adamlar.docx",
       "image_file": "Sizə işi düşən adamlar.png",
-      "en_stem": "people-who-need-something-from-you",
-      "new_story_file": "people-who-need-something-from-you.docx",
-      "new_image_file": "people-who-need-something-from-you.png"
+      "en_stem": "request-for-help",
+      "new_story_file": "request-for-help.docx",
+      "new_image_file": "request-for-help.png"
     },
     {
       "az_stem": "Soyuqqanlı olmaq",
       "story_file": "Soyuqqanlı olmaq.docx",
       "image_file": "Soyuqqanlı olmaq.png",
-      "en_stem": "to-be-cool-headed",
-      "new_story_file": "to-be-cool-headed.docx",
-      "new_image_file": "to-be-cool-headed.png"
+      "en_stem": "keeping-your-cool",
+      "new_story_file": "keeping-your-cool.docx",
+      "new_image_file": "keeping-your-cool.png"
     },
     {
       "az_stem": "Su daşıyan qarışqa",
       "story_file": "Su daşıyan qarışqa.docx",
       "image_file": "Su daşıyan qarışqa.png",
-      "en_stem": "ant-that-carries-water",
-      "new_story_file": "ant-that-carries-water.docx",
-      "new_image_file": "ant-that-carries-water.png"
+      "en_stem": "ant-carrying-water",
+      "new_story_file": "ant-carrying-water.docx",
+      "new_image_file": "ant-carrying-water.png"
     },
     {
       "az_stem": "Su üçün kirayə ödə",
@@ -1413,9 +1413,9 @@
       "az_stem": "Suyun xassələri",
       "story_file": "Suyun xassələri.docx",
       "image_file": "Suyun xassələri.png",
-      "en_stem": "properties-of-water",
-      "new_story_file": "properties-of-water.docx",
-      "new_image_file": "properties-of-water.png"
+      "en_stem": "qualities-of-water",
+      "new_story_file": "qualities-of-water.docx",
+      "new_image_file": "qualities-of-water.png"
     },
     {
       "az_stem": "Söz nədir",
@@ -1429,17 +1429,17 @@
       "az_stem": "Söz və sükut",
       "story_file": "Söz və sükut.docx",
       "image_file": "Söz və sükut.png",
-      "en_stem": "word-and-silence",
-      "new_story_file": "word-and-silence.docx",
-      "new_image_file": "word-and-silence.png"
+      "en_stem": "words-and-silence",
+      "new_story_file": "words-and-silence.docx",
+      "new_image_file": "words-and-silence.png"
     },
     {
       "az_stem": "Sözü yerində söyləmək",
       "story_file": "Sözü yerində söyləmək.docx",
       "image_file": "Sözü yerində söyləmək.png",
-      "en_stem": "saying-the-word-in-its-place",
-      "new_story_file": "saying-the-word-in-its-place.docx",
-      "new_image_file": "saying-the-word-in-its-place.png"
+      "en_stem": "well-chosen-words",
+      "new_story_file": "well-chosen-words.docx",
+      "new_image_file": "well-chosen-words.png"
     },
     {
       "az_stem": "Sükut",
@@ -1469,9 +1469,9 @@
       "az_stem": "Sən özün yardım et uca Allahım",
       "story_file": "Sən özün yardım et uca Allahım.docx",
       "image_file": "Sən özün yardım et uca Allahım.png",
-      "en_stem": "help-yourself-o-exalted-god",
-      "new_story_file": "help-yourself-o-exalted-god.docx",
-      "new_image_file": "help-yourself-o-exalted-god.png"
+      "en_stem": "prayer-for-everyone",
+      "new_story_file": "prayer-for-everyone.docx",
+      "new_image_file": "prayer-for-everyone.png"
     },
     {
       "az_stem": "Səni sevirəm",
@@ -1501,17 +1501,17 @@
       "az_stem": "Tanış olmaq və tanımaq",
       "story_file": "Tanış olmaq və tanımaq.docx",
       "image_file": "Tanış olmaq və tanımaq.png",
-      "en_stem": "to-meet-and-to-know",
-      "new_story_file": "to-meet-and-to-know.docx",
-      "new_image_file": "to-meet-and-to-know.png"
+      "en_stem": "beyond-first-impressions",
+      "new_story_file": "beyond-first-impressions.docx",
+      "new_image_file": "beyond-first-impressions.png"
     },
     {
       "az_stem": "Tox və ya yox olmaq",
       "story_file": "Tox və ya yox olmaq.docx",
       "image_file": "Tox və ya yox olmaq.png",
-      "en_stem": "to-be-full-or-to-be-gone",
-      "new_story_file": "to-be-full-or-to-be-gone.docx",
-      "new_image_file": "to-be-full-or-to-be-gone.png"
+      "en_stem": "stronger-together",
+      "new_story_file": "stronger-together.docx",
+      "new_image_file": "stronger-together.png"
     },
     {
       "az_stem": "Tökülən dişlər",
@@ -1525,17 +1525,17 @@
       "az_stem": "Tısbağanın yanlış hesabı",
       "story_file": "Tısbağanın yanlış hesabı.docx",
       "image_file": "Tısbağanın yanlış hesabı.png",
-      "en_stem": "turtles-wrong-calculation",
-      "new_story_file": "turtles-wrong-calculation.docx",
-      "new_image_file": "turtles-wrong-calculation.png"
+      "en_stem": "tortoises-miscalculation",
+      "new_story_file": "tortoises-miscalculation.docx",
+      "new_image_file": "tortoises-miscalculation.png"
     },
     {
       "az_stem": "Təhqirləri necə dəf etməli",
       "story_file": "Təhqirləri necə dəf etməli.docx",
       "image_file": "Təhqirləri necə dəf etməli.png",
-      "en_stem": "how-to-ward-off-insults",
-      "new_story_file": "how-to-ward-off-insults.docx",
-      "new_image_file": "how-to-ward-off-insults.png"
+      "en_stem": "unwelcome-gifts",
+      "new_story_file": "unwelcome-gifts.docx",
+      "new_image_file": "unwelcome-gifts.png"
     },
     {
       "az_stem": "Təhsil və ya xasiyyət",
@@ -1549,25 +1549,25 @@
       "az_stem": "Təmizliklə məşğul oldum",
       "story_file": "Təmizliklə məşğul oldum.docx",
       "image_file": "Təmizliklə məşğul oldum.png",
-      "en_stem": "i-got-busy-with-cleaning",
-      "new_story_file": "i-got-busy-with-cleaning.docx",
-      "new_image_file": "i-got-busy-with-cleaning.png"
+      "en_stem": "inner-housekeeping",
+      "new_story_file": "inner-housekeeping.docx",
+      "new_image_file": "inner-housekeeping.png"
     },
     {
       "az_stem": "Tənha olmaq",
       "story_file": "Tənha olmaq.docx",
       "image_file": "Tənha olmaq.png",
-      "en_stem": "to-be-alone",
-      "new_story_file": "to-be-alone.docx",
-      "new_image_file": "to-be-alone.png"
+      "en_stem": "being-lonely",
+      "new_story_file": "being-lonely.docx",
+      "new_image_file": "being-lonely.png"
     },
     {
       "az_stem": "Uzaq duracağınız ifadələr",
       "story_file": "Uzaq duracağınız ifadələr.docx",
       "image_file": "Uzaq duracağınız ifadələr.png",
-      "en_stem": "expressions-you-should-stay-away-from",
-      "new_story_file": "expressions-you-should-stay-away-from.docx",
-      "new_image_file": "expressions-you-should-stay-away-from.png"
+      "en_stem": "words-to-avoid",
+      "new_story_file": "words-to-avoid.docx",
+      "new_image_file": "words-to-avoid.png"
     },
     {
       "az_stem": "Uzaqdan sevmək",
@@ -1581,17 +1581,17 @@
       "az_stem": "Vaxtını insanlarla keçir",
       "story_file": "Vaxtını insanlarla keçir.docx",
       "image_file": "Vaxtını insanlarla keçir.png",
-      "en_stem": "spend-your-time-with-people",
-      "new_story_file": "spend-your-time-with-people.docx",
-      "new_image_file": "spend-your-time-with-people.png"
+      "en_stem": "make-time-for-people",
+      "new_story_file": "make-time-for-people.docx",
+      "new_image_file": "make-time-for-people.png"
     },
     {
       "az_stem": "Vaz keçmək",
       "story_file": "Vaz keçmək.docx",
       "image_file": "Vaz keçmək.png",
-      "en_stem": "to-give-up",
-      "new_story_file": "to-give-up.docx",
-      "new_image_file": "to-give-up.png"
+      "en_stem": "letting-go",
+      "new_story_file": "letting-go.docx",
+      "new_image_file": "letting-go.png"
     },
     {
       "az_stem": "Vəfa nədir",
@@ -1605,41 +1605,41 @@
       "az_stem": "Vəsflərimiz düşmənimiz ola bilər",
       "story_file": "Vəsflərimiz düşmənimiz ola bilər.docx",
       "image_file": "Vəsflərimiz düşmənimiz ola bilər.png",
-      "en_stem": "our-qualities-can-become-our-enemies",
-      "new_story_file": "our-qualities-can-become-our-enemies.docx",
-      "new_image_file": "our-qualities-can-become-our-enemies.png"
+      "en_stem": "strengths-and-vulnerabilities",
+      "new_story_file": "strengths-and-vulnerabilities.docx",
+      "new_image_file": "strengths-and-vulnerabilities.png"
     },
     {
       "az_stem": "Vətən və torpaq",
       "story_file": "Vətən və torpaq.docx",
       "image_file": "Vətən və torpaq.png",
-      "en_stem": "homeland-and-land",
-      "new_story_file": "homeland-and-land.docx",
-      "new_image_file": "homeland-and-land.png"
+      "en_stem": "land-and-homeland",
+      "new_story_file": "land-and-homeland.docx",
+      "new_image_file": "land-and-homeland.png"
     },
     {
       "az_stem": "Xoş gəldin bəyim",
       "story_file": "Xoş gəldin bəyim.docx",
       "image_file": "Xoş gəldin bəyim.png",
-      "en_stem": "welcome-my-bey",
-      "new_story_file": "welcome-my-bey.docx",
-      "new_image_file": "welcome-my-bey.png"
+      "en_stem": "welcome-home-my-dear",
+      "new_story_file": "welcome-home-my-dear.docx",
+      "new_image_file": "welcome-home-my-dear.png"
     },
     {
       "az_stem": "Xərcliyiniz varmı",
       "story_file": "Xərcliyiniz varmı.docx",
       "image_file": "Xərcliyiniz varmı.png",
-      "en_stem": "do-you-have-spending-money",
-      "new_story_file": "do-you-have-spending-money.docx",
-      "new_image_file": "do-you-have-spending-money.png"
+      "en_stem": "more-than-money",
+      "new_story_file": "more-than-money.docx",
+      "new_image_file": "more-than-money.png"
     },
     {
       "az_stem": "Xəyal etmək",
       "story_file": "Xəyal etmək.docx",
       "image_file": "Xəyal etmək.png",
-      "en_stem": "to-dream",
-      "new_story_file": "to-dream.docx",
-      "new_image_file": "to-dream.png"
+      "en_stem": "dreaming",
+      "new_story_file": "dreaming.docx",
+      "new_image_file": "dreaming.png"
     },
     {
       "az_stem": "Yalan danışmaq",
@@ -1653,9 +1653,9 @@
       "az_stem": "Yaxşı yaşamağın və uzunömürlülüyün sirri",
       "story_file": "Yaxşı yaşamağın və uzunömürlülüyün sirri.docx",
       "image_file": "Yaxşı yaşamağın və uzunömürlülüyün sirri.png",
-      "en_stem": "secret-of-living-well-and-longevity",
-      "new_story_file": "secret-of-living-well-and-longevity.docx",
-      "new_image_file": "secret-of-living-well-and-longevity.png"
+      "en_stem": "living-well",
+      "new_story_file": "living-well.docx",
+      "new_image_file": "living-well.png"
     },
     {
       "az_stem": "Yaylıq satıcısı",
@@ -1669,17 +1669,17 @@
       "az_stem": "Yağın çəkisi",
       "story_file": "Yağın çəkisi.docx",
       "image_file": "Yağın çəkisi.png",
-      "en_stem": "weight-of-the-oil",
-      "new_story_file": "weight-of-the-oil.docx",
-      "new_image_file": "weight-of-the-oil.png"
+      "en_stem": "weight-of-the-butter",
+      "new_story_file": "weight-of-the-butter.docx",
+      "new_image_file": "weight-of-the-butter.png"
     },
     {
       "az_stem": "Yaşadığınız heç bir gündən şikayətçi olmayın",
       "story_file": "Yaşadığınız heç bir gündən şikayətçi olmayın.docx",
       "image_file": "Yaşadığınız heç bir gündən şikayətçi olmayın.png",
-      "en_stem": "do-not-complain-about-any-day-you-have-lived",
-      "new_story_file": "do-not-complain-about-any-day-you-have-lived.docx",
-      "new_image_file": "do-not-complain-about-any-day-you-have-lived.png"
+      "en_stem": "every-day-has-meaning",
+      "new_story_file": "every-day-has-meaning.docx",
+      "new_image_file": "every-day-has-meaning.png"
     },
     {
       "az_stem": "Yaşlanma",
@@ -1701,57 +1701,57 @@
       "az_stem": "Yol yormursa, yoldaşındandır",
       "story_file": "Yol yormursa, yoldaşındandır.docx",
       "image_file": "Yol yormursa, yoldaşındandır.png",
-      "en_stem": "if-the-road-does-not-tire-you-it-is-because-of-your-companion",
-      "new_story_file": "if-the-road-does-not-tire-you-it-is-because-of-your-companion.docx",
-      "new_image_file": "if-the-road-does-not-tire-you-it-is-because-of-your-companion.png"
+      "en_stem": "sharing-the-burden",
+      "new_story_file": "sharing-the-burden.docx",
+      "new_image_file": "sharing-the-burden.png"
     },
     {
       "az_stem": "Yolunacaq qaz",
       "story_file": "Yolunacaq qaz.docx",
       "image_file": "Yolunacaq qaz.png",
-      "en_stem": "goose-to-be-plucked",
-      "new_story_file": "goose-to-be-plucked.docx",
-      "new_image_file": "goose-to-be-plucked.png"
+      "en_stem": "plucking-the-goose",
+      "new_story_file": "plucking-the-goose.docx",
+      "new_image_file": "plucking-the-goose.png"
     },
     {
       "az_stem": "Yoruldum ana",
       "story_file": "Yoruldum ana.docx",
       "image_file": "Yoruldum ana.png",
-      "en_stem": "i-am-tired-mother",
-      "new_story_file": "i-am-tired-mother.docx",
-      "new_image_file": "i-am-tired-mother.png"
+      "en_stem": "im-tired-mom",
+      "new_story_file": "im-tired-mom.docx",
+      "new_image_file": "im-tired-mom.png"
     },
     {
       "az_stem": "Yuvanın qurucusu",
       "story_file": "Yuvanın qurucusu.docx",
       "image_file": "Yuvanın qurucusu.png",
-      "en_stem": "builder-of-the-nest",
-      "new_story_file": "builder-of-the-nest.docx",
-      "new_image_file": "builder-of-the-nest.png"
+      "en_stem": "nest-builder",
+      "new_story_file": "nest-builder.docx",
+      "new_image_file": "nest-builder.png"
     },
     {
       "az_stem": "Çalışın belə düşünün",
       "story_file": "Çalışın belə düşünün.docx",
       "image_file": "Çalışın belə düşünün.png",
-      "en_stem": "try-to-think-this-way",
-      "new_story_file": "try-to-think-this-way.docx",
-      "new_image_file": "try-to-think-this-way.png"
+      "en_stem": "learning-to-say-yet",
+      "new_story_file": "learning-to-say-yet.docx",
+      "new_image_file": "learning-to-say-yet.png"
     },
     {
       "az_stem": "Çatdırmadım, bacarmadım deməyin",
       "story_file": "Çatdırmadım, bacarmadım deməyin.docx",
       "image_file": "Çatdırmadım, bacarmadım deməyin.png",
-      "en_stem": "dont-say-i-couldnt-deliver-or-i-couldnt-manage",
-      "new_story_file": "dont-say-i-couldnt-deliver-or-i-couldnt-manage.docx",
-      "new_image_file": "dont-say-i-couldnt-deliver-or-i-couldnt-manage.png"
+      "en_stem": "try-again",
+      "new_story_file": "try-again.docx",
+      "new_image_file": "try-again.png"
     },
     {
       "az_stem": "Çobanı səsləmək lazımdır",
       "story_file": "Çobanı səsləmək lazımdır.docx",
       "image_file": "Çobanı səsləmək lazımdır.png",
-      "en_stem": "shepherd-must-be-called",
-      "new_story_file": "shepherd-must-be-called.docx",
-      "new_image_file": "shepherd-must-be-called.png"
+      "en_stem": "call-the-shepherd",
+      "new_story_file": "call-the-shepherd.docx",
+      "new_image_file": "call-the-shepherd.png"
     },
     {
       "az_stem": "Çobanın sözü",
@@ -1773,17 +1773,17 @@
       "az_stem": "Çətinliyi fürsətə çevirmək",
       "story_file": "Çətinliyi fürsətə çevirmək.docx",
       "image_file": "Çətinliyi fürsətə çevirmək.png",
-      "en_stem": "turning-hardship-into-opportunity",
-      "new_story_file": "turning-hardship-into-opportunity.docx",
-      "new_image_file": "turning-hardship-into-opportunity.png"
+      "en_stem": "obstacles-and-opportunities",
+      "new_story_file": "obstacles-and-opportunities.docx",
+      "new_image_file": "obstacles-and-opportunities.png"
     },
     {
       "az_stem": "Ölən həyatda qalandır",
       "story_file": "Ölən həyatda qalandır.docx",
       "image_file": "Ölən həyatda qalandır.png",
-      "en_stem": "dead-remain-in-life",
-      "new_story_file": "dead-remain-in-life.docx",
-      "new_image_file": "dead-remain-in-life.png"
+      "en_stem": "living-with-loss",
+      "new_story_file": "living-with-loss.docx",
+      "new_image_file": "living-with-loss.png"
     },
     {
       "az_stem": "Ömür qısadır",
@@ -1797,33 +1797,33 @@
       "az_stem": "Önünüzdə olan qapı açılmırsa deməli o sizin qapınız deyil",
       "story_file": "Önünüzdə olan qapı açılmırsa deməli o sizin qapınız deyil.docx",
       "image_file": "Önünüzdə olan qapı açılmırsa deməli o sizin qapınız deyil.png",
-      "en_stem": "if-the-door-before-you-wont-open-it-is-not-your-door",
-      "new_story_file": "if-the-door-before-you-wont-open-it-is-not-your-door.docx",
-      "new_image_file": "if-the-door-before-you-wont-open-it-is-not-your-door.png"
+      "en_stem": "different-door",
+      "new_story_file": "different-door.docx",
+      "new_image_file": "different-door.png"
     },
     {
       "az_stem": "Övlad tərbiyəsi",
       "story_file": "Övlad tərbiyəsi.docx",
       "image_file": "Övlad tərbiyəsi.png",
-      "en_stem": "raising-children",
-      "new_story_file": "raising-children.docx",
-      "new_image_file": "raising-children.png"
+      "en_stem": "raising-a-child",
+      "new_story_file": "raising-a-child.docx",
+      "new_image_file": "raising-a-child.png"
     },
     {
       "az_stem": "Özgüvənli olmaq",
       "story_file": "Özgüvənli olmaq.docx",
       "image_file": "Özgüvənli olmaq.png",
-      "en_stem": "to-be-self-confident",
-      "new_story_file": "to-be-self-confident.docx",
-      "new_image_file": "to-be-self-confident.png"
+      "en_stem": "believe-in-yourself",
+      "new_story_file": "believe-in-yourself.docx",
+      "new_image_file": "believe-in-yourself.png"
     },
     {
       "az_stem": "Özgələrin fikirləri",
       "story_file": "Özgələrin fikirləri.docx",
       "image_file": "Özgələrin fikirləri.png",
-      "en_stem": "other-peoples-opinions",
-      "new_story_file": "other-peoples-opinions.docx",
-      "new_image_file": "other-peoples-opinions.png"
+      "en_stem": "other-peoples-thoughts",
+      "new_story_file": "other-peoples-thoughts.docx",
+      "new_image_file": "other-peoples-thoughts.png"
     },
     {
       "az_stem": "Ünsiyyət",
@@ -1837,9 +1837,9 @@
       "az_stem": "Üzünüz daim gülsün",
       "story_file": "Üzünüz daim gülsün.docx",
       "image_file": "Üzünüz daim gülsün.png",
-      "en_stem": "may-your-face-always-smile",
-      "new_story_file": "may-your-face-always-smile.docx",
-      "new_image_file": "may-your-face-always-smile.png"
+      "en_stem": "welcoming-smile",
+      "new_story_file": "welcoming-smile.docx",
+      "new_image_file": "welcoming-smile.png"
     },
     {
       "az_stem": "Üç heykəl",
@@ -1853,9 +1853,9 @@
       "az_stem": "Üç mənzərə",
       "story_file": "Üç mənzərə.docx",
       "image_file": "Üç mənzərə.png",
-      "en_stem": "three-landscapes",
-      "new_story_file": "three-landscapes.docx",
-      "new_image_file": "three-landscapes.png"
+      "en_stem": "three-scenes",
+      "new_story_file": "three-scenes.docx",
+      "new_image_file": "three-scenes.png"
     },
     {
       "az_stem": "Üç sual",
@@ -1893,17 +1893,17 @@
       "az_stem": "Şəhər üçün üç vacib şey",
       "story_file": "Şəhər üçün üç vacib şey.docx",
       "image_file": "Şəhər üçün üç vacib şey.png",
-      "en_stem": "three-essential-things-for-a-city",
-      "new_story_file": "three-essential-things-for-a-city.docx",
-      "new_image_file": "three-essential-things-for-a-city.png"
+      "en_stem": "three-essentials-for-a-city",
+      "new_story_file": "three-essentials-for-a-city.docx",
+      "new_image_file": "three-essentials-for-a-city.png"
     },
     {
       "az_stem": "Ədalət var ikən haqsızlıq niyə",
       "story_file": "Ədalət var ikən haqsızlıq niyə.docx",
       "image_file": "Ədalət var ikən haqsızlıq niyə.png",
-      "en_stem": "why-injustice-when-there-is-justice",
-      "new_story_file": "why-injustice-when-there-is-justice.docx",
-      "new_image_file": "why-injustice-when-there-is-justice.png"
+      "en_stem": "choose-justice",
+      "new_story_file": "choose-justice.docx",
+      "new_image_file": "choose-justice.png"
     },
     {
       "az_stem": "Ədaləti paylaşmaq",
@@ -1917,17 +1917,17 @@
       "az_stem": "Əfv etmək",
       "story_file": "Əfv etmək.docx",
       "image_file": "Əfv etmək.png",
-      "en_stem": "to-forgive",
-      "new_story_file": "to-forgive.docx",
-      "new_image_file": "to-forgive.png"
+      "en_stem": "forgiveness",
+      "new_story_file": "forgiveness.docx",
+      "new_image_file": "forgiveness.png"
     },
     {
       "az_stem": "Əli işdədir",
       "story_file": "Əli işdədir.docx",
       "image_file": "Əli işdədir.png",
-      "en_stem": "his-hand-is-at-work",
-      "new_story_file": "his-hand-is-at-work.docx",
-      "new_image_file": "his-hand-is-at-work.png"
+      "en_stem": "busy-but-unproductive",
+      "new_story_file": "busy-but-unproductive.docx",
+      "new_image_file": "busy-but-unproductive.png"
     },
     {
       "az_stem": "Əliaçıq adam",
@@ -1957,9 +1957,9 @@
       "az_stem": "Əlin işdə, ümidin Allahda",
       "story_file": "Əlin işdə, ümidin Allahda.docx",
       "image_file": "Əlin işdə, ümidin Allahda.png",
-      "en_stem": "your-hand-at-work-your-hope-in-god",
-      "new_story_file": "your-hand-at-work-your-hope-in-god.docx",
-      "new_image_file": "your-hand-at-work-your-hope-in-god.png"
+      "en_stem": "hands-at-work-hope-in-god",
+      "new_story_file": "hands-at-work-hope-in-god.docx",
+      "new_image_file": "hands-at-work-hope-in-god.png"
     },
     {
       "az_stem": "Ən gözəl hədiyyə",
@@ -1973,9 +1973,9 @@
       "az_stem": "Ən gözəl nəsib",
       "story_file": "Ən gözəl nəsib.docx",
       "image_file": "Ən gözəl nəsib.png",
-      "en_stem": "most-beautiful-portion",
-      "new_story_file": "most-beautiful-portion.docx",
-      "new_image_file": "most-beautiful-portion.png"
+      "en_stem": "lifes-finest-blessing",
+      "new_story_file": "lifes-finest-blessing.docx",
+      "new_image_file": "lifes-finest-blessing.png"
     },
     {
       "az_stem": "Ən güclü qalxan",

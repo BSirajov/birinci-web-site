@@ -10,24 +10,31 @@
     }
   } catch (_) {}
 
-  const LANG_ORDER = ["az", "en", "ru", "ky"];
+  const LANG_ORDER = ["az", "en", "ky", "ru"];
   const LANG_META = {
     az: { short: "AZ", title: "Azərbaycan" },
     en: { short: "EN", title: "English" },
     ru: { short: "RU", title: "Русский" },
     ky: { short: "KY", title: "Кыргызча" },
+    de: { short: "DE", title: "Deutsch" },
   };
-  const TTS_LANG = { az: "az-AZ", en: "en-US", ru: "ru-RU", ky: "ky-KG" };
+  const langToggleLabel = (code) => {
+    const meta = LANG_META[code];
+    return String((meta && (meta.short || meta.title)) || code).toUpperCase();
+  };
+  const sortLangOrder = (codes) =>
+    [...codes].sort((a, b) => langToggleLabel(a).localeCompare(langToggleLabel(b), "en"));
+  const TTS_LANG = { az: "az-AZ", en: "en-US", ru: "ru-RU", ky: "ky-KG", de: "de-DE" };
   const LANG_PREF_KEY = "birinci-compare-langs";
 
-  const normalizeLangList = (items) => {
+  const normalizeLangList = (items, order = LANG_ORDER) => {
     if (!Array.isArray(items)) return [];
-    return LANG_ORDER.filter((code) =>
+    return order.filter((code) =>
       items.some((item) => String(item || "").toLowerCase().slice(0, 2) === code)
     );
   };
 
-  const readSavedVisibleLangs = () => {
+  const readSavedVisibleLangs = (order = LANG_ORDER) => {
     try {
       const raw = localStorage.getItem(LANG_PREF_KEY);
       if (raw == null) return null;
@@ -40,7 +47,7 @@
       } else if (trimmed.charAt(0) === "{") {
         const parsed = JSON.parse(trimmed);
         if (parsed && typeof parsed === "object") {
-          items = LANG_ORDER.filter((code) => {
+          items = order.filter((code) => {
             const value = parsed[code];
             return value === true || value === 1 || value === "1";
           });
@@ -48,7 +55,7 @@
       } else {
         items = trimmed.split(/[,\s]+/);
       }
-      const codes = normalizeLangList(items);
+      const codes = normalizeLangList(items, order);
       return codes.length ? codes : null;
     } catch (_) {
       return null;
@@ -123,6 +130,14 @@
 
   const bootCompareWindow = (adapter) => {
     const options = adapter || {};
+    // Each adapter declares its supported locales; Discoveries keeps the legacy four.
+    // Toggle buttons show codes (AZ, DE, EN…); keep that visible order alphabetical.
+    const LANG_ORDER = sortLangOrder(
+      Array.isArray(options.languages)
+        ? [...new Set(options.languages.filter((code) => global.__birinciCompareWindow.LANG_META[code]))]
+        : global.__birinciCompareWindow.LANG_ORDER
+    );
+    const LANG_META = Object.fromEntries(LANG_ORDER.map((code) => [code, global.__birinciCompareWindow.LANG_META[code]]));
     const scriptName = String(options.scriptName || "compare-window.js");
     const showContentViews = options.showContentViews !== false;
     const pagerLabelKey = options.pagerLabelKey || "stories_nav";
@@ -214,7 +229,7 @@
       } catch (_) {}
     };
 
-    const savedLangPrefs = readSavedVisibleLangs();
+    const savedLangPrefs = readSavedVisibleLangs(LANG_ORDER);
     const state = {
       stem: stemFromQuery || stemFromSession,
       catalogs: {},

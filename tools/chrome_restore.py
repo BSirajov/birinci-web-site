@@ -30,6 +30,7 @@ from legal_meta import (  # noqa: E402
 )
 from i18n_config import (  # noqa: E402
     dehydrate_story_illustrations,
+    implemented_languages,
     rewrite_content_media_paths,
     story_audio_dir,
     story_illustrations_dir,
@@ -108,14 +109,14 @@ DISABLE_DISCOVERY_VIDEOS = True
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
 SITE_ASSET_VERSION = "20260924img"
 # Shared site.css / site.js (phone illustration-control chrome).
-SITE_CHROME_ASSET_VERSION = "20260927phone"
+SITE_CHROME_ASSET_VERSION = "20261005de"
 INVENTIONS_BRIDGE_ASSET_VERSION = "20260924bg"
 # Discoveries catalog JS (view=list URL cache-bust). Independent of site chrome.
 KT_INVENTIONS_JS_VERSION = "20261004qa1"
-STORY_COMPARE_CSS_VERSION = "20261002langon"
-STORY_COMPARE_JS_VERSION = "20261002illust"
-COMPARE_WINDOW_JS_VERSION = "20260929plainky1"
-DISCOVERY_COMPARE_ASSET_VERSION = "20260929eqbox"
+STORY_COMPARE_CSS_VERSION = "20261006noaud"
+STORY_COMPARE_JS_VERSION = "20261006noaud"
+COMPARE_WINDOW_JS_VERSION = "20261005de"
+DISCOVERY_COMPARE_ASSET_VERSION = "20261006noaud"
 ILLUSTRATION_STAMPS = frozenset(
     {
         "20260924kyill",
@@ -145,6 +146,7 @@ ILLUSTRATION_STAMPS = frozenset(
         "20260930ensrc",
         "20260930azsrc",
         "20261002illust",
+        "20261019illust",
     }
 )
 KNOWN_ASSET_STAMPS = frozenset(
@@ -163,13 +165,15 @@ KNOWN_ASSET_STAMPS = frozenset(
 # False = bake Listen/Stop as visible + disabled until suitable voices are ready.
 AUDIO_CONTROLS_ENABLED = False
 SITE_PUBLIC_ORIGIN = "https://birinci.cloud"
-LIVE_LANGS = ("az", "en", "ru", "ky")
+_LANGUAGE_META = {str(row["code"]): row for row in implemented_languages()}
+LIVE_LANGS = tuple(_LANGUAGE_META)
 OG_IMAGE_URL = f"{SITE_PUBLIC_ORIGIN}/assets/pearl-hero.webp"
 OG_LOCALE = {
     "az": "az_AZ",
     "en": "en",
     "ru": "ru_RU",
     "ky": "ky_KG",
+    "de": "de_DE",
 }
 _NOT_FOUND_HTML = """\
 <!DOCTYPE html>
@@ -273,6 +277,7 @@ PAGE_JUMP_NAV = {
     "en": "Page navigation",
     "ru": "Навигация по странице",
     "ky": "Барак навигациясы",
+    "de": "Seitennavigation",
 }
 
 GO_TO_BOTTOM = {
@@ -280,6 +285,7 @@ GO_TO_BOTTOM = {
     "en": "Go to bottom of page",
     "ru": "Вниз страницы",
     "ky": "Барактын аягына өтүү",
+    "de": "Zum Seitenende",
 }
 
 BACK_TO_TOP = {
@@ -287,6 +293,7 @@ BACK_TO_TOP = {
     "en": "Back to top",
     "ru": "Наверх",
     "ky": "Барактын башына кайтуу",
+    "de": "Nach oben",
 }
 
 SIDEBAR_EXPAND_ALL = {
@@ -325,6 +332,7 @@ NAV_STORIES_ALL = {
     "en": "All",
     "ru": "Все",
     "ky": "Баары",
+    "de": "Alle",
 }
 
 NAV_STORIES_BY_CATEGORY = {
@@ -332,6 +340,7 @@ NAV_STORIES_BY_CATEGORY = {
     "en": "By Category",
     "ru": "По категориям",
     "ky": "Категория боюнча",
+    "de": "Nach Kategorie",
 }
 
 # Former Literature top-nav labels → stories-section name in each language.
@@ -346,6 +355,7 @@ NAV_LITERATURE_LABEL = {
     "en": "Wisdom stories",
     "ru": "Нравоучительные рассказы",
     "ky": "Үлгүлүү аңгемелер",
+    "de": "Weisheitsgeschichten",
 }
 _LIT_NAV_SPAN_RE = re.compile(
     r'(<details class="nav-dropdown nav-dropdown--literature">[\s\S]*?'
@@ -2243,19 +2253,31 @@ def _hreflang_pairs(rel_path: str) -> list[tuple[str, str]]:
     if rel in ("", "index.html"):
         pairs.append(("x-default", f"{SITE_PUBLIC_ORIGIN}/"))
         for lang in LIVE_LANGS:
+            if not _locale_target_available(lang, "index.html"):
+                continue
             pairs.append((lang, f"{SITE_PUBLIC_ORIGIN}/{lang}/index.html"))
         return pairs
     parts = rel.split("/", 1)
     if parts[0] in LIVE_LANGS and len(parts) == 2:
         rest = parts[1]
+        if parts[0] == "de" and rest.startswith(("stories/", "authors/")):
+            # Standalone German pages need not share a slug with older locales.
+            # Their builders can supply precise cross-language equivalents.
+            return [
+                (lang, f"{SITE_PUBLIC_ORIGIN}/{lang}/{rest}")
+                for lang in LIVE_LANGS
+                if _locale_target_available(lang, rest) and (ROOT / lang / rest).is_file()
+            ]
         pairs.append(("x-default", f"{SITE_PUBLIC_ORIGIN}/en/{rest}"))
         for lang in LIVE_LANGS:
+            if not _locale_target_available(lang, rest):
+                continue
             pairs.append((lang, f"{SITE_PUBLIC_ORIGIN}/{lang}/{rest}"))
     return pairs
 
 
 _CATEGORY_SLUG_RE = re.compile(
-    r'/(?:az|en|ru|ky)/categories/([^/"\s?]+\.html)',
+    rf'/(?:{"|".join(re.escape(code) for code in LIVE_LANGS)})/categories/([^/"\s?]+\.html)',
     re.I,
 )
 
@@ -2353,6 +2375,10 @@ def ensure_page_jump_html(html: str, lang: str) -> str:
     nav = PAGE_JUMP_NAV.get(lang, PAGE_JUMP_NAV["en"])
     go = GO_TO_BOTTOM.get(lang, GO_TO_BOTTOM["en"])
     top = BACK_TO_TOP.get(lang, BACK_TO_TOP["en"])
+    if lang == "de":
+        nav = _german_ui_copy("page_jump_nav", nav)
+        go = _german_ui_copy("go_to_bottom", go)
+        top = _german_ui_copy("back_to_top", top)
     block = (
         f'  <nav class="page-jump" aria-label="{nav}">\n'
         f'    <a class="go-to-bottom" href="#site-footer" id="go-to-bottom" '
@@ -2381,6 +2407,8 @@ def ensure_page_jump_html(html: str, lang: str) -> str:
 
 def ensure_footer_about_html(html: str, lang: str) -> str:
     short = FOOTER_ABOUT_SHORT.get(lang)
+    if lang == "de":
+        short = _german_ui_copy("footer_about", "")
     if not short:
         return html
     if not _FOOTER_ABOUT_RE.search(html):
@@ -3917,12 +3945,23 @@ _BTN_LABEL_RE = re.compile(
 )
 
 
-def _sidebar_expand_collapse_html(lang: str) -> str:
+def _sidebar_action_labels(lang: str) -> tuple[str, str, str, str, str]:
     expand = html.escape(SIDEBAR_EXPAND_ALL.get(lang, SIDEBAR_EXPAND_ALL["en"]))
     collapse = html.escape(SIDEBAR_COLLAPSE_ALL.get(lang, SIDEBAR_COLLAPSE_ALL["en"]))
     expand_aria = html.escape(SIDEBAR_EXPAND_ALL_ARIA.get(lang, SIDEBAR_EXPAND_ALL_ARIA["en"]))
     collapse_aria = html.escape(SIDEBAR_COLLAPSE_ALL_ARIA.get(lang, SIDEBAR_COLLAPSE_ALL_ARIA["en"]))
     actions_aria = html.escape(SIDEBAR_ACTIONS_ARIA.get(lang, SIDEBAR_ACTIONS_ARIA["en"]))
+    if lang == "de":
+        expand = html.escape(_german_ui_copy("expand_all", "Alle aufklappen"))
+        collapse = html.escape(_german_ui_copy("collapse_all", "Alle einklappen"))
+        expand_aria = html.escape(_german_ui_copy("expand_all_aria", "Alle Kategorien aufklappen"))
+        collapse_aria = html.escape(_german_ui_copy("collapse_all_aria", "Alle Kategorien einklappen"))
+        actions_aria = html.escape(_german_ui_copy("section_controls", "Abschnittssteuerung"))
+    return expand, collapse, expand_aria, collapse_aria, actions_aria
+
+
+def _sidebar_expand_collapse_html(lang: str) -> str:
+    expand, collapse, expand_aria, collapse_aria, actions_aria = _sidebar_action_labels(lang)
     return (
         f'<div class="widget-actions" role="group" aria-label="{actions_aria}">'
         f'<div class="widget-actions__views" role="group">'
@@ -3968,10 +4007,7 @@ def ensure_sidebar_expand_collapse_buttons(markup: str, lang: str) -> str:
     if not is_stories and not is_discoveries:
         return markup
 
-    expand = html.escape(SIDEBAR_EXPAND_ALL.get(lang, SIDEBAR_EXPAND_ALL["en"]))
-    collapse = html.escape(SIDEBAR_COLLAPSE_ALL.get(lang, SIDEBAR_COLLAPSE_ALL["en"]))
-    expand_aria = html.escape(SIDEBAR_EXPAND_ALL_ARIA.get(lang, SIDEBAR_EXPAND_ALL_ARIA["en"]))
-    collapse_aria = html.escape(SIDEBAR_COLLAPSE_ALL_ARIA.get(lang, SIDEBAR_COLLAPSE_ALL_ARIA["en"]))
+    expand, collapse, expand_aria, collapse_aria, _ = _sidebar_action_labels(lang)
     actions = _sidebar_expand_collapse_html(lang)
 
     if is_stories and (
@@ -4408,6 +4444,9 @@ def _story_figure_i18n(lang: str) -> tuple[str, str]:
     path = TOOLS / "locales" / f"{lang}.json"
     enlarge = "{title} şəklini böyüt"
     alt = "{title} illüstrasiyası"
+    if lang == "de":
+        enlarge = "Illustration zu {title} vergrößern"
+        alt = "Illustration zu {title}"
     if path.is_file():
         data = json.loads(path.read_text(encoding="utf-8"))
         ui = data.get("ui") or {}
@@ -4431,10 +4470,8 @@ def localize_story_figure_labels(markup: str, lang: str) -> str:
 
 
 _LANG_SWITCHER_META = {
-    "az": ("AZ", "Azərbaycan"),
-    "en": ("EN", "English"),
-    "ru": ("RU", "Русский"),
-    "ky": ("KY", "Кыргызча"),
+    code: (str(row.get("label") or code.upper()), str(row.get("name") or code))
+    for code, row in _LANGUAGE_META.items()
 }
 _LANG_SWITCHER_NAV_RE = re.compile(
     r'<nav\s+class="lang-switcher(?:\s+lang-switcher--pills)?"[^>]*>[\s\S]*?</nav>',
@@ -4446,6 +4483,22 @@ def _rel_depth_prefix(rel_path: str) -> str:
     parts = Path(str(rel_path).replace("\\", "/")).parts
     depth = max(0, len(parts) - 1)
     return "../" * depth
+
+
+def _locale_target_available(lang: str, rest: str) -> bool:
+    """Partial locales advertise only built pages in their published sections.
+
+    Full locales retain the established switch/hreflang behavior. German is
+    currently wisdom-only; author/story builders still own their precise URLs.
+    """
+    sections = _LANGUAGE_META.get(lang, {}).get("available_sections")
+    if sections is None:
+        return True
+    page = rest.split("?", 1)[0].split("#", 1)[0]
+    wisdom = page in ("index.html", "sitemap.html") or page.startswith(("categories/", "stories/", "authors/"))
+    if "wisdom" not in sections or not wisdom:
+        return False
+    return (ROOT / lang / page).is_file()
 
 
 def _sibling_lang_href(rel_path: str, target_lang: str) -> str:
@@ -4465,6 +4518,8 @@ def ensure_lang_switcher_dropdown(markup: str, lang: str, rel_path: str = "") ->
         code = "az"
     resolved = rel_path or infer_html_rel_path(markup, code)
     label = "Language"
+    if code == "de":
+        label = "Sprache"
     try:
         label = str((_load_locale(code).get("ui") or {}).get("lang_switcher_label") or label)
     except (OSError, json.JSONDecodeError, TypeError, KeyError):
@@ -4472,7 +4527,11 @@ def ensure_lang_switcher_dropdown(markup: str, lang: str, rel_path: str = "") ->
     prefix = _rel_depth_prefix(resolved) if resolved else "../"
     short, title = _LANG_SWITCHER_META[code]
     options: list[str] = []
-    for other in LIVE_LANGS:
+    parts = resolved.replace("\\", "/").lstrip("/").split("/", 1)
+    target_page = parts[1] if len(parts) == 2 and parts[0] in LIVE_LANGS else "index.html"
+    for other in sorted(LIVE_LANGS):
+        if not _locale_target_available(other, target_page):
+            continue
         o_short, o_title = _LANG_SWITCHER_META[other]
         href = _sibling_lang_href(resolved, other) if resolved else f"{prefix}{other}/index.html"
         flag = f"{prefix}flags/{other}.svg"
@@ -4508,6 +4567,12 @@ ensure_lang_switcher_pills = ensure_lang_switcher_dropdown
 def patch_emitted_html(
     html: str, lang: str, *, inventions: bool = False, rel_path: str = ""
 ) -> str:
+    # The scoped German builder owns exact DOCX text, verified counterparts and
+    # English fallbacks for unavailable sections. Legacy full-site navigation
+    # restoration would replace them with nonexistent German legal/about URLs.
+    # Rebuild these pages through build_website.py --german-wisdom instead.
+    if lang == "de" and 'data-wisdom-generator="german-docx"' in html:
+        return html
     rel_path = rel_path or infer_html_rel_path(html, lang, inventions=inventions)
     html = hide_empty_top_nav(html)
     html = ensure_discoveries_nav_link(html, lang)
@@ -4720,7 +4785,8 @@ _CATEGORIES_SECTION_RE = re.compile(
 
 ROOT_HOME_ASSET_VERSION = SITE_ASSET_VERSION
 
-ROOT_ENTRY_LANGS = ("az", "en", "ru", "ky")
+# Every available language translates the same root landing page in place.
+ROOT_ENTRY_LANGS = tuple(sorted(_LANGUAGE_META))
 ROOT_CHROME_UI_KEYS = (
     "skip_to_content",
     "open_menu",
@@ -4796,6 +4862,7 @@ ROOT_CHROME_UI_KEYS = (
 )
 
 ROOT_ENTRY_SECTION_LABEL = {
+    "de": "Hauptbereiche",
     "az": "Əsas bölmələr",
     "en": "Main sections",
     "ru": "Основные разделы",
@@ -4840,7 +4907,7 @@ _ROOT_ENTRY_SCRIPT = """\
   } catch (_) {
     return;
   }
-  var langs = ["az", "en", "ru", "ky"];
+  var langs = Object.keys(pack);
   function normLang(code) {
     return langs.indexOf(code) >= 0 ? code : "az";
   }
@@ -5030,6 +5097,10 @@ _ROOT_ENTRY_SCRIPT = """\
       try {
         localStorage.setItem("birinci-lang", code);
       } catch (_) {}
+      if (!pack[code]) {
+        window.location.assign(link.href);
+        return;
+      }
       applyLang(code);
     },
     true
@@ -5064,12 +5135,24 @@ def _load_locale(lang: str) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def _german_ui_copy(key: str, fallback: str) -> str:
+    """Prefer the German locale's explicit UI copy without borrowing AZ/EN."""
+    try:
+        ui = _load_locale("de").get("ui") or {}
+        return str(ui.get(key) or fallback)
+    except (OSError, json.JSONDecodeError, TypeError):
+        return fallback
+
+
 def _root_entry_locale_pack(lang: str) -> dict:
     data = _load_locale(lang)
     ui = data.get("ui", {})
     about = ui.get("about", {})
     inv = ui.get("inventions", {})
-    return {
+    pack = {
+        "home_crumb": data.get("home_crumb") or "Home",
+        "footer_legal_label": ui.get("footer_legal_nav") or "Legal information",
+        "qr_label": {"az": "birinci.cloud saytına keçid üçün QR kod", "de": "QR-Code zur Website birinci.cloud", "en": "QR code for birinci.cloud", "ky": "birinci.cloud сайтынын QR коду", "ru": "QR-код сайта birinci.cloud"}.get(lang, "birinci.cloud"),
         "section_label": ROOT_ENTRY_SECTION_LABEL.get(lang, ROOT_ENTRY_SECTION_LABEL["en"]),
         "cards": {
             "stories": {
@@ -5154,6 +5237,23 @@ def _root_entry_locale_pack(lang: str) -> dict:
         "ui": {key: ui[key] for key in ROOT_CHROME_UI_KEYS if key in ui},
         "js": data.get("js") or {},
     }
+    if lang == "de":
+        # Translate the homepage while linking only to published destinations.
+        def available_links(value):
+            if isinstance(value, dict):
+                return {key: available_links(item) for key, item in value.items()}
+            if isinstance(value, list):
+                return [available_links(item) for item in value]
+            if isinstance(value, str) and value.startswith("de/"):
+                target = value.split("?", 1)[0]
+                if not (ROOT / target).is_file():
+                    return "en/" + value[3:]
+            return value
+        pack = available_links(pack)
+        for card in pack["cards"].values():
+            if card["href"].startswith("en/"):
+                card["title"] += " (Englisch)"
+    return pack
 
 
 def _root_entry_card(key: str, icon_html: str, card: dict) -> str:
@@ -5193,13 +5293,14 @@ def build_root_entry_section() -> str:
         f"    </div>\n"
         f"  </section>\n"
         f'  <script type="application/json" id="root-entry-i18n">{i18n_json}</script>\n'
-        f"  <script>{_ROOT_ENTRY_SCRIPT}</script>"
+        f'  <script src="assets/root-home.js?v={ROOT_HOME_ASSET_VERSION}" defer></script>'
     )
 
 
 def build_root_home_html(az_html: str) -> str:
     """Copy AZ home chrome to the site root: navbar, breadcrumbs, hero, footer."""
     html = az_html
+    html = ensure_lang_switcher_dropdown(html, "az", "az/index.html")
 
     # Keep the sticky breadcrumbs strip (Home only) — do not strip it.
     html = _HOME_INLINE_SCRIPT_RE.sub("", html)
@@ -5220,10 +5321,8 @@ def build_root_home_html(az_html: str) -> str:
 
     html = html.replace("../assets/", "assets/")
     html = html.replace("../flags/", "flags/")
-    html = html.replace('href="../az/', 'href="az/')
-    html = html.replace('href="../en/', 'href="en/')
-    html = html.replace('href="../ru/', 'href="ru/')
-    html = html.replace('href="../ky/', 'href="ky/')
+    for lang in LIVE_LANGS:
+        html = html.replace(f'href="../{lang}/', f'href="{lang}/')
     html = html.replace('href="categories/', 'href="az/categories/')
     html = html.replace('href="discoveries/', 'href="az/discoveries/')
     html = html.replace('href="about/', 'href="az/about/')
@@ -5314,7 +5413,8 @@ def write_public_seo_files(*, include_discoveries: bool | None = None) -> None:
     with_discoveries = publish_discoveries_enabled(flag=include_discoveries)
     urls = [_public_url("index.html")]
     for lang in LIVE_LANGS:
-        urls.append(_public_url(f"{lang}/index.html"))
+        if _locale_target_available(lang, "index.html"):
+            urls.append(_public_url(f"{lang}/index.html"))
         about = ROOT / lang / "about" / "mission-vision-values.html"
         if about.is_file():
             urls.append(_public_url(f"{lang}/about/mission-vision-values.html"))
@@ -5333,6 +5433,12 @@ def write_public_seo_files(*, include_discoveries: bool | None = None) -> None:
         if cat.is_dir():
             for path in sorted(cat.glob("*.html")):
                 urls.append(_public_url(f"{lang}/categories/{path.name}"))
+        if lang == "de":
+            for section in ("stories", "authors"):
+                for path in sorted((ROOT / lang / section).glob("*.html")):
+                    if section == "stories" and path.name == "compare.html":
+                        continue
+                    urls.append(_public_url(f"{lang}/{section}/{path.name}"))
     today = datetime.now(timezone.utc).date().isoformat()
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
@@ -5465,6 +5571,12 @@ def apply_review_fixes() -> int:
         lambda markup, lang, rel_path="": patch_emitted_html(
             markup, lang, rel_path=rel_path
         )
+    )
+    n += write_html_sitemaps(
+        lambda markup, lang, rel_path="": patch_emitted_html(
+            markup, lang, rel_path=rel_path
+        ),
+        langs=("de",),
     )
     write_public_seo_files()
     write_translation_manifest()

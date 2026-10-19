@@ -49,7 +49,20 @@ _HOME_CONTENT_RE = re.compile(
     re.I,
 )
 _LANG_OPTION_RE = re.compile(
-    r'(<a class="lang-switcher__option"[^>]*href="\.\./(?:az|en|ru|ky)/)index\.html"',
+    r'(<a class="lang-switcher__option"[^>]*href="(?:\.\./(?:az|de|en|ru|ky)/)?)index\.html"',
+    re.I,
+)
+_OG_TITLE_RE = re.compile(r'(<meta\s+property="og:title"\s+content=")[^"]*(")', re.I)
+_OG_DESC_RE = re.compile(r'(<meta\s+property="og:description"\s+content=")[^"]*(")', re.I)
+_OG_URL_RE = re.compile(r'(<meta\s+property="og:url"\s+content=")[^"]*(")', re.I)
+_TW_TITLE_RE = re.compile(r'(<meta\s+name="twitter:title"\s+content=")[^"]*(")', re.I)
+_TW_DESC_RE = re.compile(r'(<meta\s+name="twitter:description"\s+content=")[^"]*(")', re.I)
+_INDEX_PUBLIC_URL_RE = re.compile(
+    r"(https://birinci\.cloud/(?:az|de|en|ru|ky)/)index\.html",
+    re.I,
+)
+_LOOSE_ALTERNATE_RE = re.compile(
+    r'(?:<link\s+rel="(?:canonical|alternate)"[^>]*>)+(?=<style>)',
     re.I,
 )
 
@@ -103,6 +116,7 @@ _LOCALE_CANDIDATES = {
     "en": ("en_US.UTF-8", "en_US", "en", "English_United States.1252"),
     "ru": ("ru_RU.UTF-8", "ru_RU", "ru", "Russian_Russia.1251"),
     "ky": ("ky_KG.UTF-8", "ky_KG", "ky", "Kyrgyz_Kyrgyzstan.1251", "ru_RU.UTF-8"),
+    "de": ("de_DE.UTF-8", "de_DE", "de", "German_Germany.1252"),
 }
 
 
@@ -170,10 +184,33 @@ def _title_html(title: str) -> str:
     return ""
 
 
+def _page_exists(lang: str, rel_path: str) -> bool:
+    path = rel_path.split("#", 1)[0].split("?", 1)[0]
+    return (ROOT / lang / path).is_file()
+
+
+def _local_href(lang: str, rel_path: str) -> str:
+    """Keep local links when the page exists; German falls back to English."""
+    if lang != "de" or _page_exists(lang, rel_path):
+        return rel_path
+    path, frag = rel_path.split("#", 1) if "#" in rel_path else (rel_path, "")
+    file_part, query = path.split("?", 1) if "?" in path else (path, "")
+    suffix = (f"?{query}" if query else "") + (f"#{frag}" if frag else "")
+    return f"../en/{file_part}{suffix}"
+
+
+def _fallback_label(lang: str, href: str, title: str) -> str:
+    if lang == "de" and href.startswith("../en/") and "(Englisch)" not in title:
+        return f"{title} (Englisch)"
+    return title
+
+
 def _invention_chapters(lang: str) -> list[dict]:
     path = TOOLS / "inventions" / f"{lang}-body.html"
     if not path.is_file():
         path = ROOT / lang / "discoveries" / "discoveries-and-inventions.html"
+    if not path.is_file() and lang == "de":
+        path = TOOLS / "inventions" / "en-body.html"
     if not path.is_file():
         return []
     text = path.read_text(encoding="utf-8")
@@ -219,12 +256,15 @@ def _story_categories(lang: str) -> list[dict]:
     return rows
 
 
-def _languages() -> list[dict]:
+def _languages(lang: str | None = None) -> list[dict]:
+    allowed = set(LIVE_LANGS)
+    if lang == "de":
+        allowed.add("de")
     data = _load_json(ROOT / "languages.json")
     return [
-        lang
-        for lang in (data.get("languages") or [])
-        if lang.get("enabled") and lang.get("implemented") and lang.get("code") in LIVE_LANGS
+        item
+        for item in (data.get("languages") or [])
+        if item.get("enabled") and item.get("implemented") and item.get("code") in allowed
     ]
 
 
@@ -238,8 +278,8 @@ def build_sitemap_inner_html(lang: str) -> str:
     chapters = _invention_chapters(lang)
     story_total = sum(len(cat["stories"]) for cat in stories)
     article_total = sum(len(ch["entries"]) for ch in chapters)
-    disc_href = "discoveries/discoveries-and-inventions.html"
-    about_href = "about/mission-vision-values.html"
+    disc_href = _local_href(lang, "discoveries/discoveries-and-inventions.html")
+    about_href = _local_href(lang, "about/mission-vision-values.html")
 
     def links(items: list[dict], href_for) -> str:
         rows = []
@@ -286,7 +326,9 @@ def build_sitemap_inner_html(lang: str) -> str:
             "tone": "discoveries",
             "href": disc_href,
             "kicker": copy["discoveries_section"],
-            "title": inv.get("page_title", copy["discoveries_section"]),
+            "title": _fallback_label(
+                lang, disc_href, inv.get("page_title", copy["discoveries_section"])
+            ),
             "desc": copy["discoveries_all_desc"] or inv.get("card_description", ""),
             "meta": _count_label(copy["articles_count"], article_total),
         },
@@ -294,7 +336,9 @@ def build_sitemap_inner_html(lang: str) -> str:
             "tone": "about",
             "href": about_href,
             "kicker": copy["about_section"],
-            "title": about.get("page_title", copy["about_section"]),
+            "title": _fallback_label(
+                lang, about_href, about.get("page_title", copy["about_section"])
+            ),
             "desc": copy["about_desc"] or about.get("page_description", ""),
             "meta": "",
         },
@@ -353,7 +397,7 @@ def build_sitemap_inner_html(lang: str) -> str:
         )
 
     lang_cards = []
-    for item in _languages():
+    for item in _languages(lang):
         code = item["code"]
         flag = f"../{item.get('flag', f'flags/{code}.svg')}"
         current = ' aria-current="page"' if code == lang else ""
@@ -371,9 +415,12 @@ def build_sitemap_inner_html(lang: str) -> str:
     for filename, key in FOOTER_LEGAL_ITEMS:
         if filename == "sitemap.html":
             continue
-        title = str(ui_labels.get(key) or fallbacks.get(key) or filename)
+        href = _local_href(lang, filename)
+        title = _fallback_label(
+            lang, href, str(ui_labels.get(key) or fallbacks.get(key) or filename)
+        )
         legal_links.append(
-            f'<li><a href="{html.escape(filename, quote=True)}"><span>{_esc(title)}</span></a></li>'
+            f'<li><a href="{html.escape(href, quote=True)}"><span>{_esc(title)}</span></a></li>'
         )
 
     jump_items = (
@@ -453,7 +500,7 @@ def build_sitemap_inner_html(lang: str) -> str:
         f'        <a class="sitemap-card sitemap-card--about" href="{html.escape(about_href, quote=True)}">'
         f'{_orb_icon("about", 24)}'
         f'<p class="sitemap-card__kicker">{_esc(about.get("kicker", ""))}</p>'
-        f'<h3>{_esc(about.get("page_title", copy["about_section"]))}</h3>'
+        f'<h3>{_esc(_fallback_label(lang, about_href, about.get("page_title", copy["about_section"])))}</h3>'
         f'<p class="sitemap-card__desc">{_esc(about.get("page_description", copy["about_desc"]))}</p>'
         "</a>\n"
         "      </div>\n"
@@ -498,13 +545,15 @@ def build_sitemap_page_html(index_html: str, lang: str) -> str:
         attrs = match.group(1)
         attrs = re.sub(r'\sclass="[^"]*"', "", attrs)
         attrs = re.sub(r'\sdata-lang-page="[^"]*"', "", attrs)
+        if lang == "de" and "data-wisdom-static-breadcrumbs" not in attrs:
+            attrs += ' data-wisdom-static-breadcrumbs="true"'
         return f'<body class="page-home page-sitemap" data-lang-page="sitemap.html"{attrs}>'
 
     markup = _BODY_RE.sub(_body, markup, count=1)
     crumbs = render_breadcrumbs_nav(
         [
             ("index.html", home, False),
-            ("about/mission-vision-values.html", about, False),
+            (_local_href(lang, "about/mission-vision-values.html"), about, False),
             (None, copy["page_title"], True),
         ],
         lang,
@@ -517,16 +566,30 @@ def build_sitemap_page_html(index_html: str, lang: str) -> str:
         count=1,
     )
     markup = _LANG_OPTION_RE.sub(r'\1sitemap.html"', markup)
+    markup = _INDEX_PUBLIC_URL_RE.sub(r"\1sitemap.html", markup)
+    markup = _OG_TITLE_RE.sub(lambda m: f"{m.group(1)}{html.escape(title, quote=True)}{m.group(2)}", markup)
+    markup = _OG_DESC_RE.sub(lambda m: f"{m.group(1)}{html.escape(desc, quote=True)}{m.group(2)}", markup)
+    markup = _OG_URL_RE.sub(
+        lambda m: f"{m.group(1)}{html.escape(f'https://birinci.cloud/{lang}/sitemap.html', quote=True)}{m.group(2)}",
+        markup,
+    )
+    markup = _TW_TITLE_RE.sub(lambda m: f"{m.group(1)}{html.escape(title, quote=True)}{m.group(2)}", markup)
+    markup = _TW_DESC_RE.sub(lambda m: f"{m.group(1)}{html.escape(desc, quote=True)}{m.group(2)}", markup)
     return markup
 
 
-def write_html_sitemaps(patch_html) -> int:
+def write_html_sitemaps(patch_html, langs=None) -> int:
     n = 0
-    for lang in LIVE_LANGS:
+    for lang in langs or LIVE_LANGS:
         src = ROOT / lang / "index.html"
         if not src.is_file():
             continue
         markup = build_sitemap_page_html(src.read_text(encoding="utf-8"), lang)
+        if lang == "de":
+            from chrome_restore import ensure_seo_head  # noqa: WPS433
+
+            markup = ensure_seo_head(markup, lang, rel_path=f"{lang}/sitemap.html")
+            markup = _LOOSE_ALTERNATE_RE.sub("", markup, count=1)
         markup = patch_html(markup, lang, rel_path=f"{lang}/sitemap.html")
         dest = ROOT / lang / "sitemap.html"
         tmp = dest.with_suffix(".html.tmp")

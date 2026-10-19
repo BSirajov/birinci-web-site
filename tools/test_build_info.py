@@ -47,3 +47,14 @@ def test_footer_build_i18n_stays_english():
         )
         assert locale["ui"]["footer_build"] == "Build"
         assert locale["ui"]["footer_rights_reserved"] == "All rights reserved"
+
+
+def test_german_footer_build_remains_english():
+    import json
+
+    locale = json.loads((ROOT / "tools/locales/de.json").read_text(encoding="utf-8"))
+    assert locale["ui"]["footer_build"] == "Build"
+    assert locale["html_lang"] == "de"
+    site = (ROOT / "assets/site.js").read_text(encoding="utf-8")
+    assert 'stamp.textContent = " | Build " + info.id;' in site
+    assert "+ info.builtAt" not in site

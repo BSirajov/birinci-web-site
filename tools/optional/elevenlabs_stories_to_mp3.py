@@ -63,7 +63,7 @@ _SOURCE_RE = re.compile(
 )
 _AUTHOR_SOURCE_STEMS = {
     "everyone-has-work-to-do",
-    "weeds-must-be-pulled-from-the-root",
+    "weeds",
     "silent-corridor",
 }
 _SENTENCE_SPLIT_RE = re.compile(r"(?<=[.!?…])\s+")

@@ -45,3 +45,38 @@ def test_patch_infers_privacy_hreflang():
     out = patch_emitted_html(html, "ky")
     assert 'hreflang="az" href="https://birinci.cloud/az/privacy-notice.html"' in out
     assert 'href="../en/privacy-notice.html"' in out
+
+
+def test_german_wisdom_is_available_in_existing_category_switcher():
+    out = ensure_lang_switcher_dropdown(NAV, "ru", "ru/categories/sevgi-ve-evlilik.html")
+    assert 'href="../../de/categories/sevgi-ve-evlilik.html"' in out
+    assert 'data-lang="de"' in out
+
+
+def test_partial_german_locale_does_not_invent_legal_pages():
+    out = ensure_lang_switcher_dropdown(NAV, "en", "en/privacy-notice.html")
+    assert 'data-lang="de"' not in out
+    assert 'href="../az/privacy-notice.html"' in out
+
+
+def test_german_standalone_seo_does_not_invent_other_language_pages():
+    from chrome_restore import _hreflang_pairs
+
+    pairs = _hreflang_pairs("de/stories/before-you-marry.html")
+    assert ("de", "https://birinci.cloud/de/stories/before-you-marry.html") in pairs
+    assert not any("/en/stories/before-you-marry.html" in url for _, url in pairs)
+
+
+def test_german_sitemap_has_its_own_language_alternate():
+    from chrome_restore import _hreflang_pairs
+
+    assert ("de", "https://birinci.cloud/de/sitemap.html") in _hreflang_pairs("de/sitemap.html")
+
+
+def test_generic_chrome_restoration_preserves_scoped_german_navigation():
+    from pathlib import Path
+
+    path = Path(__file__).resolve().parents[1] / "de/index.html"
+    original = path.read_text(encoding="utf-8")
+    assert 'data-wisdom-generator="german-docx"' in original
+    assert patch_emitted_html(original, "de", rel_path="de/index.html") == original

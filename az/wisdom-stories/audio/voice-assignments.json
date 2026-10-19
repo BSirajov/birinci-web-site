@@ -8,7 +8,7 @@
   "dialogue_story_count": 130,
   "extra_speaker_story_count": 6,
   "stories": {
-    "friend-of-god": {
+    "friend-of-allah": {
       "title": "Allahın dostu",
       "category": "iman-ve-meneviyyat",
       "narrator": "az-AZ-BabekNeural",
@@ -30,7 +30,7 @@
         }
       ]
     },
-    "gods-pleasure": {
+    "pleasure-of-allah": {
       "title": "Allahın rizası",
       "category": "iman-ve-meneviyyat",
       "narrator": "az-AZ-BabekNeural",
@@ -45,14 +45,14 @@
         }
       ]
     },
-    "blessings-god-has-given": {
+    "gifts-of-allah": {
       "title": "Allahın verdiyi nemətlər",
       "category": "iman-ve-meneviyyat",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "eat-less-and-stay-on-the-right-path": {
+    "moderation-and-honesty": {
       "title": "Az yeyən və düz gedən",
       "category": "iman-ve-meneviyyat",
       "narrator": "az-AZ-BabekNeural",
@@ -67,21 +67,21 @@
         }
       ]
     },
-    "not-leaving-the-right-path": {
+    "staying-on-the-right-path": {
       "title": "Doğru yoldan ayrılmamaq",
       "category": "iman-ve-meneviyyat",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "let-prayer-come-and-find-you": {
+    "prayer-finds-you": {
       "title": "Dua gəlib tapsın səni",
       "category": "iman-ve-meneviyyat",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "dervishs-spoons": {
+    "dervishs-long-spoons": {
       "title": "Dərviş qaşıqları",
       "category": "iman-ve-meneviyyat",
       "narrator": "az-AZ-BabekNeural",
@@ -111,7 +111,7 @@
         }
       ]
     },
-    "dervishs-clothes": {
+    "dervishs-appearance": {
       "title": "Dərvişin üst-başı",
       "category": "iman-ve-meneviyyat",
       "narrator": "az-AZ-BabekNeural",
@@ -133,14 +133,14 @@
         }
       ]
     },
-    "o-god-heal-our-sorrows": {
+    "prayer-for-relief": {
       "title": "Ey Allahım, dərdlərimizə çarə et",
       "category": "iman-ve-meneviyyat",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "o-god-give-first-to-the-mountains-and-stones": {
+    "give-to-me-last": {
       "title": "Ey Allahım, əvvəlcə dağa-daşa ver",
       "category": "iman-ve-meneviyyat",
       "narrator": "az-AZ-BabekNeural",
@@ -162,7 +162,7 @@
       "dialogue": false,
       "speakers": []
     },
-    "lawful-morsel": {
+    "honestly-earned-morsel": {
       "title": "Halal tikə",
       "category": "iman-ve-meneviyyat",
       "narrator": "az-AZ-BabekNeural",
@@ -177,14 +177,14 @@
         }
       ]
     },
-    "power-of-truth": {
+    "power-of-justice": {
       "title": "Haqqın qüdrəti",
       "category": "iman-ve-meneviyyat",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "forbidden-money": {
+    "ill-gotten-money": {
       "title": "Haram pul",
       "category": "iman-ve-meneviyyat",
       "narrator": "az-AZ-BabekNeural",
@@ -199,7 +199,7 @@
         }
       ]
     },
-    "faith-is-half-of-success": {
+    "confidence-is-half-the-battle": {
       "title": "İnam uğurun yarısıdır!",
       "category": "iman-ve-meneviyyat",
       "narrator": "az-AZ-BabekNeural",
@@ -214,14 +214,14 @@
         }
       ]
     },
-    "idle-devil": {
+    "devil-out-of-work": {
       "title": "İşsiz şeytan",
       "category": "iman-ve-meneviyyat",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "light-of-the-universe": {
+    "door-to-the-heart": {
       "title": "Kainat işığı",
       "category": "iman-ve-meneviyyat",
       "narrator": "az-AZ-BabekNeural",
@@ -235,7 +235,7 @@
       "dialogue": false,
       "speakers": []
     },
-    "mullah-and-the-scholar": {
+    "vizier-and-the-scholar": {
       "title": "Molla və alim",
       "category": "iman-ve-meneviyyat",
       "narrator": "az-AZ-BabekNeural",
@@ -265,7 +265,7 @@
         }
       ]
     },
-    "where-does-calamity-come-from": {
+    "begin-with-self-examination": {
       "title": "Müsibət nədən gəlir",
       "category": "iman-ve-meneviyyat",
       "narrator": "az-AZ-BabekNeural",
@@ -287,14 +287,14 @@
         }
       ]
     },
-    "calamity-and-blessing": {
+    "adversity-and-blessing": {
       "title": "Müsibət və nemət",
       "category": "iman-ve-meneviyyat",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "why-are-you-waiting-for-the-last-day-of-the-world": {
+    "why-wait": {
       "title": "Niyə dünyanın son gününü gözləyirsiniz?",
       "category": "iman-ve-meneviyyat",
       "narrator": "az-AZ-BabekNeural",
@@ -309,7 +309,7 @@
         }
       ]
     },
-    "to-be-fasting": {
+    "fasting": {
       "title": "Oruclu olmaq",
       "category": "iman-ve-meneviyyat",
       "narrator": "az-AZ-BabekNeural",
@@ -331,14 +331,14 @@
         }
       ]
     },
-    "pray-while-washing-your-dishes": {
+    "gratitude-at-the-sink": {
       "title": "Qab-qacağınızı yuyarkən dua edin",
       "category": "iman-ve-meneviyyat",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "if-fate-allows-we-will-meet": {
+    "if-fate-allows": {
       "title": "Qismət olarsa görüşərik",
       "category": "iman-ve-meneviyyat",
       "narrator": "az-AZ-BabekNeural",
@@ -381,7 +381,7 @@
       "dialogue": false,
       "speakers": []
     },
-    "help-yourself-o-exalted-god": {
+    "prayer-for-everyone": {
       "title": "Sən özün yardım et, uca Allahım!",
       "category": "iman-ve-meneviyyat",
       "narrator": "az-AZ-BabekNeural",
@@ -424,7 +424,7 @@
       "dialogue": false,
       "speakers": []
     },
-    "your-hand-at-work-your-hope-in-god": {
+    "hands-at-work-hope-in-god": {
       "title": "Əlin işdə, ümidin Allahda",
       "category": "iman-ve-meneviyyat",
       "narrator": "az-AZ-BabekNeural",
@@ -439,7 +439,7 @@
         }
       ]
     },
-    "most-beautiful-portion": {
+    "lifes-finest-blessing": {
       "title": "Ən gözəl nəsib",
       "category": "iman-ve-meneviyyat",
       "narrator": "az-AZ-BabekNeural",
@@ -461,14 +461,14 @@
         }
       ]
     },
-    "value-of-your-family": {
+    "hour-with-dad": {
       "title": "Ailənizin dəyəri",
       "category": "aile-ve-terbiye",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "weeds-must-be-pulled-from-the-root": {
+    "weeds": {
       "title": "Alaq otları",
       "category": "aile-ve-terbiye",
       "narrator": "az-AZ-BabekNeural",
@@ -548,7 +548,7 @@
         }
       ]
     },
-    "fathers-footprints": {
+    "fathers-footsteps": {
       "title": "Atanın izləri",
       "category": "aile-ve-terbiye",
       "narrator": "az-AZ-BabekNeural",
@@ -563,7 +563,7 @@
         }
       ]
     },
-    "grandfather-and-grandson-at-the-market": {
+    "stay-calm-arif": {
       "title": "Baba və nəvəsi bazarlıqda",
       "category": "aile-ve-terbiye",
       "narrator": "az-AZ-BabekNeural",
@@ -592,14 +592,14 @@
         }
       ]
     },
-    "only-my-mother-would-weep": {
+    "only-my-mother-truly-weeps": {
       "title": "Bir tək anam ağlar",
       "category": "aile-ve-terbiye",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "i-am-waiting-for-the-teeth": {
+    "waiting-for-the-teeth": {
       "title": "Dişləri gözləyirəm",
       "category": "aile-ve-terbiye",
       "narrator": "az-AZ-BabekNeural",
@@ -621,7 +621,7 @@
         }
       ]
     },
-    "mothers-advice-fakir-baykurt-never-forgot": {
+    "mothers-lasting-lesson": {
       "title": "Fakir Baykurtun unutmadığı ana nəsihəti",
       "category": "aile-ve-terbiye",
       "narrator": "az-AZ-BabekNeural",
@@ -651,7 +651,7 @@
         }
       ]
     },
-    "from-a-wise-fathers-advice-to-his-son": {
+    "fathers-advice": {
       "title": "Müdrik atanın oğluna öyüd-nəsihətlərindən",
       "category": "aile-ve-terbiye",
       "narrator": "az-AZ-BabekNeural",
@@ -694,7 +694,7 @@
       "dialogue": false,
       "speakers": []
     },
-    "i-am-tired-mother": {
+    "im-tired-mom": {
       "title": "Yoruldum, ana",
       "category": "aile-ve-terbiye",
       "narrator": "az-AZ-BabekNeural",
@@ -716,7 +716,7 @@
         }
       ]
     },
-    "builder-of-the-nest": {
+    "nest-builder": {
       "title": "Yuvanın qurucusu",
       "category": "aile-ve-terbiye",
       "narrator": "az-AZ-BabekNeural",
@@ -745,7 +745,7 @@
         }
       ]
     },
-    "raising-children": {
+    "raising-a-child": {
       "title": "Övlad tərbiyəsi",
       "category": "aile-ve-terbiye",
       "narrator": "az-AZ-BabekNeural",
@@ -840,7 +840,7 @@
         }
       ]
     },
-    "what-breaks-a-marriage": {
+    "eraser-in-marriage": {
       "title": "Evlilikdə pozan",
       "category": "sevgi-ve-evlilik",
       "narrator": "az-AZ-BabekNeural",
@@ -855,7 +855,7 @@
         }
       ]
     },
-    "advice-for-those-who-marry": {
+    "before-you-marry": {
       "title": "Evlənənlərə tövsiyə",
       "category": "sevgi-ve-evlilik",
       "narrator": "az-AZ-BabekNeural",
@@ -877,7 +877,7 @@
       "dialogue": false,
       "speakers": []
     },
-    "rose": {
+    "flower": {
       "title": "Gül",
       "category": "sevgi-ve-evlilik",
       "narrator": "az-AZ-BabekNeural",
@@ -899,7 +899,7 @@
         }
       ]
     },
-    "what-women-have-endured-in-this-world": {
+    "what-women-endure": {
       "title": "Nələr çəkdi qadın bu dünyada...",
       "category": "sevgi-ve-evlilik",
       "narrator": "az-AZ-BabekNeural",
@@ -950,7 +950,7 @@
         }
       ]
     },
-    "do-not-let-your-hearts-part": {
+    "keep-your-hearts-close": {
       "title": "Qəlblərinizin ayrılmasına imkan verməyin",
       "category": "sevgi-ve-evlilik",
       "narrator": "az-AZ-BabekNeural",
@@ -964,7 +964,7 @@
       "dialogue": false,
       "speakers": []
     },
-    "beware-of-those-you-love": {
+    "five-more-minutes": {
       "title": "Sevdiklərinizdən muğayat olun",
       "category": "sevgi-ve-evlilik",
       "narrator": "az-AZ-BabekNeural",
@@ -986,7 +986,7 @@
         }
       ]
     },
-    "beloved-is-one-who-gives-love-to-people": {
+    "those-who-give-love-receive-love": {
       "title": "Sevilən insan sevgisini insanlara verən insandır",
       "category": "sevgi-ve-evlilik",
       "narrator": "az-AZ-BabekNeural",
@@ -1073,7 +1073,7 @@
       "dialogue": false,
       "speakers": []
     },
-    "meddling-in-others-lives": {
+    "respecting-boundaries": {
       "title": "Başqalarının həyatına qarışmaq",
       "category": "dostluq-ve-insan-munasibetleri",
       "narrator": "az-AZ-BabekNeural",
@@ -1139,7 +1139,7 @@
         }
       ]
     },
-    "everyone-is-the-same-here": {
+    "everyone-is-equal-here": {
       "title": "Bizdə hamı eynidir",
       "category": "dostluq-ve-insan-munasibetleri",
       "narrator": "az-AZ-BabekNeural",
@@ -1183,14 +1183,14 @@
         }
       ]
     },
-    "i-want-a-friend": {
+    "i-wish-for-a-friend": {
       "title": "Dost istərəm",
       "category": "dostluq-ve-insan-munasibetleri",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "those-you-should-not-befriend": {
+    "choosing-friends": {
       "title": "Dostluq etməyəcəklərin",
       "category": "dostluq-ve-insan-munasibetleri",
       "narrator": "az-AZ-BabekNeural",
@@ -1226,7 +1226,7 @@
       "dialogue": false,
       "speakers": []
     },
-    "permission-or-apology": {
+    "permission-or-forgiveness": {
       "title": "İcazə, yoxsa üzr istəmək",
       "category": "dostluq-ve-insan-munasibetleri",
       "narrator": "az-AZ-BabekNeural",
@@ -1313,7 +1313,7 @@
       "dialogue": false,
       "speakers": []
     },
-    "why-people-shout-when-they-argue": {
+    "why-shout": {
       "title": "Niyə insanlar mübahisə edəndə qışqırırlar?",
       "category": "dostluq-ve-insan-munasibetleri",
       "narrator": "az-AZ-BabekNeural",
@@ -1328,7 +1328,7 @@
         }
       ]
     },
-    "sound-of-the-doorbell": {
+    "doorbell": {
       "title": "Qapı zənginin səsi...",
       "category": "dostluq-ve-insan-munasibetleri",
       "narrator": "az-AZ-BabekNeural",
@@ -1343,7 +1343,7 @@
         }
       ]
     },
-    "people-who-need-something-from-you": {
+    "request-for-help": {
       "title": "Sizə işi düşən adamlar",
       "category": "dostluq-ve-insan-munasibetleri",
       "narrator": "az-AZ-BabekNeural",
@@ -1365,14 +1365,14 @@
         }
       ]
     },
-    "to-meet-and-to-know": {
+    "beyond-first-impressions": {
       "title": "Tanış olmaq və tanımaq",
       "category": "dostluq-ve-insan-munasibetleri",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "how-to-ward-off-insults": {
+    "unwelcome-gifts": {
       "title": "Təhqirləri necə dəf etməli",
       "category": "dostluq-ve-insan-munasibetleri",
       "narrator": "az-AZ-BabekNeural",
@@ -1394,7 +1394,7 @@
         }
       ]
     },
-    "to-be-alone": {
+    "being-lonely": {
       "title": "Tənha olmaq",
       "category": "dostluq-ve-insan-munasibetleri",
       "narrator": "az-AZ-BabekNeural",
@@ -1409,7 +1409,7 @@
         }
       ]
     },
-    "spend-your-time-with-people": {
+    "make-time-for-people": {
       "title": "Vaxtını insanlarla keçir",
       "category": "dostluq-ve-insan-munasibetleri",
       "narrator": "az-AZ-BabekNeural",
@@ -1424,7 +1424,7 @@
         }
       ]
     },
-    "welcome-my-bey": {
+    "welcome-home-my-dear": {
       "title": "Xoş gəldin, bəyim",
       "category": "dostluq-ve-insan-munasibetleri",
       "narrator": "az-AZ-BabekNeural",
@@ -1439,14 +1439,14 @@
         }
       ]
     },
-    "if-the-road-does-not-tire-you-it-is-because-of-your-companion": {
+    "sharing-the-burden": {
       "title": "Yol yormursa, yoldaşındandır",
       "category": "dostluq-ve-insan-munasibetleri",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "to-forgive": {
+    "forgiveness": {
       "title": "Əfv etmək",
       "category": "dostluq-ve-insan-munasibetleri",
       "narrator": "az-AZ-BabekNeural",
@@ -1468,28 +1468,28 @@
         }
       ]
     },
-    "i-am-aware-now": {
+    "now-i-understand": {
       "title": "Artıq fərqindəyəm",
       "category": "exlaq-ve-xarakter",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "dont-open-your-mouth": {
+    "think-before-speaking": {
       "title": "Ağzını açma",
       "category": "exlaq-ve-xarakter",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "dont-be-words-for-mouths-dust-for-feet": {
+    "keep-your-self-respect": {
       "title": "Ağızlara söz, ayaqlara toz olma",
       "category": "exlaq-ve-xarakter",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "who-handles-honey-licks-his-finger": {
+    "grocers-sticky-fingers": {
       "title": "Bal tutan barmağını yalayar",
       "category": "exlaq-ve-xarakter",
       "narrator": "az-AZ-BabekNeural",
@@ -1518,7 +1518,7 @@
       "dialogue": false,
       "speakers": []
     },
-    "he-would-not-have-given-so-little": {
+    "kings-generosity": {
       "title": "Bu qədər az verməzdi",
       "category": "exlaq-ve-xarakter",
       "narrator": "az-AZ-BabekNeural",
@@ -1540,14 +1540,14 @@
       "dialogue": false,
       "speakers": []
     },
-    "do-not-do-these-things": {
+    "do-not-deepen-anothers-pain": {
       "title": "Bunları etməyin",
       "category": "exlaq-ve-xarakter",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "no-one-listens-to-constant-complainers": {
+    "beyond-complaining": {
       "title": "Durmadan şikayət edənə kimsə qulaq verməz",
       "category": "exlaq-ve-xarakter",
       "narrator": "az-AZ-BabekNeural",
@@ -1569,7 +1569,7 @@
         }
       ]
     },
-    "how-can-i-escape-my-thoughts": {
+    "letting-go-of-painful-thoughts": {
       "title": "Düşüncələrimdən necə qurtula bilərəm?",
       "category": "exlaq-ve-xarakter",
       "narrator": "az-AZ-BabekNeural",
@@ -1591,7 +1591,7 @@
         }
       ]
     },
-    "explaining-ones-sorrow": {
+    "how-we-express-sorrow": {
       "title": "Dərdi izah etmək",
       "category": "exlaq-ve-xarakter",
       "narrator": "az-AZ-BabekNeural",
@@ -1605,21 +1605,21 @@
       "dialogue": false,
       "speakers": []
     },
-    "i-would-not-trade-it-for-anything": {
+    "sunlit-day": {
       "title": "Heç bir şeyə dəyişməm",
       "category": "exlaq-ve-xarakter",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "not-every-sorrow-is-told-to-people": {
+    "choose-your-confidant": {
       "title": "Hər dərd insanlara söylənməz",
       "category": "exlaq-ve-xarakter",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "everything-is-in-our-own-hands": {
+    "in-your-hands": {
       "title": "Hər şey bizim öz əlimizdədir",
       "category": "exlaq-ve-xarakter",
       "narrator": "az-AZ-BabekNeural",
@@ -1634,7 +1634,7 @@
         }
       ]
     },
-    "meaningless-question": {
+    "question-the-question": {
       "title": "Mənasız sual",
       "category": "exlaq-ve-xarakter",
       "narrator": "az-AZ-BabekNeural",
@@ -1656,7 +1656,7 @@
         }
       ]
     },
-    "be-sure-of-your-purpose": {
+    "shared-goal": {
       "title": "Məqsədinizdən əmin olun",
       "category": "exlaq-ve-xarakter",
       "narrator": "az-AZ-BabekNeural",
@@ -1678,14 +1678,14 @@
         }
       ]
     },
-    "that-was-not-your-right": {
+    "justice-and-compassion": {
       "title": "O sənin haqqın deyildi",
       "category": "exlaq-ve-xarakter",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "you-cannot-descend-a-well-on-his-rope": {
+    "alis-unreliable-rope": {
       "title": "Onun ipi ilə quyuya enmək olmaz",
       "category": "exlaq-ve-xarakter",
       "narrator": "az-AZ-BabekNeural",
@@ -1700,21 +1700,21 @@
         }
       ]
     },
-    "think-speak-and-act-positively": {
+    "thought-word-and-deed": {
       "title": "Pozitiv düşünün, danışın, davranın",
       "category": "exlaq-ve-xarakter",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "attitude-toward-a-problem": {
+    "facing-a-problem": {
       "title": "Problemə münasibət",
       "category": "exlaq-ve-xarakter",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "to-be-cool-headed": {
+    "keeping-your-cool": {
       "title": "Soyuqqanlı olmaq",
       "category": "exlaq-ve-xarakter",
       "narrator": "az-AZ-BabekNeural",
@@ -1736,14 +1736,14 @@
         }
       ]
     },
-    "i-got-busy-with-cleaning": {
+    "inner-housekeeping": {
       "title": "Təmizliklə məşğul oldum",
       "category": "exlaq-ve-xarakter",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "expressions-you-should-stay-away-from": {
+    "words-to-avoid": {
       "title": "Uzaq duracağınız ifadələr",
       "category": "exlaq-ve-xarakter",
       "narrator": "az-AZ-BabekNeural",
@@ -1765,7 +1765,7 @@
         }
       ]
     },
-    "to-give-up": {
+    "letting-go": {
       "title": "Vaz keçmək",
       "category": "exlaq-ve-xarakter",
       "narrator": "az-AZ-BabekNeural",
@@ -1787,7 +1787,7 @@
         }
       ]
     },
-    "our-qualities-can-become-our-enemies": {
+    "strengths-and-vulnerabilities": {
       "title": "Vəsflərimiz düşmənimiz ola bilər",
       "category": "exlaq-ve-xarakter",
       "narrator": "az-AZ-BabekNeural",
@@ -1816,7 +1816,7 @@
         }
       ]
     },
-    "do-not-complain-about-any-day-you-have-lived": {
+    "every-day-has-meaning": {
       "title": "Yaşadığınız heç bir gündən şikayətçi olmayın",
       "category": "exlaq-ve-xarakter",
       "narrator": "az-AZ-BabekNeural",
@@ -1830,7 +1830,7 @@
       "dialogue": false,
       "speakers": []
     },
-    "goose-to-be-plucked": {
+    "plucking-the-goose": {
       "title": "Yolunacaq qaz",
       "category": "exlaq-ve-xarakter",
       "narrator": "az-AZ-BabekNeural",
@@ -1845,7 +1845,7 @@
         }
       ]
     },
-    "try-to-think-this-way": {
+    "learning-to-say-yet": {
       "title": "Çalışın belə düşünün",
       "category": "exlaq-ve-xarakter",
       "narrator": "az-AZ-BabekNeural",
@@ -1860,35 +1860,35 @@
         }
       ]
     },
-    "dont-say-i-couldnt-deliver-or-i-couldnt-manage": {
+    "try-again": {
       "title": "Çatdırmadım, bacarmadım deməyin",
       "category": "exlaq-ve-xarakter",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "turning-hardship-into-opportunity": {
+    "obstacles-and-opportunities": {
       "title": "Çətinliyi fürsətə çevirmək",
       "category": "exlaq-ve-xarakter",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "to-be-self-confident": {
+    "believe-in-yourself": {
       "title": "Özgüvənli olmaq",
       "category": "exlaq-ve-xarakter",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "other-peoples-opinions": {
+    "other-peoples-thoughts": {
       "title": "Özgələrin fikirləri",
       "category": "exlaq-ve-xarakter",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "may-your-face-always-smile": {
+    "welcoming-smile": {
       "title": "Üzünüz daim gülsün",
       "category": "exlaq-ve-xarakter",
       "narrator": "az-AZ-BabekNeural",
@@ -1939,21 +1939,21 @@
         }
       ]
     },
-    "say-what-you-know": {
+    "share-what-you-know": {
       "title": "Bildiklərini söylə",
       "category": "soz-sukut-ve-unsiyyet",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "one-who-knows-and-the-one-who-does-not": {
+    "knowing-what-you-know": {
       "title": "Bilən və bilməyən",
       "category": "soz-sukut-ve-unsiyyet",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "tongue": {
+    "language": {
       "title": "Dil",
       "category": "soz-sukut-ve-unsiyyet",
       "narrator": "az-AZ-BabekNeural",
@@ -1967,14 +1967,14 @@
       "dialogue": false,
       "speakers": []
     },
-    "word-and-silence": {
+    "words-and-silence": {
       "title": "Söz və sükut",
       "category": "soz-sukut-ve-unsiyyet",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "saying-the-word-in-its-place": {
+    "well-chosen-words": {
       "title": "Sözü yerində söyləmək",
       "category": "soz-sukut-ve-unsiyyet",
       "narrator": "az-AZ-BabekNeural",
@@ -2010,7 +2010,7 @@
         }
       ]
     },
-    "shepherd-must-be-called": {
+    "call-the-shepherd": {
       "title": "Çobanı səsləmək lazımdır",
       "category": "soz-sukut-ve-unsiyyet",
       "narrator": "az-AZ-BabekNeural",
@@ -2075,21 +2075,21 @@
       "dialogue": false,
       "speakers": []
     },
-    "spare-time": {
+    "free-time": {
       "title": "Boş vaxt",
       "category": "hikmet-ve-heyat-dersleri",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "it-is-in-vain": {
+    "its-pointless": {
       "title": "Boşunadır",
       "category": "hikmet-ve-heyat-dersleri",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "if-i-dont-do-it-these-days-the-world-wont-collapse": {
+    "cost-of-indifference": {
       "title": "Bu günlərdə etməsəm, dünya dağılmaz ki",
       "category": "hikmet-ve-heyat-dersleri",
       "narrator": "az-AZ-BabekNeural",
@@ -2104,7 +2104,7 @@
         }
       ]
     },
-    "this-boat-is-empty-too": {
+    "empty-boat": {
       "title": "Bu qayıq da boşdur",
       "category": "hikmet-ve-heyat-dersleri",
       "narrator": "az-AZ-BabekNeural",
@@ -2156,7 +2156,7 @@
         }
       ]
     },
-    "more-effective-way": {
+    "sharpen-the-axe": {
       "title": "Daha səmərəli yol",
       "category": "hikmet-ve-heyat-dersleri",
       "narrator": "az-AZ-BabekNeural",
@@ -2178,7 +2178,7 @@
         }
       ]
     },
-    "sowing-millet-at-the-bottom": {
+    "draining-the-coffers": {
       "title": "Dibinə darı əkmək",
       "category": "hikmet-ve-heyat-dersleri",
       "narrator": "az-AZ-BabekNeural",
@@ -2208,7 +2208,7 @@
         }
       ]
     },
-    "most-beautiful-places-in-the-world": {
+    "place-in-loving-hearts": {
       "title": "Dünyada ən gözəl yerlər",
       "category": "hikmet-ve-heyat-dersleri",
       "narrator": "az-AZ-BabekNeural",
@@ -2222,28 +2222,28 @@
       "dialogue": false,
       "speakers": []
     },
-    "what-it-means-to-be-late": {
+    "before-it-is-too-late": {
       "title": "Gecikmək nə deməkdir?",
       "category": "hikmet-ve-heyat-dersleri",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "blind-who-have-eyes": {
+    "seeing-without-understanding": {
       "title": "Gözləri olan korlar",
       "category": "hikmet-ve-heyat-dersleri",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "no-need-to-be-sane-when-everyone-is-mad": {
+    "price-of-belonging": {
       "title": "Hamı dəli olanda ağıllı olmağa gərək yoxdur",
       "category": "hikmet-ve-heyat-dersleri",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "doctors-appointment": {
+    "doctors-office": {
       "title": "Həkim qəbulunda",
       "category": "hikmet-ve-heyat-dersleri",
       "narrator": "az-AZ-BabekNeural",
@@ -2258,7 +2258,7 @@
         }
       ]
     },
-    "life-lesson": {
+    "light-of-the-world": {
       "title": "Həyat dərsi",
       "category": "hikmet-ve-heyat-dersleri",
       "narrator": "az-AZ-BabekNeural",
@@ -2288,7 +2288,7 @@
         }
       ]
     },
-    "what-we-learn-in-life": {
+    "lifes-lessons": {
       "title": "Həyatda öyrəndiklərimiz",
       "category": "hikmet-ve-heyat-dersleri",
       "narrator": "az-AZ-BabekNeural",
@@ -2317,7 +2317,7 @@
       "dialogue": false,
       "speakers": []
     },
-    "human-emerged": {
+    "human-being-emerged": {
       "title": "İnsan çıxdı",
       "category": "hikmet-ve-heyat-dersleri",
       "narrator": "az-AZ-BabekNeural",
@@ -2332,7 +2332,7 @@
         }
       ]
     },
-    "from-the-memoirs-of-a-lady-from-istanbul": {
+    "istanbul-woman-remembers": {
       "title": "İstanbullu bir xanımın xatirələrindən",
       "category": "hikmet-ve-heyat-dersleri",
       "narrator": "az-AZ-BabekNeural",
@@ -2347,14 +2347,14 @@
         }
       ]
     },
-    "it-wont-go-to-waste": {
+    "never-lost": {
       "title": "İtib batmaz",
       "category": "hikmet-ve-heyat-dersleri",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "nothing-is-ever-truly-lost": {
+    "learning-from-loss": {
       "title": "İtirdim deyə bir şey yoxdur",
       "category": "hikmet-ve-heyat-dersleri",
       "narrator": "az-AZ-BabekNeural",
@@ -2398,21 +2398,21 @@
         }
       ]
     },
-    "blind-well": {
+    "dry-well": {
       "title": "Kor quyu",
       "category": "hikmet-ve-heyat-dersleri",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "windmill-turning-in-still-air": {
+    "windmill-turning-without-wind": {
       "title": "Küləksiz havada fırlanan yel dəyirmanı",
       "category": "hikmet-ve-heyat-dersleri",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "lecturer-and-the-groom": {
+    "audience-of-one": {
       "title": "Mühazirəçi və mehtər",
       "category": "hikmet-ve-heyat-dersleri",
       "narrator": "az-AZ-BabekNeural",
@@ -2434,7 +2434,7 @@
         }
       ]
     },
-    "teacher-hello-do-you-remember-me": {
+    "do-you-remember-me": {
       "title": "Müəllim, salam, xatırladınız məni?",
       "category": "hikmet-ve-heyat-dersleri",
       "narrator": "az-AZ-BabekNeural",
@@ -2456,7 +2456,7 @@
       "dialogue": false,
       "speakers": []
     },
-    "what-do-i-need-it-for": {
+    "not-my-concern": {
       "title": "Nəyimə lazımdır",
       "category": "hikmet-ve-heyat-dersleri",
       "narrator": "az-AZ-BabekNeural",
@@ -2471,7 +2471,7 @@
         }
       ]
     },
-    "road-to-the-cotton-field": {
+    "beyond-the-cotton-field": {
       "title": "Pambıq tarlasına gedən yol",
       "category": "hikmet-ve-heyat-dersleri",
       "narrator": "az-AZ-BabekNeural",
@@ -2493,7 +2493,7 @@
       "dialogue": false,
       "speakers": []
     },
-    "properties-of-water": {
+    "qualities-of-water": {
       "title": "Suyun xassələri",
       "category": "hikmet-ve-heyat-dersleri",
       "narrator": "az-AZ-BabekNeural",
@@ -2515,28 +2515,28 @@
         }
       ]
     },
-    "to-be-full-or-to-be-gone": {
+    "stronger-together": {
       "title": "Tox, ya yox olmaq",
       "category": "hikmet-ve-heyat-dersleri",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "to-dream": {
+    "dreaming": {
       "title": "Xəyal etmək",
       "category": "hikmet-ve-heyat-dersleri",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "secret-of-living-well-and-longevity": {
+    "living-well": {
       "title": "Yaxşı yaşamağın və uzunömürlülüyün sirri",
       "category": "hikmet-ve-heyat-dersleri",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "dead-remain-in-life": {
+    "living-with-loss": {
       "title": "Ölən həyatda qalandır",
       "category": "hikmet-ve-heyat-dersleri",
       "narrator": "az-AZ-BabekNeural",
@@ -2550,7 +2550,7 @@
       "dialogue": false,
       "speakers": []
     },
-    "if-the-door-before-you-wont-open-it-is-not-your-door": {
+    "different-door": {
       "title": "Önünüzdə olan qapı açılmırsa, deməli, o sizin qapınız deyil",
       "category": "hikmet-ve-heyat-dersleri",
       "narrator": "az-AZ-BabekNeural",
@@ -2579,7 +2579,7 @@
         }
       ]
     },
-    "three-landscapes": {
+    "three-scenes": {
       "title": "Üç mənzərə",
       "category": "hikmet-ve-heyat-dersleri",
       "narrator": "az-AZ-BabekNeural",
@@ -2631,7 +2631,7 @@
         }
       ]
     },
-    "grocery-shop-and-the-supermarket": {
+    "butter-price-war": {
       "title": "Baqqal dükanı və supermarket",
       "category": "emek-ruzi-ve-servet",
       "narrator": "az-AZ-BabekNeural",
@@ -2661,7 +2661,7 @@
         }
       ]
     },
-    "chief-accountant-and-the-ceo": {
+    "investing-in-people": {
       "title": "Baş mühasib və baş direktor",
       "category": "emek-ruzi-ve-servet",
       "narrator": "az-AZ-BabekNeural",
@@ -2705,7 +2705,7 @@
         }
       ]
     },
-    "organization-without-an-action-plan": {
+    "without-a-plan": {
       "title": "Fəaliyyət planı olmayan təşkilat",
       "category": "emek-ruzi-ve-servet",
       "narrator": "az-AZ-BabekNeural",
@@ -2777,7 +2777,7 @@
         }
       ]
     },
-    "former-minister-at-the-seminar": {
+    "plastic-cup": {
       "title": "Keçmiş nazir seminarda",
       "category": "emek-ruzi-ve-servet",
       "narrator": "az-AZ-BabekNeural",
@@ -2814,7 +2814,7 @@
         }
       ]
     },
-    "why-am-i-poor": {
+    "giving-without-money": {
       "title": "Mən niyə kasıbam?",
       "category": "emek-ruzi-ve-servet",
       "narrator": "az-AZ-BabekNeural",
@@ -2880,7 +2880,7 @@
       "dialogue": false,
       "speakers": []
     },
-    "do-you-have-spending-money": {
+    "more-than-money": {
       "title": "Xərcliyiniz varmı?",
       "category": "emek-ruzi-ve-servet",
       "narrator": "az-AZ-BabekNeural",
@@ -2902,14 +2902,14 @@
         }
       ]
     },
-    "weight-of-the-oil": {
+    "weight-of-the-butter": {
       "title": "Yağın çəkisi",
       "category": "emek-ruzi-ve-servet",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "his-hand-is-at-work": {
+    "busy-but-unproductive": {
       "title": "Əli işdədir",
       "category": "emek-ruzi-ve-servet",
       "narrator": "az-AZ-BabekNeural",
@@ -2924,7 +2924,7 @@
         }
       ]
     },
-    "with-this-nation-the-world-can-be-conquered": {
+    "market-of-good-neighbors": {
       "title": "Bu millət ilə dünya fəth edilə bilər",
       "category": "edalet-ve-cemiyyet",
       "narrator": "az-AZ-BabekNeural",
@@ -2939,7 +2939,7 @@
         }
       ]
     },
-    "bedouin-whose-camel-was-stolen": {
+    "stolen-camel": {
       "title": "Dəvəsi oğurlanmış bədəvinin hekayəsi",
       "category": "edalet-ve-cemiyyet",
       "narrator": "az-AZ-BabekNeural",
@@ -2961,14 +2961,14 @@
         }
       ]
     },
-    "woman-whose-house-was-robbed": {
+    "who-was-keeping-watch": {
       "title": "Evi qarət olunan qadın",
       "category": "edalet-ve-cemiyyet",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "just-verdict-of-the-frankfurt-judge": {
+    "judges-answer": {
       "title": "FRANKFURT HAKİMİNİN ƏDALƏTLİ HÖKMÜ",
       "category": "edalet-ve-cemiyyet",
       "narrator": "az-AZ-BabekNeural",
@@ -2983,7 +2983,7 @@
         }
       ]
     },
-    "bell-to-hang-on-the-cats-neck": {
+    "belling-the-cat": {
       "title": "Pişiyin boynundan asılacaq zınqırov",
       "category": "edalet-ve-cemiyyet",
       "narrator": "az-AZ-BabekNeural",
@@ -2998,7 +2998,7 @@
         }
       ]
     },
-    "skins-of-the-lambs": {
+    "lambs-skins": {
       "title": "Quzuların dərisi",
       "category": "edalet-ve-cemiyyet",
       "narrator": "az-AZ-BabekNeural",
@@ -3020,14 +3020,14 @@
         }
       ]
     },
-    "homeland-and-land": {
+    "land-and-homeland": {
       "title": "Vətən və torpaq",
       "category": "edalet-ve-cemiyyet",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "why-injustice-when-there-is-justice": {
+    "choose-justice": {
       "title": "Ədalət var ikən haqsızlıq niyə",
       "category": "edalet-ve-cemiyyet",
       "narrator": "az-AZ-BabekNeural",
@@ -3048,7 +3048,7 @@
       "dialogue": false,
       "speakers": []
     },
-    "for-those-who-have-reached-sixty": {
+    "life-after-sixty": {
       "title": "Altmışı haqlamış olanlar üçün...",
       "category": "yaslanma-ve-zaman",
       "narrator": "az-AZ-BabekNeural",
@@ -3062,7 +3062,7 @@
       "dialogue": false,
       "speakers": []
     },
-    "lions-footprint": {
+    "lions-tracks": {
       "title": "Aslanın izi",
       "category": "temsiller-ve-meseller",
       "narrator": "az-AZ-BabekNeural",
@@ -3136,21 +3136,21 @@
         }
       ]
     },
-    "fly-in-the-china-shop": {
+    "fly-in-a-china-shop": {
       "title": "Milçək çini qablar dükanında",
       "category": "temsiller-ve-meseller",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "hunters-description": {
+    "lions-untold-story": {
       "title": "Ovçunun vəsfi",
       "category": "temsiller-ve-meseller",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "ant-that-carries-water": {
+    "ant-carrying-water": {
       "title": "Su daşıyan qarışqa",
       "category": "temsiller-ve-meseller",
       "narrator": "az-AZ-BabekNeural",
@@ -3172,7 +3172,7 @@
         }
       ]
     },
-    "turtles-wrong-calculation": {
+    "tortoises-miscalculation": {
       "title": "Tısbağanın yanlış hesabı",
       "category": "temsiller-ve-meseller",
       "narrator": "az-AZ-BabekNeural",
@@ -3202,7 +3202,7 @@
         }
       ]
     },
-    "architect-sinan-dies-in-a-house-without-water": {
+    "sinans-waterless-house": {
       "title": "İstanbulu suya qovuşduran Memar Sinan susuz evdə vəfat etdi",
       "category": "tarix-ve-taninmish-shexsiyyetler",
       "narrator": "az-AZ-BabekNeural",
@@ -3217,14 +3217,14 @@
         }
       ]
     },
-    "mihrimah-sultan-and-architect-sinan": {
+    "mihrimah-and-sinan": {
       "title": "Mihrimah sultan və Memar Sinan",
       "category": "tarix-ve-taninmish-shexsiyyetler",
       "narrator": "az-AZ-BabekNeural",
       "dialogue": false,
       "speakers": []
     },
-    "magnificent-lesson": {
+    "remarkable-lesson": {
       "title": "Möhtəşəm dərs",
       "category": "tarix-ve-taninmish-shexsiyyetler",
       "narrator": "az-AZ-BabekNeural",
@@ -3239,7 +3239,7 @@
         }
       ]
     },
-    "three-essential-things-for-a-city": {
+    "three-essentials-for-a-city": {
       "title": "Şəhər üçün üç vacib şey",
       "category": "tarix-ve-taninmish-shexsiyyetler",
       "narrator": "az-AZ-BabekNeural",

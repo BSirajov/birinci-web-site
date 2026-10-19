@@ -26,18 +26,20 @@ LANGS = frozenset({"az", "en", "ru", "ky"})
 STEM_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 MORAL_RE = re.compile(r"^(ibrət|ibret|moral|мораль|үлгү|сабак)\s*:", re.I)
 SOURCE_RE = re.compile(
-    r"(internet\s+sources|internet\s+mənb|открыт\w*\s+источник|интернет|"
+    r"(stories collected from the internet|hekayələr internetdən|geschichten aus dem internet|internet\s+sources|internet\s+mənb|открыт\w*\s+источник|интернет|"
     r"(?:source|mənbə|kaynak|источник|булак|булагы)\s*:|"
     r"hekayə\s+açıq|окуя\s+ачык|история\s+взята|story\s+was\s+obtained|"
     r"hekayələr\s+açıq|рассказы\s+взяты|stories\s+are\s+taken|"
+    r"stories\s+are\s+drawn|publicly available online sources|"
     r"аңгемелер\s+ачык)",
     re.I,
 )
 SITE_SOURCE = {
-    "az": "Hekayələr açıq internet mənbələrindən alınmış, illüstrasiyalar isə süni intellektlə yaradılmışdır.",
-    "en": "Stories are taken from open Internet sources; illustrations were created with AI.",
-    "ru": "Рассказы взяты из открытых интернет-источников, а иллюстрации созданы с помощью ИИ.",
-    "ky": "Аңгемелер ачык интернет булактарынан алынган, иллюстрациялар болсо ЖИ менен түзүлгөн.",
+    "en": "Stories collected from the internet and processed by AI. All illustrations are AI-generated.",
+    "az": "Hekayələr internetdən toplanıb və süni intellekt vasitəsilə işlənib. Bütün illüstrasiyalar süni intellektlə yaradılıb.",
+    "ru": "Истории собраны в интернете и обработаны с помощью ИИ. Все иллюстрации созданы ИИ.",
+    "de": "Geschichten aus dem Internet gesammelt und mithilfe von KI bearbeitet. Alle Illustrationen sind KI-generiert.",
+    "ky": "Аңгемелер интернеттен чогултулуп, жасалма интеллекттин жардамы менен иштелип чыккан. Бардык сүрөттөр жасалма интеллект аркылуу түзүлгөн."
 }
 
 
@@ -279,7 +281,25 @@ def update_category_html(
     if n2 != 1:
         raise ValueError(f"article title not found for {stem}")
 
-    path.write_text(text, encoding="utf-8", newline="\n")
+    _atomic_write_text(path, text)
+
+
+def _atomic_write_text(path: Path, text: str, *, attempts: int = 8) -> None:
+    """Write via temp+replace with retries — Windows AV/indexers often lock HTML briefly."""
+    import time
+
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    last_err: Exception | None = None
+    for i in range(attempts):
+        try:
+            tmp.write_text(text, encoding="utf-8", newline="\n")
+            tmp.replace(path)
+            return
+        except OSError as exc:
+            last_err = exc
+            time.sleep(0.05 * (i + 1))
+    assert last_err is not None
+    raise last_err
 
 
 def update_sitemap(lang: str, stem: str, slug: str, title: str) -> None:
@@ -347,7 +367,8 @@ def save_story(payload: dict[str, Any]) -> dict[str, Any]:
     if not slug:
         raise ValueError("category slug missing")
 
-    docx_path = ROOT / lang / "wisdom-stories" / f"{stem}.docx"
+    from story_filename_map import source_path
+    docx_path = source_path(lang, stem)
     update_docx(docx_path, title, body, moral, source=source or None)
     update_stories_data(lang, stem, title, body, moral, source=source or None)
     cat_title = category_title_for_slug(lang, slug)

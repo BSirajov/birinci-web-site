@@ -1,5 +1,5 @@
 {
-  "friend-of-god": {
+  "friend-of-allah": {
     "title": "Allahın dostu",
     "category": "iman-ve-meneviyyat",
     "index": 0,
@@ -19,11 +19,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "friend-of-god.mp3",
+    "file": "friend-of-allah.mp3",
     "bytes": 303500,
     "join": "ffmpeg+loudnorm"
   },
-  "gods-pleasure": {
+  "pleasure-of-allah": {
     "title": "Allahın rizası",
     "category": "iman-ve-meneviyyat",
     "index": 1,
@@ -39,11 +39,11 @@
       "narrative",
       "moral"
     ],
-    "file": "gods-pleasure.mp3",
+    "file": "pleasure-of-allah.mp3",
     "bytes": 179948,
     "join": "ffmpeg+loudnorm"
   },
-  "blessings-god-has-given": {
+  "gifts-of-allah": {
     "title": "Allahın verdiyi nemətlər",
     "category": "iman-ve-meneviyyat",
     "index": 2,
@@ -63,11 +63,11 @@
       "narrative",
       "moral"
     ],
-    "file": "blessings-god-has-given.mp3",
+    "file": "gifts-of-allah.mp3",
     "bytes": 251516,
     "join": "ffmpeg+loudnorm"
   },
-  "eat-less-and-stay-on-the-right-path": {
+  "moderation-and-honesty": {
     "title": "Az yeyən və düz gedən",
     "category": "iman-ve-meneviyyat",
     "index": 3,
@@ -83,11 +83,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "eat-less-and-stay-on-the-right-path.mp3",
+    "file": "moderation-and-honesty.mp3",
     "bytes": 284204,
     "join": "ffmpeg+loudnorm"
   },
-  "not-leaving-the-right-path": {
+  "staying-on-the-right-path": {
     "title": "Doğru yoldan ayrılmamaq",
     "category": "iman-ve-meneviyyat",
     "index": 4,
@@ -104,11 +104,11 @@
       "narrative",
       "moral"
     ],
-    "file": "not-leaving-the-right-path.mp3",
+    "file": "staying-on-the-right-path.mp3",
     "bytes": 648380,
     "join": "ffmpeg+loudnorm"
   },
-  "let-prayer-come-and-find-you": {
+  "prayer-finds-you": {
     "title": "Dua gəlib tapsın səni",
     "category": "iman-ve-meneviyyat",
     "index": 5,
@@ -123,11 +123,11 @@
       "narrative",
       "moral"
     ],
-    "file": "let-prayer-come-and-find-you.mp3",
+    "file": "prayer-finds-you.mp3",
     "bytes": 183980,
     "join": "ffmpeg+loudnorm"
   },
-  "dervishs-spoons": {
+  "dervishs-long-spoons": {
     "title": "Dərviş qaşıqları",
     "category": "iman-ve-meneviyyat",
     "index": 6,
@@ -149,7 +149,7 @@
       "dialogue",
       "moral"
     ],
-    "file": "dervishs-spoons.mp3",
+    "file": "dervishs-long-spoons.mp3",
     "bytes": 650828,
     "join": "ffmpeg+loudnorm"
   },
@@ -184,7 +184,7 @@
     "bytes": 661628,
     "join": "ffmpeg+loudnorm"
   },
-  "dervishs-clothes": {
+  "dervishs-appearance": {
     "title": "Dərvişin üst-başı",
     "category": "iman-ve-meneviyyat",
     "index": 8,
@@ -201,11 +201,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "dervishs-clothes.mp3",
+    "file": "dervishs-appearance.mp3",
     "bytes": 191324,
     "join": "ffmpeg+loudnorm"
   },
-  "o-god-heal-our-sorrows": {
+  "prayer-for-relief": {
     "title": "Ey Allahım, dərdlərimizə çarə et",
     "category": "iman-ve-meneviyyat",
     "index": 9,
@@ -223,11 +223,11 @@
       "narrative",
       "moral"
     ],
-    "file": "o-god-heal-our-sorrows.mp3",
+    "file": "prayer-for-relief.mp3",
     "bytes": 218684,
     "join": "ffmpeg+loudnorm"
   },
-  "o-god-give-first-to-the-mountains-and-stones": {
+  "give-to-me-last": {
     "title": "Ey Allahım, əvvəlcə dağa-daşa ver",
     "category": "iman-ve-meneviyyat",
     "index": 10,
@@ -242,7 +242,7 @@
       "exclaim",
       "moral"
     ],
-    "file": "o-god-give-first-to-the-mountains-and-stones.mp3",
+    "file": "give-to-me-last.mp3",
     "bytes": 190172,
     "join": "ffmpeg+loudnorm"
   },
@@ -268,7 +268,7 @@
     "bytes": 334028,
     "join": "ffmpeg+loudnorm"
   },
-  "lawful-morsel": {
+  "honestly-earned-morsel": {
     "title": "Halal tikə",
     "category": "iman-ve-meneviyyat",
     "index": 12,
@@ -284,11 +284,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "lawful-morsel.mp3",
+    "file": "honestly-earned-morsel.mp3",
     "bytes": 182396,
     "join": "ffmpeg+loudnorm"
   },
-  "power-of-truth": {
+  "power-of-justice": {
     "title": "Haqqın qüdrəti",
     "category": "iman-ve-meneviyyat",
     "index": 13,
@@ -302,11 +302,11 @@
       "narrative",
       "moral"
     ],
-    "file": "power-of-truth.mp3",
+    "file": "power-of-justice.mp3",
     "bytes": 101468,
     "join": "ffmpeg+loudnorm"
   },
-  "forbidden-money": {
+  "ill-gotten-money": {
     "title": "Haram pul",
     "category": "iman-ve-meneviyyat",
     "index": 14,
@@ -330,11 +330,11 @@
       "narrative",
       "moral"
     ],
-    "file": "forbidden-money.mp3",
+    "file": "ill-gotten-money.mp3",
     "bytes": 1273484,
     "join": "ffmpeg+loudnorm"
   },
-  "faith-is-half-of-success": {
+  "confidence-is-half-the-battle": {
     "title": "İnam uğurun yarısıdır!",
     "category": "iman-ve-meneviyyat",
     "index": 15,
@@ -354,11 +354,11 @@
       "narrative",
       "moral"
     ],
-    "file": "faith-is-half-of-success.mp3",
+    "file": "confidence-is-half-the-battle.mp3",
     "bytes": 557948,
     "join": "ffmpeg+loudnorm"
   },
-  "idle-devil": {
+  "devil-out-of-work": {
     "title": "İşsiz şeytan",
     "category": "iman-ve-meneviyyat",
     "index": 16,
@@ -373,11 +373,11 @@
       "question",
       "moral"
     ],
-    "file": "idle-devil.mp3",
+    "file": "devil-out-of-work.mp3",
     "bytes": 208604,
     "join": "ffmpeg+loudnorm"
   },
-  "light-of-the-universe": {
+  "door-to-the-heart": {
     "title": "Kainat işığı",
     "category": "iman-ve-meneviyyat",
     "index": 17,
@@ -393,7 +393,7 @@
       "narrative",
       "moral"
     ],
-    "file": "light-of-the-universe.mp3",
+    "file": "door-to-the-heart.mp3",
     "bytes": 388172,
     "join": "ffmpeg+loudnorm"
   },
@@ -418,7 +418,7 @@
     "bytes": 302204,
     "join": "ffmpeg+loudnorm"
   },
-  "mullah-and-the-scholar": {
+  "vizier-and-the-scholar": {
     "title": "Molla və alim",
     "category": "iman-ve-meneviyyat",
     "index": 19,
@@ -440,7 +440,7 @@
       "narrative",
       "moral"
     ],
-    "file": "mullah-and-the-scholar.mp3",
+    "file": "vizier-and-the-scholar.mp3",
     "bytes": 1233164,
     "join": "ffmpeg+loudnorm"
   },
@@ -483,7 +483,7 @@
     "bytes": 1478684,
     "join": "ffmpeg+loudnorm"
   },
-  "where-does-calamity-come-from": {
+  "begin-with-self-examination": {
     "title": "Müsibət nədən gəlir",
     "category": "iman-ve-meneviyyat",
     "index": 21,
@@ -503,11 +503,11 @@
       "question",
       "moral"
     ],
-    "file": "where-does-calamity-come-from.mp3",
+    "file": "begin-with-self-examination.mp3",
     "bytes": 242876,
     "join": "ffmpeg+loudnorm"
   },
-  "calamity-and-blessing": {
+  "adversity-and-blessing": {
     "title": "Müsibət və nemət",
     "category": "iman-ve-meneviyyat",
     "index": 22,
@@ -522,11 +522,11 @@
       "narrative",
       "moral"
     ],
-    "file": "calamity-and-blessing.mp3",
+    "file": "adversity-and-blessing.mp3",
     "bytes": 146396,
     "join": "ffmpeg+loudnorm"
   },
-  "why-are-you-waiting-for-the-last-day-of-the-world": {
+  "why-wait": {
     "title": "Niyə dünyanın son gününü gözləyirsiniz?",
     "category": "iman-ve-meneviyyat",
     "index": 23,
@@ -556,11 +556,11 @@
       "question",
       "moral"
     ],
-    "file": "why-are-you-waiting-for-the-last-day-of-the-world.mp3",
+    "file": "why-wait.mp3",
     "bytes": 586892,
     "join": "ffmpeg+loudnorm"
   },
-  "to-be-fasting": {
+  "fasting": {
     "title": "Oruclu olmaq",
     "category": "iman-ve-meneviyyat",
     "index": 24,
@@ -580,11 +580,11 @@
       "narrative",
       "moral"
     ],
-    "file": "to-be-fasting.mp3",
+    "file": "fasting.mp3",
     "bytes": 418556,
     "join": "ffmpeg+loudnorm"
   },
-  "pray-while-washing-your-dishes": {
+  "gratitude-at-the-sink": {
     "title": "Qab-qacağınızı yuyarkən dua edin",
     "category": "iman-ve-meneviyyat",
     "index": 25,
@@ -599,11 +599,11 @@
       "narrative",
       "moral"
     ],
-    "file": "pray-while-washing-your-dishes.mp3",
+    "file": "gratitude-at-the-sink.mp3",
     "bytes": 232796,
     "join": "ffmpeg+loudnorm"
   },
-  "if-fate-allows-we-will-meet": {
+  "if-fate-allows": {
     "title": "Qismət olarsa görüşərik",
     "category": "iman-ve-meneviyyat",
     "index": 26,
@@ -620,7 +620,7 @@
       "moral",
       "narrative"
     ],
-    "file": "if-fate-allows-we-will-meet.mp3",
+    "file": "if-fate-allows.mp3",
     "bytes": 337052,
     "join": "ffmpeg+loudnorm"
   },
@@ -699,7 +699,7 @@
     "bytes": 173036,
     "join": "ffmpeg+loudnorm"
   },
-  "help-yourself-o-exalted-god": {
+  "prayer-for-everyone": {
     "title": "Sən özün yardım et, uca Allahım!",
     "category": "iman-ve-meneviyyat",
     "index": 30,
@@ -721,7 +721,7 @@
       "narrative",
       "moral"
     ],
-    "file": "help-yourself-o-exalted-god.mp3",
+    "file": "prayer-for-everyone.mp3",
     "bytes": 286652,
     "join": "ffmpeg+loudnorm"
   },
@@ -783,7 +783,7 @@
     "bytes": 286652,
     "join": "ffmpeg+loudnorm"
   },
-  "your-hand-at-work-your-hope-in-god": {
+  "hands-at-work-hope-in-god": {
     "title": "Əlin işdə, ümidin Allahda",
     "category": "iman-ve-meneviyyat",
     "index": 34,
@@ -804,11 +804,11 @@
       "narrative",
       "moral"
     ],
-    "file": "your-hand-at-work-your-hope-in-god.mp3",
+    "file": "hands-at-work-hope-in-god.mp3",
     "bytes": 1014284,
     "join": "ffmpeg+loudnorm"
   },
-  "most-beautiful-portion": {
+  "lifes-finest-blessing": {
     "title": "Ən gözəl nəsib",
     "category": "iman-ve-meneviyyat",
     "index": 35,
@@ -825,11 +825,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "most-beautiful-portion.mp3",
+    "file": "lifes-finest-blessing.mp3",
     "bytes": 167852,
     "join": "ffmpeg+loudnorm"
   },
-  "value-of-your-family": {
+  "hour-with-dad": {
     "title": "Ailənizin dəyəri",
     "category": "aile-ve-terbiye",
     "index": 0,
@@ -848,11 +848,11 @@
       "narrative",
       "moral"
     ],
-    "file": "value-of-your-family.mp3",
+    "file": "hour-with-dad.mp3",
     "bytes": 828956,
     "join": "ffmpeg+loudnorm"
   },
-  "weeds-must-be-pulled-from-the-root": {
+  "weeds": {
     "title": "Alaq otları",
     "category": "aile-ve-terbiye",
     "index": 1,
@@ -867,7 +867,7 @@
       "narrative",
       "moral"
     ],
-    "file": "weeds-must-be-pulled-from-the-root.mp3",
+    "file": "weeds.mp3",
     "bytes": 367436,
     "join": "ffmpeg+loudnorm"
   },
@@ -981,7 +981,7 @@
     "bytes": 1373420,
     "join": "ffmpeg+loudnorm"
   },
-  "fathers-footprints": {
+  "fathers-footsteps": {
     "title": "Atanın izləri",
     "category": "aile-ve-terbiye",
     "index": 5,
@@ -998,11 +998,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "fathers-footprints.mp3",
+    "file": "fathers-footsteps.mp3",
     "bytes": 182684,
     "join": "ffmpeg+loudnorm"
   },
-  "grandfather-and-grandson-at-the-market": {
+  "stay-calm-arif": {
     "title": "Baba və nəvəsi bazarlıqda",
     "category": "aile-ve-terbiye",
     "index": 6,
@@ -1017,7 +1017,7 @@
       "narrative",
       "moral"
     ],
-    "file": "grandfather-and-grandson-at-the-market.mp3",
+    "file": "stay-calm-arif.mp3",
     "bytes": 473420,
     "join": "ffmpeg+loudnorm"
   },
@@ -1041,7 +1041,7 @@
     "bytes": 187004,
     "join": "ffmpeg+loudnorm"
   },
-  "only-my-mother-would-weep": {
+  "only-my-mother-truly-weeps": {
     "title": "Bir tək anam ağlar",
     "category": "aile-ve-terbiye",
     "index": 8,
@@ -1055,11 +1055,11 @@
       "exclaim",
       "moral"
     ],
-    "file": "only-my-mother-would-weep.mp3",
+    "file": "only-my-mother-truly-weeps.mp3",
     "bytes": 93548,
     "join": "ffmpeg+loudnorm"
   },
-  "i-am-waiting-for-the-teeth": {
+  "waiting-for-the-teeth": {
     "title": "Dişləri gözləyirəm",
     "category": "aile-ve-terbiye",
     "index": 9,
@@ -1083,11 +1083,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "i-am-waiting-for-the-teeth.mp3",
+    "file": "waiting-for-the-teeth.mp3",
     "bytes": 636716,
     "join": "ffmpeg+loudnorm"
   },
-  "mothers-advice-fakir-baykurt-never-forgot": {
+  "mothers-lasting-lesson": {
     "title": "Fakir Baykurtun unutmadığı ana nəsihəti",
     "category": "aile-ve-terbiye",
     "index": 10,
@@ -1110,7 +1110,7 @@
       "narrative",
       "moral"
     ],
-    "file": "mothers-advice-fakir-baykurt-never-forgot.mp3",
+    "file": "mothers-lasting-lesson.mp3",
     "bytes": 856316,
     "join": "ffmpeg+loudnorm"
   },
@@ -1139,7 +1139,7 @@
     "bytes": 1025372,
     "join": "ffmpeg+loudnorm"
   },
-  "from-a-wise-fathers-advice-to-his-son": {
+  "fathers-advice": {
     "title": "Müdrik atanın oğluna öyüd-nəsihətlərindən",
     "category": "aile-ve-terbiye",
     "index": 12,
@@ -1169,7 +1169,7 @@
       "narrative",
       "moral"
     ],
-    "file": "from-a-wise-fathers-advice-to-his-son.mp3",
+    "file": "fathers-advice.mp3",
     "bytes": 936092,
     "join": "ffmpeg+loudnorm"
   },
@@ -1226,7 +1226,7 @@
     "bytes": 261164,
     "join": "ffmpeg+loudnorm"
   },
-  "i-am-tired-mother": {
+  "im-tired-mom": {
     "title": "Yoruldum, ana",
     "category": "aile-ve-terbiye",
     "index": 15,
@@ -1247,11 +1247,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "i-am-tired-mother.mp3",
+    "file": "im-tired-mom.mp3",
     "bytes": 357212,
     "join": "ffmpeg+loudnorm"
   },
-  "builder-of-the-nest": {
+  "nest-builder": {
     "title": "Yuvanın qurucusu",
     "category": "aile-ve-terbiye",
     "index": 16,
@@ -1265,7 +1265,7 @@
       "narrative",
       "moral"
     ],
-    "file": "builder-of-the-nest.mp3",
+    "file": "nest-builder.mp3",
     "bytes": 100028,
     "join": "ffmpeg+loudnorm"
   },
@@ -1292,7 +1292,7 @@
     "bytes": 461324,
     "join": "ffmpeg+loudnorm"
   },
-  "raising-children": {
+  "raising-a-child": {
     "title": "Övlad tərbiyəsi",
     "category": "aile-ve-terbiye",
     "index": 18,
@@ -1323,7 +1323,7 @@
       "dialogue",
       "moral"
     ],
-    "file": "raising-children.mp3",
+    "file": "raising-a-child.mp3",
     "bytes": 1686620,
     "join": "ffmpeg+loudnorm"
   },
@@ -1447,7 +1447,7 @@
     "bytes": 606620,
     "join": "ffmpeg+loudnorm"
   },
-  "what-breaks-a-marriage": {
+  "eraser-in-marriage": {
     "title": "Evlilikdə pozan",
     "category": "sevgi-ve-evlilik",
     "index": 3,
@@ -1483,11 +1483,11 @@
       "exclaim",
       "moral"
     ],
-    "file": "what-breaks-a-marriage.mp3",
+    "file": "eraser-in-marriage.mp3",
     "bytes": 742268,
     "join": "ffmpeg+loudnorm"
   },
-  "advice-for-those-who-marry": {
+  "before-you-marry": {
     "title": "Evlənənlərə tövsiyə",
     "category": "sevgi-ve-evlilik",
     "index": 4,
@@ -1508,7 +1508,7 @@
       "narrative",
       "moral"
     ],
-    "file": "advice-for-those-who-marry.mp3",
+    "file": "before-you-marry.mp3",
     "bytes": 557660,
     "join": "ffmpeg+loudnorm"
   },
@@ -1531,7 +1531,7 @@
     "bytes": 142076,
     "join": "ffmpeg+loudnorm"
   },
-  "rose": {
+  "flower": {
     "title": "Gül",
     "category": "sevgi-ve-evlilik",
     "index": 6,
@@ -1545,7 +1545,7 @@
       "narrative",
       "moral"
     ],
-    "file": "rose.mp3",
+    "file": "flower.mp3",
     "bytes": 117452,
     "join": "ffmpeg+loudnorm"
   },
@@ -1581,7 +1581,7 @@
     "bytes": 842636,
     "join": "ffmpeg+loudnorm"
   },
-  "what-women-have-endured-in-this-world": {
+  "what-women-endure": {
     "title": "Nələr çəkdi qadın bu dünyada...",
     "category": "sevgi-ve-evlilik",
     "index": 8,
@@ -1616,7 +1616,7 @@
       "narrative",
       "moral"
     ],
-    "file": "what-women-have-endured-in-this-world.mp3",
+    "file": "what-women-endure.mp3",
     "bytes": 756380,
     "join": "ffmpeg+loudnorm"
   },
@@ -1681,7 +1681,7 @@
     "bytes": 1251308,
     "join": "ffmpeg+loudnorm"
   },
-  "do-not-let-your-hearts-part": {
+  "keep-your-hearts-close": {
     "title": "Qəlblərinizin ayrılmasına imkan verməyin",
     "category": "sevgi-ve-evlilik",
     "index": 11,
@@ -1701,7 +1701,7 @@
       "narrative",
       "moral"
     ],
-    "file": "do-not-let-your-hearts-part.mp3",
+    "file": "keep-your-hearts-close.mp3",
     "bytes": 552476,
     "join": "ffmpeg+loudnorm"
   },
@@ -1723,7 +1723,7 @@
     "bytes": 186716,
     "join": "ffmpeg+loudnorm"
   },
-  "beware-of-those-you-love": {
+  "five-more-minutes": {
     "title": "Sevdiklərinizdən muğayat olun",
     "category": "sevgi-ve-evlilik",
     "index": 13,
@@ -1746,11 +1746,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "beware-of-those-you-love.mp3",
+    "file": "five-more-minutes.mp3",
     "bytes": 510428,
     "join": "ffmpeg+loudnorm"
   },
-  "beloved-is-one-who-gives-love-to-people": {
+  "those-who-give-love-receive-love": {
     "title": "Sevilən insan sevgisini insanlara verən insandır",
     "category": "sevgi-ve-evlilik",
     "index": 14,
@@ -1768,7 +1768,7 @@
       "narrative",
       "moral"
     ],
-    "file": "beloved-is-one-who-gives-love-to-people.mp3",
+    "file": "those-who-give-love-receive-love.mp3",
     "bytes": 830540,
     "join": "ffmpeg+loudnorm"
   },
@@ -1918,7 +1918,7 @@
     "bytes": 458588,
     "join": "ffmpeg+loudnorm"
   },
-  "meddling-in-others-lives": {
+  "respecting-boundaries": {
     "title": "Başqalarının həyatına qarışmaq",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 1,
@@ -1932,7 +1932,7 @@
       "exclaim",
       "moral"
     ],
-    "file": "meddling-in-others-lives.mp3",
+    "file": "respecting-boundaries.mp3",
     "bytes": 121628,
     "join": "ffmpeg+loudnorm"
   },
@@ -2019,7 +2019,7 @@
     "bytes": 912188,
     "join": "ffmpeg+loudnorm"
   },
-  "everyone-is-the-same-here": {
+  "everyone-is-equal-here": {
     "title": "Bizdə hamı eynidir",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 5,
@@ -2046,7 +2046,7 @@
       "narrative",
       "moral"
     ],
-    "file": "everyone-is-the-same-here.mp3",
+    "file": "everyone-is-equal-here.mp3",
     "bytes": 700652,
     "join": "ffmpeg+loudnorm"
   },
@@ -2080,7 +2080,7 @@
     "bytes": 689132,
     "join": "ffmpeg+loudnorm"
   },
-  "i-want-a-friend": {
+  "i-wish-for-a-friend": {
     "title": "Dost istərəm",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 7,
@@ -2097,11 +2097,11 @@
       "narrative",
       "moral"
     ],
-    "file": "i-want-a-friend.mp3",
+    "file": "i-wish-for-a-friend.mp3",
     "bytes": 172460,
     "join": "ffmpeg+loudnorm"
   },
-  "those-you-should-not-befriend": {
+  "choosing-friends": {
     "title": "Dostluq etməyəcəklərin",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 8,
@@ -2117,7 +2117,7 @@
       "dialogue",
       "moral"
     ],
-    "file": "those-you-should-not-befriend.mp3",
+    "file": "choosing-friends.mp3",
     "bytes": 211052,
     "join": "ffmpeg+loudnorm"
   },
@@ -2157,7 +2157,7 @@
     "bytes": 189020,
     "join": "ffmpeg+loudnorm"
   },
-  "permission-or-apology": {
+  "permission-or-forgiveness": {
     "title": "İcazə, yoxsa üzr istəmək",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 11,
@@ -2175,7 +2175,7 @@
       "narrative",
       "moral"
     ],
-    "file": "permission-or-apology.mp3",
+    "file": "permission-or-forgiveness.mp3",
     "bytes": 630812,
     "join": "ffmpeg+loudnorm"
   },
@@ -2339,7 +2339,7 @@
     "bytes": 148700,
     "join": "ffmpeg+loudnorm"
   },
-  "why-people-shout-when-they-argue": {
+  "why-shout": {
     "title": "Niyə insanlar mübahisə edəndə qışqırırlar?",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 18,
@@ -2361,11 +2361,11 @@
       "narrative",
       "moral"
     ],
-    "file": "why-people-shout-when-they-argue.mp3",
+    "file": "why-shout.mp3",
     "bytes": 662060,
     "join": "ffmpeg+loudnorm"
   },
-  "sound-of-the-doorbell": {
+  "doorbell": {
     "title": "Qapı zənginin səsi...",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 19,
@@ -2391,11 +2391,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "sound-of-the-doorbell.mp3",
+    "file": "doorbell.mp3",
     "bytes": 611516,
     "join": "ffmpeg+loudnorm"
   },
-  "people-who-need-something-from-you": {
+  "request-for-help": {
     "title": "Sizə işi düşən adamlar",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 20,
@@ -2409,7 +2409,7 @@
       "narrative",
       "moral"
     ],
-    "file": "people-who-need-something-from-you.mp3",
+    "file": "request-for-help.mp3",
     "bytes": 155612,
     "join": "ffmpeg+loudnorm"
   },
@@ -2435,7 +2435,7 @@
     "bytes": 460028,
     "join": "ffmpeg+loudnorm"
   },
-  "to-meet-and-to-know": {
+  "beyond-first-impressions": {
     "title": "Tanış olmaq və tanımaq",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 22,
@@ -2450,11 +2450,11 @@
       "narrative",
       "moral"
     ],
-    "file": "to-meet-and-to-know.mp3",
+    "file": "beyond-first-impressions.mp3",
     "bytes": 134012,
     "join": "ffmpeg+loudnorm"
   },
-  "how-to-ward-off-insults": {
+  "unwelcome-gifts": {
     "title": "Təhqirləri necə dəf etməli",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 23,
@@ -2476,11 +2476,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "how-to-ward-off-insults.mp3",
+    "file": "unwelcome-gifts.mp3",
     "bytes": 612524,
     "join": "ffmpeg+loudnorm"
   },
-  "to-be-alone": {
+  "being-lonely": {
     "title": "Tənha olmaq",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 24,
@@ -2495,11 +2495,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "to-be-alone.mp3",
+    "file": "being-lonely.mp3",
     "bytes": 212636,
     "join": "ffmpeg+loudnorm"
   },
-  "spend-your-time-with-people": {
+  "make-time-for-people": {
     "title": "Vaxtını insanlarla keçir",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 25,
@@ -2532,11 +2532,11 @@
       "narrative",
       "moral"
     ],
-    "file": "spend-your-time-with-people.mp3",
+    "file": "make-time-for-people.mp3",
     "bytes": 946460,
     "join": "ffmpeg+loudnorm"
   },
-  "welcome-my-bey": {
+  "welcome-home-my-dear": {
     "title": "Xoş gəldin, bəyim",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 26,
@@ -2566,11 +2566,11 @@
       "exclaim",
       "moral"
     ],
-    "file": "welcome-my-bey.mp3",
+    "file": "welcome-home-my-dear.mp3",
     "bytes": 1003484,
     "join": "ffmpeg+loudnorm"
   },
-  "if-the-road-does-not-tire-you-it-is-because-of-your-companion": {
+  "sharing-the-burden": {
     "title": "Yol yormursa, yoldaşındandır",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 27,
@@ -2586,11 +2586,11 @@
       "narrative",
       "moral"
     ],
-    "file": "if-the-road-does-not-tire-you-it-is-because-of-your-companion.mp3",
+    "file": "sharing-the-burden.mp3",
     "bytes": 475724,
     "join": "ffmpeg+loudnorm"
   },
-  "to-forgive": {
+  "forgiveness": {
     "title": "Əfv etmək",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 28,
@@ -2606,7 +2606,7 @@
       "narrative",
       "moral"
     ],
-    "file": "to-forgive.mp3",
+    "file": "forgiveness.mp3",
     "bytes": 264044,
     "join": "ffmpeg+loudnorm"
   },
@@ -2634,7 +2634,7 @@
     "bytes": 392924,
     "join": "ffmpeg+loudnorm"
   },
-  "i-am-aware-now": {
+  "now-i-understand": {
     "title": "Artıq fərqindəyəm",
     "category": "exlaq-ve-xarakter",
     "index": 1,
@@ -2657,11 +2657,11 @@
       "narrative",
       "moral"
     ],
-    "file": "i-am-aware-now.mp3",
+    "file": "now-i-understand.mp3",
     "bytes": 543836,
     "join": "ffmpeg+loudnorm"
   },
-  "dont-open-your-mouth": {
+  "think-before-speaking": {
     "title": "Ağzını açma",
     "category": "exlaq-ve-xarakter",
     "index": 2,
@@ -2675,11 +2675,11 @@
       "narrative",
       "moral"
     ],
-    "file": "dont-open-your-mouth.mp3",
+    "file": "think-before-speaking.mp3",
     "bytes": 115436,
     "join": "ffmpeg+loudnorm"
   },
-  "dont-be-words-for-mouths-dust-for-feet": {
+  "keep-your-self-respect": {
     "title": "Ağızlara söz, ayaqlara toz olma",
     "category": "exlaq-ve-xarakter",
     "index": 3,
@@ -2694,11 +2694,11 @@
       "narrative",
       "moral"
     ],
-    "file": "dont-be-words-for-mouths-dust-for-feet.mp3",
+    "file": "keep-your-self-respect.mp3",
     "bytes": 164108,
     "join": "ffmpeg+loudnorm"
   },
-  "who-handles-honey-licks-his-finger": {
+  "grocers-sticky-fingers": {
     "title": "Bal tutan barmağını yalayar",
     "category": "exlaq-ve-xarakter",
     "index": 4,
@@ -2718,7 +2718,7 @@
       "dialogue",
       "moral"
     ],
-    "file": "who-handles-honey-licks-his-finger.mp3",
+    "file": "grocers-sticky-fingers.mp3",
     "bytes": 466940,
     "join": "ffmpeg+loudnorm"
   },
@@ -2740,7 +2740,7 @@
     "bytes": 117020,
     "join": "ffmpeg+loudnorm"
   },
-  "he-would-not-have-given-so-little": {
+  "kings-generosity": {
     "title": "Bu qədər az verməzdi",
     "category": "exlaq-ve-xarakter",
     "index": 6,
@@ -2758,7 +2758,7 @@
       "narrative",
       "moral"
     ],
-    "file": "he-would-not-have-given-so-little.mp3",
+    "file": "kings-generosity.mp3",
     "bytes": 284204,
     "join": "ffmpeg+loudnorm"
   },
@@ -2781,7 +2781,7 @@
     "bytes": 226604,
     "join": "ffmpeg+loudnorm"
   },
-  "do-not-do-these-things": {
+  "do-not-deepen-anothers-pain": {
     "title": "Bunları etməyin",
     "category": "exlaq-ve-xarakter",
     "index": 8,
@@ -2795,11 +2795,11 @@
       "narrative",
       "moral"
     ],
-    "file": "do-not-do-these-things.mp3",
+    "file": "do-not-deepen-anothers-pain.mp3",
     "bytes": 167708,
     "join": "ffmpeg+loudnorm"
   },
-  "no-one-listens-to-constant-complainers": {
+  "beyond-complaining": {
     "title": "Durmadan şikayət edənə kimsə qulaq verməz",
     "category": "exlaq-ve-xarakter",
     "index": 9,
@@ -2814,7 +2814,7 @@
       "narrative",
       "moral"
     ],
-    "file": "no-one-listens-to-constant-complainers.mp3",
+    "file": "beyond-complaining.mp3",
     "bytes": 298604,
     "join": "ffmpeg+loudnorm"
   },
@@ -2844,7 +2844,7 @@
     "bytes": 837452,
     "join": "ffmpeg+loudnorm"
   },
-  "how-can-i-escape-my-thoughts": {
+  "letting-go-of-painful-thoughts": {
     "title": "Düşüncələrimdən necə qurtula bilərəm?",
     "category": "exlaq-ve-xarakter",
     "index": 11,
@@ -2865,11 +2865,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "how-can-i-escape-my-thoughts.mp3",
+    "file": "letting-go-of-painful-thoughts.mp3",
     "bytes": 432956,
     "join": "ffmpeg+loudnorm"
   },
-  "explaining-ones-sorrow": {
+  "how-we-express-sorrow": {
     "title": "Dərdi izah etmək",
     "category": "exlaq-ve-xarakter",
     "index": 12,
@@ -2883,7 +2883,7 @@
       "narrative",
       "moral"
     ],
-    "file": "explaining-ones-sorrow.mp3",
+    "file": "how-we-express-sorrow.mp3",
     "bytes": 145820,
     "join": "ffmpeg+loudnorm"
   },
@@ -2906,7 +2906,7 @@
     "bytes": 141788,
     "join": "ffmpeg+loudnorm"
   },
-  "i-would-not-trade-it-for-anything": {
+  "sunlit-day": {
     "title": "Heç bir şeyə dəyişməm",
     "category": "exlaq-ve-xarakter",
     "index": 14,
@@ -2932,11 +2932,11 @@
       "narrative",
       "moral"
     ],
-    "file": "i-would-not-trade-it-for-anything.mp3",
+    "file": "sunlit-day.mp3",
     "bytes": 307676,
     "join": "ffmpeg+loudnorm"
   },
-  "not-every-sorrow-is-told-to-people": {
+  "choose-your-confidant": {
     "title": "Hər dərd insanlara söylənməz",
     "category": "exlaq-ve-xarakter",
     "index": 15,
@@ -2951,11 +2951,11 @@
       "narrative",
       "moral"
     ],
-    "file": "not-every-sorrow-is-told-to-people.mp3",
+    "file": "choose-your-confidant.mp3",
     "bytes": 128828,
     "join": "ffmpeg+loudnorm"
   },
-  "everything-is-in-our-own-hands": {
+  "in-your-hands": {
     "title": "Hər şey bizim öz əlimizdədir",
     "category": "exlaq-ve-xarakter",
     "index": 16,
@@ -2977,11 +2977,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "everything-is-in-our-own-hands.mp3",
+    "file": "in-your-hands.mp3",
     "bytes": 458156,
     "join": "ffmpeg+loudnorm"
   },
-  "meaningless-question": {
+  "question-the-question": {
     "title": "Mənasız sual",
     "category": "exlaq-ve-xarakter",
     "index": 17,
@@ -3013,11 +3013,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "meaningless-question.mp3",
+    "file": "question-the-question.mp3",
     "bytes": 1239932,
     "join": "ffmpeg+loudnorm"
   },
-  "be-sure-of-your-purpose": {
+  "shared-goal": {
     "title": "Məqsədinizdən əmin olun",
     "category": "exlaq-ve-xarakter",
     "index": 18,
@@ -3035,11 +3035,11 @@
       "question",
       "moral"
     ],
-    "file": "be-sure-of-your-purpose.mp3",
+    "file": "shared-goal.mp3",
     "bytes": 237836,
     "join": "ffmpeg+loudnorm"
   },
-  "that-was-not-your-right": {
+  "justice-and-compassion": {
     "title": "O sənin haqqın deyildi",
     "category": "exlaq-ve-xarakter",
     "index": 19,
@@ -3053,11 +3053,11 @@
       "narrative",
       "moral"
     ],
-    "file": "that-was-not-your-right.mp3",
+    "file": "justice-and-compassion.mp3",
     "bytes": 255116,
     "join": "ffmpeg+loudnorm"
   },
-  "you-cannot-descend-a-well-on-his-rope": {
+  "alis-unreliable-rope": {
     "title": "Onun ipi ilə quyuya enmək olmaz",
     "category": "exlaq-ve-xarakter",
     "index": 20,
@@ -3074,11 +3074,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "you-cannot-descend-a-well-on-his-rope.mp3",
+    "file": "alis-unreliable-rope.mp3",
     "bytes": 414524,
     "join": "ffmpeg+loudnorm"
   },
-  "think-speak-and-act-positively": {
+  "thought-word-and-deed": {
     "title": "Pozitiv düşünün, danışın, davranın",
     "category": "exlaq-ve-xarakter",
     "index": 21,
@@ -3096,11 +3096,11 @@
       "narrative",
       "moral"
     ],
-    "file": "think-speak-and-act-positively.mp3",
+    "file": "thought-word-and-deed.mp3",
     "bytes": 252956,
     "join": "ffmpeg+loudnorm"
   },
-  "attitude-toward-a-problem": {
+  "facing-a-problem": {
     "title": "Problemə münasibət",
     "category": "exlaq-ve-xarakter",
     "index": 22,
@@ -3118,11 +3118,11 @@
       "narrative",
       "moral"
     ],
-    "file": "attitude-toward-a-problem.mp3",
+    "file": "facing-a-problem.mp3",
     "bytes": 198956,
     "join": "ffmpeg+loudnorm"
   },
-  "to-be-cool-headed": {
+  "keeping-your-cool": {
     "title": "Soyuqqanlı olmaq",
     "category": "exlaq-ve-xarakter",
     "index": 23,
@@ -3136,7 +3136,7 @@
       "narrative",
       "moral"
     ],
-    "file": "to-be-cool-headed.mp3",
+    "file": "keeping-your-cool.mp3",
     "bytes": 139196,
     "join": "ffmpeg+loudnorm"
   },
@@ -3172,7 +3172,7 @@
     "bytes": 573500,
     "join": "ffmpeg+loudnorm"
   },
-  "i-got-busy-with-cleaning": {
+  "inner-housekeeping": {
     "title": "Təmizliklə məşğul oldum",
     "category": "exlaq-ve-xarakter",
     "index": 25,
@@ -3218,11 +3218,11 @@
       "narrative",
       "moral"
     ],
-    "file": "i-got-busy-with-cleaning.mp3",
+    "file": "inner-housekeeping.mp3",
     "bytes": 1073612,
     "join": "ffmpeg+loudnorm"
   },
-  "expressions-you-should-stay-away-from": {
+  "words-to-avoid": {
     "title": "Uzaq duracağınız ifadələr",
     "category": "exlaq-ve-xarakter",
     "index": 26,
@@ -3246,11 +3246,11 @@
       "narrative",
       "moral"
     ],
-    "file": "expressions-you-should-stay-away-from.mp3",
+    "file": "words-to-avoid.mp3",
     "bytes": 865244,
     "join": "ffmpeg+loudnorm"
   },
-  "to-give-up": {
+  "letting-go": {
     "title": "Vaz keçmək",
     "category": "exlaq-ve-xarakter",
     "index": 27,
@@ -3278,11 +3278,11 @@
       "exclaim",
       "moral"
     ],
-    "file": "to-give-up.mp3",
+    "file": "letting-go.mp3",
     "bytes": 403724,
     "join": "ffmpeg+loudnorm"
   },
-  "our-qualities-can-become-our-enemies": {
+  "strengths-and-vulnerabilities": {
     "title": "Vəsflərimiz düşmənimiz ola bilər",
     "category": "exlaq-ve-xarakter",
     "index": 28,
@@ -3299,7 +3299,7 @@
       "narrative",
       "moral"
     ],
-    "file": "our-qualities-can-become-our-enemies.mp3",
+    "file": "strengths-and-vulnerabilities.mp3",
     "bytes": 206588,
     "join": "ffmpeg+loudnorm"
   },
@@ -3328,7 +3328,7 @@
     "bytes": 326252,
     "join": "ffmpeg+loudnorm"
   },
-  "do-not-complain-about-any-day-you-have-lived": {
+  "every-day-has-meaning": {
     "title": "Yaşadığınız heç bir gündən şikayətçi olmayın",
     "category": "exlaq-ve-xarakter",
     "index": 30,
@@ -3346,7 +3346,7 @@
       "narrative",
       "moral"
     ],
-    "file": "do-not-complain-about-any-day-you-have-lived.mp3",
+    "file": "every-day-has-meaning.mp3",
     "bytes": 206012,
     "join": "ffmpeg+loudnorm"
   },
@@ -3368,7 +3368,7 @@
     "bytes": 194636,
     "join": "ffmpeg+loudnorm"
   },
-  "goose-to-be-plucked": {
+  "plucking-the-goose": {
     "title": "Yolunacaq qaz",
     "category": "exlaq-ve-xarakter",
     "index": 32,
@@ -3417,11 +3417,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "goose-to-be-plucked.mp3",
+    "file": "plucking-the-goose.mp3",
     "bytes": 1175564,
     "join": "ffmpeg+loudnorm"
   },
-  "try-to-think-this-way": {
+  "learning-to-say-yet": {
     "title": "Çalışın belə düşünün",
     "category": "exlaq-ve-xarakter",
     "index": 33,
@@ -3440,11 +3440,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "try-to-think-this-way.mp3",
+    "file": "learning-to-say-yet.mp3",
     "bytes": 430220,
     "join": "ffmpeg+loudnorm"
   },
-  "dont-say-i-couldnt-deliver-or-i-couldnt-manage": {
+  "try-again": {
     "title": "Çatdırmadım, bacarmadım deməyin",
     "category": "exlaq-ve-xarakter",
     "index": 34,
@@ -3458,11 +3458,11 @@
       "narrative",
       "moral"
     ],
-    "file": "dont-say-i-couldnt-deliver-or-i-couldnt-manage.mp3",
+    "file": "try-again.mp3",
     "bytes": 203852,
     "join": "ffmpeg+loudnorm"
   },
-  "turning-hardship-into-opportunity": {
+  "obstacles-and-opportunities": {
     "title": "Çətinliyi fürsətə çevirmək",
     "category": "exlaq-ve-xarakter",
     "index": 35,
@@ -3476,11 +3476,11 @@
       "narrative",
       "moral"
     ],
-    "file": "turning-hardship-into-opportunity.mp3",
+    "file": "obstacles-and-opportunities.mp3",
     "bytes": 160940,
     "join": "ffmpeg+loudnorm"
   },
-  "to-be-self-confident": {
+  "believe-in-yourself": {
     "title": "Özgüvənli olmaq",
     "category": "exlaq-ve-xarakter",
     "index": 36,
@@ -3502,11 +3502,11 @@
       "exclaim",
       "moral"
     ],
-    "file": "to-be-self-confident.mp3",
+    "file": "believe-in-yourself.mp3",
     "bytes": 204140,
     "join": "ffmpeg+loudnorm"
   },
-  "other-peoples-opinions": {
+  "other-peoples-thoughts": {
     "title": "Özgələrin fikirləri",
     "category": "exlaq-ve-xarakter",
     "index": 37,
@@ -3521,11 +3521,11 @@
       "narrative",
       "moral"
     ],
-    "file": "other-peoples-opinions.mp3",
+    "file": "other-peoples-thoughts.mp3",
     "bytes": 373340,
     "join": "ffmpeg+loudnorm"
   },
-  "may-your-face-always-smile": {
+  "welcoming-smile": {
     "title": "Üzünüz daim gülsün",
     "category": "exlaq-ve-xarakter",
     "index": 38,
@@ -3539,7 +3539,7 @@
       "narrative",
       "moral"
     ],
-    "file": "may-your-face-always-smile.mp3",
+    "file": "welcoming-smile.mp3",
     "bytes": 114140,
     "join": "ffmpeg+loudnorm"
   },
@@ -3605,7 +3605,7 @@
     "bytes": 284924,
     "join": "ffmpeg+loudnorm"
   },
-  "say-what-you-know": {
+  "share-what-you-know": {
     "title": "Bildiklərini söylə",
     "category": "soz-sukut-ve-unsiyyet",
     "index": 0,
@@ -3620,11 +3620,11 @@
       "narrative",
       "moral"
     ],
-    "file": "say-what-you-know.mp3",
+    "file": "share-what-you-know.mp3",
     "bytes": 208460,
     "join": "ffmpeg+loudnorm"
   },
-  "one-who-knows-and-the-one-who-does-not": {
+  "knowing-what-you-know": {
     "title": "Bilən və bilməyən",
     "category": "soz-sukut-ve-unsiyyet",
     "index": 1,
@@ -3642,11 +3642,11 @@
       "exclaim",
       "moral"
     ],
-    "file": "one-who-knows-and-the-one-who-does-not.mp3",
+    "file": "knowing-what-you-know.mp3",
     "bytes": 230204,
     "join": "ffmpeg+loudnorm"
   },
-  "tongue": {
+  "language": {
     "title": "Dil",
     "category": "soz-sukut-ve-unsiyyet",
     "index": 2,
@@ -3661,7 +3661,7 @@
       "narrative",
       "moral"
     ],
-    "file": "tongue.mp3",
+    "file": "language.mp3",
     "bytes": 123068,
     "join": "ffmpeg+loudnorm"
   },
@@ -3684,7 +3684,7 @@
     "bytes": 109964,
     "join": "ffmpeg+loudnorm"
   },
-  "word-and-silence": {
+  "words-and-silence": {
     "title": "Söz və sükut",
     "category": "soz-sukut-ve-unsiyyet",
     "index": 4,
@@ -3704,11 +3704,11 @@
       "narrative",
       "moral"
     ],
-    "file": "word-and-silence.mp3",
+    "file": "words-and-silence.mp3",
     "bytes": 369164,
     "join": "ffmpeg+loudnorm"
   },
-  "saying-the-word-in-its-place": {
+  "well-chosen-words": {
     "title": "Sözü yerində söyləmək",
     "category": "soz-sukut-ve-unsiyyet",
     "index": 5,
@@ -3722,7 +3722,7 @@
       "narrative",
       "moral"
     ],
-    "file": "saying-the-word-in-its-place.mp3",
+    "file": "well-chosen-words.mp3",
     "bytes": 116156,
     "join": "ffmpeg+loudnorm"
   },
@@ -3776,7 +3776,7 @@
     "bytes": 729164,
     "join": "ffmpeg+loudnorm"
   },
-  "shepherd-must-be-called": {
+  "call-the-shepherd": {
     "title": "Çobanı səsləmək lazımdır",
     "category": "soz-sukut-ve-unsiyyet",
     "index": 8,
@@ -3803,7 +3803,7 @@
       "dialogue",
       "moral"
     ],
-    "file": "shepherd-must-be-called.mp3",
+    "file": "call-the-shepherd.mp3",
     "bytes": 602732,
     "join": "ffmpeg+loudnorm"
   },
@@ -3895,7 +3895,7 @@
     "bytes": 144380,
     "join": "ffmpeg+loudnorm"
   },
-  "spare-time": {
+  "free-time": {
     "title": "Boş vaxt",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 1,
@@ -3909,11 +3909,11 @@
       "narrative",
       "moral"
     ],
-    "file": "spare-time.mp3",
+    "file": "free-time.mp3",
     "bytes": 121340,
     "join": "ffmpeg+loudnorm"
   },
-  "it-is-in-vain": {
+  "its-pointless": {
     "title": "Boşunadır",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 2,
@@ -3927,11 +3927,11 @@
       "narrative",
       "moral"
     ],
-    "file": "it-is-in-vain.mp3",
+    "file": "its-pointless.mp3",
     "bytes": 129692,
     "join": "ffmpeg+loudnorm"
   },
-  "if-i-dont-do-it-these-days-the-world-wont-collapse": {
+  "cost-of-indifference": {
     "title": "Bu günlərdə etməsəm, dünya dağılmaz ki",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 3,
@@ -3952,11 +3952,11 @@
       "narrative",
       "moral"
     ],
-    "file": "if-i-dont-do-it-these-days-the-world-wont-collapse.mp3",
+    "file": "cost-of-indifference.mp3",
     "bytes": 834428,
     "join": "ffmpeg+loudnorm"
   },
-  "this-boat-is-empty-too": {
+  "empty-boat": {
     "title": "Bu qayıq da boşdur",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 4,
@@ -3975,7 +3975,7 @@
       "dialogue",
       "moral"
     ],
-    "file": "this-boat-is-empty-too.mp3",
+    "file": "empty-boat.mp3",
     "bytes": 498908,
     "join": "ffmpeg+loudnorm"
   },
@@ -4022,7 +4022,7 @@
     "bytes": 453836,
     "join": "ffmpeg+loudnorm"
   },
-  "more-effective-way": {
+  "sharpen-the-axe": {
     "title": "Daha səmərəli yol",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 7,
@@ -4040,11 +4040,11 @@
       "exclaim",
       "moral"
     ],
-    "file": "more-effective-way.mp3",
+    "file": "sharpen-the-axe.mp3",
     "bytes": 327980,
     "join": "ffmpeg+loudnorm"
   },
-  "sowing-millet-at-the-bottom": {
+  "draining-the-coffers": {
     "title": "Dibinə darı əkmək",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 8,
@@ -4068,7 +4068,7 @@
       "dialogue",
       "moral"
     ],
-    "file": "sowing-millet-at-the-bottom.mp3",
+    "file": "draining-the-coffers.mp3",
     "bytes": 646220,
     "join": "ffmpeg+loudnorm"
   },
@@ -4101,7 +4101,7 @@
     "bytes": 893180,
     "join": "ffmpeg+loudnorm"
   },
-  "most-beautiful-places-in-the-world": {
+  "place-in-loving-hearts": {
     "title": "Dünyada ən gözəl yerlər",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 10,
@@ -4115,7 +4115,7 @@
       "narrative",
       "moral"
     ],
-    "file": "most-beautiful-places-in-the-world.mp3",
+    "file": "place-in-loving-hearts.mp3",
     "bytes": 127676,
     "join": "ffmpeg+loudnorm"
   },
@@ -4142,7 +4142,7 @@
     "bytes": 606620,
     "join": "ffmpeg+loudnorm"
   },
-  "what-it-means-to-be-late": {
+  "before-it-is-too-late": {
     "title": "Gecikmək nə deməkdir?",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 12,
@@ -4159,11 +4159,11 @@
       "narrative",
       "moral"
     ],
-    "file": "what-it-means-to-be-late.mp3",
+    "file": "before-it-is-too-late.mp3",
     "bytes": 361388,
     "join": "ffmpeg+loudnorm"
   },
-  "blind-who-have-eyes": {
+  "seeing-without-understanding": {
     "title": "Gözləri olan korlar",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 13,
@@ -4177,11 +4177,11 @@
       "narrative",
       "moral"
     ],
-    "file": "blind-who-have-eyes.mp3",
+    "file": "seeing-without-understanding.mp3",
     "bytes": 111692,
     "join": "ffmpeg+loudnorm"
   },
-  "no-need-to-be-sane-when-everyone-is-mad": {
+  "price-of-belonging": {
     "title": "Hamı dəli olanda ağıllı olmağa gərək yoxdur",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 14,
@@ -4195,11 +4195,11 @@
       "narrative",
       "moral"
     ],
-    "file": "no-need-to-be-sane-when-everyone-is-mad.mp3",
+    "file": "price-of-belonging.mp3",
     "bytes": 344252,
     "join": "ffmpeg+loudnorm"
   },
-  "doctors-appointment": {
+  "doctors-office": {
     "title": "Həkim qəbulunda",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 15,
@@ -4218,11 +4218,11 @@
       "narrative",
       "moral"
     ],
-    "file": "doctors-appointment.mp3",
+    "file": "doctors-office.mp3",
     "bytes": 481628,
     "join": "ffmpeg+loudnorm"
   },
-  "life-lesson": {
+  "light-of-the-world": {
     "title": "Həyat dərsi",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 16,
@@ -4243,7 +4243,7 @@
       "dialogue",
       "moral"
     ],
-    "file": "life-lesson.mp3",
+    "file": "light-of-the-world.mp3",
     "bytes": 302060,
     "join": "ffmpeg+loudnorm"
   },
@@ -4279,7 +4279,7 @@
     "bytes": 693164,
     "join": "ffmpeg+loudnorm"
   },
-  "what-we-learn-in-life": {
+  "lifes-lessons": {
     "title": "Həyatda öyrəndiklərimiz",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 18,
@@ -4294,7 +4294,7 @@
       "narrative",
       "moral"
     ],
-    "file": "what-we-learn-in-life.mp3",
+    "file": "lifes-lessons.mp3",
     "bytes": 174332,
     "join": "ffmpeg+loudnorm"
   },
@@ -4371,7 +4371,7 @@
     "bytes": 473132,
     "join": "ffmpeg+loudnorm"
   },
-  "human-emerged": {
+  "human-being-emerged": {
     "title": "İnsan çıxdı",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 21,
@@ -4389,11 +4389,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "human-emerged.mp3",
+    "file": "human-being-emerged.mp3",
     "bytes": 204284,
     "join": "ffmpeg+loudnorm"
   },
-  "from-the-memoirs-of-a-lady-from-istanbul": {
+  "istanbul-woman-remembers": {
     "title": "İstanbullu bir xanımın xatirələrindən",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 22,
@@ -4421,11 +4421,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "from-the-memoirs-of-a-lady-from-istanbul.mp3",
+    "file": "istanbul-woman-remembers.mp3",
     "bytes": 915644,
     "join": "ffmpeg+loudnorm"
   },
-  "it-wont-go-to-waste": {
+  "never-lost": {
     "title": "İtib batmaz",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 23,
@@ -4446,11 +4446,11 @@
       "narrative",
       "moral"
     ],
-    "file": "it-wont-go-to-waste.mp3",
+    "file": "never-lost.mp3",
     "bytes": 281468,
     "join": "ffmpeg+loudnorm"
   },
-  "nothing-is-ever-truly-lost": {
+  "learning-from-loss": {
     "title": "İtirdim deyə bir şey yoxdur",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 24,
@@ -4464,7 +4464,7 @@
       "dialogue",
       "moral"
     ],
-    "file": "nothing-is-ever-truly-lost.mp3",
+    "file": "learning-from-loss.mp3",
     "bytes": 120908,
     "join": "ffmpeg+loudnorm"
   },
@@ -4511,7 +4511,7 @@
     "bytes": 553772,
     "join": "ffmpeg+loudnorm"
   },
-  "blind-well": {
+  "dry-well": {
     "title": "Kor quyu",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 27,
@@ -4526,11 +4526,11 @@
       "narrative",
       "moral"
     ],
-    "file": "blind-well.mp3",
+    "file": "dry-well.mp3",
     "bytes": 371900,
     "join": "ffmpeg+loudnorm"
   },
-  "windmill-turning-in-still-air": {
+  "windmill-turning-without-wind": {
     "title": "Küləksiz havada fırlanan yel dəyirmanı",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 28,
@@ -4545,11 +4545,11 @@
       "narrative",
       "moral"
     ],
-    "file": "windmill-turning-in-still-air.mp3",
+    "file": "windmill-turning-without-wind.mp3",
     "bytes": 144956,
     "join": "ffmpeg+loudnorm"
   },
-  "lecturer-and-the-groom": {
+  "audience-of-one": {
     "title": "Mühazirəçi və mehtər",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 29,
@@ -4568,11 +4568,11 @@
       "narrative",
       "moral"
     ],
-    "file": "lecturer-and-the-groom.mp3",
+    "file": "audience-of-one.mp3",
     "bytes": 397244,
     "join": "ffmpeg+loudnorm"
   },
-  "teacher-hello-do-you-remember-me": {
+  "do-you-remember-me": {
     "title": "Müəllim, salam, xatırladınız məni?",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 30,
@@ -4599,7 +4599,7 @@
       "dialogue",
       "moral"
     ],
-    "file": "teacher-hello-do-you-remember-me.mp3",
+    "file": "do-you-remember-me.mp3",
     "bytes": 1193564,
     "join": "ffmpeg+loudnorm"
   },
@@ -4621,7 +4621,7 @@
     "bytes": 190748,
     "join": "ffmpeg+loudnorm"
   },
-  "what-do-i-need-it-for": {
+  "not-my-concern": {
     "title": "Nəyimə lazımdır",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 32,
@@ -4644,11 +4644,11 @@
       "narrative",
       "moral"
     ],
-    "file": "what-do-i-need-it-for.mp3",
+    "file": "not-my-concern.mp3",
     "bytes": 1048988,
     "join": "ffmpeg+loudnorm"
   },
-  "road-to-the-cotton-field": {
+  "beyond-the-cotton-field": {
     "title": "Pambıq tarlasına gedən yol",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 33,
@@ -4671,7 +4671,7 @@
       "narrative",
       "moral"
     ],
-    "file": "road-to-the-cotton-field.mp3",
+    "file": "beyond-the-cotton-field.mp3",
     "bytes": 1093052,
     "join": "ffmpeg+loudnorm"
   },
@@ -4696,7 +4696,7 @@
     "bytes": 150716,
     "join": "ffmpeg+loudnorm"
   },
-  "properties-of-water": {
+  "qualities-of-water": {
     "title": "Suyun xassələri",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 35,
@@ -4718,11 +4718,11 @@
       "narrative",
       "moral"
     ],
-    "file": "properties-of-water.mp3",
+    "file": "qualities-of-water.mp3",
     "bytes": 306812,
     "join": "ffmpeg+loudnorm"
   },
-  "to-be-full-or-to-be-gone": {
+  "stronger-together": {
     "title": "Tox, ya yox olmaq",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 36,
@@ -4738,11 +4738,11 @@
       "narrative",
       "moral"
     ],
-    "file": "to-be-full-or-to-be-gone.mp3",
+    "file": "stronger-together.mp3",
     "bytes": 134876,
     "join": "ffmpeg+loudnorm"
   },
-  "to-dream": {
+  "dreaming": {
     "title": "Xəyal etmək",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 37,
@@ -4756,11 +4756,11 @@
       "narrative",
       "moral"
     ],
-    "file": "to-dream.mp3",
+    "file": "dreaming.mp3",
     "bytes": 96572,
     "join": "ffmpeg+loudnorm"
   },
-  "secret-of-living-well-and-longevity": {
+  "living-well": {
     "title": "Yaxşı yaşamağın və uzunömürlülüyün sirri",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 38,
@@ -4775,11 +4775,11 @@
       "narrative",
       "moral"
     ],
-    "file": "secret-of-living-well-and-longevity.mp3",
+    "file": "living-well.mp3",
     "bytes": 153452,
     "join": "ffmpeg+loudnorm"
   },
-  "dead-remain-in-life": {
+  "living-with-loss": {
     "title": "Ölən həyatda qalandır",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 39,
@@ -4793,7 +4793,7 @@
       "narrative",
       "moral"
     ],
-    "file": "dead-remain-in-life.mp3",
+    "file": "living-with-loss.mp3",
     "bytes": 126956,
     "join": "ffmpeg+loudnorm"
   },
@@ -4815,7 +4815,7 @@
     "bytes": 126524,
     "join": "ffmpeg+loudnorm"
   },
-  "if-the-door-before-you-wont-open-it-is-not-your-door": {
+  "different-door": {
     "title": "Önünüzdə olan qapı açılmırsa, deməli, o sizin qapınız deyil",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 41,
@@ -4831,7 +4831,7 @@
       "narrative",
       "moral"
     ],
-    "file": "if-the-door-before-you-wont-open-it-is-not-your-door.mp3",
+    "file": "different-door.mp3",
     "bytes": 461324,
     "join": "ffmpeg+loudnorm"
   },
@@ -4863,7 +4863,7 @@
     "bytes": 951500,
     "join": "ffmpeg+loudnorm"
   },
-  "three-landscapes": {
+  "three-scenes": {
     "title": "Üç mənzərə",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 43,
@@ -4884,7 +4884,7 @@
       "dialogue",
       "moral"
     ],
-    "file": "three-landscapes.mp3",
+    "file": "three-scenes.mp3",
     "bytes": 800012,
     "join": "ffmpeg+loudnorm"
   },
@@ -4949,7 +4949,7 @@
     "bytes": 774092,
     "join": "ffmpeg+loudnorm"
   },
-  "grocery-shop-and-the-supermarket": {
+  "butter-price-war": {
     "title": "Baqqal dükanı və supermarket",
     "category": "emek-ruzi-ve-servet",
     "index": 1,
@@ -4967,7 +4967,7 @@
       "dialogue",
       "moral"
     ],
-    "file": "grocery-shop-and-the-supermarket.mp3",
+    "file": "butter-price-war.mp3",
     "bytes": 447212,
     "join": "ffmpeg+loudnorm"
   },
@@ -4993,7 +4993,7 @@
     "bytes": 241580,
     "join": "ffmpeg+loudnorm"
   },
-  "chief-accountant-and-the-ceo": {
+  "investing-in-people": {
     "title": "Baş mühasib və baş direktor",
     "category": "emek-ruzi-ve-servet",
     "index": 3,
@@ -5010,7 +5010,7 @@
       "question",
       "moral"
     ],
-    "file": "chief-accountant-and-the-ceo.mp3",
+    "file": "investing-in-people.mp3",
     "bytes": 248780,
     "join": "ffmpeg+loudnorm"
   },
@@ -5039,7 +5039,7 @@
     "bytes": 494588,
     "join": "ffmpeg+loudnorm"
   },
-  "organization-without-an-action-plan": {
+  "without-a-plan": {
     "title": "Fəaliyyət planı olmayan təşkilat",
     "category": "emek-ruzi-ve-servet",
     "index": 5,
@@ -5054,7 +5054,7 @@
       "narrative",
       "moral"
     ],
-    "file": "organization-without-an-action-plan.mp3",
+    "file": "without-a-plan.mp3",
     "bytes": 429068,
     "join": "ffmpeg+loudnorm"
   },
@@ -5172,7 +5172,7 @@
     "bytes": 1755164,
     "join": "ffmpeg+loudnorm"
   },
-  "former-minister-at-the-seminar": {
+  "plastic-cup": {
     "title": "Keçmiş nazir seminarda",
     "category": "emek-ruzi-ve-servet",
     "index": 9,
@@ -5190,7 +5190,7 @@
       "dialogue",
       "moral"
     ],
-    "file": "former-minister-at-the-seminar.mp3",
+    "file": "plastic-cup.mp3",
     "bytes": 838748,
     "join": "ffmpeg+loudnorm"
   },
@@ -5218,7 +5218,7 @@
     "bytes": 396092,
     "join": "ffmpeg+loudnorm"
   },
-  "why-am-i-poor": {
+  "giving-without-money": {
     "title": "Mən niyə kasıbam?",
     "category": "emek-ruzi-ve-servet",
     "index": 11,
@@ -5243,7 +5243,7 @@
       "narrative",
       "moral"
     ],
-    "file": "why-am-i-poor.mp3",
+    "file": "giving-without-money.mp3",
     "bytes": 442460,
     "join": "ffmpeg+loudnorm"
   },
@@ -5322,7 +5322,7 @@
     "bytes": 266204,
     "join": "ffmpeg+loudnorm"
   },
-  "do-you-have-spending-money": {
+  "more-than-money": {
     "title": "Xərcliyiniz varmı?",
     "category": "emek-ruzi-ve-servet",
     "index": 15,
@@ -5336,7 +5336,7 @@
       "narrative",
       "moral"
     ],
-    "file": "do-you-have-spending-money.mp3",
+    "file": "more-than-money.mp3",
     "bytes": 183692,
     "join": "ffmpeg+loudnorm"
   },
@@ -5375,7 +5375,7 @@
     "bytes": 1558460,
     "join": "ffmpeg+loudnorm"
   },
-  "weight-of-the-oil": {
+  "weight-of-the-butter": {
     "title": "Yağın çəkisi",
     "category": "emek-ruzi-ve-servet",
     "index": 17,
@@ -5390,11 +5390,11 @@
       "narrative",
       "moral"
     ],
-    "file": "weight-of-the-oil.mp3",
+    "file": "weight-of-the-butter.mp3",
     "bytes": 268508,
     "join": "ffmpeg+loudnorm"
   },
-  "his-hand-is-at-work": {
+  "busy-but-unproductive": {
     "title": "Əli işdədir",
     "category": "emek-ruzi-ve-servet",
     "index": 18,
@@ -5409,11 +5409,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "his-hand-is-at-work.mp3",
+    "file": "busy-but-unproductive.mp3",
     "bytes": 186140,
     "join": "ffmpeg+loudnorm"
   },
-  "with-this-nation-the-world-can-be-conquered": {
+  "market-of-good-neighbors": {
     "title": "Bu millət ilə dünya fəth edilə bilər",
     "category": "edalet-ve-cemiyyet",
     "index": 0,
@@ -5435,11 +5435,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "with-this-nation-the-world-can-be-conquered.mp3",
+    "file": "market-of-good-neighbors.mp3",
     "bytes": 644060,
     "join": "ffmpeg+loudnorm"
   },
-  "bedouin-whose-camel-was-stolen": {
+  "stolen-camel": {
     "title": "Dəvəsi oğurlanmış bədəvinin hekayəsi",
     "category": "edalet-ve-cemiyyet",
     "index": 1,
@@ -5457,11 +5457,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "bedouin-whose-camel-was-stolen.mp3",
+    "file": "stolen-camel.mp3",
     "bytes": 396812,
     "join": "ffmpeg+loudnorm"
   },
-  "woman-whose-house-was-robbed": {
+  "who-was-keeping-watch": {
     "title": "Evi qarət olunan qadın",
     "category": "edalet-ve-cemiyyet",
     "index": 2,
@@ -5475,11 +5475,11 @@
       "narrative",
       "moral"
     ],
-    "file": "woman-whose-house-was-robbed.mp3",
+    "file": "who-was-keeping-watch.mp3",
     "bytes": 238412,
     "join": "ffmpeg+loudnorm"
   },
-  "just-verdict-of-the-frankfurt-judge": {
+  "judges-answer": {
     "title": "FRANKFURT HAKİMİNİN ƏDALƏTLİ HÖKMÜ",
     "category": "edalet-ve-cemiyyet",
     "index": 3,
@@ -5499,11 +5499,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "just-verdict-of-the-frankfurt-judge.mp3",
+    "file": "judges-answer.mp3",
     "bytes": 897068,
     "join": "ffmpeg+loudnorm"
   },
-  "bell-to-hang-on-the-cats-neck": {
+  "belling-the-cat": {
     "title": "Pişiyin boynundan asılacaq zınqırov",
     "category": "edalet-ve-cemiyyet",
     "index": 5,
@@ -5521,11 +5521,11 @@
       "question",
       "moral"
     ],
-    "file": "bell-to-hang-on-the-cats-neck.mp3",
+    "file": "belling-the-cat.mp3",
     "bytes": 372908,
     "join": "ffmpeg+loudnorm"
   },
-  "skins-of-the-lambs": {
+  "lambs-skins": {
     "title": "Quzuların dərisi",
     "category": "edalet-ve-cemiyyet",
     "index": 6,
@@ -5555,11 +5555,11 @@
       "narrative",
       "moral"
     ],
-    "file": "skins-of-the-lambs.mp3",
+    "file": "lambs-skins.mp3",
     "bytes": 1118252,
     "join": "ffmpeg+loudnorm"
   },
-  "homeland-and-land": {
+  "land-and-homeland": {
     "title": "Vətən və torpaq",
     "category": "edalet-ve-cemiyyet",
     "index": 7,
@@ -5573,11 +5573,11 @@
       "narrative",
       "moral"
     ],
-    "file": "homeland-and-land.mp3",
+    "file": "land-and-homeland.mp3",
     "bytes": 115148,
     "join": "ffmpeg+loudnorm"
   },
-  "why-injustice-when-there-is-justice": {
+  "choose-justice": {
     "title": "Ədalət var ikən haqsızlıq niyə",
     "category": "edalet-ve-cemiyyet",
     "index": 8,
@@ -5598,7 +5598,7 @@
       "question",
       "moral"
     ],
-    "file": "why-injustice-when-there-is-justice.mp3",
+    "file": "choose-justice.mp3",
     "bytes": 245756,
     "join": "ffmpeg+loudnorm"
   },
@@ -5659,7 +5659,7 @@
     "bytes": 1124444,
     "join": "ffmpeg+loudnorm"
   },
-  "for-those-who-have-reached-sixty": {
+  "life-after-sixty": {
     "title": "Altmışı haqlamış olanlar üçün...",
     "category": "yaslanma-ve-zaman",
     "index": 1,
@@ -5688,7 +5688,7 @@
       "exclaim",
       "moral"
     ],
-    "file": "for-those-who-have-reached-sixty.mp3",
+    "file": "life-after-sixty.mp3",
     "bytes": 1630172,
     "join": "ffmpeg+loudnorm"
   },
@@ -5710,7 +5710,7 @@
     "bytes": 124796,
     "join": "ffmpeg+loudnorm"
   },
-  "lions-footprint": {
+  "lions-tracks": {
     "title": "Aslanın izi",
     "category": "temsiller-ve-meseller",
     "index": 0,
@@ -5729,7 +5729,7 @@
       "dialogue",
       "moral"
     ],
-    "file": "lions-footprint.mp3",
+    "file": "lions-tracks.mp3",
     "bytes": 271532,
     "join": "ffmpeg+loudnorm"
   },
@@ -5797,7 +5797,7 @@
     "bytes": 283628,
     "join": "ffmpeg+loudnorm"
   },
-  "fly-in-the-china-shop": {
+  "fly-in-a-china-shop": {
     "title": "Milçək çini qablar dükanında",
     "category": "temsiller-ve-meseller",
     "index": 4,
@@ -5812,11 +5812,11 @@
       "narrative",
       "moral"
     ],
-    "file": "fly-in-the-china-shop.mp3",
+    "file": "fly-in-a-china-shop.mp3",
     "bytes": 228620,
     "join": "ffmpeg+loudnorm"
   },
-  "hunters-description": {
+  "lions-untold-story": {
     "title": "Ovçunun vəsfi",
     "category": "temsiller-ve-meseller",
     "index": 5,
@@ -5831,11 +5831,11 @@
       "narrative",
       "moral"
     ],
-    "file": "hunters-description.mp3",
+    "file": "lions-untold-story.mp3",
     "bytes": 137756,
     "join": "ffmpeg+loudnorm"
   },
-  "ant-that-carries-water": {
+  "ant-carrying-water": {
     "title": "Su daşıyan qarışqa",
     "category": "temsiller-ve-meseller",
     "index": 6,
@@ -5856,11 +5856,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "ant-that-carries-water.mp3",
+    "file": "ant-carrying-water.mp3",
     "bytes": 449372,
     "join": "ffmpeg+loudnorm"
   },
-  "turtles-wrong-calculation": {
+  "tortoises-miscalculation": {
     "title": "Tısbağanın yanlış hesabı",
     "category": "temsiller-ve-meseller",
     "index": 7,
@@ -5878,7 +5878,7 @@
       "narrative",
       "moral"
     ],
-    "file": "turtles-wrong-calculation.mp3",
+    "file": "tortoises-miscalculation.mp3",
     "bytes": 390476,
     "join": "ffmpeg+loudnorm"
   },
@@ -5909,7 +5909,7 @@
     "bytes": 808364,
     "join": "ffmpeg+loudnorm"
   },
-  "architect-sinan-dies-in-a-house-without-water": {
+  "sinans-waterless-house": {
     "title": "İstanbulu suya qovuşduran Memar Sinan susuz evdə vəfat etdi",
     "category": "tarix-ve-taninmish-shexsiyyetler",
     "index": 1,
@@ -5938,11 +5938,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "architect-sinan-dies-in-a-house-without-water.mp3",
+    "file": "sinans-waterless-house.mp3",
     "bytes": 1043948,
     "join": "ffmpeg+loudnorm"
   },
-  "mihrimah-sultan-and-architect-sinan": {
+  "mihrimah-and-sinan": {
     "title": "Mihrimah sultan və Memar Sinan",
     "category": "tarix-ve-taninmish-shexsiyyetler",
     "index": 2,
@@ -5965,11 +5965,11 @@
       "narrative",
       "moral"
     ],
-    "file": "mihrimah-sultan-and-architect-sinan.mp3",
+    "file": "mihrimah-and-sinan.mp3",
     "bytes": 1000604,
     "join": "ffmpeg+loudnorm"
   },
-  "magnificent-lesson": {
+  "remarkable-lesson": {
     "title": "Möhtəşəm dərs",
     "category": "tarix-ve-taninmish-shexsiyyetler",
     "index": 3,
@@ -5992,11 +5992,11 @@
       "narrative",
       "moral"
     ],
-    "file": "magnificent-lesson.mp3",
+    "file": "remarkable-lesson.mp3",
     "bytes": 705116,
     "join": "ffmpeg+loudnorm"
   },
-  "three-essential-things-for-a-city": {
+  "three-essentials-for-a-city": {
     "title": "Şəhər üçün üç vacib şey",
     "category": "tarix-ve-taninmish-shexsiyyetler",
     "index": 4,
@@ -6011,7 +6011,7 @@
       "narrative",
       "moral"
     ],
-    "file": "three-essential-things-for-a-city.mp3",
+    "file": "three-essentials-for-a-city.mp3",
     "bytes": 177356,
     "join": "ffmpeg+loudnorm"
   }

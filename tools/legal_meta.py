@@ -26,6 +26,7 @@ ABOUT_LEGAL_GROUP_TITLE = {
     "en": "Legal information",
     "ru": "Правовая информация",
     "ky": "Укуктук маалымат",
+    "de": "Rechtliche Informationen",
 }
 
 ABOUT_LEGAL_AND = {
@@ -90,6 +91,17 @@ FOOTER_LEGAL_LABEL_FALLBACKS = {
         "legal_crumb": "Укуктук маалымат",
         "nav_legal_group": "Укуктук маалымат",
     },
+    "de": {
+        "footer_legal_nav": "Rechtliche Informationen und Seitenübersicht",
+        "footer_feedback": "Rückmeldung",
+        "footer_privacy": "Datenschutzhinweise",
+        "footer_terms": "Nutzungsbedingungen",
+        "footer_cookies": "Cookie-Richtlinie",
+        "footer_imprint": "Impressum",
+        "footer_sitemap": "Seitenübersicht",
+        "legal_crumb": "Rechtliche Informationen",
+        "nav_legal_group": "Rechtliche Informationen",
+    },
 }
 
 
@@ -98,6 +110,7 @@ BREADCRUMB_NAV_LABEL = {
     "en": "Breadcrumb",
     "ru": "Навигационная цепочка",
     "ky": "Барак жолу",
+    "de": "Brotkrumennavigation",
 }
 
 

@@ -1,5 +1,5 @@
 {
-  "idle-devil": {
+  "devil-out-of-work": {
     "title": "Бездельник-дьявол",
     "category": "iman-ve-meneviyyat",
     "index": 0,
@@ -14,11 +14,11 @@
       "question",
       "moral"
     ],
-    "file": "idle-devil.mp3",
+    "file": "devil-out-of-work.mp3",
     "bytes": 218396,
     "join": "ffmpeg+loudnorm"
   },
-  "gods-pleasure": {
+  "pleasure-of-allah": {
     "title": "Благоволение Аллаха",
     "category": "iman-ve-meneviyyat",
     "index": 1,
@@ -34,11 +34,11 @@
       "narrative",
       "moral"
     ],
-    "file": "gods-pleasure.mp3",
+    "file": "pleasure-of-allah.mp3",
     "bytes": 211340,
     "join": "ffmpeg+loudnorm"
   },
-  "blessings-god-has-given": {
+  "gifts-of-allah": {
     "title": "Дары Аллаха",
     "category": "iman-ve-meneviyyat",
     "index": 2,
@@ -59,11 +59,11 @@
       "narrative",
       "moral"
     ],
-    "file": "blessings-god-has-given.mp3",
+    "file": "gifts-of-allah.mp3",
     "bytes": 331436,
     "join": "ffmpeg+loudnorm"
   },
-  "friend-of-god": {
+  "friend-of-allah": {
     "title": "Друг Аллаха",
     "category": "iman-ve-meneviyyat",
     "index": 3,
@@ -83,11 +83,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "friend-of-god.mp3",
+    "file": "friend-of-allah.mp3",
     "bytes": 341228,
     "join": "ffmpeg+loudnorm"
   },
-  "if-fate-allows-we-will-meet": {
+  "if-fate-allows": {
     "title": "Если судьба позволит, мы встретимся.",
     "category": "iman-ve-meneviyyat",
     "index": 4,
@@ -104,7 +104,7 @@
       "moral",
       "narrative"
     ],
-    "file": "if-fate-allows-we-will-meet.mp3",
+    "file": "if-fate-allows.mp3",
     "bytes": 417260,
     "join": "ffmpeg+loudnorm"
   },
@@ -166,7 +166,7 @@
     "bytes": 284060,
     "join": "ffmpeg+loudnorm"
   },
-  "dervishs-spoons": {
+  "dervishs-long-spoons": {
     "title": "Длинные ложки дервиша",
     "category": "iman-ve-meneviyyat",
     "index": 7,
@@ -188,7 +188,7 @@
       "dialogue",
       "moral"
     ],
-    "file": "dervishs-spoons.mp3",
+    "file": "dervishs-long-spoons.mp3",
     "bytes": 650828,
     "join": "ffmpeg+loudnorm"
   },
@@ -230,7 +230,7 @@
     "bytes": 190172,
     "join": "ffmpeg+loudnorm"
   },
-  "pray-while-washing-your-dishes": {
+  "gratitude-at-the-sink": {
     "title": "Молитесь, моя посуду.",
     "category": "iman-ve-meneviyyat",
     "index": 10,
@@ -245,11 +245,11 @@
       "narrative",
       "moral"
     ],
-    "file": "pray-while-washing-your-dishes.mp3",
+    "file": "gratitude-at-the-sink.mp3",
     "bytes": 281180,
     "join": "ffmpeg+loudnorm"
   },
-  "mullah-and-the-scholar": {
+  "vizier-and-the-scholar": {
     "title": "Мулла и учёный",
     "category": "iman-ve-meneviyyat",
     "index": 11,
@@ -271,11 +271,11 @@
       "narrative",
       "moral"
     ],
-    "file": "mullah-and-the-scholar.mp3",
+    "file": "vizier-and-the-scholar.mp3",
     "bytes": 1217756,
     "join": "ffmpeg+loudnorm"
   },
-  "not-leaving-the-right-path": {
+  "staying-on-the-right-path": {
     "title": "Не сходить с праведного пути",
     "category": "iman-ve-meneviyyat",
     "index": 12,
@@ -299,11 +299,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "not-leaving-the-right-path.mp3",
+    "file": "staying-on-the-right-path.mp3",
     "bytes": 651692,
     "join": "ffmpeg+loudnorm"
   },
-  "o-god-heal-our-sorrows": {
+  "prayer-for-relief": {
     "title": "О Аллах, даруй нам избавление от бед",
     "category": "iman-ve-meneviyyat",
     "index": 13,
@@ -321,11 +321,11 @@
       "narrative",
       "moral"
     ],
-    "file": "o-god-heal-our-sorrows.mp3",
+    "file": "prayer-for-relief.mp3",
     "bytes": 285068,
     "join": "ffmpeg+loudnorm"
   },
-  "o-god-give-first-to-the-mountains-and-stones": {
+  "give-to-me-last": {
     "title": "О Боже, сначала дай горам и камням!",
     "category": "iman-ve-meneviyyat",
     "index": 14,
@@ -340,7 +340,7 @@
       "exclaim",
       "moral"
     ],
-    "file": "o-god-give-first-to-the-mountains-and-stones.mp3",
+    "file": "give-to-me-last.mp3",
     "bytes": 206012,
     "join": "ffmpeg+loudnorm"
   },
@@ -375,7 +375,7 @@
     "bytes": 660188,
     "join": "ffmpeg+loudnorm"
   },
-  "dervishs-clothes": {
+  "dervishs-appearance": {
     "title": "Внешний вид дервиша",
     "category": "iman-ve-meneviyyat",
     "index": 16,
@@ -392,11 +392,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "dervishs-clothes.mp3",
+    "file": "dervishs-appearance.mp3",
     "bytes": 213932,
     "join": "ffmpeg+loudnorm"
   },
-  "where-does-calamity-come-from": {
+  "begin-with-self-examination": {
     "title": "Откуда берется несчастье?",
     "category": "iman-ve-meneviyyat",
     "index": 17,
@@ -415,7 +415,7 @@
       "question",
       "moral"
     ],
-    "file": "where-does-calamity-come-from.mp3",
+    "file": "begin-with-self-examination.mp3",
     "bytes": 266492,
     "join": "ffmpeg+loudnorm"
   },
@@ -462,7 +462,7 @@
     "bytes": 207884,
     "join": "ffmpeg+loudnorm"
   },
-  "to-be-fasting": {
+  "fasting": {
     "title": "Пост",
     "category": "iman-ve-meneviyyat",
     "index": 20,
@@ -482,11 +482,11 @@
       "narrative",
       "moral"
     ],
-    "file": "to-be-fasting.mp3",
+    "file": "fasting.mp3",
     "bytes": 456284,
     "join": "ffmpeg+loudnorm"
   },
-  "why-are-you-waiting-for-the-last-day-of-the-world": {
+  "why-wait": {
     "title": "Почему вы ждёте конца света?",
     "category": "iman-ve-meneviyyat",
     "index": 21,
@@ -516,11 +516,11 @@
       "question",
       "moral"
     ],
-    "file": "why-are-you-waiting-for-the-last-day-of-the-world.mp3",
+    "file": "why-wait.mp3",
     "bytes": 639452,
     "join": "ffmpeg+loudnorm"
   },
-  "help-yourself-o-exalted-god": {
+  "prayer-for-everyone": {
     "title": "Приди им всем на помощь, о Всевышний Аллах",
     "category": "iman-ve-meneviyyat",
     "index": 22,
@@ -543,11 +543,11 @@
       "exclaim",
       "moral"
     ],
-    "file": "help-yourself-o-exalted-god.mp3",
+    "file": "prayer-for-everyone.mp3",
     "bytes": 345836,
     "join": "ffmpeg+loudnorm"
   },
-  "let-prayer-come-and-find-you": {
+  "prayer-finds-you": {
     "title": "Пусть нужная тебе молитва сама тебя найдёт",
     "category": "iman-ve-meneviyyat",
     "index": 23,
@@ -562,11 +562,11 @@
       "narrative",
       "moral"
     ],
-    "file": "let-prayer-come-and-find-you.mp3",
+    "file": "prayer-finds-you.mp3",
     "bytes": 258284,
     "join": "ffmpeg+loudnorm"
   },
-  "most-beautiful-portion": {
+  "lifes-finest-blessing": {
     "title": "Самое прекрасное благословение",
     "category": "iman-ve-meneviyyat",
     "index": 24,
@@ -583,11 +583,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "most-beautiful-portion.mp3",
+    "file": "lifes-finest-blessing.mp3",
     "bytes": 207020,
     "join": "ffmpeg+loudnorm"
   },
-  "light-of-the-universe": {
+  "door-to-the-heart": {
     "title": "Свет Вселенной",
     "category": "iman-ve-meneviyyat",
     "index": 25,
@@ -603,11 +603,11 @@
       "narrative",
       "moral"
     ],
-    "file": "light-of-the-universe.mp3",
+    "file": "door-to-the-heart.mp3",
     "bytes": 423452,
     "join": "ffmpeg+loudnorm"
   },
-  "power-of-truth": {
+  "power-of-justice": {
     "title": "Сила истины",
     "category": "iman-ve-meneviyyat",
     "index": 26,
@@ -621,7 +621,7 @@
       "narrative",
       "moral"
     ],
-    "file": "power-of-truth.mp3",
+    "file": "power-of-justice.mp3",
     "bytes": 128540,
     "join": "ffmpeg+loudnorm"
   },
@@ -644,7 +644,7 @@
     "bytes": 420860,
     "join": "ffmpeg+loudnorm"
   },
-  "your-hand-at-work-your-hope-in-god": {
+  "hands-at-work-hope-in-god": {
     "title": "Трудись своими руками, уповай на Аллаха",
     "category": "iman-ve-meneviyyat",
     "index": 28,
@@ -665,11 +665,11 @@
       "narrative",
       "moral"
     ],
-    "file": "your-hand-at-work-your-hope-in-god.mp3",
+    "file": "hands-at-work-hope-in-god.mp3",
     "bytes": 1172396,
     "join": "ffmpeg+loudnorm"
   },
-  "calamity-and-blessing": {
+  "adversity-and-blessing": {
     "title": "Трудности и благословения",
     "category": "iman-ve-meneviyyat",
     "index": 29,
@@ -684,11 +684,11 @@
       "narrative",
       "moral"
     ],
-    "file": "calamity-and-blessing.mp3",
+    "file": "adversity-and-blessing.mp3",
     "bytes": 184700,
     "join": "ffmpeg+loudnorm"
   },
-  "faith-is-half-of-success": {
+  "confidence-is-half-the-battle": {
     "title": "Уверенность – половина дела!",
     "category": "iman-ve-meneviyyat",
     "index": 30,
@@ -708,11 +708,11 @@
       "narrative",
       "moral"
     ],
-    "file": "faith-is-half-of-success.mp3",
+    "file": "confidence-is-half-the-battle.mp3",
     "bytes": 603020,
     "join": "ffmpeg+loudnorm"
   },
-  "eat-less-and-stay-on-the-right-path": {
+  "moderation-and-honesty": {
     "title": "Умеренная еда и честная жизнь",
     "category": "iman-ve-meneviyyat",
     "index": 31,
@@ -728,11 +728,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "eat-less-and-stay-on-the-right-path.mp3",
+    "file": "moderation-and-honesty.mp3",
     "bytes": 281180,
     "join": "ffmpeg+loudnorm"
   },
-  "lawful-morsel": {
+  "honestly-earned-morsel": {
     "title": "Халяльная пища",
     "category": "iman-ve-meneviyyat",
     "index": 32,
@@ -748,11 +748,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "lawful-morsel.mp3",
+    "file": "honestly-earned-morsel.mp3",
     "bytes": 233948,
     "join": "ffmpeg+loudnorm"
   },
-  "forbidden-money": {
+  "ill-gotten-money": {
     "title": "Харамные деньги",
     "category": "iman-ve-meneviyyat",
     "index": 33,
@@ -776,7 +776,7 @@
       "narrative",
       "moral"
     ],
-    "file": "forbidden-money.mp3",
+    "file": "ill-gotten-money.mp3",
     "bytes": 1447148,
     "join": "ffmpeg+loudnorm"
   },
@@ -840,7 +840,7 @@
     "bytes": 351740,
     "join": "ffmpeg+loudnorm"
   },
-  "i-am-waiting-for-the-teeth": {
+  "waiting-for-the-teeth": {
     "title": "В ожидании зубов",
     "category": "aile-ve-terbiye",
     "index": 0,
@@ -864,11 +864,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "i-am-waiting-for-the-teeth.mp3",
+    "file": "waiting-for-the-teeth.mp3",
     "bytes": 686108,
     "join": "ffmpeg+loudnorm"
   },
-  "raising-children": {
+  "raising-a-child": {
     "title": "Воспитание детей",
     "category": "aile-ve-terbiye",
     "index": 1,
@@ -899,7 +899,7 @@
       "dialogue",
       "moral"
     ],
-    "file": "raising-children.mp3",
+    "file": "raising-a-child.mp3",
     "bytes": 1844588,
     "join": "ffmpeg+loudnorm"
   },
@@ -950,7 +950,7 @@
     "bytes": 499772,
     "join": "ffmpeg+loudnorm"
   },
-  "grandfather-and-grandson-at-the-market": {
+  "stay-calm-arif": {
     "title": "Дедушка и внук в магазине",
     "category": "aile-ve-terbiye",
     "index": 4,
@@ -965,7 +965,7 @@
       "narrative",
       "moral"
     ],
-    "file": "grandfather-and-grandson-at-the-market.mp3",
+    "file": "stay-calm-arif.mp3",
     "bytes": 516044,
     "join": "ffmpeg+loudnorm"
   },
@@ -993,7 +993,7 @@
     "bytes": 362684,
     "join": "ffmpeg+loudnorm"
   },
-  "from-a-wise-fathers-advice-to-his-son": {
+  "fathers-advice": {
     "title": "Из наставлений мудрого отца сыну:",
     "category": "aile-ve-terbiye",
     "index": 6,
@@ -1023,7 +1023,7 @@
       "narrative",
       "moral"
     ],
-    "file": "from-a-wise-fathers-advice-to-his-son.mp3",
+    "file": "fathers-advice.mp3",
     "bytes": 1061948,
     "join": "ffmpeg+loudnorm"
   },
@@ -1121,7 +1121,7 @@
     "bytes": 1436636,
     "join": "ffmpeg+loudnorm"
   },
-  "mothers-advice-fakir-baykurt-never-forgot": {
+  "mothers-lasting-lesson": {
     "title": "Незабываемый совет матери Факира Байкурта",
     "category": "aile-ve-terbiye",
     "index": 10,
@@ -1144,7 +1144,7 @@
       "narrative",
       "moral"
     ],
-    "file": "mothers-advice-fakir-baykurt-never-forgot.mp3",
+    "file": "mothers-lasting-lesson.mp3",
     "bytes": 982460,
     "join": "ffmpeg+loudnorm"
   },
@@ -1190,7 +1190,7 @@
     "bytes": 1472204,
     "join": "ffmpeg+loudnorm"
   },
-  "only-my-mother-would-weep": {
+  "only-my-mother-truly-weeps": {
     "title": "Плачет только моя мама.",
     "category": "aile-ve-terbiye",
     "index": 12,
@@ -1204,11 +1204,11 @@
       "exclaim",
       "moral"
     ],
-    "file": "only-my-mother-would-weep.mp3",
+    "file": "only-my-mother-truly-weeps.mp3",
     "bytes": 108092,
     "join": "ffmpeg+loudnorm"
   },
-  "fathers-footprints": {
+  "fathers-footsteps": {
     "title": "По следам отца",
     "category": "aile-ve-terbiye",
     "index": 13,
@@ -1225,7 +1225,7 @@
       "dialogue",
       "moral"
     ],
-    "file": "fathers-footprints.mp3",
+    "file": "fathers-footsteps.mp3",
     "bytes": 186572,
     "join": "ffmpeg+loudnorm"
   },
@@ -1249,7 +1249,7 @@
     "bytes": 210476,
     "join": "ffmpeg+loudnorm"
   },
-  "weeds-must-be-pulled-from-the-root": {
+  "weeds": {
     "title": "Сорняки нужно выкорчевывать",
     "category": "aile-ve-terbiye",
     "index": 15,
@@ -1264,11 +1264,11 @@
       "narrative",
       "moral"
     ],
-    "file": "weeds-must-be-pulled-from-the-root.mp3",
+    "file": "weeds.mp3",
     "bytes": 416108,
     "join": "ffmpeg+loudnorm"
   },
-  "builder-of-the-nest": {
+  "nest-builder": {
     "title": "Строительница гнезда",
     "category": "aile-ve-terbiye",
     "index": 16,
@@ -1282,11 +1282,11 @@
       "narrative",
       "moral"
     ],
-    "file": "builder-of-the-nest.mp3",
+    "file": "nest-builder.mp3",
     "bytes": 116012,
     "join": "ffmpeg+loudnorm"
   },
-  "value-of-your-family": {
+  "hour-with-dad": {
     "title": "Ценность вашей семьи",
     "category": "aile-ve-terbiye",
     "index": 17,
@@ -1305,7 +1305,7 @@
       "narrative",
       "moral"
     ],
-    "file": "value-of-your-family.mp3",
+    "file": "hour-with-dad.mp3",
     "bytes": 903980,
     "join": "ffmpeg+loudnorm"
   },
@@ -1369,7 +1369,7 @@
     "bytes": 1035164,
     "join": "ffmpeg+loudnorm"
   },
-  "i-am-tired-mother": {
+  "im-tired-mom": {
     "title": "Я устал, мама.",
     "category": "aile-ve-terbiye",
     "index": 20,
@@ -1390,11 +1390,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "i-am-tired-mother.mp3",
+    "file": "im-tired-mom.mp3",
     "bytes": 418844,
     "join": "ffmpeg+loudnorm"
   },
-  "beware-of-those-you-love": {
+  "five-more-minutes": {
     "title": "Берегите тех, кого любите",
     "category": "sevgi-ve-evlilik",
     "index": 0,
@@ -1417,7 +1417,7 @@
       "dialogue",
       "moral"
     ],
-    "file": "beware-of-those-you-love.mp3",
+    "file": "five-more-minutes.mp3",
     "bytes": 536060,
     "join": "ffmpeg+loudnorm"
   },
@@ -1553,7 +1553,7 @@
     "bytes": 1398188,
     "join": "ffmpeg+loudnorm"
   },
-  "what-breaks-a-marriage": {
+  "eraser-in-marriage": {
     "title": "Ластик в браке",
     "category": "sevgi-ve-evlilik",
     "index": 6,
@@ -1589,11 +1589,11 @@
       "exclaim",
       "moral"
     ],
-    "file": "what-breaks-a-marriage.mp3",
+    "file": "eraser-in-marriage.mp3",
     "bytes": 815276,
     "join": "ffmpeg+loudnorm"
   },
-  "beloved-is-one-who-gives-love-to-people": {
+  "those-who-give-love-receive-love": {
     "title": "Любимый человек — это тот, кто дарит свою любовь другим.",
     "category": "sevgi-ve-evlilik",
     "index": 7,
@@ -1611,7 +1611,7 @@
       "narrative",
       "moral"
     ],
-    "file": "beloved-is-one-who-gives-love-to-people.mp3",
+    "file": "those-who-give-love-receive-love.mp3",
     "bytes": 917516,
     "join": "ffmpeg+loudnorm"
   },
@@ -1639,7 +1639,7 @@
     "bytes": 387020,
     "join": "ffmpeg+loudnorm"
   },
-  "do-not-let-your-hearts-part": {
+  "keep-your-hearts-close": {
     "title": "Не позволяйте своим сердцам разлучаться.",
     "category": "sevgi-ve-evlilik",
     "index": 9,
@@ -1659,7 +1659,7 @@
       "narrative",
       "moral"
     ],
-    "file": "do-not-let-your-hearts-part.mp3",
+    "file": "keep-your-hearts-close.mp3",
     "bytes": 622892,
     "join": "ffmpeg+loudnorm"
   },
@@ -1688,7 +1688,7 @@
     "bytes": 620876,
     "join": "ffmpeg+loudnorm"
   },
-  "rose": {
+  "flower": {
     "title": "Роза",
     "category": "sevgi-ve-evlilik",
     "index": 11,
@@ -1702,7 +1702,7 @@
       "narrative",
       "moral"
     ],
-    "file": "rose.mp3",
+    "file": "flower.mp3",
     "bytes": 154460,
     "join": "ffmpeg+loudnorm"
   },
@@ -1727,7 +1727,7 @@
     "bytes": 228476,
     "join": "ffmpeg+loudnorm"
   },
-  "advice-for-those-who-marry": {
+  "before-you-marry": {
     "title": "Советы вступающим в брак",
     "category": "sevgi-ve-evlilik",
     "index": 13,
@@ -1748,7 +1748,7 @@
       "narrative",
       "moral"
     ],
-    "file": "advice-for-those-who-marry.mp3",
+    "file": "before-you-marry.mp3",
     "bytes": 569900,
     "join": "ffmpeg+loudnorm"
   },
@@ -1807,7 +1807,7 @@
     "bytes": 1517132,
     "join": "ffmpeg+loudnorm"
   },
-  "what-women-have-endured-in-this-world": {
+  "what-women-endure": {
     "title": "Что же страдала женщина в этом мире…",
     "category": "sevgi-ve-evlilik",
     "index": 16,
@@ -1842,7 +1842,7 @@
       "narrative",
       "moral"
     ],
-    "file": "what-women-have-endured-in-this-world.mp3",
+    "file": "what-women-endure.mp3",
     "bytes": 879500,
     "join": "ffmpeg+loudnorm"
   },
@@ -1914,7 +1914,7 @@
     "bytes": 167996,
     "join": "ffmpeg+loudnorm"
   },
-  "meddling-in-others-lives": {
+  "respecting-boundaries": {
     "title": "Вмешательство в жизнь других людей",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 0,
@@ -1928,7 +1928,7 @@
       "exclaim",
       "moral"
     ],
-    "file": "meddling-in-others-lives.mp3",
+    "file": "respecting-boundaries.mp3",
     "bytes": 134012,
     "join": "ffmpeg+loudnorm"
   },
@@ -1957,7 +1957,7 @@
     "bytes": 354908,
     "join": "ffmpeg+loudnorm"
   },
-  "welcome-my-bey": {
+  "welcome-home-my-dear": {
     "title": "Добро пожаловать, сэр.",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 2,
@@ -1987,7 +1987,7 @@
       "exclaim",
       "moral"
     ],
-    "file": "welcome-my-bey.mp3",
+    "file": "welcome-home-my-dear.mp3",
     "bytes": 1128620,
     "join": "ffmpeg+loudnorm"
   },
@@ -2012,7 +2012,7 @@
     "bytes": 508412,
     "join": "ffmpeg+loudnorm"
   },
-  "if-the-road-does-not-tire-you-it-is-because-of-your-companion": {
+  "sharing-the-burden": {
     "title": "Если дорога не утомительна, то это благодаря спутнику",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 4,
@@ -2028,11 +2028,11 @@
       "narrative",
       "moral"
     ],
-    "file": "if-the-road-does-not-tire-you-it-is-because-of-your-companion.mp3",
+    "file": "sharing-the-burden.mp3",
     "bytes": 570476,
     "join": "ffmpeg+loudnorm"
   },
-  "sound-of-the-doorbell": {
+  "doorbell": {
     "title": "Звук дверного звонка…",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 5,
@@ -2058,11 +2058,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "sound-of-the-doorbell.mp3",
+    "file": "doorbell.mp3",
     "bytes": 666956,
     "join": "ffmpeg+loudnorm"
   },
-  "to-meet-and-to-know": {
+  "beyond-first-impressions": {
     "title": "Знакомство и дальнейшее знакомство",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 6,
@@ -2077,11 +2077,11 @@
       "narrative",
       "moral"
     ],
-    "file": "to-meet-and-to-know.mp3",
+    "file": "beyond-first-impressions.mp3",
     "bytes": 172748,
     "join": "ffmpeg+loudnorm"
   },
-  "how-to-ward-off-insults": {
+  "unwelcome-gifts": {
     "title": "Как преодолеть оскорбления",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 7,
@@ -2103,7 +2103,7 @@
       "dialogue",
       "moral"
     ],
-    "file": "how-to-ward-off-insults.mp3",
+    "file": "unwelcome-gifts.mp3",
     "bytes": 638732,
     "join": "ffmpeg+loudnorm"
   },
@@ -2143,7 +2143,7 @@
     "bytes": 1371692,
     "join": "ffmpeg+loudnorm"
   },
-  "people-who-need-something-from-you": {
+  "request-for-help": {
     "title": "Люди, нуждающиеся в вашей помощи",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 9,
@@ -2157,11 +2157,11 @@
       "narrative",
       "moral"
     ],
-    "file": "people-who-need-something-from-you.mp3",
+    "file": "request-for-help.mp3",
     "bytes": 211628,
     "join": "ffmpeg+loudnorm"
   },
-  "i-want-a-friend": {
+  "i-wish-for-a-friend": {
     "title": "Мне нужен друг.",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 10,
@@ -2178,7 +2178,7 @@
       "narrative",
       "moral"
     ],
-    "file": "i-want-a-friend.mp3",
+    "file": "i-wish-for-a-friend.mp3",
     "bytes": 224732,
     "join": "ffmpeg+loudnorm"
   },
@@ -2223,7 +2223,7 @@
     "bytes": 824780,
     "join": "ffmpeg+loudnorm"
   },
-  "to-be-alone": {
+  "being-lonely": {
     "title": "Одиночество",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 13,
@@ -2238,7 +2238,7 @@
       "dialogue",
       "moral"
     ],
-    "file": "to-be-alone.mp3",
+    "file": "being-lonely.mp3",
     "bytes": 233516,
     "join": "ffmpeg+loudnorm"
   },
@@ -2307,7 +2307,7 @@
     "bytes": 158348,
     "join": "ffmpeg+loudnorm"
   },
-  "why-people-shout-when-they-argue": {
+  "why-shout": {
     "title": "Почему люди кричат, когда спорят?",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 17,
@@ -2328,11 +2328,11 @@
       "narrative",
       "moral"
     ],
-    "file": "why-people-shout-when-they-argue.mp3",
+    "file": "why-shout.mp3",
     "bytes": 662924,
     "join": "ffmpeg+loudnorm"
   },
-  "spend-your-time-with-people": {
+  "make-time-for-people": {
     "title": "Проводить время с людьми",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 18,
@@ -2363,11 +2363,11 @@
       "narrative",
       "moral"
     ],
-    "file": "spend-your-time-with-people.mp3",
+    "file": "make-time-for-people.mp3",
     "bytes": 917372,
     "join": "ffmpeg+loudnorm"
   },
-  "to-forgive": {
+  "forgiveness": {
     "title": "Прощение",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 19,
@@ -2383,11 +2383,11 @@
       "narrative",
       "moral"
     ],
-    "file": "to-forgive.mp3",
+    "file": "forgiveness.mp3",
     "bytes": 275996,
     "join": "ffmpeg+loudnorm"
   },
-  "permission-or-apology": {
+  "permission-or-forgiveness": {
     "title": "Разрешение или извинение",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 20,
@@ -2405,7 +2405,7 @@
       "narrative",
       "moral"
     ],
-    "file": "permission-or-apology.mp3",
+    "file": "permission-or-forgiveness.mp3",
     "bytes": 735356,
     "join": "ffmpeg+loudnorm"
   },
@@ -2525,7 +2525,7 @@
     "bytes": 483788,
     "join": "ffmpeg+loudnorm"
   },
-  "those-you-should-not-befriend": {
+  "choosing-friends": {
     "title": "Те, с кем не стоит дружить:",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 25,
@@ -2541,11 +2541,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "those-you-should-not-befriend.mp3",
+    "file": "choosing-friends.mp3",
     "bytes": 240428,
     "join": "ffmpeg+loudnorm"
   },
-  "everyone-is-the-same-here": {
+  "everyone-is-equal-here": {
     "title": "У нас все одинаковы",
     "category": "dostluq-ve-insan-munasibetleri",
     "index": 26,
@@ -2572,7 +2572,7 @@
       "narrative",
       "moral"
     ],
-    "file": "everyone-is-the-same-here.mp3",
+    "file": "everyone-is-equal-here.mp3",
     "bytes": 736220,
     "join": "ffmpeg+loudnorm"
   },
@@ -2624,7 +2624,7 @@
     "bytes": 2027468,
     "join": "ffmpeg+loudnorm"
   },
-  "meaningless-question": {
+  "question-the-question": {
     "title": "Бессмысленный вопрос",
     "category": "exlaq-ve-xarakter",
     "index": 0,
@@ -2656,7 +2656,7 @@
       "dialogue",
       "moral"
     ],
-    "file": "meaningless-question.mp3",
+    "file": "question-the-question.mp3",
     "bytes": 1348508,
     "join": "ffmpeg+loudnorm"
   },
@@ -2684,7 +2684,7 @@
     "bytes": 410060,
     "join": "ffmpeg+loudnorm"
   },
-  "everything-is-in-our-own-hands": {
+  "in-your-hands": {
     "title": "Всё в наших собственных руках",
     "category": "exlaq-ve-xarakter",
     "index": 2,
@@ -2706,11 +2706,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "everything-is-in-our-own-hands.mp3",
+    "file": "in-your-hands.mp3",
     "bytes": 518492,
     "join": "ffmpeg+loudnorm"
   },
-  "goose-to-be-plucked": {
+  "plucking-the-goose": {
     "title": "Гусь, которого предстоит ощипать",
     "category": "exlaq-ve-xarakter",
     "index": 3,
@@ -2759,11 +2759,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "goose-to-be-plucked.mp3",
+    "file": "plucking-the-goose.mp3",
     "bytes": 1332956,
     "join": "ffmpeg+loudnorm"
   },
-  "think-speak-and-act-positively": {
+  "thought-word-and-deed": {
     "title": "Думайте, говорите, действуйте позитивно.",
     "category": "exlaq-ve-xarakter",
     "index": 4,
@@ -2781,7 +2781,7 @@
       "narrative",
       "moral"
     ],
-    "file": "think-speak-and-act-positively.mp3",
+    "file": "thought-word-and-deed.mp3",
     "bytes": 314588,
     "join": "ffmpeg+loudnorm"
   },
@@ -2822,7 +2822,7 @@
     "bytes": 240860,
     "join": "ffmpeg+loudnorm"
   },
-  "how-can-i-escape-my-thoughts": {
+  "letting-go-of-painful-thoughts": {
     "title": "Как мне избавиться от своих мыслей?",
     "category": "exlaq-ve-xarakter",
     "index": 7,
@@ -2843,11 +2843,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "how-can-i-escape-my-thoughts.mp3",
+    "file": "letting-go-of-painful-thoughts.mp3",
     "bytes": 451244,
     "join": "ffmpeg+loudnorm"
   },
-  "who-handles-honey-licks-his-finger": {
+  "grocers-sticky-fingers": {
     "title": "Кто берётся за мёд, облизывает палец",
     "category": "exlaq-ve-xarakter",
     "index": 8,
@@ -2867,7 +2867,7 @@
       "dialogue",
       "moral"
     ],
-    "file": "who-handles-honey-licks-his-finger.mp3",
+    "file": "grocers-sticky-fingers.mp3",
     "bytes": 494012,
     "join": "ffmpeg+loudnorm"
   },
@@ -2896,7 +2896,7 @@
     "bytes": 354476,
     "join": "ffmpeg+loudnorm"
   },
-  "other-peoples-opinions": {
+  "other-peoples-thoughts": {
     "title": "Мнения других людей",
     "category": "exlaq-ve-xarakter",
     "index": 10,
@@ -2911,7 +2911,7 @@
       "narrative",
       "moral"
     ],
-    "file": "other-peoples-opinions.mp3",
+    "file": "other-peoples-thoughts.mp3",
     "bytes": 422156,
     "join": "ffmpeg+loudnorm"
   },
@@ -2933,7 +2933,7 @@
     "bytes": 146252,
     "join": "ffmpeg+loudnorm"
   },
-  "our-qualities-can-become-our-enemies": {
+  "strengths-and-vulnerabilities": {
     "title": "Наши качества могут стать нашими врагами.",
     "category": "exlaq-ve-xarakter",
     "index": 12,
@@ -2950,11 +2950,11 @@
       "narrative",
       "moral"
     ],
-    "file": "our-qualities-can-become-our-enemies.mp3",
+    "file": "strengths-and-vulnerabilities.mp3",
     "bytes": 240428,
     "join": "ffmpeg+loudnorm"
   },
-  "dont-be-words-for-mouths-dust-for-feet": {
+  "keep-your-self-respect": {
     "title": "Не будь ни молвой на устах, ни пылью под ногами!",
     "category": "exlaq-ve-xarakter",
     "index": 13,
@@ -2969,11 +2969,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "dont-be-words-for-mouths-dust-for-feet.mp3",
+    "file": "keep-your-self-respect.mp3",
     "bytes": 174476,
     "join": "ffmpeg+loudnorm"
   },
-  "not-every-sorrow-is-told-to-people": {
+  "choose-your-confidant": {
     "title": "Не всем рассказывают о боли.",
     "category": "exlaq-ve-xarakter",
     "index": 14,
@@ -2987,11 +2987,11 @@
       "narrative",
       "moral"
     ],
-    "file": "not-every-sorrow-is-told-to-people.mp3",
+    "file": "choose-your-confidant.mp3",
     "bytes": 116156,
     "join": "ffmpeg+loudnorm"
   },
-  "dont-say-i-couldnt-deliver-or-i-couldnt-manage": {
+  "try-again": {
     "title": "Не говорите: «Я не справился, я не смог это сделать».",
     "category": "exlaq-ve-xarakter",
     "index": 15,
@@ -3005,11 +3005,11 @@
       "narrative",
       "moral"
     ],
-    "file": "dont-say-i-couldnt-deliver-or-i-couldnt-manage.mp3",
+    "file": "try-again.mp3",
     "bytes": 255836,
     "join": "ffmpeg+loudnorm"
   },
-  "do-not-do-these-things": {
+  "do-not-deepen-anothers-pain": {
     "title": "Не делайте этого.",
     "category": "exlaq-ve-xarakter",
     "index": 16,
@@ -3023,11 +3023,11 @@
       "narrative",
       "moral"
     ],
-    "file": "do-not-do-these-things.mp3",
+    "file": "do-not-deepen-anothers-pain.mp3",
     "bytes": 178364,
     "join": "ffmpeg+loudnorm"
   },
-  "dont-open-your-mouth": {
+  "think-before-speaking": {
     "title": "Не открывай рот.",
     "category": "exlaq-ve-xarakter",
     "index": 17,
@@ -3041,11 +3041,11 @@
       "narrative",
       "moral"
     ],
-    "file": "dont-open-your-mouth.mp3",
+    "file": "think-before-speaking.mp3",
     "bytes": 141068,
     "join": "ffmpeg+loudnorm"
   },
-  "i-would-not-trade-it-for-anything": {
+  "sunlit-day": {
     "title": "Ни на что не променяю",
     "category": "exlaq-ve-xarakter",
     "index": 18,
@@ -3071,11 +3071,11 @@
       "narrative",
       "moral"
     ],
-    "file": "i-would-not-trade-it-for-anything.mp3",
+    "file": "sunlit-day.mp3",
     "bytes": 322796,
     "join": "ffmpeg+loudnorm"
   },
-  "do-not-complain-about-any-day-you-have-lived": {
+  "every-day-has-meaning": {
     "title": "Никогда не жалуйтесь ни на один прожитый день.",
     "category": "exlaq-ve-xarakter",
     "index": 19,
@@ -3093,11 +3093,11 @@
       "narrative",
       "moral"
     ],
-    "file": "do-not-complain-about-any-day-you-have-lived.mp3",
+    "file": "every-day-has-meaning.mp3",
     "bytes": 235100,
     "join": "ffmpeg+loudnorm"
   },
-  "no-one-listens-to-constant-complainers": {
+  "beyond-complaining": {
     "title": "Никто не слушает человека, который постоянно жалуется.",
     "category": "exlaq-ve-xarakter",
     "index": 20,
@@ -3112,7 +3112,7 @@
       "narrative",
       "moral"
     ],
-    "file": "no-one-listens-to-constant-complainers.mp3",
+    "file": "beyond-complaining.mp3",
     "bytes": 329564,
     "join": "ffmpeg+loudnorm"
   },
@@ -3148,7 +3148,7 @@
     "bytes": 638444,
     "join": "ffmpeg+loudnorm"
   },
-  "explaining-ones-sorrow": {
+  "how-we-express-sorrow": {
     "title": "Объяснение проблемы",
     "category": "exlaq-ve-xarakter",
     "index": 22,
@@ -3162,11 +3162,11 @@
       "narrative",
       "moral"
     ],
-    "file": "explaining-ones-sorrow.mp3",
+    "file": "how-we-express-sorrow.mp3",
     "bytes": 199388,
     "join": "ffmpeg+loudnorm"
   },
-  "he-would-not-have-given-so-little": {
+  "kings-generosity": {
     "title": "Он бы не дал так мало",
     "category": "exlaq-ve-xarakter",
     "index": 23,
@@ -3184,11 +3184,11 @@
       "narrative",
       "moral"
     ],
-    "file": "he-would-not-have-given-so-little.mp3",
+    "file": "kings-generosity.mp3",
     "bytes": 318044,
     "join": "ffmpeg+loudnorm"
   },
-  "to-give-up": {
+  "letting-go": {
     "title": "Отказ от чего-либо",
     "category": "exlaq-ve-xarakter",
     "index": 24,
@@ -3216,11 +3216,11 @@
       "exclaim",
       "moral"
     ],
-    "file": "to-give-up.mp3",
+    "file": "letting-go.mp3",
     "bytes": 483788,
     "join": "ffmpeg+loudnorm"
   },
-  "attitude-toward-a-problem": {
+  "facing-a-problem": {
     "title": "Отношение к проблеме",
     "category": "exlaq-ve-xarakter",
     "index": 25,
@@ -3238,11 +3238,11 @@
       "narrative",
       "moral"
     ],
-    "file": "attitude-toward-a-problem.mp3",
+    "file": "facing-a-problem.mp3",
     "bytes": 226748,
     "join": "ffmpeg+loudnorm"
   },
-  "try-to-think-this-way": {
+  "learning-to-say-yet": {
     "title": "Попробуйте мыслить так:",
     "category": "exlaq-ve-xarakter",
     "index": 26,
@@ -3261,11 +3261,11 @@
       "narrative",
       "moral"
     ],
-    "file": "try-to-think-this-way.mp3",
+    "file": "learning-to-say-yet.mp3",
     "bytes": 574652,
     "join": "ffmpeg+loudnorm"
   },
-  "turning-hardship-into-opportunity": {
+  "obstacles-and-opportunities": {
     "title": "Превращение трудностей в возможности",
     "category": "exlaq-ve-xarakter",
     "index": 27,
@@ -3279,11 +3279,11 @@
       "narrative",
       "moral"
     ],
-    "file": "turning-hardship-into-opportunity.mp3",
+    "file": "obstacles-and-opportunities.mp3",
     "bytes": 174044,
     "join": "ffmpeg+loudnorm"
   },
-  "may-your-face-always-smile": {
+  "welcoming-smile": {
     "title": "Пусть ваше лицо всегда улыбается.",
     "category": "exlaq-ve-xarakter",
     "index": 28,
@@ -3297,11 +3297,11 @@
       "narrative",
       "moral"
     ],
-    "file": "may-your-face-always-smile.mp3",
+    "file": "welcoming-smile.mp3",
     "bytes": 147692,
     "join": "ffmpeg+loudnorm"
   },
-  "you-cannot-descend-a-well-on-his-rope": {
+  "alis-unreliable-rope": {
     "title": "С его веревкой в ​​колодец не спустишься",
     "category": "exlaq-ve-xarakter",
     "index": 29,
@@ -3318,7 +3318,7 @@
       "dialogue",
       "moral"
     ],
-    "file": "you-cannot-descend-a-well-on-his-rope.mp3",
+    "file": "alis-unreliable-rope.mp3",
     "bytes": 472700,
     "join": "ffmpeg+loudnorm"
   },
@@ -3359,7 +3359,7 @@
     "bytes": 175340,
     "join": "ffmpeg+loudnorm"
   },
-  "to-be-cool-headed": {
+  "keeping-your-cool": {
     "title": "Сохраняйте хладнокровие",
     "category": "exlaq-ve-xarakter",
     "index": 32,
@@ -3373,11 +3373,11 @@
       "narrative",
       "moral"
     ],
-    "file": "to-be-cool-headed.mp3",
+    "file": "keeping-your-cool.mp3",
     "bytes": 160364,
     "join": "ffmpeg+loudnorm"
   },
-  "i-am-aware-now": {
+  "now-i-understand": {
     "title": "Теперь я осознаю...",
     "category": "exlaq-ve-xarakter",
     "index": 33,
@@ -3400,7 +3400,7 @@
       "narrative",
       "moral"
     ],
-    "file": "i-am-aware-now.mp3",
+    "file": "now-i-understand.mp3",
     "bytes": 611228,
     "join": "ffmpeg+loudnorm"
   },
@@ -3427,7 +3427,7 @@
     "bytes": 315740,
     "join": "ffmpeg+loudnorm"
   },
-  "be-sure-of-your-purpose": {
+  "shared-goal": {
     "title": "Убедитесь в своей цели",
     "category": "exlaq-ve-xarakter",
     "index": 35,
@@ -3445,11 +3445,11 @@
       "question",
       "moral"
     ],
-    "file": "be-sure-of-your-purpose.mp3",
+    "file": "shared-goal.mp3",
     "bytes": 241580,
     "join": "ffmpeg+loudnorm"
   },
-  "to-be-self-confident": {
+  "believe-in-yourself": {
     "title": "Уверенность в себе",
     "category": "exlaq-ve-xarakter",
     "index": 36,
@@ -3471,11 +3471,11 @@
       "exclaim",
       "moral"
     ],
-    "file": "to-be-self-confident.mp3",
+    "file": "believe-in-yourself.mp3",
     "bytes": 247628,
     "join": "ffmpeg+loudnorm"
   },
-  "expressions-you-should-stay-away-from": {
+  "words-to-avoid": {
     "title": "Фразы, которых следует избегать",
     "category": "exlaq-ve-xarakter",
     "index": 37,
@@ -3499,7 +3499,7 @@
       "narrative",
       "moral"
     ],
-    "file": "expressions-you-should-stay-away-from.mp3",
+    "file": "words-to-avoid.mp3",
     "bytes": 917948,
     "join": "ffmpeg+loudnorm"
   },
@@ -3550,7 +3550,7 @@
     "bytes": 220268,
     "join": "ffmpeg+loudnorm"
   },
-  "that-was-not-your-right": {
+  "justice-and-compassion": {
     "title": "Это было не твоё право.",
     "category": "exlaq-ve-xarakter",
     "index": 40,
@@ -3564,11 +3564,11 @@
       "narrative",
       "moral"
     ],
-    "file": "that-was-not-your-right.mp3",
+    "file": "justice-and-compassion.mp3",
     "bytes": 297020,
     "join": "ffmpeg+loudnorm"
   },
-  "i-got-busy-with-cleaning": {
+  "inner-housekeeping": {
     "title": "Я была занята уборкой",
     "category": "exlaq-ve-xarakter",
     "index": 41,
@@ -3614,11 +3614,11 @@
       "narrative",
       "moral"
     ],
-    "file": "i-got-busy-with-cleaning.mp3",
+    "file": "inner-housekeeping.mp3",
     "bytes": 1230428,
     "join": "ffmpeg+loudnorm"
   },
-  "one-who-knows-and-the-one-who-does-not": {
+  "knowing-what-you-know": {
     "title": "Знающий и незнающий",
     "category": "soz-sukut-ve-unsiyyet",
     "index": 0,
@@ -3636,7 +3636,7 @@
       "exclaim",
       "moral"
     ],
-    "file": "one-who-knows-and-the-one-who-does-not.mp3",
+    "file": "knowing-what-you-know.mp3",
     "bytes": 284348,
     "join": "ffmpeg+loudnorm"
   },
@@ -3706,7 +3706,7 @@
     "bytes": 709004,
     "join": "ffmpeg+loudnorm"
   },
-  "say-what-you-know": {
+  "share-what-you-know": {
     "title": "Расскажите, что знаете.",
     "category": "soz-sukut-ve-unsiyyet",
     "index": 4,
@@ -3721,11 +3721,11 @@
       "narrative",
       "moral"
     ],
-    "file": "say-what-you-know.mp3",
+    "file": "share-what-you-know.mp3",
     "bytes": 251084,
     "join": "ffmpeg+loudnorm"
   },
-  "word-and-silence": {
+  "words-and-silence": {
     "title": "Слова и молчание",
     "category": "soz-sukut-ve-unsiyyet",
     "index": 5,
@@ -3745,7 +3745,7 @@
       "narrative",
       "moral"
     ],
-    "file": "word-and-silence.mp3",
+    "file": "words-and-silence.mp3",
     "bytes": 444764,
     "join": "ffmpeg+loudnorm"
   },
@@ -3774,7 +3774,7 @@
     "bytes": 663068,
     "join": "ffmpeg+loudnorm"
   },
-  "shepherd-must-be-called": {
+  "call-the-shepherd": {
     "title": "Тебе нужно позвать пастуха.",
     "category": "soz-sukut-ve-unsiyyet",
     "index": 7,
@@ -3801,7 +3801,7 @@
       "dialogue",
       "moral"
     ],
-    "file": "shepherd-must-be-called.mp3",
+    "file": "call-the-shepherd.mp3",
     "bytes": 657020,
     "join": "ffmpeg+loudnorm"
   },
@@ -3834,7 +3834,7 @@
     "bytes": 729020,
     "join": "ffmpeg+loudnorm"
   },
-  "saying-the-word-in-its-place": {
+  "well-chosen-words": {
     "title": "Умение говорить правильные слова",
     "category": "soz-sukut-ve-unsiyyet",
     "index": 9,
@@ -3848,7 +3848,7 @@
       "narrative",
       "moral"
     ],
-    "file": "saying-the-word-in-its-place.mp3",
+    "file": "well-chosen-words.mp3",
     "bytes": 135308,
     "join": "ffmpeg+loudnorm"
   },
@@ -3871,7 +3871,7 @@
     "bytes": 136460,
     "join": "ffmpeg+loudnorm"
   },
-  "tongue": {
+  "language": {
     "title": "Язык",
     "category": "soz-sukut-ve-unsiyyet",
     "index": 11,
@@ -3886,11 +3886,11 @@
       "narrative",
       "moral"
     ],
-    "file": "tongue.mp3",
+    "file": "language.mp3",
     "bytes": 164108,
     "join": "ffmpeg+loudnorm"
   },
-  "it-is-in-vain": {
+  "its-pointless": {
     "title": "Бесполезно",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 0,
@@ -3904,11 +3904,11 @@
       "narrative",
       "moral"
     ],
-    "file": "it-is-in-vain.mp3",
+    "file": "its-pointless.mp3",
     "bytes": 151724,
     "join": "ffmpeg+loudnorm"
   },
-  "more-effective-way": {
+  "sharpen-the-axe": {
     "title": "Более эффективный путь",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 1,
@@ -3926,11 +3926,11 @@
       "exclaim",
       "moral"
     ],
-    "file": "more-effective-way.mp3",
+    "file": "sharpen-the-axe.mp3",
     "bytes": 367436,
     "join": "ffmpeg+loudnorm"
   },
-  "to-be-full-or-to-be-gone": {
+  "stronger-together": {
     "title": "Быть полным или быть потерянным",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 2,
@@ -3946,7 +3946,7 @@
       "narrative",
       "moral"
     ],
-    "file": "to-be-full-or-to-be-gone.mp3",
+    "file": "stronger-together.mp3",
     "bytes": 173900,
     "join": "ffmpeg+loudnorm"
   },
@@ -4013,7 +4013,7 @@
     "bytes": 535628,
     "join": "ffmpeg+loudnorm"
   },
-  "road-to-the-cotton-field": {
+  "beyond-the-cotton-field": {
     "title": "Дорога на хлопковое поле",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 6,
@@ -4036,7 +4036,7 @@
       "narrative",
       "moral"
     ],
-    "file": "road-to-the-cotton-field.mp3",
+    "file": "beyond-the-cotton-field.mp3",
     "bytes": 1199900,
     "join": "ffmpeg+loudnorm"
   },
@@ -4063,7 +4063,7 @@
     "bytes": 658748,
     "join": "ffmpeg+loudnorm"
   },
-  "if-the-door-before-you-wont-open-it-is-not-your-door": {
+  "different-door": {
     "title": "Если дверь перед тобой не открывается, значит, это не твоя дверь.",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 8,
@@ -4079,11 +4079,11 @@
       "narrative",
       "moral"
     ],
-    "file": "if-the-door-before-you-wont-open-it-is-not-your-door.mp3",
+    "file": "different-door.mp3",
     "bytes": 507836,
     "join": "ffmpeg+loudnorm"
   },
-  "if-i-dont-do-it-these-days-the-world-wont-collapse": {
+  "cost-of-indifference": {
     "title": "Если я этого не сделаю в эти дни, мир не рухнет.",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 9,
@@ -4104,7 +4104,7 @@
       "narrative",
       "moral"
     ],
-    "file": "if-i-dont-do-it-these-days-the-world-wont-collapse.mp3",
+    "file": "cost-of-indifference.mp3",
     "bytes": 933932,
     "join": "ffmpeg+loudnorm"
   },
@@ -4197,7 +4197,7 @@
     "bytes": 168284,
     "join": "ffmpeg+loudnorm"
   },
-  "from-the-memoirs-of-a-lady-from-istanbul": {
+  "istanbul-woman-remembers": {
     "title": "Из воспоминаний женщины из Стамбула",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 13,
@@ -4225,7 +4225,7 @@
       "dialogue",
       "moral"
     ],
-    "file": "from-the-memoirs-of-a-lady-from-istanbul.mp3",
+    "file": "istanbul-woman-remembers.mp3",
     "bytes": 983036,
     "join": "ffmpeg+loudnorm"
   },
@@ -4269,7 +4269,7 @@
     "bytes": 257708,
     "join": "ffmpeg+loudnorm"
   },
-  "lecturer-and-the-groom": {
+  "audience-of-one": {
     "title": "Лектор и мехтер",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 16,
@@ -4288,11 +4288,11 @@
       "narrative",
       "moral"
     ],
-    "file": "lecturer-and-the-groom.mp3",
+    "file": "audience-of-one.mp3",
     "bytes": 424748,
     "join": "ffmpeg+loudnorm"
   },
-  "windmill-turning-in-still-air": {
+  "windmill-turning-without-wind": {
     "title": "Мельница, вращающаяся в безветрие",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 17,
@@ -4307,11 +4307,11 @@
       "narrative",
       "moral"
     ],
-    "file": "windmill-turning-in-still-air.mp3",
+    "file": "windmill-turning-without-wind.mp3",
     "bytes": 170588,
     "join": "ffmpeg+loudnorm"
   },
-  "dead-remain-in-life": {
+  "living-with-loss": {
     "title": "Мертвые — это выжившие.",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 18,
@@ -4325,11 +4325,11 @@
       "narrative",
       "moral"
     ],
-    "file": "dead-remain-in-life.mp3",
+    "file": "living-with-loss.mp3",
     "bytes": 174476,
     "join": "ffmpeg+loudnorm"
   },
-  "to-dream": {
+  "dreaming": {
     "title": "Мечты",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 19,
@@ -4343,11 +4343,11 @@
       "narrative",
       "moral"
     ],
-    "file": "to-dream.mp3",
+    "file": "dreaming.mp3",
     "bytes": 135740,
     "join": "ffmpeg+loudnorm"
   },
-  "doctors-appointment": {
+  "doctors-office": {
     "title": "На приёме у врача",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 20,
@@ -4366,11 +4366,11 @@
       "narrative",
       "moral"
     ],
-    "file": "doctors-appointment.mp3",
+    "file": "doctors-office.mp3",
     "bytes": 493868,
     "join": "ffmpeg+loudnorm"
   },
-  "no-need-to-be-sane-when-everyone-is-mad": {
+  "price-of-belonging": {
     "title": "Не нужно быть умным, когда все вокруг сумасшедшие.",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 21,
@@ -4384,11 +4384,11 @@
       "narrative",
       "moral"
     ],
-    "file": "no-need-to-be-sane-when-everyone-is-mad.mp3",
+    "file": "price-of-belonging.mp3",
     "bytes": 441164,
     "join": "ffmpeg+loudnorm"
   },
-  "it-wont-go-to-waste": {
+  "never-lost": {
     "title": "Не пропадёт даром",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 22,
@@ -4409,11 +4409,11 @@
       "narrative",
       "moral"
     ],
-    "file": "it-wont-go-to-waste.mp3",
+    "file": "never-lost.mp3",
     "bytes": 301196,
     "join": "ffmpeg+loudnorm"
   },
-  "nothing-is-ever-truly-lost": {
+  "learning-from-loss": {
     "title": "Ничто не теряется навсегда",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 23,
@@ -4427,7 +4427,7 @@
       "narrative",
       "moral"
     ],
-    "file": "nothing-is-ever-truly-lost.mp3",
+    "file": "learning-from-loss.mp3",
     "bytes": 147692,
     "join": "ffmpeg+loudnorm"
   },
@@ -4473,7 +4473,7 @@
     "bytes": 183692,
     "join": "ffmpeg+loudnorm"
   },
-  "human-emerged": {
+  "human-being-emerged": {
     "title": "Получился человек",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 26,
@@ -4491,11 +4491,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "human-emerged.mp3",
+    "file": "human-being-emerged.mp3",
     "bytes": 244892,
     "join": "ffmpeg+loudnorm"
   },
-  "sowing-millet-at-the-bottom": {
+  "draining-the-coffers": {
     "title": "Посадка проса в низину",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 27,
@@ -4519,11 +4519,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "sowing-millet-at-the-bottom.mp3",
+    "file": "draining-the-coffers.mp3",
     "bytes": 725852,
     "join": "ffmpeg+loudnorm"
   },
-  "most-beautiful-places-in-the-world": {
+  "place-in-loving-hearts": {
     "title": "Самые прекрасные места в мире",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 28,
@@ -4537,11 +4537,11 @@
       "narrative",
       "moral"
     ],
-    "file": "most-beautiful-places-in-the-world.mp3",
+    "file": "place-in-loving-hearts.mp3",
     "bytes": 150140,
     "join": "ffmpeg+loudnorm"
   },
-  "spare-time": {
+  "free-time": {
     "title": "Свободное время",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 29,
@@ -4555,11 +4555,11 @@
       "narrative",
       "moral"
     ],
-    "file": "spare-time.mp3",
+    "file": "free-time.mp3",
     "bytes": 143516,
     "join": "ffmpeg+loudnorm"
   },
-  "properties-of-water": {
+  "qualities-of-water": {
     "title": "Свойства воды",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 30,
@@ -4581,11 +4581,11 @@
       "narrative",
       "moral"
     ],
-    "file": "properties-of-water.mp3",
+    "file": "qualities-of-water.mp3",
     "bytes": 360236,
     "join": "ffmpeg+loudnorm"
   },
-  "secret-of-living-well-and-longevity": {
+  "living-well": {
     "title": "Секрет хорошей и долгой жизни:",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 31,
@@ -4600,11 +4600,11 @@
       "narrative",
       "moral"
     ],
-    "file": "secret-of-living-well-and-longevity.mp3",
+    "file": "living-well.mp3",
     "bytes": 165980,
     "join": "ffmpeg+loudnorm"
   },
-  "blind-well": {
+  "dry-well": {
     "title": "Слепой колодец",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 32,
@@ -4619,11 +4619,11 @@
       "narrative",
       "moral"
     ],
-    "file": "blind-well.mp3",
+    "file": "dry-well.mp3",
     "bytes": 405020,
     "join": "ffmpeg+loudnorm"
   },
-  "blind-who-have-eyes": {
+  "seeing-without-understanding": {
     "title": "Слепые люди с глазами",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 33,
@@ -4637,7 +4637,7 @@
       "narrative",
       "moral"
     ],
-    "file": "blind-who-have-eyes.mp3",
+    "file": "seeing-without-understanding.mp3",
     "bytes": 142508,
     "join": "ffmpeg+loudnorm"
   },
@@ -4700,7 +4700,7 @@
     "bytes": 1092908,
     "join": "ffmpeg+loudnorm"
   },
-  "three-landscapes": {
+  "three-scenes": {
     "title": "Три сцены",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 36,
@@ -4721,11 +4721,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "three-landscapes.mp3",
+    "file": "three-scenes.mp3",
     "bytes": 916076,
     "join": "ffmpeg+loudnorm"
   },
-  "life-lesson": {
+  "light-of-the-world": {
     "title": "Урок жизни",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 37,
@@ -4746,11 +4746,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "life-lesson.mp3",
+    "file": "light-of-the-world.mp3",
     "bytes": 333164,
     "join": "ffmpeg+loudnorm"
   },
-  "teacher-hello-do-you-remember-me": {
+  "do-you-remember-me": {
     "title": "Учитель, здравствуйте — вы меня помните?",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 38,
@@ -4777,11 +4777,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "teacher-hello-do-you-remember-me.mp3",
+    "file": "do-you-remember-me.mp3",
     "bytes": 1108460,
     "join": "ffmpeg+loudnorm"
   },
-  "what-we-learn-in-life": {
+  "lifes-lessons": {
     "title": "Чему мы учимся в жизни",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 39,
@@ -4796,7 +4796,7 @@
       "narrative",
       "moral"
     ],
-    "file": "what-we-learn-in-life.mp3",
+    "file": "lifes-lessons.mp3",
     "bytes": 186572,
     "join": "ffmpeg+loudnorm"
   },
@@ -4832,7 +4832,7 @@
     "bytes": 744716,
     "join": "ffmpeg+loudnorm"
   },
-  "what-it-means-to-be-late": {
+  "before-it-is-too-late": {
     "title": "Что значит опоздать?",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 41,
@@ -4849,11 +4849,11 @@
       "narrative",
       "moral"
     ],
-    "file": "what-it-means-to-be-late.mp3",
+    "file": "before-it-is-too-late.mp3",
     "bytes": 404732,
     "join": "ffmpeg+loudnorm"
   },
-  "what-do-i-need-it-for": {
+  "not-my-concern": {
     "title": "Что мне нужно?",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 42,
@@ -4876,11 +4876,11 @@
       "narrative",
       "moral"
     ],
-    "file": "what-do-i-need-it-for.mp3",
+    "file": "not-my-concern.mp3",
     "bytes": 1203500,
     "join": "ffmpeg+loudnorm"
   },
-  "this-boat-is-empty-too": {
+  "empty-boat": {
     "title": "Эта лодка тоже пуста.",
     "category": "hikmet-ve-heyat-dersleri",
     "index": 43,
@@ -4898,7 +4898,7 @@
       "narrative",
       "moral"
     ],
-    "file": "this-boat-is-empty-too.mp3",
+    "file": "empty-boat.mp3",
     "bytes": 549740,
     "join": "ffmpeg+loudnorm"
   },
@@ -4931,7 +4931,7 @@
     "bytes": 959564,
     "join": "ffmpeg+loudnorm"
   },
-  "former-minister-at-the-seminar": {
+  "plastic-cup": {
     "title": "Бывший министр на семинаре",
     "category": "emek-ruzi-ve-servet",
     "index": 0,
@@ -4949,7 +4949,7 @@
       "dialogue",
       "moral"
     ],
-    "file": "former-minister-at-the-seminar.mp3",
+    "file": "plastic-cup.mp3",
     "bytes": 956684,
     "join": "ffmpeg+loudnorm"
   },
@@ -4983,7 +4983,7 @@
     "bytes": 819740,
     "join": "ffmpeg+loudnorm"
   },
-  "weight-of-the-oil": {
+  "weight-of-the-butter": {
     "title": "Вес масла",
     "category": "emek-ruzi-ve-servet",
     "index": 2,
@@ -4998,7 +4998,7 @@
       "narrative",
       "moral"
     ],
-    "file": "weight-of-the-oil.mp3",
+    "file": "weight-of-the-butter.mp3",
     "bytes": 312716,
     "join": "ffmpeg+loudnorm"
   },
@@ -5044,7 +5044,7 @@
     "bytes": 627644,
     "join": "ffmpeg+loudnorm"
   },
-  "chief-accountant-and-the-ceo": {
+  "investing-in-people": {
     "title": "Главный бухгалтер и генеральный директор",
     "category": "emek-ruzi-ve-servet",
     "index": 5,
@@ -5061,7 +5061,7 @@
       "question",
       "moral"
     ],
-    "file": "chief-accountant-and-the-ceo.mp3",
+    "file": "investing-in-people.mp3",
     "bytes": 281036,
     "join": "ffmpeg+loudnorm"
   },
@@ -5137,7 +5137,7 @@
     "bytes": 1978940,
     "join": "ffmpeg+loudnorm"
   },
-  "do-you-have-spending-money": {
+  "more-than-money": {
     "title": "Есть ли у вас деньги?",
     "category": "emek-ruzi-ve-servet",
     "index": 7,
@@ -5151,7 +5151,7 @@
       "narrative",
       "moral"
     ],
-    "file": "do-you-have-spending-money.mp3",
+    "file": "more-than-money.mp3",
     "bytes": 200828,
     "join": "ffmpeg+loudnorm"
   },
@@ -5204,7 +5204,7 @@
     "bytes": 556652,
     "join": "ffmpeg+loudnorm"
   },
-  "organization-without-an-action-plan": {
+  "without-a-plan": {
     "title": "Организация без плана действий",
     "category": "emek-ruzi-ve-servet",
     "index": 10,
@@ -5219,7 +5219,7 @@
       "narrative",
       "moral"
     ],
-    "file": "organization-without-an-action-plan.mp3",
+    "file": "without-a-plan.mp3",
     "bytes": 446780,
     "join": "ffmpeg+loudnorm"
   },
@@ -5268,7 +5268,7 @@
     "bytes": 323516,
     "join": "ffmpeg+loudnorm"
   },
-  "why-am-i-poor": {
+  "giving-without-money": {
     "title": "Почему я беден?",
     "category": "emek-ruzi-ve-servet",
     "index": 13,
@@ -5293,7 +5293,7 @@
       "narrative",
       "moral"
     ],
-    "file": "why-am-i-poor.mp3",
+    "file": "giving-without-money.mp3",
     "bytes": 450380,
     "join": "ffmpeg+loudnorm"
   },
@@ -5362,7 +5362,7 @@
     "bytes": 1740620,
     "join": "ffmpeg+loudnorm"
   },
-  "grocery-shop-and-the-supermarket": {
+  "butter-price-war": {
     "title": "Продуктовый магазин и супермаркет",
     "category": "emek-ruzi-ve-servet",
     "index": 16,
@@ -5380,11 +5380,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "grocery-shop-and-the-supermarket.mp3",
+    "file": "butter-price-war.mp3",
     "bytes": 468092,
     "join": "ffmpeg+loudnorm"
   },
-  "his-hand-is-at-work": {
+  "busy-but-unproductive": {
     "title": "Рука за работой",
     "category": "emek-ruzi-ve-servet",
     "index": 17,
@@ -5399,7 +5399,7 @@
       "dialogue",
       "moral"
     ],
-    "file": "his-hand-is-at-work.mp3",
+    "file": "busy-but-unproductive.mp3",
     "bytes": 206012,
     "join": "ffmpeg+loudnorm"
   },
@@ -5425,7 +5425,7 @@
     "bytes": 251372,
     "join": "ffmpeg+loudnorm"
   },
-  "woman-whose-house-was-robbed": {
+  "who-was-keeping-watch": {
     "title": "Женщина, чей дом ограбили",
     "category": "edalet-ve-cemiyyet",
     "index": 0,
@@ -5443,11 +5443,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "woman-whose-house-was-robbed.mp3",
+    "file": "who-was-keeping-watch.mp3",
     "bytes": 309836,
     "join": "ffmpeg+loudnorm"
   },
-  "why-injustice-when-there-is-justice": {
+  "choose-justice": {
     "title": "Зачем несправедливость, когда есть справедливость?",
     "category": "edalet-ve-cemiyyet",
     "index": 1,
@@ -5467,11 +5467,11 @@
       "question",
       "moral"
     ],
-    "file": "why-injustice-when-there-is-justice.mp3",
+    "file": "choose-justice.mp3",
     "bytes": 252956,
     "join": "ffmpeg+loudnorm"
   },
-  "bedouin-whose-camel-was-stolen": {
+  "stolen-camel": {
     "title": "История бедуина, у которого украли верблюда",
     "category": "edalet-ve-cemiyyet",
     "index": 2,
@@ -5489,11 +5489,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "bedouin-whose-camel-was-stolen.mp3",
+    "file": "stolen-camel.mp3",
     "bytes": 436124,
     "join": "ffmpeg+loudnorm"
   },
-  "bell-to-hang-on-the-cats-neck": {
+  "belling-the-cat": {
     "title": "Колокольчик на шею коту",
     "category": "edalet-ve-cemiyyet",
     "index": 3,
@@ -5511,11 +5511,11 @@
       "question",
       "moral"
     ],
-    "file": "bell-to-hang-on-the-cats-neck.mp3",
+    "file": "belling-the-cat.mp3",
     "bytes": 431804,
     "join": "ffmpeg+loudnorm"
   },
-  "with-this-nation-the-world-can-be-conquered": {
+  "market-of-good-neighbors": {
     "title": "Мир можно покорить с помощью этой нации.",
     "category": "edalet-ve-cemiyyet",
     "index": 4,
@@ -5537,7 +5537,7 @@
       "dialogue",
       "moral"
     ],
-    "file": "with-this-nation-the-world-can-be-conquered.mp3",
+    "file": "market-of-good-neighbors.mp3",
     "bytes": 728588,
     "join": "ffmpeg+loudnorm"
   },
@@ -5566,7 +5566,7 @@
     "bytes": 326684,
     "join": "ffmpeg+loudnorm"
   },
-  "homeland-and-land": {
+  "land-and-homeland": {
     "title": "Родина и земля",
     "category": "edalet-ve-cemiyyet",
     "index": 7,
@@ -5580,11 +5580,11 @@
       "narrative",
       "moral"
     ],
-    "file": "homeland-and-land.mp3",
+    "file": "land-and-homeland.mp3",
     "bytes": 149420,
     "join": "ffmpeg+loudnorm"
   },
-  "just-verdict-of-the-frankfurt-judge": {
+  "judges-answer": {
     "title": "Справедливый вердикт франкфуртского судьи",
     "category": "edalet-ve-cemiyyet",
     "index": 8,
@@ -5604,11 +5604,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "just-verdict-of-the-frankfurt-judge.mp3",
+    "file": "judges-answer.mp3",
     "bytes": 996572,
     "join": "ffmpeg+loudnorm"
   },
-  "skins-of-the-lambs": {
+  "lambs-skins": {
     "title": "Шкуры ягнят",
     "category": "edalet-ve-cemiyyet",
     "index": 9,
@@ -5638,7 +5638,7 @@
       "narrative",
       "moral"
     ],
-    "file": "skins-of-the-lambs.mp3",
+    "file": "lambs-skins.mp3",
     "bytes": 1241948,
     "join": "ffmpeg+loudnorm"
   },
@@ -5660,7 +5660,7 @@
     "bytes": 137036,
     "join": "ffmpeg+loudnorm"
   },
-  "for-those-who-have-reached-sixty": {
+  "life-after-sixty": {
     "title": "Тем, кому исполнилось шестьдесят…",
     "category": "yaslanma-ve-zaman",
     "index": 1,
@@ -5688,7 +5688,7 @@
       "exclaim",
       "moral"
     ],
-    "file": "for-those-who-have-reached-sixty.mp3",
+    "file": "life-after-sixty.mp3",
     "bytes": 1584524,
     "join": "ffmpeg+loudnorm"
   },
@@ -5767,7 +5767,7 @@
     "bytes": 703964,
     "join": "ffmpeg+loudnorm"
   },
-  "ant-that-carries-water": {
+  "ant-carrying-water": {
     "title": "Муравей-водонос",
     "category": "temsiller-ve-meseller",
     "index": 2,
@@ -5788,11 +5788,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "ant-that-carries-water.mp3",
+    "file": "ant-carrying-water.mp3",
     "bytes": 494588,
     "join": "ffmpeg+loudnorm"
   },
-  "fly-in-the-china-shop": {
+  "fly-in-a-china-shop": {
     "title": "Муха в лавке фарфора",
     "category": "temsiller-ve-meseller",
     "index": 3,
@@ -5807,11 +5807,11 @@
       "narrative",
       "moral"
     ],
-    "file": "fly-in-the-china-shop.mp3",
+    "file": "fly-in-a-china-shop.mp3",
     "bytes": 261884,
     "join": "ffmpeg+loudnorm"
   },
-  "turtles-wrong-calculation": {
+  "tortoises-miscalculation": {
     "title": "Неверный расчет черепахи",
     "category": "temsiller-ve-meseller",
     "index": 4,
@@ -5829,11 +5829,11 @@
       "narrative",
       "moral"
     ],
-    "file": "turtles-wrong-calculation.mp3",
+    "file": "tortoises-miscalculation.mp3",
     "bytes": 441596,
     "join": "ffmpeg+loudnorm"
   },
-  "hunters-description": {
+  "lions-untold-story": {
     "title": "Рассказ охотника",
     "category": "temsiller-ve-meseller",
     "index": 5,
@@ -5848,11 +5848,11 @@
       "narrative",
       "moral"
     ],
-    "file": "hunters-description.mp3",
+    "file": "lions-untold-story.mp3",
     "bytes": 157772,
     "join": "ffmpeg+loudnorm"
   },
-  "lions-footprint": {
+  "lions-tracks": {
     "title": "След льва",
     "category": "temsiller-ve-meseller",
     "index": 6,
@@ -5871,7 +5871,7 @@
       "dialogue",
       "moral"
     ],
-    "file": "lions-footprint.mp3",
+    "file": "lions-tracks.mp3",
     "bytes": 296588,
     "join": "ffmpeg+loudnorm"
   },
@@ -5923,7 +5923,7 @@
     "bytes": 805916,
     "join": "ffmpeg+loudnorm"
   },
-  "magnificent-lesson": {
+  "remarkable-lesson": {
     "title": "Великолепный урок",
     "category": "tarix-ve-taninmish-shexsiyyetler",
     "index": 1,
@@ -5946,11 +5946,11 @@
       "narrative",
       "moral"
     ],
-    "file": "magnificent-lesson.mp3",
+    "file": "remarkable-lesson.mp3",
     "bytes": 739532,
     "join": "ffmpeg+loudnorm"
   },
-  "mihrimah-sultan-and-architect-sinan": {
+  "mihrimah-and-sinan": {
     "title": "Михримах Султан и архитектор Синан",
     "category": "tarix-ve-taninmish-shexsiyyetler",
     "index": 2,
@@ -5973,11 +5973,11 @@
       "narrative",
       "moral"
     ],
-    "file": "mihrimah-sultan-and-architect-sinan.mp3",
+    "file": "mihrimah-and-sinan.mp3",
     "bytes": 1041356,
     "join": "ffmpeg+loudnorm"
   },
-  "architect-sinan-dies-in-a-house-without-water": {
+  "sinans-waterless-house": {
     "title": "Синан дал Стамбулу воду, но умер в доме без воды",
     "category": "tarix-ve-taninmish-shexsiyyetler",
     "index": 3,
@@ -6006,11 +6006,11 @@
       "dialogue",
       "moral"
     ],
-    "file": "architect-sinan-dies-in-a-house-without-water.mp3",
+    "file": "sinans-waterless-house.mp3",
     "bytes": 1041932,
     "join": "ffmpeg+loudnorm"
   },
-  "three-essential-things-for-a-city": {
+  "three-essentials-for-a-city": {
     "title": "Три важных вещи для города",
     "category": "tarix-ve-taninmish-shexsiyyetler",
     "index": 4,
@@ -6025,7 +6025,7 @@
       "narrative",
       "moral"
     ],
-    "file": "three-essential-things-for-a-city.mp3",
+    "file": "three-essentials-for-a-city.mp3",
     "bytes": 212204,
     "join": "ffmpeg+loudnorm"
   }

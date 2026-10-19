@@ -5,7 +5,7 @@ if (typeof window !== "undefined" && typeof window.__birinciBounceFileToLocalHtt
 window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 3h7l5 5v13H7z\"/><path d=\"M14 3v5h5\"/><path d=\"M9 13h6\"/><path d=\"M9 17h6\"/></svg>", "text-off": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 3h7l5 5v13H7z\"/><path d=\"M14 3v5h5\"/><path d=\"M9 13h6\"/><path d=\"M9 17h6\"/><path d=\"M5 5l14 14\"/></svg>", "eye": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/></svg>", "eye-off": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 3l18 18\"/><path d=\"M10.6 10.6a3 3 0 0 0 4.2 4.2\"/><path d=\"M9.9 5.1A11 11 0 0 1 12 5c6.5 0 10 7 10 7a19 19 0 0 1-3.2 4.1\"/><path d=\"M6.1 6.1C3.6 7.8 2 12 2 12s3.5 7 10 7c1.6 0 3.1-.3 4.4-.9\"/></svg>", "listen": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"/><path d=\"M15.54 8.46a5 5 0 0 1 0 7.07\"/><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14\"/></svg>", "stop": "<svg class=\"tools-bar__glyph\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"/><path d=\"M15.54 8.46a5 5 0 0 1 0 7.07\"/><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14\"/><path d=\"M3 3l18 18\"/></svg>"};
 
 (() => {
-  const I18N = window.__BIRINCI_I18N__ || { lang: "az", ui: {}, js: {} };
+  const I18N = window.__BIRINCI_I18N__ || { ui: {}, js: {} };
   const PAGE_LANG = String(
     I18N.lang ||
       (document.body && document.body.getAttribute("data-lang")) ||
@@ -426,7 +426,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       btn.setAttribute("aria-expanded", cat.classList.contains("is-collapsed") ? "false" : "true");
       btn.setAttribute(
         "aria-label",
-        "Toggle " + (head.textContent || "category").replace(/\s+/g, " ").trim()
+        (currentPageLang() === "de" ? "Kategorie ein- oder ausklappen: " : "Toggle ") + (head.textContent || (currentPageLang() === "de" ? "Kategorie" : "category")).replace(/\s+/g, " ").trim()
       );
       const togglePair = () => {
         const next = cat.classList.contains("is-collapsed");
@@ -460,7 +460,10 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const next = visibleCatalogLabel(title || titleEl.textContent || "");
     if (!next) return;
     const name = titleEl.querySelector(".inventions-entry-name");
+    const germanLink = String(document.documentElement.lang || "").toLowerCase().split(/[-_]/)[0] === "de"
+      ? titleEl.querySelector("a[href]") : null;
     if (name) name.textContent = next;
+    else if (germanLink) germanLink.textContent = next;
     else titleEl.textContent = next;
   };
 
@@ -662,18 +665,18 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   const STORY_AUTHOR_BAKHTIYAR = "bakhtiyar";
   // Known Etibar corpus stems (credit may be missing/localized in some locale packs).
   const STORY_AUTHOR_ETIBAR_STEMS = new Set([
-    "caring-call-brightens-the-day",
-    "changing-times-enduring-friendship",
-    "cherish-today-with-loved-ones",
-    "cherishing-flowers-in-spring",
-    "day-gratefully-lived",
-    "from-reflection-to-hope",
-    "hopeful-journey-through-life",
-    "humanity-rebuilds-in-peace",
-    "kindness-builds-stronger-bonds",
-    "nails-lasting-lesson",
-    "quarantine-days-hopeful-hearts",
-    "small-changes-big-meaning",
+    "thoughtfulness",
+    "time-has-passed",
+    "life-flows-silently",
+    "flowers",
+    "another-day",
+    "reflections",
+    "my-lifes-journey",
+    "humanity-etibar-siracsoy",
+    "relationships",
+    "nails-lesson",
+    "pandemic-and-quarantine",
+    "small-changes-great-value",
   ]);
   // Live source credits (and close spellings already on the site).
   const STORY_AUTHOR_ETIBAR_CREDIT_RE =
@@ -1154,13 +1157,13 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
   const pagePathKey = (pathname) => {
     const path = String(pathname || "/").replace(/\\/g, "/");
-    const stripped = path.replace(/^\/(az|en|ru|ky)(?=\/|$)/i, "") || "/";
+    const stripped = path.replace(/^\/(az|en|ru|ky|de)(?=\/|$)/i, "") || "/";
     return stripped.replace(/\/index\.html$/i, "/").replace(/\/+$/, "") || "/";
   };
 
   const localePathRest = (pathname) => {
     const path = String(pathname || "/").replace(/\\/g, "/");
-    const match = path.match(/\/(az|en|ru|ky)\/(.*)$/i);
+    const match = path.match(/\/(az|en|ru|ky|de)\/(.*)$/i);
     if (!match) return "";
     const rest = String(match[2] || "").replace(/\/+$/, "");
     return rest || "index.html";
@@ -1871,7 +1874,16 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const root = document.querySelector(".lang-switcher");
     const toggle = root && root.querySelector(".lang-switcher__toggle");
     const menu = root && root.querySelector(".lang-switcher__menu");
-    if (!root || !toggle || !menu) return;
+    if (!root || !toggle || !menu || root.hasAttribute("data-lang-switcher-bound")) return;
+    Array.from(menu.querySelectorAll("a[data-lang]"))
+      .sort((a, b) => a.getAttribute("data-lang").localeCompare(b.getAttribute("data-lang"), "en"))
+      .forEach((link) => menu.appendChild(link));
+    root.setAttribute("data-lang-switcher-bound", "true");
+    const preserveAuthoredLangHrefs = () => document.body && (
+      document.body.hasAttribute("data-wisdom-standalone") ||
+      document.body.hasAttribute("data-wisdom-static-breadcrumbs")
+    );
+    let openedByHover = false;
 
     const supportsPopover = typeof menu.showPopover === "function";
     if (supportsPopover && menu.getAttribute("popover") !== "manual") {
@@ -2054,6 +2066,10 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const hrefForLang = (code, ctx) => {
       const langPage = String(ctx.langPage || "").replace(/^\/+/, "");
       let path = `../${code}/index.html`;
+      if (code === "de" && langPage && !/^(?:index\.html|categories\/|stories\/)/i.test(langPage)) {
+        const depth = langPage.split("/").filter(Boolean).length;
+        return `${"../".repeat(Math.max(1, depth))}de/index.html`;
+      }
       if (ctx.isCategory && ctx.slug) {
         path = `../../${code}/categories/${encodeURIComponent(ctx.slug)}.html`;
       } else if (langPage && langPage !== "index.html") {
@@ -2109,6 +2125,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     };
 
     const syncLangHrefs = () => {
+      if (preserveAuthoredLangHrefs()) return;
       const ctx = browseContext();
       root.querySelectorAll("a[data-lang]").forEach((link) => {
         const code = link.getAttribute("data-lang");
@@ -2170,6 +2187,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     };
 
     const closeMenu = () => {
+      openedByHover = false;
       window.clearTimeout(hideTimer);
       root.classList.remove("is-open");
       toggle.setAttribute("aria-expanded", "false");
@@ -2190,12 +2208,16 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     toggle.addEventListener("click", (event) => {
       event.preventDefault();
       event.stopPropagation();
-      if (isOpen()) closeMenu();
+      if (isOpen() && !openedByHover) closeMenu();
       else openMenu();
+      openedByHover = false;
     });
 
     root.addEventListener("pointerenter", (event) => {
-      if (event.pointerType === "mouse" && canHoverLang()) openMenu();
+      if (event.pointerType === "mouse" && canHoverLang() && !isOpen()) {
+        openedByHover = true;
+        openMenu();
+      }
     });
     root.addEventListener("pointerleave", (event) => {
       if (event.pointerType === "mouse" && canHoverLang()) scheduleClose();
@@ -2227,7 +2249,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       try {
         localStorage.setItem("birinci-lang", code);
       } catch (_) {}
-      if (ctx.isBrowse && typeof window.__birinciSetLiveLang === "function") {
+      if (!preserveAuthoredLangHrefs() && ctx.isBrowse && typeof window.__birinciSetLiveLang === "function") {
         event.preventDefault();
         closeMenu();
         window.__birinciSetLiveLang(code).catch(() => {
@@ -2240,7 +2262,13 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     });
 
     window.__birinciSyncLangHrefs = syncLangHrefs;
-    window.__birinciHrefForLang = (code) => hrefForLang(code, browseContext());
+    window.__birinciHrefForLang = (code) => {
+      if (preserveAuthoredLangHrefs()) {
+        const link = Array.from(root.querySelectorAll("a[data-lang]")).find((el) => el.getAttribute("data-lang") === code);
+        return link ? link.getAttribute("href") || "" : "";
+      }
+      return hrefForLang(code, browseContext());
+    };
 
     syncLangHrefs();
     window.addEventListener("hashchange", syncLangHrefs);
@@ -2261,6 +2289,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     en: { short: "EN", title: "English" },
     ru: { short: "RU", title: "Русский" },
     ky: { short: "KY", title: "Кыргызча" },
+    de: { short: "DE", title: "Deutsch" },
   };
 
   const currentPageLang = () =>
@@ -2304,6 +2333,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         png = new URL(fileBase + ".png" + q, tag.src).href;
       }
     } catch (_) {}
+    // DE globe ships webp only; reuse it as the <img> fallback.
+    if (code === "de") png = webp;
     return { webp, png, code };
   };
 
@@ -2379,18 +2410,18 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     }
   };
 
-  const LANG_ORDER = ["az", "en", "ru", "ky"];
+  const LANG_ORDER = ["az", "en", "ru", "ky", "de"];
 
   const hrefForStoryCompare = (stem) => {
     const cur = currentPageLang();
     const path = String(location.pathname || "").replace(/\\/g, "/");
     const isRootHome =
       (document.body && document.body.classList.contains("page-root-home")) ||
-      (/\/index\.html$/i.test(path) && !/\/(az|en|ru|ky)\//i.test(path));
+      (/\/index\.html$/i.test(path) && !/\/(az|en|ru|ky|de)\//i.test(path));
     let base = "stories/compare.html";
     if (isRootHome) {
       base = cur + "/stories/compare.html";
-    } else if (/\/(categories|discoveries|about|prominent-figures)\//i.test(path)) {
+    } else if (/\/(categories|authors|discoveries|about|prominent-figures)\//i.test(path)) {
       base = "../stories/compare.html";
     } else if (/\/stories\//i.test(path)) {
       base = "compare.html";
@@ -2432,10 +2463,11 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
   const hrefForArticleCompare = (stem) => {
     const cur = currentPageLang();
+    if (cur === "de") return new URL("../../en/discoveries/compare.html?stem=" + encodeURIComponent(stem) + "&from=en", langAssetUrl("de", "i18n.js")).href;
     const path = String(location.pathname || "").replace(/\\/g, "/");
     const isRootHome =
       (document.body && document.body.classList.contains("page-root-home")) ||
-      (/\/index\.html$/i.test(path) && !/\/(az|en|ru|ky)\//i.test(path));
+      (/\/index\.html$/i.test(path) && !/\/(az|en|ru|ky|de)\//i.test(path));
     let base = "discoveries/compare.html";
     if (isRootHome) {
       base = cur + "/discoveries/compare.html";
@@ -3112,7 +3144,10 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           if (href) toLink.setAttribute("href", href);
           const fromTitle = fromLink.querySelector(".nav-dropdown-link-title");
           const toTitle = toLink.querySelector(".nav-dropdown-link-title");
-          if (fromTitle && toTitle) toTitle.textContent = fromTitle.textContent;
+          if (fromTitle && toTitle) {
+          if (currentPageLang() === "de" && fromTitle.querySelector("a[href]")) toTitle.innerHTML = fromTitle.innerHTML;
+          else toTitle.textContent = fromTitle.textContent;
+        }
           const fromDesc = fromLink.querySelector(".nav-dropdown-link-desc");
           const toDesc = toLink.querySelector(".nav-dropdown-link-desc");
           if (fromDesc && toDesc) toDesc.textContent = fromDesc.textContent;
@@ -3271,6 +3306,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         const toName = toTitle.querySelector(".inventions-entry-name");
         const fromName = fromTitle.querySelector(".inventions-entry-name");
         if (toName) toName.textContent = (fromName && fromName.textContent) || fromTitle.textContent;
+        else if (currentPageLang() === "de" && fromTitle.querySelector("a[href]")) toTitle.innerHTML = fromTitle.innerHTML;
         else toTitle.textContent = fromTitle.textContent;
       }
       const fromText = src.querySelector(".story__text, .card-text");
@@ -3468,7 +3504,10 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         if (title) {
           const name = title.querySelector(".inventions-entry-name");
           if (name) name.textContent = story.title;
-          else title.textContent = story.title;
+          else if (currentPageLang() === "de" && story.href) {
+            const href = new URL(story.href, new URL("../", langAssetUrl("de", "stories-data.js"))).href;
+            title.innerHTML = `<a href="${escapeLiveHtml(href)}">${escapeLiveHtml(story.title)}</a>`;
+          } else title.textContent = story.title;
         }
       }
       const text = el.querySelector(".story__text, .card-text");
@@ -3815,7 +3854,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const href =
         (typeof window.__birinciHrefForLang === "function" && window.__birinciHrefForLang(next)) ||
         "";
-      if (!isLocaleCatalogBody(document.body) && !fromHistory) {
+      if ((!isLocaleCatalogBody(document.body) ||
+        (next === "de" && /\/(discoveries|about|prominent-figures)\//i.test(location.pathname))) && !fromHistory) {
         if (!href) throw new Error("lang-href");
         window.location.assign(new URL(href, location.href).href);
         return;
@@ -3931,7 +3971,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       window.location.reload();
       return;
     }
-    const match = path.match(/\/(az|en|ru|ky)(?:\/|$)/i);
+    const match = path.match(/\/(az|en|ru|ky|de)(?:\/|$)/i);
     const lang = match ? match[1].toLowerCase() : "";
     if (lang && lang !== currentPageLang()) {
       beginApplyingHistory();
@@ -4033,6 +4073,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
    * Home > Wisdom Stories > [Category?] > Story
    */
   const initDeepBreadcrumbs = () => {
+    if (document.body && (document.body.getAttribute("data-wisdom-static-breadcrumbs") === "true" ||
+      document.body.hasAttribute("data-wisdom-standalone"))) return;
     const list = document.querySelector(".breadcrumbs__list");
     if (!list) return;
 
@@ -4124,6 +4166,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     };
 
     const siteRootHref = () => {
+      if (currentPageLang() === "de") return new URL("../index.html", langAssetUrl("de", "i18n.js")).href;
       const brand = document.querySelector("a.brand[href]");
       const brandHref = brand && brand.getAttribute("href");
       if (brandHref) return brandHref;
@@ -4131,7 +4174,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       if (/\/(categories|discoveries|about|prominent-figures)\//.test(path)) {
         return "../../index.html";
       }
-      if (/\/(az|en|ru|ky)(?:\/|$)/.test(path)) return "../index.html";
+      if (/\/(az|en|ru|ky|de)(?:\/|$)/.test(path)) return "../index.html";
       return "index.html";
     };
 
@@ -4159,6 +4202,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       // Leave Wisdom Stories / section crumbs alone.
       if (/#kateqoriyalar|[?&]view=/.test(href)) return;
       a.setAttribute("href", siteRootHref());
+      if (currentPageLang() === "de") a.textContent = "Startseite";
     };
 
     const restorePageCurrent = () => {
@@ -4525,7 +4569,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         body.classList.contains("page-category") ||
         pageHint.startsWith("categories/") ||
         /\/categories\//.test(path) ||
-        /\/(az|en|ru|ky)\/(index\.html)?$/.test(path));
+        /\/(az|en|ru|ky|de)\/(index\.html)?$/.test(path));
 
     nav.querySelectorAll(".primary-nav__link").forEach((link) => {
       link.classList.remove("is-active", "is-current");
@@ -4806,11 +4850,15 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
     const hrefForSearchResult = (row) => {
       const lang = normalizePageLang(row.lang || searchLang());
+      if (lang === "de" && row.href) {
+        const target = new URL(String(row.href), new URL(langAssetUrl(lang, "search-index.js"), location.href).href.replace(/assets\/search-index\.js.*$/, ""));
+        if (target.origin === location.origin && /\/de\/(?:index\.html|categories\/|stories\/)/i.test(target.pathname)) return target.href;
+      }
       const slug = encodeURIComponent(row.slug || "");
       const stem = encodeURIComponent(row.stem || "");
       const path = String(location.pathname || "").replace(/\\/g, "/");
       let base;
-      if (/\/(categories|discoveries|about|prominent-figures)\//i.test(path)) {
+      if (/\/(categories|authors|stories|discoveries|about|prominent-figures)\//i.test(path)) {
         base = `../../${lang}/categories/${slug}.html`;
       } else if (document.body.classList.contains("page-root-home")) {
         base = `${lang}/categories/${slug}.html`;
@@ -5205,6 +5253,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
     const refreshSidebarNav = () => {
       if (!navList) return;
+      if (currentPageLang() === "de" && /\/authors\//i.test(location.pathname)) return;
       const visibleStems =
         lastVisibleStems.size
           ? new Set(lastVisibleStems)
@@ -7051,6 +7100,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           hasAudio: !!story.hasAudio,
           hasImage: !!story.hasImage,
           image: String(story.image || "").trim(),
+          imageStem: String(story.imageStem || story.stem || "").trim(),
+          href: String(story.href || "").trim(),
           authorKey: storyAuthorKeyFromParagraphs(story.paragraphs || [], stem),
           hay: `${story.title || ""} ${(story.paragraphs || []).join(" ")}`.toLocaleLowerCase(LOCALE_TAG),
         });
@@ -7113,8 +7164,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       if (!paragraphs.length) return "";
       const last = paragraphs.length - 1;
       const foldAzI = (s) => String(s || "").replace(/[İIı]/g, "i");
-      const srcRe = /(internet\s+sources|internet\s+mənb|internet\s+kaynak|открыт\w*\s+источник|интернет|(?:source|mənbə|kaynak|источник|булак|булагы)\s*:)/i;
-      const moralRe = /^(ibrət|ibret|moral|мораль|үлгү|сабак)\s*:/i;
+      const srcRe = /(internet\s+sources|internetquellen|internet\s+mənb|internet\s+kaynak|открыт\w*\s+источник|интернет|(?:source|quelle|quellen|mənbə|kaynak|источник|булак|булагы)\s*:)/i;
+      const moralRe = /^(ibrət|ibret|moral|lehre|мораль|үлгү|сабак)\s*:/i;
       const authorSrcStems = {"caring-call-brightens-the-day": 1, "changing-times-enduring-friendship": 1, "cherish-today-with-loved-ones": 1, "cherishing-flowers-in-spring": 1, "day-gratefully-lived": 1, "discussion-and-conflict": 1, "everyone-has-work-to-do": 1, "from-reflection-to-hope": 1, "hopeful-journey-through-life": 1, "humanity-rebuilds-in-peace": 1, "if-fate-allows-we-will-meet": 1, "kindness-builds-stronger-bonds": 1, "nails-lasting-lesson": 1, "organization-without-an-action-plan": 1, "quarantine-days-hopeful-hearts": 1, "silent-corridor": 1, "small-changes-big-meaning": 1, "weeds-must-be-pulled-from-the-root": 1};
       const authorSrc = !!(stem && authorSrcStems[stem]);
       const lastIsSrc = last >= 0 && (authorSrc || srcRe.test(foldAzI(paragraphs[last] || "")));
@@ -7126,12 +7177,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           break;
         }
       }
-      if (moralI < 0) moralI = lastIsSrc && last >= 1 ? last - 1 : last;
+      if (moralI < 0 && currentPageLang() !== "de") moralI = lastIsSrc && last >= 1 ? last - 1 : last;
       return paragraphs
         .map((p, i) => {
           const isSrc = lastIsSrc && i === last;
           const cls = isSrc ? "story__source" : i === moralI ? "story__moral" : "";
-          const text = isSrc && srcLabel && !authorSrc ? srcLabel : p;
+          const text = currentPageLang() !== "de" && isSrc && srcLabel && !authorSrc ? srcLabel : p;
           return `<p${cls ? ` class="${cls}"` : ""}>${escapeHtml(text)}</p>`;
         })
         .join("");
@@ -7278,7 +7329,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       "mother-of-pearl-flower": [1474, 1067],
       "mothers-advice-fakir-baykurt-never-forgot": [1431, 1099],
       "mothers-love": [1461, 1076],
-      "mullah-and-the-scholar": [1462, 1076],
+      "vizier-and-scholar": [1462, 1076],
       "my-alif-has-been-dotted": [1492, 1054],
       "newtons-second-law": [1455, 1081],
       "no-need-to-be-sane-when-everyone-is-mad": [1419, 1109],
@@ -7394,6 +7445,16 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       "humanity-rebuilds-in-peace": [1536, 1024],
       "day-gratefully-lived": [1536, 1024],
       "small-changes-big-meaning": [1536, 1024],
+      "another-day": [1536, 1024],
+      "humanity-etibar-siracsoy": [1536, 1024],
+      "if-fate-allows": [1438, 1093],
+      "life-flows-silently": [1536, 1024],
+      "nails-lesson": [1536, 1024],
+      "relationships": [1536, 1024],
+      "small-changes-great-value": [1536, 1024],
+      "thoughtfulness": [1536, 1024],
+      "weeds": [1453, 1082],
+      "without-a-plan": [1460, 1077],
     };
     const AZ_ILLUST_SIZE = {
       "advice-for-those-who-marry": [1536, 1024],
@@ -7435,7 +7496,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       "dervishs-spoons": [1536, 1024],
       "diderot-effect": [1536, 1024],
       "different-path": [1536, 1024],
-      "discussion-and-conflict": [1536, 1024],
+      "discussion-and-conflict": [1536, 1159],
       "do-not-complain-about-any-day-you-have-lived": [1536, 1024],
       "do-not-do-these-things": [1536, 1024],
       "do-not-let-your-hearts-part": [1536, 1024],
@@ -7450,7 +7511,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       "eat-less-and-stay-on-the-right-path": [1536, 1024],
       "education-or-character": [1536, 1024],
       "elephant-and-the-rope": [1536, 1024],
-      "everyone-has-work-to-do": [1536, 1024],
+      "everyone-has-work-to-do": [1536, 1159],
       "everyone-is-the-same-here": [1536, 1024],
       "everything-is-in-our-own-hands": [1536, 1024],
       "explaining-ones-sorrow": [1536, 1024],
@@ -7545,7 +7606,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       "mother-of-pearl-flower": [1536, 1024],
       "mothers-advice-fakir-baykurt-never-forgot": [1536, 1024],
       "mothers-love": [1536, 1024],
-      "mullah-and-the-scholar": [1536, 1024],
+      "vizier-and-scholar": [1536, 1024],
       "my-alif-has-been-dotted": [1536, 1024],
       "nails-lasting-lesson": [1536, 1024],
       "newtons-second-law": [1536, 1024],
@@ -7589,7 +7650,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       "shepherd-must-be-called": [1536, 1024],
       "shepherds-word": [1536, 1024],
       "silence": [1536, 1024],
-      "silent-corridor": [1536, 1024],
+      "silent-corridor": [1536, 1159],
       "skins-of-the-lambs": [1536, 1024],
       "small-changes-big-meaning": [1536, 1024],
       "sound-of-the-doorbell": [1536, 1024],
@@ -7657,7 +7718,20 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       "you-cannot-descend-a-well-on-his-rope": [1536, 1024],
       "your-friends": [1536, 1024],
       "your-hand-at-work-your-hope-in-god": [1536, 1024],
-
+      "another-day": [1536, 1159],
+      "humanity-etibar-siracsoy": [1536, 1159],
+      "if-fate-allows": [1536, 1159],
+      "life-flows-silently": [1536, 1159],
+      "my-lifes-journey": [1536, 1159],
+      "nails-lesson": [1536, 1159],
+      "pandemic-and-quarantine": [1536, 1159],
+      "reflections": [1536, 1159],
+      "relationships": [1536, 1159],
+      "small-changes-great-value": [1536, 1159],
+      "thoughtfulness": [1536, 1159],
+      "time-has-passed": [1536, 1159],
+      "weeds": [1536, 1159],
+      "without-a-plan": [1536, 1159],
     };
     const storyArticleHtml = (story, numInfo) => {
       const audioAttr = story.hasAudio
@@ -7700,9 +7774,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         tUi("enlarge_image", "{title} şəklini böyüt").replace("{title}", story.title || "")
       );
       const figAlt = escapeHtml(
-        tUi("illustration_alt", "{title} illüstrasiyası").replace("{title}", story.title || "")
+        (pageLang === "de" ? "Illustration zu „{title}“" : tUi("illustration_alt", "{title} illüstrasiyası")).replace("{title}", story.title || "")
       );
-      // Unified stamp after full illustration refresh (az|en|ru|ky).
+      // Unified stamp after full illustration refresh (az|en|ru|ky|de).
       const illustVersion = "20261002illust";
       const illustExt = "webp";
       const kyPage = kyPageEarly;
@@ -7713,9 +7787,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const illustWidth = box ? String(box[0]) : "1536";
       const illustHeight = box ? String(box[1]) : "1024";
       const bakedImage = String(story.image || "").trim();
-      const illustPath = bakedImage
+      const relativeIllustPath = bakedImage
         ? bakedImage
-        : `wisdom-stories/illustrations/${story.stem}.${illustExt}`;
+        : `wisdom-stories/illustrations/${story.imageStem || story.stem}.${illustExt}`;
+      const illustPath = pageLang === "de"
+        ? new URL(relativeIllustPath, new URL("../", langAssetUrl("de", "stories-data.js"))).href
+        : relativeIllustPath;
       const figureHtml = story.hasImage
         ? `
     <figure class="story__figure" id="figure-${escapeHtml(story.stem)}">
@@ -7724,7 +7801,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       </button>
     </figure>`
         : "";
-      const titleInner = escapeHtml(story.title);
+      const titleInner = pageLang === "de" && story.href
+        ? `<a href="${escapeHtml(new URL(story.href, new URL("../", langAssetUrl("de", "stories-data.js"))).href)}">${escapeHtml(story.title)}</a>`
+        : escapeHtml(story.title);
       const multilingualBtn =
         typeof window.__birinciBuildStoryMultilingualBtnHtml === "function"
           ? window.__birinciBuildStoryMultilingualBtnHtml(story.stem)
@@ -8837,6 +8916,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const lang = code || pageLocaleCode();
       const configured = String((liveI18n().tts_voice || "")).trim();
       const specs = {
+        de: {
+          bcp47: "de-DE", configured: configured || "de-DE-ConradNeural",
+          preferName: /conrad/i, langOk: (l) => /^de\b/i.test(l),
+          nameOk: (n) => /german|deutsch|conrad/i.test(n),
+          fallbackLang: () => false, fallbackName: () => false, reject: () => false,
+        },
         az: {
           bcp47: "az-AZ",
           configured: configured || "az-AZ-BabekNeural",
@@ -10337,6 +10422,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       return;
     }
     const authCopy = {
+      // German auth copy comes from its complete locale UI pack.
+      de: {},
       az: {
         sign_in: "Daxil ol",
         sign_up: "Qeyd ol",
@@ -10676,6 +10763,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       en: { short: "EN", title: "English" },
       ru: { short: "RU", title: "Русский" },
       ky: { short: "KY", title: "Кыргызча" },
+      de: { short: "DE", title: "Deutsch" },
     };
     const localeCodes = Object.keys(LOCALE_META);
     const flagSrc = (code) => {
@@ -11171,7 +11259,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       });
     };
 
-    const AUTH_LOCALES = ["az", "en", "ru", "ky"];
+    const AUTH_LOCALES = ["az", "en", "ru", "ky", "de"];
     const prefKeys = {
       home_view: "birinci-home-view",
       category_view: "birinci-category-view",
@@ -11216,10 +11304,19 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const parts = path.split("/").filter(Boolean);
       const qs = window.location.search || "";
       const hash = window.location.hash || "";
+      if (parts[0] === "de" && /^(?:stories|authors)$/.test(parts[1] || "") &&
+        document.body.hasAttribute("data-wisdom-static-breadcrumbs")) {
+        const link = document.querySelector('.lang-switcher a[data-lang="' + targetLang + '"]');
+        if (!link) return "/" + targetLang + "/index.html";
+        const target = new URL(link.getAttribute("href"), window.location.href);
+        return target.pathname + target.search + target.hash;
+      }
       if (!parts.length || (parts.length === 1 && parts[0] === "index.html")) {
         return "/" + targetLang + "/index.html" + qs + hash;
       }
       if (AUTH_LOCALES.indexOf(parts[0]) >= 0) {
+        if (targetLang === "de" && parts.length > 1 &&
+          !/^(?:index\.html|categories|stories|authors)$/.test(parts[1])) return "/de/index.html";
         parts[0] = targetLang;
         return "/" + parts.join("/") + qs + hash;
       }
@@ -11570,7 +11667,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     if (!info || !info.id) return;
     document.querySelectorAll(".footer-copy").forEach((el) => {
       el.replaceChildren();
-      el.appendChild(document.createTextNode(FOOTER_COPY_LINE));
+      el.appendChild(document.createTextNode(currentPageLang() === "de"
+        ? "© Birİnci – Alle Rechte vorbehalten" : FOOTER_COPY_LINE));
       const stamp = document.createElement("span");
       stamp.className = "footer-build";
       stamp.textContent = " | Build " + info.id;

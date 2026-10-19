@@ -4499,6 +4499,17 @@ body.story-compare-open {
   border-radius: 0;
   box-shadow: none;
 }
+/* DE titles wrap in <a>; global `a { color: var(--accent) }` otherwise paints navy on the dark card-header. */
+:is(html[lang="de"], body[data-lang="de"]) .story .card-header,
+:is(html[lang="de"], body[data-lang="de"]) .story .card-header :is(.story__title, .card-title),
+:is(html[lang="de"], body[data-lang="de"]) .story .card-header :is(.story__title, .card-title) a,
+:is(html[lang="de"], body[data-lang="de"]) .story .card-header :is(.story__title, .card-title) a:link,
+:is(html[lang="de"], body[data-lang="de"]) .story .card-header :is(.story__title, .card-title) a:visited,
+:is(html[lang="de"], body[data-lang="de"]) .story .card-header :is(.story__title, .card-title) a:hover,
+:is(html[lang="de"], body[data-lang="de"]) .story .card-header :is(.story__title, .card-title) a:focus,
+:is(html[lang="de"], body[data-lang="de"]) .story .card-header :is(.story__title, .card-title) a:active {
+  color: #fff;
+}
 .story .card-title:has(.inventions-entry-num),
 .story__title:has(.inventions-entry-num) {
   display: flex;

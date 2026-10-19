@@ -1,5 +1,5 @@
 /* Discovery adapter for the shared multilingual compare window.
-   Same open/close/toggle/pager/listen path as Wisdom. No Image/Text. */
+   Same open/close/toggle/pager path as Wisdom. No Image/Text/audio. */
 (function () {
   "use strict";
 
@@ -12,9 +12,7 @@
 
   const LANG_META = CW.LANG_META;
   const escapeHtml = CW.escapeHtml;
-  const tUi = CW.tUi;
   const flagImgHtml = CW.flagImgHtml;
-  const VIEW_ICONS = CW.VIEW_ICONS;
 
   const seedCache = {};
 
@@ -226,44 +224,6 @@
     const bodyHtml = ((article && article.paragraphs) || [])
       .map((p) => '<p class="sc-col__text">' + escapeHtml(p) + "</p>")
       .join("");
-    const audioLabel = escapeHtml(tUi("story_audio_label", "Audio"));
-    const listenTip = escapeHtml(tUi("listen", "Listen"));
-    const stopTip = escapeHtml(tUi("stop", "Stop"));
-    const audioEnabled = window.__BIRINCI_AUDIO_CONTROLS_ENABLED__ === true;
-    const disabledAttrs = audioEnabled
-      ? ""
-      : ' disabled aria-disabled="true" tabindex="-1" hidden';
-    const audioHiddenAttrs = audioEnabled ? "" : " hidden aria-hidden=\"true\"";
-    const audioHtml = !article
-      ? ""
-      : '<div class="sc-col__audio" role="group" aria-label="' +
-        audioLabel +
-        '"' +
-        audioHiddenAttrs +
-        ">" +
-        '<button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-sc-tts="listen" data-lang="' +
-        code +
-        '" aria-pressed="false" title="' +
-        listenTip +
-        '" aria-label="' +
-        listenTip +
-        '"' +
-        disabledAttrs +
-        ">" +
-        VIEW_ICONS.listen +
-        "</button>" +
-        '<button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-sc-tts="stop" data-lang="' +
-        code +
-        '" aria-pressed="true" title="' +
-        stopTip +
-        '" aria-label="' +
-        stopTip +
-        '"' +
-        disabledAttrs +
-        ">" +
-        VIEW_ICONS.stop +
-        "</button>" +
-        "</div>";
     return (
       '<article class="sc-col" data-lang="' +
       code +
@@ -283,7 +243,6 @@
       '<h2 class="sc-col__title">' +
       escapeHtml(title || "—") +
       "</h2>" +
-      audioHtml +
       "</div>" +
       bodyHtml +
       "</div>" +

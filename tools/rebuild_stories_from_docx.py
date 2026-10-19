@@ -65,9 +65,21 @@ def is_internet_source(text: str) -> bool:
     return bool(SOURCE_RE.search(text)) and not MORAL_RE.match(text)
 
 
+def is_url_only(text: str) -> bool:
+    t = text.strip()
+    return bool(re.match(r"^https?://\S+$", t, re.I))
+
+
+def is_form_junk(text: str) -> bool:
+    t = text.strip().casefold()
+    return t in {"top of form", "bottom of form"}
+
+
 def is_author_credit(text: str) -> bool:
     t = text.strip().rstrip(".")
     if not t or MORAL_RE.match(text) or is_internet_source(text):
+        return False
+    if is_url_only(text) or is_form_junk(text):
         return False
     if len(t) > 80:
         return False
@@ -84,12 +96,21 @@ def parse_story_docx(path: Path) -> ParsedStory:
     rest = paras[1:]
     source: str | None = None
 
-    if rest and (is_internet_source(rest[-1]) or is_author_credit(rest[-1])):
+    # Strip trailing citation URLs, Word form junk, internet source notes,
+    # and author bylines until the moral is exposed.
+    while rest:
         trailing = rest[-1].strip()
-        rest = rest[:-1]
+        if is_url_only(trailing) or is_form_junk(trailing):
+            rest = rest[:-1]
+            continue
+        if is_internet_source(trailing):
+            rest = rest[:-1]
+            continue
         if is_author_credit(trailing):
-            # Keep author byline; drop a lone trailing period for site consistency.
             source = trailing[:-1].strip() if trailing.endswith(".") else trailing
+            rest = rest[:-1]
+            continue
+        break
 
     if not rest:
         raise ValueError("no body/moral after title")
@@ -278,19 +299,19 @@ def apply_all(lang: str, parsed_list: list[ParsedStory], *, dry_run: bool) -> in
 
     import json
 
-    stories_path.write_text(
+    from dev_story_edit_server import _atomic_write_text
+
+    _atomic_write_text(
+        stories_path,
         s_prefix
         + json.dumps(s_data, ensure_ascii=False, separators=(",", ":"))
         + s_suffix,
-        encoding="utf-8",
-        newline="\n",
     )
-    search_path.write_text(
+    _atomic_write_text(
+        search_path,
         h_prefix
         + json.dumps(h_entries, ensure_ascii=False, separators=(",", ":"))
         + h_suffix,
-        encoding="utf-8",
-        newline="\n",
     )
     return len(parsed_list)
 

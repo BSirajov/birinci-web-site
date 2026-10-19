@@ -12,8 +12,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CATEGORY = "en/categories/iman-ve-meneviyyat.html"
-STEM_A = "lawful-morsel"
-STEM_B = "calamity-and-blessing"
+STEM_A = "honestly-earned-morsel"
+STEM_B = "adversity-and-blessing"
 
 
 class _QuietHandler(SimpleHTTPRequestHandler):

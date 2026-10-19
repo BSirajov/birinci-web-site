@@ -64,6 +64,8 @@ def _bootstrap() -> None:
         if not pyc.is_file():
             continue
         code = marshal.loads(pyc.read_bytes()[16:])
+        from story_filename_map import remap_code
+        code = remap_code(code)
         g = globals()
         g["__file__"] = str((_HERE / "build_website.py").resolve())
         # Prevent bytecode's own ``if __name__ == "__main__"`` from running
@@ -115,6 +117,12 @@ def _apply_overlay() -> None:
             stub.unlink()
 
     def build_one_locale_overlay(*args, **kwargs):  # type: ignore[no-untyped-def]
+        # German Wisdom has reviewed DOCX in author subfolders and stable ID
+        # aliases. The recovered legacy parser cannot consume that collection.
+        if globals().get("LANG") == "de" or (args and args[0] == "de"):
+            from build_german_wisdom import Builder
+
+            return Builder().build()
         result = _orig_build_one(*args, **kwargs)
         # After bytecode writes/prunes locale assets, restore i18n.js and scrub stubs.
         apply_shared_assets()
@@ -229,6 +237,14 @@ def _apply_overlay() -> None:
 
     _ = DISABLE_DISCOVERY_VIDEOS
 
+
+# The scoped, readable German generator also runs on Python 3.12+, without
+# loading unrelated deployment pages or the recovered CPython 3.14 bytecode.
+if __name__ == "__main__" and "--german-wisdom" in sys.argv:
+    from build_german_wisdom import Builder
+
+    Builder().build()
+    raise SystemExit(0)
 
 _bootstrap()
 _apply_overlay()

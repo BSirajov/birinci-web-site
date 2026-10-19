@@ -96,14 +96,14 @@ LANG = "az"
 
 # Listening-test set. --pilot with no stems uses these.
 PILOT_STEMS = (
-    "friend-of-god",
+    "friend-of-allah",
     "elephant-and-the-rope",
     "mothers-love",
     "baklava",
     "gossip",
     "hold-my-hand",
     "silent-corridor",
-    "weeds-must-be-pulled-from-the-root",
+    "weeds",
     "everyone-has-work-to-do",
     "glass-of-milk",
 )
@@ -263,7 +263,7 @@ _SOURCE_RE = re.compile(
 )
 _AUTHOR_SOURCE_STEMS = {
     "everyone-has-work-to-do",
-    "weeds-must-be-pulled-from-the-root",
+    "weeds",
     "silent-corridor",
 }
 

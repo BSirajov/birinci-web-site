@@ -38,10 +38,10 @@ from rebuild_stories_from_docx import (  # noqa: E402
 )
 
 STAMPS = {
-    "az": "20260930azsrc",
-    "en": "20260930ensrc",
-    "ru": "20260930rusrc",
-    "ky": "20260930kysrc",
+    "az": "20261019illust",
+    "en": "20261019illust",
+    "ru": "20261019illust",
+    "ky": "20261019illust",
 }
 
 SITE_AUTHOR = {
@@ -80,13 +80,13 @@ BAKHTIYAR_NAME_HINTS = (
 
 # EN Etibar source filenames that differ from published stems.
 EN_ETIBAR_ALIAS = {
-    "humanity": "humanity-rebuilds-in-peace",
-    "i-have-lived-another-day": "day-gratefully-lived",
-    "relationships": "kindness-builds-stronger-bonds",
-    "small-changes-great-value": "small-changes-big-meaning",
-    "the-story-of-a-nail": "nails-lasting-lesson",
-    "thoughtfulness": "caring-call-brightens-the-day",
-    "time-life-flowing-silently": "cherish-today-with-loved-ones",
+    "humanity": "humanity-etibar-siracsoy",
+    "another-day": "another-day",
+    "relationships": "relationships",
+    "small-changes-great-value": "small-changes-great-value",
+    "nails-lesson": "nails-lesson",
+    "thoughtfulness": "thoughtfulness",
+    "life-flows-silently": "life-flows-silently",
 }
 
 LABEL_ONLY_RE = re.compile(
@@ -102,7 +102,15 @@ AZ_LOWER_MAP = {
     "Ç": "ç",
     "Ə": "ə",
 }
-SKIP_DIR_NAMES = {"originals", "audio", "discovery-articles", "discoveries"}
+SKIP_DIR_NAMES = {
+    "originals",
+    "audio",
+    "discovery-articles",
+    "discoveries",
+    "backup",
+    "_backups",
+    "_reviews",
+}
 
 
 @dataclass
@@ -167,14 +175,13 @@ def resolve_stem(raw: str, published: set[str], *, prefer_alias: bool = False) -
     if prefer_alias and n in EN_ETIBAR_ALIAS and EN_ETIBAR_ALIAS[n] in published:
         return EN_ETIBAR_ALIAS[n]
     if n in published:
-        # Prefer Etibar long stem over short "humanity" when alias exists.
-        if n in EN_ETIBAR_ALIAS and EN_ETIBAR_ALIAS[n] in published:
+        if prefer_alias and n in EN_ETIBAR_ALIAS and EN_ETIBAR_ALIAS[n] in published:
             return EN_ETIBAR_ALIAS[n]
         return n
     if n in EN_ETIBAR_ALIAS and EN_ETIBAR_ALIAS[n] in published:
         return EN_ETIBAR_ALIAS[n]
-    if "nail" in n and "lasting" in n and "nails-lasting-lesson" in published:
-        return "nails-lasting-lesson"
+    if "nail" in n and "lasting" in n and "nails-lesson" in published:
+        return "nails-lesson"
     return None
 
 
@@ -243,10 +250,28 @@ def read_docx_paragraphs(path: Path) -> list[str]:
     ]
 
 
+def _english_title_case(title: str) -> bool:
+    words = [w for w in re.findall(r"[^\s]+", title) if any(c.isalpha() for c in w)]
+    if len(words) < 2:
+        return False
+    letters = [c for c in title if c.isalpha()]
+    if letters and all(c.isupper() for c in letters):
+        return False
+    first_letters = []
+    for w in words:
+        ch = next((c for c in w if c.isalpha()), "")
+        if ch:
+            first_letters.append(ch)
+    return bool(first_letters) and all(c.isupper() for c in first_letters)
+
+
 def sentence_case_title(title: str, lang: str) -> str:
     title = " ".join(title.split()).strip()
     letters = [c for c in title if c.isalpha()]
-    if not letters or not all(c.isupper() for c in letters):
+    if not letters:
+        return title
+    all_caps = all(c.isupper() for c in letters)
+    if not all_caps and not (lang == "en" and _english_title_case(title)):
         return title
 
     if lang == "az":
@@ -258,7 +283,7 @@ def sentence_case_title(title: str, lang: str) -> str:
         # Keep first character as-is (already upper), lower the rest with AZ map.
         return title[0] + "".join(low(c) for c in title[1:])
 
-    # RU/KY/EN: Unicode lower for rest; restore English pronoun I.
+    # RU/KY/EN/DE ALL CAPS: Unicode lower for rest; restore English pronoun I.
     out = title[0] + title[1:].lower()
     if lang == "en":
         out = re.sub(r"\bi\b", "I", out)
@@ -284,6 +309,8 @@ def normalize_author(source: str | None, lang: str, folder_hint: str) -> str | N
 
 
 def parse_story_docx(path: Path, stem: str, lang: str, folder_hint: str) -> Parsed:
+    from rebuild_stories_from_docx import is_form_junk, is_url_only
+
     paras = read_docx_paragraphs(path)
     if len(paras) < 2:
         raise ValueError(f"too few paragraphs ({len(paras)})")
@@ -292,11 +319,19 @@ def parse_story_docx(path: Path, stem: str, lang: str, folder_hint: str) -> Pars
     rest = paras[1:]
     source_raw: str | None = None
 
-    if rest and (is_internet_source(rest[-1]) or is_author_credit(rest[-1])):
+    while rest:
         trailing = rest[-1].strip()
-        rest = rest[:-1]
+        if is_url_only(trailing) or is_form_junk(trailing):
+            rest = rest[:-1]
+            continue
+        if is_internet_source(trailing):
+            rest = rest[:-1]
+            continue
         if is_author_credit(trailing):
             source_raw = trailing[:-1].strip() if trailing.endswith(".") else trailing
+            rest = rest[:-1]
+            continue
+        break
 
     moral = ""
     if rest:
@@ -379,7 +414,9 @@ def discover_sources(lang: str, published: set[str]) -> tuple[dict[str, Parsed],
     subdirs = [
         p
         for p in ws.iterdir()
-        if p.is_dir() and p.name.lower() not in {"audio", "illustrations", "originals"}
+        if p.is_dir()
+        and p.name.lower()
+        not in {"audio", "illustrations", "originals", "backup", "_backups", "_reviews"}
     ]
     # Process author folders; also any other non-standard folders with docx.
     docx_files: list[Path] = []

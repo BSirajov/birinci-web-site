@@ -1,6 +1,6 @@
 {
   "stems": {
-    "friend-of-god": {
+    "friend-of-allah": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -14,7 +14,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "gods-pleasure": {
+    "pleasure-of-allah": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -28,7 +28,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "blessings-god-has-given": {
+    "gifts-of-allah": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -42,7 +42,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "eat-less-and-stay-on-the-right-path": {
+    "moderation-and-honesty": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -56,7 +56,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "not-leaving-the-right-path": {
+    "staying-on-the-right-path": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -70,7 +70,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "let-prayer-come-and-find-you": {
+    "prayer-finds-you": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -84,7 +84,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "dervishs-spoons": {
+    "dervishs-long-spoons": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -112,7 +112,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "dervishs-clothes": {
+    "dervishs-appearance": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -126,7 +126,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "o-god-heal-our-sorrows": {
+    "prayer-for-relief": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -140,7 +140,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "o-god-give-first-to-the-mountains-and-stones": {
+    "give-to-me-last": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -168,7 +168,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "lawful-morsel": {
+    "honestly-earned-morsel": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -182,7 +182,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "power-of-truth": {
+    "power-of-justice": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -196,7 +196,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "forbidden-money": {
+    "ill-gotten-money": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -210,7 +210,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "faith-is-half-of-success": {
+    "confidence-is-half-the-battle": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -224,7 +224,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "idle-devil": {
+    "devil-out-of-work": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -238,7 +238,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "light-of-the-universe": {
+    "door-to-the-heart": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -266,7 +266,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "mullah-and-the-scholar": {
+    "vizier-and-the-scholar": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -294,7 +294,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "where-does-calamity-come-from": {
+    "begin-with-self-examination": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -308,7 +308,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "calamity-and-blessing": {
+    "adversity-and-blessing": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -322,7 +322,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "why-are-you-waiting-for-the-last-day-of-the-world": {
+    "why-wait": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -336,7 +336,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "to-be-fasting": {
+    "fasting": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -350,7 +350,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "pray-while-washing-your-dishes": {
+    "gratitude-at-the-sink": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -364,7 +364,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "if-fate-allows-we-will-meet": {
+    "if-fate-allows": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -420,7 +420,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "help-yourself-o-exalted-god": {
+    "prayer-for-everyone": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -476,7 +476,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "your-hand-at-work-your-hope-in-god": {
+    "hands-at-work-hope-in-god": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -490,7 +490,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "most-beautiful-portion": {
+    "lifes-finest-blessing": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -504,7 +504,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "value-of-your-family": {
+    "hour-with-dad": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -518,7 +518,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "weeds-must-be-pulled-from-the-root": {
+    "weeds": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -574,7 +574,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "fathers-footprints": {
+    "fathers-footsteps": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -588,7 +588,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "grandfather-and-grandson-at-the-market": {
+    "stay-calm-arif": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -616,7 +616,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "only-my-mother-would-weep": {
+    "only-my-mother-truly-weeps": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -630,7 +630,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "i-am-waiting-for-the-teeth": {
+    "waiting-for-the-teeth": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -644,7 +644,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "mothers-advice-fakir-baykurt-never-forgot": {
+    "mothers-lasting-lesson": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -672,7 +672,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "from-a-wise-fathers-advice-to-his-son": {
+    "fathers-advice": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -714,7 +714,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "i-am-tired-mother": {
+    "im-tired-mom": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -728,7 +728,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "builder-of-the-nest": {
+    "nest-builder": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -756,7 +756,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "raising-children": {
+    "raising-a-child": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -840,7 +840,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "what-breaks-a-marriage": {
+    "eraser-in-marriage": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -854,7 +854,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "advice-for-those-who-marry": {
+    "before-you-marry": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -882,7 +882,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "rose": {
+    "flower": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -910,7 +910,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "what-women-have-endured-in-this-world": {
+    "what-women-endure": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -952,7 +952,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "do-not-let-your-hearts-part": {
+    "keep-your-hearts-close": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -980,7 +980,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "beware-of-those-you-love": {
+    "five-more-minutes": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -994,7 +994,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "beloved-is-one-who-gives-love-to-people": {
+    "those-who-give-love-receive-love": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1092,7 +1092,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "meddling-in-others-lives": {
+    "respecting-boundaries": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1148,7 +1148,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "everyone-is-the-same-here": {
+    "everyone-is-equal-here": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1176,7 +1176,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "i-want-a-friend": {
+    "i-wish-for-a-friend": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1190,7 +1190,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "those-you-should-not-befriend": {
+    "choosing-friends": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1232,7 +1232,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "permission-or-apology": {
+    "permission-or-forgiveness": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1330,7 +1330,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "why-people-shout-when-they-argue": {
+    "why-shout": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1344,7 +1344,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "sound-of-the-doorbell": {
+    "doorbell": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1358,7 +1358,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "people-who-need-something-from-you": {
+    "request-for-help": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1386,7 +1386,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "to-meet-and-to-know": {
+    "beyond-first-impressions": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1400,7 +1400,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "how-to-ward-off-insults": {
+    "unwelcome-gifts": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1414,7 +1414,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "to-be-alone": {
+    "being-lonely": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1428,7 +1428,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "spend-your-time-with-people": {
+    "make-time-for-people": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1442,7 +1442,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "welcome-my-bey": {
+    "welcome-home-my-dear": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1456,7 +1456,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "if-the-road-does-not-tire-you-it-is-because-of-your-companion": {
+    "sharing-the-burden": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1470,7 +1470,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "to-forgive": {
+    "forgiveness": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1498,7 +1498,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "i-am-aware-now": {
+    "now-i-understand": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1512,7 +1512,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "dont-open-your-mouth": {
+    "think-before-speaking": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1526,7 +1526,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "dont-be-words-for-mouths-dust-for-feet": {
+    "keep-your-self-respect": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1540,7 +1540,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "who-handles-honey-licks-his-finger": {
+    "grocers-sticky-fingers": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1568,7 +1568,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "he-would-not-have-given-so-little": {
+    "kings-generosity": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1596,7 +1596,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "do-not-do-these-things": {
+    "do-not-deepen-anothers-pain": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1610,7 +1610,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "no-one-listens-to-constant-complainers": {
+    "beyond-complaining": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1638,7 +1638,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "how-can-i-escape-my-thoughts": {
+    "letting-go-of-painful-thoughts": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1652,7 +1652,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "explaining-ones-sorrow": {
+    "how-we-express-sorrow": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1680,7 +1680,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "i-would-not-trade-it-for-anything": {
+    "sunlit-day": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1694,7 +1694,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "not-every-sorrow-is-told-to-people": {
+    "choose-your-confidant": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1708,7 +1708,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "everything-is-in-our-own-hands": {
+    "in-your-hands": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1722,7 +1722,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "meaningless-question": {
+    "question-the-question": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1736,7 +1736,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "be-sure-of-your-purpose": {
+    "shared-goal": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1750,7 +1750,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "that-was-not-your-right": {
+    "justice-and-compassion": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1764,7 +1764,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "you-cannot-descend-a-well-on-his-rope": {
+    "alis-unreliable-rope": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1778,7 +1778,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "think-speak-and-act-positively": {
+    "thought-word-and-deed": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1792,7 +1792,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "attitude-toward-a-problem": {
+    "facing-a-problem": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1806,7 +1806,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "to-be-cool-headed": {
+    "keeping-your-cool": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1834,7 +1834,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "i-got-busy-with-cleaning": {
+    "inner-housekeeping": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1848,7 +1848,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "expressions-you-should-stay-away-from": {
+    "words-to-avoid": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1862,7 +1862,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "to-give-up": {
+    "letting-go": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1876,7 +1876,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "our-qualities-can-become-our-enemies": {
+    "strengths-and-vulnerabilities": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1904,7 +1904,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "do-not-complain-about-any-day-you-have-lived": {
+    "every-day-has-meaning": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1932,7 +1932,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "goose-to-be-plucked": {
+    "plucking-the-goose": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1946,7 +1946,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "try-to-think-this-way": {
+    "learning-to-say-yet": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1960,7 +1960,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "dont-say-i-couldnt-deliver-or-i-couldnt-manage": {
+    "try-again": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1974,7 +1974,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "turning-hardship-into-opportunity": {
+    "obstacles-and-opportunities": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -1988,7 +1988,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "to-be-self-confident": {
+    "believe-in-yourself": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2002,7 +2002,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "other-peoples-opinions": {
+    "other-peoples-thoughts": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2016,7 +2016,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "may-your-face-always-smile": {
+    "welcoming-smile": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2072,7 +2072,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "say-what-you-know": {
+    "share-what-you-know": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2086,7 +2086,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "one-who-knows-and-the-one-who-does-not": {
+    "knowing-what-you-know": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2100,7 +2100,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "tongue": {
+    "language": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2128,7 +2128,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "word-and-silence": {
+    "words-and-silence": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2142,7 +2142,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "saying-the-word-in-its-place": {
+    "well-chosen-words": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2184,7 +2184,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "shepherd-must-be-called": {
+    "call-the-shepherd": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2254,7 +2254,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "spare-time": {
+    "free-time": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2268,7 +2268,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "it-is-in-vain": {
+    "its-pointless": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2282,7 +2282,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "if-i-dont-do-it-these-days-the-world-wont-collapse": {
+    "cost-of-indifference": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2296,7 +2296,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "this-boat-is-empty-too": {
+    "empty-boat": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2338,7 +2338,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "more-effective-way": {
+    "sharpen-the-axe": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2352,7 +2352,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "sowing-millet-at-the-bottom": {
+    "draining-the-coffers": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2380,7 +2380,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "most-beautiful-places-in-the-world": {
+    "place-in-loving-hearts": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2408,7 +2408,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "what-it-means-to-be-late": {
+    "before-it-is-too-late": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2422,7 +2422,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "blind-who-have-eyes": {
+    "seeing-without-understanding": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2436,7 +2436,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "no-need-to-be-sane-when-everyone-is-mad": {
+    "price-of-belonging": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2450,7 +2450,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "doctors-appointment": {
+    "doctors-office": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2464,7 +2464,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "life-lesson": {
+    "light-of-the-world": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2492,7 +2492,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "what-we-learn-in-life": {
+    "lifes-lessons": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2534,7 +2534,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "human-emerged": {
+    "human-being-emerged": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2548,7 +2548,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "from-the-memoirs-of-a-lady-from-istanbul": {
+    "istanbul-woman-remembers": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2562,7 +2562,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "it-wont-go-to-waste": {
+    "never-lost": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2576,7 +2576,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "nothing-is-ever-truly-lost": {
+    "learning-from-loss": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2618,7 +2618,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "blind-well": {
+    "dry-well": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2632,7 +2632,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "windmill-turning-in-still-air": {
+    "windmill-turning-without-wind": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2646,7 +2646,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "lecturer-and-the-groom": {
+    "audience-of-one": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2660,7 +2660,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "teacher-hello-do-you-remember-me": {
+    "do-you-remember-me": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2688,7 +2688,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "what-do-i-need-it-for": {
+    "not-my-concern": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2702,7 +2702,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "road-to-the-cotton-field": {
+    "beyond-the-cotton-field": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2730,7 +2730,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "properties-of-water": {
+    "qualities-of-water": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2744,7 +2744,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "to-be-full-or-to-be-gone": {
+    "stronger-together": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2758,7 +2758,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "to-dream": {
+    "dreaming": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2772,7 +2772,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "secret-of-living-well-and-longevity": {
+    "living-well": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2786,7 +2786,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "dead-remain-in-life": {
+    "living-with-loss": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2814,7 +2814,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "if-the-door-before-you-wont-open-it-is-not-your-door": {
+    "different-door": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2842,7 +2842,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "three-landscapes": {
+    "three-scenes": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2884,7 +2884,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "grocery-shop-and-the-supermarket": {
+    "butter-price-war": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2912,7 +2912,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "chief-accountant-and-the-ceo": {
+    "investing-in-people": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2940,7 +2940,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "organization-without-an-action-plan": {
+    "without-a-plan": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -2996,7 +2996,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "former-minister-at-the-seminar": {
+    "plastic-cup": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -3024,7 +3024,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "why-am-i-poor": {
+    "giving-without-money": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -3080,7 +3080,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "do-you-have-spending-money": {
+    "more-than-money": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -3108,7 +3108,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "weight-of-the-oil": {
+    "weight-of-the-butter": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -3122,7 +3122,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "his-hand-is-at-work": {
+    "busy-but-unproductive": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -3136,7 +3136,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "with-this-nation-the-world-can-be-conquered": {
+    "market-of-good-neighbors": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -3150,7 +3150,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "bedouin-whose-camel-was-stolen": {
+    "stolen-camel": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -3164,7 +3164,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "woman-whose-house-was-robbed": {
+    "who-was-keeping-watch": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -3178,7 +3178,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "just-verdict-of-the-frankfurt-judge": {
+    "judges-answer": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -3192,7 +3192,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "bell-to-hang-on-the-cats-neck": {
+    "belling-the-cat": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -3206,7 +3206,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "skins-of-the-lambs": {
+    "lambs-skins": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -3220,7 +3220,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "homeland-and-land": {
+    "land-and-homeland": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -3234,7 +3234,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "why-injustice-when-there-is-justice": {
+    "choose-justice": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -3276,7 +3276,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "for-those-who-have-reached-sixty": {
+    "life-after-sixty": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -3304,7 +3304,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "lions-footprint": {
+    "lions-tracks": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -3360,7 +3360,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "fly-in-the-china-shop": {
+    "fly-in-a-china-shop": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -3374,7 +3374,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "hunters-description": {
+    "lions-untold-story": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -3388,7 +3388,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "ant-that-carries-water": {
+    "ant-carrying-water": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -3402,7 +3402,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "turtles-wrong-calculation": {
+    "tortoises-miscalculation": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -3430,7 +3430,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "architect-sinan-dies-in-a-house-without-water": {
+    "sinans-waterless-house": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -3444,7 +3444,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "mihrimah-sultan-and-architect-sinan": {
+    "mihrimah-and-sinan": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -3458,7 +3458,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "magnificent-lesson": {
+    "remarkable-lesson": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
@@ -3472,7 +3472,7 @@
       "audio_ky": "pending",
       "illustration_ky": "done"
     },
-    "three-essential-things-for-a-city": {
+    "three-essentials-for-a-city": {
       "text_az": "done",
       "audio_az": "done",
       "illustration_az": "done",
