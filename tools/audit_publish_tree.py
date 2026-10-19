@@ -2,7 +2,7 @@
 from pathlib import Path
 from urllib.parse import urlsplit, unquote
 from collections import Counter
-import argparse, json, re
+import argparse, json, re, os
 import xml.etree.ElementTree as ET
 from lxml import html
 
@@ -40,7 +40,9 @@ def audit(root):
                 if u.netloc and u.netloc not in {'birinci.cloud','www.birinci.cloud'}:continue
                 refs+=1
                 target=(root/unquote(u.path).lstrip('/') if u.path.startswith('/') or u.netloc else p.parent/unquote(u.path)) if u.path else p
-                target=target.resolve()
+                # resolve() corrects filename casing on Windows, hiding broken
+                # Linux URLs. Normalize dot segments without changing spelling.
+                target=Path(os.path.abspath(target))
                 if target.is_dir():target=target/'index.html'
                 if not target.is_relative_to(root):fail('outside-root',raw);continue
                 if target.relative_to(root).as_posix() not in names:fail('missing-target',raw);continue
