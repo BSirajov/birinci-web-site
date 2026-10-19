@@ -25,7 +25,7 @@ DEPLOY = ROOT / "deployment"
 LANGS = SUPPORTED_LANGS
 COPY_DIRS = ("assets", "categories")
 CONTENT_DIRS = ("wisdom-stories", "discovery-articles")
-OPTIONAL_PAGE_DIRS = ("about", "discoveries", "stories")
+OPTIONAL_PAGE_DIRS = ("about", "discoveries", "stories", "authors")
 OPTIONAL_DIRS = ("data",)
 COPY_FILES = (
     "index.html",
@@ -329,7 +329,9 @@ def apply_deploy_cache_stamp(tree: Path, stamp: str) -> int:
     import chrome_restore
 
     previous = chrome_restore.SITE_ASSET_VERSION
+    previous_chrome = chrome_restore.SITE_CHROME_ASSET_VERSION
     chrome_restore.SITE_ASSET_VERSION = stamp
+    chrome_restore.SITE_CHROME_ASSET_VERSION = stamp
     changed = 0
     try:
         for path in tree.rglob("*"):
@@ -344,6 +346,7 @@ def apply_deploy_cache_stamp(tree: Path, stamp: str) -> int:
                 changed += 1
     finally:
         chrome_restore.SITE_ASSET_VERSION = previous
+        chrome_restore.SITE_CHROME_ASSET_VERSION = previous_chrome
     (tree / ".htaccess").write_text(PRODUCTION_HTACCESS, encoding="utf-8", newline="\n")
     return changed
 

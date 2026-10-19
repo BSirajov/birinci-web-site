@@ -1,0 +1,160 @@
+{
+  "date": "2026-10-20",
+  "scope": "Local active Word sources and local website files; excludes archived backups and deployed website",
+  "status": "PASS",
+  "source_documents": 1285,
+  "article_copies": 1555,
+  "website_files_changed": 0,
+  "word_documents_changed": 0,
+  "presentation_conventions": [
+    "12 Azerbaijani titles are uppercase in Word and sentence case on the website; wording matches.",
+    "German moral labels are normalized to Lehre: on the website.",
+    "Whitespace and HTML line-break layout are normalized for comparison.",
+    "Five Azerbaijani poems intentionally have no moral."
+  ],
+  "languages": {
+    "az": {
+      "source_documents": 261,
+      "catalog_stories": 261,
+      "html_files": 23,
+      "article_copies": 261,
+      "title_differences": [
+        {
+          "stem": "my-lifes-journey",
+          "word": "ÖMÜR YOLUM",
+          "website": "Ömür yolum"
+        },
+        {
+          "stem": "nails-lesson",
+          "word": "BİR MİSMARIN HEKAYƏSİ",
+          "website": "Bir mismarın hekayəsi"
+        },
+        {
+          "stem": "thoughtfulness",
+          "word": "DİQQƏT",
+          "website": "Diqqət"
+        },
+        {
+          "stem": "relationships",
+          "word": "MÜNASİBƏTLƏR",
+          "website": "Münasibətlər"
+        },
+        {
+          "stem": "time-has-passed",
+          "word": "ÖTDÜ DÖVRAN",
+          "website": "Ötdü dövran"
+        },
+        {
+          "stem": "another-day",
+          "word": "BİR GÜN DƏ YAŞADIM...",
+          "website": "Bir gün də yaşadım..."
+        },
+        {
+          "stem": "reflections",
+          "word": "DÜŞÜNCƏLƏR",
+          "website": "Düşüncələr"
+        },
+        {
+          "stem": "flowers",
+          "word": "GÜLLƏR",
+          "website": "Güllər"
+        },
+        {
+          "stem": "small-changes-great-value",
+          "word": "KİÇİK YENİLİKLƏR, BÖYÜK DƏYƏRLƏR...",
+          "website": "Kiçik yeniliklər, böyük dəyərlər..."
+        },
+        {
+          "stem": "pandemic-and-quarantine",
+          "word": "PANDEMİYA, KARANTİN",
+          "website": "Pandemiya, karantin"
+        },
+        {
+          "stem": "humanity-etibar-siracsoy",
+          "word": "İNSANLIQ",
+          "website": "İnsanlıq"
+        },
+        {
+          "stem": "life-flows-silently",
+          "word": "ZAMAN — SƏSSİZ AXAN ÖMÜR",
+          "website": "Zaman — səssiz axan ömür"
+        }
+      ],
+      "unlisted_documents": [],
+      "errors": []
+    },
+    "en": {
+      "source_documents": 256,
+      "catalog_stories": 256,
+      "html_files": 24,
+      "article_copies": 256,
+      "title_differences": [],
+      "unlisted_documents": [],
+      "errors": []
+    },
+    "ru": {
+      "source_documents": 256,
+      "catalog_stories": 256,
+      "html_files": 23,
+      "article_copies": 256,
+      "title_differences": [],
+      "unlisted_documents": [],
+      "errors": []
+    },
+    "ky": {
+      "source_documents": 256,
+      "catalog_stories": 256,
+      "html_files": 23,
+      "article_copies": 256,
+      "title_differences": [],
+      "unlisted_documents": [],
+      "errors": []
+    },
+    "de": {
+      "source_documents": 256,
+      "catalog_stories": 256,
+      "html_files": 274,
+      "article_copies": 526,
+      "title_differences": [],
+      "unlisted_documents": [],
+      "errors": []
+    }
+  },
+  "editorial_checks": {
+    "az": {
+      "stories_checked": 261,
+      "documents_edited": 69,
+      "errors": [],
+      "docx_visual_qa": "unavailable: no LibreOffice renderer"
+    },
+    "en": {
+      "stories_checked": 256,
+      "documents_edited": 24,
+      "errors": [],
+      "docx_visual_qa": "unavailable: no LibreOffice renderer"
+    },
+    "ru": {
+      "stories_checked": 256,
+      "documents_edited": 68,
+      "errors": [],
+      "docx_visual_qa": "unavailable: no LibreOffice renderer"
+    },
+    "ky": {
+      "stories_checked": 256,
+      "documents_edited": 70,
+      "errors": [],
+      "docx_visual_qa": "unavailable: no LibreOffice renderer"
+    },
+    "de": {
+      "stories_checked": 256,
+      "documents_edited": 29,
+      "errors": [],
+      "docx_visual_qa": "unavailable: no LibreOffice renderer"
+    }
+  },
+  "german_page_checks": {
+    "standalone_pages_checked": 256,
+    "article_copies_checked": 526,
+    "errors": []
+  }
+}

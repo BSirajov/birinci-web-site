@@ -1,0 +1,577 @@
+{
+  "language": "de",
+  "date": "2026-10-20",
+  "stories_reviewed": 256,
+  "source_documents_edited": 29,
+  "source_paragraphs_edited": 42,
+  "paragraph_corrections": [
+    {
+      "path": "de/wisdom-stories/Bakhtiyar Sirajov/cost-of-indifference.docx",
+      "paragraph": 4,
+      "before": "Es ging nicht darum, dass sich die Aufgabe um ein paar Tage verzögerte. Es ging um die Haltung eines Menschen gegenüber der Verpflichtung, die er übernommen hatte. Verantwortung bedeutet nämlich nicht nur, eine Arbeit zu erledigen, sondern auch zu seinem Wort zu stehen, das Vertrauen des anderen zu rechtfertigen und dafür zu sorgen, dass die Menschen sich auf einen verlassen können.",
+      "after": "Es ging nicht darum, dass sich die Aufgabe um ein paar Tage verzögerte. Es ging um die Haltung eines Menschen gegenüber der Verpflichtung, die er übernommen hatte. Verantwortung bedeutet nämlich nicht nur, eine Arbeit zu erledigen, sondern auch zu seinem Wort zu stehen, das Vertrauen des anderen zu verdienen und dafür zu sorgen, dass die Menschen sich auf einen verlassen können."
+    },
+    {
+      "path": "de/wisdom-stories/beyond-the-cotton-field.docx",
+      "paragraph": 14,
+      "before": "Bis dahin hatten wir nicht einmal davon geträumt, weiterzulernen oder einen anderen Beruf auszuüben als den Baumwollanbau. Wir glaubten, vor uns liege nur ein einziger Weg: der zum Baumwollfeld.",
+      "after": "Bis dahin hatten wir nicht einmal davon geträumt, weiterzulernen oder einen anderen Beruf zu ergreifen, statt auf den Baumwollfeldern zu arbeiten. Wir glaubten, vor uns liege nur ein einziger Weg: der zum Baumwollfeld."
+    },
+    {
+      "path": "de/wisdom-stories/butter-price-war.docx",
+      "paragraph": 2,
+      "before": "Beide Geschäfte schrieben ihre Preise auf Tafeln vor der Tür. Kaum stand beim Supermarkt „Butter — 70 Euro “, stellte die Frau ihr eigenes Angebot daneben:",
+      "after": "Beide Geschäfte schrieben ihre Preise auf Tafeln vor der Tür. Kaum stand beim Supermarkt „Butter — 70 Euro“, stellte die Frau ihr eigenes Angebot daneben:"
+    },
+    {
+      "path": "de/wisdom-stories/choosing-friends.docx",
+      "paragraph": 1,
+      "before": "Schließe keine Freundschaft mit einem überheblichen Menschen! Er versucht nicht, dich zu verstehen, hört deinen Sorgen nicht zu und nimmt auf deine Gefühle keine Rücksicht — das wird dich verletzen.",
+      "after": "Schließe keine Freundschaft mit einem überheblichen Menschen! Er versucht nicht, dich zu verstehen, hört dir nicht zu, wenn du von deinen Sorgen erzählst und nimmt auf deine Gefühle keine Rücksicht — das wird dich verletzen."
+    },
+    {
+      "path": "de/wisdom-stories/different-door.docx",
+      "paragraph": 5,
+      "before": "Zwei Jahre später begegneten sie sich wieder. Sie begrüßten sich freundlich und erkundigten sich nacheinander. Cemal erzählte, dass er ein eigenes Unternehmen gegründet habe und die Geschäfte gut liefen. Herr Selim freute sich darüber.",
+      "after": "Zwei Jahre später begegneten sie sich wieder. Sie begrüßten sich freundlich und erkundigten sich nach dem Befinden des jeweils anderen. Cemal erzählte, dass er ein eigenes Unternehmen gegründet habe und die Geschäfte gut liefen. Herr Selim freute sich darüber."
+    },
+    {
+      "path": "de/wisdom-stories/do-you-remember-me.docx",
+      "paragraph": 21,
+      "before": "Lehre: Gute Erziehung bedeutet nicht, einen Fehler zu übersehen, sondern einem Menschen zu helfen, ihn zu korrigieren, ohne seine Würde zu verletzen. Manchmal kann ein einziger einfühlsamer Umgang mit einem Kind dessen ganzem Leben eine Richtung geben.",
+      "after": "Lehre: Gute Erziehung bedeutet nicht, einen Fehler zu übersehen, sondern einem Menschen zu helfen, ihn zu korrigieren, ohne seine Würde zu verletzen. Manchmal kann eine einzige einfühlsame Begegnung mit einem Kind dessen ganzem Leben eine Richtung geben."
+    },
+    {
+      "path": "de/wisdom-stories/doctors-office.docx",
+      "paragraph": 8,
+      "before": "„Der Arzt hat gesagt, dass er nüchtern zur Untersuchung kommen muss … Ich habe mir von der Arbeit freigenommen, und wir haben eine lange Anfahrt hinter uns. Jetzt müssen wir die Untersuchung vielleicht verschieben.“",
+      "after": "„Der Arzt hat gesagt, dass er nüchtern zur Untersuchung kommen muss … Ich habe mir freigenommen, und wir haben eine lange Anfahrt hinter uns. Jetzt müssen wir die Untersuchung vielleicht verschieben.“"
+    },
+    {
+      "path": "de/wisdom-stories/call-the-shepherd.docx",
+      "paragraph": 2,
+      "before": "— Meinen Segen sollst du haben, sagte der Meister. Doch zuerst musst du eine Frage beantworten. Ich möchte sehen, wie gut du verstanden hast, was ich dich all die Jahre gelehrt habe.",
+      "after": "„Meinen Segen sollst du haben“, sagte der Meister. „Doch zuerst musst du eine Frage beantworten. Ich möchte sehen, wie gut du verstanden hast, was ich dich all die Jahre gelehrt habe.“"
+    },
+    {
+      "path": "de/wisdom-stories/call-the-shepherd.docx",
+      "paragraph": 3,
+      "before": "— Bitte, Meister, fragt nur, antwortete der Schüler selbstbewusst.",
+      "after": "„Bitte, Meister, fragt nur“, antwortete der Schüler selbstbewusst."
+    },
+    {
+      "path": "de/wisdom-stories/call-the-shepherd.docx",
+      "paragraph": 4,
+      "before": "— Stell dir vor, du kehrst in dein Dorf zurück. Unterwegs stürmen die Hunde eines Hirten auf dich zu. Was würdest du tun, um dich zu schützen?",
+      "after": "„Stell dir vor, du kehrst in dein Dorf zurück. Unterwegs stürmen die Hunde eines Hirten auf dich zu. Was würdest du tun, um dich zu schützen?“"
+    },
+    {
+      "path": "de/wisdom-stories/call-the-shepherd.docx",
+      "paragraph": 5,
+      "before": "— Ich würde ein paar Steine aufheben und nach den Hunden werfen, um sie zu vertreiben.",
+      "after": "„Ich würde ein paar Steine aufheben und nach den Hunden werfen, um sie zu vertreiben.“"
+    },
+    {
+      "path": "de/wisdom-stories/call-the-shepherd.docx",
+      "paragraph": 6,
+      "before": "— Einen oder zwei könntest du vielleicht vertreiben. Aber was, wenn sie alle gleichzeitig angreifen?",
+      "after": "„Einen oder zwei könntest du vielleicht vertreiben. Aber was, wenn sie alle gleichzeitig angreifen?“"
+    },
+    {
+      "path": "de/wisdom-stories/call-the-shepherd.docx",
+      "paragraph": 8,
+      "before": "— Dann würde ich weglaufen.",
+      "after": "„Dann würde ich weglaufen.“"
+    },
+    {
+      "path": "de/wisdom-stories/call-the-shepherd.docx",
+      "paragraph": 9,
+      "before": "— Und wenn die Hunde schneller sind und dich einholen?",
+      "after": "„Und wenn die Hunde schneller sind und dich einholen?“"
+    },
+    {
+      "path": "de/wisdom-stories/call-the-shepherd.docx",
+      "paragraph": 11,
+      "before": "— Was soll ich denn tun, Meister?",
+      "after": "„Was soll ich denn tun, Meister?“"
+    },
+    {
+      "path": "de/wisdom-stories/call-the-shepherd.docx",
+      "paragraph": 12,
+      "before": "— Du musst den Hirten rufen, antwortete der Meister. Bitte ihn, seine Hunde zurückzurufen. Du hast überlegt, wie du gegen jeden einzelnen Hund kämpfen könntest. Aber den Menschen um Hilfe zu bitten, der sie beruhigen kann, ist dir nicht in den Sinn gekommen.",
+      "after": "„Du musst den Hirten rufen“, antwortete der Meister. „Bitte ihn, seine Hunde zurückzurufen. Du hast überlegt, wie du gegen jeden einzelnen Hund kämpfen könntest. Aber den Menschen um Hilfe zu bitten, der sie beruhigen kann, ist dir nicht in den Sinn gekommen.“"
+    },
+    {
+      "path": "de/wisdom-stories/Etibar Siracsoy/another-day.docx",
+      "paragraph": 4,
+      "before": "Manchmal fragt sich der Mensch: Welche Weisheit lag darin, dass Gott mir diesen Tag geschenkt hatte? Habe ich dieses göttliche, mir anvertraute Geschenk zu schätzen gewusst? Was habe ich diesem Tag hinzugefügt, was habe ich aus ihm mitgenommen? Welches Licht habe ich meiner Seele geschenkt, welche Gelegenheit versäumt?",
+      "after": "Manchmal fragt sich der Mensch: Welche Weisheit lag darin, dass Gott mir diesen Tag geschenkt hat? Habe ich dieses göttliche, mir anvertraute Geschenk zu schätzen gewusst? Was habe ich diesem Tag hinzugefügt, was habe ich aus ihm mitgenommen? Welches Licht habe ich meiner Seele geschenkt, welche Gelegenheit versäumt?"
+    },
+    {
+      "path": "de/wisdom-stories/everyone-is-equal-here.docx",
+      "paragraph": 14,
+      "before": "Als der Junge fertig war, bezahlte er ihn und gab ihm zusätzlich etwas Geld zur Unterstützung. Im Gespräch erfuhr er, dass der Vater des Jungen gestorben war. Der Junge ging zur Schule und arbeitete nach dem Unterricht, um seiner kranken Mutter zu helfen.",
+      "after": "Als der Junge fertig war, bezahlte der Bürgermeister ihn und gab ihm zusätzlich etwas Geld zur Unterstützung. Im Gespräch erfuhr er, dass der Vater des Jungen gestorben war. Der Junge ging zur Schule und arbeitete nach dem Unterricht, um seiner kranken Mutter zu helfen."
+    },
+    {
+      "path": "de/wisdom-stories/fathers-advice.docx",
+      "paragraph": 2,
+      "before": "Lass dich im Leben von gutem Urteilsvermögen leiten. Begegne Menschen aufmerksam, wähle deine Worte mit Bedacht und handle gerecht. Klugheit bedeutet, neben dem eigenen Vorteil auch die Rechte anderer zu sehen.",
+      "after": "lass dich im Leben von gutem Urteilsvermögen leiten. Begegne Menschen aufmerksam, wähle deine Worte mit Bedacht und handle gerecht. Klugheit bedeutet, neben dem eigenen Vorteil auch die Rechte anderer zu sehen."
+    },
+    {
+      "path": "de/wisdom-stories/hands-at-work-hope-in-god.docx",
+      "paragraph": 9,
+      "before": "Schließlich hörte er eines Tages eine unsichtbare Stimme:",
+      "after": "Schließlich hörte er eines Tages eine Stimme, ohne jemanden zu sehen:"
+    },
+    {
+      "path": "de/wisdom-stories/hayats-life-story.docx",
+      "paragraph": 81,
+      "before": "Moral: Keine Tradition und keine Vorstellung von „Ehre“ rechtfertigen Gewalt oder das Recht, einem Kind seine Zukunft zu nehmen. Kinder gehören in ein sicheres Zuhause und in die Schule, nicht in eine Zwangsehe. Wer um Hilfe bittet, braucht Schutz statt Verurteilung.",
+      "after": "Moral: Keine Tradition und keine Vorstellung von „Ehre“ rechtfertigen es, Gewalt auszuüben oder einem Kind seine Zukunft zu nehmen. Kinder gehören in ein sicheres Zuhause und in die Schule, nicht in eine Zwangsehe. Wer um Hilfe bittet, braucht Schutz statt Verurteilung."
+    },
+    {
+      "path": "de/wisdom-stories/ill-gotten-money.docx",
+      "paragraph": 2,
+      "before": "Unerlaubtes Geld",
+      "after": "Unrechtmäßig erworbenes Geld"
+    },
+    {
+      "path": "de/wisdom-stories/life-after-sixty.docx",
+      "paragraph": 2,
+      "before": "Erlaube dir, das zu genießen, was du dir erarbeitet hast. Behalte künftige Bedürfnisse im Blick, aber gönne dir auch Annehmlichkeiten, Freude und lang gehegte Wünsche. Du musst nicht auf alles verzichten, um anderen möglichst viel zu hinterlassen.",
+      "after": "Erlaube dir, das zu genießen, was du dir erarbeitet hast. Behalte künftige Bedürfnisse im Blick, aber gönne dir auch Annehmlichkeiten und Freude und erfülle dir lang gehegte Wünsche. Du musst nicht auf alles verzichten, um anderen möglichst viel zu hinterlassen."
+    },
+    {
+      "path": "de/wisdom-stories/make-time-for-people.docx",
+      "paragraph": 11,
+      "before": "Du weißt doch, dass ich mich oft einsam fühle. Ich muss Menschen sehen und mit jemandem reden können. Ich ziehe mich gerne an, gehe aus dem Haus und komme hierher. Ich habe die Zeit, und diese Begegnungen machen mir Freude.",
+      "after": "Du weißt doch, dass ich mich oft einsam fühle. Ich muss Menschen sehen und mit jemandem reden können. Ich mache mich gerne zurecht, gehe aus dem Haus und komme hierher. Ich habe die Zeit, und diese Begegnungen machen mir Freude."
+    },
+    {
+      "path": "de/wisdom-stories/not-my-concern.docx",
+      "paragraph": 11,
+      "before": "„Mein Sultan, wie könnte ich eure Frage leichtfertig behandeln? Ich habe gründlich darüber nachgedacht und euch meine Antwort mitgeteilt.“",
+      "after": "„Mein Sultan, wie könnte ich Eure Frage leichtfertig behandeln? Ich habe gründlich darüber nachgedacht und Euch meine Antwort mitgeteilt.“"
+    },
+    {
+      "path": "de/wisdom-stories/prayer-for-relief.docx",
+      "paragraph": 2,
+      "before": "Bei Deinen Namen, der Allerbarmer und der Barmherzige: Lindere unsere Not.",
+      "after": "Bei Deinen Namen „der Allerbarmer“ und „der Barmherzige“: Lindere unsere Not."
+    },
+    {
+      "path": "de/wisdom-stories/prayer-for-relief.docx",
+      "paragraph": 3,
+      "before": "Bei Deinen Namen, der stets Vergebende und der die Reue Annimmt: Vergib uns unsere Sünden und nimm unsere Reue an.",
+      "after": "Bei Deinen Namen „der stets Vergebende“ und „der die Reue annimmt“: Vergib uns unsere Sünden und nimm unsere Reue an."
+    },
+    {
+      "path": "de/wisdom-stories/prayer-for-relief.docx",
+      "paragraph": 4,
+      "before": "Bei Deinem Namen, der Versorger: Segne unseren Lebensunterhalt.",
+      "after": "Bei Deinem Namen „der Versorger“: Segne unseren Lebensunterhalt."
+    },
+    {
+      "path": "de/wisdom-stories/prayer-for-relief.docx",
+      "paragraph": 5,
+      "before": "Bei Deinem Namen, der Heiler: Schenke unseren Kranken Heilung.",
+      "after": "Bei Deinem Namen „der Heiler“: Schenke unseren Kranken Heilung."
+    },
+    {
+      "path": "de/wisdom-stories/prayer-for-relief.docx",
+      "paragraph": 6,
+      "before": "Bei Deinem Namen, der Öffnende: Öffne uns Türen zum Guten.",
+      "after": "Bei Deinem Namen „der Öffnende“: Öffne uns Türen zum Guten."
+    },
+    {
+      "path": "de/wisdom-stories/shepherds-word.docx",
+      "paragraph": 8,
+      "before": "Die Worte des Hirten sprachen sich im ganzen Dorf herum. Der Gutsherr verlor das Ansehen der Dorfbewohner, und sie scheuten sich zunehmend, Geschäfte mit ihm zu machen. Schließlich begriff auch er: Der Wert eines Menschen bemisst sich nicht nach seinem Besitz oder seiner Stellung, sondern danach, ob er zu seinem Wort steht.",
+      "after": "Die Worte des Hirten sprachen sich im ganzen Dorf herum. Der Gutsherr verlor sein Ansehen bei den Dorfbewohnern, und sie scheuten sich zunehmend, Geschäfte mit ihm zu machen. Schließlich begriff auch er: Der Wert eines Menschen bemisst sich nicht nach seinem Besitz oder seiner Stellung, sondern danach, ob er zu seinem Wort steht."
+    },
+    {
+      "path": "de/wisdom-stories/strength-and-sorrow.docx",
+      "paragraph": 2,
+      "before": "Lehre: Niemand kann angesichts jeden Leids stark bleiben. In schweren Zeiten um Kraft und Hilfe zu bitten und die eigenen Grenzen anzuerkennen, ist keine Schwäche.",
+      "after": "Lehre: Niemand kann angesichts jedes Leids stark bleiben. In schweren Zeiten um Kraft und Hilfe zu bitten und die eigenen Grenzen anzuerkennen, ist keine Schwäche."
+    },
+    {
+      "path": "de/wisdom-stories/three-scenes.docx",
+      "paragraph": 9,
+      "before": "„Der Mann mit den Steinen zeigt, wie man sich an Unrecht gewöhnt. Beim ersten Mal lastet das Gewissen schwer auf einem Menschen. Wenn er jedoch keine Reue empfindet und sein Verhalten nicht ändert, fällt ihm dieselbe Tat beim nächsten Mal leichter. Eine Sünde, die nicht bereut wird, kann einer weiteren die Tür öffnen.“",
+      "after": "„Der Mann mit den Steinen zeigt, wie man sich an Unrecht gewöhnt. Beim ersten Mal plagt einen Menschen das Gewissen. Wenn er jedoch keine Reue empfindet und sein Verhalten nicht ändert, fällt ihm dieselbe Tat beim nächsten Mal leichter. Eine Sünde, die nicht bereut wird, kann einer weiteren die Tür öffnen.“"
+    },
+    {
+      "path": "de/wisdom-stories/what-changed-after-sixty.docx",
+      "paragraph": 0,
+      "before": "Was sich nach sechzig verändert hat",
+      "after": "Was sich nach dem sechzigsten Geburtstag verändert hat"
+    },
+    {
+      "path": "de/wisdom-stories/what-changed-after-sixty.docx",
+      "paragraph": 12,
+      "before": "Ich sage nicht mehr vorschnell zu jungen Leuten: „Als ich in deinem Alter war …“, als müsste mein Leben ihr Vorbild sein. Ebenso wenig halte ich jemandem vor: „Ich habe dir meine besten Jahre geschenkt“, um ihn in meine Schuld zu stellen. Jede Zeit hat ihre eigenen Bedingungen. Die Gegenwart lässt sich nicht allein mit den Maßstäben der Vergangenheit beurteilen.",
+      "after": "Ich sage nicht mehr vorschnell zu jungen Leuten: „Als ich in deinem Alter war …“, als müsste mein Leben ihr Vorbild sein. Ebenso wenig halte ich jemandem vor: „Ich habe dir meine besten Jahre geschenkt“, damit er sich mir verpflichtet fühlt. Jede Zeit hat ihre eigenen Bedingungen. Die Gegenwart lässt sich nicht allein mit den Maßstäben der Vergangenheit beurteilen."
+    },
+    {
+      "path": "de/wisdom-stories/your-friends.docx",
+      "paragraph": 7,
+      "before": "„Auf der Liste standen fünfzig Namen. Aber hier sehe ich nur fünfzehn von ihnen!“",
+      "after": "„Auf der Liste standen fünfzig Namen. Aber hier sehe ich nur fünfzehn meiner Freunde!“"
+    },
+    {
+      "path": "de/wisdom-stories/beyond-complaining.docx",
+      "paragraph": 6,
+      "before": "Lehre: Sorgen zu teilen kann erleichtern, doch Klagen allein verändert die Lage nicht. Nach einem Ausweg zu suchen, um Hilfe zu bitten und einen kleinen, machbaren Schritt zu gehen, kann der Anfang einer Veränderung sein.",
+      "after": "Lehre: Sorgen zu teilen kann Erleichterung bringen, doch Klagen allein verändert die Lage nicht. Nach einem Ausweg zu suchen, um Hilfe zu bitten und einen kleinen, machbaren Schritt zu gehen, kann der Anfang einer Veränderung sein."
+    },
+    {
+      "path": "de/wisdom-stories/compassion.docx",
+      "paragraph": 21,
+      "before": "„Du schuldest mir nichts, mein Freund. Ich schulde dir etwas. Du hast mich an dieser guten Tat teilhaben lassen. Ich habe wohl seit zwanzig Jahren nicht mehr geweint … Heute Abend hast du mich das wieder fühlen lassen.“",
+      "after": "„Du schuldest mir nichts, mein Freund. Ich schulde dir etwas. Du hast mich an dieser guten Tat teilhaben lassen. Ich habe wohl seit zwanzig Jahren nicht mehr geweint … Heute Abend hast du mich diese Gefühle wieder spüren lassen.“"
+    },
+    {
+      "path": "de/wisdom-stories/dervishs-long-spoons.docx",
+      "paragraph": 7,
+      "before": "Dann lud der Derwisch Menschen ein, die ihre Liebe durch Taten zeigten. Sie bekamen dieselbe Suppe, dieselben Löffel und dieselbe Bedingung.",
+      "after": "Dann lud der Derwisch Menschen ein, die ihre Liebe durch Taten zeigten. Sie bekamen dieselbe Suppe und dieselben Löffel. Für sie galt dieselbe Bedingung."
+    },
+    {
+      "path": "de/wisdom-stories/father-and-son.docx",
+      "paragraph": 18,
+      "before": "„Ich werde dich nicht drängen. Aber dein Vater hat mir etwas für dich aufgetragen. Du sollst mit dem Mann vorsichtig sein, mit dem du seit einem Monat befreundet bist. Und mit deinem alten Freund solltest du dich wieder vertragen.“",
+      "after": "„Ich werde dich nicht drängen. Aber dein Vater hat mir eine Nachricht für dich mitgegeben. Du sollst mit dem Mann vorsichtig sein, mit dem du seit einem Monat befreundet bist. Und mit deinem alten Freund solltest du dich wieder vertragen.“"
+    },
+    {
+      "path": "de/wisdom-stories/red-dress.docx",
+      "paragraph": 15,
+      "before": "„Letztes Jahr habe ich mir zum ersten Mal dieses Kleid gegönnt. Ich hatte etwas Geld für die Reparatur der Waschmaschine zurückgelegt. Als ich damit nach Hause kam, sagte dein Vater: ‚Wo willst du das denn tragen? In der Oper etwa?‘“",
+      "after": "„Letztes Jahr habe ich mir zum ersten Mal etwas Schönes nur für mich gegönnt: dieses Kleid. Ich hatte etwas Geld für die Reparatur der Waschmaschine zurückgelegt. Als ich damit nach Hause kam, sagte dein Vater: ‚Wo willst du das denn tragen? In der Oper etwa?‘“"
+    },
+    {
+      "path": "de/wisdom-stories/welcoming-smile.docx",
+      "paragraph": 2,
+      "before": "Die Lehre: Menschen schätzen nicht nur das Angebot, sondern auch die Art, wie man ihnen begegnet. Ein aufrichtiges Lächeln und ein herzlicher Empfang können einen süßeren Eindruck hinterlassen als Honig.",
+      "after": "Die Lehre: Menschen schätzen nicht nur das Angebot, sondern auch die Art, wie man ihnen begegnet. Ein aufrichtiges Lächeln und ein herzlicher Empfang können süßer sein als Honig."
+    }
+  ],
+  "website_title_corrections": [
+    {
+      "stem": "butter-price-war",
+      "before_title": "Der preiskampf",
+      "after_title": "Der Preiskampf"
+    },
+    {
+      "stem": "church-bell",
+      "before_title": "Die kirchenglocke",
+      "after_title": "Die Kirchenglocke"
+    },
+    {
+      "stem": "compliment",
+      "before_title": "Das kompliment",
+      "after_title": "Das Kompliment"
+    },
+    {
+      "stem": "credit-ledger",
+      "before_title": "Das schuldenbuch",
+      "after_title": "Das Schuldenbuch"
+    },
+    {
+      "stem": "diderot-effect",
+      "before_title": "Der diderot-effekt",
+      "after_title": "Der Diderot-Effekt"
+    },
+    {
+      "stem": "doctors-office",
+      "before_title": "Im wartezimmer",
+      "after_title": "Im Wartezimmer"
+    },
+    {
+      "stem": "flower",
+      "before_title": "Die blume",
+      "after_title": "Die Blume"
+    },
+    {
+      "stem": "free-time",
+      "before_title": "Freie zeit",
+      "after_title": "Freie Zeit"
+    },
+    {
+      "stem": "friend-of-allah",
+      "before_title": "Ein freund gottes",
+      "after_title": "Ein Freund Gottes"
+    },
+    {
+      "stem": "glass-of-milk",
+      "before_title": "Ein glas milch",
+      "after_title": "Ein Glas Milch"
+    },
+    {
+      "stem": "handful-of-roasted-chickpeas",
+      "before_title": "Eine handvoll kichererbsen",
+      "after_title": "Eine Handvoll Kichererbsen"
+    },
+    {
+      "stem": "henry-fords-choice",
+      "before_title": "Henry fords entscheidung",
+      "after_title": "Henry Fords Entscheidung"
+    },
+    {
+      "stem": "hot-bread",
+      "before_title": "Warmes brot",
+      "after_title": "Warmes Brot"
+    },
+    {
+      "stem": "hour-with-dad",
+      "before_title": "Der wert ihrer familie",
+      "after_title": "Der Wert Ihrer Familie"
+    },
+    {
+      "stem": "ill-gotten-money",
+      "before_title": "Unerlaubtes geld",
+      "after_title": "Unrechtmäßig erworbenes Geld"
+    },
+    {
+      "stem": "liver",
+      "before_title": "Die leber",
+      "after_title": "Die Leber"
+    },
+    {
+      "stem": "mother-of-pearl-flower",
+      "before_title": "Die perlmuttblume",
+      "after_title": "Die Perlmuttblume"
+    },
+    {
+      "stem": "pair-of-boots",
+      "before_title": "Ein paar stiefel",
+      "after_title": "Ein Paar Stiefel"
+    },
+    {
+      "stem": "sacrificial-meat",
+      "before_title": "Das opferfleisch",
+      "after_title": "Das Opferfleisch"
+    },
+    {
+      "stem": "scarf-seller",
+      "before_title": "Der tuchverkäufer",
+      "after_title": "Der Tuchverkäufer"
+    },
+    {
+      "stem": "three-questions",
+      "before_title": "Drei fragen",
+      "after_title": "Drei Fragen"
+    },
+    {
+      "stem": "three-scenes",
+      "before_title": "Drei szenen",
+      "after_title": "Drei Szenen"
+    },
+    {
+      "stem": "three-statues",
+      "before_title": "Drei statuen",
+      "after_title": "Drei Statuen"
+    },
+    {
+      "stem": "true-love",
+      "before_title": "Wahre liebe",
+      "after_title": "Wahre Liebe"
+    },
+    {
+      "stem": "two-bowls-of-water",
+      "before_title": "Zwei schalen wasser",
+      "after_title": "Zwei Schalen Wasser"
+    },
+    {
+      "stem": "two-donkeys",
+      "before_title": "Zwei esel",
+      "after_title": "Zwei Esel"
+    },
+    {
+      "stem": "what-changed-after-sixty",
+      "before_title": "Was sich nach sechzig verändert hat",
+      "after_title": "Was sich nach dem sechzigsten Geburtstag verändert hat"
+    },
+    {
+      "stem": "your-friends",
+      "before_title": "Deine freunde",
+      "after_title": "Deine Freunde"
+    }
+  ],
+  "website_html_files_updated": [
+    "de/sitemap.html",
+    "de/authors/bakhtiyar.html",
+    "de/authors/etibar.html",
+    "de/categories/aile-ve-terbiye.html",
+    "de/categories/dostluq-ve-insan-munasibetleri.html",
+    "de/categories/emek-ruzi-ve-servet.html",
+    "de/categories/exlaq-ve-xarakter.html",
+    "de/categories/hikmet-ve-heyat-dersleri.html",
+    "de/categories/iman-ve-meneviyyat.html",
+    "de/categories/sevgi-ve-evlilik.html",
+    "de/categories/soz-sukut-ve-unsiyyet.html",
+    "de/categories/temsiller-ve-meseller.html",
+    "de/categories/yaslanma-ve-zaman.html",
+    "de/stories/alis-unreliable-rope.html",
+    "de/stories/another-day.html",
+    "de/stories/ant-carrying-water.html",
+    "de/stories/avoid-these-questions.html",
+    "de/stories/baklava.html",
+    "de/stories/beyond-complaining.html",
+    "de/stories/beyond-the-cotton-field.html",
+    "de/stories/bookstore.html",
+    "de/stories/butter-price-war.html",
+    "de/stories/call-the-shepherd.html",
+    "de/stories/can-a-broken-heart-love-again.html",
+    "de/stories/choosing-friends.html",
+    "de/stories/church-bell.html",
+    "de/stories/communication.html",
+    "de/stories/compassion.html",
+    "de/stories/compliment.html",
+    "de/stories/cost-of-indifference.html",
+    "de/stories/credit-ledger.html",
+    "de/stories/dervishs-long-spoons.html",
+    "de/stories/diderot-effect.html",
+    "de/stories/different-door.html",
+    "de/stories/different-path.html",
+    "de/stories/discussion-and-conflict.html",
+    "de/stories/do-not-deepen-anothers-pain.html",
+    "de/stories/do-you-remember-me.html",
+    "de/stories/doctors-office.html",
+    "de/stories/door-to-the-heart.html",
+    "de/stories/doorbell.html",
+    "de/stories/draining-the-coffers.html",
+    "de/stories/dreaming.html",
+    "de/stories/drinking-the-sherbet-of-martyrdom.html",
+    "de/stories/early-marriage.html",
+    "de/stories/elephant-and-the-rope.html",
+    "de/stories/everyone-has-work-to-do.html",
+    "de/stories/everyone-is-equal-here.html",
+    "de/stories/father-and-son.html",
+    "de/stories/fathers-advice.html",
+    "de/stories/fish-shop.html",
+    "de/stories/flower-of-honesty.html",
+    "de/stories/flower.html",
+    "de/stories/fly-in-a-china-shop.html",
+    "de/stories/forgiveness.html",
+    "de/stories/fortieth-day-rite.html",
+    "de/stories/free-time.html",
+    "de/stories/friend-of-allah.html",
+    "de/stories/friendship-of-horses.html",
+    "de/stories/garden-and-the-gardener.html",
+    "de/stories/giving-without-money.html",
+    "de/stories/glass-of-milk.html",
+    "de/stories/go-but-come-again.html",
+    "de/stories/gratitude-at-the-sink.html",
+    "de/stories/grocers-sticky-fingers.html",
+    "de/stories/hajj-pilgrimage.html",
+    "de/stories/handful-of-roasted-chickpeas.html",
+    "de/stories/hands-at-work-hope-in-god.html",
+    "de/stories/hayats-life-story.html",
+    "de/stories/henry-fords-choice.html",
+    "de/stories/hot-bread.html",
+    "de/stories/hour-with-dad.html",
+    "de/stories/how-we-express-sorrow.html",
+    "de/stories/how-we-treat-people.html",
+    "de/stories/human-being-emerged.html",
+    "de/stories/humanity-etibar-siracsoy.html",
+    "de/stories/humanity.html",
+    "de/stories/i-kiss-your-eyes.html",
+    "de/stories/i-love-you.html",
+    "de/stories/i-wish-for-a-friend.html",
+    "de/stories/if-fate-allows.html",
+    "de/stories/ill-gotten-money.html",
+    "de/stories/in-your-hands.html",
+    "de/stories/its-pointless.html",
+    "de/stories/judges-answer.html",
+    "de/stories/keep-your-self-respect.html",
+    "de/stories/keeping-your-cool.html",
+    "de/stories/know-your-friend.html",
+    "de/stories/land-and-homeland.html",
+    "de/stories/learning-from-loss.html",
+    "de/stories/life-after-sixty.html",
+    "de/stories/life-flows-silently.html",
+    "de/stories/light-of-the-world.html",
+    "de/stories/liver.html",
+    "de/stories/living-in-the-past.html",
+    "de/stories/make-time-for-people.html",
+    "de/stories/market-of-good-neighbors.html",
+    "de/stories/mature-person.html",
+    "de/stories/mercedes.html",
+    "de/stories/more-than-money.html",
+    "de/stories/most-beautiful-gift.html",
+    "de/stories/mother-of-pearl-flower.html",
+    "de/stories/mothers-lasting-lesson.html",
+    "de/stories/my-alif-has-been-dotted.html",
+    "de/stories/nails-lesson.html",
+    "de/stories/nest-builder.html",
+    "de/stories/never-lost.html",
+    "de/stories/not-my-concern.html",
+    "de/stories/obstacles-and-opportunities.html",
+    "de/stories/pair-of-boots.html",
+    "de/stories/permission-or-forgiveness.html",
+    "de/stories/place-in-loving-hearts.html",
+    "de/stories/plastic-cup.html",
+    "de/stories/pleasure-of-allah.html",
+    "de/stories/plucking-the-goose.html",
+    "de/stories/power-of-justice.html",
+    "de/stories/prayer-for-everyone.html",
+    "de/stories/prayer-for-relief.html",
+    "de/stories/price-of-a-miracle.html",
+    "de/stories/price-of-belonging.html",
+    "de/stories/purple-jacket.html",
+    "de/stories/raising-a-child.html",
+    "de/stories/ramadan-prayer.html",
+    "de/stories/red-dress.html",
+    "de/stories/relationships.html",
+    "de/stories/request-for-help.html",
+    "de/stories/respecting-boundaries.html",
+    "de/stories/rotten-seed.html",
+    "de/stories/sacrificial-meat.html",
+    "de/stories/scarf-seller.html",
+    "de/stories/searching.html",
+    "de/stories/seeing-without-understanding.html",
+    "de/stories/shared-goal.html",
+    "de/stories/sharpen-the-axe.html",
+    "de/stories/shepherds-word.html",
+    "de/stories/small-changes-great-value.html",
+    "de/stories/spinach.html",
+    "de/stories/staying-on-the-right-path.html",
+    "de/stories/stolen-camel.html",
+    "de/stories/stoning-the-devil.html",
+    "de/stories/strength-and-sorrow.html",
+    "de/stories/stronger-together.html",
+    "de/stories/thoughtfulness.html",
+    "de/stories/three-essentials-for-a-city.html",
+    "de/stories/three-questions.html",
+    "de/stories/three-scenes.html",
+    "de/stories/three-statues.html",
+    "de/stories/true-love.html",
+    "de/stories/try-again.html",
+    "de/stories/two-bowls-of-water.html",
+    "de/stories/two-donkeys.html",
+    "de/stories/vizier-and-the-scholar.html",
+    "de/stories/waiting-for-the-teeth.html",
+    "de/stories/we-are-rich.html",
+    "de/stories/weeds.html",
+    "de/stories/weight-of-the-butter.html",
+    "de/stories/welcome-home-my-dear.html",
+    "de/stories/welcoming-smile.html",
+    "de/stories/what-changed-after-sixty.html",
+    "de/stories/what-women-endure.html",
+    "de/stories/where-does-this-road-go.html",
+    "de/stories/without-a-plan.html",
+    "de/stories/your-friends.html"
+  ],
+  "generator_correction": "Preserve reviewed German noun capitalization instead of lowercasing short titles.",
+  "verification": {
+    "stories": 256,
+    "standalone_pages": 256,
+    "article_copies": 526,
+    "errors": [],
+    "docx_formatting_and_media": "unchanged",
+    "visual_docx_rendering": "unavailable: bundled LibreOffice missing"
+  }
+}

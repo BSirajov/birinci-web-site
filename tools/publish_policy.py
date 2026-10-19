@@ -19,6 +19,9 @@ OMIT_AUDIO_FROM_PUBLISH = True
 # fnmatch patterns for shutil.copytree ignore). Kept here so SEO/docs and the
 # deployment builder share one list.
 AUTHORING_JUNK_IGNORE_PATTERNS = (
+    "_backups",
+    "Backup",
+    "_reviews",
     "*Comparison_Report*",
     "*_Stories_25.08*",
     "*.zip",

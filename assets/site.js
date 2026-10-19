@@ -7777,7 +7777,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         (pageLang === "de" ? "Illustration zu „{title}“" : tUi("illustration_alt", "{title} illüstrasiyası")).replace("{title}", story.title || "")
       );
       // Unified stamp after full illustration refresh (az|en|ru|ky|de).
-      const illustVersion = "20261002illust";
+      const illustVersion = "20261019englishsync";
       const illustExt = "webp";
       const kyPage = kyPageEarly;
       const azPage = pageLang === "az" || pageLang.startsWith("az-");

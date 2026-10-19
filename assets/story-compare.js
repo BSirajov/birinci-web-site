@@ -723,7 +723,7 @@
       /^(discussion-and-conflict|everyone-has-work-to-do|if-fate-allows-we-will-meet|organization-without-an-action-plan|silent-corridor|weeds-must-be-pulled-from-the-root)$/.test(
         storyStem || ""
       );
-    const stamp = "?v=20261002illust";
+    const stamp = "?v=20261019englishsync";
     const baked = String(bakedImage || "").trim().replace(/^\/+/, "");
     if (baked) {
       const stamped = baked.indexOf("?") >= 0 ? baked : baked + stamp;

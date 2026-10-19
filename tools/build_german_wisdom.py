@@ -61,25 +61,12 @@ def is_url_only(text: str) -> bool:
 
 
 def sentence_case_de(title: str) -> str:
-    """Convert Title Case German Word titles to sentence case; leave mixed case alone."""
-    title = " ".join(title.split()).strip()
-    if not title:
-        return title
-    words = [w for w in re.findall(r"[^\s]+", title) if any(c.isalpha() for c in w)]
-    if len(words) < 2:
-        return title
-    letters = [c for c in title if c.isalpha()]
-    if letters and all(c.isupper() for c in letters):
-        return title[0] + title[1:].lower()
-    # Title Case: most words start with an uppercase letter.
-    starters = []
-    for w in words:
-        ch = next((c for c in w if c.isalpha()), "")
-        if ch:
-            starters.append(ch)
-    if len(starters) >= 2 and all(c.isupper() for c in starters):
-        return title[0] + title[1:].lower()
-    return title
+    """Normalize spacing while preserving the reviewed German capitalization.
+
+    Capitalized nouns are required in German, even when every word in a
+    short title starts with a capital. Case cannot be inferred from that pattern.
+    """
+    return " ".join(title.split()).strip()
 
 
 def normalize_de_paragraphs(paragraphs: list[str]) -> list[str]:
