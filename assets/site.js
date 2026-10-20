@@ -8172,7 +8172,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       });
     };
 
-    const setView = (nextView, { persist = true, scrollTools = true, forceList = false, animate = true } = {}) => {
+    const setView = (nextView, { persist = true, scrollTools = true, forceList = false } = {}) => {
       const prevView = view;
       view = nextView === "list" ? "list" : "cards";
       window.__birinciHomeView = view;
@@ -8184,7 +8184,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           localStorage.setItem(viewStorageKey, view);
         } catch (_) {}
       }
-      const transition = animate ? runViewTransition : (fn) => fn();
+      // Home lists can be very long after loading more. Update synchronously
+      // rather than capturing full-page animation snapshots on every switch.
+      const transition = (fn) => fn();
       if (view === "cards") {
         if (typeof window.__birinciStopStoryTts === "function") window.__birinciStopStoryTts();
         transition(() => {
@@ -8212,6 +8214,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       });
       ensureStories()
         .then(() => {
+          if (view !== "list") return;
           const needsDomPaint =
             forceList || !listRenderKey || !storiesList.childElementCount;
           if (needsDomPaint) {
@@ -8238,14 +8241,16 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       pendingStem = null;
       setView(next, { forceList: next === "list" && view === "list" });
     };
-    viewBtns.forEach((btn) => {
-      btn.addEventListener("click", (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        onViewButton(event);
-      });
-    });
-    bar.addEventListener("click", onViewButton);
+    // The generated page also has a document-capture fallback and inline
+    // onclick handlers. Once the full renderer is ready it must own the click
+    // before those fallbacks can render the entire catalog or redraw it twice.
+    window.addEventListener("click", (event) => {
+      const btn = event.target.closest("[data-home-view]");
+      if (!btn || !bar.contains(btn)) return;
+      event.preventDefault();
+      event.stopPropagation();
+      onViewButton(event);
+    }, true);
 
     const paintHomeSearchHits = () => {
       paintSearchAndLexicon(listPanel || storiesList, searchInput.value.trim(), {

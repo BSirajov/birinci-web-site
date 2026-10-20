@@ -7,6 +7,10 @@ the full catalog, reset the reading window, and render only matching stories.
 The complete sidebar remains available; a direct story or category link extends
 the window enough to reveal its target. Existing story nodes are retained when
 extending the list, preserving individual image/text choices.
+The active home renderer also takes ownership of view-button clicks before the
+inline fallback can build the complete catalog or trigger a second redraw.
+Home view changes update synchronously, avoiding full-page animation snapshots
+of long lists and canceled-animation races.
 
 ## Measured result
 
@@ -22,7 +26,7 @@ retains all sidebar links (261 in AZ, 256 in each other locale).
 
 ## Verification
 
-- 54 tooling regression tests pass, including batch selection against all five
+- 55 tooling regression tests pass, including batch selection against all five
   real catalogs and the existing PHP feedback integration tests.
 - JavaScript syntax validation passes.
 - Structural QA: zero failures and zero warnings.

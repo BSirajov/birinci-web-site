@@ -68,3 +68,38 @@ for (const lang of ["az", "en", "ru", "ky", "de"]) {
 """.replace("SELECTION", selection)
     result = subprocess.run([node, "-e", script], cwd=ROOT, capture_output=True, text=True, encoding="utf-8")
     assert result.returncode == 0, result.stderr
+
+
+def test_home_view_click_supersedes_inline_fallback():
+    node = shutil.which("node")
+    if not node:
+        pytest.skip("Node.js is required for home view regression checks")
+    source = (ROOT / "assets/site.js").read_text(encoding="utf-8")
+    start = source.index("    // The generated page also has a document-capture fallback")
+    end = source.index("    const paintHomeSearchHits =", start)
+    script = r"""
+const assert = require("node:assert/strict");
+let handler, calls=0, prevented=0, stopped=0;
+const button = {};
+const bar = {contains: b => b === button};
+const onViewButton = () => calls++;
+const window = {addEventListener: (type, callback, capture) => {
+  assert.equal(type, "click"); assert.equal(capture, true); handler=callback;
+}};
+HANDLER
+const event = {
+  target: {closest: () => button},
+  preventDefault: () => prevented++,
+  stopPropagation: () => stopped++,
+};
+handler(event);
+assert.equal(calls, 1);
+assert.equal(prevented, 1);
+assert.equal(stopped, 1);
+handler({...event, target:{closest: () => null}});
+handler({...event, target:{closest: () => ({})}});
+assert.equal(calls, 1);
+assert.equal(stopped, 1);
+""".replace("HANDLER", source[start:end])
+    result = subprocess.run([node, "-e", script], cwd=ROOT, capture_output=True, text=True)
+    assert result.returncode == 0, result.stderr
