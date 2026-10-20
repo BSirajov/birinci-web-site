@@ -460,10 +460,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const next = visibleCatalogLabel(title || titleEl.textContent || "");
     if (!next) return;
     const name = titleEl.querySelector(".inventions-entry-name");
-    const germanLink = String(document.documentElement.lang || "").toLowerCase().split(/[-_]/)[0] === "de"
-      ? titleEl.querySelector("a[href]") : null;
     if (name) name.textContent = next;
-    else if (germanLink) germanLink.textContent = next;
     else titleEl.textContent = next;
   };
 
@@ -3156,8 +3153,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           const fromTitle = fromLink.querySelector(".nav-dropdown-link-title");
           const toTitle = toLink.querySelector(".nav-dropdown-link-title");
           if (fromTitle && toTitle) {
-          if (currentPageLang() === "de" && fromTitle.querySelector("a[href]")) toTitle.innerHTML = fromTitle.innerHTML;
-          else toTitle.textContent = fromTitle.textContent;
+          toTitle.textContent = fromTitle.textContent;
         }
           const fromDesc = fromLink.querySelector(".nav-dropdown-link-desc");
           const toDesc = toLink.querySelector(".nav-dropdown-link-desc");
@@ -3317,7 +3313,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         const toName = toTitle.querySelector(".inventions-entry-name");
         const fromName = fromTitle.querySelector(".inventions-entry-name");
         if (toName) toName.textContent = (fromName && fromName.textContent) || fromTitle.textContent;
-        else if (currentPageLang() === "de" && fromTitle.querySelector("a[href]")) toTitle.innerHTML = fromTitle.innerHTML;
         else toTitle.textContent = fromTitle.textContent;
       }
       const fromText = src.querySelector(".story__text, .card-text");
@@ -3515,10 +3510,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         if (title) {
           const name = title.querySelector(".inventions-entry-name");
           if (name) name.textContent = story.title;
-          else if (currentPageLang() === "de" && story.href) {
-            const href = new URL(story.href, new URL("../", langAssetUrl("de", "stories-data.js"))).href;
-            title.innerHTML = `<a href="${escapeLiveHtml(href)}">${escapeLiveHtml(story.title)}</a>`;
-          } else title.textContent = story.title;
+          else title.textContent = story.title;
         }
       }
       const text = el.querySelector(".story__text, .card-text");
@@ -4861,10 +4853,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
     const hrefForSearchResult = (row) => {
       const lang = normalizePageLang(row.lang || searchLang());
-      if (lang === "de" && row.href) {
-        const target = new URL(String(row.href), new URL(langAssetUrl(lang, "search-index.js"), location.href).href.replace(/assets\/search-index\.js.*$/, ""));
-        if (target.origin === location.origin && /\/de\/(?:index\.html|categories\/|stories\/)/i.test(target.pathname)) return target.href;
-      }
       const slug = encodeURIComponent(row.slug || "");
       const stem = encodeURIComponent(row.stem || "");
       const path = String(location.pathname || "").replace(/\\/g, "/");
@@ -5264,7 +5252,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
     const refreshSidebarNav = () => {
       if (!navList) return;
-      if (currentPageLang() === "de" && /\/authors\//i.test(location.pathname)) return;
       const visibleStems =
         lastVisibleStems.size
           ? new Set(lastVisibleStems)
@@ -5280,10 +5267,10 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           (document.querySelector(".about-hero h1, .category-hero h1, h1") || {}).textContent ||
           tUi("nav_stories_all", "Hekayələr"),
         hrefForStory: (stem, group) =>
-          group.slug === currentCategorySlug ? `#${stem}` : `${group.slug}.html#${stem}`,
+          group.slug === currentCategorySlug ? `#${stem}` : `../categories/${group.slug}.html#${stem}`,
         hrefForCategory: (group) => {
           if (group.slug === currentCategorySlug) return `#${group.slug}`;
-          return `${group.slug}.html`;
+          return `../categories/${group.slug}.html`;
         },
       });
       const layout = document.querySelector(".category-layout");
@@ -5379,7 +5366,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       onChange: (slugs) => {
         if (slugs.length === 1 && slugs[0] === currentCategorySlug) return;
         if (slugs.length === 1) {
-          window.location.assign(`${slugs[0]}.html`);
+          window.location.assign(`../categories/${slugs[0]}.html`);
           return;
         }
         const params = new URLSearchParams();
@@ -7852,9 +7839,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       </button>
     </figure>`
         : "";
-      const titleInner = pageLang === "de" && story.href
-        ? `<a href="${escapeHtml(new URL(story.href, new URL("../", langAssetUrl("de", "stories-data.js"))).href)}">${escapeHtml(story.title)}</a>`
-        : escapeHtml(story.title);
+      const titleInner = escapeHtml(story.title);
       const multilingualBtn =
         typeof window.__birinciBuildStoryMultilingualBtnHtml === "function"
           ? window.__birinciBuildStoryMultilingualBtnHtml(story.stem)

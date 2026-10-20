@@ -251,7 +251,7 @@ class Builder:
             title.tag = "h1"
             title.text = story["title"]
         else:
-            etree.SubElement(title, "a", href=rel('de/' + story['href'], page)).text = story["title"]
+            title.text = story["title"]
         for button in article.xpath('.//*[@aria-controls]'):
             prefix = button.get("aria-controls").split("-")[0]
             button.set("aria-controls", f'{prefix}-{story["stem"]}')
@@ -391,9 +391,7 @@ class Builder:
             src = script.get("src")
             if any(x in src for x in ("i18n.js", "site.js", "story-compare.js", "compare-window.js")):
                 script.set("src", src.split("?")[0] + "?v=" + VERSION)
-        # The new section shares the existing stylesheet; only prose line breaks
-        # need an explicit rule to preserve multi-line poem paragraphs.
-        etree.SubElement(head, "style").text = '.story__text p,.sc-col[data-lang="de"] .sc-col__text{white-space:pre-line}.wisdom-pager{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;margin:1.5rem 0}.story__title a{color:inherit;text-decoration:none}'
+        # Prose line breaks and archive pagination use the shared stylesheet.
         path = ROOT / page
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text("<!DOCTYPE html>\n" + html.tostring(root, encoding="unicode", method="html"), encoding="utf-8")

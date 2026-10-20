@@ -109,7 +109,7 @@ DISABLE_DISCOVERY_VIDEOS = True
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
 SITE_ASSET_VERSION = "20260924img"
 # Shared site.css / site.js (phone illustration-control chrome).
-SITE_CHROME_ASSET_VERSION = "20261020src2"
+SITE_CHROME_ASSET_VERSION = "20261021consistency"
 INVENTIONS_BRIDGE_ASSET_VERSION = "20260924bg"
 # Discoveries catalog JS (view=list URL cache-bust). Independent of site chrome.
 KT_INVENTIONS_JS_VERSION = "20261004qa1"
