@@ -1,5 +1,6 @@
 @import url("fonts.css");
 @import url("legal-page.css");
+@import url("story-notes.css?v=20261020notes");
 
 :root {
   /* DAAB activities palette (daab-tokens.css) */
@@ -4605,57 +4606,6 @@ body.story-compare-open {
 .story .card-text p:last-child {
   margin-bottom: 0;
 }
-.story__text .story__source,
-.story .card-text .story__source {
-  display: inline-block;
-  max-width: min(46rem, 100%);
-  margin: 0.85rem 0 0;
-  padding: 0.32rem 0.85rem;
-  border-radius: 1rem;
-  color: var(--blue-900);
-  font-family: var(--font-display);
-  font-size: clamp(0.72rem, 1.05vw, 0.84rem);
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: 0.008em;
-  line-height: 1.4;
-  text-align: left;
-  text-justify: auto;
-  hyphens: manual;
-  background: linear-gradient(180deg, rgba(255, 240, 191, 0.58), rgba(223, 242, 255, 0.42));
-  border: 1px solid rgba(201, 155, 59, 0.4);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.78) inset,
-    0 6px 16px rgba(0, 78, 140, 0.08);
-}
-.story__text .story__moral,
-.story .card-text .story__moral {
-  clear: both;
-  margin: 1.65rem 0 0;
-  padding: 0.85rem 1rem 0.9rem 1.05rem;
-  background: #fff9e6;
-  border: 1px solid rgba(201, 155, 59, 0.42);
-  border-left: 4px solid var(--gold);
-  border-radius: var(--radius-sm);
-  color: var(--ink);
-  font-family: var(--font-display);
-  font-size: 0.95em;
-  font-weight: 400;
-  line-height: 1.45;
-  text-align: left;
-  text-justify: auto;
-  hyphens: manual;
-  box-shadow: 0 4px 14px rgba(201, 155, 59, 0.12);
-}
-@media (max-width: 760px) {
-  .story__text .story__moral,
-  .story .card-text .story__moral {
-    margin-top: 1.35rem;
-    padding: 0.75rem 0.85rem 0.8rem 0.9rem;
-    font-size: 0.98em;
-    line-height: 1.42;
-  }
-}
 .story__figure {
   margin: 14px 0 0;
   border-radius: 14px;
@@ -5070,27 +5020,6 @@ body.text-lightbox-open {
 }
 .text-lightbox__body p:last-child {
   margin-bottom: 0;
-}
-.text-lightbox__body .story__source {
-  display: inline-block;
-  max-width: min(46rem, 100%);
-  margin: 0.85rem 0 0;
-  padding: 0.32rem 0.85rem;
-  border-radius: 1rem;
-  color: var(--blue-900);
-  font-family: var(--font-display);
-  font-size: clamp(0.72rem, 1.05vw, 0.84rem);
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: 0.008em;
-  /* Extra leading halved vs prior 1.4 */
-  line-height: 1.2;
-  text-align: left;
-  background: linear-gradient(180deg, rgba(255, 240, 191, 0.58), rgba(223, 242, 255, 0.42));
-  border: 1px solid rgba(201, 155, 59, 0.4);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.78) inset,
-    0 6px 16px rgba(0, 78, 140, 0.08);
 }
 .text-lightbox__body .story__moral {
   clear: both;

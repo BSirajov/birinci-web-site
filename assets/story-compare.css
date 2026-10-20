@@ -1,3 +1,6 @@
+@import url("fonts.css");
+@import url("story-notes.css?v=20261020notes");
+
 /* Focused multilingual story comparison window */
 :root {
   --sc-ink: #0b2a3d;
@@ -530,6 +533,8 @@ body.sc-page[data-sc-show-illus="false"] .sc-col__figure {
 
 /* Text above illustrations. JS equalizes .sc-col__copy then .sc-col when side-by-side. */
 .sc-col__copy {
+  --story-notes-flow-gap: 0.85rem;
+  --story-moral-margin-top: 0.2rem;
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
@@ -568,14 +573,6 @@ body.sc-page[data-sc-show-illus="false"] .sc-col__figure {
   line-height: 1.58;
   white-space: pre-wrap;
   overflow-wrap: break-word;
-}
-
-.sc-col__moral {
-  margin-top: 0.2rem;
-  padding-top: 0.85rem;
-  border-top: 1px solid rgba(212, 160, 23, 0.28);
-  font-style: italic;
-  color: #5a4714;
 }
 
 .sc-col__figure {

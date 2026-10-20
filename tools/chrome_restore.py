@@ -109,12 +109,12 @@ DISABLE_DISCOVERY_VIDEOS = True
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
 SITE_ASSET_VERSION = "20260924img"
 # Shared site.css / site.js (phone illustration-control chrome).
-SITE_CHROME_ASSET_VERSION = "20261005de"
+SITE_CHROME_ASSET_VERSION = "20261020notes"
 INVENTIONS_BRIDGE_ASSET_VERSION = "20260924bg"
 # Discoveries catalog JS (view=list URL cache-bust). Independent of site chrome.
 KT_INVENTIONS_JS_VERSION = "20261004qa1"
-STORY_COMPARE_CSS_VERSION = "20261006noaud"
-STORY_COMPARE_JS_VERSION = "20261020qa"
+STORY_COMPARE_CSS_VERSION = "20261020notes"
+STORY_COMPARE_JS_VERSION = "20261020notes"
 FEEDBACK_FORM_JS_VERSION = "20261020secure"
 COMPARE_WINDOW_JS_VERSION = "20261005de"
 DISCOVERY_COMPARE_ASSET_VERSION = "20261006noaud"
@@ -4571,6 +4571,9 @@ ensure_lang_switcher_pills = ensure_lang_switcher_dropdown
 def patch_emitted_html(
     html: str, lang: str, *, inventions: bool = False, rel_path: str = ""
 ) -> str:
+    from story_note_markup import restore_story_note_classes
+
+    html = restore_story_note_classes(html)
     # The scoped German builder owns exact DOCX text, verified counterparts and
     # English fallbacks for unavailable sections. Legacy full-site navigation
     # restoration would replace them with nonexistent German legal/about URLs.
@@ -4645,9 +4648,11 @@ def update_locale_discoveries_descriptions() -> None:
 
 
 def apply_shared_assets() -> None:
+    from story_note_markup import restore_shared_note_styles
+
     update_locale_search_fail()
     css_path = ROOT / "assets" / "site.css"
-    css_path.write_text(ensure_site_css_chrome(css_path.read_text(encoding="utf-8")), encoding="utf-8")
+    css_path.write_text(restore_shared_note_styles(ensure_site_css_chrome(css_path.read_text(encoding="utf-8"))), encoding="utf-8")
     bridge_path = ROOT / "assets" / "inventions" / "inventions-bridge.css"
     if bridge_path.is_file():
         bridge_path.write_text(

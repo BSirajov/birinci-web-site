@@ -7194,7 +7194,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const last = paragraphs.length - 1;
       const foldAzI = (s) => String(s || "").replace(/[İIı]/g, "i");
       const srcRe = /(internet\s+sources|internetquellen|internet\s+mənb|internet\s+kaynak|открыт\w*\s+источник|интернет|(?:source|quelle|quellen|mənbə|kaynak|источник|булак|булагы)\s*:)/i;
-      const moralRe = /^(ibrət|ibret|moral|lehre|мораль|үлгү|сабак)\s*:/i;
+      const moralRe = /^(ibrət|ibret|nəticə|moral|lesson|lehre|мораль|урок|үлгү|сабак)\s*:/i;
       const authorSrcStems = {"caring-call-brightens-the-day": 1, "changing-times-enduring-friendship": 1, "cherish-today-with-loved-ones": 1, "cherishing-flowers-in-spring": 1, "day-gratefully-lived": 1, "discussion-and-conflict": 1, "everyone-has-work-to-do": 1, "from-reflection-to-hope": 1, "hopeful-journey-through-life": 1, "humanity-rebuilds-in-peace": 1, "if-fate-allows-we-will-meet": 1, "kindness-builds-stronger-bonds": 1, "nails-lasting-lesson": 1, "organization-without-an-action-plan": 1, "quarantine-days-hopeful-hearts": 1, "silent-corridor": 1, "small-changes-big-meaning": 1, "weeds-must-be-pulled-from-the-root": 1};
       const authorSrc = !!(stem && authorSrcStems[stem]);
       const lastIsSrc = last >= 0 && (authorSrc || srcRe.test(foldAzI(paragraphs[last] || "")));
@@ -7206,11 +7206,11 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           break;
         }
       }
-      if (moralI < 0 && currentPageLang() !== "de") moralI = lastIsSrc && last >= 1 ? last - 1 : last;
       return paragraphs
         .map((p, i) => {
           const isSrc = lastIsSrc && i === last;
-          const cls = isSrc ? "story__source" : i === moralI ? "story__moral" : "";
+          const isAuthorCredit = i === last && (isEtibarAuthorCredit(p) || isBakhtiyarAuthorCredit(p));
+          const cls = i === moralI ? "story__moral" : isSrc || isAuthorCredit || (moralI >= 0 && i > moralI) ? "story__source" : "";
           const text = currentPageLang() !== "de" && isSrc && srcLabel && !authorSrc ? srcLabel : p;
           return `<p${cls ? ` class="${cls}"` : ""}>${escapeHtml(text)}</p>`;
         })

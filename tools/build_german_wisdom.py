@@ -261,6 +261,7 @@ class Builder:
                 p.set("class", "story__moral")
             elif paragraph == story["paragraphs"][-1] and (
                 story["authorKey"]
+                or paragraph == "Bakhtiyar Sirajov"
                 or paragraph.startswith("Die Geschichte stammt")
                 or "Internet" in paragraph
                 or paragraph.startswith("Geschichten aus dem Internet")

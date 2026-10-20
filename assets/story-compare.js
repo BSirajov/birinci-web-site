@@ -971,8 +971,9 @@
     const story = ctx.state.byLang[code];
     const meta = ctx.LANG_META[code];
     const parts = classifyParagraphs(story ? story.paragraphs : [], ctx.state.stem, code);
+    const moralIndex = ((story && story.paragraphs) || []).indexOf(parts.moral);
     const bodyHtml = ((story && story.paragraphs) || [])
-      .map((p) => '<p class="sc-col__text' + (p === parts.moral ? " sc-col__moral" : p === parts.source ? " sc-col__source" : "") + '" style="white-space: pre-line">' + escapeHtml(p) + "</p>")
+      .map((p, index) => '<p class="sc-col__text' + (p === parts.moral ? " sc-col__moral story__moral" : p === parts.source || (moralIndex >= 0 && index > moralIndex) ? " sc-col__source story__source" : "") + '" style="white-space: pre-line">' + escapeHtml(p) + "</p>")
       .join("");
     const moralHtml = "";
     const title = (story && story.title) || "";
