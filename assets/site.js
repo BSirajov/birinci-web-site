@@ -6849,6 +6849,35 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       listPanel.getAttribute("data-audio-version") ||
       (assetVersion ? `${assetVersion}-audio3` : "audio3");
     const viewStorageKey = "birinci-home-view";
+    const homeBatchSize = 32;
+    let homeLimit = homeBatchSize;
+    let homeFilterKey = "";
+    const moreStories = document.createElement("button");
+    moreStories.type = "button";
+    moreStories.className = "home-stories-more";
+    moreStories.hidden = true;
+    moreStories.setAttribute("data-home-stories-more", "");
+    const moreLabels = {
+      az: "Daha çox hekayə göstər",
+      en: "Show more stories",
+      ru: "Показать ещё истории",
+      ky: "Дагы аңгемелерди көрсөтүү",
+      de: "Weitere Geschichten anzeigen",
+    };
+    const moreLabel = moreLabels[document.documentElement.lang.split("-")[0]] || moreLabels.en;
+    storiesList.after(moreStories);
+    moreStories.addEventListener("click", () => {
+      const previousCount = storiesList.querySelectorAll("article.story").length;
+      homeLimit += homeBatchSize;
+      renderList();
+      const firstNew = storiesList.querySelectorAll("article.story")[previousCount];
+      const heading = firstNew && firstNew.querySelector(".story__title");
+      if (heading) {
+        heading.setAttribute("tabindex", "-1");
+        heading.focus({ preventScroll: true });
+        heading.scrollIntoView({ block: "start", behavior: "auto" });
+      }
+    });
 
     let view = "cards";
     let allStories = null;
@@ -7920,7 +7949,8 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         if (!head) return;
         const base = section.getAttribute("data-category") || "";
         const toggle = head.querySelector(".inventions-category-toggle");
-        head.textContent = categoryTitleWithCount(visibleCatalogLabel(base), n);
+        const matchingCount = filtered.filter((story) => story.categorySlug === section.id).length;
+        head.textContent = categoryTitleWithCount(visibleCatalogLabel(base), matchingCount || n);
         if (toggle) head.appendChild(toggle);
       });
     };
@@ -7965,22 +7995,43 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       });
       const total = filtered.length;
       syncSearchFilterUi(searchInput.value.trim(), total);
-      const visibleStories = filtered;
+      // Search the complete catalog, but build only the requested reading window.
+      // Use the same order as the grouped renderer before taking a batch.
+      const visibleStories = noneSelected
+        ? filtered
+        : groupStoriesByCategory(filtered, window.__BIRINCI_STORIES__).flatMap((group) => group.stories);
+      const filterKey = `${q}|${visibleStories.map((story) => story.stem).join("\n")}`;
+      const sameFilter = filterKey === homeFilterKey;
+      if (resetWindow || filterKey !== homeFilterKey) homeLimit = homeBatchSize;
+      homeFilterKey = filterKey;
+      if (pendingStem) {
+        const targetIndex = visibleStories.findIndex(
+          (story) => story.stem === pendingStem || story.categorySlug === pendingStem
+        );
+        if (targetIndex >= 0) homeLimit = Math.max(homeLimit, targetIndex + 1);
+      }
 
       lastShownCount = visibleStories.length;
       lastVisibleStems = new Set(visibleStories.map((s) => s.stem));
       const authorFilter = activeStoryAuthorFilter();
-      const poolKey = `${pool.map((s) => s.stem).join("\n")}|u${noneSelected ? 1 : 0}|a:${authorFilter}`;
-      // Paint the filtered set into the DOM when author is active so Etibar/Bakhtiyar
-      // changes cannot leave the opposite author's articles merely "hidden".
-      const paintStories = authorFilter ? filtered : pool;
+      const paintStories = visibleStories.slice(0, homeLimit);
+      const poolKey = `${paintStories.map((s) => s.stem).join("\n")}|u${noneSelected ? 1 : 0}|a:${authorFilter}`;
+      moreStories.hidden = paintStories.length >= total;
+      moreStories.textContent = `${moreLabel} (${paintStories.length} / ${total})`;
       const needRebuild =
         force ||
         poolKey !== listPoolKey ||
         storiesList.querySelectorAll("article.story").length !== paintStories.length;
 
       if (needRebuild) {
-        if (typeof window.__birinciStopStoryTts === "function") window.__birinciStopStoryTts();
+        // Keep existing story nodes when extending a batch: individual image/text
+        // choices, focus targets and any active reader state belong to the reader.
+        const retained = new Map(
+          sameFilter && !force && !resetWindow
+            ? Array.from(storiesList.querySelectorAll("article.story"), (article) => [article.id, article])
+            : []
+        );
+        if (!retained.size && typeof window.__birinciStopStoryTts === "function") window.__birinciStopStoryTts();
         const collapsed =
           expandAllOnNextNav || q || noneSelected
             ? new Set()
@@ -8014,15 +8065,26 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
             })
             .join("");
         }
+        storiesList.querySelectorAll("article.story").forEach((article) => {
+          const previous = retained.get(article.id);
+          if (previous) {
+            article.replaceWith(previous);
+            return;
+          }
+          if (typeof window.__birinciSetStoryFigure === "function") {
+            window.__birinciSetStoryFigure(article, !document.body.classList.contains("images-collapsed"), {
+              ensureOther: true, load: true,
+            });
+          }
+          if (typeof window.__birinciSetStoryText === "function") {
+            window.__birinciSetStoryText(article, !document.body.classList.contains("texts-collapsed"), {
+              ensureOther: true,
+            });
+          }
+        });
         hideAudioChrome(storiesList);
         ensureStoryListenButtons(storiesList);
-        if (typeof window.__birinciSetAllStoryFigures === "function") {
-          window.__birinciSetAllStoryFigures(!document.body.classList.contains("images-collapsed"));
-        }
-        if (typeof window.__birinciSetAllStoryTexts === "function") {
-          window.__birinciSetAllStoryTexts(!document.body.classList.contains("texts-collapsed"));
-        }
-        if (typeof window.__birinciClearListenQueue === "function") {
+        if (!retained.size && typeof window.__birinciClearListenQueue === "function") {
           window.__birinciClearListenQueue({ keepTrack: true });
         }
       }
@@ -8072,7 +8134,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         }
         pendingStem = null;
       }
-      if (!skipPaint) {
+      if (!skipPaint || needRebuild) {
         paintSearchAndLexicon(listPanel || storiesList, searchInput.value.trim(), {
           lexicon: needRebuild,
           visibleOnly: !needRebuild,

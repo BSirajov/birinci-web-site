@@ -3481,6 +3481,27 @@ html.is-phone article.story .story__actions:not(:has(.story__action-group:has([d
   grid-row: 1;
   min-width: 0;
 }
+.home-stories-more {
+  display: block;
+  margin: 1.5rem auto;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid currentColor;
+  border-radius: 0.5rem;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.home-stories-more[hidden] {
+  display: none;
+}
+
+.home-stories-more:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+}
+
 .home-stories-main {
   min-width: 0;
   display: flex;
