@@ -1,0 +1,6 @@
+---
+description: Repository-wide deployment and QA rules
+alwaysApply: true
+---
+
+Read and follow the repository-root `AGENTS.md` for runtime-only deployment, proportional testing, and the requirement for explicit user authorization before starting recurring QA checks.
