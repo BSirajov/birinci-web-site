@@ -33,7 +33,10 @@ jobs:
           pip install -r api/requirements.txt
 
       - name: Site tooling regression tests
-        run: python -m pytest tools -q
+        run: |
+          php -v
+          php -r "exit(extension_loaded('fileinfo') ? 0 : 1);"
+          PHP_BIN="$(command -v php)" python -m pytest tools -q
 
       - name: Verify all reviewed story sources
         run: python tools/audit_story_sync.py --output docs/reviews/ci-story-sync.json

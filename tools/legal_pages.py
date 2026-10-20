@@ -282,7 +282,7 @@ def _form_html(lang: str, form: dict) -> str:
         "</div>\n"
         "</div>\n"
         "</form>\n"
-        '<script src="../assets/feedback-form.js?v=20261003fb" defer></script>\n'
+        '<script src="../assets/feedback-form.js?v=20261020secure" defer></script>\n'
     )
 
 

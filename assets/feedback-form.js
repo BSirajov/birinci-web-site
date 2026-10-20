@@ -32,6 +32,8 @@
         "Bu baxış serveri e-poçt göndərə bilmir. Dərc olunmuş saytda rəy info@birinci.cloud ünvanına çatır. Yazdıqlarınız formada qalıb.",
       networkError:
         "Bağlantı kəsildi. Yazdıqlarınız formada qalıb — yenidən cəhd edin.",
+      rateLimit: "Çox sayda rəy göndərilib. Bir qədər gözləyib yenidən cəhd edin.",
+      tooLong: "Mətn sahələrindən biri çox uzundur. Mətni qısaldıb yenidən cəhd edin.",
       fileReady: "Göndərməyə hazırdır"
     },
     en: {
@@ -56,6 +58,8 @@
         "This preview server cannot send email. On the published site, feedback is delivered to info@birinci.cloud. What you entered is still in the form.",
       networkError:
         "The connection failed. What you entered is still in the form — please try again.",
+      rateLimit: "Too many submissions. Please wait a while before trying again.",
+      tooLong: "One of the text fields is too long. Please shorten it and try again.",
       fileReady: "Ready to send"
     },
     ru: {
@@ -80,6 +84,8 @@
         "Этот сервер предварительного просмотра не отправляет почту. На опубликованном сайте отзыв уходит на info@birinci.cloud. Введённые данные остались в форме.",
       networkError:
         "Связь прервалась. Введённые данные остались в форме — попробуйте ещё раз.",
+      rateLimit: "Отправлено слишком много сообщений. Подождите немного и попробуйте снова.",
+      tooLong: "Текст в одном из полей слишком длинный. Сократите его и попробуйте снова.",
       fileReady: "Готово к отправке"
     },
     ky: {
@@ -104,6 +110,8 @@
         "Бул алдын ала көрүү сервери почта жөнөтө албайт. Жарыяланган сайтта пикир info@birinci.cloud дарегине жетет. Жазганыңыз формада калды.",
       networkError:
         "Байланыш үзүлдү. Жазганыңыз формада калды — кайра аракет кылыңыз.",
+      rateLimit: "Өтө көп билдирүү жөнөтүлдү. Бир аз күтүп, кайра аракет кылыңыз.",
+      tooLong: "Талаалардын бириндеги текст өтө узун. Аны кыскартып, кайра аракет кылыңыз.",
       fileReady: "Жөнөтүүгө даяр"
     }
   };
@@ -435,6 +443,8 @@
         sendState = "idle";
         setSubmitting(false);
         var map = {
+          "error:rate_limit": "rateLimit",
+          "error:length": "tooLong",
           "error:name": "nameRequired",
           "error:name_invalid": "nameInvalid",
           "error:unsafe": "unsafe",

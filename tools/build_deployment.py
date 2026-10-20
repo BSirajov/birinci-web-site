@@ -314,6 +314,11 @@ ErrorDocument 404 /404.html
 </IfModule>
 <IfModule LiteSpeed>
   CacheDisable public /
+  <Files "mail-feedback.php">
+    php_value upload_max_filesize 5M
+    php_value post_max_size 6M
+    php_flag display_errors Off
+  </Files>
 </IfModule>
 """
 

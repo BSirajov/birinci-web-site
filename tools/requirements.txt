@@ -7,3 +7,4 @@ python-docx>=1.1,<2
 httpx2>=2.0.0
 # Optional: full browser matrix — pip install playwright && playwright install chromium
 playwright>=1.40,<2
+httpx>=0.28,<1
