@@ -39,6 +39,8 @@
 .sc-col__copy .story__source-line,
 .sc-col__source-slot .story__source-line {
   display: block;
+  min-width: 0;
+  overflow-wrap: anywhere;
   text-align: center;
 }
 .story__text .story__moral,
