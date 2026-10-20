@@ -1,6 +1,32 @@
 # Wisdom Stories note styling — 20 October 2026
 
-Implemented locally; not deployed.
+Deployed to https://birinci.cloud on 20 October 2026 from commit
+`e8454d0e7f9b6b1456d3c7f05931546639780fce`.
+
+## Release verification
+
+- All 61 local tooling regression tests passed.
+- [Release CI](https://github.com/BSirajov/birinci-web-site/actions/runs/39382660982)
+  passed tooling, story-source synchronization, German preservation, API tests,
+  deployment build, structural QA and publish-link checks.
+- All 407 publicly readable release files matched the local deployment package
+  by SHA-256, with no failures. PHP and `.htaccess` were excluded from HTTP byte
+  comparison because the server executes or protects them.
+- Live browser checks passed on all five localized multilingual entry pages,
+  each displaying all five languages with the shared source-box styling and
+  a 23.99px measured moral-to-source gap (1.5rem).
+- At a 390px mobile viewport, 180 moral/source pairs across the five faith
+  category pages retained that gap with no source or page overflow. The
+  English/German multilingual window also passed mobile wrapping and spacing.
+- The German standalone `telling-lies.html` author credit displayed the shared
+  source style and 1.5rem gap.
+- Local dark-palette checks below remain applicable: the deployed shared CSS
+  matches the tested file exactly. No live operating-system theme switch was
+  performed.
+- The temporary upload archive was moved to hosting Trash after verification.
+
+Release manifests, HTTP hashes, browser measurements and screenshots are in
+`tmp/story-notes-release/` (local evidence, not published).
 
 ## Coverage and changes
 
