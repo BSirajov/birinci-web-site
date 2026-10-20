@@ -3067,6 +3067,17 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     document.querySelectorAll("[data-texts-mode='hide']").forEach((btn) => {
       setControlTooltip(btn, tUi("hide_text", "Mətni gizlət"));
     });
+    document.querySelectorAll("[data-home-stories-more]").forEach((btn) => {
+      const shown = btn.dataset.shown;
+      const total = btn.dataset.total;
+      const label = tUi("show_more_stories", "Daha çox hekayə göstər");
+      if (shown != null && total != null && shown !== "" && total !== "") {
+        btn.textContent = `${label} (${shown} / ${total})`;
+      } else {
+        const m = String(btn.textContent || "").match(/\((\d+)\s*\/\s*(\d+)\)\s*$/);
+        btn.textContent = m ? `${label} (${m[1]} / ${m[2]})` : label;
+      }
+    });
     document
       .querySelectorAll(
         '[data-tts-mode="listen"], [data-story-tts][data-tts-mode="listen"], [data-discovery-tts][data-tts-mode="listen"], [data-article-tts][data-tts-mode="listen"]'
@@ -3267,7 +3278,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const fromSource = doc.querySelector(
       ".page-home:not(.page-root-home) .intro__source-text"
     );
-    if (source && fromSource) source.textContent = fromSource.textContent;
+    if (source && fromSource) source.innerHTML = fromSource.innerHTML;
     const visual = document.querySelector(
       ".page-home:not(.page-root-home) .intro__visual img"
     );
@@ -6857,14 +6868,12 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     moreStories.className = "home-stories-more";
     moreStories.hidden = true;
     moreStories.setAttribute("data-home-stories-more", "");
-    const moreLabels = {
-      az: "Daha çox hekayə göstər",
-      en: "Show more stories",
-      ru: "Показать ещё истории",
-      ky: "Дагы аңгемелерди көрсөтүү",
-      de: "Weitere Geschichten anzeigen",
+    const moreStoriesLabel = () => tUi("show_more_stories", "Daha çox hekayə göstər");
+    const paintMoreStoriesLabel = (shown, total) => {
+      moreStories.dataset.shown = String(shown);
+      moreStories.dataset.total = String(total);
+      moreStories.textContent = `${moreStoriesLabel()} (${shown} / ${total})`;
     };
-    const moreLabel = moreLabels[document.documentElement.lang.split("-")[0]] || moreLabels.en;
     storiesList.after(moreStories);
     moreStories.addEventListener("click", () => {
       const previousCount = storiesList.querySelectorAll("article.story").length;
@@ -7211,8 +7220,21 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           const isSrc = lastIsSrc && i === last;
           const isAuthorCredit = i === last && (isEtibarAuthorCredit(p) || isBakhtiyarAuthorCredit(p));
           const cls = i === moralI ? "story__moral" : isSrc || isAuthorCredit || (moralI >= 0 && i > moralI) ? "story__source" : "";
-          const text = currentPageLang() !== "de" && isSrc && srcLabel && !authorSrc ? srcLabel : p;
-          return `<p${cls ? ` class="${cls}"` : ""}>${escapeHtml(text)}</p>`;
+          const text = isSrc && srcLabel && !authorSrc ? srcLabel : p;
+          let html;
+          if (isSrc || isAuthorCredit) {
+            const lines = String(text || "")
+              .split(/\n+/)
+              .map((line) => String(line || "").trim())
+              .filter(Boolean);
+            const parts = lines.length ? lines : [String(text || "")];
+            html = parts
+              .map((line) => `<span class="story__source-line">${escapeHtml(line)}</span>`)
+              .join("");
+          } else {
+            html = escapeHtml(text);
+          }
+          return `<p${cls ? ` class="${cls}"` : ""}>${html}</p>`;
         })
         .join("");
     };
@@ -8017,7 +8039,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const paintStories = visibleStories.slice(0, homeLimit);
       const poolKey = `${paintStories.map((s) => s.stem).join("\n")}|u${noneSelected ? 1 : 0}|a:${authorFilter}`;
       moreStories.hidden = paintStories.length >= total;
-      moreStories.textContent = `${moreLabel} (${paintStories.length} / ${total})`;
+      paintMoreStoriesLabel(paintStories.length, total);
       const needRebuild =
         force ||
         poolKey !== listPoolKey ||
@@ -11862,7 +11884,24 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         .map((p) => (p.textContent || "").replace(/\s+/g, " ").trim())
         .filter(Boolean);
       const moral = ((moralEl && moralEl.textContent) || "").replace(/\s+/g, " ").trim();
-      const source = ((sourceEl && sourceEl.textContent) || "").replace(/\s+/g, " ").trim();
+      let source = "";
+      if (sourceEl) {
+        const lineEls = sourceEl.querySelectorAll(".story__source-line");
+        if (lineEls.length) {
+          source = Array.from(lineEls)
+            .map((el) => (el.textContent || "").replace(/\s+/g, " ").trim())
+            .filter(Boolean)
+            .join("\n");
+        } else {
+          source = (sourceEl.innerText || sourceEl.textContent || "")
+            .replace(/\r\n/g, "\n")
+            .replace(/\r/g, "\n")
+            .split(/\n+/)
+            .map((line) => line.replace(/\s+/g, " ").trim())
+            .filter(Boolean)
+            .join("\n");
+        }
+      }
       return { stem, title, body, moral, source, titleEl, textEl, moralEl };
     };
 

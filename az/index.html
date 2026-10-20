@@ -13,7 +13,7 @@
   <link rel="icon" href="../assets/favicon.png" type="image/png" sizes="192x192" />
   <link rel="icon" href="../assets/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" sizes="180x180" />
-  <link rel="stylesheet" href="../assets/site.css?v=20261020notes" />
+  <link rel="stylesheet" href="../assets/site.css?v=20261020src2" />
   
   <link rel="stylesheet" href="../assets/inventions/kt-tokens.css?v=20260924img" />
   <link rel="stylesheet" href="../assets/inventions/kt-catalog-toolbar.css?v=20260924img" />
@@ -115,7 +115,7 @@
       <div class="intro__copy">
         <h1 class="intro__brand" id="about-hero-title">İbrətamiz <span>hekayələr</span></h1>
         <p class="intro__lead">Bu səhifədə təqdim olunan hikmətli hekayələr, pritçalar və ibrətamiz əhvalatlar ən mühüm insani dəyərlərə — xeyirxahlıq və mərhəmətə, ədalət və məsuliyyətə, dürüstlük və etimada, sevgi və dostluğa, səbir və bağışlamağa, minnətdarlıq və ətrafdakılara hörmətə həsr olunmuş süjetlər toplusudur. Mövzular üzrə düzülmüş, bir-biri ilə sıx bağlı bu nəqllər gündəlik hadisələrə yeni baxış bucağından yanaşmağa, öz əməllərimiz barədə düşünməyə və mühüm həyat dərsləri çıxarmağa dəvət edir. İstər tək bir kateqoriyaya baxın, istərsə hekayədən hekayəyə keçin, hər mətn düşüncə üçün sakit bir yoldaş kimi təqdim olunur — gündəlik həyat üçün mənəvi şüur, empatiya və ilham mənbəyi.</p>
-        <p class="intro__source"><span class="intro__source-ornament" aria-hidden="true"></span><span class="intro__source-text">Hekayələr internetdən toplanıb və süni intellekt vasitəsilə işlənib. Bütün illüstrasiyalar süni intellektlə yaradılıb.</span></p>
+        <p class="intro__source"><span class="intro__source-ornament" aria-hidden="true"></span><span class="intro__source-text"><span class="intro__source-line">Hekayələr internet mənbələrindən götürülüb və süni intellektin köməyi ilə redaktə edilib.</span><span class="intro__source-line">Bütün illüstrasiyalar süni intellektlə yaradılıb.</span></span></p>
       </div>
       <div class="intro__visual">
         <img src="../assets/inventions/icons/wisdom.webp?v=20260924img" alt="İbrətamiz hekayələr" width="1774" height="887" decoding="async" />
@@ -264,7 +264,10 @@
             var isSrc = lastIsSrc && i === last;
             var cls = isSrc ? "story__source" : i === moralI ? "story__moral" : "";
             var text = isSrc && srcLabel && !authorSrc ? srcLabel : p;
-            return "<p" + (cls ? ' class="' + cls + '"' : "") + ">" + esc(text) + "</p>";
+            var html = isSrc && !authorSrc && /\n/.test(String(text || ""))
+              ? String(text).split(/\n+/).map(function (line) { return esc(String(line || "").trim()); }).filter(Boolean).join("<br>")
+              : esc(text);
+            return "<p" + (cls ? ' class="' + cls + '"' : "") + ">" + html + "</p>";
           })
           .join("");
         return (
@@ -531,6 +534,6 @@ function done() {
   <script src="../assets/tts-proxy.js?v=20260924img"></script>
   <script src="../assets/inventions/kt-sidebar-toc-groups.js?v=20260924img" defer></script>
   <script src="../assets/inventions/kt-catalog-multi-filter.js?v=20260924img" defer></script>
-  <script src="../assets/site.js?v=20261020notes" defer></script>
+  <script src="../assets/site.js?v=20261020src2" defer></script>
 </body>
 </html>

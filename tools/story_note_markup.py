@@ -21,7 +21,7 @@ def restore_shared_note_styles(css: str) -> str:
         )
     css = re.sub(r"\.text-lightbox__body \.story__source \{[^}]*\}", "", css)
     if not re.search(r'@import url\("story-notes\.css', css):
-        css = '@import url("story-notes.css?v=20261020notes");\n' + css
+        css = '@import url("story-notes.css?v=20261020src2");\n' + css
     return css
 
 

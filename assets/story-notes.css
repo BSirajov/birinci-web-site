@@ -1,35 +1,50 @@
-/* Shared Wisdom Stories moral and source boxes. */
+/* Shared Wisdom Stories moral and source boxes.
+   Source MUST use .story__source-line block children (not bare <br> alone):
+   lexicon <span>s would otherwise become separate flex-column rows. */
 .story__text .story__source,
 .story .card-text .story__source,
 .text-lightbox__body .story__source,
-.sc-col__copy .story__source {
-  display: inline-block;
+.sc-col__copy .story__source,
+.sc-col__source-slot .story__source {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   box-sizing: border-box;
-  align-self: flex-start;
-  overflow-wrap: anywhere;
-  max-width: min(46rem, 100%);
-  margin: calc(0.85rem - var(--story-notes-flow-gap, 0rem)) 0 0;
+  width: 100%;
+  max-width: none;
+  margin-block-start: calc(0.85rem - var(--story-notes-flow-gap, 0rem));
+  margin-inline: 0;
   padding: 0.32rem 0.85rem;
-  border-radius: 1rem;
-  color: var(--blue-900, #06314e);
+  border-radius: var(--radius-sm, 12px);
+  color: #000;
   font-family: var(--font-display, "Fraunces", Georgia, serif);
   font-size: clamp(0.72rem, 1.05vw, 0.84rem);
   font-style: italic;
   font-weight: 400;
   letter-spacing: 0.008em;
   line-height: 1.4;
-  text-align: left;
+  text-align: center;
   text-justify: auto;
   hyphens: manual;
-  background: linear-gradient(180deg, rgba(255, 240, 191, 0.58), rgba(223, 242, 255, 0.42));
-  border: 1px solid rgba(201, 155, 59, 0.4);
+  white-space: normal;
+  background: #f5f5f5;
+  border: 1px solid #e0e0e0;
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.78) inset,
-    0 6px 16px rgba(0, 78, 140, 0.08);
+    0 1px 0 rgba(255, 255, 255, 0.85) inset,
+    0 4px 12px rgba(0, 0, 0, 0.06);
+}
+.story__text .story__source-line,
+.story .card-text .story__source-line,
+.text-lightbox__body .story__source-line,
+.sc-col__copy .story__source-line,
+.sc-col__source-slot .story__source-line {
+  display: block;
+  text-align: center;
 }
 .story__text .story__moral,
 .story .card-text .story__moral,
-.sc-col__copy .story__moral {
+.sc-col__copy .story__moral,
+.sc-col__moral-slot .story__moral {
   clear: both;
   margin: var(--story-moral-margin-top, 1.65rem) 0 0;
   padding: 0.85rem 1rem 0.9rem 1.05rem;
@@ -50,7 +65,8 @@
 @media (max-width: 760px) {
   .story__text .story__moral,
   .story .card-text .story__moral,
-  .sc-col__copy .story__moral {
+  .sc-col__copy .story__moral,
+  .sc-col__moral-slot .story__moral {
     margin-top: var(--story-moral-margin-top, 1.35rem);
     padding: 0.75rem 0.85rem 0.8rem 0.9rem;
     font-size: 0.98em;
@@ -58,12 +74,17 @@
   }
 }
 
-/* Flex columns already contribute their row gap. Keep the visible moral-to-credit
+/* Flex/grid columns already contribute their row gap. Keep the visible moral-to-credit
    distance exactly 1.5rem in both normal flow and the multilingual window. */
 .story__text .story__moral + .story__source,
 .story .card-text .story__moral + .story__source,
 .text-lightbox__body .story__moral + .story__source,
 .sc-col__copy .story__moral + .story__source {
+  margin-top: calc(1.5rem - var(--story-notes-flow-gap, 0rem));
+}
+
+/* Subgrid story columns: moral and source live in adjacent slots, not as siblings. */
+.sc-col__moral-slot:has(.story__moral) + .sc-col__source-slot .story__source {
   margin-top: calc(1.5rem - var(--story-notes-flow-gap, 0rem));
 }
 
@@ -75,18 +96,19 @@
 .story__text .story__source,
 .story .card-text .story__source,
 .text-lightbox__body .story__source,
-.sc-col__copy .story__source {
-  color: light-dark(var(--blue-900, #06314e), #e1f1ff);
-  background: linear-gradient(180deg,
-    light-dark(rgba(255, 240, 191, 0.58), #303b44),
-    light-dark(rgba(223, 242, 255, 0.42), #183248));
-  border-color: light-dark(rgba(201, 155, 59, 0.4), #947c49);
-  box-shadow: 0 1px 0 light-dark(rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.08)) inset,
-    0 6px 16px rgba(0, 78, 140, 0.08);
+.sc-col__copy .story__source,
+.sc-col__source-slot .story__source {
+  color: #000;
+  background: #f5f5f5;
+  border-color: #e0e0e0;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.85) inset,
+    0 4px 12px rgba(0, 0, 0, 0.06);
 }
 .story__text .story__moral,
 .story .card-text .story__moral,
-.sc-col__copy .story__moral {
+.sc-col__copy .story__moral,
+.sc-col__moral-slot .story__moral {
   background: light-dark(#fff9e6, #332e20);
   color: light-dark(var(--ink, #08263b), #fff1c9);
 }

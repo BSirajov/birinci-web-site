@@ -50,7 +50,18 @@
     var lead = document.querySelector(".intro__lead");
     if (lead && L.intro_lead) lead.textContent = L.intro_lead;
     var source = document.querySelector(".intro__source-text");
-    if (source && L.intro_source) source.textContent = L.intro_source;
+    if (source && L.intro_source) {
+      var srcLines = String(L.intro_source).split(/\n+/).map(function (line) {
+        return String(line || "").trim();
+      }).filter(Boolean);
+      source.textContent = "";
+      srcLines.forEach(function (line) {
+        var row = document.createElement("span");
+        row.className = "intro__source-line";
+        row.textContent = line;
+        source.appendChild(row);
+      });
+    }
     var footerAbout = document.querySelector(".footer-about");
     if (footerAbout && L.footer_about) footerAbout.textContent = L.footer_about;
     var storiesAll = document.querySelector("[data-nav-stories-all]");

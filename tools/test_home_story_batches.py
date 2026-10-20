@@ -16,6 +16,8 @@ def test_home_batches_search_and_deep_links():
     start = source.index("      // Search the complete catalog")
     end = source.index("      const needRebuild =", start)
     selection = source[start:end]
+    label_start = source.index("    const moreStoriesLabel =")
+    label_end = source.index("    storiesList.after(moreStories);", label_start)
     script = r"""
 const fs = require("node:fs");
 const vm = require("node:vm");
@@ -32,7 +34,9 @@ for (const lang of ["az", "en", "ru", "ky", "de"]) {
     stories: stories.filter(s => s.categorySlug === c.slug)
   }));
   const activeStoryAuthorFilter = () => "";
-  const moreStories = {}, moreLabel = "More";
+  const moreStories = {dataset: {}};
+  const tUi = () => "More";
+  LABEL_HELPERS
   function select(filtered, {q="", resetWindow=false, pendingStem=null, noneSelected=false}={}) {
     const total = filtered.length;
     SELECTION
@@ -42,9 +46,13 @@ for (const lang of ["az", "en", "ru", "ky", "de"]) {
   assert.equal(result.paintStories.length, 32, lang);
   assert.equal(lastVisibleStems.size, all.length);
   assert.equal(moreStories.hidden, false);
+  assert.equal(moreStories.textContent, `More (32 / ${all.length})`);
+  assert.equal(moreStories.dataset.shown, "32");
+  assert.equal(moreStories.dataset.total, String(all.length));
   homeLimit += 32;
   result = select(all);
   assert.equal(result.paintStories.length, 64);
+  assert.equal(moreStories.textContent, `More (64 / ${all.length})`);
   const target = all.at(-1);
   result = select(all, {pendingStem: target.stem});
   assert.ok(result.paintStories.some(s => s.stem === target.stem));
@@ -57,6 +65,7 @@ for (const lang of ["az", "en", "ru", "ky", "de"]) {
   result = select([], {q: "no matches", resetWindow: true});
   assert.equal(result.paintStories.length, 0);
   assert.equal(lastShownCount, 0);
+  assert.equal(moreStories.textContent, "More (0 / 0)");
   assert.equal(moreStories.hidden, true);
   result = select(all, {resetWindow: true, noneSelected: true});
   assert.equal(result.paintStories.length, 32);
@@ -65,7 +74,7 @@ for (const lang of ["az", "en", "ru", "ky", "de"]) {
   result = select(all, {pendingStem: lastCategory.slug});
   assert.ok(result.paintStories.some(s => s.categorySlug === lastCategory.slug));
 }
-""".replace("SELECTION", selection)
+""".replace("SELECTION", selection).replace("LABEL_HELPERS", source[label_start:label_end])
     result = subprocess.run([node, "-e", script], cwd=ROOT, capture_output=True, text=True, encoding="utf-8")
     assert result.returncode == 0, result.stderr
 

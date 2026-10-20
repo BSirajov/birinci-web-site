@@ -11,6 +11,7 @@ import copy
 import json
 import posixpath
 import re
+from story_source_policy import is_story_collection
 from pathlib import Path
 from urllib.parse import quote, urlsplit, urlunsplit
 
@@ -80,6 +81,10 @@ def normalize_de_paragraphs(paragraphs: list[str]) -> list[str]:
         break
     out: list[str] = []
     for p in paras:
+        if p == "Geschichten aus dem Internet gesammelt und mithilfe von KI bearbeitet. Alle Illustrationen sind KI-generiert.":
+            locale = json.loads((ROOT / "tools/locales/de.json").read_text(encoding="utf-8"))
+            out.append(locale["ui"]["story_source"])
+            continue
         m = MORAL_LABEL_RE.match(p)
         if m:
             body = " ".join(m.group(1).split()).strip()
@@ -92,6 +97,8 @@ def normalize_de_paragraphs(paragraphs: list[str]) -> list[str]:
 def inventory() -> tuple[dict, dict]:
     sources = {}
     for path in sorted((ROOT / "de/wisdom-stories").rglob("*.docx")):
+        if is_story_collection(path):
+            continue
         if any(part.lower() in {"backup", "_backups", "_reviews"} for part in path.parts):
             continue
         stem = canonical_stem(path.stem)
@@ -256,17 +263,28 @@ class Builder:
         text.set("id", f'text-{story["stem"]}')
         for paragraph in story["paragraphs"]:
             p = etree.SubElement(text, "p")
-            p.text = paragraph
-            if paragraph.startswith("Lehre:"):
-                p.set("class", "story__moral")
-            elif paragraph == story["paragraphs"][-1] and (
+            is_source = paragraph == story["paragraphs"][-1] and (
                 story["authorKey"]
                 or paragraph == "Bakhtiyar Sirajov"
                 or paragraph.startswith("Die Geschichte stammt")
                 or "Internet" in paragraph
                 or paragraph.startswith("Geschichten aus dem Internet")
-            ):
+                or paragraph.startswith("Die Geschichten stammen")
+            )
+            if paragraph.startswith("Lehre:"):
+                p.set("class", "story__moral")
+                p.text = paragraph
+            elif is_source:
                 p.set("class", "story__source")
+                lines = [ln.strip() for ln in str(paragraph or "").splitlines() if ln.strip()]
+                if not lines:
+                    lines = [str(paragraph or "").strip()] if str(paragraph or "").strip() else []
+                for line in lines:
+                    span = etree.SubElement(p, "span")
+                    span.set("class", "story__source-line")
+                    span.text = line
+            else:
+                p.text = paragraph
         figure = article.xpath('.//figure')[0]
         figure.set("id", f'figure-{story["stem"]}')
         image = figure.xpath('.//img')[0]

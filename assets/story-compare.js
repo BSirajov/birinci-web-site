@@ -576,7 +576,7 @@
     let moral = "";
     let source = "";
     list.forEach((p, i) => {
-      if (lastIsSrc && i === last) source = p;
+      if ((moralI >= 0 && i > moralI) || (lastIsSrc && i === last)) source += (source ? "\n" : "") + p;
       else if (i === moralI) moral = p;
       else body.push(p);
     });
@@ -971,11 +971,26 @@
     const story = ctx.state.byLang[code];
     const meta = ctx.LANG_META[code];
     const parts = classifyParagraphs(story ? story.paragraphs : [], ctx.state.stem, code);
-    const moralIndex = ((story && story.paragraphs) || []).indexOf(parts.moral);
-    const bodyHtml = ((story && story.paragraphs) || [])
-      .map((p, index) => '<p class="sc-col__text' + (p === parts.moral ? " sc-col__moral story__moral" : p === parts.source || (moralIndex >= 0 && index > moralIndex) ? " sc-col__source story__source" : "") + '" style="white-space: pre-line">' + escapeHtml(p) + "</p>")
+    // Flat title / prose / moral / source / figure slots so .sc-grid can align
+    // rows across language columns via CSS subgrid (space sits above moral).
+    const bodyHtml = (parts.body || [])
+      .map((p) => '<p class="sc-col__text" style="white-space: pre-line">' + escapeHtml(p) + "</p>")
       .join("");
-    const moralHtml = "";
+    const moralHtml = parts.moral
+      ? '<p class="sc-col__moral story__moral" style="white-space: pre-line">' + escapeHtml(parts.moral) + "</p>"
+      : "";
+    const sourceRaw = parts.source || "";
+    const sourceLines = String(sourceRaw)
+      .split(/\n+/)
+      .map((line) => String(line || "").trim())
+      .filter(Boolean);
+    const sourceHtml = sourceLines.length
+      ? '<p class="sc-col__source story__source">' +
+        sourceLines
+          .map((line) => '<span class="story__source-line">' + escapeHtml(line) + "</span>")
+          .join("") +
+        "</p>"
+      : "";
     const title = (story && story.title) || "";
     const showImage = !!(story && story.stem && story.hasImage !== false);
     const alt = (code === "de" ? "Illustration zu „{title}“" : tUi("illustration_alt", "{title} illustration")).replace(
@@ -1039,7 +1054,7 @@
       figureHtml = '<figure class="sc-col__figure">' + imgHtml + "</figure>";
     }
     return (
-      '<article class="sc-col" data-lang="' +
+      '<article class="sc-col sc-col--align" data-lang="' +
       code +
       '">' +
       '<header class="sc-col__head">' +
@@ -1051,16 +1066,21 @@
       escapeHtml(meta.title) +
       "</span>" +
       "</header>" +
-      '<div class="sc-col__body">' +
-      '<div class="sc-col__copy">' +
       '<div class="sc-col__title-row">' +
       '<h2 class="sc-col__title">' +
       escapeHtml(title || "—") +
       "</h2>" +
       "</div>" +
+      '<div class="sc-col__prose">' +
       bodyHtml +
+      "</div>" +
+      '<div class="sc-col__moral-slot">' +
       moralHtml +
       "</div>" +
+      '<div class="sc-col__source-slot">' +
+      sourceHtml +
+      "</div>" +
+      '<div class="sc-col__figure-slot">' +
       figureHtml +
       "</div>" +
       "</article>"

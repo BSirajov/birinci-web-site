@@ -138,6 +138,10 @@ class Page(HTMLParser):
             self.captures.append([tag, len(self.stack), kind, []])
         if tag == "br":
             self.handle_data("\n")
+        if tag == "span" and "story__source-line" in a.get("class", "").split():
+            for capture in self.captures:
+                if capture[2] == "paragraphs" and capture[3]:
+                    capture[3].append("\n")
         if tag not in VOID:
             self.stack.append((tag, a))
 

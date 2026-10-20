@@ -1,4 +1,5 @@
 """Verify all five languages' active DOCX sources, catalogs, HTML and search."""
+from story_source_policy import is_story_collection
 from pathlib import Path
 from copy import deepcopy
 import argparse, importlib, json, re
@@ -15,7 +16,7 @@ def text(n):
     n=deepcopy(n)
     for b in n.xpath('.//br'):b.text='\n'
     return norm(n.text_content())
-def active(p):return not any(v.lower() in {'backup','_backups','_reviews','archive'} for v in p.parts) and not p.name.startswith('~$') and 'combined' not in p.stem.lower()
+def active(p):return not any(v.lower() in {'backup','_backups','_reviews','archive'} for v in p.parts) and not p.name.startswith('~$') and not is_story_collection(p)
 def parse(path,lang):
     paras=rebuild.read_docx_paragraphs(path)
     if lang=='en' and path.stem=='not-my-concern':paras=paras[paras.index('English')+1:]

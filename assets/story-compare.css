@@ -1,5 +1,5 @@
 @import url("fonts.css");
-@import url("story-notes.css?v=20261020notes");
+@import url("story-notes.css?v=20261020src2");
 
 /* Focused multilingual story comparison window */
 :root {
@@ -343,11 +343,18 @@ body.sc-page {
 }
 
 body.sc-page[data-sc-show-text="false"] .sc-col__title,
-body.sc-page[data-sc-show-text="false"] .sc-col__text {
+body.sc-page[data-sc-show-text="false"] .sc-col__title-row,
+body.sc-page[data-sc-show-text="false"] .sc-col__text,
+body.sc-page[data-sc-show-text="false"] .sc-col__prose,
+body.sc-page[data-sc-show-text="false"] .sc-col__moral-slot,
+body.sc-page[data-sc-show-text="false"] .sc-col__source-slot,
+body.sc-page[data-sc-show-text="false"] .sc-col__moral,
+body.sc-page[data-sc-show-text="false"] .sc-col__source {
   display: none !important;
 }
 
-body.sc-page[data-sc-show-illus="false"] .sc-col__figure {
+body.sc-page[data-sc-show-illus="false"] .sc-col__figure,
+body.sc-page[data-sc-show-illus="false"] .sc-col__figure-slot {
   display: none !important;
 }
 
@@ -478,6 +485,13 @@ body.sc-page[data-sc-show-illus="false"] .sc-col__figure {
   max-width: 100%;
 }
 
+/* Story compare: shared row tracks across language columns (subgrid).
+   Rows: head | title | prose | moral | source | figure.
+   Tallest prose pushes moral/source down for every column. */
+.sc-grid:has(> .sc-col--align) {
+  align-items: stretch;
+}
+
 .sc-col {
   min-width: 0;
   display: flex;
@@ -489,6 +503,36 @@ body.sc-page[data-sc-show-illus="false"] .sc-col__figure {
     0 1px 0 rgba(255, 255, 255, 0.9) inset,
     0 12px 28px rgba(0, 78, 140, 0.07);
   overflow: hidden;
+}
+
+.sc-col--align {
+  --story-notes-flow-gap: 0.85rem;
+  --story-moral-margin-top: 0.2rem;
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 6;
+  row-gap: 0.85rem;
+  align-items: start;
+}
+
+body.sc-page[data-sc-show-text="false"] .sc-col--align {
+  grid-row: span 2;
+}
+
+body.sc-page[data-sc-show-illus="false"] .sc-col--align {
+  grid-row: span 5;
+}
+
+body.sc-page[data-sc-show-text="false"][data-sc-show-illus="false"] .sc-col--align {
+  grid-row: span 1;
+}
+
+@supports not (grid-template-rows: subgrid) {
+  .sc-col--align {
+    display: flex;
+    flex-direction: column;
+    grid-row: auto;
+  }
 }
 
 .sc-col__head {
@@ -531,7 +575,7 @@ body.sc-page[data-sc-show-illus="false"] .sc-col__figure {
   padding: 1.05rem 1.1rem 1.25rem;
 }
 
-/* Text above illustrations. JS equalizes .sc-col__copy then .sc-col when side-by-side. */
+/* Discovery (and legacy) columns: flex stack inside the card. */
 .sc-col__copy {
   --story-notes-flow-gap: 0.85rem;
   --story-moral-margin-top: 0.2rem;
@@ -547,6 +591,58 @@ body.sc-page[data-sc-show-illus="false"] .sc-col__figure {
   display: flex;
   align-items: center;
   gap: 0.65rem;
+}
+
+/* Padded content rows for subgrid story columns (replaces .sc-col__body padding). */
+.sc-col--align > .sc-col__title-row,
+.sc-col--align > .sc-col__prose,
+.sc-col--align > .sc-col__moral-slot,
+.sc-col--align > .sc-col__source-slot,
+.sc-col--align > .sc-col__figure-slot {
+  min-width: 0;
+  padding-left: 1.1rem;
+  padding-right: 1.1rem;
+}
+
+.sc-col--align > .sc-col__title-row {
+  padding-top: 1.05rem;
+}
+
+.sc-col--align > .sc-col__source-slot {
+  padding-bottom: 1.25rem;
+}
+
+body.sc-page[data-sc-show-illus="true"] .sc-col--align > .sc-col__source-slot {
+  padding-bottom: 0;
+}
+
+.sc-col--align > .sc-col__figure-slot {
+  padding-bottom: 1.25rem;
+}
+
+.sc-col__prose {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.sc-col__moral-slot,
+.sc-col__source-slot,
+.sc-col__figure-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 0;
+}
+
+.sc-col__source-slot {
+  align-items: stretch;
+  text-align: center;
+}
+
+.sc-col--align > .sc-col__figure-slot .sc-col__figure {
+  width: 100%;
 }
 
 .sc-col__title {
@@ -711,7 +807,33 @@ body.sc-page[data-sc-show-illus="false"] .sc-col__figure {
   .sc-col__body {
     padding: 0.9rem 0.9rem 1.1rem;
   }
+  .sc-col--align > .sc-col__title-row,
+  .sc-col--align > .sc-col__prose,
+  .sc-col--align > .sc-col__moral-slot,
+  .sc-col--align > .sc-col__source-slot,
+  .sc-col--align > .sc-col__figure-slot {
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+  }
+  .sc-col--align > .sc-col__title-row {
+    padding-top: 0.9rem;
+  }
+  .sc-col--align > .sc-col__source-slot {
+    padding-bottom: 1.1rem;
+  }
+  body.sc-page[data-sc-show-illus="true"] .sc-col--align > .sc-col__source-slot {
+    padding-bottom: 0;
+  }
+  .sc-col--align > .sc-col__figure-slot {
+    padding-bottom: 1.1rem;
+  }
   .sc-col__head-name {
     display: none;
+  }
+
+  /* Stack language cards on narrow viewports. Each card owns its own subgrid
+     row range, so moral/source stay in normal flow with no cross-column gaps. */
+  .sc-grid:has(> .sc-col--align) {
+    grid-template-columns: 1fr;
   }
 }

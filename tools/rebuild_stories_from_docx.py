@@ -15,6 +15,7 @@ import argparse
 import re
 import sys
 from dataclasses import dataclass
+from story_source_policy import is_story_collection
 from pathlib import Path
 
 from docx import Document
@@ -147,7 +148,7 @@ def index_docx(lang: str) -> dict[str, Path]:
         raise SystemExit(f"Missing source folder: {folder}")
     out: dict[str, Path] = {}
     for path in sorted(folder.glob("*.docx")):
-        if path.name.startswith("~$"):
+        if path.name.startswith("~$") or is_story_collection(path):
             continue
         raw = path.stem
         if raw.casefold().replace(" ", "-") in SKIP_STEMS:

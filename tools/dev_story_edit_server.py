@@ -35,12 +35,22 @@ SOURCE_RE = re.compile(
     re.I,
 )
 SITE_SOURCE = {
-    "en": "Stories collected from the internet and processed by AI. All illustrations are AI-generated.",
-    "az": "Hekayələr internetdən toplanıb və süni intellekt vasitəsilə işlənib. Bütün illüstrasiyalar süni intellektlə yaradılıb.",
-    "ru": "Истории собраны в интернете и обработаны с помощью ИИ. Все иллюстрации созданы ИИ.",
-    "de": "Geschichten aus dem Internet gesammelt und mithilfe von KI bearbeitet. Alle Illustrationen sind KI-generiert.",
-    "ky": "Аңгемелер интернеттен чогултулуп, жасалма интеллекттин жардамы менен иштелип чыккан. Бардык сүрөттөр жасалма интеллект аркылуу түзүлгөн."
+    "en": "The stories were sourced from the internet and edited with the help of AI.\nAll illustrations are AI-generated.",
+    "az": "Hekayələr internet mənbələrindən götürülüb və süni intellektin köməyi ilə redaktə edilib.\nBütün illüstrasiyalar süni intellektlə yaradılıb.",
+    "ru": "Истории взяты из интернет-источников и отредактированы с помощью ИИ.\nВсе иллюстрации созданы ИИ.",
+    "de": "Die Geschichten stammen aus Internetquellen und wurden mithilfe von KI redigiert.\nAlle Illustrationen wurden mit KI erstellt.",
+    "ky": "Аңгемелер интернет булактарынан алынып, жасалма интеллекттин жардамы менен редакцияланган.\nБардык сүрөттөр жасалма интеллект аркылуу түзүлгөн.",
 }
+
+
+def _source_paragraph_html(source_text: str) -> str:
+    lines = [ln.strip() for ln in str(source_text or "").splitlines() if ln.strip()]
+    if not lines and str(source_text or "").strip():
+        lines = [str(source_text).strip()]
+    inner = "".join(
+        f'<span class="story__source-line">{html.escape(ln)}</span>' for ln in lines
+    )
+    return f'<p class="story__source">{inner}</p>'
 
 
 def _set_paragraph_text(paragraph, text: str) -> None:
@@ -178,7 +188,7 @@ def _story_body_html(body: list[str], moral: str, lang: str, source: str | None 
     source_text = (source or "").strip() or SITE_SOURCE[lang]
     parts = [f"<p>{html.escape(p)}</p>" for p in body]
     parts.append(f'<p class="story__moral">{html.escape(moral)}</p>')
-    parts.append(f'<p class="story__source">{html.escape(source_text)}</p>')
+    parts.append(_source_paragraph_html(source_text))
     return "".join(parts)
 
 

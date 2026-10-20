@@ -32,8 +32,8 @@
     "coming_soon": "Demnächst verfügbar",
     "stories_coming_soon": "Geschichten demnächst verfügbar",
     "stories_coming_soon_lead": "Die deutschen Geschichten werden vorbereitet. Die Seiten sind bereits eingerichtet; die Texte erscheinen hier, sobald sie hinzugefügt werden.",
-    "intro_source": "Geschichten aus dem Internet gesammelt und mithilfe von KI bearbeitet. Alle Illustrationen sind KI-generiert.",
-    "story_source": "Geschichten aus dem Internet gesammelt und mithilfe von KI bearbeitet. Alle Illustrationen sind KI-generiert.",
+    "intro_source": "Die Geschichten stammen aus Internetquellen und wurden mithilfe von KI redigiert.\nAlle Illustrationen wurden mit KI erstellt.",
+    "story_source": "Die Geschichten stammen aus Internetquellen und wurden mithilfe von KI redigiert.\nAlle Illustrationen wurden mit KI erstellt.",
     "site_description": "Birİnci – eine Sammlung lehrreicher Sprüche und Geschichten.",
     "stories_nav": "Geschichten",
     "stories_nav_open": "Geschichtenmenü öffnen",
@@ -109,6 +109,7 @@
     "hide_image": "Bild ausblenden",
     "show_text": "Text anzeigen",
     "show_image": "Bild anzeigen",
+    "show_more_stories": "Weitere Geschichten anzeigen",
     "stories_count_suffix": "Geschichten",
     "stop": "Stoppen",
     "resume": "Fortsetzen",
@@ -205,13 +206,34 @@
       "values_title": "Unsere Werte",
       "values_intro": "Die Grundlage unserer Arbeit ist die Achtung vor dem Wissen, vor dem Menschen und vor dem reichen Erbe der Menschheit. Bei der Umsetzung unserer Mission und Vision leiten uns die folgenden Grundwerte.",
       "values": [
-        {"name": "Wissen", "gloss": "Wir betrachten Wissen als einen der kostbarsten Schätze der Menschheit. Wir möchten das über Jahrhunderte gesammelte Wissen aus Wissenschaft, Technik, Literatur, Kunst und anderen Bereichen bewahren, systematisch erschließen und an kommende Generationen weitergeben."},
-        {"name": "Wahrheit und Verlässlichkeit", "gloss": "Der Wert des Wissens beginnt damit, dass es auf Wahrheit beruht. Wir legen besonderen Wert auf die Genauigkeit, Objektivität und Verlässlichkeit der Informationen, die wir vermitteln, und darauf, dass sie sich möglichst auf maßgebliche Quellen stützen."},
-        {"name": "Aufklärung", "gloss": "Eines unserer wichtigsten Ziele ist es, Wissen zu sammeln, zu teilen und Menschen zum Lernen anzuregen. Wir sind überzeugt, dass Aufklärung den Blick auf die Welt erweitert, das Denken bereichert und der Entwicklung der Gesellschaft dient."},
-        {"name": "Universelle Werte", "gloss": "Werte wie Menschenwürde, Gerechtigkeit, Ehrlichkeit, Mitgefühl, gegenseitiger Respekt und Verantwortung bilden für uns die moralische Grundlage einer gesunden Gesellschaft. Wir glauben, dass Wissen Menschen nicht nur besser informieren, sondern auch weiser und verantwortungsbewusster machen sollte."},
-        {"name": "Achtung vor dem Erbe", "gloss": "Das wissenschaftliche, literarische, kulturelle und moralische Erbe früherer Generationen ist ein großer Schatz, der unsere Gegenwart prägt. Wir betrachten es als unsere moralische Pflicht, dieses Erbe zu erforschen, zu bewahren und an kommende Generationen weiterzugeben."},
-        {"name": "Kritisches und selbstständiges Denken", "gloss": "Wir halten es für wichtig, Wissen nicht einfach zu übernehmen, sondern es durch Nachdenken zu verstehen. Wir ermutigen dazu, Fragen zu stellen, zu forschen, unterschiedliche Sichtweisen zu vergleichen, Ursache und Wirkung zu verstehen und fundierte Schlüsse zu ziehen."},
-        {"name": "Inspiration und Entwicklung", "gloss": "Wissen soll über die Vergangenheit informieren und dazu anregen, die Zukunft zu gestalten. Unsere Plattform soll ein Ort sein, der Menschen zum Lernen, Nachdenken, Gestalten und zur stetigen Weiterentwicklung inspiriert."}
+        {
+          "name": "Wissen",
+          "gloss": "Wir betrachten Wissen als einen der kostbarsten Schätze der Menschheit. Wir möchten das über Jahrhunderte gesammelte Wissen aus Wissenschaft, Technik, Literatur, Kunst und anderen Bereichen bewahren, systematisch erschließen und an kommende Generationen weitergeben."
+        },
+        {
+          "name": "Wahrheit und Verlässlichkeit",
+          "gloss": "Der Wert des Wissens beginnt damit, dass es auf Wahrheit beruht. Wir legen besonderen Wert auf die Genauigkeit, Objektivität und Verlässlichkeit der Informationen, die wir vermitteln, und darauf, dass sie sich möglichst auf maßgebliche Quellen stützen."
+        },
+        {
+          "name": "Aufklärung",
+          "gloss": "Eines unserer wichtigsten Ziele ist es, Wissen zu sammeln, zu teilen und Menschen zum Lernen anzuregen. Wir sind überzeugt, dass Aufklärung den Blick auf die Welt erweitert, das Denken bereichert und der Entwicklung der Gesellschaft dient."
+        },
+        {
+          "name": "Universelle Werte",
+          "gloss": "Werte wie Menschenwürde, Gerechtigkeit, Ehrlichkeit, Mitgefühl, gegenseitiger Respekt und Verantwortung bilden für uns die moralische Grundlage einer gesunden Gesellschaft. Wir glauben, dass Wissen Menschen nicht nur besser informieren, sondern auch weiser und verantwortungsbewusster machen sollte."
+        },
+        {
+          "name": "Achtung vor dem Erbe",
+          "gloss": "Das wissenschaftliche, literarische, kulturelle und moralische Erbe früherer Generationen ist ein großer Schatz, der unsere Gegenwart prägt. Wir betrachten es als unsere moralische Pflicht, dieses Erbe zu erforschen, zu bewahren und an kommende Generationen weiterzugeben."
+        },
+        {
+          "name": "Kritisches und selbstständiges Denken",
+          "gloss": "Wir halten es für wichtig, Wissen nicht einfach zu übernehmen, sondern es durch Nachdenken zu verstehen. Wir ermutigen dazu, Fragen zu stellen, zu forschen, unterschiedliche Sichtweisen zu vergleichen, Ursache und Wirkung zu verstehen und fundierte Schlüsse zu ziehen."
+        },
+        {
+          "name": "Inspiration und Entwicklung",
+          "gloss": "Wissen soll über die Vergangenheit informieren und dazu anregen, die Zukunft zu gestalten. Unsere Plattform soll ein Ort sein, der Menschen zum Lernen, Nachdenken, Gestalten und zur stetigen Weiterentwicklung inspiriert."
+        }
       ]
     },
     "inventions": {
@@ -273,89 +295,347 @@
     "audio_failed": "Die Audiodatei konnte nicht abgespielt werden. Versuche es später erneut."
   },
   "categories": {
-    "iman-ve-meneviyyat": {"title": "Glaube und Spiritualität", "blurb": "Geschichten über Glauben, Gottesverehrung und den inneren Weg."},
-    "aile-ve-terbiye": {"title": "Familie und Erziehung", "blurb": "Elternliebe, Kindererziehung und das Schaffen eines Zuhauses."},
-    "sevgi-ve-evlilik": {"title": "Liebe und Ehe", "blurb": "Liebe, Treue und die Prüfungen eines gemeinsamen Lebens."},
-    "dostluq-ve-insan-munasibetleri": {"title": "Freundschaft und menschliche Beziehungen", "blurb": "Die Wahl von Freunden, Mitgefühl und der Umgang miteinander."},
-    "exlaq-ve-xarakter": {"title": "Moral und Charakter", "blurb": "Ehrlichkeit, Großzügigkeit und persönliche Integrität."},
-    "soz-sukut-ve-unsiyyet": {"title": "Wort, Schweigen und Verständigung", "blurb": "Die Kraft der Sprache, die Weisheit des Schweigens und die Kunst des guten Gesprächs."},
-    "hikmet-ve-heyat-dersleri": {"title": "Weisheit und Lebenslehren", "blurb": "Sinn, Entscheidungen und Denkweisen."},
-    "emek-ruzi-ve-servet": {"title": "Arbeit, Lebensunterhalt und Wohlstand", "blurb": "Arbeit, Versorgung und unser Blick auf Reichtum."},
-    "edalet-ve-cemiyyet": {"title": "Gerechtigkeit und Gesellschaft", "blurb": "Recht, Gemeinschaft und gemeinsame Verantwortung."},
-    "yaslanma-ve-zaman": {"title": "Altern und Zeit", "blurb": "Die Jahreszeiten des Lebens und die Veränderungen, die die Zeit mit sich bringt."},
-    "temsiller-ve-meseller": {"title": "Gleichnisse und Fabeln", "blurb": "Lehren, die durch Tiere und Bilder vermittelt werden."},
-    "tarix-ve-taninmish-shexsiyyetler": {"title": "Geschichte und bedeutende Persönlichkeiten", "blurb": "Lehren aus der Geschichte und aus dem Leben bekannter Persönlichkeiten."}
+    "iman-ve-meneviyyat": {
+      "title": "Glaube und Spiritualität",
+      "blurb": "Geschichten über Glauben, Gottesverehrung und den inneren Weg."
+    },
+    "aile-ve-terbiye": {
+      "title": "Familie und Erziehung",
+      "blurb": "Elternliebe, Kindererziehung und das Schaffen eines Zuhauses."
+    },
+    "sevgi-ve-evlilik": {
+      "title": "Liebe und Ehe",
+      "blurb": "Liebe, Treue und die Prüfungen eines gemeinsamen Lebens."
+    },
+    "dostluq-ve-insan-munasibetleri": {
+      "title": "Freundschaft und menschliche Beziehungen",
+      "blurb": "Die Wahl von Freunden, Mitgefühl und der Umgang miteinander."
+    },
+    "exlaq-ve-xarakter": {
+      "title": "Moral und Charakter",
+      "blurb": "Ehrlichkeit, Großzügigkeit und persönliche Integrität."
+    },
+    "soz-sukut-ve-unsiyyet": {
+      "title": "Wort, Schweigen und Verständigung",
+      "blurb": "Die Kraft der Sprache, die Weisheit des Schweigens und die Kunst des guten Gesprächs."
+    },
+    "hikmet-ve-heyat-dersleri": {
+      "title": "Weisheit und Lebenslehren",
+      "blurb": "Sinn, Entscheidungen und Denkweisen."
+    },
+    "emek-ruzi-ve-servet": {
+      "title": "Arbeit, Lebensunterhalt und Wohlstand",
+      "blurb": "Arbeit, Versorgung und unser Blick auf Reichtum."
+    },
+    "edalet-ve-cemiyyet": {
+      "title": "Gerechtigkeit und Gesellschaft",
+      "blurb": "Recht, Gemeinschaft und gemeinsame Verantwortung."
+    },
+    "yaslanma-ve-zaman": {
+      "title": "Altern und Zeit",
+      "blurb": "Die Jahreszeiten des Lebens und die Veränderungen, die die Zeit mit sich bringt."
+    },
+    "temsiller-ve-meseller": {
+      "title": "Gleichnisse und Fabeln",
+      "blurb": "Lehren, die durch Tiere und Bilder vermittelt werden."
+    },
+    "tarix-ve-taninmish-shexsiyyetler": {
+      "title": "Geschichte und bedeutende Persönlichkeiten",
+      "blurb": "Lehren aus der Geschichte und aus dem Leben bekannter Persönlichkeiten."
+    }
   },
   "top_nav": [
-    {"label": "Bedeutende Persönlichkeiten", "icon": "landmark"},
-    {"label": "Entdeckungen und Erfindungen", "icon": "lightbulb", "href": "discoveries/discoveries-and-inventions.html"},
-    {"label": "Über uns", "icon": "info", "menu": "about"},
-    {"label": "Unterstütze uns", "icon": "hand-heart"}
+    {
+      "label": "Bedeutende Persönlichkeiten",
+      "icon": "landmark"
+    },
+    {
+      "label": "Entdeckungen und Erfindungen",
+      "icon": "lightbulb",
+      "href": "discoveries/discoveries-and-inventions.html"
+    },
+    {
+      "label": "Über uns",
+      "icon": "info",
+      "menu": "about"
+    },
+    {
+      "label": "Unterstütze uns",
+      "icon": "hand-heart"
+    }
   ],
   "arts_items": [
-    {"label": "Malerei", "icon": "palette", "desc": "Farbe, Form und bildende Kunst"},
-    {"label": "Architektur", "icon": "building", "desc": "Gebäude, Raum und Gestaltung"},
-    {"label": "Musik", "icon": "music", "desc": "Klang, Rhythmus und Melodie"},
-    {"label": "Film", "icon": "film", "desc": "Kino und Filmkunst"}
+    {
+      "label": "Malerei",
+      "icon": "palette",
+      "desc": "Farbe, Form und bildende Kunst"
+    },
+    {
+      "label": "Architektur",
+      "icon": "building",
+      "desc": "Gebäude, Raum und Gestaltung"
+    },
+    {
+      "label": "Musik",
+      "icon": "music",
+      "desc": "Klang, Rhythmus und Melodie"
+    },
+    {
+      "label": "Film",
+      "icon": "film",
+      "desc": "Kino und Filmkunst"
+    }
   ],
   "natural_items": [
-    {"label": "Physik", "icon": "atom", "desc": "Materie, Energie, Bewegung und die Gesetze der Kräfte"},
-    {"label": "Chemie", "icon": "flask", "desc": "Zusammensetzung, Eigenschaften und Umwandlung von Stoffen"},
-    {"label": "Biologie", "icon": "dna", "desc": "Lebewesen und Lebensvorgänge"},
-    {"label": "Astronomie", "icon": "telescope", "desc": "Das Universum, Sterne und Planeten"},
-    {"label": "Geologie (Geowissenschaften)", "icon": "mountain", "desc": "Aufbau der Erde, Gesteine und geologische Prozesse"},
-    {"label": "Ökologie", "icon": "leaf", "desc": "Wechselwirkungen zwischen Lebewesen und ihrer Umwelt"}
+    {
+      "label": "Physik",
+      "icon": "atom",
+      "desc": "Materie, Energie, Bewegung und die Gesetze der Kräfte"
+    },
+    {
+      "label": "Chemie",
+      "icon": "flask",
+      "desc": "Zusammensetzung, Eigenschaften und Umwandlung von Stoffen"
+    },
+    {
+      "label": "Biologie",
+      "icon": "dna",
+      "desc": "Lebewesen und Lebensvorgänge"
+    },
+    {
+      "label": "Astronomie",
+      "icon": "telescope",
+      "desc": "Das Universum, Sterne und Planeten"
+    },
+    {
+      "label": "Geologie (Geowissenschaften)",
+      "icon": "mountain",
+      "desc": "Aufbau der Erde, Gesteine und geologische Prozesse"
+    },
+    {
+      "label": "Ökologie",
+      "icon": "leaf",
+      "desc": "Wechselwirkungen zwischen Lebewesen und ihrer Umwelt"
+    }
   ],
   "social_items": [
-    {"label": "Wirtschaftswissenschaften", "icon": "chart", "desc": "Produktion, Verteilung und Finanzen"},
-    {"label": "Soziologie", "icon": "users", "desc": "Gesellschaft, Gruppen und soziale Beziehungen"},
-    {"label": "Politikwissenschaft", "icon": "scale", "desc": "Macht, Staat und politische Prozesse"},
-    {"label": "Psychologie", "icon": "brain", "desc": "Psychische Prozesse und menschliches Verhalten"},
-    {"label": "Demografie", "icon": "globe", "desc": "Bevölkerung, Geburten, Sterbefälle und Migration"}
+    {
+      "label": "Wirtschaftswissenschaften",
+      "icon": "chart",
+      "desc": "Produktion, Verteilung und Finanzen"
+    },
+    {
+      "label": "Soziologie",
+      "icon": "users",
+      "desc": "Gesellschaft, Gruppen und soziale Beziehungen"
+    },
+    {
+      "label": "Politikwissenschaft",
+      "icon": "scale",
+      "desc": "Macht, Staat und politische Prozesse"
+    },
+    {
+      "label": "Psychologie",
+      "icon": "brain",
+      "desc": "Psychische Prozesse und menschliches Verhalten"
+    },
+    {
+      "label": "Demografie",
+      "icon": "globe",
+      "desc": "Bevölkerung, Geburten, Sterbefälle und Migration"
+    }
   ],
   "humanities_items": [
-    {"label": "Geschichte", "icon": "landmark", "desc": "Vergangene Ereignisse und Zivilisationen"},
-    {"label": "Philosophie", "icon": "lightbulb", "desc": "Nachdenken über Sein, Wissen und Werte"},
-    {"label": "Sprachwissenschaft (Philologie)", "icon": "message", "desc": "Aufbau, Entwicklung und Gebrauch der Sprache"},
-    {"label": "Literaturwissenschaft", "icon": "book", "desc": "Analyse und Erforschung literarischer Werke"},
-    {"label": "Kunstgeschichte", "icon": "palette", "desc": "Geschichte und Theorie der Künste"},
-    {"label": "Religionswissenschaft (Theologie)", "icon": "sparkles", "desc": "Religionen, Glaubensvorstellungen und theologische Forschung"},
-    {"label": "Anthropologie und Ethnografie", "icon": "users", "desc": "Menschliche Kulturen und ethnische Gruppen"},
-    {"label": "Archäologie", "icon": "mountain", "desc": "Materielle Zeugnisse alter Kulturen"}
+    {
+      "label": "Geschichte",
+      "icon": "landmark",
+      "desc": "Vergangene Ereignisse und Zivilisationen"
+    },
+    {
+      "label": "Philosophie",
+      "icon": "lightbulb",
+      "desc": "Nachdenken über Sein, Wissen und Werte"
+    },
+    {
+      "label": "Sprachwissenschaft (Philologie)",
+      "icon": "message",
+      "desc": "Aufbau, Entwicklung und Gebrauch der Sprache"
+    },
+    {
+      "label": "Literaturwissenschaft",
+      "icon": "book",
+      "desc": "Analyse und Erforschung literarischer Werke"
+    },
+    {
+      "label": "Kunstgeschichte",
+      "icon": "palette",
+      "desc": "Geschichte und Theorie der Künste"
+    },
+    {
+      "label": "Religionswissenschaft (Theologie)",
+      "icon": "sparkles",
+      "desc": "Religionen, Glaubensvorstellungen und theologische Forschung"
+    },
+    {
+      "label": "Anthropologie und Ethnografie",
+      "icon": "users",
+      "desc": "Menschliche Kulturen und ethnische Gruppen"
+    },
+    {
+      "label": "Archäologie",
+      "icon": "mountain",
+      "desc": "Materielle Zeugnisse alter Kulturen"
+    }
   ],
   "medical_items": [
-    {"label": "Anatomie", "icon": "activity", "desc": "Aufbau des Körpers und seiner Organe"},
-    {"label": "Physiologie", "icon": "heart", "desc": "Funktionen von Organen und Organsystemen"},
-    {"label": "Pathologie", "icon": "microscope", "desc": "Ursachen und Mechanismen von Krankheiten"},
-    {"label": "Pharmakologie", "icon": "pill", "desc": "Arzneimittel und ihre Wirkungen"},
-    {"label": "Chirurgie", "icon": "scissors", "desc": "Chirurgische Behandlung und Operationen"},
-    {"label": "Innere Medizin (Therapie)", "icon": "stethoscope", "desc": "Behandlung von Erkrankungen der inneren Organe"},
-    {"label": "Kinderheilkunde", "icon": "baby", "desc": "Gesundheit und Krankheiten von Kindern"},
-    {"label": "Kardiologie", "icon": "heart", "desc": "Herz und Kreislaufsystem"},
-    {"label": "Neurologie", "icon": "brain", "desc": "Nervensystem und Gehirn"},
-    {"label": "Onkologie", "icon": "microscope", "desc": "Tumoren und ihre Behandlung"},
-    {"label": "Psychiatrie", "icon": "brain", "desc": "Psychische Gesundheit und Erkrankungen"},
-    {"label": "Medizinische Genetik", "icon": "dna", "desc": "Erbkrankheiten und Gene"},
-    {"label": "Epidemiologie", "icon": "globe", "desc": "Ausbreitung und Vorbeugung von Krankheiten"}
+    {
+      "label": "Anatomie",
+      "icon": "activity",
+      "desc": "Aufbau des Körpers und seiner Organe"
+    },
+    {
+      "label": "Physiologie",
+      "icon": "heart",
+      "desc": "Funktionen von Organen und Organsystemen"
+    },
+    {
+      "label": "Pathologie",
+      "icon": "microscope",
+      "desc": "Ursachen und Mechanismen von Krankheiten"
+    },
+    {
+      "label": "Pharmakologie",
+      "icon": "pill",
+      "desc": "Arzneimittel und ihre Wirkungen"
+    },
+    {
+      "label": "Chirurgie",
+      "icon": "scissors",
+      "desc": "Chirurgische Behandlung und Operationen"
+    },
+    {
+      "label": "Innere Medizin (Therapie)",
+      "icon": "stethoscope",
+      "desc": "Behandlung von Erkrankungen der inneren Organe"
+    },
+    {
+      "label": "Kinderheilkunde",
+      "icon": "baby",
+      "desc": "Gesundheit und Krankheiten von Kindern"
+    },
+    {
+      "label": "Kardiologie",
+      "icon": "heart",
+      "desc": "Herz und Kreislaufsystem"
+    },
+    {
+      "label": "Neurologie",
+      "icon": "brain",
+      "desc": "Nervensystem und Gehirn"
+    },
+    {
+      "label": "Onkologie",
+      "icon": "microscope",
+      "desc": "Tumoren und ihre Behandlung"
+    },
+    {
+      "label": "Psychiatrie",
+      "icon": "brain",
+      "desc": "Psychische Gesundheit und Erkrankungen"
+    },
+    {
+      "label": "Medizinische Genetik",
+      "icon": "dna",
+      "desc": "Erbkrankheiten und Gene"
+    },
+    {
+      "label": "Epidemiologie",
+      "icon": "globe",
+      "desc": "Ausbreitung und Vorbeugung von Krankheiten"
+    }
   ],
   "informatics_items": [
-    {"label": "Algorithmen und Datenstrukturen", "icon": "layers", "desc": "Verfahren zur Lösung von Rechenproblemen und zur effizienten Organisation von Daten"},
-    {"label": "Datenbanken", "icon": "database", "desc": "Speichern, Organisieren, Suchen und Verwalten von Daten"},
-    {"label": "Datenwissenschaft", "icon": "chart", "desc": "Erheben, Verarbeiten und Analysieren großer Datenmengen zur Gewinnung von Erkenntnissen"},
-    {"label": "Cybersicherheit", "icon": "shield", "desc": "Schutz von Daten, Netzwerken und Computersystemen"},
-    {"label": "Computergrafik und Visualisierung", "icon": "palette", "desc": "Erstellen, Verarbeiten, Darstellen und Präsentieren visueller Informationen"},
-    {"label": "Softwaretechnik", "icon": "cpu", "desc": "Anforderungen, Entwurf, Entwicklung, Prüfung und Verwaltung von Software"},
-    {"label": "Künstliche Intelligenz", "icon": "brain", "desc": "Maschinelles Lernen, neuronale Netze, Verarbeitung natürlicher Sprache und intelligente Systeme"},
-    {"label": "Netzwerktechnologien", "icon": "network", "desc": "Internet, Computernetzwerke, Kommunikationsprotokolle und verteilte Systeme"}
+    {
+      "label": "Algorithmen und Datenstrukturen",
+      "icon": "layers",
+      "desc": "Verfahren zur Lösung von Rechenproblemen und zur effizienten Organisation von Daten"
+    },
+    {
+      "label": "Datenbanken",
+      "icon": "database",
+      "desc": "Speichern, Organisieren, Suchen und Verwalten von Daten"
+    },
+    {
+      "label": "Datenwissenschaft",
+      "icon": "chart",
+      "desc": "Erheben, Verarbeiten und Analysieren großer Datenmengen zur Gewinnung von Erkenntnissen"
+    },
+    {
+      "label": "Cybersicherheit",
+      "icon": "shield",
+      "desc": "Schutz von Daten, Netzwerken und Computersystemen"
+    },
+    {
+      "label": "Computergrafik und Visualisierung",
+      "icon": "palette",
+      "desc": "Erstellen, Verarbeiten, Darstellen und Präsentieren visueller Informationen"
+    },
+    {
+      "label": "Softwaretechnik",
+      "icon": "cpu",
+      "desc": "Anforderungen, Entwurf, Entwicklung, Prüfung und Verwaltung von Software"
+    },
+    {
+      "label": "Künstliche Intelligenz",
+      "icon": "brain",
+      "desc": "Maschinelles Lernen, neuronale Netze, Verarbeitung natürlicher Sprache und intelligente Systeme"
+    },
+    {
+      "label": "Netzwerktechnologien",
+      "icon": "network",
+      "desc": "Internet, Computernetzwerke, Kommunikationsprotokolle und verteilte Systeme"
+    }
   ],
   "math_items": [
-    {"label": "Algebra", "icon": "calculator", "desc": "Gleichungen und algebraische Strukturen"},
-    {"label": "Differentialgleichungen und mathematische Modellierung", "icon": "activity", "desc": "Mathematische Beschreibung realer Prozesse"},
-    {"label": "Diskrete Mathematik und mathematische Logik", "icon": "layers", "desc": "Kombinatorik, Graphen und formales Schlussfolgern"},
-    {"label": "Wahrscheinlichkeitstheorie und Statistik", "icon": "chart", "desc": "Zufall und Datenanalyse"},
-    {"label": "Zahlentheorie", "icon": "lightbulb", "desc": "Gesetzmäßigkeiten ganzer Zahlen"},
-    {"label": "Geometrie und Topologie", "icon": "mountain", "desc": "Form, Raum und ihre Eigenschaften"},
-    {"label": "Mathematische Analysis", "icon": "atom", "desc": "Funktionen und Veränderungsprozesse"},
-    {"label": "Angewandte Mathematik und numerische Mathematik", "icon": "cpu", "desc": "Lösung praktischer Probleme mit mathematischen und computergestützten Verfahren"}
+    {
+      "label": "Algebra",
+      "icon": "calculator",
+      "desc": "Gleichungen und algebraische Strukturen"
+    },
+    {
+      "label": "Differentialgleichungen und mathematische Modellierung",
+      "icon": "activity",
+      "desc": "Mathematische Beschreibung realer Prozesse"
+    },
+    {
+      "label": "Diskrete Mathematik und mathematische Logik",
+      "icon": "layers",
+      "desc": "Kombinatorik, Graphen und formales Schlussfolgern"
+    },
+    {
+      "label": "Wahrscheinlichkeitstheorie und Statistik",
+      "icon": "chart",
+      "desc": "Zufall und Datenanalyse"
+    },
+    {
+      "label": "Zahlentheorie",
+      "icon": "lightbulb",
+      "desc": "Gesetzmäßigkeiten ganzer Zahlen"
+    },
+    {
+      "label": "Geometrie und Topologie",
+      "icon": "mountain",
+      "desc": "Form, Raum und ihre Eigenschaften"
+    },
+    {
+      "label": "Mathematische Analysis",
+      "icon": "atom",
+      "desc": "Funktionen und Veränderungsprozesse"
+    },
+    {
+      "label": "Angewandte Mathematik und numerische Mathematik",
+      "icon": "cpu",
+      "desc": "Lösung praktischer Probleme mit mathematischen und computergestützten Verfahren"
+    }
   ]
 }

@@ -73,3 +73,25 @@ for (language of ["az","en","ru","ky","de"]) {
 """.replace("RENDERER", renderer)
     result = subprocess.run([node, "-e", script], cwd=root, capture_output=True, text=True, encoding="utf-8")
     assert result.returncode == 0, result.stderr
+
+def test_comparison_keeps_all_credits_after_the_moral():
+    node = shutil.which("node")
+    if not node:
+        pytest.skip("Node.js required")
+    root = Path(__file__).resolve().parents[1]
+    source = (root / "assets/story-compare.js").read_text(encoding="utf-8")
+    start = source.index("  const classifyParagraphs =")
+    end = source.index("  const findStory =", start)
+    script = r'''
+const assert = require('node:assert/strict');
+const foldAzI = s => s;
+CLASSIFIER
+const p = classifyParagraphs(['Body', 'Moral: Learn', 'Internet credit', 'https://one', 'https://two'], 'mercedes', 'en');
+assert.deepEqual(p.body, ['Body']);
+assert.equal(p.source, 'Internet credit\nhttps://one\nhttps://two');
+const de = classifyParagraphs(['Body', 'Lehre: Learn', 'Bakhtiyar Sirajov'], 'telling-lies', 'de');
+assert.deepEqual(de.body, ['Body']);
+assert.equal(de.source, 'Bakhtiyar Sirajov');
+'''.replace("CLASSIFIER", source[start:end])
+    result = subprocess.run([node, "-e", script], capture_output=True, text=True, encoding="utf-8")
+    assert result.returncode == 0, result.stderr

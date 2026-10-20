@@ -25,6 +25,8 @@
   const sortLangOrder = (codes) =>
     [...codes].sort((a, b) => langToggleLabel(a).localeCompare(langToggleLabel(b), "en"));
   const TTS_LANG = { az: "az-AZ", en: "en-US", ru: "ru-RU", ky: "ky-KG", de: "de-DE" };
+  // Shared prefs blob: languages + illustrations (same key, one write).
+  // Legacy shapes still read: ["az","en"] | { az: true, en: true } | "az,en"
   const LANG_PREF_KEY = "birinci-compare-langs";
 
   const normalizeLangList = (items, order = LANG_ORDER) => {
@@ -34,33 +36,52 @@
     );
   };
 
-  const readSavedVisibleLangs = (order = LANG_ORDER) => {
+  const normalizeIllustrationsPref = (value) => {
+    if (value === true || value === 1 || value === "1") return true;
+    if (value === false || value === 0 || value === "0") return false;
+    return null;
+  };
+
+  const readSavedComparePrefs = (order = LANG_ORDER) => {
     try {
       const raw = localStorage.getItem(LANG_PREF_KEY);
-      if (raw == null) return null;
+      if (raw == null) return { langs: null, illustrations: null };
       const trimmed = String(raw).trim();
-      if (!trimmed) return null;
+      if (!trimmed) return { langs: null, illustrations: null };
       let items = null;
+      let illustrations = null;
       if (trimmed.charAt(0) === "[") {
         const parsed = JSON.parse(trimmed);
         items = Array.isArray(parsed) ? parsed : null;
       } else if (trimmed.charAt(0) === "{") {
         const parsed = JSON.parse(trimmed);
         if (parsed && typeof parsed === "object") {
-          items = order.filter((code) => {
-            const value = parsed[code];
-            return value === true || value === 1 || value === "1";
-          });
+          illustrations = normalizeIllustrationsPref(parsed.illustrations);
+          if (Array.isArray(parsed.langs)) {
+            items = parsed.langs;
+          } else if (Array.isArray(parsed.languages)) {
+            items = parsed.languages;
+          } else {
+            items = order.filter((code) => {
+              const value = parsed[code];
+              return value === true || value === 1 || value === "1";
+            });
+          }
         }
       } else {
         items = trimmed.split(/[,\s]+/);
       }
       const codes = normalizeLangList(items, order);
-      return codes.length ? codes : null;
+      return {
+        langs: codes.length ? codes : null,
+        illustrations,
+      };
     } catch (_) {
-      return null;
+      return { langs: null, illustrations: null };
     }
   };
+
+  const readSavedVisibleLangs = (order = LANG_ORDER) => readSavedComparePrefs(order).langs;
 
   const ui = () => ((global.__BIRINCI_I18N__ || {}).ui || {});
   const tUi = (key, fallback) => {
@@ -229,7 +250,9 @@
       } catch (_) {}
     };
 
-    const savedLangPrefs = readSavedVisibleLangs(LANG_ORDER);
+    const savedPrefs = readSavedComparePrefs(LANG_ORDER);
+    const savedLangPrefs = savedPrefs.langs;
+    const savedIllustrations = savedPrefs.illustrations;
     const state = {
       stem: stemFromQuery || stemFromSession,
       catalogs: {},
@@ -243,7 +266,11 @@
       userAdjustedLangs: !!savedLangPrefs,
       catalogsReady: false,
       showText: true,
-      showIllustrations: false,
+      // Default remains hidden; restore only a valid boolean from the prefs blob.
+      showIllustrations:
+        showContentViews && typeof savedIllustrations === "boolean"
+          ? savedIllustrations
+          : false,
       togglesBound: false,
       viewsBound: false,
       audioBound: false,
@@ -396,16 +423,28 @@
 
     const visibleLangs = () => LANG_ORDER.filter((code) => state.visible.has(code));
 
-    const persistVisibleLangs = () => {
+    const persistComparePrefs = () => {
       if (!state.prefReady) return;
       const langs = LANG_ORDER.filter((code) => state.prefOn.has(code));
       if (!langs.length) return;
       try {
-        localStorage.setItem(LANG_PREF_KEY, JSON.stringify(langs));
+        const payload = { langs };
+        if (showContentViews) {
+          payload.illustrations = !!state.showIllustrations;
+        } else {
+          // Discoveries has no image toggle — keep any previously saved value.
+          const prev = readSavedComparePrefs(LANG_ORDER);
+          if (typeof prev.illustrations === "boolean") {
+            payload.illustrations = prev.illustrations;
+          }
+        }
+        localStorage.setItem(LANG_PREF_KEY, JSON.stringify(payload));
       } catch (_) {}
     };
 
-    global.__birinciPersistCompareLangs = persistVisibleLangs;
+    // Close handler in site.js still calls this name.
+    const persistVisibleLangs = persistComparePrefs;
+    global.__birinciPersistCompareLangs = persistComparePrefs;
 
     let audioEl = null;
     let audioPlayingLang = "";
@@ -559,6 +598,9 @@
       }
     };
 
+    // Story columns (.sc-col--align) use CSS subgrid for moral/source alignment.
+    // Discovery keeps flex cards; equalize heights only for those.
+
     const clearEqualHeights = () => {
       if (!els.grid) return;
       els.grid.querySelectorAll(".sc-col__copy").forEach((el) => {
@@ -589,11 +631,11 @@
       return max;
     };
 
-    // Side-by-side only: equalize text blocks (image tops), then outer cards (bottoms).
-    // Extra space stays in the card below the image — never stretch bitmaps.
     const equalizeColumnHeights = () => {
       clearEqualHeights();
       if (!els.grid || columnsAreStacked()) return;
+      // Subgrid story columns must not get min-height hacks.
+      if (els.grid.querySelector(".sc-col--align")) return;
 
       const copies = Array.prototype.slice.call(els.grid.querySelectorAll(".sc-col__copy"));
       if (copies.length >= 2) {
@@ -624,7 +666,6 @@
       equalizeRaf = window.requestAnimationFrame(() => {
         equalizeRaf = 0;
         equalizeColumnHeights();
-        // Second pass after layout/fonts/images settle; avoid a stale height.
         equalizeTimer = window.setTimeout(() => {
           equalizeTimer = 0;
           equalizeColumnHeights();
@@ -918,6 +959,8 @@
       } else {
         return;
       }
+      // Persist langs + illustrations together whenever either view changes.
+      persistComparePrefs();
       setStatus("", true);
       refresh();
     };

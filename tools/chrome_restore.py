@@ -109,12 +109,12 @@ DISABLE_DISCOVERY_VIDEOS = True
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
 SITE_ASSET_VERSION = "20260924img"
 # Shared site.css / site.js (phone illustration-control chrome).
-SITE_CHROME_ASSET_VERSION = "20261020notes"
+SITE_CHROME_ASSET_VERSION = "20261020src2"
 INVENTIONS_BRIDGE_ASSET_VERSION = "20260924bg"
 # Discoveries catalog JS (view=list URL cache-bust). Independent of site chrome.
 KT_INVENTIONS_JS_VERSION = "20261004qa1"
-STORY_COMPARE_CSS_VERSION = "20261020notes"
-STORY_COMPARE_JS_VERSION = "20261020notes"
+STORY_COMPARE_CSS_VERSION = "20261020src2"
+STORY_COMPARE_JS_VERSION = "20261020src2"
 FEEDBACK_FORM_JS_VERSION = "20261020secure"
 COMPARE_WINDOW_JS_VERSION = "20261005de"
 DISCOVERY_COMPARE_ASSET_VERSION = "20261006noaud"
@@ -3008,7 +3008,7 @@ def build_stories_hero_html(lang: str) -> str:
         f'        <p class="intro__lead">{html.escape(lead)}</p>\n'
         '        <p class="intro__source">'
         '<span class="intro__source-ornament" aria-hidden="true"></span>'
-        f'<span class="intro__source-text">{html.escape(source)}</span></p>\n'
+        f'<span class="intro__source-text">{_multiline_source_html(source)}</span></p>\n'
         "      </div>\n"
         '      <div class="intro__visual">\n'
         f'        <img src="../assets/inventions/icons/wisdom.webp?v={SITE_ASSET_VERSION}" '
@@ -3036,7 +3036,7 @@ def build_root_intro_hero_html() -> str:
         f'        <p class="intro__lead">{html.escape(lead)}</p>\n'
         '        <p class="intro__source">'
         '<span class="intro__source-ornament" aria-hidden="true"></span>'
-        f'<span class="intro__source-text">{html.escape(source)}</span></p>\n'
+        f'<span class="intro__source-text">{_multiline_source_html(source)}</span></p>\n'
         "      </div>\n"
         '      <div class="intro__visual">\n'
         f'        <img src="../assets/pearl-hero.webp?v={ROOT_HOME_ASSET_VERSION}" '
@@ -3777,6 +3777,13 @@ def _show_audio_controls_for(lang: str) -> bool:
         if isinstance(item, dict) and item.get("code") == lang:
             return bool(item.get("show_audio_controls"))
     return False
+
+
+
+def _multiline_source_html(source: str) -> str:
+    """Render intro/story source as one sentence per row."""
+    lines = [html.escape(part.strip()) for part in str(source or "").splitlines() if part.strip()]
+    return "<br>".join(lines)
 
 
 def write_lang_i18n_from_locale(lang: str) -> None:
@@ -4957,7 +4964,18 @@ _ROOT_ENTRY_SCRIPT = """\
     var lead = document.querySelector(".intro__lead");
     if (lead && L.intro_lead) lead.textContent = L.intro_lead;
     var source = document.querySelector(".intro__source-text");
-    if (source && L.intro_source) source.textContent = L.intro_source;
+    if (source && L.intro_source) {
+      var srcLines = String(L.intro_source).split(/\n+/).map(function (line) {
+        return String(line || "").trim();
+      }).filter(Boolean);
+      source.textContent = "";
+      srcLines.forEach(function (line) {
+        var row = document.createElement("span");
+        row.className = "intro__source-line";
+        row.textContent = line;
+        source.appendChild(row);
+      });
+    }
     var footerAbout = document.querySelector(".footer-about");
     if (footerAbout && L.footer_about) footerAbout.textContent = L.footer_about;
     var storiesAll = document.querySelector("[data-nav-stories-all]");

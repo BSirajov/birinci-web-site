@@ -13,7 +13,7 @@
   <link rel="icon" href="../assets/favicon.png" type="image/png" sizes="192x192" />
   <link rel="icon" href="../assets/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" sizes="180x180" />
-  <link rel="stylesheet" href="../assets/site.css?v=20261020notes" />
+  <link rel="stylesheet" href="../assets/site.css?v=20261020src2" />
   
   <link rel="stylesheet" href="../assets/inventions/kt-tokens.css?v=20260924img" />
   <link rel="stylesheet" href="../assets/inventions/kt-catalog-toolbar.css?v=20260924img" />
@@ -115,7 +115,7 @@
       <div class="intro__copy">
         <h1 class="intro__brand" id="about-hero-title">Нравоучительные <span>рассказы</span></h1>
         <p class="intro__lead">Представленные на этой странице мудрые истории, притчи и поучительные рассказы составляют коллекцию сюжетов, посвящённых важнейшим человеческим ценностям: доброте и состраданию, справедливости и ответственности, честности и доверию, любви и дружбе, терпению и прощению, благодарности и уважению к окружающим. Расположенные по темам, эти взаимосвязанные повествования приглашают по-новому взглянуть на повседневные ситуации, задуматься о собственных поступках и извлечь важные жизненные уроки. Просматриваете ли вы одну категорию или переходите от рассказа к рассказу — каждый текст предложен как спокойный спутник для размышления: источник нравственного осознания, сочувствия и вдохновения для повседневной жизни.</p>
-        <p class="intro__source"><span class="intro__source-ornament" aria-hidden="true"></span><span class="intro__source-text">Истории собраны в интернете и обработаны с помощью ИИ. Все иллюстрации созданы ИИ.</span></p>
+        <p class="intro__source"><span class="intro__source-ornament" aria-hidden="true"></span><span class="intro__source-text"><span class="intro__source-line">Истории взяты из интернет-источников и отредактированы с помощью ИИ.</span><span class="intro__source-line">Все иллюстрации созданы ИИ.</span></span></p>
       </div>
       <div class="intro__visual">
         <img src="../assets/inventions/icons/wisdom.webp?v=20260924img" alt="Нравоучительные рассказы" width="1774" height="887" decoding="async" />
@@ -264,7 +264,10 @@
             var isSrc = lastIsSrc && i === last;
             var cls = isSrc ? "story__source" : i === moralI ? "story__moral" : "";
             var text = isSrc && srcLabel && !authorSrc ? srcLabel : p;
-            return "<p" + (cls ? ' class="' + cls + '"' : "") + ">" + esc(text) + "</p>";
+            var html = isSrc && !authorSrc && /\n/.test(String(text || ""))
+              ? String(text).split(/\n+/).map(function (line) { return esc(String(line || "").trim()); }).filter(Boolean).join("<br>")
+              : esc(text);
+            return "<p" + (cls ? ' class="' + cls + '"' : "") + ">" + html + "</p>";
           })
           .join("");
         return (
@@ -530,6 +533,6 @@ function done() {
   <script src="../assets/tts-proxy.js?v=20260924img"></script>
   <script src="../assets/inventions/kt-sidebar-toc-groups.js?v=20260924img" defer></script>
   <script src="../assets/inventions/kt-catalog-multi-filter.js?v=20260924img" defer></script>
-  <script src="../assets/site.js?v=20261020notes" defer></script>
+  <script src="../assets/site.js?v=20261020src2" defer></script>
 </body>
 </html>

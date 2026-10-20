@@ -13,7 +13,7 @@
   <link rel="icon" href="../assets/favicon.png" type="image/png" sizes="192x192">
   <link rel="icon" href="../assets/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" sizes="180x180">
-  <link rel="stylesheet" href="../assets/site.css?v=20261020notes">
+  <link rel="stylesheet" href="../assets/site.css?v=20261020src2">
   
   <link rel="stylesheet" href="../assets/inventions/kt-tokens.css?v=20260924img">
   <link rel="stylesheet" href="../assets/inventions/kt-catalog-toolbar.css?v=20260924img">
@@ -106,7 +106,7 @@
       <div class="intro__copy">
         <h1 class="intro__brand" id="about-hero-title">Weisheitsgeschichten</h1>
         <p class="intro__lead">Die Weisheitsgeschichten, Gleichnisse und lehrreichen Erzählungen auf dieser Seite bilden eine Sammlung, die grundlegenden menschlichen Werten gewidmet ist: Güte und Mitgefühl, Gerechtigkeit und Verantwortung, Ehrlichkeit und Vertrauen, Liebe und Freundschaft, Geduld und Vergebung, Dankbarkeit und Achtung vor anderen. Diese thematisch geordneten, miteinander verbundenen Erzählungen laden dazu ein, Alltagssituationen aus neuen Blickwinkeln zu betrachten, über das eigene Handeln nachzudenken und wertvolle Lehren für das Leben zu ziehen. Ob du eine einzelne Kategorie durchstöberst oder von Geschichte zu Geschichte wanderst: Jede Erzählung begleitet dich auf stille Weise beim Nachdenken und bietet Anregungen für moralisches Bewusstsein, Einfühlungsvermögen und den Alltag.</p>
-        <p class="intro__source"><span class="intro__source-ornament" aria-hidden="true"></span><span class="intro__source-text">Geschichten aus dem Internet gesammelt und mithilfe von KI bearbeitet. Alle Illustrationen sind KI-generiert.</span></p>
+        <p class="intro__source"><span class="intro__source-ornament" aria-hidden="true"></span><span class="intro__source-text"><span class="intro__source-line">Die Geschichten stammen aus Internetquellen und wurden mithilfe von KI redigiert.</span><span class="intro__source-line">Alle Illustrationen wurden mit KI erstellt.</span></span></p>
       </div>
       <div class="intro__visual">
         <img src="../assets/inventions/icons/wisdom.webp?v=20260924img" alt="Weisheitsgeschichten" width="1774" height="887" decoding="async">
@@ -255,7 +255,10 @@
             var isSrc = lastIsSrc && i === last;
             var cls = isSrc ? "story__source" : i === moralI ? "story__moral" : "";
             var text = isSrc && srcLabel && !authorSrc ? srcLabel : p;
-            return "<p" + (cls ? ' class="' + cls + '"' : "") + ">" + esc(text) + "</p>";
+            var html = isSrc && !authorSrc && /\n/.test(String(text || ""))
+              ? String(text).split(/\n+/).map(function (line) { return esc(String(line || "").trim()); }).filter(Boolean).join("<br>")
+              : esc(text);
+            return "<p" + (cls ? ' class="' + cls + '"' : "") + ">" + html + "</p>";
           })
           .join("");
         return (
@@ -519,6 +522,6 @@ function done() {
   <script src="../assets/tts-proxy.js?v=20260924img"></script>
   <script src="../assets/inventions/kt-sidebar-toc-groups.js?v=20260924img" defer></script>
   <script src="../assets/inventions/kt-catalog-multi-filter.js?v=20260924img" defer></script>
-  <script src="../assets/site.js?v=20261020notes" defer></script>
+  <script src="../assets/site.js?v=20261020src2" defer></script>
 </body>
 </html>

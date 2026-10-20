@@ -9,6 +9,7 @@ az/Moral-Stories-Collection.docx
 tools/_tmp_*
 _tmp_*
 docs/reviews/_tmp_*
+tmp/
 docs/reviews/_ky_illu_inspect/
 .pytest_cache/
 _verify_list_view/

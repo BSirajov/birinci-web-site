@@ -17,6 +17,7 @@ import re
 import shutil
 import sys
 from dataclasses import dataclass, field
+from story_source_policy import is_story_collection
 from pathlib import Path
 
 from docx import Document
@@ -424,7 +425,7 @@ def discover_sources(lang: str, published: set[str]) -> tuple[dict[str, Parsed],
         docx_files.extend(sorted(d.rglob("*.docx")))
 
     def ingest(path: Path, *, prefer_alias: bool, priority: int) -> None:
-        if path.name.startswith("~$"):
+        if path.name.startswith("~$") or is_story_collection(path):
             return
         if any(part.lower() == "originals" for part in path.parts):
             return
@@ -487,11 +488,21 @@ def published_content(story: dict) -> tuple[str, list[str], str, str | None]:
     return title, paras, moral, source
 
 
+def story_source_html(source: str) -> str:
+    lines = [ln.strip() for ln in str(source or "").splitlines() if ln.strip()]
+    if not lines and str(source or "").strip():
+        lines = [str(source).strip()]
+    inner = "".join(
+        f'<span class="story__source-line">{html_lib.escape(ln)}</span>' for ln in lines
+    )
+    return f'<p class="story__source">{inner}</p>'
+
+
 def story_body_html(body: list[str], moral: str, source: str) -> str:
     parts = [f"<p>{html_lib.escape(p)}</p>" for p in body]
     if moral:
         parts.append(f'<p class="story__moral">{html_lib.escape(moral)}</p>')
-    parts.append(f'<p class="story__source">{html_lib.escape(source)}</p>')
+    parts.append(story_source_html(source))
     return "".join(parts)
 
 
