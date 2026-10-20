@@ -48,6 +48,8 @@
 .sc-col__copy .story__moral,
 .sc-col__moral-slot .story__moral {
   clear: both;
+  min-width: 0;
+  overflow-wrap: anywhere;
   margin: var(--story-moral-margin-top, 1.65rem) 0 0;
   padding: 0.85rem 1rem 0.9rem 1.05rem;
   background: #fff9e6;
