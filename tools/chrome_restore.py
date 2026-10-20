@@ -115,6 +115,7 @@ INVENTIONS_BRIDGE_ASSET_VERSION = "20260924bg"
 KT_INVENTIONS_JS_VERSION = "20261004qa1"
 STORY_COMPARE_CSS_VERSION = "20261006noaud"
 STORY_COMPARE_JS_VERSION = "20261020qa"
+FEEDBACK_FORM_JS_VERSION = "20261020secure"
 COMPARE_WINDOW_JS_VERSION = "20261005de"
 DISCOVERY_COMPARE_ASSET_VERSION = "20261006noaud"
 ILLUSTRATION_STAMPS = frozenset(
@@ -157,6 +158,7 @@ KNOWN_ASSET_STAMPS = frozenset(
         KT_INVENTIONS_JS_VERSION,
         STORY_COMPARE_CSS_VERSION,
         STORY_COMPARE_JS_VERSION,
+        FEEDBACK_FORM_JS_VERSION,
         COMPARE_WINDOW_JS_VERSION,
         DISCOVERY_COMPARE_ASSET_VERSION,
     }
@@ -1726,6 +1728,8 @@ def pin_asset_versions(html: str) -> str:
             return match.group(1) + KT_INVENTIONS_JS_VERSION
         if window.endswith("story-compare.js"):
             return match.group(1) + STORY_COMPARE_JS_VERSION
+        if window.endswith("feedback-form.js"):
+            return match.group(1) + FEEDBACK_FORM_JS_VERSION
         if window.endswith("story-compare.css"):
             if stamp in (STORY_COMPARE_CSS_VERSION, DISCOVERY_COMPARE_ASSET_VERSION):
                 return match.group(0)
