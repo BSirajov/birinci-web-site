@@ -270,6 +270,8 @@ class Audit:
                 continue
             if target and target[0].parent == self.root / "de/stories" and target[0].suffix == ".html":
                 found.add(target[0].stem)
+            if target and target[0].parent == self.root / "de/categories" and target[1] in self.story_stems:
+                found.add(target[1])
         self.exact(self.label(path) + " story membership", sorted(found), sorted(expected))
 
     def webp_dimensions(self, path: Path):
@@ -425,31 +427,23 @@ class Audit:
         except (OSError, ValueError, KeyError, TypeError) as exc:
             self.fail(f"DE generated catalog: {exc}")
         story_dir = self.root / "de/stories"
-        pages = {p.stem: p for p in story_dir.glob("*.html")}
-        # compare.html is an existing multilingual utility, not a story.
-        self.exact("DE story HTML bijection", sorted(set(pages) - {"compare"}), sorted(docs))
-        self.counts["story_pages"] = len(set(pages) - {"compare"})
+        self.exact("DE legacy story pages replaced by redirects", sorted(p.name for p in story_dir.glob("*.html")), ["compare.html"])
+        routes = {s["stem"]: c["slug"] for c in catalog(self.root / "de/assets/stories-data.js")["categories"] for s in c["stories"]}
+        redirect_text = (story_dir / ".htaccess").read_text(encoding="utf-8")
+        self.counts["story_redirects"] = len(routes)
         for stem, paragraphs in sources.items():
-            path = story_dir / (stem + ".html")
-            if not path.is_file():
-                self.fail(f"missing story page: {self.label(path)}")
+            path = self.root / "de/categories" / (routes[stem] + ".html")
+            text = path.read_text(encoding="utf-8")
+            match = re.search(r'<article\b[^>]*id="' + re.escape(stem) + r'"[^>]*>.*?</article>', text, re.S)
+            if not match:
+                self.fail(f"missing category story: {stem}")
                 continue
-            page = self.load_page(path)
-            if page is None or not paragraphs:
-                continue
-            self.exact(f"{stem} h1", page.headings, paragraphs[:1])
+            page = Page(re.sub(r'<(/?)h2\b', r'<\1h1', match[0]))
+            self.exact(f"{stem} title", page.headings, paragraphs[:1])
             self.exact(f"{stem} story__text p", page.paragraphs, paragraphs[1:])
-            if len(page.titles) != 1 or not (
-                page.titles[0] == paragraphs[0]
-                or any(
-                    page.titles[0].startswith(paragraphs[0] + sep)
-                    for sep in (" | ", " — ", " – ", " - ", " · ")
-                )
-            ):
-                self.fail(
-                    f"{stem}: document title must retain exact DOCX title "
-                    f"(optional site suffix): {page.titles!r}"
-                )
+            rule = f'RewriteRule ^{re.escape(stem)}\\.html$ /de/categories/{routes[stem]}.html#{stem} [R=301,L,NE]'
+            if rule not in redirect_text:
+                self.fail(f"missing permanent redirect: {stem}")
             targets = []
             for url in page.images:
                 try:

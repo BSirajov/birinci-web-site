@@ -59,12 +59,12 @@ def test_partial_german_locale_does_not_invent_legal_pages():
     assert 'href="../az/privacy-notice.html"' in out
 
 
-def test_german_standalone_seo_does_not_invent_other_language_pages():
+def test_german_category_seo_uses_matching_language_categories():
     from chrome_restore import _hreflang_pairs
 
-    pairs = _hreflang_pairs("de/stories/before-you-marry.html")
-    assert ("de", "https://birinci.cloud/de/stories/before-you-marry.html") in pairs
-    assert not any("/en/stories/before-you-marry.html" in url for _, url in pairs)
+    pairs = _hreflang_pairs("de/categories/sevgi-ve-evlilik.html")
+    assert ("de", "https://birinci.cloud/de/categories/sevgi-ve-evlilik.html") in pairs
+    assert ("en", "https://birinci.cloud/en/categories/sevgi-ve-evlilik.html") in pairs
 
 
 def test_german_sitemap_has_its_own_language_alternate():

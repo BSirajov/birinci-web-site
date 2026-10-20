@@ -212,7 +212,7 @@ class Builder:
                 if stem in ETIBAR_POETRY_STEMS:
                     continue
                 story = dict(stem=stem, **self.sources[stem], hasImage=True, hasAudio=False,
-                             href=f"stories/{stem}.html")
+                             href=f"categories/{category['slug']}.html#{stem}")
                 cat["stories"].append(story)
                 self.all.append((story, cat))
             cat["count"] = len(cat["stories"])
@@ -251,7 +251,7 @@ class Builder:
             title.tag = "h1"
             title.text = story["title"]
         else:
-            etree.SubElement(title, "a", href=rel(f'de/stories/{story["stem"]}.html', page)).text = story["title"]
+            etree.SubElement(title, "a", href=rel('de/' + story['href'], page)).text = story["title"]
         for button in article.xpath('.//*[@aria-controls]'):
             prefix = button.get("aria-controls").split("-")[0]
             button.set("aria-controls", f'{prefix}-{story["stem"]}')
@@ -404,7 +404,7 @@ class Builder:
             return True
         if path in ("de/index.html", "de/sitemap.html", "de/stories/compare.html", "de/authors/index.html", "de/authors/bakhtiyar.html", "de/authors/etibar.html"):
             return True
-        return path in {f'de/categories/{c["slug"]}.html' for c in self.catalog["categories"]} or path in {f'de/stories/{s["stem"]}.html' for s, c in self.all}
+        return path in {f'de/categories/{c["slug"]}.html' for c in self.catalog["categories"]}
 
     def breadcrumbs(self, root, page, entries):
         lists = root.xpath('//ol[contains(@class,"breadcrumbs__list")]')
@@ -503,8 +503,6 @@ class Builder:
         self.finish(root, page, "Weisheitsgeschichten", f"{published} Weisheitsgeschichten, Gleichnisse und Gedichte auf Deutsch – nach Themen und Autoren geordnet, mit Illustrationen.")
         for c in self.catalog["categories"]:
             self.category_page(f'de/categories/{c["slug"]}.html', c["title"], c["blurb"], c["stories"])
-        for s, c in self.all:
-            self.category_page(f'de/stories/{s["stem"]}.html', s["title"], c["title"], [s], story=s)
         for key, name in AUTHORS.items():
             stories = [s for s, c in self.all if s["authorKey"] == key]
             kind = "Geschichten" if key == "etibar" else "Geschichten und Gedichte"
@@ -515,6 +513,8 @@ class Builder:
         self.directory("de/authors/index.html", "Autoren", all_stories=False)
         self.integrate_existing()
         self.integrate_sitemap()
+        from german_story_routes import migrate
+        migrate(ROOT)
         review = ROOT / "de/_reviews/wisdom-stories/web-integration"
         review.mkdir(parents=True, exist_ok=True)
         (review / "generation.json").write_text(json.dumps(dict(pages=self.outputs, story_count=len(self.all),
@@ -570,7 +570,7 @@ class Builder:
                 ul = etree.SubElement(section, "ul")
                 for s in c["stories"]:
                     li = etree.SubElement(ul, "li")
-                    etree.SubElement(li, "a", href=rel(f'de/stories/{s["stem"]}.html', page)).text = s["title"]
+                    etree.SubElement(li, "a", href=rel('de/' + s['href'], page)).text = s["title"]
         self.breadcrumbs(root, page, [("Weisheitsgeschichten", "de/index.html"), (title, None)])
         self.finish(root, page, title, "Autoren, Themen und Geschichten der deutschen Weisheitsgeschichten.")
 

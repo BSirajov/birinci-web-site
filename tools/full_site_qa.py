@@ -222,7 +222,7 @@ def structural() -> None:
         ROOT / "en" / "index.html",
         ROOT / "az" / "index.html",
         ROOT / "de" / "index.html",
-        ROOT / "de" / "stories" / "three-questions.html",
+        ROOT / "de" / "categories" / "hikmet-ve-heyat-dersleri.html",
         ROOT / "en" / "categories" / "exlaq-ve-xarakter.html",
         ROOT / "en" / "discoveries" / "discoveries-and-inventions.html",
         ROOT / "ru" / "discoveries" / "discoveries-and-inventions.html",
@@ -455,7 +455,7 @@ def playwright_matrix() -> None:
         ("az/index.html", "home-az"),
         ("ru/index.html", "home-ru"),
         ("de/index.html", "home-de"),
-        ("de/stories/three-questions.html", "story-de"),
+        ("de/categories/hikmet-ve-heyat-dersleri.html#three-questions", "story-de"),
     ]
 
     with preview_server() as base_url, sync_playwright() as p:
