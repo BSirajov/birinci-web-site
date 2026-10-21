@@ -4289,7 +4289,7 @@ def _build_about_nav_dropdown(markup: str, lang: str, rel_path: str = "") -> str
         nav_id, title_key, desc_key = nested_ids[filename]
         nested_links.append(
             _about_nav_link(
-                f"{prefix}{filename}",
+                (f"{_legal_href_prefix(rel_path, lang)}{filename}" if lang == "de" and (ROOT / lang / filename).is_file() else f"{prefix}{filename}"),
                 nav_id,
                 _ABOUT_NAV_ICONS[nested_icons[filename]],
                 copy[title_key],
@@ -4511,7 +4511,7 @@ def _locale_target_available(lang: str, rest: str) -> bool:
     if sections is None:
         return True
     page = rest.split("?", 1)[0].split("#", 1)[0]
-    if page == "feedback.html":
+    if page in ("feedback.html", "privacy-notice.html"):
         return (ROOT / lang / page).is_file()
     wisdom = page in ("index.html", "sitemap.html") or page.startswith(("categories/", "stories/", "authors/"))
     if "wisdom" not in sections or not wisdom:

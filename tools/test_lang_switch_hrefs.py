@@ -54,11 +54,11 @@ def test_german_wisdom_is_available_in_existing_category_switcher():
 
 
 def test_partial_german_locale_does_not_invent_legal_pages():
-    out = ensure_lang_switcher_dropdown(NAV, "en", "en/privacy-notice.html")
+    out = ensure_lang_switcher_dropdown(NAV, "en", "en/cookie-policy.html")
     assert 'data-lang="de"' in out
     assert 'href="../de/index.html"' in out
-    assert 'href="../de/privacy-notice.html"' not in out
-    assert 'href="../az/privacy-notice.html"' in out
+    assert 'href="../de/cookie-policy.html"' not in out
+    assert 'href="../az/cookie-policy.html"' in out
 
 
 def test_german_category_seo_uses_matching_language_categories():
@@ -82,3 +82,14 @@ def test_generic_chrome_restoration_preserves_scoped_german_navigation():
     original = path.read_text(encoding="utf-8")
     assert 'data-wisdom-generator="german-docx"' in original
     assert patch_emitted_html(original, "de", rel_path="de/index.html") == original
+
+
+def test_german_privacy_is_available_from_feedback():
+    from lxml import html
+    from pathlib import Path
+    root = Path(__file__).resolve().parents[1]
+    page = html.fromstring((root / "de/feedback.html").read_text(encoding="utf-8"))
+    assert page.xpath('//label[@for="privacyconfirm"]/a/@href') == ["privacy-notice.html"]
+    notice = html.fromstring((root / "de/privacy-notice.html").read_text(encoding="utf-8"))
+    assert notice.get("lang") == "de"
+    assert len(notice.xpath('//article[@class="legal-doc"]//h2')) == 10

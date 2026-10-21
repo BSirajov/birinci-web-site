@@ -1553,8 +1553,9 @@ def page_for(lang: str, slug: str) -> dict:
 
 
 def pages_de():
+    from german_privacy import privacy_de
     lead = "Deine Rückmeldung hilft uns, die Website zu verbessern. Teile uns einen Vorschlag, eine Korrektur oder ein Problem mit."
-    return {"feedback": _page("Rückmeldung", lead,
+    return {"privacy-notice": privacy_de(), "feedback": _page("Rückmeldung", lead,
         "Sende Birİnci Anmerkungen, Vorschläge oder Hinweise auf Probleme mit der Website.", [], [],
         panel="Teile uns einen Vorschlag, eine Korrektur oder ein Problem mit. Nachrichten gehen an info@birinci.cloud.",
         form={
@@ -1564,8 +1565,8 @@ def pages_de():
             "message_label": "Deine Rückmeldung", "url_label": "Adresse der betreffenden Seite",
             "url_optional": "(optional)", "url_hint": "Dieses Feld wird automatisch ausgefüllt, wenn du über einen Rückmeldungslink auf einer bestimmten Seite hierher gelangst.",
             "url_placeholder": "https://birinci.cloud/de/…",
-            "privacy_label": "Ich habe den Datenschutzhinweis (Englisch) gelesen und verstehe, dass meine Nachricht wie dort beschrieben verarbeitet wird.",
-            "privacy_link": "Datenschutzhinweis (Englisch)",
+            "privacy_label": "Ich habe den Datenschutzhinweis gelesen und verstehe, dass meine Nachricht wie dort beschrieben verarbeitet wird.",
+            "privacy_link": "Datenschutzhinweis",
             "section_title": "Deine Rückmeldung", "section_sub": "Anmerkungen, Vorschläge und Probleme mit der Website",
             "intro": lead, "required_note": "Mit * gekennzeichnete Felder sind Pflichtfelder.",
             "submit": "Rückmeldung senden", "file_label": "Screenshot oder Anhang",
@@ -1579,3 +1580,9 @@ def pages_de():
 PAGES_BY_LANG["de"] = pages_de
 PANEL_TITLE["de"] = {"feedback": "Rückmeldung zur Website"}
 FORM_TYPE_OPTIONS["de"] = [("", "Bitte auswählen"), ("general", "Allgemeine Rückmeldung"), ("suggestion", "Vorschlag"), ("technical", "Technisches Problem"), ("correction", "Inhaltliche Korrektur"), ("other", "Sonstiges")]
+
+HIGHLIGHTS_TITLE["de"] = "Das Wichtigste im Überblick"
+PLAIN_LABEL["de"] = "Einfach erklärt"
+PANEL_TITLE["de"]["privacy-notice"] = "Verantwortlicher für die Datenverarbeitung"
+CALLOUTS["de"] = {"privacy-notice": "Dieser Text dient der Information nach der DSGVO und dem österreichischen Datenschutzgesetz (DSG). Er stellt keine Rechtsberatung dar."}
+PLAINS["de"] = {"privacy-notice": "Der Verantwortliche ist die Organisation, die für die Verwendung deiner Daten zuständig ist. Birİnci ist in Österreich registriert. Diese Seite erklärt, welche Daten anfallen – hauptsächlich deine E-Mails und Hosting-Protokolle –, wozu sie dienen und welche Rechte du nach der DSGVO hast. Straßenadresse, Firmenbuchnummer, UID und eine namentlich benannte datenschutzbeauftragte Person sind noch nicht veröffentlicht."}
