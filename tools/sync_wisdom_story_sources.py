@@ -17,7 +17,7 @@ import re
 import shutil
 import sys
 from dataclasses import dataclass, field
-from story_source_policy import is_story_collection
+from story_source_policy import is_story_collection, is_generic_story_notice, visible_story_paragraphs
 from pathlib import Path
 
 from docx import Document
@@ -461,7 +461,7 @@ def story_paragraphs_for_data(parsed: Parsed) -> list[str]:
         paras.append(parsed.moral)
     if parsed.source:
         paras.append(parsed.source)
-    return paras
+    return visible_story_paragraphs(paras)
 
 
 def published_content(story: dict) -> tuple[str, list[str], str, str | None]:
@@ -489,6 +489,8 @@ def published_content(story: dict) -> tuple[str, list[str], str, str | None]:
 
 
 def story_source_html(source: str) -> str:
+    if is_generic_story_notice(source):
+        return ""
     lines = [ln.strip() for ln in str(source or "").splitlines() if ln.strip()]
     if not lines and str(source or "").strip():
         lines = [str(source).strip()]

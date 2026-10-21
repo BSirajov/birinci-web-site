@@ -2063,10 +2063,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     const hrefForLang = (code, ctx) => {
       const langPage = String(ctx.langPage || "").replace(/^\/+/, "");
       let path = `../${code}/index.html`;
-      if (code === "de" && langPage && !/^(?:index\.html|categories\/|stories\/)/i.test(langPage)) {
-        const depth = langPage.split("/").filter(Boolean).length;
-        return `${"../".repeat(Math.max(1, depth))}de/index.html`;
-      }
+      const targetLink = document.querySelector('.lang-switcher a[data-lang="' + code + '"]');
+      const target = targetLink && targetLink.getAttribute("data-lang-target");
+      if (target && langPage !== "index.html" && /\/index\.html$/.test(target)) return target;
       if (ctx.isCategory && ctx.slug) {
         path = `../../${code}/categories/${encodeURIComponent(ctx.slug)}.html`;
       } else if (langPage && langPage !== "index.html") {
@@ -2076,6 +2075,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         path = `../${code}/index.html`;
       }
 
+      if (target) path = target;
       if (!ctx.isBrowse) {
         return `${path}${window.location.search || ""}${window.location.hash || ""}`;
       }
@@ -11374,6 +11374,11 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     };
 
     const pathForLocale = (targetLang) => {
+      const menuLink = document.querySelector('.lang-switcher a[data-lang="' + targetLang + '"][data-lang-target]');
+      if (menuLink) {
+        const target = new URL(menuLink.getAttribute("href"), window.location.href);
+        return target.pathname + target.search + target.hash;
+      }
       const path = (window.location.pathname || "/").replace(/\\/g, "/");
       const parts = path.split("/").filter(Boolean);
       const qs = window.location.search || "";

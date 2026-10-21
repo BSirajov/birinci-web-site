@@ -111,10 +111,10 @@
     );
     (L.about_menu || []).forEach(function (item) {
       if (!item || !item.id) return;
-      var el = document.querySelector('.nav-dropdown--about [data-nav-id="' + item.id + '"]');
+      var el = document.querySelector('.primary-nav [data-nav-id="' + item.id + '"]');
       if (!el) return;
       if (item.href) el.setAttribute("href", item.href);
-      setText(el.querySelector(".nav-dropdown-link-title"), item.title);
+      setText(el.querySelector(".nav-dropdown-link-title") || el.querySelector("span:not(.menu-icon)"), item.title);
     });
     var legalTitle = document.querySelector(
       ".nav-dropdown--about [data-nav-legal-group] .nav-dropdown-link-title"

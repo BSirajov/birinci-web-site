@@ -4267,8 +4267,10 @@ def _build_about_nav_dropdown(markup: str, lang: str, rel_path: str = "") -> str
     copy = _about_nav_copy(lang)
     prefix = _legal_href_prefix(rel_path or infer_html_rel_path(markup, lang), lang)
     mission_href = f"{prefix}about/mission-vision-values.html"
-    feedback_href = f"{prefix}feedback.html"
     sitemap_href = f"{prefix}sitemap.html"
+    if lang == "de":
+        prefix = f"{_rel_depth_prefix(rel_path or infer_html_rel_path(markup, lang))}en/"
+        mission_href = f"{prefix}about/mission-vision-values.html"
     nested_links = []
     nested_icons = {
         "privacy-notice.html": "shield",
@@ -4319,13 +4321,6 @@ def _build_about_nav_dropdown(markup: str, lang: str, rel_path: str = "") -> str
             copy["mission_title"],
             copy["mission_desc"],
         )
-        + _about_nav_link(
-            feedback_href,
-            "feedback",
-            _ABOUT_NAV_ICONS["message"],
-            copy["feedback_title"],
-            copy["feedback_desc"],
-        )
         + legal_block
         + _about_nav_link(
             sitemap_href,
@@ -4345,10 +4340,19 @@ def _build_about_nav_dropdown(markup: str, lang: str, rel_path: str = "") -> str
 
 
 def ensure_about_nav(markup: str, lang: str, rel_path: str = "") -> str:
-    """Rebuild the About dropdown to match DAAB: mission, feedback, nested legal, sitemap."""
+    """Rebuild About and place Feedback beside it in the primary navigation."""
     if "nav-dropdown--about" not in markup:
         return markup
-    block = _build_about_nav_dropdown(markup, lang, rel_path)
+    markup = re.sub(r'<a\b[^>]*\bdata-nav-feedback\b[^>]*>[\s\S]*?</a>', '', markup)
+    prefix = _legal_href_prefix(rel_path or infer_html_rel_path(markup, lang), lang)
+    active = ' aria-current="page"' if rel_path.endswith('/feedback.html') else ''
+    if lang == "de":
+        prefix = f"{_rel_depth_prefix(rel_path or infer_html_rel_path(markup, lang))}en/"
+    feedback = (
+        f'<a class="primary-nav__link" href="{prefix}feedback.html" data-nav-id="feedback" data-nav-feedback{active}>'
+        f'{_ABOUT_NAV_ICONS["message"]}<span>{html.escape(_about_nav_copy(lang)["feedback_title"])}</span></a>'
+    )
+    block = _build_about_nav_dropdown(markup, lang, rel_path) + feedback
     return _replace_balanced_details(markup, "nav-dropdown--about", block)
 
 
@@ -4541,15 +4545,14 @@ def ensure_lang_switcher_dropdown(markup: str, lang: str, rel_path: str = "") ->
     parts = resolved.replace("\\", "/").lstrip("/").split("/", 1)
     target_page = parts[1] if len(parts) == 2 and parts[0] in LIVE_LANGS else "index.html"
     for other in sorted(LIVE_LANGS):
-        if not _locale_target_available(other, target_page):
-            continue
         o_short, o_title = _LANG_SWITCHER_META[other]
-        href = _sibling_lang_href(resolved, other) if resolved else f"{prefix}{other}/index.html"
+        exists = (ROOT / other / target_page).is_file()
+        href = f"{prefix}{other}/{target_page if exists else 'index.html'}"
         flag = f"{prefix}flags/{other}.svg"
         selected = "true" if other == code else "false"
         options.append(
             f'<a class="lang-switcher__option" role="option" href="{html.escape(href, quote=True)}" '
-            f'hreflang="{other}" data-lang="{other}" aria-selected="{selected}" '
+            f'hreflang="{other}" data-lang="{other}" data-lang-target="{html.escape(href, quote=True)}" aria-selected="{selected}" '
             f'title="{html.escape(o_title)}">'
             f'<img class="lang-switcher__flag" src="{html.escape(flag, quote=True)}" '
             f'alt="" width="20" height="14" decoding="async" /><span>{o_short}</span></a>'
@@ -5578,6 +5581,8 @@ def apply_all_html() -> int:
                 n += 1
     write_root_home()
     write_public_seo_files()
+    from remove_generic_story_notices import apply as remove_generic_notices
+    remove_generic_notices(ROOT)
     n += 1
     return n
 

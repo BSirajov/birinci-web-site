@@ -11,7 +11,7 @@ import copy
 import json
 import posixpath
 import re
-from story_source_policy import is_story_collection
+from story_source_policy import is_story_collection, visible_story_paragraphs
 from pathlib import Path
 from urllib.parse import quote, urlsplit, urlunsplit
 
@@ -91,7 +91,7 @@ def normalize_de_paragraphs(paragraphs: list[str]) -> list[str]:
             out.append(f"Lehre: {body}" if body else "Lehre:")
         else:
             out.append(" ".join(p.split()).strip())
-    return out
+    return visible_story_paragraphs(out)
 
 
 def inventory() -> tuple[dict, dict]:

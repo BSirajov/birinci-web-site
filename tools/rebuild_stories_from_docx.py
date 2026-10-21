@@ -15,7 +15,7 @@ import argparse
 import re
 import sys
 from dataclasses import dataclass
-from story_source_policy import is_story_collection
+from story_source_policy import is_story_collection, visible_story_paragraphs
 from pathlib import Path
 
 from docx import Document
@@ -217,7 +217,7 @@ def apply_story(lang: str, parsed: ParsedStory, *, dry_run: bool) -> dict:
 def _patch_stories_blob(data: dict, parsed: ParsedStory, lang: str) -> str:
     """Update in-memory stories-data; return category slug."""
     source = (parsed.source or "").strip() or SITE_SOURCE[lang]
-    paragraphs = list(parsed.body) + [parsed.moral, source]
+    paragraphs = visible_story_paragraphs(list(parsed.body) + [parsed.moral, source])
     for cat in data.get("categories") or []:
         for story in cat.get("stories") or []:
             if story.get("stem") != parsed.stem:

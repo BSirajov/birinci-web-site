@@ -12,7 +12,7 @@ const results=[];
  const files=fs.readdirSync(`${lang}/categories`).filter(x=>x.endsWith('.html')&&fs.readFileSync(`${lang}/categories/${x}`,'utf8').includes('class="story '));
  for(const file of files){
   const url=`${base}/${lang}/categories/${file}`;assert.equal((await p.goto(url)).status(),200);
-  await p.locator('article.story .story__source').first().waitFor();
+  await p.locator('article.story .story__moral').first().waitFor();
   const state=await p.evaluate(()=>({
    stories:document.querySelectorAll('article.story').length,
    linkedTitles:document.querySelectorAll('article.story .story__title a').length,

@@ -18,6 +18,7 @@ from pathlib import Path
 from typing import Any
 
 from docx import Document
+from story_source_policy import is_generic_story_notice, visible_story_paragraphs
 
 ROOT = Path(__file__).resolve().parents[1]
 HOST = "127.0.0.1"
@@ -44,6 +45,8 @@ SITE_SOURCE = {
 
 
 def _source_paragraph_html(source_text: str) -> str:
+    if is_generic_story_notice(source_text):
+        return ""
     lines = [ln.strip() for ln in str(source_text or "").splitlines() if ln.strip()]
     if not lines and str(source_text or "").strip():
         lines = [str(source_text).strip()]
@@ -130,7 +133,7 @@ def update_stories_data(
     category_slug = None
     found = False
     source = (source or "").strip() or SITE_SOURCE[lang]
-    paragraphs = list(body) + [moral, source]
+    paragraphs = visible_story_paragraphs(list(body) + [moral, source])
     for cat in data.get("categories") or []:
         for story in cat.get("stories") or []:
             if story.get("stem") != stem:

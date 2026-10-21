@@ -1,6 +1,7 @@
 """Restore semantic note classes without rewriting story text or HTML layout."""
 import html
 import re
+from story_source_policy import is_generic_story_notice
 
 MORAL = re.compile(r"^(?:ibrət|ibret|nəticə|moral|lesson|lehre|мораль|урок|үлгү|сабак)\s*:", re.I)
 ARTICLE = re.compile(r"<article\b[^>]*>.*?</article>", re.S | re.I)
@@ -36,6 +37,8 @@ def restore_story_note_classes(markup: str) -> str:
             nonlocal after_moral
             opening, body, closing = part.groups()
             text = html.unescape(re.sub(r"<[^>]+>", "", body)).strip()
+            if is_generic_story_notice(text):
+                return ""
             kind = "story__moral" if MORAL.match(text) else "story__source" if after_moral else ""
             if kind == "story__moral":
                 after_moral = True
