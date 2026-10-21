@@ -159,6 +159,7 @@ KNOWN_ASSET_STAMPS = frozenset(
         STORY_COMPARE_CSS_VERSION,
         STORY_COMPARE_JS_VERSION,
         FEEDBACK_FORM_JS_VERSION,
+        "20261021de",  # German feedback form translations.
         COMPARE_WINDOW_JS_VERSION,
         DISCOVERY_COMPARE_ASSET_VERSION,
     }
