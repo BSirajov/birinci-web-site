@@ -55,7 +55,9 @@ def test_german_wisdom_is_available_in_existing_category_switcher():
 
 def test_partial_german_locale_does_not_invent_legal_pages():
     out = ensure_lang_switcher_dropdown(NAV, "en", "en/privacy-notice.html")
-    assert 'data-lang="de"' not in out
+    assert 'data-lang="de"' in out
+    assert 'href="../de/index.html"' in out
+    assert 'href="../de/privacy-notice.html"' not in out
     assert 'href="../az/privacy-notice.html"' in out
 
 
