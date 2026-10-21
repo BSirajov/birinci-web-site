@@ -1,13 +1,14 @@
 # Birİnci
 
-Multilingual static site: **AZ / EN / RU / KY**.  
+Multilingual static site: **AZ / DE / EN / RU / KY** (Azerbaijani, German, English, Russian, Kyrgyz).
+
 Live URLs stay `{lang}/…` — do not rename those folders.
 
 ## What to edit
 
 | Edit this | Leave this alone |
 |-----------|------------------|
-| `{lang}/wisdom-stories/*.docx` | `{az,en,ru,ky}/**/*.html` (generated) |
+| `{lang}/wisdom-stories/*.docx` | `{az,de,en,ru,ky}/**/*.html` (generated) |
 | `{lang}/discovery-articles/*.docx` | `deployment/` (local publish copy) |
 | `tools/locales/{lang}.json` | `{lang}/assets/stories-data.js` (generated catalog) |
 | `tools/inventions/{lang}-body.html` | `{lang}/assets/site.js` (removed; use shared JS) |
@@ -57,7 +58,7 @@ tools/chrome_restore.py    Durable chrome / SEO / i18n
 tools/optional/            ElevenLabs and other helpers
 docs/                      QA checklist, Hostinger deploy, i18n notes
 assets/                    Shared CSS, fonts, icons, site.js
-az/ en/ ru/ ky/            Locale trees (HTML routes stay {lang}/…)
+az/ de/ en/ ru/ ky/        Locale trees (HTML routes stay {lang}/…)
 index.html                 Root home
 {lang}/sitemap.html        Human sitemap (also in the top nav)
 deployment/                Generated publish tree (not in git)
