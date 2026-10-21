@@ -4511,7 +4511,7 @@ def _locale_target_available(lang: str, rest: str) -> bool:
     if sections is None:
         return True
     page = rest.split("?", 1)[0].split("#", 1)[0]
-    if page in ("feedback.html", "privacy-notice.html"):
+    if page in LEGAL_HTML_FILES:
         return (ROOT / lang / page).is_file()
     wisdom = page in ("index.html", "sitemap.html") or page.startswith(("categories/", "stories/", "authors/"))
     if "wisdom" not in sections or not wisdom:

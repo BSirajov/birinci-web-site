@@ -30,6 +30,7 @@ ABOUT_LEGAL_GROUP_TITLE = {
 }
 
 ABOUT_LEGAL_AND = {
+    "de": "und",
     "az": "və",
     "en": "and",
     "ru": "и",

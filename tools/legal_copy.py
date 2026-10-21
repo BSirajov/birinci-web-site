@@ -1554,8 +1554,9 @@ def page_for(lang: str, slug: str) -> dict:
 
 def pages_de():
     from german_privacy import privacy_de
+    from german_legal import remaining_pages_de
     lead = "Deine Rückmeldung hilft uns, die Website zu verbessern. Teile uns einen Vorschlag, eine Korrektur oder ein Problem mit."
-    return {"privacy-notice": privacy_de(), "feedback": _page("Rückmeldung", lead,
+    return {**remaining_pages_de(), "privacy-notice": privacy_de(), "feedback": _page("Rückmeldung", lead,
         "Sende Birİnci Anmerkungen, Vorschläge oder Hinweise auf Probleme mit der Website.", [], [],
         panel="Teile uns einen Vorschlag, eine Korrektur oder ein Problem mit. Nachrichten gehen an info@birinci.cloud.",
         form={
@@ -1586,3 +1587,15 @@ PLAIN_LABEL["de"] = "Einfach erklärt"
 PANEL_TITLE["de"]["privacy-notice"] = "Verantwortlicher für die Datenverarbeitung"
 CALLOUTS["de"] = {"privacy-notice": "Dieser Text dient der Information nach der DSGVO und dem österreichischen Datenschutzgesetz (DSG). Er stellt keine Rechtsberatung dar."}
 PLAINS["de"] = {"privacy-notice": "Der Verantwortliche ist die Organisation, die für die Verwendung deiner Daten zuständig ist. Birİnci ist in Österreich registriert. Diese Seite erklärt, welche Daten anfallen – hauptsächlich deine E-Mails und Hosting-Protokolle –, wozu sie dienen und welche Rechte du nach der DSGVO hast. Straßenadresse, Firmenbuchnummer, UID und eine namentlich benannte datenschutzbeauftragte Person sind noch nicht veröffentlicht."}
+
+PANEL_TITLE["de"].update({"cookie-policy": "Cookies und Speicherung", "terms-of-use": "Nutzung dieser Website", "legal-notice": "Wer veröffentlicht diese Website?"})
+CALLOUTS["de"].update({
+    "cookie-policy": "Die öffentliche Website lädt keine Analyse-Cookies, daher gibt es kein Einwilligungsbanner.",
+    "terms-of-use": "Diese Bedingungen unterliegen österreichischem und EU-Recht.",
+    "legal-notice": "Diese Seite soll die Informationspflichten nach dem österreichischen Mediengesetz (MedienG) und dem E-Commerce-Gesetz (ECG) erfüllen, soweit sie anwendbar sind. Noch nicht veröffentlichte Pflichtangaben werden als fehlend aufgeführt und nicht erfunden.",
+})
+PLAINS["de"].update({
+    "cookie-policy": "Du musst keinem Cookie-Banner zustimmen, um die Website zu lesen. Sprach- und Darstellungseinstellungen bleiben im localStorage auf deinem Gerät gespeichert.",
+    "terms-of-use": "Du darfst die Seiten lesen und Links teilen. Stelle die Sammlung nicht als dein eigenes Produkt dar. Zwingende Verbraucherschutzvorschriften gelten weiterhin.",
+    "legal-notice": "Ein Impressum zeigt, wer rechtlich für die Website verantwortlich ist. Bestätigte Kontaktmöglichkeiten sind die Website und die E-Mail-Adresse. Registrierungsangaben und eine Straßenadresse werden hier ergänzt, sobald sie veröffentlicht sind.",
+})

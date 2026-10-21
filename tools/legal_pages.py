@@ -417,12 +417,12 @@ def write_legal_pages(patch_html=None) -> int:
                 php_src.read_text(encoding="utf-8"), encoding="utf-8", newline="\n"
             )
     write_german_feedback()
-    return n + 2
+    return n + len(LEGAL_HTML_FILES)
 
 
 def write_german_feedback():
-    """Build the German privacy notice and form using shared German chrome."""
-    for filename in ("privacy-notice.html", "feedback.html"):
+    """Build German legal pages and form using shared German chrome."""
+    for filename in LEGAL_HTML_FILES:
         _write_german_legal_page(filename)
     (ROOT / "de/mail-feedback.php").write_bytes((TOOLS / "mail_feedback.php").read_bytes())
 

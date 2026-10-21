@@ -53,12 +53,20 @@ def test_german_wisdom_is_available_in_existing_category_switcher():
     assert 'data-lang="de"' in out
 
 
-def test_partial_german_locale_does_not_invent_legal_pages():
-    out = ensure_lang_switcher_dropdown(NAV, "en", "en/cookie-policy.html")
+def test_partial_german_locale_does_not_invent_unavailable_pages():
+    out = ensure_lang_switcher_dropdown(NAV, "en", "en/about/mission-vision-values.html")
     assert 'data-lang="de"' in out
-    assert 'href="../de/index.html"' in out
-    assert 'href="../de/cookie-policy.html"' not in out
-    assert 'href="../az/cookie-policy.html"' in out
+    assert 'href="../../de/index.html"' in out
+    assert 'href="../../de/about/mission-vision-values.html"' not in out
+    assert 'href="../../az/about/mission-vision-values.html"' in out
+
+
+def test_all_legal_language_switches_include_german_equivalent():
+    from legal_meta import LEGAL_HTML_FILES
+    for filename in LEGAL_HTML_FILES:
+        for lang in ("az", "en", "ru", "ky"):
+            out = ensure_lang_switcher_dropdown(NAV, lang, f"{lang}/{filename}")
+            assert f'href="../de/{filename}"' in out
 
 
 def test_german_category_seo_uses_matching_language_categories():
