@@ -335,7 +335,7 @@ def pages_en():
                 "dispute",
                 "5. Dispute resolution / jurisdiction",
                 _p(
-                    "The publisher is established in Austria. EU consumers may use the European Commission’s ODR platform (https://ec.europa.eu/consumers/odr/) where that procedure applies. We are not obliged to take part in a consumer-arbitration board unless Austrian law so requires; that participation is not stated here.",
+                    "The publisher is established in Austria. The European Commission’s Online Dispute Resolution platform closed on 20 July 2025. Current information about consumer dispute resolution bodies is available at https://consumer-redress.ec.europa.eu/dispute-resolution-bodies. We are not obliged to take part in a consumer-arbitration board unless Austrian law so requires; that participation is not stated here.",
                     "Civil-law disputes are subject to Austrian courts unless mandatory EU consumer rules give you another forum. A specific venue will be added once a registered office is published.",
                 ),
             ),
@@ -670,7 +670,7 @@ def pages_az():
                 "dispute",
                 "5. Mübahisələr / yurisdiksiya",
                 _p(
-                    "Nəşriyyatçı Avstriyada yerləşir. Aİ istehlakçıları tətbiq olunduğu halda Avropa Komissiyasının ODR platformasından (https://ec.europa.eu/consumers/odr/) istifadə edə bilər. Avstriya hüququ tələb etmədikcə istehlakçı arbitrajında iştirak etməyə borclu deyilik; belə iştirak burada bəyan edilmir.",
+                    "Nəşriyyatçı Avstriyada yerləşir. Avropa Komissiyasının onlayn mübahisələrin həlli platforması 20 iyul 2025-ci ildə bağlanıb. İstehlakçı mübahisələrinin həlli qurumları haqqında aktual məlumatı https://consumer-redress.ec.europa.eu/dispute-resolution-bodies ünvanında tapa bilərsiniz. Avstriya hüququ tələb etmədikcə istehlakçı arbitrajında iştirak etməyə borclu deyilik; belə iştirak burada bəyan edilmir.",
                     "Məcburi Aİ istehlakçı qaydaları başqa forum vermədikdə, mülki mübahisələr Avstriya məhkəmələrinə tabedir. Qeydiyyat ünvanı dərc olunanda konkret məhkəmə yeri əlavə olunacaq.",
                 ),
             ),
@@ -1009,7 +1009,7 @@ def pages_ru():
                 "dispute",
                 "5. Разрешение споров / юрисдикция",
                 _p(
-                    "Издатель учреждён в Австрии. Потребители ЕС могут использовать платформу ODR Европейской комиссии (https://ec.europa.eu/consumers/odr/), где эта процедура применима. Мы не обязаны участвовать в потребительском арбитраже, если австрийское право этого не требует; такое участие здесь не заявлено.",
+                    "Издатель учреждён в Австрии. Платформа Европейской комиссии для онлайн-разрешения споров прекратила работу 20 июля 2025 года. Актуальная информация об органах разрешения потребительских споров доступна по адресу https://consumer-redress.ec.europa.eu/dispute-resolution-bodies. Мы не обязаны участвовать в потребительском арбитраже, если австрийское право этого не требует; такое участие здесь не заявлено.",
                     "Гражданско-правовые споры подлежат судам Австрии, если императивные нормы ЕС о защите потребителей не дают вам иной форум. Конкретная подсудность будет добавлена, когда будет опубликован адрес регистрации.",
                 ),
             ),
@@ -1348,7 +1348,7 @@ def pages_ky():
                 "dispute",
                 "5. Талаш-тартыштар / юрисдикция",
                 _p(
-                    "Жарыялоочу Австрияда жайгашкан. ЕБ керектөөчүлөрү колдонула турган жерде Европа Комиссиясынын ODR платформасын (https://ec.europa.eu/consumers/odr/) колдоно алышат. Австрия мыйзамы талап кылбаса, керектөөчү арбитражына катышууга милдеттүү эмеспиз; мындай катышуу бул жерде жарыяланган эмес.",
+                    "Жарыялоочу Австрияда жайгашкан. Европа Комиссиясынын талаштарды онлайн чечүү платформасы 2025-жылдын 20-июлунда жабылган. Керектөөчүлөрдүн талаштарын чечүүчү органдар тууралуу актуалдуу маалыматты https://consumer-redress.ec.europa.eu/dispute-resolution-bodies дарегинен таба аласыз. Австрия мыйзамы талап кылбаса, керектөөчү арбитражына катышууга милдеттүү эмеспиз; мындай катышуу бул жерде жарыяланган эмес.",
                     "ЕБнин милдеттүү керектөөчү эрежелери башка форум бербесе, жарандык-укуктук талаштар Австрия сотторуна баш ийет. Каттоо дареги жарыяланганда конкреттүү сот жери кошулат.",
                 ),
             ),
