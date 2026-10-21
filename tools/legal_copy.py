@@ -342,7 +342,7 @@ def pages_en():
         ],
     )
     feedback = _page(
-        "Feedback",
+        "Feedback and suggestions",
         FEEDBACK_LEAD["en"],
         "Send comments, suggestions, and website problems to Birİnci.",
         [],
@@ -677,7 +677,7 @@ def pages_az():
         ],
     )
     feedback = _page(
-        "Rəy",
+        "Rəy və təkliflər",
         FEEDBACK_LEAD["az"],
         "Birİnci-yə şərh, təklif və sayt problemləri göndərin.",
         [],
@@ -1016,7 +1016,7 @@ def pages_ru():
         ],
     )
     feedback = _page(
-        "Обратная связь",
+        "Отзывы и предложения",
         FEEDBACK_LEAD["ru"],
         "Отправьте Birİnci комментарии, предложения и сообщения о проблемах сайта.",
         [],
@@ -1355,7 +1355,7 @@ def pages_ky():
         ],
     )
     feedback = _page(
-        "Пикир",
+        "Пикир жана сунуштар",
         FEEDBACK_LEAD["ky"],
         "Birİnciге пикир, сунуш жана сайт көйгөйлөрүн жөнөтүңүз.",
         [],
@@ -1431,7 +1431,7 @@ PANEL_TITLE = {
         "cookie-policy": "Kukilər və yaddaş",
         "terms-of-use": "Bu saytdan istifadə",
         "legal-notice": "Saytı kim dərc edir?",
-        "feedback": "Sayt rəyi",
+        "feedback": "Sayt haqqında rəy",
     },
     "en": {
         "privacy-notice": "Data controller",
@@ -1556,7 +1556,7 @@ def pages_de():
     from german_privacy import privacy_de
     from german_legal import remaining_pages_de
     lead = "Deine Rückmeldung hilft uns, die Website zu verbessern. Teile uns einen Vorschlag, eine Korrektur oder ein Problem mit."
-    return {**remaining_pages_de(), "privacy-notice": privacy_de(), "feedback": _page("Rückmeldung", lead,
+    return {**remaining_pages_de(), "privacy-notice": privacy_de(), "feedback": _page("Feedback und Anregungen", lead,
         "Sende Birİnci Anmerkungen, Vorschläge oder Hinweise auf Probleme mit der Website.", [], [],
         panel="Teile uns einen Vorschlag, eine Korrektur oder ein Problem mit. Nachrichten gehen an info@birinci.cloud.",
         form={

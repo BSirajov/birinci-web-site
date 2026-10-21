@@ -4015,7 +4015,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   const canHoverNav = () => finePointerQuery.matches && !mobileNavQuery.matches;
 
   const PAGE_TOOLBAR_SEL =
-    '.tools-bar[data-tools="home"], .tools-bar[data-tools="category"], .tools-bar[data-tools="inventions"]';
+    '.tools-bar[data-tools="home"], .tools-bar[data-tools="category"], .tools-bar[data-tools="inventions"], .tools-bar[data-tools="sitemap"]';
 
   const syncStickyChrome = () => {
     const root = document.documentElement;
@@ -4594,15 +4594,6 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
     if (isSitemap) {
       setLinkCurrent(nav.querySelector("[data-nav-sitemap]"));
-      const about = nav.querySelector(".nav-dropdown--about");
-      if (about) {
-        about.classList.add("is-current");
-        const child = about.querySelector('[data-nav-id="about-sitemap"]');
-        if (child) {
-          child.classList.add("is-active");
-          child.setAttribute("aria-current", "page");
-        }
-      }
       return;
     }
     if (isDiscoveries) {

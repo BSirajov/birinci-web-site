@@ -109,7 +109,7 @@ DISABLE_DISCOVERY_VIDEOS = True
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
 SITE_ASSET_VERSION = "20260924img"
 # Shared site.css / site.js (phone illustration-control chrome).
-SITE_CHROME_ASSET_VERSION = "20261021consistency"
+SITE_CHROME_ASSET_VERSION = "20261021nositemapabout"
 INVENTIONS_BRIDGE_ASSET_VERSION = "20260924bg"
 # Discoveries catalog JS (view=list URL cache-bust). Independent of site chrome.
 KT_INVENTIONS_JS_VERSION = "20261004qa1"
@@ -4126,7 +4126,7 @@ def _sitemap_nav_label(lang: str) -> str:
     if label:
         return str(label)
     return {
-        "az": "Sayt xəritəsi",
+        "az": "Saytın xəritəsi",
         "en": "Sitemap",
         "ru": "Карта сайта",
         "ky": "Сайт картасы",
@@ -4136,6 +4136,8 @@ def _sitemap_nav_label(lang: str) -> str:
 def _sitemap_nav_href(markup: str) -> str:
     if "page-root-home" in markup:
         return "az/sitemap.html"
+    if re.search(r'https://birinci\.cloud/[a-z]{2}/(?:about|authors|categories|discoveries|stories)/', markup):
+        return "../sitemap.html"
     if re.search(r'href="\.\./(?:about|categories|discoveries)/', markup):
         return "../sitemap.html"
     if re.search(r'data-lang-page="(?:about|categories|discoveries)/', markup):
@@ -4160,9 +4162,10 @@ _ABOUT_NAV_ICONS = {
         'stroke="#fff" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round">'
         '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></span>'
     ),
+    # Legal Information group: one indigo–blue–violet family (distinct steps, same palette).
     "scale": (
         '<span class="menu-icon menu-icon--scale" aria-hidden="true" '
-        'style="--icon-from:#6366f1;--icon-to:#4f46e5;--icon-glow:#818cf8">'
+        'style="--icon-from:#6366f1;--icon-to:#4f46e5;--icon-glow:#a5b4fc">'
         '<svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" fill="none" '
         'stroke="#fff" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round">'
         '<path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>'
@@ -4172,7 +4175,7 @@ _ABOUT_NAV_ICONS = {
     ),
     "shield": (
         '<span class="menu-icon menu-icon--shield" aria-hidden="true" '
-        'style="--icon-from:#f59e0b;--icon-to:#d97706;--icon-glow:#fbbf24">'
+        'style="--icon-from:#818cf8;--icon-to:#4f46e5;--icon-glow:#c7d2fe">'
         '<svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" fill="none" '
         'stroke="#fff" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round">'
         '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>'
@@ -4180,7 +4183,7 @@ _ABOUT_NAV_ICONS = {
     ),
     "file": (
         '<span class="menu-icon menu-icon--file" aria-hidden="true" '
-        'style="--icon-from:#64748b;--icon-to:#334155;--icon-glow:#94a3b8">'
+        'style="--icon-from:#60a5fa;--icon-to:#2563eb;--icon-glow:#93c5fd">'
         '<svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" fill="none" '
         'stroke="#fff" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round">'
         '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/>'
@@ -4189,7 +4192,7 @@ _ABOUT_NAV_ICONS = {
     ),
     "cookie": (
         '<span class="menu-icon menu-icon--cookie" aria-hidden="true" '
-        'style="--icon-from:#d97706;--icon-to:#b45309;--icon-glow:#fbbf24">'
+        'style="--icon-from:#a78bfa;--icon-to:#7c3aed;--icon-glow:#ddd6fe">'
         '<svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" fill="none" '
         'stroke="#fff" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round">'
         '<path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/>'
@@ -4198,7 +4201,7 @@ _ABOUT_NAV_ICONS = {
     ),
     "landmark": (
         '<span class="menu-icon menu-icon--landmark" aria-hidden="true" '
-        'style="--icon-from:#eab308;--icon-to:#ca8a04;--icon-glow:#facc15">'
+        'style="--icon-from:#6366f1;--icon-to:#4338ca;--icon-glow:#a5b4fc">'
         '<svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" fill="none" '
         'stroke="#fff" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round">'
         '<path d="M10 18v-7"/><path d="M11.12 2.198a2 2 0 0 1 1.76.006l7.866 3.847c.10.0.0.5-.22.949H3.474c-.53 0-.695-.716-.22-.949z"/>'
@@ -4248,7 +4251,6 @@ def _about_nav_copy(lang: str) -> dict:
         "cookies_desc": _lead("cookie-policy"),
         "imprint_title": imprint,
         "imprint_desc": _lead("legal-notice"),
-        "sitemap_title": labels.get("footer_sitemap") or _sitemap_nav_label(lang),
     }
 
 
@@ -4268,7 +4270,6 @@ def _build_about_nav_dropdown(markup: str, lang: str, rel_path: str = "") -> str
     copy = _about_nav_copy(lang)
     prefix = _legal_href_prefix(rel_path or infer_html_rel_path(markup, lang), lang)
     mission_href = f"{prefix}about/mission-vision-values.html"
-    sitemap_href = f"{prefix}sitemap.html"
     if lang == "de":
         prefix = f"{_rel_depth_prefix(rel_path or infer_html_rel_path(markup, lang))}en/"
         mission_href = f"{prefix}about/mission-vision-values.html"
@@ -4314,6 +4315,7 @@ def _build_about_nav_dropdown(markup: str, lang: str, rel_path: str = "") -> str
         "            </div>\n"
         "          </div>"
     )
+    # Sitemap stays a top-nav item only (data-nav-sitemap); not duplicated here.
     links = (
         _about_nav_link(
             mission_href,
@@ -4323,12 +4325,6 @@ def _build_about_nav_dropdown(markup: str, lang: str, rel_path: str = "") -> str
             copy["mission_desc"],
         )
         + legal_block
-        + _about_nav_link(
-            sitemap_href,
-            "about-sitemap",
-            _SITEMAP_NAV_ICON,
-            copy["sitemap_title"],
-        )
     )
     return (
         '<details class="nav-dropdown nav-dropdown--about">'
@@ -5255,13 +5251,6 @@ def _root_entry_locale_pack(lang: str) -> dict:
                 "id": "imprint",
                 "href": f"{lang}/legal-notice.html",
                 "title": ui.get("footer_imprint") or "",
-            },
-            {
-                "id": "about-sitemap",
-                "href": f"{lang}/sitemap.html",
-                "title": (ui.get("sitemap") or {}).get("nav_item")
-                or ui.get("footer_sitemap")
-                or "",
             },
         ],
         "about_legal": {

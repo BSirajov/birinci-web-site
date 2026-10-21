@@ -50,7 +50,7 @@ FOOTER_LEGAL_ITEMS = (
 FOOTER_LEGAL_LABEL_FALLBACKS = {
     "az": {
         "footer_legal_nav": "Hüquqi sənədlər və saytın xəritəsi",
-        "footer_feedback": "Rəy",
+        "footer_feedback": "Rəy və təklif",
         "footer_privacy": "Məxfilik bildirişi",
         "footer_terms": "İstifadə şərtləri",
         "footer_cookies": "Kuki siyasəti",
@@ -72,7 +72,7 @@ FOOTER_LEGAL_LABEL_FALLBACKS = {
     },
     "ru": {
         "footer_legal_nav": "Правовые документы и карта сайта",
-        "footer_feedback": "Обратная связь",
+        "footer_feedback": "Отзывы",
         "footer_privacy": "Уведомление о конфиденциальности",
         "footer_terms": "Условия использования",
         "footer_cookies": "Политика cookie",
@@ -94,7 +94,7 @@ FOOTER_LEGAL_LABEL_FALLBACKS = {
     },
     "de": {
         "footer_legal_nav": "Rechtliche Informationen und Seitenübersicht",
-        "footer_feedback": "Rückmeldung",
+        "footer_feedback": "Feedback",
         "footer_privacy": "Datenschutzhinweise",
         "footer_terms": "Nutzungsbedingungen",
         "footer_cookies": "Cookie-Richtlinie",

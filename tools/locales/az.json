@@ -182,7 +182,7 @@
     "footer_website_placeholder": "https://birinci.cloud",
     "footer_website_url": "https://birinci.cloud",
     "footer_legal_nav": "Hüquqi sənədlər və saytın xəritəsi",
-    "footer_feedback": "Rəy",
+    "footer_feedback": "Rəy və təklif",
     "footer_privacy": "Məxfilik bildirişi",
     "footer_terms": "İstifadə şərtləri",
     "footer_cookies": "Kuki siyasəti",
@@ -246,8 +246,8 @@
       "crumb": "Kəşf və ixtiralar"
     },
     "sitemap": {
-      "nav_item": "Sayt xəritəsi",
-      "page_title": "Sayt xəritəsi",
+      "nav_item": "Saytın xəritəsi",
+      "page_title": "Saytın xəritəsi",
       "page_description": "Birİnci-nin bütün açıq səhifələri — ibrətamiz hekayələr və haqqımızda — bir yerdə.",
       "lead": "Bu səhifə Birİnci ocağının canlı yollarını bir yerdə göstərir: iman və ailədən dostluq, xarakter və gündəlik həyat dərslərinə qədər mövzular üzrə düzülmüş ibrətamiz hekayələr, eləcə də missiya, baxış və dəyərlərimizi ifadə edən səhifələr. Onu sayta sakit bir giriş qapısı kimi istifadə edin: dillər arasında keçin, əsas bölməni açın, kateqoriyaya baxın, ya da birbaşa bir hekayəyə addımlayın. Hər keçid sizi əlavə dolanmadan həmin səhifəyə aparır — axtardığınızı tapıb dərhal oxumağa başlaya biləsiniz.",
       "jump_label": "Bu səhifədə",

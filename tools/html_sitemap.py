@@ -442,28 +442,29 @@ def build_sitemap_inner_html(lang: str) -> str:
         f'<div class="sitemap-jump__chips">{jump_chips}</div>'
         "</div></nav>"
     )
+    # Same tools-bar pattern as stories/discoveries — JS lifts it under breadcrumbs.
     search = (
-        f'<div class="sitemap-search" role="search">'
-        f'<label class="sitemap-search__field">'
+        f'<div class="tools-bar tools-bar--dense" '
+        f'data-tools="sitemap" role="search" '
+        f'aria-label="{html.escape(copy["search_label"], quote=True)}">'
+        f'<div class="tools-bar__search">'
+        f'<label class="tools-bar__search-field">'
         f'<span class="visually-hidden">{_esc(copy["search_label"])}</span>'
-        f'<svg class="sitemap-search__icon" viewBox="0 0 24 24" width="18" height="18" '
-        f'fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" '
-        f'stroke-linejoin="round" aria-hidden="true">'
-        f'<circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>'
-        f'<input type="search" id="sitemap-search-input" '
+        f'<input type="search" id="sitemap-search-input" data-tools-search '
         f'placeholder="{html.escape(copy["search_placeholder"], quote=True)}" '
         f'autocomplete="off" />'
         f"</label>"
         f'<p class="sitemap-search__status" id="sitemap-search-status" '
         f'data-empty="{html.escape(copy["search_no_match"], quote=True)}" '
         f'aria-live="polite" hidden></p>'
-        f"</div>"
+        f"</div></div>"
     )
 
     title = copy["page_title"]
     title_alt = html.escape(title, quote=True)
     return (
         '<div class="sitemap-page">\n'
+        f"  {search}\n"
         '  <section class="intro">\n'
         '    <div class="intro__atmosphere" aria-hidden="true"></div>\n'
         '    <div class="intro__content">\n'
@@ -479,7 +480,6 @@ def build_sitemap_inner_html(lang: str) -> str:
         "  </section>\n"
         f'  <div class="sitemap-sticky-chrome">\n'
         f"    {jump}\n"
-        f"    {search}\n"
         f"  </div>\n"
         '  <div class="sitemap-main">\n'
         f'    <section class="sitemap-section sitemap-section--overview" id="sitemap-overview" aria-labelledby="sitemap-overview-title">\n'
