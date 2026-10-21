@@ -1,0 +1,6 @@
+# Keep feedback handlers consistent across platforms.
+/az/mail-feedback.php text eol=lf
+/de/mail-feedback.php text eol=lf
+/en/mail-feedback.php text eol=lf
+/ky/mail-feedback.php text eol=lf
+/ru/mail-feedback.php text eol=lf
