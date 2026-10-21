@@ -4999,6 +4999,11 @@ _ROOT_ENTRY_SCRIPT = """\
     setAttr(document.getElementById("nav-toggle"), "aria-label", ui.open_menu);
     setAttr(document.getElementById("primaryNav"), "aria-label", ui.main_menu);
     setAttr(document.querySelector(".lang-switcher"), "aria-label", ui.lang_switcher_label);
+    var sitemap = document.querySelector("[data-nav-sitemap]");
+    if (sitemap && L.sitemap) {
+      sitemap.setAttribute("href", L.sitemap.href);
+      setText(sitemap.querySelector("span:not(.menu-icon)"), L.sitemap.label);
+    }
     var disc = document.querySelector('.primary-nav a[href*="discoveries"]');
     if (disc) {
       if (L.discoveries_href) disc.setAttribute("href", L.discoveries_href);
@@ -5179,6 +5184,7 @@ def _root_entry_locale_pack(lang: str) -> dict:
     about = ui.get("about", {})
     inv = ui.get("inventions", {})
     pack = {
+        "sitemap": {"label": _sitemap_nav_label(lang), "href": f"{lang}/sitemap.html"},
         "home_crumb": data.get("home_crumb") or "Home",
         "footer_legal_label": ui.get("footer_legal_nav") or "Legal information",
         "qr_label": {"az": "birinci.cloud saytına keçid üçün QR kod", "de": "QR-Code zur Website birinci.cloud", "en": "QR code for birinci.cloud", "ky": "birinci.cloud сайтынын QR коду", "ru": "QR-код сайта birinci.cloud"}.get(lang, "birinci.cloud"),
@@ -5315,7 +5321,7 @@ def build_root_entry_section() -> str:
         f"    </div>\n"
         f"  </section>\n"
         f'  <script type="application/json" id="root-entry-i18n">{i18n_json}</script>\n'
-        f'  <script src="assets/root-home.js?v={ROOT_HOME_ASSET_VERSION}" defer></script>'
+        f'  <script src="assets/root-home.js?v=20261021sitemaplang" defer></script>'
     )
 
 

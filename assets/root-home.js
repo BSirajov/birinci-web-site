@@ -100,6 +100,11 @@
     setAttr(document.getElementById("nav-toggle"), "aria-label", ui.open_menu);
     setAttr(document.getElementById("primaryNav"), "aria-label", ui.main_menu);
     setAttr(document.querySelector(".lang-switcher"), "aria-label", ui.lang_switcher_label);
+    var sitemap = document.querySelector("[data-nav-sitemap]");
+    if (sitemap && L.sitemap) {
+      sitemap.setAttribute("href", L.sitemap.href);
+      setText(sitemap.querySelector("span:not(.menu-icon)"), L.sitemap.label);
+    }
     var disc = document.querySelector('.primary-nav a[href*="discoveries"]');
     if (disc) {
       if (L.discoveries_href) disc.setAttribute("href", L.discoveries_href);

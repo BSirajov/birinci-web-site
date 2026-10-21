@@ -29,3 +29,16 @@ def test_german_legal_breadcrumbs_and_sitemap_metadata():
         assert not doc.xpath('//nav[contains(@class,"breadcrumbs")]//a[@href="about/mission-vision-values.html"]')
     doc = html.fromstring((ROOT / "de/sitemap.html").read_text(encoding="utf-8"))
     assert len(doc.xpath('//link[@rel="canonical"]')) == 1
+
+
+def test_root_sitemap_links_cover_all_languages():
+    from chrome_restore import _root_entry_locale_pack
+
+    doc = html.fromstring((ROOT / "index.html").read_text(encoding="utf-8"))
+    data = json.loads(doc.get_element_by_id("root-entry-i18n").text)
+    labels = {"az": "Saytın xəritəsi", "en": "Sitemap", "ru": "Карта сайта", "ky": "Сайт картасы", "de": "Seitenübersicht"}
+    for lang, label in labels.items():
+        expected = {"label": label, "href": f"{lang}/sitemap.html"}
+        assert data[lang]["sitemap"] == expected
+        assert _root_entry_locale_pack(lang)["sitemap"] == expected
+        assert (ROOT / expected["href"]).is_file()
