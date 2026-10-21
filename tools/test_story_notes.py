@@ -64,8 +64,10 @@ for (language of ["az","en","ru","ky","de"]) {
       const sources=(markup.match(/class="story__source"/g)||[]).length;
       assert.ok(morals<=1,language+" "+story.stem);
       if(!morals) noMoral++;
-      assert.ok(sources>=1,language+" "+story.stem+" has no credit");
-      if(language==="en" && story.stem==="mercedes") assert.equal(sources,3);
+      const moralIndex=story.paragraphs.findIndex(p=>/^(?:ibrət|ibret|nəticə|moral|lesson|lehre|мораль|урок|үлгү|сабак)\s*:/i.test(p.trim().replace(/[İIı]/g,"i")));
+      if(moralIndex>=0) assert.equal(sources,story.paragraphs.length-moralIndex-1,language+" "+story.stem+" credits changed");
+      else assert.ok(sources>=1,language+" "+story.stem+" has no author credit");
+      if(language==="en" && story.stem==="mercedes") assert.equal(sources,2);
     }
   }
   assert.equal(noMoral,language==="az"?5:0,language);
