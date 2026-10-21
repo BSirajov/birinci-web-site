@@ -4346,7 +4346,7 @@ def ensure_about_nav(markup: str, lang: str, rel_path: str = "") -> str:
     markup = re.sub(r'<a\b[^>]*\bdata-nav-feedback\b[^>]*>[\s\S]*?</a>', '', markup)
     prefix = _legal_href_prefix(rel_path or infer_html_rel_path(markup, lang), lang)
     active = ' aria-current="page"' if rel_path.endswith('/feedback.html') else ''
-    if lang == "de":
+    if lang == "de" and not (ROOT / "de/feedback.html").is_file():
         prefix = f"{_rel_depth_prefix(rel_path or infer_html_rel_path(markup, lang))}en/"
     feedback = (
         f'<a class="primary-nav__link" href="{prefix}feedback.html" data-nav-id="feedback" data-nav-feedback{active}>'
@@ -4510,6 +4510,8 @@ def _locale_target_available(lang: str, rest: str) -> bool:
     if sections is None:
         return True
     page = rest.split("?", 1)[0].split("#", 1)[0]
+    if page == "feedback.html":
+        return (ROOT / lang / page).is_file()
     wisdom = page in ("index.html", "sitemap.html") or page.startswith(("categories/", "stories/", "authors/"))
     if "wisdom" not in sections or not wisdom:
         return False

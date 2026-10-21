@@ -36,6 +36,21 @@
       tooLong: "Mətn sahələrindən biri çox uzundur. Mətni qısaldıb yenidən cəhd edin.",
       fileReady: "Göndərməyə hazırdır"
     },
+    de: {
+      nameRequired: "Bitte gib deinen Namen ein.", nameInvalid: "Bitte schreibe deinen Namen mit Buchstaben.",
+      unsafe: "Bitte verwende normalen Text. Code und möglicherweise schädliche Inhalte können nicht gesendet werden.",
+      emailInvalid: "Bitte gib eine gültige E-Mail-Adresse ein.", emailRequired: "Bitte gib deine E-Mail-Adresse ein.",
+      subjectRequired: "Bitte gib einen Betreff ein.", messageRequired: "Bitte schreibe deine Rückmeldung.",
+      typeRequired: "Bitte wähle die Art der Rückmeldung aus.", urlInvalid: "Die Seitenadresse muss mit http:// oder https:// beginnen.",
+      privacyRequired: "Bitte bestätige vor dem Senden, dass du den Datenschutzhinweis gelesen hast.",
+      fileType: "Der Anhang muss eine JPG-, PNG-, WEBP-, GIF- oder PDF-Datei sein.", fileSize: "Der Anhang darf höchstens 5 MB groß sein.",
+      submitting: "Wird gesendet…", submit: "Rückmeldung senden",
+      submitFailed: "Deine Rückmeldung konnte nicht gesendet werden. Deine Eingaben bleiben erhalten. Bitte versuche es erneut.",
+      phpUnavailable: "Dieser Vorschauserver kann keine E-Mails versenden. Auf der veröffentlichten Website wird deine Rückmeldung an info@birinci.cloud gesendet. Deine Eingaben bleiben erhalten.",
+      networkError: "Die Verbindung ist fehlgeschlagen. Deine Eingaben bleiben erhalten. Bitte versuche es erneut.",
+      rateLimit: "Es wurden zu viele Nachrichten gesendet. Bitte warte eine Weile und versuche es erneut.",
+      tooLong: "Der Text in einem Feld ist zu lang. Bitte kürze ihn und versuche es erneut.", fileReady: "Bereit zum Senden"
+    },
     en: {
       nameRequired: "Please enter your name.",
       nameInvalid: "Please enter your name using letters.",

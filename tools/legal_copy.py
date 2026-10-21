@@ -1550,3 +1550,32 @@ def page_for(lang: str, slug: str) -> dict:
     builder = PAGES_BY_LANG.get(lang) or pages_en
     pack = builder()
     return pack[slug]
+
+
+def pages_de():
+    lead = "Deine Rückmeldung hilft uns, die Website zu verbessern. Teile uns einen Vorschlag, eine Korrektur oder ein Problem mit."
+    return {"feedback": _page("Rückmeldung", lead,
+        "Sende Birİnci Anmerkungen, Vorschläge oder Hinweise auf Probleme mit der Website.", [], [],
+        panel="Teile uns einen Vorschlag, eine Korrektur oder ein Problem mit. Nachrichten gehen an info@birinci.cloud.",
+        form={
+            "name_label": "Name", "email_label": "E-Mail-Adresse", "email_placeholder": "beispiel@email.com",
+            "type_label": "Art der Rückmeldung", "subject_label": "Betreff",
+            "subject_hint": "(zum Beispiel ein defekter Link, eine nicht erreichbare Seite oder ein Rechtschreibfehler)",
+            "message_label": "Deine Rückmeldung", "url_label": "Adresse der betreffenden Seite",
+            "url_optional": "(optional)", "url_hint": "Dieses Feld wird automatisch ausgefüllt, wenn du über einen Rückmeldungslink auf einer bestimmten Seite hierher gelangst.",
+            "url_placeholder": "https://birinci.cloud/de/…",
+            "privacy_label": "Ich habe den Datenschutzhinweis (Englisch) gelesen und verstehe, dass meine Nachricht wie dort beschrieben verarbeitet wird.",
+            "privacy_link": "Datenschutzhinweis (Englisch)",
+            "section_title": "Deine Rückmeldung", "section_sub": "Anmerkungen, Vorschläge und Probleme mit der Website",
+            "intro": lead, "required_note": "Mit * gekennzeichnete Felder sind Pflichtfelder.",
+            "submit": "Rückmeldung senden", "file_label": "Screenshot oder Anhang",
+            "file_hint": "JPG, PNG, WEBP, GIF oder PDF. Höchstens 5 MB.", "file_choose": "Datei auswählen",
+            "file_replace": "Ersetzen", "file_remove": "Entfernen", "file_ready": "Bereit zum Senden",
+            "honeypot_label": "Website", "success_title": "Vielen Dank! Deine Rückmeldung wurde gesendet.",
+            "success_body": "Wir lesen jede Nachricht und nutzen sie, um die Website zu verbessern.",
+            "success_home": "Zur Startseite",
+        })}
+
+PAGES_BY_LANG["de"] = pages_de
+PANEL_TITLE["de"] = {"feedback": "Rückmeldung zur Website"}
+FORM_TYPE_OPTIONS["de"] = [("", "Bitte auswählen"), ("general", "Allgemeine Rückmeldung"), ("suggestion", "Vorschlag"), ("technical", "Technisches Problem"), ("correction", "Inhaltliche Korrektur"), ("other", "Sonstiges")]

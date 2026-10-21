@@ -206,5 +206,5 @@ def test_corrupt_rate_state_fails_closed_and_mail_failure_not_success(endpoint):
 
 def test_published_php_copies_match_source():
     source=(ROOT/'tools/mail_feedback.php').read_text(encoding='utf-8')
-    for lang in ['az','en','ru','ky']:
+    for lang in ['az','en','ru','ky','de']:
         assert (ROOT/lang/'mail-feedback.php').read_text(encoding='utf-8') == source

@@ -416,7 +416,27 @@ def write_legal_pages(patch_html=None) -> int:
             (ROOT / lang / "mail-feedback.php").write_text(
                 php_src.read_text(encoding="utf-8"), encoding="utf-8", newline="\n"
             )
-    return n
+    write_german_feedback()
+    return n + 1
+
+
+def write_german_feedback():
+    """Build the German form using German chrome and the shared secured endpoint."""
+    from chrome_restore import ensure_about_nav, ensure_lang_switcher_dropdown, ensure_seo_head
+    source = (ROOT / "de/index.html").read_text(encoding="utf-8")
+    markup = build_legal_page_html(source, "de", "feedback.html")
+    markup = markup.replace(' data-wisdom-generator="german-docx"', '')
+    markup = re.sub(r'<link\b[^>]*rel="(?:canonical|alternate)"[^>]*>', '', markup)
+    markup = markup.replace('href="privacy-notice.html"', 'href="../en/privacy-notice.html"')
+    markup = re.sub(r'<li class="breadcrumbs__item"><a href="about/mission-vision-values.html">.*?</a></li>', '', markup)
+    markup = markup.replace('feedback-form.js?v=20261020secure', 'feedback-form.js?v=20261021de')
+    path = ROOT / "de/feedback.html"
+    path.write_text(markup, encoding="utf-8")
+    markup = ensure_about_nav(markup, "de", "de/feedback.html")
+    markup = ensure_lang_switcher_dropdown(markup, "de", "de/feedback.html")
+    markup = ensure_seo_head(markup, "de", "de/feedback.html")
+    path.write_text(markup, encoding="utf-8")
+    (ROOT / "de/mail-feedback.php").write_bytes((TOOLS / "mail_feedback.php").read_bytes())
 
 
 if __name__ == "__main__":
