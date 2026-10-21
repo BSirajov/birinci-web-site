@@ -5004,6 +5004,11 @@ _ROOT_ENTRY_SCRIPT = """\
       sitemap.setAttribute("href", L.sitemap.href);
       setText(sitemap.querySelector("span:not(.menu-icon)"), L.sitemap.label);
     }
+    var footerSitemap = document.querySelector('.footer-legal a[href$="sitemap.html"]');
+    if (footerSitemap && L.sitemap) {
+      footerSitemap.setAttribute("href", L.sitemap.href);
+      setText(footerSitemap, L.sitemap.label);
+    }
     var disc = document.querySelector('.primary-nav a[href*="discoveries"]');
     if (disc) {
       if (L.discoveries_href) disc.setAttribute("href", L.discoveries_href);
@@ -5321,7 +5326,7 @@ def build_root_entry_section() -> str:
         f"    </div>\n"
         f"  </section>\n"
         f'  <script type="application/json" id="root-entry-i18n">{i18n_json}</script>\n'
-        f'  <script src="assets/root-home.js?v=20261021sitemaplang" defer></script>'
+        f'  <script src="assets/root-home.js?v=20261021footersitemap" defer></script>'
     )
 
 

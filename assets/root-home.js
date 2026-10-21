@@ -105,6 +105,11 @@
       sitemap.setAttribute("href", L.sitemap.href);
       setText(sitemap.querySelector("span:not(.menu-icon)"), L.sitemap.label);
     }
+    var footerSitemap = document.querySelector('.footer-legal a[href$="sitemap.html"]');
+    if (footerSitemap && L.sitemap) {
+      footerSitemap.setAttribute("href", L.sitemap.href);
+      setText(footerSitemap, L.sitemap.label);
+    }
     var disc = document.querySelector('.primary-nav a[href*="discoveries"]');
     if (disc) {
       if (L.discoveries_href) disc.setAttribute("href", L.discoveries_href);
