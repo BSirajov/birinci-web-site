@@ -17,6 +17,7 @@ import re
 from urllib.parse import unquote, urlsplit
 import xml.etree.ElementTree as ET
 from zipfile import ZipFile
+from unpublished_stories import UNPUBLISHED_STEMS
 
 EXPECTED_AZ = 261
 EXPECTED_DE = 256
@@ -362,6 +363,10 @@ class Audit:
             if size[0] < 1200 or size[1] < 800:
                 self.fail(f"{stem} illustration dimensions too small: {size}")
         self.counts["source_image_dimensions_checked"] = len(images)
+        unpublished_count = len(set(docs) & UNPUBLISHED_STEMS)
+        docs = {stem: path for stem, path in docs.items() if stem not in UNPUBLISHED_STEMS}
+        images = {stem: path for stem, path in images.items() if stem not in UNPUBLISHED_STEMS}
+        self.story_stems = set(docs)
         sources = {}
         for stem, path in docs.items():
             try:
@@ -387,8 +392,8 @@ class Audit:
             stems_az = [s for members in memberships_az.values() for s in members]
             stems_de = [s for members in memberships.values() for s in members]
             self.exact("AZ category count", len(categories), 12)
-            self.exact("AZ canonical story count", len(stems_az), EXPECTED_AZ)
-            self.exact("DE expected story count", len(stems_de), EXPECTED_DE)
+            self.exact("AZ canonical story count", len(stems_az), EXPECTED_AZ - unpublished_count)
+            self.exact("DE expected story count", len(stems_de), EXPECTED_DE - unpublished_count)
             self.exact("DOCX/DE canonical bijection", sorted(docs), sorted(stems_de))
             if len(set(stems_az)) != len(stems_az):
                 self.fail("AZ catalog has duplicate canonical stories")

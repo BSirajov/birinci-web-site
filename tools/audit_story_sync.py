@@ -1,5 +1,6 @@
 """Verify all five languages' active DOCX sources, catalogs, HTML and search."""
 from story_source_policy import is_story_collection
+from unpublished_stories import UNPUBLISHED_STEMS
 from pathlib import Path
 from copy import deepcopy
 import argparse, importlib, json, re
@@ -40,8 +41,9 @@ def audit(root=ROOT):
         importlib.reload(rebuild);rebuild.MORAL_RE=re.compile('^'+PATTERNS[lang]+r'\s*:',re.I)
         _,catalog,_=_load_json_assignment(root/lang/'assets/stories-data.js','window.__BIRINCI_STORIES__')
         entries=[s for c in catalog['categories'] for s in c['stories']];stories={s['stem']:s for s in entries}
-        docs=[p for p in (root/lang/'wisdom-stories').rglob('*.docx') if active(p)];sources={p.stem:p for p in docs}
-        expected_count=261 if lang=='az' else 256
+        retained_docs=[p for p in (root/lang/'wisdom-stories').rglob('*.docx') if active(p)]
+        docs=[p for p in retained_docs if p.stem not in UNPUBLISHED_STEMS];sources={p.stem:p for p in docs}
+        expected_count=(261 if lang=='az' else 256)-(len(retained_docs)-len(docs))
         def check(ok,detail):
             if not ok:errors.append({'language':lang,'detail':detail})
         check(len(docs)==len(sources)==len(entries)==len(stories)==expected_count,'Inventory count or duplicate mismatch')

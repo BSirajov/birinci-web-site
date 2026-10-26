@@ -60,6 +60,8 @@ _IGNORE_PUBLISH_PATTERNS = [
     "*.PDF",
     "*.docx",
     "*.DOCX",
+    "*.md",
+    "*.MD",
     "Age10-14*",
     *AUTHORING_JUNK_IGNORE_PATTERNS,
 ]
