@@ -19,6 +19,7 @@ from docx import Document
 from lxml import etree, html
 
 from stories_catalog import load_stories_catalog
+from unpublished_stories import UNPUBLISHED_STEMS
 from chrome_restore import SITE_CHROME_ASSET_VERSION
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -102,6 +103,8 @@ def inventory() -> tuple[dict, dict]:
         if any(part.lower() in {"backup", "_backups", "_reviews"} for part in path.parts):
             continue
         stem = canonical_stem(path.stem)
+        if stem in UNPUBLISHED_STEMS:
+            continue
         if stem in sources:
             raise ValueError(f"Duplicate source: {stem}")
         paragraphs = [p.text.strip() for p in Document(path).paragraphs if p.text.strip()]
@@ -123,6 +126,8 @@ def inventory() -> tuple[dict, dict]:
         )
     images = {}
     for p in (ROOT / "de/wisdom-stories").rglob("*.webp"):
+        if canonical_stem(p.stem) in UNPUBLISHED_STEMS:
+            continue
         if any(part.lower() in {"backup", "_backups", "_reviews"} for part in p.parts):
             continue
         images[canonical_stem(p.stem)] = p
@@ -132,7 +137,7 @@ def inventory() -> tuple[dict, dict]:
         s["stem"]
         for c in published["categories"]
         for s in c["stories"]
-        if s["stem"] not in ETIBAR_POETRY_STEMS
+        if s["stem"] not in ETIBAR_POETRY_STEMS and s["stem"] not in UNPUBLISHED_STEMS
     ]
     if (
         len(sources) != len(ids)

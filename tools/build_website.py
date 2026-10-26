@@ -124,6 +124,8 @@ def _apply_overlay() -> None:
 
             return Builder().build()
         result = _orig_build_one(*args, **kwargs)
+        from unpublished_stories import apply_unpublished_stories
+        apply_unpublished_stories()
         # After bytecode writes/prunes locale assets, restore i18n.js and scrub stubs.
         apply_shared_assets()
         return result
@@ -254,3 +256,5 @@ install_resilient_path_writes()
 
 if __name__ == "__main__":
     main()  # noqa: F821 — provided by recovered bytecode
+    from unpublished_stories import apply_unpublished_stories
+    apply_unpublished_stories()

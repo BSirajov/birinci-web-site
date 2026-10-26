@@ -53,6 +53,9 @@ DISCOVERY_ONLY_ASSETS = (
 # stays in locale trees for local work but is omitted from deployment/ while
 # OMIT_AUDIO_FROM_PUBLISH is True (listen UI gated off until copy is ready).
 _IGNORE_PUBLISH_PATTERNS = [
+    # Retained locally for possible restoration, never published.
+    "ill-gotten-money.*",
+    "forbidden-money.*",
     "*.pdf",
     "*.PDF",
     "*.docx",
