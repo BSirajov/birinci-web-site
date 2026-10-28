@@ -1,4 +1,5 @@
 """Verify all five languages' active DOCX sources, catalogs, HTML and search."""
+from story_note_markup import strip_moral_label
 from story_source_policy import is_story_collection
 from unpublished_stories import UNPUBLISHED_STEMS
 from pathlib import Path
@@ -69,7 +70,7 @@ def audit(root=ROOT):
                 if stem not in texts:continue
                 copies+=1;seen.add(stem);hs=a.xpath('.//*[contains(@class,"story__title")]');ps=a.xpath('.//div[contains(@class,"story__text")]/p')
                 check(bool(hs) and text(hs[0])==stories[stem]['title'],str(p.relative_to(root))+' title '+stem)
-                check([text(v) for v in ps[:len(texts[stem])]]==texts[stem],str(p.relative_to(root))+' text '+stem)
+                check([text(v) for v in ps[:len(texts[stem])]]==[strip_moral_label(v) for v in texts[stem]],str(p.relative_to(root))+' text '+stem)
         check(seen==set(stories),'Stories missing from HTML')
         result[lang]={'sources':len(sources),'stories':len(stories),'article_copies':copies,'title_presentation_exceptions':exceptions}
     return {'languages':result,'errors':errors}

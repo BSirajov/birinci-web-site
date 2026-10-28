@@ -445,7 +445,7 @@ class Audit:
                 continue
             page = Page(re.sub(r'<(/?)h2\b', r'<\1h1', match[0]))
             self.exact(f"{stem} title", page.headings, paragraphs[:1])
-            self.exact(f"{stem} story__text p", page.paragraphs, paragraphs[1:])
+            self.exact(f"{stem} story__text p", page.paragraphs, [p.removeprefix("Lehre:").lstrip() for p in paragraphs[1:]])
             rule = f'RewriteRule ^{re.escape(stem)}\\.html$ /de/categories/{routes[stem]}.html#{stem} [R=301,L,NE]'
             if rule not in redirect_text:
                 self.fail(f"missing permanent redirect: {stem}")

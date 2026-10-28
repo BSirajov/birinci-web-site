@@ -7210,7 +7210,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
               .map((line) => `<span class="story__source-line">${escapeHtml(line)}</span>`)
               .join("");
           } else {
-            html = escapeHtml(text);
+            html = escapeHtml(i === moralI ? String(text).replace(/^\s*(?:[İiIı]brət|ibret|nəticə|moral|lesson|lehre|мораль|урок|үлгү|сабак)\s*:\s*/i, "") : text);
           }
           return `<p${cls ? ` class="${cls}"` : ""}>${html}</p>`;
         })

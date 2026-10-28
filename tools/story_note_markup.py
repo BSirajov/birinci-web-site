@@ -8,6 +8,10 @@ ARTICLE = re.compile(r"<article\b[^>]*>.*?</article>", re.S | re.I)
 PARAGRAPH = re.compile(r"(<p\b[^>]*>)(.*?)(</p>)", re.S | re.I)
 
 
+def strip_moral_label(text: str) -> str:
+    return re.sub(r"^\s*(?:ibrət|ibret|nəticə|moral|lesson|lehre|мораль|урок|үлгү|сабак)\s*:\s*", "", text, count=1, flags=re.I)
+
+
 def restore_shared_note_styles(css: str) -> str:
     """Keep legacy generator output from reintroducing duplicate note rules."""
     css = re.sub(
@@ -39,9 +43,10 @@ def restore_story_note_classes(markup: str) -> str:
             text = html.unescape(re.sub(r"<[^>]+>", "", body)).strip()
             if is_generic_story_notice(text):
                 return ""
-            kind = "story__moral" if MORAL.match(text) else "story__source" if after_moral else ""
+            kind = "story__moral" if MORAL.match(text) or "story__moral" in opening else "story__source" if after_moral else ""
             if kind == "story__moral":
                 after_moral = True
+                body = strip_moral_label(body)
             if kind:
                 existing = re.search(r'class="([^"]*)"', opening)
                 if existing:

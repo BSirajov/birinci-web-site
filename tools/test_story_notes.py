@@ -7,7 +7,7 @@ import pytest
 
 def test_classes_are_restored_without_rewriting_text_or_markup():
     original = '<article class="story news-card"><div class="story__text"><p>Текст</p><p>Урок: Береги людей.</p><p>Etibar Siracsoy</p></div></article>'
-    expected = original.replace("<p>Урок:", '<p class="story__moral">Урок:').replace("<p>Etibar", '<p class="story__source">Etibar')
+    expected = original.replace("<p>Урок: ", '<p class="story__moral">').replace("<p>Etibar", '<p class="story__source">Etibar')
     assert restore_story_note_classes(original) == expected
     assert restore_story_note_classes(expected) == expected
 
@@ -19,7 +19,7 @@ def test_poems_without_morals_are_unchanged():
 
 def test_multiple_source_lines_keep_their_order_and_classes():
     original = '<article class="story"><p class="story__moral">Moral: Care.</p><p>Credit</p><p class="citation">https://example.org</p></article>'
-    expected = original.replace("<p>Credit", '<p class="story__source">Credit').replace('class="citation"', 'class="citation story__source"')
+    expected = original.replace("Moral: ", "").replace("<p>Credit", '<p class="story__source">Credit').replace('class="citation"', 'class="citation story__source"')
     assert restore_story_note_classes(original) == expected
 
 
@@ -60,6 +60,7 @@ for (language of ["az","en","ru","ky","de"]) {
   for (const category of context.window.__BIRINCI_STORIES__.categories) {
     for (const story of category.stories) {
       const markup=paragraphsHtml(story.paragraphs,story.stem);
+      assert.ok(!/class="story__moral">(?:İbrət|Moral|Lehre|Мораль|Урок|Сабак|Үлгү):/i.test(markup), language+" label remains");
       const morals=(markup.match(/class="story__moral"/g)||[]).length;
       const sources=(markup.match(/class="story__source"/g)||[]).length;
       assert.ok(morals<=1,language+" "+story.stem);
@@ -97,3 +98,11 @@ assert.equal(de.source, 'Bakhtiyar Sirajov');
 '''.replace("CLASSIFIER", source[start:end])
     result = subprocess.run([node, "-e", script], capture_output=True, text=True, encoding="utf-8")
     assert result.returncode == 0, result.stderr
+
+
+def test_labels_removed_in_all_languages_without_changing_moral_text():
+    from story_note_markup import strip_moral_label
+    for label in ["İbrət", "Nəticə", "Moral", "Lesson", "Lehre", "Мораль", "Урок", "Үлгү", "Сабак"]:
+        assert strip_moral_label(label + ": Keep: the text.") == "Keep: the text."
+    assert strip_moral_label("Keep: the text.") == "Keep: the text."
+

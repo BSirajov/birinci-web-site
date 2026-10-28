@@ -21,6 +21,7 @@ from story_source_policy import is_story_collection, is_generic_story_notice, vi
 from pathlib import Path
 
 from docx import Document
+from story_note_markup import strip_moral_label
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -503,7 +504,7 @@ def story_source_html(source: str) -> str:
 def story_body_html(body: list[str], moral: str, source: str) -> str:
     parts = [f"<p>{html_lib.escape(p)}</p>" for p in body]
     if moral:
-        parts.append(f'<p class="story__moral">{html_lib.escape(moral)}</p>')
+        parts.append(f'<p class="story__moral">{html_lib.escape(strip_moral_label(moral))}</p>')
     parts.append(story_source_html(source))
     return "".join(parts)
 

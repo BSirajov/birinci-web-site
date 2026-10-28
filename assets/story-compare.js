@@ -977,7 +977,7 @@
       .map((p) => '<p class="sc-col__text" style="white-space: pre-line">' + escapeHtml(p) + "</p>")
       .join("");
     const moralHtml = parts.moral
-      ? '<p class="sc-col__moral story__moral" style="white-space: pre-line">' + escapeHtml(parts.moral) + "</p>"
+      ? '<p class="sc-col__moral story__moral" style="white-space: pre-line">' + escapeHtml(parts.moral.replace(/^\s*(?:[İiIı]brət|ibret|nəticə|moral|lesson|lehre|мораль|урок|үлгү|сабак)\s*:\s*/i, "")) + "</p>"
       : "";
     const sourceRaw = parts.source || "";
     const sourceLines = String(sourceRaw)

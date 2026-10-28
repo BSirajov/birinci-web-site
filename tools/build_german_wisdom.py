@@ -278,7 +278,7 @@ class Builder:
             )
             if paragraph.startswith("Lehre:"):
                 p.set("class", "story__moral")
-                p.text = paragraph
+                p.text = paragraph.removeprefix("Lehre:").lstrip()
             elif is_source:
                 p.set("class", "story__source")
                 lines = [ln.strip() for ln in str(paragraph or "").splitlines() if ln.strip()]

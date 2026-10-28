@@ -18,6 +18,7 @@ from pathlib import Path
 from typing import Any
 
 from docx import Document
+from story_note_markup import strip_moral_label
 from story_source_policy import is_generic_story_notice, visible_story_paragraphs
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -190,7 +191,7 @@ def update_search_index(
 def _story_body_html(body: list[str], moral: str, lang: str, source: str | None = None) -> str:
     source_text = (source or "").strip() or SITE_SOURCE[lang]
     parts = [f"<p>{html.escape(p)}</p>" for p in body]
-    parts.append(f'<p class="story__moral">{html.escape(moral)}</p>')
+    parts.append(f'<p class="story__moral">{html.escape(strip_moral_label(moral))}</p>')
     parts.append(_source_paragraph_html(source_text))
     return "".join(parts)
 
@@ -382,6 +383,8 @@ def save_story(payload: dict[str, Any]) -> dict[str, Any]:
 
     from story_filename_map import source_path
     docx_path = source_path(lang, stem)
+    if not MORAL_RE.match(moral):
+        moral = {"az": "İbrət: ", "en": "Moral: ", "ru": "Мораль: ", "ky": "Сабак: "}[lang] + moral
     update_docx(docx_path, title, body, moral, source=source or None)
     update_stories_data(lang, stem, title, body, moral, source=source or None)
     cat_title = category_title_for_slug(lang, slug)
