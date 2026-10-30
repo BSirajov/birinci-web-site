@@ -29,6 +29,7 @@ OPTIONAL_PAGE_DIRS = ("about", "discoveries", "stories", "authors")
 OPTIONAL_DIRS = ("data",)
 COPY_FILES = (
     "index.html",
+    "user-manual.html",
     "sitemap.html",
     "feedback.html",
     "privacy-notice.html",

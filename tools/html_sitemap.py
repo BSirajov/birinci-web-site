@@ -14,6 +14,7 @@ TOOLS = Path(__file__).resolve().parent
 if str(TOOLS) not in __import__("sys").path:
     __import__("sys").path.insert(0, str(TOOLS))
 
+from build_html_manuals import sitemap_link
 from stories_catalog import load_stories_catalog  # noqa: E402
 from legal_meta import (  # noqa: E402
     FOOTER_LEGAL_ITEMS,
@@ -257,15 +258,13 @@ def _story_categories(lang: str) -> list[dict]:
 
 
 def _languages(lang: str | None = None) -> list[dict]:
-    allowed = set(LIVE_LANGS)
-    if lang == "de":
-        allowed.add("de")
     data = _load_json(ROOT / "languages.json")
-    return [
-        item
-        for item in (data.get("languages") or [])
-        if item.get("enabled") and item.get("implemented") and item.get("code") in allowed
-    ]
+    # Sort by Latin language labels, retaining native names on the buttons.
+    return sorted(
+        (item for item in (data.get("languages") or [])
+         if item.get("enabled") and item.get("implemented")),
+        key=lambda item: item.get("label", item["code"]).casefold(),
+    )
 
 
 def build_sitemap_inner_html(lang: str) -> str:
@@ -436,6 +435,7 @@ def build_sitemap_inner_html(lang: str) -> str:
         f'href="{html.escape(href, quote=True)}">{_esc(label)}</a>'
         for tone, href, label in jump_items
     )
+    jump_chips += sitemap_link(lang)
     jump = (
         f'<nav class="sitemap-jump" aria-label="{_esc(copy["jump_label"])}">'
         f'<div class="sitemap-jump__inner">'

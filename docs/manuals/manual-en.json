@@ -1,0 +1,143 @@
+{
+  "lang": "en",
+  "title": "Birİnci website user manual",
+  "subtitle": "English user guide",
+  "date": "30 October 2026",
+  "contents": "Contents",
+  "figure": "Figure",
+  "intro": "This guide explains how to find and read stories on Birİnci, view illustrations, compare languages and send feedback. It includes desktop and phone instructions, screenshots and a quick reference. You do not need an account to read the stories.",
+  "scope": "The guide covers the public story pages. Audio playback and account registration are not currently offered. Discoveries and inventions is not included in the public release.",
+  "sections": [
+    {
+      "title": "Navigation and language selection",
+      "shot": "home",
+      "caption": "The home page with the main menu, language selector and category cards.",
+      "paras": [
+        "Open https://birinci.cloud. The Birİnci logo takes you to the main entry page. The main menu includes “Wisdom stories”, “About us”, a separate “Feedback” link and “Sitemap”. The About us menu leads to the mission and legal information pages.",
+        "Open the language button on the right of the header and choose AZ — Azərbaycan, DE — Deutsch, EN — English, KY — Кыргызча or RU — Русский. The codes are arranged in Latin alphabetical order. Where a matching translation exists, switching languages keeps the same page and story.",
+        "The navigation trail below the header links back to the home page and parent section. The arrows at the bottom right take you to the bottom or top of the page. The footer contains contact, feedback, legal and sitemap links; its QR code opens the website on another device.",
+        "Use Tab to move through links and controls. When the initial “Skip to content” link appears, press Enter to reach the main content. Activate a focused button with Enter or the space bar."
+      ]
+    },
+    {
+      "title": "Choosing and filtering stories",
+      "shot": "category",
+      "caption": "A category page with search, author filtering and view controls.",
+      "paras": [
+        "“By category” shows topic cards. Each card contains a category name, a short description and a story count. Select a topic to open that category. “List” presents stories in a continuous reading view.",
+        "Select a title in the “Stories” panel on the left to move to that story. Selecting a short story card also opens the corresponding story in list view. Counts beside headings apply to the current page and may change as content is updated.",
+        "Choose an author from the author filter; return to “All authors” to restore the full selection. Where a category selector is available, use it to change the topic. The × on a filter chip or “Clear filter” removes the corresponding filter.",
+        "Image and text controls in the list toolbar manage the stories on the page. Controls within an individual story let you work with that story. There is no shuffle or “Expand all” control for stories."
+      ]
+    },
+    {
+      "title": "Searching a page or the whole website",
+      "shot": "search",
+      "caption": "Global search results with story titles and language codes.",
+      "paras": [
+        "The search field in the page toolbar filters the current page’s cards or stories. Type a word and select a match. If there are no results, shorten the query and check the active author and category filters. Clear the search text to restore the list.",
+        "To search across languages, select the magnifying glass or “Search…” in the website header. Ctrl+K also opens global search. After entering a query, check each result’s title, language and category.",
+        "Selecting a result opens the page containing that story. A result in another language takes you to that language version. Close search with ×, Esc or the shaded area outside the dialog.",
+        "The sitemap has its own search field, which filters only the section and story links in the sitemap. This is separate from global search across the website."
+      ]
+    },
+    {
+      "title": "Story text and illustrations",
+      "shot": "story",
+      "caption": "Story text, the pale cream moral panel and image controls.",
+      "paras": [
+        "A story contains a title, main text, moral and illustration. The moral is highlighted in a pale cream panel. Illustrations on story pages are visible on the first visit; you do not need to select “Show image” first.",
+        "Use the hide-image control to hide an illustration and the show-image control to restore it. Text has separate show and hide controls. Text and images cannot both be hidden: at least one must remain visible. On phones, text controls may be hidden while the text remains available to read.",
+        "Read the author credit and specific source where they are provided. The same generic source notice is no longer repeated beneath every story. A general note about editing and AI-generated illustrations may appear in the introduction; it is distinct from an individual story’s author credit.",
+        "After navigating to a story, copy the browser address to share it. Keep the # and story identifier at the end of the address, for example #friendship-of-horses."
+      ]
+    },
+    {
+      "title": "Enlarging text and images",
+      "shot": "reading",
+      "caption": "The expanded reading dialog opened from a story title.",
+      "paras": [
+        "Select the story title itself to open the expanded reading dialog. Read the text, moral and any author or source information, scrolling inside the dialog as needed. The globe beside the title opens the separate multilingual comparison view. If the illustration appears before the text, scroll down to the text.",
+        "Select an illustration to open it in a separate enlarged overlay. If it is hidden, restore it with the show-image control first. The enlarged view makes the title and moral within the illustration easier to read.",
+        "Close the reading or illustration dialog with × or Esc. Clicking the shaded area outside the illustration also closes its dialog. You can then continue reading in the main story list.",
+        "Audio playback controls are not currently offered. Listening to stories or opening an MP3 player is not a user feature of this version."
+      ]
+    },
+    {
+      "title": "Comparing languages",
+      "shot": "comparison",
+      "caption": "The same story in five languages with comparison controls above.",
+      "paras": [
+        "Select the globe beside a story title to open the multilingual view. Available translations of the same story appear side by side. Use AZ, DE, EN, KY and RU to show or hide language columns. Keep only the languages you want to compare for easier reading.",
+        "Text and image groups have independent show and hide controls. At least one must remain visible. Comparison initially shows text with illustrations hidden; enable illustrations separately here. On later visits, the browser restores the saved language and illustration choices.",
+        "< and > open the previous and next stories; << and >> open the first and last. The number field shows the current position and total. Enter a valid story number and press Enter to jump to it. This is a position in the list, not a permanent story identifier.",
+        "Scroll to read longer text in the columns. Not every story necessarily has a version in every language. Close comparison with × at the top right or Esc to return to the main page."
+      ]
+    },
+    {
+      "title": "Remembered preferences",
+      "shot": "languages",
+      "caption": "The language selector and browser-based reading preferences.",
+      "paras": [
+        "The website remembers some choices in the current browser: language, home and category view modes, image visibility and, where applicable, text visibility. Home-page and category-page views may be stored separately.",
+        "Comparison remembers selected languages and illustration visibility. Hiding comparison text is not stored as a lasting preference. Do not rely on search queries or every filter setting being remembered permanently.",
+        "These choices are not linked to an account and do not automatically synchronise between devices. Another browser, device or private window may show different settings. Clearing the browser’s site data may also remove saved preferences.",
+        "If images are missing, check the show-image control first. Images are visible for a new visitor, but a previous hide choice may have been remembered. If the view is unexpected, check the controls and active filters, then refresh the page."
+      ]
+    },
+    {
+      "title": "Using a phone or keyboard",
+      "shot": "mobile",
+      "caption": "The main menu opened on a narrow screen.",
+      "paras": [
+        "On narrow screens, the main menu collapses behind the three-line “Open menu” button. Open it and select a section, or use “Close menu” to dismiss it. Language and search remain in the header; search may appear as a magnifying-glass icon only.",
+        "If the Stories panel is collapsed, use “Open stories menu”. Tap a title to reach the story. Text show and hide controls may not appear on phones; image controls remain available for managing illustrations.",
+        "In comparison, select fewer languages to suit the small screen and scroll through longer content. The expanded reading dialog can also help. With a keyboard, use Tab to reach links, Enter to open them and Esc to close dialogs."
+      ]
+    },
+    {
+      "title": "Sending feedback and corrections",
+      "shot": "feedback",
+      "caption": "Required feedback fields are marked with an asterisk.",
+      "paras": [
+        "Open “Feedback” from the main menu or footer. Complete the required fields marked *: “Name”, “Email address”, “Feedback type”, “Subject” and “Your feedback”. Use a valid email address where you can receive a reply.",
+        "Choose general feedback, a suggestion, a technical problem, a content correction or other feedback. Keep the subject brief. For a content correction, include the story’s language and title, the current wording and your suggested correction.",
+        "For a technical problem, describe your steps, what you expected and what happened. Include your device and browser. Paste the full address of the affected page into “Related page URL”; it is filled automatically when you arrive through a page-specific feedback link.",
+        "The limits are 120 characters for the name, 200 each for email and subject, 5000 for the message and 500 for the related URL. Shorten a long explanation or use a suitable attachment. The next page explains submission."
+      ]
+    },
+    {
+      "title": "Attachments and submission results",
+      "shot": "attachment",
+      "caption": "Attachment selection, privacy confirmation and the submit button.",
+      "paras": [
+        "Optionally use “Choose file” to attach a screenshot or PDF. Accepted formats are JPG, PNG, WEBP, GIF and PDF, with a maximum file size of 5 MB. Check the selected filename. “Replace” chooses a different file; “Remove” clears the attachment.",
+        "Read the Privacy notice and tick the required box confirming that you understand how the message will be used. Then select “Send feedback” and wait for the result.",
+        "Successful submission displays a thank-you message confirming that your feedback was sent. Continue with the link back to the home page. Clicking the submit button alone does not prove success; wait for confirmation.",
+        "If a field or attachment error appears, correct it and try again. For a connection or server error, do not assume the message was sent; keep a copy of it. If the problem continues, you can contact info@birinci.cloud."
+      ]
+    },
+    {
+      "title": "Sitemap and information pages",
+      "shot": "sitemap",
+      "caption": "The sitemap provides section links, story links and its own search.",
+      "paras": [
+        "“Sitemap” links to the main sections, categories and individual stories. Use the section shortcuts at the top to move to the relevant area. Its page-search field filters sitemap content; change or clear the query if there are no results.",
+        "The language buttons near the bottom appear in a single row in the order AZ, DE, EN, KY, RU. Choose a language to open that version.",
+        "“Our Mission, Vision, and Values” explains the website’s purpose and principles. The value links lead to their explanations. Open this page from the About us menu or sitemap.",
+        "The legal pages explain different subjects: “Privacy notice” covers information use, “Terms of use” covers using the website, “Cookie policy” covers browser storage, and “Legal notice (Imprint)” gives the website’s legal information. Read the corresponding page for the complete current text."
+      ]
+    },
+    {
+      "title": "Quick reference",
+      "shot": "footer",
+      "caption": "The footer links to contact, feedback, legal information and the sitemap.",
+      "paras": [
+        "Choose a story: topic card → category → Stories list. Find one: page search or global search in the header. Clear filters: × and “All authors”.",
+        "Read: story title → expanded reading dialog. Enlarge an image: select the visible illustration. Compare: globe → choose languages → enable images if wanted. Close: × or Esc.",
+        "Change language: header language button → AZ / DE / EN / KY / RU. Share a story: copy the full address including the # part. Send feedback: Feedback → required fields → privacy confirmation → submit.",
+        "If content is missing, check the search, filters and image/text choices. Refresh the page; if the problem remains, include the page URL and a screenshot in your feedback. Contact: info@birinci.cloud."
+      ]
+    }
+  ]
+}

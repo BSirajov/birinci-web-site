@@ -8,9 +8,9 @@
   --sc-line: rgba(0, 78, 140, 0.14);
   --sc-blue: #0069b4;
   --sc-blue-soft: #dff2ff;
-  --sc-gold: #d4a017;
-  --sc-bg: #f3f8fc;
-  --sc-panel: #ffffff;
+  --sc-gold: #c99b3b;
+  --sc-bg: #ffffff;
+  --sc-panel: #eaf5ff;
   --sc-font-ui: "Source Sans 3", "Segoe UI", sans-serif;
   --sc-font-display: "Source Serif 4", Georgia, serif;
   --sc-cols: 2;
@@ -28,9 +28,7 @@ body {
   margin: 0;
   height: 100%;
   min-height: 100%;
-  background:
-    radial-gradient(ellipse at top, rgba(223, 242, 255, 0.9), transparent 55%),
-    linear-gradient(180deg, #eef6fc 0%, var(--sc-bg) 45%, #e8f1f8 100%);
+  background: #fff;
   color: var(--sc-ink);
   font-family: var(--sc-font-ui);
 }
@@ -577,11 +575,11 @@ body.sc-page[data-sc-show-text="false"][data-sc-show-illus="false"] .sc-col--ali
 
 /* Discovery (and legacy) columns: flex stack inside the card. */
 .sc-col__copy {
-  --story-notes-flow-gap: 0.85rem;
+  --story-notes-flow-gap: var(--story-paragraph-gap);
   --story-moral-margin-top: 0.2rem;
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
+  gap: var(--story-paragraph-gap);
   flex: 0 1 auto;
   min-width: 0;
   min-height: 0;
@@ -623,7 +621,7 @@ body.sc-page[data-sc-show-illus="true"] .sc-col--align > .sc-col__source-slot {
 .sc-col__prose {
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
+  gap: var(--story-paragraph-gap);
   min-width: 0;
 }
 
@@ -666,7 +664,7 @@ body.sc-page[data-sc-show-illus="true"] .sc-col--align > .sc-col__source-slot {
   margin: 0;
   color: var(--sc-ink);
   font-size: clamp(0.92rem, 1.1vw, 1.02rem);
-  line-height: 1.58;
+  line-height: var(--story-line-height, 1.35);
   white-space: pre-wrap;
   overflow-wrap: break-word;
 }
@@ -686,7 +684,7 @@ body.sc-page[data-sc-show-illus="true"] .sc-col--align > .sc-col__source-slot {
   overflow: hidden;
   background:
     linear-gradient(180deg, rgba(223, 242, 255, 0.55), rgba(255, 255, 255, 0.2)),
-    #e8f1f8;
+    #e5f0f8;
   box-shadow: 0 0 0 1px rgba(0, 78, 140, 0.1);
 }
 

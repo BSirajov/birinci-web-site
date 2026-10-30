@@ -8,6 +8,14 @@ from chrome_restore import _sitemap_nav_href
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def test_root_script_preserves_javascript_regex_escape():
+    from chrome_restore import _ROOT_ENTRY_SCRIPT
+
+    for script in (_ROOT_ENTRY_SCRIPT, (ROOT / 'assets/root-home.js').read_text(encoding='utf-8')):
+        assert r'String(L.intro_source).split(/\n+/)' in script
+        assert 'split(/\n+/)' not in script
+
+
 def test_root_language_data_is_valid_json():
     doc = html.fromstring((ROOT / "index.html").read_text(encoding="utf-8"))
     data = json.loads(doc.get_element_by_id("root-entry-i18n").text)

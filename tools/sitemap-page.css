@@ -597,9 +597,14 @@
   font-size: 0.95rem;
 }
 .page-sitemap .sitemap-langs {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: nowrap;
   gap: 12px;
+  overflow-x: auto;
+  padding: 4px;
+}
+.page-sitemap .sitemap-langs > .sitemap-lang {
+  flex: 1 0 140px;
 }
 .page-sitemap .sitemap-section--about .sitemap-card {
   display: grid;
@@ -697,7 +702,6 @@
 @media (max-width: 760px) {
   .page-sitemap .sitemap-overview,
   .page-sitemap .sitemap-grid,
-  .page-sitemap .sitemap-langs,
   .page-sitemap .sitemap-links {
     grid-template-columns: 1fr;
   }

@@ -25,10 +25,10 @@
   --iaea-blue-dark: var(--blue-dark);
   --iaea-blue-light: #0078c8;
   --gold: #c99b3b;
-  --gold-soft: #fff0bf;
+  --gold-soft: #e5f2fc;
 
   /* —— Color: semantic surfaces & borders —— */
-  --color-surface: var(--white);
+  --color-surface: #ffffff;
   --color-surface-soft: var(--soft);
   --color-surface-toolbar: rgba(245, 251, 255, 0.96);
   --color-surface-filter-chip: rgba(0, 105, 180, 0.08);
@@ -43,7 +43,7 @@
   --color-heading-blue: #094d78;
   --color-tint-blue: #dff2ff;
   --color-panel-blue: #e5f4fb;
-  --color-surface-news: #f5fbff;
+  --color-surface-news: #ffffff;
   --color-border-blue-faint: rgba(0, 105, 180, 0.18);
   --color-border-blue-muted: rgba(0, 105, 180, 0.14);
   --color-border-blue-12: rgba(0, 105, 180, 0.12);

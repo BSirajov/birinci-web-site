@@ -107,14 +107,14 @@ def install_resilient_path_writes() -> None:
 DISABLE_DISCOVERY_VIDEOS = True
 
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
-SITE_ASSET_VERSION = "20260924img"
+SITE_ASSET_VERSION = "20261030qafixes"
 # Shared site.css / site.js (phone illustration-control chrome).
-SITE_CHROME_ASSET_VERSION = "20261021nositemapabout"
+SITE_CHROME_ASSET_VERSION = "20261030qafixes"
 INVENTIONS_BRIDGE_ASSET_VERSION = "20260924bg"
 # Discoveries catalog JS (view=list URL cache-bust). Independent of site chrome.
 KT_INVENTIONS_JS_VERSION = "20261004qa1"
-STORY_COMPARE_CSS_VERSION = "20261020src2"
-STORY_COMPARE_JS_VERSION = "20261020src2"
+STORY_COMPARE_CSS_VERSION = "20261030qafixes"
+STORY_COMPARE_JS_VERSION = "20261030qafixes"
 FEEDBACK_FORM_JS_VERSION = "20261020secure"
 COMPARE_WINDOW_JS_VERSION = "20261005de"
 DISCOVERY_COMPARE_ASSET_VERSION = "20261006noaud"
@@ -1744,9 +1744,7 @@ def pin_asset_versions(html: str) -> str:
         # Wisdom-story illustrations use a language stamp, not the shared page stamp.
         lookback = html[max(0, match.start() - 220) : match.start()]
         if "/illustrations/" in lookback and lookback.rstrip().endswith((".webp", ".png")):
-            if stamp in ILLUSTRATION_STAMPS:
-                return match.group(0)
-            return match.group(1) + "20260927frame"
+            return match.group(1) + "20261030qafixes"
         # Kyrgyz illustration scripts use their own stamp. The background
         # stylesheets use 20260924bg so a cached copy cannot keep the old .png URL.
         if stamp in ("20260924kyill", "20260925azill"):
@@ -4383,6 +4381,24 @@ def ensure_sitemap_nav_link(markup: str, lang: str) -> str:
     )
 
 
+HELP_NAV_LABELS = {"az": "Kömək", "de": "Hilfe", "en": "Help", "ky": "Жардам", "ru": "Помощь"}
+
+
+def ensure_help_nav_link(markup: str, lang: str, rel_path: str = "") -> str:
+    """Keep Help last in the primary menu, with a locale-relative manual link."""
+    markup = re.sub(r'<a\b[^>]*\bdata-nav-help\b[^>]*>[\s\S]*?</a>', '', markup)
+    prefix = _legal_href_prefix(rel_path or infer_html_rel_path(markup, lang), lang)
+    link = (
+        f'<a class="primary-nav__link" href="{prefix}user-manual.html" data-nav-help>'
+        '<span class="menu-icon menu-icon--help" aria-hidden="true" '
+        'style="--icon-from:#38bdf8;--icon-to:#0369a1;--icon-glow:#7dd3fc">'
+        '<svg class="menu-icon__svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="2.15" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 2-2.5 2-2.5 4M12 16h.01"/></svg></span>'
+        f'<span>{HELP_NAV_LABELS.get(lang, "Help")}</span></a>'
+    )
+    return re.sub(r'(<nav class="primary-nav"[^>]*>)([\s\S]*?)(</nav>)',
+                  lambda m: m[1] + m[2].rstrip() + link + '\n' + m[3], markup, count=1)
+
+
 def hide_empty_top_nav(html: str) -> str:
     """Strip unfinished top-nav sections (science, arts, figures, support)."""
     if HIDE_TOP_NAV.get("science"):
@@ -4594,6 +4610,7 @@ def patch_emitted_html(
     html = ensure_discoveries_nav_link(html, lang)
     html = ensure_about_nav(html, lang, rel_path=rel_path)
     html = ensure_sitemap_nav_link(html, lang)
+    html = ensure_help_nav_link(html, lang, rel_path)
     html = ensure_page_jump_html(html, lang)
     html = ensure_literature_submenu(html, lang)
     html = ensure_literature_nav_label(html, lang)
@@ -4967,7 +4984,7 @@ _ROOT_ENTRY_SCRIPT = """\
     if (lead && L.intro_lead) lead.textContent = L.intro_lead;
     var source = document.querySelector(".intro__source-text");
     if (source && L.intro_source) {
-      var srcLines = String(L.intro_source).split(/\n+/).map(function (line) {
+      var srcLines = String(L.intro_source).split(/\\n+/).map(function (line) {
         return String(line || "").trim();
       }).filter(Boolean);
       source.textContent = "";
@@ -5000,6 +5017,11 @@ _ROOT_ENTRY_SCRIPT = """\
     setAttr(document.getElementById("primaryNav"), "aria-label", ui.main_menu);
     setAttr(document.querySelector(".lang-switcher"), "aria-label", ui.lang_switcher_label);
     var sitemap = document.querySelector("[data-nav-sitemap]");
+    var help = document.querySelector("[data-nav-help]");
+    if (help && L.help) {
+      help.setAttribute("href", L.help.href);
+      setText(help.querySelector("span:not(.menu-icon)"), L.help.label);
+    }
     if (sitemap && L.sitemap) {
       sitemap.setAttribute("href", L.sitemap.href);
       setText(sitemap.querySelector("span:not(.menu-icon)"), L.sitemap.label);
@@ -5190,6 +5212,7 @@ def _root_entry_locale_pack(lang: str) -> dict:
     inv = ui.get("inventions", {})
     pack = {
         "sitemap": {"label": _sitemap_nav_label(lang), "href": f"{lang}/sitemap.html"},
+        "help": {"label": HELP_NAV_LABELS[lang], "href": f"{lang}/user-manual.html"},
         "home_crumb": data.get("home_crumb") or "Home",
         "footer_legal_label": ui.get("footer_legal_nav") or "Legal information",
         "qr_label": {"az": "birinci.cloud saytına keçid üçün QR kod", "de": "QR-Code zur Website birinci.cloud", "en": "QR code for birinci.cloud", "ky": "birinci.cloud сайтынын QR коду", "ru": "QR-код сайта birinci.cloud"}.get(lang, "birinci.cloud"),
@@ -5360,6 +5383,7 @@ def build_root_home_html(az_html: str) -> str:
     html = html.replace('href="discoveries/', 'href="az/discoveries/')
     html = html.replace('href="about/', 'href="az/about/')
     html = html.replace('href="sitemap.html"', 'href="az/sitemap.html"')
+    html = html.replace('href="user-manual.html"', 'href="az/user-manual.html"')
     for legal_name in LEGAL_HTML_FILES:
         html = html.replace(f'href="{legal_name}"', f'href="az/{legal_name}"')
     html = html.replace('href="index.html?view=list"', 'href="az/index.html?view=list"')
@@ -5454,6 +5478,9 @@ def write_public_seo_files(*, include_discoveries: bool | None = None) -> None:
         sitemap = ROOT / lang / "sitemap.html"
         if sitemap.is_file():
             urls.append(_public_url(f"{lang}/sitemap.html"))
+        manual = ROOT / lang / "user-manual.html"
+        if manual.is_file():
+            urls.append(_public_url(f"{lang}/user-manual.html"))
         for legal_name in LEGAL_HTML_FILES:
             legal = ROOT / lang / legal_name
             if legal.is_file():

@@ -1,3 +1,8 @@
+:root {
+  --story-line-height: 1.35;
+  --story-paragraph-gap: 0.35rem;
+}
+
 /* Shared Wisdom Stories moral and source boxes.
    Source MUST use .story__source-line block children (not bare <br> alone):
    lexicon <span>s would otherwise become separate flex-column rows. */
@@ -22,12 +27,12 @@
   font-style: italic;
   font-weight: 400;
   letter-spacing: 0.008em;
-  line-height: 1.4;
+  line-height: var(--story-line-height, 1.35);
   text-align: center;
   text-justify: auto;
   hyphens: manual;
   white-space: normal;
-  background: #f5f5f5;
+  background: #e5f0f8;
   border: 1px solid #e0e0e0;
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.85) inset,
@@ -60,7 +65,7 @@
   font-family: var(--font-display, "Fraunces", Georgia, serif);
   font-size: 0.95em;
   font-weight: 400;
-  line-height: 1.45;
+  line-height: var(--story-line-height, 1.35);
   text-align: left;
   text-justify: auto;
   hyphens: manual;
@@ -74,7 +79,7 @@
     margin-top: var(--story-moral-margin-top, 1.35rem);
     padding: 0.75rem 0.85rem 0.8rem 0.9rem;
     font-size: 0.98em;
-    line-height: 1.42;
+    line-height: var(--story-line-height, 1.35);
   }
 }
 
@@ -92,10 +97,9 @@
   margin-top: calc(1.5rem - var(--story-notes-flow-gap, 0rem));
 }
 
-/* Scoped color-scheme keeps the rest of the site's layout and controls intact.
-   Older browsers retain the legible light palette above. */
+/* Keep the pale cream moral palette and dark text in either OS color scheme. */
 .story__source, .story__moral {
-  color-scheme: var(--story-notes-color-scheme, light dark);
+  color-scheme: light;
 }
 .story__text .story__source,
 .story .card-text .story__source,
@@ -103,7 +107,7 @@
 .sc-col__copy .story__source,
 .sc-col__source-slot .story__source {
   color: #000;
-  background: #f5f5f5;
+  background: #e5f0f8;
   border-color: #e0e0e0;
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.85) inset,
@@ -113,6 +117,6 @@
 .story .card-text .story__moral,
 .sc-col__copy .story__moral,
 .sc-col__moral-slot .story__moral {
-  background: light-dark(#fff9e6, #332e20);
-  color: light-dark(var(--ink, #08263b), #fff1c9);
+  background: #fff9e6;
+  color: var(--ink, #08263b);
 }

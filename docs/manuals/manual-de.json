@@ -1,0 +1,78 @@
+{
+ "lang":"de","title":"Benutzerhandbuch für die Birİnci Website","subtitle":"Anleitung auf Deutsch","date":"30. Oktober 2026","contents":"Inhaltsverzeichnis","figure":"Abbildung",
+ "intro":"Diese Anleitung erklärt, wie du auf Birİnci Geschichten findest und liest, Illustrationen ansiehst, Sprachversionen vergleichst und Feedback sendest. Sie enthält Hinweise für Computer und Smartphone, Bildschirmaufnahmen und eine Kurzübersicht. Zum Lesen brauchst du kein Benutzerkonto.",
+ "scope":"Die Anleitung behandelt die öffentlich zugänglichen Geschichtenseiten. Audiowiedergabe und Kontoregistrierung werden derzeit nicht angeboten. Entdeckungen und Erfindungen ist nicht Teil der öffentlichen Veröffentlichung.",
+ "sections":[
+ {"title":"Navigation und Sprachauswahl","shot":"home","caption":"Startseite mit Hauptmenü, Sprachauswahl und Themenkarten.","paras":[
+ "Öffne https://birinci.cloud. Das Birİnci Logo führt zum zentralen Einstieg. Im Hauptmenü stehen „Weisheitsgeschichten“, „Über uns“, der separate Link „Feedback“ und „Seitenübersicht“. Über das Menü „Über uns“ erreichst du die Mission und die rechtlichen Informationen.",
+ "Öffne rechts im Kopfbereich die Sprachauswahl: AZ — Azərbaycan, DE — Deutsch, EN — English, KY — Кыргызча, RU — Русский. Die Kürzel sind nach dem lateinischen Alphabet sortiert. Wenn eine entsprechende Übersetzung vorhanden ist, bleiben beim Sprachwechsel die Seite und die Geschichte erhalten.",
+ "Der Navigationspfad unter dem Kopfbereich führt zur Startseite oder zum übergeordneten Bereich zurück. Die Pfeile unten rechts springen zum Seitenende oder Seitenanfang. Die Fußzeile enthält Kontakt, Feedback, rechtliche Hinweise und die Seitenübersicht; mit dem QR-Code öffnest du die Website auf einem anderen Gerät.",
+ "Mit Tab wechselst du zwischen Links und Bedienelementen. Wenn der erste Link zum Hauptinhalt erscheint, drücke Enter. Eine ausgewählte Schaltfläche lässt sich mit Enter oder der Leertaste betätigen."
+ ]},
+ {"title":"Geschichten auswählen und filtern","shot":"category","caption":"Kategorieseite mit Suche, Autorenfilter und Ansichtsschaltern.","paras":[
+ "„Nach Kategorie“ zeigt Themenkarten mit Namen, Kurzbeschreibung und Anzahl der Geschichten. Wähle ein Thema, um die Kategorie zu öffnen. „Liste“ zeigt die Geschichten in einer fortlaufenden Leseansicht.",
+ "Wähle links im Geschichtenverzeichnis einen Titel, um zur betreffenden Geschichte zu springen. Auch eine kurze Geschichtenkarte führt zur entsprechenden Geschichte in der Listenansicht. Die Zahlen neben Überschriften beziehen sich auf die aktuelle Seite und können sich bei Inhaltsänderungen ändern.",
+ "Wähle im Autorenfilter einen Autor. Mit „Alle Autoren“ erhältst du wieder die gesamte Auswahl. Wo eine Kategorieauswahl vorhanden ist, kannst du damit das Thema wechseln. Das × im Filterfeld oder „Filter zurücksetzen“ entfernt den jeweiligen Filter.",
+ "Die Bild- und Textschalter in der Listenwerkzeugleiste steuern die Geschichten auf der Seite. Die Schalter innerhalb einer Geschichte bedienen die jeweilige Geschichte. Für Geschichten gibt es keine Zufallsreihenfolge und keine Funktion „Alle aufklappen“."
+ ]},
+ {"title":"Auf einer Seite oder der Website suchen","shot":"search","caption":"Die Website-Suche zeigt passende Geschichten und Sprachkürzel.","paras":[
+ "Das Suchfeld in der Seitenwerkzeugleiste filtert die Karten oder Geschichten der aktuellen Seite. Gib einen Suchbegriff ein und wähle einen Treffer. Gibt es keine Treffer, kürze den Begriff und prüfe die aktiven Autoren- und Kategoriefilter. Lösche den Suchtext, um die Liste wiederherzustellen.",
+ "Für eine sprachübergreifende Suche wähle die Lupe oder die Suche im Kopfbereich. Strg+K öffnet ebenfalls die Website-Suche. Prüfe bei den Ergebnissen den Titel, die Sprache und die Kategorie.",
+ "Ein Treffer öffnet die Seite mit der betreffenden Geschichte. Ein anderssprachiger Treffer führt zur entsprechenden Sprachversion. Schließe die Suche mit ×, Esc oder einem Klick auf den abgedunkelten Bereich außerhalb des Fensters.",
+ "Die Seitenübersicht hat ein eigenes Suchfeld. Es filtert nur die dort aufgeführten Bereiche und Geschichtenlinks. Es ist von der Suche auf der gesamten Website zu unterscheiden."
+ ]},
+ {"title":"Geschichtentext und Illustrationen","shot":"story","caption":"Geschichtentext, hellcremefarbenes Moral-Feld und Bildschalter.","paras":[
+ "Eine Geschichte besteht aus Titel, Text, Moral und Illustration. Die Moral steht in einem hellcremefarbenen Feld. Illustrationen auf Geschichtenseiten sind beim ersten Besuch sichtbar. Du musst sie nicht zuerst über den Schalter zum Anzeigen einschalten.",
+ "Mit dem Bildschalter zum Ausblenden verbirgst du eine Illustration; mit dem Schalter zum Anzeigen holst du sie zurück. Für den Text gibt es eigene Schalter. Text und Bild lassen sich nicht gleichzeitig ausblenden: Mindestens eines bleibt sichtbar. Auf Smartphones können die Textschalter fehlen, während der Text lesbar bleibt.",
+ "Beachte die Autorenangabe und konkrete Quellen, soweit vorhanden. Derselbe allgemeine Quellenhinweis wird nicht mehr unter jeder Geschichte wiederholt. Ein allgemeiner Hinweis zur Bearbeitung und zu KI-generierten Illustrationen kann im Einleitungstext stehen; er ist keine individuelle Autorenangabe.",
+ "Um eine Geschichte zu teilen, kopiere nach dem Aufrufen ihre Browseradresse. Behalte das # und die Kennung am Ende bei, zum Beispiel #friendship-of-horses."
+ ]},
+ {"title":"Text und Bilder vergrößern","shot":"reading","caption":"Die erweiterte Leseansicht wird über den Geschichtentitel geöffnet.","paras":[
+ "Klicke auf den Geschichtentitel selbst. In der erweiterten Leseansicht findest du Text, Moral und vorhandene Autoren- oder Quellenangaben. Scrolle bei Bedarf innerhalb des Fensters. Die Weltkugel neben dem Titel öffnet dagegen den Sprachvergleich. Steht die Illustration vor dem Text, scrolle zum Text hinunter.",
+ "Klicke auf eine Illustration, um sie in einem eigenen Fenster zu vergrößern. Ist sie ausgeblendet, zeige sie zuerst mit dem Bildschalter an. In der vergrößerten Ansicht lassen sich Titel und Moral innerhalb des Bildes leichter lesen.",
+ "Schließe Lese- und Bildfenster mit × oder Esc. Das Bildfenster schließt sich auch durch einen Klick auf den abgedunkelten Außenbereich. Danach kannst du in der Geschichtenliste weiterlesen.",
+ "Audiowiedergabe wird derzeit nicht angeboten. Eine Vorlesefunktion oder ein MP3-Player gehört nicht zu den verfügbaren Funktionen dieser Version."
+ ]},
+ {"title":"Sprachversionen vergleichen","shot":"comparison","caption":"Dieselbe Geschichte in fünf Sprachen mit der Bedienleiste darüber.","paras":[
+ "Öffne über die Weltkugel neben dem Titel die mehrsprachige Ansicht. Verfügbare Übersetzungen derselben Geschichte erscheinen nebeneinander. Mit AZ, DE, EN, KY und RU blendest du Sprachspalten ein oder aus. Lass für eine bessere Lesbarkeit nur die benötigten Sprachen geöffnet.",
+ "Text und Bilder haben unabhängige Schalter zum Anzeigen und Ausblenden. Mindestens eines muss sichtbar bleiben. Beim ersten Öffnen zeigt der Vergleich Text und blendet Illustrationen aus; aktiviere Bilder hier gesondert. Später werden die gespeicherte Sprachauswahl und Bildeinstellung wiederhergestellt.",
+ "< und > führen zur vorherigen und nächsten Geschichte, << und >> zur ersten und letzten. Das Zahlenfeld zeigt die aktuelle Position und die Gesamtzahl. Gib eine gültige Geschichtennummer ein und drücke Enter. Diese Nummer bezeichnet eine Listenposition, keine dauerhaft feste Geschichtenkennung.",
+ "Scrolle, um längere Texte in den Spalten zu lesen. Nicht jede Geschichte muss in jeder Sprache vorliegen. Mit × oben rechts oder Esc schließt du den Vergleich und kehrst zur Hauptseite zurück."
+ ]},
+ {"title":"Gespeicherte Einstellungen","shot":"languages","caption":"Sprachauswahl und im Browser gespeicherte Leseeinstellungen.","paras":[
+ "Die Website merkt sich einige Einstellungen im aktuellen Browser: Sprache, Ansicht auf Start- und Kategorieseiten, sichtbare Bilder und gegebenenfalls sichtbaren Text. Die Ansichten der Startseite und der Kategorien können getrennt gespeichert werden.",
+ "Der Vergleich speichert die ausgewählten Sprachen und die Sichtbarkeit der Illustrationen. Ausgeblendeter Vergleichstext wird nicht dauerhaft als Einstellung gespeichert. Verlasse dich nicht darauf, dass Suchbegriffe und sämtliche Filter dauerhaft erhalten bleiben.",
+ "Diese Einstellungen sind keinem Konto zugeordnet und werden nicht automatisch zwischen Geräten synchronisiert. Ein anderer Browser, ein anderes Gerät oder ein privates Fenster kann andere Einstellungen zeigen. Das Löschen der Website-Daten kann gespeicherte Einstellungen ebenfalls entfernen.",
+ "Fehlen Bilder, prüfe zuerst den Schalter zum Anzeigen. Für neue Besucher sind sie sichtbar, doch eine frühere Entscheidung zum Ausblenden kann gespeichert sein. Prüfe bei unerwarteten Ansichten die Schalter und aktiven Filter und lade die Seite neu."
+ ]},
+ {"title":"Bedienung am Smartphone und per Tastatur","shot":"mobile","caption":"Das geöffnete Hauptmenü auf einem schmalen Bildschirm.","paras":[
+ "Auf schmalen Bildschirmen liegt das Hauptmenü hinter der Schaltfläche mit drei Strichen „Menü öffnen“. Öffne sie und wähle einen Bereich oder schließe das Menü mit „Menü schließen“. Sprache und Suche bleiben im Kopfbereich; die Suche kann nur als Lupensymbol erscheinen.",
+ "Ist das Geschichtenverzeichnis eingeklappt, wähle „Geschichtenmenü öffnen“. Tippe auf einen Titel, um zur Geschichte zu gelangen. Textschalter können auf Smartphones fehlen; die Bildschalter bleiben für die Illustrationen verfügbar.",
+ "Wähle im Vergleich für kleine Bildschirme weniger Sprachen und scrolle durch längere Inhalte. Auch die erweiterte Leseansicht erleichtert das Lesen. Mit der Tastatur erreichst du Links über Tab, öffnest sie mit Enter und schließt Dialoge mit Esc."
+ ]},
+ {"title":"Feedback und Korrekturen senden","shot":"feedback","caption":"Pflichtfelder im Feedbackformular sind mit einem Stern markiert.","paras":[
+ "Öffne „Feedback“ im Hauptmenü oder in der Fußzeile. Fülle die mit * gekennzeichneten Pflichtfelder „Name“, „E-Mail-Adresse“, „Art der Rückmeldung“, „Betreff“ und „Deine Rückmeldung“ aus. Verwende eine gültige E-Mail-Adresse, unter der du eine Antwort erhalten kannst.",
+ "Wähle die passende Art: allgemeine Rückmeldung, Vorschlag, technisches Problem, inhaltliche Korrektur oder Sonstiges. Halte den Betreff kurz. Nenne bei einer Korrektur Sprache und Titel der Geschichte, die bisherige Formulierung und deinen Änderungsvorschlag.",
+ "Beschreibe bei einem technischen Problem deine Schritte, das erwartete Ergebnis und das tatsächliche Verhalten. Nenne Gerät und Browser. Trage unter „Adresse der betreffenden Seite“ den vollständigen Link ein; über einen seitenbezogenen Feedbacklink wird er automatisch eingetragen.",
+ "Es gelten folgende Zeichengrenzen: Name 120, E-Mail und Betreff jeweils 200, Nachricht 5000 und Seitenadresse 500. Kürze längere Erklärungen oder nutze einen geeigneten Anhang. Das Absenden wird auf der nächsten Seite erklärt."
+ ]},
+ {"title":"Anhänge und Versandbestätigung","shot":"attachment","caption":"Dateiauswahl, Datenschutzbestätigung und Schaltfläche zum Absenden.","paras":[
+ "Optional kannst du über die Dateiauswahl einen Screenshot oder eine PDF-Datei anhängen. Zulässig sind JPG, PNG, WEBP, GIF und PDF mit höchstens 5 MB pro Datei. Prüfe den gewählten Dateinamen. Mit der Ersetzen-Funktion wählst du eine andere Datei; mit der Entfernen-Funktion löschst du den Anhang.",
+ "Lies den Datenschutzhinweis und setze das erforderliche Häkchen, mit dem du bestätigst, die beschriebene Verwendung deiner Nachricht verstanden zu haben. Sende dann das Feedback ab und warte auf das Ergebnis.",
+ "Nach erfolgreichem Absenden erscheint eine Dankesmeldung, die den Versand bestätigt. Über den Link zur Startseite kannst du weitergehen. Ein Klick auf die Schaltfläche allein beweist noch keinen erfolgreichen Versand; warte auf die Bestätigung.",
+ "Wird ein Fehler bei einem Feld oder Anhang angezeigt, korrigiere ihn und versuche es erneut. Bei einem Verbindungs- oder Serverfehler solltest du nicht von einem erfolgreichen Versand ausgehen; bewahre eine Kopie der Nachricht auf. Bei anhaltenden Problemen erreichst du uns unter info@birinci.cloud."
+ ]},
+ {"title":"Seitenübersicht und Informationsseiten","shot":"sitemap","caption":"Die Seitenübersicht enthält Bereichs- und Geschichtenlinks sowie eine Suche.","paras":[
+ "Die „Seitenübersicht“ verlinkt die Hauptbereiche, Kategorien und einzelnen Geschichten. Über die Bereichsschalter oben springst du zum gewünschten Abschnitt. Das eigene Suchfeld filtert den Inhalt der Übersicht. Ändere oder lösche die Suche, wenn keine Treffer erscheinen.",
+ "Im unteren Bereich stehen die Sprachschaltflächen in einer einzigen Reihe: AZ, DE, EN, KY, RU. Wähle die gewünschte Sprachversion.",
+ "„Unsere Mission, Vision und Werte“ erläutert den Zweck der Website und ihre Grundsätze. Die Werte-Links führen zur jeweiligen Erklärung. Du erreichst diese Seite über „Über uns“ oder die Seitenübersicht.",
+ "Die rechtlichen Seiten haben unterschiedliche Aufgaben: „Datenschutzhinweise“ erläutert die Datennutzung, „Nutzungsbedingungen“ die Website-Nutzung, „Cookie-Richtlinie“ die Speicherung im Browser und „Impressum“ die rechtlichen Angaben zur Website. Den vollständigen aktuellen Text findest du jeweils auf der verlinkten Seite."
+ ]},
+ {"title":"Kurzübersicht","shot":"footer","caption":"Die Fußzeile verlinkt Kontakt, Feedback, rechtliche Angaben und Seitenübersicht.","paras":[
+ "Geschichte auswählen: Themenkarte → Kategorie → Geschichtenverzeichnis. Suchen: Seitensuche oder Website-Suche im Kopfbereich. Filter entfernen: × und „Alle Autoren“.",
+ "Lesen: Geschichtentitel → erweiterte Leseansicht. Bild vergrößern: sichtbare Illustration auswählen. Vergleichen: Weltkugel → Sprachen wählen → bei Bedarf Bilder anzeigen. Schließen: × oder Esc.",
+ "Sprache wechseln: Sprachschaltfläche im Kopfbereich → AZ / DE / EN / KY / RU. Geschichte teilen: vollständige Adresse einschließlich #-Teil kopieren. Feedback: Formular → Pflichtfelder → Datenschutzbestätigung → absenden.",
+ "Fehlen Inhalte, prüfe Suche, Filter sowie Bild- und Textschalter. Lade die Seite neu. Besteht das Problem weiter, füge deiner Rückmeldung die Seitenadresse und einen Screenshot bei. Kontakt: info@birinci.cloud."
+ ]}
+ ]
+}

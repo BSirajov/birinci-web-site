@@ -13,6 +13,7 @@ Live URLs stay `{lang}/…` — do not rename those folders.
 | `tools/locales/{lang}.json` | `{lang}/assets/stories-data.js` (generated catalog) |
 | `tools/inventions/{lang}-body.html` | `{lang}/assets/site.js` (removed; use shared JS) |
 | `tools/chrome_restore.py` | |
+| `tools/story-build-manifest.json` (routes and display conventions) | |
 | `assets/site.css` | |
 | `languages.json` | |
 
@@ -20,9 +21,10 @@ Shared runtime JS is `assets/site.js`. Per-locale strings are `{lang}/assets/i18
 
 ## Build
 
-Requires **Python 3.14** (recovered builder is CPython 3.14 bytecode in `tools/_bytecode_backup/`).
+Requires **Python 3.12+** and `tools/requirements.txt`. The readable builder uses reviewed Word sources, `tools/story-build-manifest.json` for stable categories/routes and display conventions, and the tracked HTML pages as layout templates. It validates every selected source and template before writing any output.
 
 ```bash
+python tools/build_website.py --lang all --check  # validate without writing
 python tools/build_website.py --lang all
 python tools/build_deployment.py
 ```
@@ -45,7 +47,7 @@ step after successful checks.
 
 Serve `deployment/` (or a locale folder) for a local preview. Hard-refresh after an asset-version bump (`tools/chrome_restore.py` → `SITE_ASSET_VERSION`).
 
-Chrome and version policy live in `tools/chrome_restore.py`. The website builder still loads bytecode; do not replace `tools/build_website.py` with a decompiled recover file.
+Chrome and version policy live in `tools/chrome_restore.py`. The supported website build uses `tools/build_reviewed_site.py`; legacy bytecode is no longer needed.
 
 ## Layout
 
@@ -70,3 +72,7 @@ deployment/                Generated publish tree (not in git)
 python tools/optional/elevenlabs_stories_to_mp3.py --lang ky --limit 2
 python tools/vendor_google_fonts.py
 ```
+
+### Reviewed rebuild inputs
+
+Keep the tracked HTML layouts and `tools/story-build-manifest.json` in a checkout. The build regenerates story bodies, catalog/search data, locale strings and cache references while preserving the approved page chrome, shared CSS/JS and illustrations. To add or move a story, register its source, category and image in the manifest and supply its page layout; unregistered or missing sources fail validation before writes. Display-only title capitalization, selected line breaks and author-credit spelling are explicit manifest settings. Discoveries content and legal-page layouts retain their separate authoring tools.

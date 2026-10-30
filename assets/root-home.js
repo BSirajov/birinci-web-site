@@ -73,23 +73,6 @@
     var search = document.getElementById("global-search");
     if (search && L.search_index) search.setAttribute("data-search-index", L.search_index);
     var ui = L.ui || {};
-    var homeCrumb = document.querySelector('.breadcrumbs__item[aria-current="page"] span');
-    if (homeCrumb) homeCrumb.textContent = L.home_crumb;
-    var legal = document.querySelector('.footer-legal');
-    if (legal) {
-      legal.setAttribute('aria-label', L.footer_legal_label);
-      legal.querySelectorAll('a').forEach(function (link) {
-        var filename = (link.getAttribute('href') || '').split('/').pop();
-        var item = (L.about_menu || []).find(function (entry) { return entry.href.split('/').pop() === filename; });
-        if (item) { link.href = item.href; link.textContent = item.title; }
-      });
-    }
-    var qr = document.querySelector('.footer-qr');
-    if (qr) {
-      qr.title = L.qr_label;
-      var qrImage = qr.querySelector('img');
-      if (qrImage) qrImage.alt = L.qr_label;
-    }
     function setText(el, text) {
       if (el && text) el.textContent = text;
     }
@@ -101,6 +84,11 @@
     setAttr(document.getElementById("primaryNav"), "aria-label", ui.main_menu);
     setAttr(document.querySelector(".lang-switcher"), "aria-label", ui.lang_switcher_label);
     var sitemap = document.querySelector("[data-nav-sitemap]");
+    var help = document.querySelector("[data-nav-help]");
+    if (help && L.help) {
+      help.setAttribute("href", L.help.href);
+      setText(help.querySelector("span:not(.menu-icon)"), L.help.label);
+    }
     if (sitemap && L.sitemap) {
       sitemap.setAttribute("href", L.sitemap.href);
       setText(sitemap.querySelector("span:not(.menu-icon)"), L.sitemap.label);
@@ -121,10 +109,10 @@
     );
     (L.about_menu || []).forEach(function (item) {
       if (!item || !item.id) return;
-      var el = document.querySelector('.primary-nav [data-nav-id="' + item.id + '"]');
+      var el = document.querySelector('.nav-dropdown--about [data-nav-id="' + item.id + '"]');
       if (!el) return;
       if (item.href) el.setAttribute("href", item.href);
-      setText(el.querySelector(".nav-dropdown-link-title") || el.querySelector("span:not(.menu-icon)"), item.title);
+      setText(el.querySelector(".nav-dropdown-link-title"), item.title);
     });
     var legalTitle = document.querySelector(
       ".nav-dropdown--about [data-nav-legal-group] .nav-dropdown-link-title"
@@ -222,13 +210,6 @@
     if (typeof window.__birinciRefreshAuthChrome === "function") {
       window.__birinciRefreshAuthChrome();
     }
-    var copyright = document.querySelector('.footer-copy');
-    if (copyright && ui.footer_rights_reserved) {
-      var stamp = copyright.querySelector('.footer-build');
-      copyright.textContent = '© Birİnci – ' + ui.footer_rights_reserved;
-      if (stamp) copyright.appendChild(stamp);
-    }
-    if (typeof window.__birinciRenderFooterBuild === 'function') window.__birinciRenderFooterBuild();
   }
   document.addEventListener(
     "click",
@@ -249,13 +230,6 @@
         return;
       }
       applyLang(code);
-      var menu = document.querySelector('.lang-switcher__menu');
-      if (menu) {
-        if (typeof menu.hidePopover === 'function') menu.hidePopover();
-        menu.hidden = true;
-      }
-      var toggle = document.querySelector('.lang-switcher__toggle');
-      if (toggle) toggle.setAttribute('aria-expanded', 'false');
     },
     true
   );
