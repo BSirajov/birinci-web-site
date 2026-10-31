@@ -15,6 +15,20 @@ docs/reviews/_ky_illu_inspect/
 _verify_list_view/
 .env
 deployment/
+releases/
+docs/local-work-sources/
+# Local archives and editorial working copies (never commit release bundles).
+*.zip
+*.7z
+*.tar
+*.tar.gz
+*.local-backup
+_backups/
+backups/
+Archive/
+_pass*_backup/
+tools/_*_work/
+docs/reviews/local-cleanup-*/
 docs/epub/*.epub
 samples/
 api/var/

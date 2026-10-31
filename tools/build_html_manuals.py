@@ -129,7 +129,7 @@ def main():
 <div class="intro__content"><div class="intro__copy">
 <h1 class="intro__brand" id="manual-hero-title"><span>{e(t[0])}</span></h1>
 <p class="intro__lead">{e(m['intro'])}</p>
-</div><div class="intro__visual"><img src="../assets/pearl-hero.webp" alt="" width="1536" height="1024" decoding="async"></div></div>
+</div><div class="intro__visual"><img src="../assets/help.png" alt="" width="1672" height="941" decoding="async"></div></div>
 </section>
 <div class="manual-content">
 <div class="layout"><aside><nav aria-label="{e(m['contents'])}"><h2>{e(m['contents'])}<button type="button" class="contents-toggle" aria-expanded="false" aria-controls="manual-contents-list" aria-label="{e(m['contents'])}" hidden><span aria-hidden="true">☰</span></button></h2><ol id="manual-contents-list">{grouped_contents(contents,lang)}</ol></nav></aside>

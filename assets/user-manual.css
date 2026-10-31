@@ -110,3 +110,6 @@
 .manual-content .contents-group>ol>li{padding:3px 0}
 
 .manual-content figure figcaption{text-align:center}
+
+.page-user-manual .manual-intro .intro__visual{aspect-ratio:1672 / 941;overflow:hidden;border-radius:20px}
+.page-user-manual .manual-intro .intro__visual img{border-radius:20px}
