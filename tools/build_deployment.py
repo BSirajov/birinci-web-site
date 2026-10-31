@@ -90,6 +90,19 @@ AUDIO_MEDIA_SUFFIXES = frozenset(
 )
 
 
+def copy_private() -> None:
+    """Publish the abuse list. Copy a Turnstile config only when one exists locally."""
+    src = ROOT / "private"
+    if not (src / "abuse-terms.json").is_file():
+        raise SystemExit("Missing private/abuse-terms.json")
+    dst = DEPLOY / "private"
+    dst.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(src / "abuse-terms.json", dst / "abuse-terms.json")
+    secret = src / "turnstile.json"
+    if secret.is_file():
+        shutil.copy2(secret, dst / "turnstile.json")
+
+
 def copy_locale(lang: str, *, publish_discoveries: bool) -> None:
     src_root = ROOT / lang
     if not (src_root / "index.html").is_file():
@@ -318,9 +331,26 @@ ErrorDocument 404 /404.html
 <IfModule mod_expires.c>
   ExpiresActive Off
 </IfModule>
+# Feedback secrets and the abuse list are not pages.
+<IfModule mod_authz_core.c>
+  <Files "abuse-terms.json">
+    Require all denied
+  </Files>
+  <Files "turnstile.json">
+    Require all denied
+  </Files>
+</IfModule>
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule (^|/)private(?:/|$) - [F]
+</IfModule>
+<Files "mail-feedback.php">
+  LimitRequestBody 6291456
+</Files>
 <IfModule LiteSpeed>
   CacheDisable public /
   <Files "mail-feedback.php">
+    LimitRequestBody 6291456
     php_value upload_max_filesize 5M
     php_value post_max_size 6M
     php_flag display_errors Off
@@ -412,6 +442,7 @@ def main() -> None:
     shared_assets = ROOT / "assets"
     if shared_assets.is_dir():
         shutil.copytree(shared_assets, DEPLOY / "assets", ignore=IGNORE_PUBLISH)
+    copy_private()
 
     for lang in LANGS:
         if not (ROOT / lang / "index.html").is_file():

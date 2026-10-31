@@ -598,6 +598,10 @@
   outline-offset: 2px;
 }
 
+.page-legal .app-challenge {
+  margin: 12px 0 4px;
+}
+
 .page-legal .app-honeypot {
   position: absolute;
   left: -10000px;

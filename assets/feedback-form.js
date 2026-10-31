@@ -8,6 +8,7 @@
   var FILE_EXT = { jpg: 1, jpeg: 1, png: 1, webp: 1, gif: 1, pdf: 1 };
   var sendState = "idle";
   var thumbUrl = "";
+  var challengeRequired = false;
 
   var COPY = {
     az: {
@@ -33,6 +34,9 @@
       networkError:
         "Bağlantı kəsildi. Yazdıqlarınız formada qalıb — yenidən cəhd edin.",
       rateLimit: "Çox sayda rəy göndərilib. Bir qədər gözləyib yenidən cəhd edin.",
+      tooFast: "Zəhmət olmasa formu bir an doldurun, sonra yenidən göndərin.",
+      abuse: "Zəhmət olmasa bunu təhqir, söyüş və çoxlu keçid olmadan yazın.",
+      challenge: "Zəhmət olmasa robot olmadığınızı təsdiqləyin və formu yenidən göndərin.",
       tooLong: "Mətn sahələrindən biri çox uzundur. Mətni qısaldıb yenidən cəhd edin.",
       fileReady: "Göndərməyə hazırdır"
     },
@@ -49,6 +53,9 @@
       phpUnavailable: "Dieser Vorschauserver kann keine E-Mails versenden. Auf der veröffentlichten Website wird deine Rückmeldung an info@birinci.cloud gesendet. Deine Eingaben bleiben erhalten.",
       networkError: "Die Verbindung ist fehlgeschlagen. Deine Eingaben bleiben erhalten. Bitte versuche es erneut.",
       rateLimit: "Es wurden zu viele Nachrichten gesendet. Bitte warte eine Weile und versuche es erneut.",
+      tooFast: "Bitte fülle das Formular einen Moment aus und sende es dann erneut.",
+      abuse: "Bitte formuliere das ohne Beleidigungen, Beschimpfungen oder eine Liste von Links.",
+      challenge: "Bitte bestätige, dass du kein Roboter bist, und sende das Formular erneut.",
       tooLong: "Der Text in einem Feld ist zu lang. Bitte kürze ihn und versuche es erneut.", fileReady: "Bereit zum Senden"
     },
     en: {
@@ -74,6 +81,9 @@
       networkError:
         "The connection failed. What you entered is still in the form — please try again.",
       rateLimit: "Too many submissions. Please wait a while before trying again.",
+      tooFast: "Please take a moment to complete the form, then send it again.",
+      abuse: "Please rephrase this without insults, profanity, or a list of links.",
+      challenge: "Please confirm you are not a robot, then send the form again.",
       tooLong: "One of the text fields is too long. Please shorten it and try again.",
       fileReady: "Ready to send"
     },
@@ -100,6 +110,9 @@
       networkError:
         "Связь прервалась. Введённые данные остались в форме — попробуйте ещё раз.",
       rateLimit: "Отправлено слишком много сообщений. Подождите немного и попробуйте снова.",
+      tooFast: "Заполните форму немного дольше и отправьте её снова.",
+      abuse: "Перепишите текст без оскорблений, брани и списка ссылок.",
+      challenge: "Подтвердите, что вы не робот, и отправьте форму снова.",
       tooLong: "Текст в одном из полей слишком длинный. Сократите его и попробуйте снова.",
       fileReady: "Готово к отправке"
     },
@@ -126,6 +139,9 @@
       networkError:
         "Байланыш үзүлдү. Жазганыңыз формада калды — кайра аракет кылыңыз.",
       rateLimit: "Өтө көп билдирүү жөнөтүлдү. Бир аз күтүп, кайра аракет кылыңыз.",
+      tooFast: "Форманы бир аз толтуруп, кайра жөнөтүңүз.",
+      abuse: "Муну кемсинтүүсүз, уят сөзсүз жана шилтеме тизмеси жок жазыңыз.",
+      challenge: "Робот эмес экениңизди ырастап, форманы кайра жөнөтүңүз.",
       tooLong: "Талаалардын бириндеги текст өтө узун. Аны кыскартып, кайра аракет кылыңыз.",
       fileReady: "Жөнөтүүгө даяр"
     }
@@ -424,10 +440,23 @@
       showSuccess();
       return;
     }
+    var form = byId("feedbackForm");
+    var startedAt = byId("form-started");
+    var opened = Number(startedAt && startedAt.value || 0);
+    if (!opened || Date.now() - opened < 3000) {
+      showStatus(text("tooFast"), true);
+      return;
+    }
+    if (challengeRequired) {
+      var tokenField = form && form.querySelector('[name="cf-turnstile-response"]');
+      if (!tokenField || !String(tokenField.value || "").trim()) {
+        showStatus(text("challenge"), true);
+        return;
+      }
+    }
     clearWarnings();
     if (!validateFields()) return;
 
-    var form = byId("feedbackForm");
     var started = byId("form-started");
     var submitted = byId("submitted-at");
     var pageUrl = byId("page-url");
@@ -459,6 +488,9 @@
         setSubmitting(false);
         var map = {
           "error:rate_limit": "rateLimit",
+          "error:too_fast": "tooFast",
+          "error:abuse": "abuse",
+          "error:challenge": "challenge",
           "error:length": "tooLong",
           "error:name": "nameRequired",
           "error:name_invalid": "nameInvalid",
@@ -491,12 +523,42 @@
       });
   }
 
+  function loadChallenge(form) {
+    fetch(endpoint() + "?challenge=1", {
+      headers: { Accept: "application/json" },
+      cache: "no-store"
+    })
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        var key = data && data.sitekey;
+        if (!key) return;
+        var row = form.querySelector(".app-btn-row");
+        if (!row || !row.parentNode) return;
+        var box = document.createElement("div");
+        box.className = "app-challenge";
+        box.id = "feedback-challenge";
+        row.parentNode.insertBefore(box, row);
+        challengeRequired = true;
+        var script = document.createElement("script");
+        script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+        script.async = true;
+        script.onload = function () {
+          if (window.turnstile) window.turnstile.render(box, { sitekey: key });
+        };
+        document.head.appendChild(script);
+      })
+      .catch(function () {});
+  }
+
   function start() {
     var form = byId("feedbackForm");
     if (!form) return;
     var started = byId("form-started");
     if (started) started.value = String(Date.now());
     prefillUrl();
+    loadChallenge(form);
     form.addEventListener("submit", submitForm);
     var choose = byId("attachment-choose");
     var input = byId("attachment");

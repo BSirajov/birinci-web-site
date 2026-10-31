@@ -282,7 +282,7 @@ def _form_html(lang: str, form: dict) -> str:
         "</div>\n"
         "</div>\n"
         "</form>\n"
-        '<script src="../assets/feedback-form.js?v=20261020secure" defer></script>\n'
+        '<script src="../assets/feedback-form.js?v=20261031guard" defer></script>\n'
     )
 
 
@@ -434,7 +434,6 @@ def _write_german_legal_page(filename):
     markup = markup.replace(' data-wisdom-generator="german-docx"', '')
     markup = re.sub(r'<link\b[^>]*rel="(?:canonical|alternate)"[^>]*>', '', markup)
     markup = re.sub(r'<li class="breadcrumbs__item"><a href="about/mission-vision-values.html">.*?</a></li>', '', markup)
-    markup = markup.replace('feedback-form.js?v=20261020secure', 'feedback-form.js?v=20261021de')
     path = ROOT / "de" / filename
     path.write_text(markup, encoding="utf-8")
     markup = ensure_about_nav(markup, "de", "de/" + filename)

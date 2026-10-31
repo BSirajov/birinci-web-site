@@ -1,0 +1,30 @@
+{
+  "terms": [
+    "fuck", "fucking", "fucker", "fuckers", "motherfucker", "motherfuckers",
+    "fck", "fuk", "shit", "shitty", "bullshit", "sht", "bitch", "bitches",
+    "asshole", "assholes", "bastard", "bastards", "cunt", "cunts", "whore",
+    "whores", "slut", "sluts", "nigger", "niggers", "nigga", "niggas", "nggr",
+    "faggot", "faggots", "retard", "retards", "retarded", "dickhead",
+    "dickheads", "cock", "cocks", "pussy", "wanker", "wankers", "twat",
+    "bollocks", "dumbass", "asshat", "bch", "stupid", "stupidity", "idiot",
+    "idiots", "idiotic", "moron", "morons", "kys", "amk",
+    "сука", "суки", "суку", "сукой", "нахуй", "похуй", "нахуя", "дурак",
+    "дура", "дураки", "ублюдок", "пидорас",
+    "акмак",
+    "sik", "sikim", "siksin", "sikdir", "sikirəm", "sikirem", "göt",
+    "götveren", "gotveren", "qəhbə", "qehbe", "orospu", "oruspu", "pezevenk",
+    "pezəvəng", "peysər", "peyser", "axmaq", "səfeh", "sefeh", "salak",
+    "gerizekali", "gerizekalı", "dəbbə", "debbe", "əclaf", "eclaf",
+    "scheisse", "fotze", "fotzen", "hurensohn", "arschloch", "ficken", "fick",
+    "ficker", "fickt", "wichser", "wichsen", "missgeburt", "blödmann",
+    "bloedmann"
+  ],
+  "prefixes": [
+    "fuck", "motherfuck", "shit", "bitch", "asshole", "whore", "slut",
+    "dickhead", "bastard", "moron", "idiot", "stupid", "faggot",
+    "хуй", "пизд", "еба", "ебл", "бля", "муда", "пидор", "шлюх", "нахуй",
+    "идиот", "scheiss", "arsch", "huren", "orospu", "oruspu", "sikdir",
+    "qehb", "qəhb"
+  ],
+  "masked": ["cnt", "slt", "whr", "dck"]
+}

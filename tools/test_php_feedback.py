@@ -17,7 +17,8 @@ PHP = os.environ.get('PHP_BIN') or shutil.which('php')
 pytestmark = pytest.mark.skipif(not PHP, reason='PHP runtime required (set PHP_BIN)')
 FIELDS = dict(name='Əli Müller', email='qa@example.org', feedback_type='general',
               subject='Test', message='A useful suggestion.', privacyconfirm='yes',
-              related_url='/en/index.html', page_url='https://birinci.cloud/en/feedback.html')
+              related_url='/en/index.html', page_url='https://birinci.cloud/en/feedback.html',
+              form_started=str(int((time.time() - 30) * 1000)))
 PNG = base64.b64decode('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aWVQAAAAASUVORK5CYII=')
 
 
@@ -28,6 +29,9 @@ def endpoint(tmp_path):
     for lang in ['en', 'az']:
         (site / lang).mkdir()
         shutil.copyfile(ROOT / 'tools/mail_feedback.php', site / lang / 'mail-feedback.php')
+    private = site / 'private'
+    private.mkdir()
+    shutil.copyfile(ROOT / 'private' / 'abuse-terms.json', private / 'abuse-terms.json')
     stub = tmp_path / 'mail-stub.php'
     stub.write_text('''<?php
 namespace Birinci\\Feedback;
@@ -38,7 +42,8 @@ function mail($to, $subject, $body, $headers) {
 ''', encoding='utf-8')
     with socket.socket() as sock:
         sock.bind(('127.0.0.1', 0)); port = sock.getsockname()[1]
-    args = [PHP, '-n', '-d', 'extension=fileinfo', '-d', f'sys_temp_dir={state}',
+    args = [PHP, '-n', '-d', 'extension=fileinfo', '-d', 'extension=mbstring',
+            '-d', f'sys_temp_dir={state}',
             '-d', f'auto_prepend_file={stub}', '-d', 'upload_max_filesize=5M',
             '-d', 'post_max_size=6M', '-d', 'display_errors=0',
             '-S', f'127.0.0.1:{port}', '-t', str(site)]
@@ -182,8 +187,10 @@ def test_parallel_processes_cannot_bypass_rate_limit(endpoint):
         + repr(json.dumps(FIELDS, ensure_ascii=True))
         + ',true); require ' + repr(str(parent/'site/en/mail-feedback.php').replace(chr(92), '/')) + ';',
         encoding='utf-8')
-    args = [PHP, '-n', '-d', f'sys_temp_dir={state}', '-d',
+    args = [PHP, '-n', '-d', 'extension=mbstring', '-d', f'sys_temp_dir={state}', '-d',
             f'auto_prepend_file={parent / "mail-stub.php"}', '-f', str(wrapper)]
+    if os.name == 'nt':
+        args[2:2] = ['-d', f'extension_dir={Path(PHP).parent / "ext"}']
     with concurrent.futures.ThreadPoolExecutor(max_workers=12) as pool:
         results = list(pool.map(lambda _: subprocess.run(args, capture_output=True, text=True,
                                                        check=True).stdout, range(12)))
@@ -202,6 +209,66 @@ def test_corrupt_rate_state_fails_closed_and_mail_failure_not_success(endpoint):
     (endpoint[1]/'fail-mail').touch()
     response=send(endpoint)
     assert response.status_code == 500 and response.text == 'error:send'
+
+
+def test_challenge_is_empty_until_turnstile_is_configured(endpoint):
+    response = endpoint[0].get('/en/mail-feedback.php?challenge=1')
+    assert response.status_code == 200
+    assert response.json() == {'sitekey': ''}
+
+
+def test_form_must_stay_open_for_three_seconds(endpoint):
+    assert send(endpoint, {'form_started': ''}).text == 'error:too_fast'
+    assert send(endpoint, {'form_started': str(int(time.time() * 1000))}).text == 'error:too_fast'
+    assert send(endpoint, {'form_started': str(int((time.time() + 60) * 1000))}).text == 'error:too_fast'
+    assert send(endpoint, {'form_started': str(int((time.time() - 8 * 24 * 3600) * 1000))}).text == 'error:too_fast'
+    assert not mail(endpoint)
+
+
+@pytest.mark.parametrize('message', [
+    'fuck this page', 'f u c k', 'f*ck', 'fuuuuck', 'сука', 'scheiße', 'göt', 'this is stupid',
+])
+def test_abuse_is_rejected(endpoint, message):
+    response = send(endpoint, {'message': message})
+    assert response.status_code == 400 and response.text == 'error:abuse'
+    assert not mail(endpoint)
+
+
+def test_ordinary_words_and_two_links_still_send(endpoint):
+    message = (
+        'I got an error on the class assignment. The peacock and cocktail pictures are fine. '
+        'Shiitake, fickle, Marsch. cnt is wrong. See https://a.example and https://b.example'
+    )
+    response = send(endpoint, {'name': 'Dick', 'message': message})
+    assert response.status_code == 200
+    assert 'Open it only if you trust the sender' not in mail(endpoint)[0][2]
+    links = 'See https://a.example https://b.example and https://c.example'
+    assert send(endpoint, {'message': links}).text == 'error:abuse'
+
+
+def test_turnstile_dummy_keys(endpoint):
+    cfg = endpoint[1].parent / 'site' / 'private' / 'turnstile.json'
+    cfg.write_text(json.dumps({
+        'site_key': '1x00000000000000000000AA',
+        'secret': '2x0000000000000000000000000000000AA',
+    }), encoding='utf-8')
+    denied = send(endpoint, {'cf-turnstile-response': 'test-token'})
+    assert denied.status_code == 403 and denied.text == 'error:challenge'
+    cfg.write_text(json.dumps({
+        'site_key': '1x00000000000000000000AA',
+        'secret': '1x0000000000000000000000000000000AA',
+    }), encoding='utf-8')
+    assert send(endpoint, {'cf-turnstile-response': 'test-token'}).status_code == 200
+    assert len(mail(endpoint)) == 1
+    missing = send(endpoint)
+    assert missing.status_code == 403 and missing.text == 'error:challenge'
+    assert len(mail(endpoint)) == 1
+
+
+def test_attachment_mail_warns_that_the_file_was_not_scanned(endpoint):
+    response = send(endpoint, files={'attachment': ('note.png', PNG, 'image/png')})
+    assert response.status_code == 200
+    assert 'Open it only if you trust the sender' in mail(endpoint)[0][2]
 
 
 def test_published_php_copies_match_source():

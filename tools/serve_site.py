@@ -51,6 +51,22 @@ class NoCacheRequestHandler(SimpleHTTPRequestHandler):
         self.send_header("Access-Control-Allow-Origin", "*")
         super().end_headers()
 
+    def do_GET(self) -> None:
+        parsed = urllib.parse.urlparse(self.path)
+        if parsed.path.endswith("/mail-feedback.php") and "challenge" in urllib.parse.parse_qs(parsed.query):
+            sys.path.insert(0, str(ROOT / "tools"))
+            from feedback_mail import challenge_document
+
+            payload = challenge_document().encode("utf-8")
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json; charset=UTF-8")
+            self.send_header("Cache-Control", "no-store")
+            self.send_header("Content-Length", str(len(payload)))
+            self.end_headers()
+            self.wfile.write(payload)
+            return
+        super().do_GET()
+
     def do_POST(self) -> None:
         path = urllib.parse.urlparse(self.path).path
         if not path.endswith("/mail-feedback.php") and path != "/mail-feedback.php":
