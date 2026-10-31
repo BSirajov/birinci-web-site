@@ -1,0 +1,96 @@
+name: Publish online and offline runtimes
+
+on:
+  workflow_run:
+    workflows: [Site QA]
+    types: [completed]
+    branches: [main]
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: production-runtime
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_repository.full_name == github.repository &&
+      github.event.workflow_run.event != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          persist-credentials: false
+      - name: Reject a superseded source commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EXPECTED_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: test "$(gh api repos/$GITHUB_REPOSITORY/commits/main --jq .sha)" = "$EXPECTED_SHA"
+      - uses: actions/download-artifact@v4
+        with:
+          name: audited-online-runtime
+          path: releases
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ github.token }}
+      - uses: actions/checkout@v4
+        with:
+          repository: BSirajov/birinci-offline
+          ref: main
+          path: offline-source
+          ssh-key: ${{ secrets.OFFLINE_SOURCE_READ_KEY }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build offline edition from the audited online runtime
+        run: |
+          pip install 'pillow>=10.4,<13'
+          python tools/unpack_runtime.py --bundle releases/online.tar --edition online --output deployment
+          BIRINCI_ONLINE_RUNTIME="$GITHUB_WORKSPACE/deployment" python offline-source/tools/build.py
+          npm install --prefix offline-source --no-save playwright@1.56.1
+          cd offline-source
+          npx playwright install --with-deps chromium
+          node tests/offline.cjs
+          cd ..
+          python tools/runtime_bundle.py --root offline-source/build/pwa --edition offline --revision "$(git -C offline-source rev-parse HEAD)" --output releases/offline.tar
+      - name: Confirm source is still current before publication
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EXPECTED_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: test "$(gh api repos/$GITHUB_REPOSITORY/commits/main --jq .sha)" = "$EXPECTED_SHA"
+      - name: Read current offline source revision
+        uses: actions/checkout@v4
+        with:
+          repository: BSirajov/birinci-offline
+          ref: main
+          path: offline-head-check
+          ssh-key: ${{ secrets.OFFLINE_SOURCE_READ_KEY }}
+          persist-credentials: false
+      - name: Reject superseded offline source
+        run: test "$(git -C offline-source rev-parse HEAD)" = "$(git -C offline-head-check rev-parse HEAD)"
+      - name: Publish online runtime and verify live files
+        env:
+          DEPLOY_SSH_KEY: ${{ secrets.ONLINE_DEPLOY_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ vars.DEPLOY_KNOWN_HOSTS }}
+          DEPLOY_HOST: ${{ vars.DEPLOY_HOST }}
+          DEPLOY_PORT: ${{ vars.DEPLOY_PORT }}
+          DEPLOY_USER: ${{ vars.DEPLOY_USER }}
+        run: python tools/deploy_runtime.py --bundle releases/online.tar --edition online --run "$GITHUB_RUN_ID"
+      - name: Publish offline runtime and verify live files
+        env:
+          DEPLOY_SSH_KEY: ${{ secrets.OFFLINE_DEPLOY_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ vars.DEPLOY_KNOWN_HOSTS }}
+          DEPLOY_HOST: ${{ vars.DEPLOY_HOST }}
+          DEPLOY_PORT: ${{ vars.DEPLOY_PORT }}
+          DEPLOY_USER: ${{ vars.DEPLOY_USER }}
+        run: python tools/deploy_runtime.py --bundle releases/offline.tar --edition offline --run "$GITHUB_RUN_ID"

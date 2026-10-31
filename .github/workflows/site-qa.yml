@@ -4,6 +4,10 @@ on:
   push:
     branches: [main, master]
   pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 concurrency:
   group: site-qa-${{ github.workflow }}-${{ github.ref }}
@@ -59,3 +63,19 @@ jobs:
 
       - name: Crawl publish links and check authoring-file exclusions
         run: python tools/audit_publish_tree.py --output docs/reviews/ci-publish-tree.json
+
+      - name: Validate and package runtime only
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: python tools/runtime_bundle.py --root deployment --edition online --revision "$GITHUB_SHA" --output releases/online.tar
+
+      - name: Retain audited runtime for deployment
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: audited-online-runtime
+          path: |
+            releases/online.tar
+            releases/online.json
+          compression-level: 0
+          retention-days: 1
+          if-no-files-found: error
