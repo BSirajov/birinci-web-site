@@ -28,6 +28,7 @@ jobs:
         with:
           ref: ${{ github.event.workflow_run.head_sha }}
           persist-credentials: false
+          sparse-checkout: tools
       - name: Reject a superseded source commit
         env:
           GH_TOKEN: ${{ github.token }}
@@ -59,8 +60,8 @@ jobs:
           BIRINCI_ONLINE_RUNTIME="$GITHUB_WORKSPACE/deployment" python offline-source/tools/build.py
           npm install --prefix offline-source --no-save playwright@1.56.1
           cd offline-source
-          npx playwright install --with-deps chromium
-          node tests/offline.cjs
+          google-chrome --version
+          PLAYWRIGHT_CHANNEL=chrome node tests/offline.cjs
           cd ..
           python tools/runtime_bundle.py --root offline-source/build/pwa --edition offline --revision "$(git -C offline-source rev-parse HEAD)" --output releases/offline.tar
       - name: Confirm source is still current before publication
