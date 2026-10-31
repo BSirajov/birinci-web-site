@@ -6,9 +6,7 @@ import argparse, json, re, os
 import xml.etree.ElementTree as ET
 from lxml import html
 
-# This exact entry point is published by the separate offline project.
-# Keep the exemption narrow: other /offline/ URLs still need local targets.
-SEPARATELY_PUBLISHED_URLS = {'https://birinci.cloud/offline/'}
+from publish_policy import SEPARATELY_PUBLISHED_URLS
 
 def audit(root):
     root=root.resolve(); errors=[]; warnings=[]; pages={}; refs=0

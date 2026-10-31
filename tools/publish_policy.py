@@ -3,6 +3,10 @@ from __future__ import annotations
 
 import os
 
+# This exact entry point is deployed by the separate offline project.
+# Other same-site URLs, including offline subpages, still require local targets.
+SEPARATELY_PUBLISHED_URLS = frozenset({'https://birinci.cloud/offline/'})
+
 # Discoveries is authored in locale trees but omitted from the default public
 # publish tree and from the public XML sitemap unless explicitly enabled.
 PUBLISH_DISCOVERIES_ENV = "BIRINCI_PUBLISH_DISCOVERIES"

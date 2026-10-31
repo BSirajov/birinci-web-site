@@ -18,6 +18,7 @@ from urllib.parse import unquote, urlsplit
 import xml.etree.ElementTree as ET
 from zipfile import ZipFile
 from unpublished_stories import UNPUBLISHED_STEMS
+from publish_policy import SEPARATELY_PUBLISHED_URLS
 
 EXPECTED_AZ = 261
 EXPECTED_DE = 256
@@ -193,6 +194,8 @@ class Audit:
         return self.pages[path]
 
     def target(self, origin: Path, url: str):
+        if url.strip() in SEPARATELY_PUBLISHED_URLS:
+            return None
         parsed = urlsplit(url.strip())
         if parsed.scheme or parsed.netloc:
             if parsed.scheme not in ("http", "https", "") or parsed.hostname not in SITE_HOSTS:

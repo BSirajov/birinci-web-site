@@ -1,4 +1,20 @@
 from audit_publish_tree import audit
+from test_german_wisdom import Audit
+
+
+def test_german_audit_exempts_only_separately_hosted_entry_point(tmp_path):
+    page = tmp_path / 'index.html'
+    page.write_text('<h1 id="present">Test</h1>', encoding='utf-8')
+    checker = Audit(tmp_path)
+    checker.reference(page, 'a/href', 'https://birinci.cloud/offline/')
+    checker.reference(page, 'a/href', 'https://birinci.cloud/index.html#present')
+    assert checker.errors == []
+    for url in ('https://birinci.cloud/offline/missing.html',
+                '/offline/', 'https://birinci.cloud/missing.html',
+                'https://birinci.cloud/index.html#missing'):
+        previous = len(checker.errors)
+        checker.reference(page, 'a/href', url)
+        assert len(checker.errors) == previous + 1, url
 
 
 def test_only_known_offline_entry_point_is_external(tmp_path):
