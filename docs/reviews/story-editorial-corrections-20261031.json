@@ -1,0 +1,231 @@
+{
+  "date": "2026-10-31",
+  "reviewed": {
+    "az": 260,
+    "en": 255,
+    "de": 255,
+    "ru": 255,
+    "ky": 255
+  },
+  "scope": "Published story prose and morals; source formatting, titles, interface names and illustrations preserved. German preservation hashes updated only for the six deliberately edited Word sources.",
+  "unresolved": [],
+  "changes": [
+    {
+      "lang": "en",
+      "stem": "dervishs-long-spoons",
+      "index": 6,
+      "after": "Then the dervish invited people who showed their love through their actions. They were served the same soup and given the same spoons, and the same rule applied.",
+      "reason": "Natural phrasing for the condition imposed on the guests.",
+      "before": "Then the dervish invited people who showed their love through their actions. They were given the same soup, the same spoons, and the same condition.",
+      "path": "en/wisdom-stories/dervishs-long-spoons.docx",
+      "paragraph": 7,
+      "source_before": "Then the dervish invited people who showed their love through their actions. They were given the same soup, the same spoons, and the same condition.",
+      "source_after": "Then the dervish invited people who showed their love through their actions. They were served the same soup and given the same spoons, and the same rule applied."
+    },
+    {
+      "lang": "en",
+      "stem": "fortieth-day-rite",
+      "index": 3,
+      "after": "Cotton, for a gentle heart and a life long enough to see one’s hair turn gray;",
+      "reason": "Remove an awkward participial phrase while retaining both wishes.",
+      "before": "Cotton, for a long life reaching into gray-haired old age, and a gentle heart;",
+      "path": "en/wisdom-stories/fortieth-day-rite.docx",
+      "paragraph": 4,
+      "source_before": "Cotton, for a long life reaching into gray-haired old age, and a gentle heart;",
+      "source_after": "Cotton, for a gentle heart and a life long enough to see one’s hair turn gray;"
+    },
+    {
+      "lang": "en",
+      "stem": "if-fate-allows",
+      "index": 3,
+      "after": "Moral: Do not let distance grow between you and those you care about. Do not put off seeing them by saying ‘if fate allows’—meet today and brighten their day.",
+      "reason": "Clarify what is being postponed.",
+      "before": "Moral: Do not let distance grow between you and those you care about. Do not put it off by saying “if fate allows” — meet today and brighten their day.",
+      "path": "en/wisdom-stories/Bakhtiyar Sirajov/if-fate-allows.docx",
+      "paragraph": 5,
+      "source_before": "Moral: Do not let distance grow between you and those you care about. Do not put it off by saying “if fate allows” — meet today and brighten their day.",
+      "source_after": "Moral: Do not let distance grow between you and those you care about. Do not put off seeing them by saying ‘if fate allows’—meet today and brighten their day."
+    },
+    {
+      "lang": "az",
+      "stem": "gifts-of-allah",
+      "index": 2,
+      "after": "Vəzifə verilibsə — insanlara nə qədər mərhəmətlə yanaşdığına;",
+      "reason": "Use the natural case and verb combination for compassionate treatment.",
+      "before": "Vəzifə verilibsə — insanlarla nə qədər mərhəmətlə davrandığına;",
+      "path": "az/wisdom-stories/gifts-of-allah.docx",
+      "paragraph": 3,
+      "source_before": "Vəzifə verilibsə — insanlarla nə qədər mərhəmətlə davrandığına;",
+      "source_after": "Vəzifə verilibsə — insanlara nə qədər mərhəmətlə yanaşdığına;"
+    },
+    {
+      "lang": "az",
+      "stem": "make-time-for-people",
+      "index": 12,
+      "after": "İki il əvvəl xəstələnəndə həmişə meyvə aldığım dükanın satıcısı mənə baş çəkməyə gəldi. Xəstələndiyimə ürəkdən üzülmüşdü. Yatağımın yanında oturub halımı soruşdu, mənə ürək-dirək verdi.",
+      "reason": "Replace a literal expression suggesting inspection with the idiom for visiting someone who is ill.",
+      "before": "İki il əvvəl xəstələnəndə həmişə meyvə aldığım dükanın satıcısı məni yoxlamağa gəldi. Xəstələndiyimə ürəkdən üzülmüşdü. Yatağımın yanında oturub halımı soruşdu, mənə ürək-dirək verdi.",
+      "path": "az/wisdom-stories/make-time-for-people.docx",
+      "paragraph": 13,
+      "source_before": "İki il əvvəl xəstələnəndə həmişə meyvə aldığım dükanın satıcısı məni yoxlamağa gəldi. Xəstələndiyimə ürəkdən üzülmüşdü. Yatağımın yanında oturub halımı soruşdu, mənə ürək-dirək verdi.",
+      "source_after": "İki il əvvəl xəstələnəndə həmişə meyvə aldığım dükanın satıcısı mənə baş çəkməyə gəldi. Xəstələndiyimə ürəkdən üzülmüşdü. Yatağımın yanında oturub halımı soruşdu, mənə ürək-dirək verdi."
+    },
+    {
+      "lang": "az",
+      "stem": "flower-of-honesty",
+      "index": 25,
+      "after": "— Sizə verdiyim toxumların heç biri cücərə bilməzdi. Bu xanım isə nəticəni olduğu kimi gətirməyə cəsarət etdi. O mənə ən qiymətli çiçəyi gətirib: dürüstlük çiçəyini.",
+      "reason": "Make the concluding sentence more idiomatic and its reference explicit.",
+      "before": "— Sizə verdiyim toxumların heç biri cücərə bilməzdi. Bu xanım isə nəticəni olduğu kimi gətirməyə cəsarət etdi. Onun mənə gətirdiyi ən qiymətli çiçəkdir: dürüstlük çiçəyi.",
+      "path": "az/wisdom-stories/flower-of-honesty.docx",
+      "paragraph": 26,
+      "source_before": "— Sizə verdiyim toxumların heç biri cücərə bilməzdi. Bu xanım isə nəticəni olduğu kimi gətirməyə cəsarət etdi. Onun mənə gətirdiyi ən qiymətli çiçəkdir: dürüstlük çiçəyi.",
+      "source_after": "— Sizə verdiyim toxumların heç biri cücərə bilməzdi. Bu xanım isə nəticəni olduğu kimi gətirməyə cəsarət etdi. O mənə ən qiymətli çiçəyi gətirib: dürüstlük çiçəyini."
+    },
+    {
+      "lang": "de",
+      "stem": "devil-out-of-work",
+      "index": 4,
+      "after": "Lehre: Es liegt in unserer Hand, das Leid zu verringern, das Menschen einander zufügen. Verständnis zu zeigen, statt zu verletzen, angesichts von Unrecht nicht zu schweigen und Menschen in schwierigen Zeiten beizustehen — das sind Wege, dieses Leid zu lindern.",
+      "reason": "Avoid ambiguity with the idiom zu Unrecht, meaning unjustly.",
+      "before": "Lehre: Es liegt in unserer Hand, das Leid zu verringern, das Menschen einander zufügen. Verständnis zu zeigen, statt zu verletzen, zu Unrecht nicht zu schweigen und Menschen in schwierigen Zeiten beizustehen — das sind Wege, dieses Leid zu lindern.",
+      "path": "de/wisdom-stories/devil-out-of-work.docx",
+      "paragraph": 5,
+      "source_before": "Moral: Es liegt in unserer Hand, das Leid zu verringern, das Menschen einander zufügen. Verständnis zu zeigen, statt zu verletzen, zu Unrecht nicht zu schweigen und Menschen in schwierigen Zeiten beizustehen — das sind Wege, dieses Leid zu lindern.",
+      "source_after": "Moral: Es liegt in unserer Hand, das Leid zu verringern, das Menschen einander zufügen. Verständnis zu zeigen, statt zu verletzen, angesichts von Unrecht nicht zu schweigen und Menschen in schwierigen Zeiten beizustehen — das sind Wege, dieses Leid zu lindern."
+    },
+    {
+      "lang": "de",
+      "stem": "church-bell",
+      "index": 1,
+      "after": "Eines Tages verurteilte das Gericht einen Unschuldigen — ausgerechnet an jenem Ort, an dem die Menschen Gerechtigkeit zu finden hofften.",
+      "reason": "Clarify the locative reference and sentence structure.",
+      "before": "Eines Tages verurteilte das Gericht einen Unschuldigen — ausgerechnet jener Ort, an dem die Menschen Gerechtigkeit zu finden hofften.",
+      "path": "de/wisdom-stories/church-bell.docx",
+      "paragraph": 2,
+      "source_before": "Eines Tages verurteilte das Gericht einen Unschuldigen — ausgerechnet jener Ort, an dem die Menschen Gerechtigkeit zu finden hofften.",
+      "source_after": "Eines Tages verurteilte das Gericht einen Unschuldigen — ausgerechnet an jenem Ort, an dem die Menschen Gerechtigkeit zu finden hofften."
+    },
+    {
+      "lang": "de",
+      "stem": "church-bell",
+      "index": 7,
+      "after": "Lehre: Ein ungerechtes Urteil trifft nicht nur einen Menschen, sondern erschüttert das Vertrauen aller in die Gerechtigkeit. Wer angesichts von Unrecht nicht schweigt, schützt die Betroffenen und das Gewissen der Gesellschaft.",
+      "reason": "Avoid ambiguity with the idiom zu Unrecht, meaning unjustly.",
+      "before": "Lehre: Ein ungerechtes Urteil trifft nicht nur einen Menschen, sondern erschüttert das Vertrauen aller in die Gerechtigkeit. Wer zu Unrecht nicht schweigt, schützt die Betroffenen und das Gewissen der Gesellschaft.",
+      "path": "de/wisdom-stories/church-bell.docx",
+      "paragraph": 8,
+      "source_before": "Moral: Ein ungerechtes Urteil trifft nicht nur einen Menschen, sondern erschüttert das Vertrauen aller in die Gerechtigkeit. Wer zu Unrecht nicht schweigt, schützt die Betroffenen und das Gewissen der Gesellschaft.",
+      "source_after": "Moral: Ein ungerechtes Urteil trifft nicht nur einen Menschen, sondern erschüttert das Vertrauen aller in die Gerechtigkeit. Wer angesichts von Unrecht nicht schweigt, schützt die Betroffenen und das Gewissen der Gesellschaft."
+    },
+    {
+      "lang": "de",
+      "stem": "choosing-friends",
+      "index": 0,
+      "after": "Schließe keine Freundschaft mit einem überheblichen Menschen! Er versucht nicht, dich zu verstehen, hört dir nicht zu, wenn du von deinen Sorgen erzählst, und nimmt auf deine Gefühle keine Rücksicht — das wird dich verletzen.",
+      "reason": "Close the embedded wenn clause with the required comma.",
+      "before": "Schließe keine Freundschaft mit einem überheblichen Menschen! Er versucht nicht, dich zu verstehen, hört dir nicht zu, wenn du von deinen Sorgen erzählst und nimmt auf deine Gefühle keine Rücksicht — das wird dich verletzen.",
+      "path": "de/wisdom-stories/choosing-friends.docx",
+      "paragraph": 1,
+      "source_before": "Schließe keine Freundschaft mit einem überheblichen Menschen! Er versucht nicht, dich zu verstehen, hört dir nicht zu, wenn du von deinen Sorgen erzählst und nimmt auf deine Gefühle keine Rücksicht — das wird dich verletzen.",
+      "source_after": "Schließe keine Freundschaft mit einem überheblichen Menschen! Er versucht nicht, dich zu verstehen, hört dir nicht zu, wenn du von deinen Sorgen erzählst, und nimmt auf deine Gefühle keine Rücksicht — das wird dich verletzen."
+    },
+    {
+      "lang": "de",
+      "stem": "words-to-avoid",
+      "index": 0,
+      "after": "Meinungsverschiedenheiten gehören zum Familienleben. Doch unsere Worte können uns helfen, einander zu verstehen, oder die Nähe zwischen uns beschädigen.",
+      "reason": "Give the reciprocal infinitive an explicit human referent.",
+      "before": "Meinungsverschiedenheiten gehören zum Familienleben. Doch unsere Worte können dazu beitragen, einander zu verstehen, oder die Nähe zwischen uns beschädigen.",
+      "path": "de/wisdom-stories/words-to-avoid.docx",
+      "paragraph": 1,
+      "source_before": "Meinungsverschiedenheiten gehören zum Familienleben. Doch unsere Worte können dazu beitragen, einander zu verstehen, oder die Nähe zwischen uns beschädigen.",
+      "source_after": "Meinungsverschiedenheiten gehören zum Familienleben. Doch unsere Worte können uns helfen, einander zu verstehen, oder die Nähe zwischen uns beschädigen."
+    },
+    {
+      "lang": "de",
+      "stem": "mother-and-son",
+      "index": 17,
+      "after": "Mit zitternden Händen ergriff sie seine Hand. Einen Augenblick sah es so aus, als wollte sie etwas sagen. Doch dann überlegte sie es sich anders. Sie schluckte.",
+      "reason": "Replace an awkward expression with the idiomatic formulation for changing one's mind.",
+      "before": "Mit zitternden Händen ergriff sie seine Hand. Einen Augenblick sah es so aus, als wollte sie etwas sagen. Doch dann besann sie sich anders. Sie schluckte.",
+      "path": "de/wisdom-stories/mother-and-son.docx",
+      "paragraph": 18,
+      "source_before": "Mit zitternden Händen ergriff sie seine Hand. Einen Augenblick sah es so aus, als wollte sie etwas sagen. Doch dann besann sie sich anders. Sie schluckte.",
+      "source_after": "Mit zitternden Händen ergriff sie seine Hand. Einen Augenblick sah es so aus, als wollte sie etwas sagen. Doch dann überlegte sie es sich anders. Sie schluckte."
+    },
+    {
+      "lang": "de",
+      "stem": "learning-to-say-yet",
+      "index": 6,
+      "after": "Lehre: Wie du mit dir selbst sprichst, beeinflusst deinen nächsten Schritt. Wenn du „Das kann ich noch nicht“ sagst, lässt du Raum zum Lernen. Ein Fehler wird zur Entwicklungschance, wenn du daraus lernst und es erneut versuchst.",
+      "reason": "Replace an awkward construction with a clear, idiomatic sentence.",
+      "before": "Lehre: Wie du mit dir selbst sprichst, beeinflusst deinen nächsten Schritt. Aus „Das kann ich nicht“ wird mit einem „noch“ Raum zum Lernen. Ein Fehler wird zur Entwicklungschance, wenn du daraus lernst und es erneut versuchst.",
+      "path": "de/wisdom-stories/learning-to-say-yet.docx",
+      "paragraph": 7,
+      "source_before": "Lehre: Wie du mit dir selbst sprichst, beeinflusst deinen nächsten Schritt. Aus „Das kann ich nicht“ wird mit einem „noch“ Raum zum Lernen. Ein Fehler wird zur Entwicklungschance, wenn du daraus lernst und es erneut versuchst.",
+      "source_after": "Lehre: Wie du mit dir selbst sprichst, beeinflusst deinen nächsten Schritt. Wenn du „Das kann ich noch nicht“ sagst, lässt du Raum zum Lernen. Ein Fehler wird zur Entwicklungschance, wenn du daraus lernst und es erneut versuchst."
+    },
+    {
+      "lang": "ru",
+      "stem": "im-tired-mom",
+      "index": 7,
+      "after": "— Вы меня не утомляете, сынок. Я устаю от того, что у меня самой больше нет мамы. Мне больше не к кому прийти и положить голову на колени. Береги себя, сынок, и цени то, что у тебя есть.",
+      "reason": "Clarify whose lap the speaker misses resting her head on.",
+      "before": "— Вы меня не утомляете, сынок. Я устаю от того, что у меня самой больше нет мамы. Некому положить голову на колени. Береги себя, сынок, и цени то, что у тебя есть.",
+      "path": "ru/wisdom-stories/im-tired-mom.docx",
+      "paragraph": 8,
+      "source_before": "— Вы меня не утомляете, сынок. Я устаю от того, что у меня самой больше нет мамы. Некому положить голову на колени. Береги себя, сынок, и цени то, что у тебя есть.",
+      "source_after": "— Вы меня не утомляете, сынок. Я устаю от того, что у меня самой больше нет мамы. Мне больше не к кому прийти и положить голову на колени. Береги себя, сынок, и цени то, что у тебя есть."
+    },
+    {
+      "lang": "ky",
+      "stem": "mother-of-pearl-flower",
+      "index": 0,
+      "after": "Сотто сексен жаштагы жубайлардын ажырашуу иши каралып жаткан. Элүү жыл бирге жашаган эки адамдын ажырашууну чечкени залдагылардын көңүлүн чөктүрдү.",
+      "reason": "Correct the malformed verb construction describing the impending separation.",
+      "before": "Сотто сексен жаштагы жубайлардын ажырашуу иши каралып жаткан. Элүү жыл бирге жашаган эки адамдын эки жолго түшкөнү турганы залдагылардын көңүлүн чөктүрдү.",
+      "path": "ky/wisdom-stories/mother-of-pearl-flower.docx",
+      "paragraph": 1,
+      "source_before": "Сотто сексен жаштагы жубайлардын ажырашуу иши каралып жаткан. Элүү жыл бирге жашаган эки адамдын эки жолго түшкөнү турганы залдагылардын көңүлүн чөктүрдү.",
+      "source_after": "Сотто сексен жаштагы жубайлардын ажырашуу иши каралып жаткан. Элүү жыл бирге жашаган эки адамдын ажырашууну чечкени залдагылардын көңүлүн чөктүрдү."
+    },
+    {
+      "lang": "ru",
+      "stem": "credit-ledger",
+      "index": 15,
+      "after": "— А её отдай мне. Пусть их имена не станут поводом для пересудов, а старые долги больше не тревожат их. Достаточно того, что Бог знает наши намерения.",
+      "reason": "Replace awkward parallel negative clauses with natural coordination.",
+      "before": "— А её отдай мне. Пусть ни их имена не станут поводом для пересудов, ни старые долги больше не тревожат их. Достаточно того, что Бог знает наши намерения.",
+      "path": "ru/wisdom-stories/credit-ledger.docx",
+      "paragraph": 16,
+      "source_before": "— А её отдай мне. Пусть ни их имена не станут поводом для пересудов, ни старые долги больше не тревожат их. Достаточно того, что Бог знает наши намерения.",
+      "source_after": "— А её отдай мне. Пусть их имена не станут поводом для пересудов, а старые долги больше не тревожат их. Достаточно того, что Бог знает наши намерения."
+    },
+    {
+      "lang": "ky",
+      "stem": "cost-of-indifference",
+      "index": 6,
+      "after": "Мени баарынан да капаланткан нерсе — кесиптешимдин айткан сөзүнүн туура эмес экенин түшүнбөгөнү, ал үчүн кечирим да сурабаганы, тапшырманы да аткарбаганы. Акыры ага болгон ишенимим солгундагандыктан, маселени башка жол менен чечүүгө аргасыз болдум.",
+      "reason": "Use parallel nominal predicates after the subject phrase.",
+      "before": "Мени баарынан да капаланткан нерсе — кесиптешим айткан сөзүнүн туура эмес экенин түшүнгөн жок, ал үчүн кечирим да сурабады, тапшырманы да аткарбады. Акыры ага болгон ишенимим солгундагандыктан, маселени башка жол менен чечүүгө аргасыз болдум.",
+      "path": "ky/wisdom-stories/Bakhtiyar Sirajov/cost-of-indifference.docx",
+      "paragraph": 7,
+      "source_before": "Мени баарынан да капаланткан нерсе — кесиптешим айткан сөзүнүн туура эмес экенин түшүнгөн жок, ал үчүн кечирим да сурабады, тапшырманы да аткарбады. Акыры ага болгон ишенимим солгундагандыктан, маселени башка жол менен чечүүгө аргасыз болдум.",
+      "source_after": "Мени баарынан да капаланткан нерсе — кесиптешимдин айткан сөзүнүн туура эмес экенин түшүнбөгөнү, ал үчүн кечирим да сурабаганы, тапшырманы да аткарбаганы. Акыры ага болгон ишенимим солгундагандыктан, маселени башка жол менен чечүүгө аргасыз болдум."
+    }
+  ],
+  "content_corrections": [
+    {
+      "language": "ru",
+      "stem": "living-in-the-past",
+      "reason": "User-authorized replacement of duplicated Loving from Afar text with a Russian translation matching AZ, EN, DE and KY.",
+      "title": "Жить прошлым",
+      "paragraphs": [
+        "Жить прошлым — всё равно что идти, постоянно оглядываясь назад. Если смотреть только на то, что осталось позади, можно не заметить препятствий впереди и споткнуться. Так ты не изменишь того, что уже произошло, и не увидишь возможностей, которые открываются перед тобой.",
+        "Мораль: Уроки прошлого помогают найти верный путь, а зацикленность на нём мешает двигаться вперёд. Вчерашний день изменить нельзя, но ты можешь выбрать, какой шаг сделать сегодня."
+      ],
+      "source": "ru/wisdom-stories/living-in-the-past.docx"
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "date": "2026-10-31",
+  "pass": 2,
+  "scope": "Second editorial pass over titles, openings and morals in all 1280 published stories; additional review of long paragraphs, candidate passages and punctuation/repetition diagnostics. Builds on the prior full prose review. No further English changes identified. Titles, interface labels, illustrations and document formatting preserved.",
+  "changes": [
+    {
+      "lang": "az",
+      "stem": "puppies-for-sale",
+      "index": 22,
+      "before": "İbrət: Bir canlının dəyəri onun nəyi bacarıb-bacarmaması ilə ölçülmür. Əsl dostluq fərqləri görüb uzaqlaşmaq deyil, bir-birini anlayıb dayaq olmaqdır.",
+      "after": "İbrət: Bir canlının dəyəri onun nəyi bacarıb-bacarmaması ilə ölçülmür. Əsl dostluq fərqləri görüb uzaqlaşmaq deyil, bir-birini anlayıb bir-birinə dayaq olmaqdır.",
+      "reason": "Make the object of each verb grammatically explicit.",
+      "path": "az/wisdom-stories/puppies-for-sale.docx",
+      "paragraph": 23,
+      "source_before": "İbrət: Bir canlının dəyəri onun nəyi bacarıb-bacarmaması ilə ölçülmür. Əsl dostluq fərqləri görüb uzaqlaşmaq deyil, bir-birini anlayıb dayaq olmaqdır.",
+      "source_after": "İbrət: Bir canlının dəyəri onun nəyi bacarıb-bacarmaması ilə ölçülmür. Əsl dostluq fərqləri görüb uzaqlaşmaq deyil, bir-birini anlayıb bir-birinə dayaq olmaqdır."
+    },
+    {
+      "lang": "az",
+      "stem": "baklava",
+      "index": 11,
+      "before": "İbrət: Kiminsə kasıblığına gülməyin: kiçik bir payın arxasında böyük bir sevgi dayana bilər. Başqalarının sizi incitməsinin acığını sizi sevənlərdən çıxmayın.",
+      "after": "İbrət: Kiminsə kasıblığına gülməyin: kiçik bir payın arxasında böyük bir sevgi dayana bilər. Başqalarının sizi incitməsinin acığını sizi sevənlərdən çıxarmayın.",
+      "reason": "Correct the transitive verb in the expression for taking anger out on someone.",
+      "path": "az/wisdom-stories/baklava.docx",
+      "paragraph": 12,
+      "source_before": "İbrət: Kiminsə kasıblığına gülməyin: kiçik bir payın arxasında böyük bir sevgi dayana bilər. Başqalarının sizi incitməsinin acığını sizi sevənlərdən çıxmayın.",
+      "source_after": "İbrət: Kiminsə kasıblığına gülməyin: kiçik bir payın arxasında böyük bir sevgi dayana bilər. Başqalarının sizi incitməsinin acığını sizi sevənlərdən çıxarmayın."
+    },
+    {
+      "lang": "az",
+      "stem": "permission-or-forgiveness",
+      "index": 9,
+      "before": "İbrət: Təşəbbüs məsuliyyətlə birləşəndə dəyər qazanır. Kiçik və geri dönülə bilən addımlarla faydanı göstərmək bəzən sonsuz razılıq gözləməkdən daha səmərəlidir. Amma sonradan üzr istəmək əvvəlcədən düşünmək məsuliyyətini aradan qaldırmır.",
+      "after": "İbrət: Təşəbbüs məsuliyyətlə birləşəndə dəyər qazanır. Kiçik və geri dönülə bilən addımlarla faydanı göstərmək bəzən razılıq almaq üçün sonsuzadək gözləməkdən daha səmərəlidir. Amma sonradan üzr istəmək əvvəlcədən düşünmək məsuliyyətini aradan qaldırmır.",
+      "reason": "Clarify that the waiting, rather than the approval, is endless.",
+      "path": "az/wisdom-stories/permission-or-forgiveness.docx",
+      "paragraph": 10,
+      "source_before": "İbrət: Təşəbbüs məsuliyyətlə birləşəndə dəyər qazanır. Kiçik və geri dönülə bilən addımlarla faydanı göstərmək bəzən sonsuz razılıq gözləməkdən daha səmərəlidir. Amma sonradan üzr istəmək əvvəlcədən düşünmək məsuliyyətini aradan qaldırmır.",
+      "source_after": "İbrət: Təşəbbüs məsuliyyətlə birləşəndə dəyər qazanır. Kiçik və geri dönülə bilən addımlarla faydanı göstərmək bəzən razılıq almaq üçün sonsuzadək gözləməkdən daha səmərəlidir. Amma sonradan üzr istəmək əvvəlcədən düşünmək məsuliyyətini aradan qaldırmır."
+    },
+    {
+      "lang": "de",
+      "stem": "dervishs-robe",
+      "index": 16,
+      "before": "Lehre: Eine Kleidung, die Vertrauen weckt, macht ihren Träger noch nicht vertrauenswürdig. Beurteile Menschen nach ihren Taten, nicht nach ihrer Kleidung oder ihren Titeln.",
+      "after": "Lehre: Kleidung, die Vertrauen weckt, macht ihren Träger noch nicht vertrauenswürdig. Beurteile Menschen nach ihren Taten, nicht nach ihrer Kleidung oder ihren Titeln.",
+      "reason": "Use Kleidung naturally as a mass noun.",
+      "path": "de/wisdom-stories/dervishs-robe.docx",
+      "paragraph": 17,
+      "source_before": "Moral: Eine Kleidung, die Vertrauen weckt, macht ihren Träger noch nicht vertrauenswürdig. Beurteile Menschen nach ihren Taten, nicht nach ihrer Kleidung oder ihren Titeln.",
+      "source_after": "Moral: Kleidung, die Vertrauen weckt, macht ihren Träger noch nicht vertrauenswürdig. Beurteile Menschen nach ihren Taten, nicht nach ihrer Kleidung oder ihren Titeln."
+    },
+    {
+      "lang": "de",
+      "stem": "mothers-lasting-lesson",
+      "index": 0,
+      "before": "In einer Erinnerung, die über den türkischen Schriftsteller Fakir Baykurt erzählt wird, heißt es, er habe als Kind eines Tages zu seiner Mutter gesagt:",
+      "after": "In einer Erzählung über die Kindheit des türkischen Schriftstellers Fakir Baykurt heißt es, er habe eines Tages zu seiner Mutter gesagt:",
+      "reason": "Use an idiomatic introduction while retaining the reported attribution.",
+      "path": "de/wisdom-stories/mothers-lasting-lesson.docx",
+      "paragraph": 1,
+      "source_before": "In einer Erinnerung, die über den türkischen Schriftsteller Fakir Baykurt erzählt wird, heißt es, er habe als Kind eines Tages zu seiner Mutter gesagt:",
+      "source_after": "In einer Erzählung über die Kindheit des türkischen Schriftstellers Fakir Baykurt heißt es, er habe eines Tages zu seiner Mutter gesagt:"
+    },
+    {
+      "lang": "de",
+      "stem": "how-we-express-sorrow",
+      "index": 0,
+      "before": "Manche erleichtern ihren Kummer, indem sie darüber sprechen, andere verwandeln ihn in Gedichte oder Geschichten. Manche lassen ihn in einem Blick oder einem Seufzer erkennen, andere verbergen ihn hinter einem Lächeln.",
+      "after": "Manche lindern ihren Kummer, indem sie darüber sprechen, andere verwandeln ihn in Gedichte oder Geschichten. Manche lassen ihn in einem Blick oder einem Seufzer erkennen, andere verbergen ihn hinter einem Lächeln.",
+      "reason": "Use the idiomatic verb for easing sorrow.",
+      "path": "de/wisdom-stories/how-we-express-sorrow.docx",
+      "paragraph": 1,
+      "source_before": "Manche erleichtern ihren Kummer, indem sie darüber sprechen,\nandere verwandeln ihn in Gedichte oder Geschichten.\nManche lassen ihn in einem Blick oder einem Seufzer erkennen,\nandere verbergen ihn hinter einem Lächeln.",
+      "source_after": "Manche lindern ihren Kummer, indem sie darüber sprechen,\nandere verwandeln ihn in Gedichte oder Geschichten.\nManche lassen ihn in einem Blick oder einem Seufzer erkennen,\nandere verbergen ihn hinter einem Lächeln."
+    },
+    {
+      "lang": "de",
+      "stem": "humanity-etibar-siracsoy",
+      "index": 0,
+      "before": "Wie viele Wunder und zarte Schönheiten birgt die Welt … In jeder Blume, in jedem Flüstern des Windes, in der Farbe des Himmels liegt eine Weisheit verborgen. Diese Schönheit ist, als wäre sie der menschlichen Seele still anvertraut worden. Doch leider zerstört der Mensch diese Harmonie manchmal mit eigener Hand und verbrennt in den Flammen nicht nur die Erde, sondern auch Hoffnungen, Schicksale und Erinnerungen.",
+      "after": "Wie viele Wunder und zarte Schönheiten birgt die Welt … In jeder Blume, in jedem Flüstern des Windes, in der Farbe des Himmels liegt eine Weisheit verborgen. Es ist, als wäre diese Schönheit der menschlichen Seele still anvertraut worden. Doch leider zerstört der Mensch diese Harmonie manchmal mit eigener Hand und verbrennt in den Flammen nicht nur die Erde, sondern auch Hoffnungen, Schicksale und Erinnerungen.",
+      "reason": "Correct the comparative sentence construction, retaining the metaphor.",
+      "path": "de/wisdom-stories/Etibar Siracsoy/humanity-etibar-siracsoy.docx",
+      "paragraph": 1,
+      "source_before": "Wie viele Wunder und zarte Schönheiten birgt die Welt … In jeder Blume, in jedem Flüstern des Windes, in der Farbe des Himmels liegt eine Weisheit verborgen. Diese Schönheit ist, als wäre sie der menschlichen Seele still anvertraut worden. Doch leider zerstört der Mensch diese Harmonie manchmal mit eigener Hand und verbrennt in den Flammen nicht nur die Erde, sondern auch Hoffnungen, Schicksale und Erinnerungen.",
+      "source_after": "Wie viele Wunder und zarte Schönheiten birgt die Welt … In jeder Blume, in jedem Flüstern des Windes, in der Farbe des Himmels liegt eine Weisheit verborgen. Es ist, als wäre diese Schönheit der menschlichen Seele still anvertraut worden. Doch leider zerstört der Mensch diese Harmonie manchmal mit eigener Hand und verbrennt in den Flammen nicht nur die Erde, sondern auch Hoffnungen, Schicksale und Erinnerungen."
+    },
+    {
+      "lang": "ru",
+      "stem": "communication",
+      "index": 1,
+      "before": "Мораль: Слушая старших, мы учимся на их жизненном опыте. Слушая детей, заново открываем для себя удивительное в обыденном. Каждому возрасту есть чему нас научить.",
+      "after": "Мораль: Слушая старших, мы учимся на их жизненном опыте. Слушая детей, заново открываем для себя удивительное в обыденном. У людей любого возраста есть чему поучиться.",
+      "reason": "Replace an awkward construction with a natural Russian expression.",
+      "path": "ru/wisdom-stories/communication.docx",
+      "paragraph": 2,
+      "source_before": "Мораль: Слушая старших, мы учимся на их жизненном опыте. Слушая детей, заново открываем для себя удивительное в обыденном. Каждому возрасту есть чему нас научить.",
+      "source_after": "Мораль: Слушая старших, мы учимся на их жизненном опыте. Слушая детей, заново открываем для себя удивительное в обыденном. У людей любого возраста есть чему поучиться."
+    },
+    {
+      "lang": "ru",
+      "stem": "seeing-without-understanding",
+      "index": 0,
+      "before": "Есть люди, которые думают: раз глаза открыты, значит, они всё видят. Но за увиденным они не замечают смысла, в прохожих — чужой боли, а перед собой — очевидной истины.",
+      "after": "Есть люди, которые думают: раз глаза открыты, значит, они всё видят. Но они не понимают смысла увиденного, не замечают боли людей, мимо которых проходят, и не видят истины прямо перед собой.",
+      "reason": "Clarify the parallel clauses without changing their meaning.",
+      "path": "ru/wisdom-stories/seeing-without-understanding.docx",
+      "paragraph": 1,
+      "source_before": "Есть люди, которые думают: раз глаза открыты, значит, они всё видят. Но за увиденным они не замечают смысла, в прохожих — чужой боли, а перед собой — очевидной истины.",
+      "source_after": "Есть люди, которые думают: раз глаза открыты, значит, они всё видят. Но они не понимают смысла увиденного, не замечают боли людей, мимо которых проходят, и не видят истины прямо перед собой."
+    },
+    {
+      "lang": "ky",
+      "stem": "five-more-minutes",
+      "index": 0,
+      "before": "Күн ачык күнү сейил бакта отурган аял жанындагы кишиге селкинчек тээп жаткан баланы көрсөттү:",
+      "after": "Күн ачык эле. Сейил бакта отурган аял жанындагы кишиге селкинчек тээп жаткан баланы көрсөттү:",
+      "reason": "Remove the awkward repetition of күн in the opening sentence.",
+      "path": "ky/wisdom-stories/five-more-minutes.docx",
+      "paragraph": 1,
+      "source_before": "Күн ачык күнү сейил бакта отурган аял жанындагы кишиге селкинчек тээп жаткан баланы көрсөттү:",
+      "source_after": "Күн ачык эле. Сейил бакта отурган аял жанындагы кишиге селкинчек тээп жаткан баланы көрсөттү:"
+    }
+  ]
+}
