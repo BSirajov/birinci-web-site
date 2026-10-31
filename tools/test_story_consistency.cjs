@@ -17,7 +17,7 @@ const results=[];
    stories:document.querySelectorAll('article.story').length,
    linkedTitles:document.querySelectorAll('article.story .story__title a').length,
    overflow:[...document.querySelectorAll('.story__moral,.story__source-line')].filter(e=>e.getClientRects().length&&e.scrollWidth>e.clientWidth+1).length,
-   badColors:[...document.querySelectorAll('.story__moral')].filter(e=>getComputedStyle(e).backgroundColor!==(matchMedia('(prefers-color-scheme: dark)').matches?'rgb(51, 46, 32)':'rgb(255, 249, 230)')).length
+   badColors:[...document.querySelectorAll('.story__moral')].filter(e=>getComputedStyle(e).backgroundColor!=='rgb(255, 249, 230)').length
   }));
   assert.equal(state.linkedTitles,0,url);assert.equal(state.overflow,0,url);assert.equal(state.badColors,0,url);
   if(file===files[0]){

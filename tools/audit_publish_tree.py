@@ -6,6 +6,10 @@ import argparse, json, re, os
 import xml.etree.ElementTree as ET
 from lxml import html
 
+# This exact entry point is published by the separate offline project.
+# Keep the exemption narrow: other /offline/ URLs still need local targets.
+SEPARATELY_PUBLISHED_URLS = {'https://birinci.cloud/offline/'}
+
 def audit(root):
     root=root.resolve(); errors=[]; warnings=[]; pages={}; refs=0
     for p in root.rglob('*.html'):
@@ -39,6 +43,8 @@ def audit(root):
                 if u.scheme and u.scheme not in {'http','https'}:continue
                 if u.netloc and u.netloc not in {'birinci.cloud','www.birinci.cloud'}:continue
                 refs+=1
+                if raw in SEPARATELY_PUBLISHED_URLS:
+                    continue
                 target=(root/unquote(u.path).lstrip('/') if u.path.startswith('/') or u.netloc else p.parent/unquote(u.path)) if u.path else p
                 # resolve() corrects filename casing on Windows, hiding broken
                 # Linux URLs. Normalize dot segments without changing spelling.
