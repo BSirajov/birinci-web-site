@@ -1,13 +1,17 @@
 """Build the five localized manuals from reviewed text and current UI captures."""
 from pathlib import Path
-import json, sys
+import json, sys, io, time
 from docx import Document
 from docx.shared import Cm, Inches, Pt, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
+from docx.opc.constants import RELATIONSHIP_TYPE as RT
+from lxml import html
 
 ROOT = Path(__file__).resolve().parent
+sys.path.insert(0, str(ROOT.parents[1] / 'tools'))
+from manual_button_images import render_button_paragraph
 REFERENCE = ROOT / 'Birinci-user-manual-AZ.docx'
 NAMES = {lang: f'Birinci-user-manual-{lang.upper()}.docx' for lang in ('az','en','de','ru','ky')}
 LOCALES={'az':'az-Latn-AZ','en':'en-GB','de':'de-DE','ru':'ru-RU','ky':'ky-KG'}
@@ -22,6 +26,27 @@ def field(p, instruction, cached=''):
 def para(doc,text,style=None):
     p=doc.add_paragraph(text,style);p.paragraph_format.space_after=Pt(8)
     p.paragraph_format.line_spacing=1.12
+    return p
+
+def help_para(doc, text, lang, section, index):
+    p = para(doc, '')
+    fragment = html.fragment_fromstring(render_button_paragraph(text, lang, section, index), create_parent='div')
+    def append(node):
+        if node.text: p.add_run(node.text)
+        for child in node:
+            if child.tag == 'img':
+                image_path = ROOT.parents[1] / child.get('src').removeprefix('../')
+                run = p.add_run(' ')
+                shape = run.add_picture(str(image_path), height=Pt(min(15, float(child.get('height')) * .6)))
+                shape._inline.docPr.set('descr', image_path.stem)
+                # Place small controls on the text baseline without tall gaps.
+                position = OxmlElement('w:position'); position.set(qn('w:val'), '-5')
+                run._r.get_or_add_rPr().append(position)
+                p.add_run(' ')
+            else:
+                append(child)
+            if child.tail: p.add_run(child.tail)
+    append(fragment)
     return p
 
 def build(lang):
@@ -54,20 +79,38 @@ def build(lang):
     d.add_page_break()
     p=para(d,data['contents']);p.runs[0].bold=True;p.runs[0].font.size=Pt(20);p.runs[0].font.color.rgb=RGBColor.from_string('0F3D6E')
     field(d.add_paragraph(),' TOC \\o "1-1" \\h \\z \\u ')
-    for i,sec in enumerate(data['sections'],1):
+    figure_number = 0
+    for sec in data['sections']:
         d.add_page_break();h=d.add_heading(sec['title'],level=1);h.paragraph_format.space_before=Pt(0)
-        para(d,sec['paras'][0])
+        anchor = sec.get('id') or sec['shot']
+        help_para(d,sec['paras'][0],lang,anchor,0)
+        if not sec.get('shot'):
+            for j,text in enumerate(sec['paras'][1:],1):help_para(d,text,lang,anchor,j)
+            if sec.get('url'):
+                p=d.add_paragraph();link=OxmlElement('w:hyperlink');link.set(qn('r:id'),p.part.relate_to(sec['url'],RT.HYPERLINK,is_external=True))
+                run=OxmlElement('w:r');text=OxmlElement('w:t');text.text=sec['link_label'];run.append(text);link.append(run);p._p.append(link)
+            continue
         p=d.add_paragraph();p.alignment=WD_ALIGN_PARAGRAPH.CENTER;p.paragraph_format.space_after=Pt(2)
         width=2.35 if sec['shot']=='mobile' else 6.3
-        shape=p.add_run().add_picture(str(ROOT/'screenshots-20261030'/lang/(sec['shot']+'.png')),width=Inches(width))
+        shape=p.add_run().add_picture(str(ROOT/'screenshots-20261031'/lang/(sec['shot']+'.png')),width=Inches(width))
         shape._inline.docPr.set('descr',sec['caption'])
         p.paragraph_format.keep_with_next=True
-        p=para(d,f"{data['figure']} {i}. {sec['caption']}");p.alignment=WD_ALIGN_PARAGRAPH.CENTER
+        figure_number += 1
+        p=para(d,f"{data['figure']} {figure_number}. {sec['caption']}");p.alignment=WD_ALIGN_PARAGRAPH.CENTER
         for r in p.runs:r.italic=True;r.font.size=Pt(9.5);r.font.color.rgb=RGBColor.from_string('475569')
-        for text in sec['paras'][1:]:para(d,text)
+        for j,text in enumerate(sec['paras'][1:],1):help_para(d,text,lang,anchor,j)
     d.core_properties.title=data['title'];d.core_properties.subject=data['subtitle'];d.core_properties.language=LOCALES[lang];d.core_properties.author='Birİnci'
     d.core_properties.comments=''
-    out=ROOT/NAMES[lang];d.save(out);print(out)
+    out=ROOT/NAMES[lang]
+    buffer=io.BytesIO();d.save(buffer)
+    # Windows preview/indexing can briefly hold an existing document open.
+    for attempt in range(5):
+        try:
+            out.write_bytes(buffer.getvalue());break
+        except OSError:
+            if attempt==4:raise
+            time.sleep(0.5)
+    print(out)
 
 if __name__=='__main__':
     for lang in sys.argv[1:] or NAMES:build(lang)

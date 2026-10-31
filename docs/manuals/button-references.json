@@ -1,0 +1,1332 @@
+{
+  "az": {
+    "help": {
+      "label": "Kömək",
+      "text": "Kömək",
+      "width": 64.46875,
+      "height": 25.171875
+    },
+    "feedback": {
+      "label": "Rəy və təklif",
+      "text": "Rəy və təklif",
+      "width": 90.546875,
+      "height": 25.171875
+    },
+    "sitemap": {
+      "label": "Saytın xəritəsi",
+      "text": "Saytın xəritəsi",
+      "width": 100.890625,
+      "height": 25.171875
+    },
+    "search": {
+      "label": "Qlobal axtarış, Ctrl+K",
+      "text": "Axtar…\n        Ctrl+K",
+      "width": 84.265625,
+      "height": 34.390625
+    },
+    "language": {
+      "label": "Azərbaycan",
+      "text": "AZ",
+      "width": 72.046875,
+      "height": 34.390625
+    },
+    "cards": {
+      "label": "Təsnifatlı",
+      "text": "",
+      "width": 33.59375,
+      "height": 30.1875
+    },
+    "list": {
+      "label": "Ardıcıl",
+      "text": "",
+      "width": 33.59375,
+      "height": 30.1875
+    },
+    "clear-filter": {
+      "label": "Filtri təmizlə",
+      "text": "×",
+      "width": 27.1875,
+      "height": 21.34375
+    },
+    "show-image": {
+      "label": "Şəkli göstər",
+      "text": "",
+      "width": 33.59375,
+      "height": 26.984375
+    },
+    "hide-image": {
+      "label": "Şəkli gizlət",
+      "text": "",
+      "width": 33.59375,
+      "height": 26.984375
+    },
+    "show-text": {
+      "label": "Mətni göstər",
+      "text": "",
+      "width": 33.59375,
+      "height": 26.984375
+    },
+    "hide-text": {
+      "label": "Mətni gizlət",
+      "text": "",
+      "width": 33.59375,
+      "height": 26.984375
+    },
+    "compare": {
+      "label": "Bu hekayəni çoxdilli görünüşdə aç",
+      "text": "",
+      "width": 40,
+      "height": 40
+    },
+    "lang-az": {
+      "label": "AZ",
+      "text": "AZ",
+      "width": 58.53125,
+      "height": 32.796875
+    },
+    "lang-de": {
+      "label": "DE",
+      "text": "DE",
+      "width": 59.421875,
+      "height": 32.796875
+    },
+    "lang-en": {
+      "label": "EN",
+      "text": "EN",
+      "width": 59.8125,
+      "height": 32.796875
+    },
+    "lang-ky": {
+      "label": "KY",
+      "text": "KY",
+      "width": 58.640625,
+      "height": 32.796875
+    },
+    "lang-ru": {
+      "label": "RU",
+      "text": "RU",
+      "width": 60.671875,
+      "height": 32.796875
+    },
+    "previous": {
+      "label": "Əvvəlki hekayə",
+      "text": "<",
+      "width": 32.796875,
+      "height": 32.796875
+    },
+    "next": {
+      "label": "Növbəti hekayə",
+      "text": ">",
+      "width": 32.796875,
+      "height": 32.796875
+    },
+    "first": {
+      "label": "Birinci hekayə",
+      "text": "<<",
+      "width": 32.796875,
+      "height": 32.796875
+    },
+    "last": {
+      "label": "Son hekayə",
+      "text": ">>",
+      "width": 32.796875,
+      "height": 32.796875
+    },
+    "close": {
+      "label": "Bağla",
+      "text": "×",
+      "width": 35.1875,
+      "height": 35.1875
+    },
+    "choose-file": {
+      "label": "Fayl seçin",
+      "text": "Fayl seçin",
+      "width": 116.171875,
+      "height": 44
+    },
+    "send-feedback": {
+      "label": "Rəyi göndər",
+      "text": "Rəyi göndər",
+      "width": 129.65625,
+      "height": 44
+    },
+    "replace-file": {
+      "label": "Əvəz et",
+      "text": "Əvəz et",
+      "width": 64.125,
+      "height": 26.796875
+    },
+    "remove-file": {
+      "label": "Sil",
+      "text": "Sil",
+      "width": 29.90625,
+      "height": 26.796875
+    },
+    "section-link": {
+      "label": "Bölməyə keçid ↗",
+      "text": "Bölməyə keçid ↗",
+      "width": 94.546875,
+      "height": 17
+    },
+    "top": {
+      "label": "Səhifənin yuxarısına qayıt",
+      "text": "",
+      "width": 48,
+      "height": 48
+    },
+    "bottom": {
+      "label": "Səhifənin aşağısına get",
+      "text": "",
+      "width": 48,
+      "height": 48
+    },
+    "open-menu": {
+      "label": "Menyunu aç",
+      "text": "",
+      "width": 40,
+      "height": 40
+    },
+    "close-menu": {
+      "label": "Menyunu bağla",
+      "text": "",
+      "width": 40,
+      "height": 40
+    },
+    "stories-menu": {
+      "label": "Hekayələr menyusunu aç",
+      "text": "📖Hekayələr",
+      "width": 120.40625,
+      "height": 40
+    },
+    "download": {
+      "label": "Download",
+      "text": "Download",
+      "width": 90.421875,
+      "height": 44.53125
+    },
+    "updates": {
+      "label": "Check for updates",
+      "text": "Check for updates",
+      "width": 157.171875,
+      "height": 48.375
+    },
+    "persist": {
+      "label": "Request protected storage",
+      "text": "Request protected storage",
+      "width": 216.296875,
+      "height": 48.375
+    },
+    "repair": {
+      "label": "Download / repair",
+      "text": "Download / repair",
+      "width": 137.9375,
+      "height": 48.375
+    },
+    "verify": {
+      "label": "Verify",
+      "text": "Verify",
+      "width": 62.75,
+      "height": 48.375
+    },
+    "update": {
+      "label": "Update",
+      "text": "Update",
+      "width": 73.1875,
+      "height": 48.375
+    },
+    "remove-language": {
+      "label": "Remove language",
+      "text": "Remove language",
+      "width": 136.734375,
+      "height": 44.53125
+    },
+    "remove-illustrations": {
+      "label": "Remove illustrations",
+      "text": "Remove illustrations",
+      "width": 150.015625,
+      "height": 44.53125
+    },
+    "open": {
+      "label": "Open",
+      "text": "Open",
+      "width": 68.078125,
+      "height": 48.375
+    },
+    "pause": {
+      "label": "Pause download",
+      "text": "Pause download",
+      "width": 144.5625,
+      "height": 48.375
+    },
+    "downloads": {
+      "label": "Downloads",
+      "text": "Downloads",
+      "width": 73.28125,
+      "height": 19
+    }
+  },
+  "en": {
+    "help": {
+      "label": "Help",
+      "text": "Help",
+      "width": 52.765625,
+      "height": 25.171875
+    },
+    "feedback": {
+      "label": "Feedback",
+      "text": "Feedback",
+      "width": 77.5,
+      "height": 25.171875
+    },
+    "sitemap": {
+      "label": "Sitemap",
+      "text": "Sitemap",
+      "width": 71.1875,
+      "height": 25.171875
+    },
+    "search": {
+      "label": "Global search, Ctrl+K",
+      "text": "Search…\n        Ctrl+K",
+      "width": 94.140625,
+      "height": 34.390625
+    },
+    "language": {
+      "label": "English",
+      "text": "EN",
+      "width": 73.3125,
+      "height": 34.390625
+    },
+    "cards": {
+      "label": "By category",
+      "text": "",
+      "width": 33.59375,
+      "height": 30.1875
+    },
+    "list": {
+      "label": "List",
+      "text": "",
+      "width": 33.59375,
+      "height": 30.1875
+    },
+    "clear-filter": {
+      "label": "Clear filter",
+      "text": "×",
+      "width": 27.1875,
+      "height": 21.34375
+    },
+    "show-image": {
+      "label": "Show image",
+      "text": "",
+      "width": 33.59375,
+      "height": 26.984375
+    },
+    "hide-image": {
+      "label": "Hide image",
+      "text": "",
+      "width": 33.59375,
+      "height": 26.984375
+    },
+    "show-text": {
+      "label": "Show text",
+      "text": "",
+      "width": 33.59375,
+      "height": 26.984375
+    },
+    "hide-text": {
+      "label": "Hide text",
+      "text": "",
+      "width": 33.59375,
+      "height": 26.984375
+    },
+    "compare": {
+      "label": "Open this story in Multilingual View",
+      "text": "",
+      "width": 40,
+      "height": 40
+    },
+    "lang-az": {
+      "label": "AZ",
+      "text": "AZ",
+      "width": 58.53125,
+      "height": 32.796875
+    },
+    "lang-de": {
+      "label": "DE",
+      "text": "DE",
+      "width": 59.421875,
+      "height": 32.796875
+    },
+    "lang-en": {
+      "label": "EN",
+      "text": "EN",
+      "width": 59.8125,
+      "height": 32.796875
+    },
+    "lang-ky": {
+      "label": "KY",
+      "text": "KY",
+      "width": 58.640625,
+      "height": 32.796875
+    },
+    "lang-ru": {
+      "label": "RU",
+      "text": "RU",
+      "width": 60.671875,
+      "height": 32.796875
+    },
+    "previous": {
+      "label": "Previous story",
+      "text": "<",
+      "width": 32.796875,
+      "height": 32.796875
+    },
+    "next": {
+      "label": "Next story",
+      "text": ">",
+      "width": 32.796875,
+      "height": 32.796875
+    },
+    "first": {
+      "label": "First story",
+      "text": "<<",
+      "width": 32.796875,
+      "height": 32.796875
+    },
+    "last": {
+      "label": "Last story",
+      "text": ">>",
+      "width": 32.796875,
+      "height": 32.796875
+    },
+    "close": {
+      "label": "Close",
+      "text": "×",
+      "width": 35.1875,
+      "height": 35.1875
+    },
+    "choose-file": {
+      "label": "Choose file",
+      "text": "Choose file",
+      "width": 123.78125,
+      "height": 44
+    },
+    "send-feedback": {
+      "label": "Send feedback",
+      "text": "Send feedback",
+      "width": 146.5,
+      "height": 44
+    },
+    "replace-file": {
+      "label": "Replace",
+      "text": "Replace",
+      "width": 67.453125,
+      "height": 26.796875
+    },
+    "remove-file": {
+      "label": "Remove",
+      "text": "Remove",
+      "width": 68.921875,
+      "height": 26.796875
+    },
+    "section-link": {
+      "label": "Link to section ↗",
+      "text": "Link to section ↗",
+      "width": 94.6875,
+      "height": 17
+    },
+    "top": {
+      "label": "Back to top",
+      "text": "",
+      "width": 48,
+      "height": 48
+    },
+    "bottom": {
+      "label": "Go to bottom of page",
+      "text": "",
+      "width": 48,
+      "height": 48
+    },
+    "open-menu": {
+      "label": "Open menu",
+      "text": "",
+      "width": 40,
+      "height": 40
+    },
+    "close-menu": {
+      "label": "Close menu",
+      "text": "",
+      "width": 40,
+      "height": 40
+    },
+    "stories-menu": {
+      "label": "Open stories menu",
+      "text": "📖Stories",
+      "width": 99.578125,
+      "height": 40
+    },
+    "download": {
+      "label": "Download",
+      "text": "Download",
+      "width": 90.421875,
+      "height": 44.53125
+    },
+    "updates": {
+      "label": "Check for updates",
+      "text": "Check for updates",
+      "width": 157.171875,
+      "height": 48.375
+    },
+    "persist": {
+      "label": "Request protected storage",
+      "text": "Request protected storage",
+      "width": 216.296875,
+      "height": 48.375
+    },
+    "repair": {
+      "label": "Download / repair",
+      "text": "Download / repair",
+      "width": 137.9375,
+      "height": 48.375
+    },
+    "verify": {
+      "label": "Verify",
+      "text": "Verify",
+      "width": 62.75,
+      "height": 48.375
+    },
+    "update": {
+      "label": "Update",
+      "text": "Update",
+      "width": 73.1875,
+      "height": 48.375
+    },
+    "remove-language": {
+      "label": "Remove language",
+      "text": "Remove language",
+      "width": 136.734375,
+      "height": 44.53125
+    },
+    "remove-illustrations": {
+      "label": "Remove illustrations",
+      "text": "Remove illustrations",
+      "width": 150.015625,
+      "height": 44.53125
+    },
+    "open": {
+      "label": "Open",
+      "text": "Open",
+      "width": 68.078125,
+      "height": 48.375
+    },
+    "pause": {
+      "label": "Pause download",
+      "text": "Pause download",
+      "width": 144.5625,
+      "height": 48.375
+    },
+    "downloads": {
+      "label": "Downloads",
+      "text": "Downloads",
+      "width": 73.28125,
+      "height": 19
+    }
+  },
+  "de": {
+    "help": {
+      "label": "Hilfe",
+      "text": "Hilfe",
+      "width": 52.828125,
+      "height": 25.171875
+    },
+    "feedback": {
+      "label": "Feedback",
+      "text": "Feedback",
+      "width": 77.5,
+      "height": 25.171875
+    },
+    "sitemap": {
+      "label": "Seitenübersicht",
+      "text": "Seitenübersicht",
+      "width": 108.6875,
+      "height": 25.171875
+    },
+    "search": {
+      "label": "Website durchsuchen, Strg+K",
+      "text": "Suchen…\n        Strg+K",
+      "width": 97.234375,
+      "height": 34.390625
+    },
+    "language": {
+      "label": "Deutsch",
+      "text": "DE",
+      "width": 72.9375,
+      "height": 34.390625
+    },
+    "cards": {
+      "label": "Nach Kategorie",
+      "text": "",
+      "width": 33.59375,
+      "height": 30.1875
+    },
+    "list": {
+      "label": "Liste",
+      "text": "",
+      "width": 33.59375,
+      "height": 30.1875
+    },
+    "clear-filter": {
+      "label": "Filter zurücksetzen",
+      "text": "×",
+      "width": 27.1875,
+      "height": 21.34375
+    },
+    "show-image": {
+      "label": "Bild anzeigen",
+      "text": "",
+      "width": 33.59375,
+      "height": 26.984375
+    },
+    "hide-image": {
+      "label": "Bild ausblenden",
+      "text": "",
+      "width": 33.59375,
+      "height": 26.984375
+    },
+    "show-text": {
+      "label": "Text anzeigen",
+      "text": "",
+      "width": 33.59375,
+      "height": 26.984375
+    },
+    "hide-text": {
+      "label": "Text ausblenden",
+      "text": "",
+      "width": 33.59375,
+      "height": 26.984375
+    },
+    "compare": {
+      "label": "Diese Geschichte in der mehrsprachigen Ansicht öffnen",
+      "text": "",
+      "width": 40,
+      "height": 40
+    },
+    "lang-az": {
+      "label": "AZ",
+      "text": "AZ",
+      "width": 58.515625,
+      "height": 32.796875
+    },
+    "lang-de": {
+      "label": "DE",
+      "text": "DE",
+      "width": 59.421875,
+      "height": 32.796875
+    },
+    "lang-en": {
+      "label": "EN",
+      "text": "EN",
+      "width": 59.796875,
+      "height": 32.796875
+    },
+    "lang-ky": {
+      "label": "KY",
+      "text": "KY",
+      "width": 58.640625,
+      "height": 32.796875
+    },
+    "lang-ru": {
+      "label": "RU",
+      "text": "RU",
+      "width": 60.65625,
+      "height": 32.796875
+    },
+    "previous": {
+      "label": "Vorherige Geschichte",
+      "text": "<",
+      "width": 32.796875,
+      "height": 32.796875
+    },
+    "next": {
+      "label": "Nächste Geschichte",
+      "text": ">",
+      "width": 32.796875,
+      "height": 32.796875
+    },
+    "first": {
+      "label": "Erste Geschichte",
+      "text": "<<",
+      "width": 32.796875,
+      "height": 32.796875
+    },
+    "last": {
+      "label": "Letzte Geschichte",
+      "text": ">>",
+      "width": 32.796875,
+      "height": 32.796875
+    },
+    "close": {
+      "label": "Schließen",
+      "text": "×",
+      "width": 35.1875,
+      "height": 35.1875
+    },
+    "choose-file": {
+      "label": "Datei auswählen",
+      "text": "Datei auswählen",
+      "width": 157.953125,
+      "height": 44
+    },
+    "send-feedback": {
+      "label": "Rückmeldung senden",
+      "text": "Rückmeldung senden",
+      "width": 189.015625,
+      "height": 44
+    },
+    "replace-file": {
+      "label": "Ersetzen",
+      "text": "Ersetzen",
+      "width": 73,
+      "height": 26.796875
+    },
+    "remove-file": {
+      "label": "Entfernen",
+      "text": "Entfernen",
+      "width": 82.34375,
+      "height": 26.796875
+    },
+    "section-link": {
+      "label": "Link zum Abschnitt ↗",
+      "text": "Link zum Abschnitt ↗",
+      "width": 120.078125,
+      "height": 17
+    },
+    "top": {
+      "label": "Nach oben",
+      "text": "",
+      "width": 48,
+      "height": 48
+    },
+    "bottom": {
+      "label": "Zum Seitenende",
+      "text": "",
+      "width": 48,
+      "height": 48
+    },
+    "open-menu": {
+      "label": "Menü öffnen",
+      "text": "",
+      "width": 40,
+      "height": 40
+    },
+    "close-menu": {
+      "label": "Menü schließen",
+      "text": "",
+      "width": 40,
+      "height": 40
+    },
+    "stories-menu": {
+      "label": "Geschichtenmenü öffnen",
+      "text": "📖Geschichten",
+      "width": 133.8125,
+      "height": 40
+    },
+    "download": {
+      "label": "Download",
+      "text": "Download",
+      "width": 90.421875,
+      "height": 44.53125
+    },
+    "updates": {
+      "label": "Check for updates",
+      "text": "Check for updates",
+      "width": 157.171875,
+      "height": 48.375
+    },
+    "persist": {
+      "label": "Request protected storage",
+      "text": "Request protected storage",
+      "width": 216.296875,
+      "height": 48.375
+    },
+    "repair": {
+      "label": "Download / repair",
+      "text": "Download / repair",
+      "width": 137.9375,
+      "height": 48.375
+    },
+    "verify": {
+      "label": "Verify",
+      "text": "Verify",
+      "width": 62.75,
+      "height": 48.375
+    },
+    "update": {
+      "label": "Update",
+      "text": "Update",
+      "width": 73.1875,
+      "height": 48.375
+    },
+    "remove-language": {
+      "label": "Remove language",
+      "text": "Remove language",
+      "width": 136.734375,
+      "height": 44.53125
+    },
+    "remove-illustrations": {
+      "label": "Remove illustrations",
+      "text": "Remove illustrations",
+      "width": 150.015625,
+      "height": 44.53125
+    },
+    "open": {
+      "label": "Open",
+      "text": "Open",
+      "width": 68.078125,
+      "height": 48.375
+    },
+    "pause": {
+      "label": "Pause download",
+      "text": "Pause download",
+      "width": 144.5625,
+      "height": 48.375
+    },
+    "downloads": {
+      "label": "Downloads",
+      "text": "Downloads",
+      "width": 73.28125,
+      "height": 19
+    }
+  },
+  "ru": {
+    "help": {
+      "label": "Помощь",
+      "text": "Помощь",
+      "width": 72.5625,
+      "height": 25.171875
+    },
+    "feedback": {
+      "label": "Отзывы",
+      "text": "Отзывы",
+      "width": 70.5625,
+      "height": 25.171875
+    },
+    "sitemap": {
+      "label": "Карта сайта",
+      "text": "Карта сайта",
+      "width": 91.71875,
+      "height": 25.171875
+    },
+    "search": {
+      "label": "Глобальный поиск, Ctrl+K",
+      "text": "Поиск…\n        Ctrl+K",
+      "width": 91.703125,
+      "height": 34.390625
+    },
+    "language": {
+      "label": "Русский",
+      "text": "RU",
+      "width": 74.125,
+      "height": 34.390625
+    },
+    "cards": {
+      "label": "По категориям",
+      "text": "",
+      "width": 33.59375,
+      "height": 30.1875
+    },
+    "list": {
+      "label": "Список",
+      "text": "",
+      "width": 33.59375,
+      "height": 30.1875
+    },
+    "clear-filter": {
+      "label": "Сбросить фильтр",
+      "text": "×",
+      "width": 27.1875,
+      "height": 21.34375
+    },
+    "show-image": {
+      "label": "Показать изображение",
+      "text": "",
+      "width": 33.59375,
+      "height": 26.984375
+    },
+    "hide-image": {
+      "label": "Скрыть изображение",
+      "text": "",
+      "width": 33.59375,
+      "height": 26.984375
+    },
+    "show-text": {
+      "label": "Показать текст",
+      "text": "",
+      "width": 33.59375,
+      "height": 26.984375
+    },
+    "hide-text": {
+      "label": "Скрыть текст",
+      "text": "",
+      "width": 33.59375,
+      "height": 26.984375
+    },
+    "compare": {
+      "label": "Открыть этот рассказ в многоязычном виде",
+      "text": "",
+      "width": 40,
+      "height": 40
+    },
+    "lang-az": {
+      "label": "AZ",
+      "text": "AZ",
+      "width": 58.515625,
+      "height": 32.796875
+    },
+    "lang-de": {
+      "label": "DE",
+      "text": "DE",
+      "width": 59.421875,
+      "height": 32.796875
+    },
+    "lang-en": {
+      "label": "EN",
+      "text": "EN",
+      "width": 59.796875,
+      "height": 32.796875
+    },
+    "lang-ky": {
+      "label": "KY",
+      "text": "KY",
+      "width": 58.640625,
+      "height": 32.796875
+    },
+    "lang-ru": {
+      "label": "RU",
+      "text": "RU",
+      "width": 60.65625,
+      "height": 32.796875
+    },
+    "previous": {
+      "label": "Предыдущий рассказ",
+      "text": "<",
+      "width": 32.796875,
+      "height": 32.796875
+    },
+    "next": {
+      "label": "Следующий рассказ",
+      "text": ">",
+      "width": 32.796875,
+      "height": 32.796875
+    },
+    "first": {
+      "label": "Первый рассказ",
+      "text": "<<",
+      "width": 32.796875,
+      "height": 32.796875
+    },
+    "last": {
+      "label": "Последний рассказ",
+      "text": ">>",
+      "width": 32.796875,
+      "height": 32.796875
+    },
+    "close": {
+      "label": "Закрыть",
+      "text": "×",
+      "width": 35.1875,
+      "height": 35.1875
+    },
+    "choose-file": {
+      "label": "Выбрать файл",
+      "text": "Выбрать файл",
+      "width": 148.890625,
+      "height": 44
+    },
+    "send-feedback": {
+      "label": "Отправить отзыв",
+      "text": "Отправить отзыв",
+      "width": 166.625,
+      "height": 44
+    },
+    "replace-file": {
+      "label": "Заменить",
+      "text": "Заменить",
+      "width": 82.953125,
+      "height": 26.796875
+    },
+    "remove-file": {
+      "label": "Удалить",
+      "text": "Удалить",
+      "width": 72.453125,
+      "height": 26.796875
+    },
+    "section-link": {
+      "label": "Ссылка на раздел ↗",
+      "text": "Ссылка на раздел ↗",
+      "width": 116.515625,
+      "height": 17
+    },
+    "top": {
+      "label": "Наверх",
+      "text": "",
+      "width": 48,
+      "height": 48
+    },
+    "bottom": {
+      "label": "Вниз страницы",
+      "text": "",
+      "width": 48,
+      "height": 48
+    },
+    "open-menu": {
+      "label": "Открыть меню",
+      "text": "",
+      "width": 40,
+      "height": 40
+    },
+    "close-menu": {
+      "label": "Закрыть меню",
+      "text": "",
+      "width": 40,
+      "height": 40
+    },
+    "stories-menu": {
+      "label": "Открыть меню рассказов",
+      "text": "📖Рассказы",
+      "width": 117.171875,
+      "height": 40
+    },
+    "download": {
+      "label": "Download",
+      "text": "Download",
+      "width": 90.421875,
+      "height": 44.53125
+    },
+    "updates": {
+      "label": "Check for updates",
+      "text": "Check for updates",
+      "width": 157.171875,
+      "height": 48.375
+    },
+    "persist": {
+      "label": "Request protected storage",
+      "text": "Request protected storage",
+      "width": 216.296875,
+      "height": 48.375
+    },
+    "repair": {
+      "label": "Download / repair",
+      "text": "Download / repair",
+      "width": 137.9375,
+      "height": 48.375
+    },
+    "verify": {
+      "label": "Verify",
+      "text": "Verify",
+      "width": 62.75,
+      "height": 48.375
+    },
+    "update": {
+      "label": "Update",
+      "text": "Update",
+      "width": 73.1875,
+      "height": 48.375
+    },
+    "remove-language": {
+      "label": "Remove language",
+      "text": "Remove language",
+      "width": 136.734375,
+      "height": 44.53125
+    },
+    "remove-illustrations": {
+      "label": "Remove illustrations",
+      "text": "Remove illustrations",
+      "width": 150.015625,
+      "height": 44.53125
+    },
+    "open": {
+      "label": "Open",
+      "text": "Open",
+      "width": 68.078125,
+      "height": 48.375
+    },
+    "pause": {
+      "label": "Pause download",
+      "text": "Pause download",
+      "width": 144.5625,
+      "height": 48.375
+    },
+    "downloads": {
+      "label": "Downloads",
+      "text": "Downloads",
+      "width": 73.28125,
+      "height": 19
+    }
+  },
+  "ky": {
+    "help": {
+      "label": "Жардам",
+      "text": "Жардам",
+      "width": 72.109375,
+      "height": 25.171875
+    },
+    "feedback": {
+      "label": "Пикир",
+      "text": "Пикир",
+      "width": 63.078125,
+      "height": 25.171875
+    },
+    "sitemap": {
+      "label": "Сайт картасы",
+      "text": "Сайт картасы",
+      "width": 100.046875,
+      "height": 25.171875
+    },
+    "search": {
+      "label": "Жалпы издөө, Ctrl+K",
+      "text": "Издөө…\n        Ctrl+K",
+      "width": 92.125,
+      "height": 34.390625
+    },
+    "language": {
+      "label": "Кыргызча",
+      "text": "KY",
+      "width": 72.0625,
+      "height": 34.390625
+    },
+    "cards": {
+      "label": "Категориялар боюнча",
+      "text": "",
+      "width": 33.59375,
+      "height": 30.1875
+    },
+    "list": {
+      "label": "Тизме",
+      "text": "",
+      "width": 33.59375,
+      "height": 30.1875
+    },
+    "clear-filter": {
+      "label": "Фильтрди тазалоо",
+      "text": "×",
+      "width": 27.1875,
+      "height": 21.34375
+    },
+    "show-image": {
+      "label": "Сүрөттү көрсөтүү",
+      "text": "",
+      "width": 33.59375,
+      "height": 26.984375
+    },
+    "hide-image": {
+      "label": "Сүрөттү жашыруу",
+      "text": "",
+      "width": 33.59375,
+      "height": 26.984375
+    },
+    "show-text": {
+      "label": "Текстти көрсөтүү",
+      "text": "",
+      "width": 33.59375,
+      "height": 26.984375
+    },
+    "hide-text": {
+      "label": "Текстти жашыруу",
+      "text": "",
+      "width": 33.59375,
+      "height": 26.984375
+    },
+    "compare": {
+      "label": "Бул аңгемени көп тилдүү көрүнүштө ачуу",
+      "text": "",
+      "width": 40,
+      "height": 40
+    },
+    "lang-az": {
+      "label": "AZ",
+      "text": "AZ",
+      "width": 58.53125,
+      "height": 32.796875
+    },
+    "lang-de": {
+      "label": "DE",
+      "text": "DE",
+      "width": 59.421875,
+      "height": 32.796875
+    },
+    "lang-en": {
+      "label": "EN",
+      "text": "EN",
+      "width": 59.8125,
+      "height": 32.796875
+    },
+    "lang-ky": {
+      "label": "KY",
+      "text": "KY",
+      "width": 58.640625,
+      "height": 32.796875
+    },
+    "lang-ru": {
+      "label": "RU",
+      "text": "RU",
+      "width": 60.671875,
+      "height": 32.796875
+    },
+    "previous": {
+      "label": "Мурунку аңгеме",
+      "text": "<",
+      "width": 32.796875,
+      "height": 32.796875
+    },
+    "next": {
+      "label": "Кийинки аңгеме",
+      "text": ">",
+      "width": 32.796875,
+      "height": 32.796875
+    },
+    "first": {
+      "label": "Биринчи аңгеме",
+      "text": "<<",
+      "width": 32.796875,
+      "height": 32.796875
+    },
+    "last": {
+      "label": "Акыркы аңгеме",
+      "text": ">>",
+      "width": 32.796875,
+      "height": 32.796875
+    },
+    "close": {
+      "label": "Жабуу",
+      "text": "×",
+      "width": 35.1875,
+      "height": 35.1875
+    },
+    "choose-file": {
+      "label": "Файл тандаңыз",
+      "text": "Файл тандаңыз",
+      "width": 156.125,
+      "height": 44
+    },
+    "send-feedback": {
+      "label": "Пикир жөнөтүү",
+      "text": "Пикир жөнөтүү",
+      "width": 155.984375,
+      "height": 44
+    },
+    "replace-file": {
+      "label": "Алмаштыруу",
+      "text": "Алмаштыруу",
+      "width": 107.90625,
+      "height": 26.796875
+    },
+    "remove-file": {
+      "label": "Өчүрүү",
+      "text": "Өчүрүү",
+      "width": 65.96875,
+      "height": 26.796875
+    },
+    "section-link": {
+      "label": "Бөлүмгө шилтеме ↗",
+      "text": "Бөлүмгө шилтеме ↗",
+      "width": 117.578125,
+      "height": 17
+    },
+    "top": {
+      "label": "Барактын башына кайтуу",
+      "text": "",
+      "width": 48,
+      "height": 48
+    },
+    "bottom": {
+      "label": "Барактын аягына өтүү",
+      "text": "",
+      "width": 48,
+      "height": 48
+    },
+    "open-menu": {
+      "label": "Менюну ачуу",
+      "text": "",
+      "width": 40,
+      "height": 40
+    },
+    "close-menu": {
+      "label": "Менюну жабуу",
+      "text": "",
+      "width": 40,
+      "height": 40
+    },
+    "stories-menu": {
+      "label": "Аңгеме менюсун ачуу",
+      "text": "📖Аңгемелер",
+      "width": 126.921875,
+      "height": 40
+    },
+    "download": {
+      "label": "Download",
+      "text": "Download",
+      "width": 90.421875,
+      "height": 44.53125
+    },
+    "updates": {
+      "label": "Check for updates",
+      "text": "Check for updates",
+      "width": 157.171875,
+      "height": 48.375
+    },
+    "persist": {
+      "label": "Request protected storage",
+      "text": "Request protected storage",
+      "width": 216.296875,
+      "height": 48.375
+    },
+    "repair": {
+      "label": "Download / repair",
+      "text": "Download / repair",
+      "width": 137.9375,
+      "height": 48.375
+    },
+    "verify": {
+      "label": "Verify",
+      "text": "Verify",
+      "width": 62.75,
+      "height": 48.375
+    },
+    "update": {
+      "label": "Update",
+      "text": "Update",
+      "width": 73.1875,
+      "height": 48.375
+    },
+    "remove-language": {
+      "label": "Remove language",
+      "text": "Remove language",
+      "width": 136.734375,
+      "height": 44.53125
+    },
+    "remove-illustrations": {
+      "label": "Remove illustrations",
+      "text": "Remove illustrations",
+      "width": 150.015625,
+      "height": 44.53125
+    },
+    "open": {
+      "label": "Open",
+      "text": "Open",
+      "width": 68.078125,
+      "height": 48.375
+    },
+    "pause": {
+      "label": "Pause download",
+      "text": "Pause download",
+      "width": 144.5625,
+      "height": 48.375
+    },
+    "downloads": {
+      "label": "Downloads",
+      "text": "Downloads",
+      "width": 73.28125,
+      "height": 19
+    }
+  }
+}

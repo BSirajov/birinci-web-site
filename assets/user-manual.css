@@ -48,6 +48,14 @@
 .manual-content .section-number{color:#fff;opacity:.85}
 .manual-content .guide-section summary:after{color:#fff}
 .manual-content .section-body{padding:8px 28px 24px;background:#fff}
+/* Share the story reading typography, including its compact paragraph spacing. */
+.manual-content .section-body > p{
+  font-family:var(--font-body);
+  font-size:1.02rem;
+  line-height:var(--story-line-height);
+  margin:0 0 var(--story-paragraph-gap);
+}
+.manual-content .section-body > p:last-child{margin-bottom:0}
 .manual-content .controls{
   border:1px solid rgba(0,105,180,.18);border-radius:14px;
   box-shadow:0 14px 28px rgba(0,45,82,.10);
@@ -92,3 +100,13 @@
 }
 
 .manual-tools .fields input:focus-visible,.manual-tools .fields select:focus-visible{outline:2px solid var(--nav-blue);outline-offset:1px;border-color:var(--nav-blue);box-shadow:none}
+.manual-content img.button-reference{display:inline-block;width:auto;max-width:180px;height:auto;max-height:25px;margin:0 .22em;vertical-align:middle;border:0;border-radius:0;box-shadow:none;object-fit:contain}
+.button-references>span{display:inline-block}
+.manual-content #manual-contents-list{columns:1;padding:10px 12px}
+.manual-content .contents-category{padding:3px 0}
+.manual-content .contents-group>summary{padding:10px 8px;gap:10px;background:transparent;color:var(--navy);font:700 .9rem/1.35 var(--font-ui);border-radius:8px;align-items:center}
+.manual-content .contents-group>summary:hover,.manual-content .contents-group.has-active-topic>summary{background:var(--blue)}
+.manual-content .contents-group>ol{overflow:visible;padding:2px 0 8px 10px;columns:1;max-height:none}
+.manual-content .contents-group>ol>li{padding:3px 0}
+
+.manual-content figure figcaption{text-align:center}

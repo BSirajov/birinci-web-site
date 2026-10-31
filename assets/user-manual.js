@@ -5,7 +5,7 @@
   const search = $('#guide-search'), topic = $('#guide-topic');
   const sections = [...document.querySelectorAll('.guide-section')];
   const texts = [...document.querySelectorAll('[data-search-text]')];
-  const originals = new Map(texts.map(n => [n, n.textContent]));
+  const originals = new Map(texts.map(n => [n, [...n.childNodes].map(child => child.cloneNode(true))]));
   const normalize = s => s.toLocaleLowerCase(document.documentElement.lang).normalize('NFD').replace(/\p{M}/gu, '');
   const hay = new Map(sections.map(s => [s, normalize(s.textContent)]));
   const params = new URLSearchParams(location.search);
@@ -18,8 +18,18 @@
     try { history.replaceState(null, '', location.pathname + (p.size ? '?' + p : '') + location.hash); } catch (_) { /* file preview */ }
   }
   function highlight(node, terms) {
-    const text = originals.get(node);
-    node.textContent = '';
+    node.replaceChildren(...originals.get(node).map(child => child.cloneNode(true)));
+    if (!terms.length) return;
+    const walker = document.createTreeWalker(node, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    for (const child of nodes) {
+      const fragment = document.createDocumentFragment();
+      highlightText(fragment, child.textContent, terms);
+      child.replaceWith(fragment);
+    }
+  }
+  function highlightText(node, text, terms) {
     // Map normalized offsets back to Unicode source offsets (including accents).
     let folded = '', offsets = [];
     for (let i = 0; i < text.length;) {
@@ -57,6 +67,10 @@
       if (!s.hidden) { count++; if (terms.length) s.querySelector('details').open = true; }
     }
     for (const n of texts) highlight(n, terms);
+    document.querySelectorAll('.contents-category').forEach(category => {
+      category.hidden = ![...category.querySelectorAll('[data-section]')].some(a => !a.parentElement.hidden);
+      if (!category.hidden && (terms.length || topic.value !== 'all')) category.querySelector('details').open = true;
+    });
     $('#no-results').hidden = count !== 0;
     updateUrl();
   }
@@ -93,6 +107,8 @@
   else window.addEventListener('resize', measureToolbar);
   const sidebar = $('.layout > aside');
   const list = $('#manual-contents-list');
+  const groups = [...list.querySelectorAll('.contents-group')];
+  groups.forEach(group => { group.open = false; });
   const toggle = $('.contents-toggle');
   const compact = matchMedia('(max-width:900px)');
   toggle.hidden = false;
@@ -121,10 +137,15 @@
     for (const s of visible) { if (s.getBoundingClientRect().top <= edge) current = s; }
     if (current === activeSection) return;
     activeSection = current;
+    const currentGroup = current && list.querySelector(`[data-section="${current.id}"]`).closest('.contents-group');
+    groups.forEach(group => {
+      group.classList.toggle('has-active-topic', group === currentGroup);
+    });
     list.querySelectorAll('a').forEach(a => {
       const on = current && a.dataset.section === current.id;
       a.classList.toggle('is-active', !!on);
       if (on) {
+        a.closest('.contents-group').open = true;
         a.setAttribute('aria-current', 'location');
         const r = a.getBoundingClientRect(), box = list.getBoundingClientRect();
         if (r.top < box.top || r.bottom > box.bottom) list.scrollTop += r.top - box.top - box.height / 2 + r.height / 2;

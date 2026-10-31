@@ -2,21 +2,21 @@
   "lang": "en",
   "title": "Birİnci website user manual",
   "subtitle": "English user guide",
-  "date": "30 October 2026",
+  "date": "31 October 2026",
   "contents": "Contents",
   "figure": "Figure",
-  "intro": "This guide explains how to find and read stories on Birİnci, view illustrations, compare languages and send feedback. It includes desktop and phone instructions, screenshots and a quick reference. You do not need an account to read the stories.",
+  "intro": "This guide explains how to find and read stories on Birİnci, view illustrations, compare languages and send feedback. It includes desktop and phone instructions, screenshots and a quick reference. You do not need an account to read the stories. It also explains offline installation on iPad and Android tablets, language downloads and USB use on Windows and macOS.",
   "scope": "The guide covers the public story pages. Audio playback and account registration are not currently offered. Discoveries and inventions is not included in the public release.",
   "sections": [
     {
       "title": "Navigation and language selection",
       "shot": "home",
-      "caption": "The home page with the main menu, language selector and category cards.",
+      "caption": "The home page with the main menu, Help button, language selector and category cards.",
       "paras": [
-        "Open https://birinci.cloud. The Birİnci logo takes you to the main entry page. The main menu includes “Wisdom stories”, “About us”, a separate “Feedback” link and “Sitemap”. The About us menu leads to the mission and legal information pages.",
-        "Open the language button on the right of the header and choose AZ — Azərbaycan, DE — Deutsch, EN — English, KY — Кыргызча or RU — Русский. The codes are arranged in Latin alphabetical order. Where a matching translation exists, switching languages keeps the same page and story.",
-        "The navigation trail below the header links back to the home page and parent section. The arrows at the bottom right take you to the bottom or top of the page. The footer contains contact, feedback, legal and sitemap links; its QR code opens the website on another device.",
-        "Use Tab to move through links and controls. When the initial “Skip to content” link appears, press Enter to reach the main content. Activate a focused button with Enter or the space bar."
+        "Open https://birinci.cloud. Select the Birİnci logo to return to the home page. The main menu includes “Wisdom stories”, “About us”, “Feedback” and “Sitemap”. The About us menu leads to the mission and legal information pages. Select “Help” at the end of the main navigation bar to open the user guide in your current language.",
+        "Select the language button on the right of the header and choose AZ — Azərbaycan, DE — Deutsch, EN — English, KY — Кыргызча or RU — Русский. The codes are arranged in Latin alphabetical order. If a translation is available, switching languages opens the same page or story in the selected language.",
+        "The navigation trail below the header links back to the home page and parent section. The arrows at the bottom right take you to the bottom or top of the page. The footer contains contact, feedback, legal and sitemap links; scan its QR code to open the website on another device.",
+        "Use Tab to move through links and controls. When the “Skip to content” link appears at the start of the page, press Enter to reach the main content. Activate a focused button with Enter or the space bar."
       ]
     },
     {
@@ -25,9 +25,9 @@
       "caption": "A category page with search, author filtering and view controls.",
       "paras": [
         "“By category” shows topic cards. Each card contains a category name, a short description and a story count. Select a topic to open that category. “List” presents stories in a continuous reading view.",
-        "Select a title in the “Stories” panel on the left to move to that story. Selecting a short story card also opens the corresponding story in list view. Counts beside headings apply to the current page and may change as content is updated.",
-        "Choose an author from the author filter; return to “All authors” to restore the full selection. Where a category selector is available, use it to change the topic. The × on a filter chip or “Clear filter” removes the corresponding filter.",
-        "Image and text controls in the list toolbar manage the stories on the page. Controls within an individual story let you work with that story. There is no shuffle or “Expand all” control for stories."
+        "Select a title in the “Stories” panel on the left to move to that story. Selecting a story preview card also opens the corresponding story in list view. The numbers beside headings show how many stories are on the current page and may change when the content is updated.",
+        "Choose an author from the author filter; select “All authors” to reset the author selection. Where a category selector is available, use it to change the topic. The × button beside the search field (tooltip: “Clear filter”) clears only the search text; it does not change the author or category selections.",
+        "The image and text controls in the list toolbar apply to all stories on the page. Controls within a story apply only to that story. There is no shuffle or “Expand all” control for stories."
       ]
     },
     {
@@ -47,8 +47,8 @@
       "caption": "Story text, the pale cream moral panel and image controls.",
       "paras": [
         "A story contains a title, main text, moral and illustration. The moral is highlighted in a pale cream panel. Illustrations on story pages are visible on the first visit; you do not need to select “Show image” first.",
-        "Use the hide-image control to hide an illustration and the show-image control to restore it. Text has separate show and hide controls. Text and images cannot both be hidden: at least one must remain visible. On phones, text controls may be hidden while the text remains available to read.",
-        "Read the author credit and specific source where they are provided. The same generic source notice is no longer repeated beneath every story. A general note about editing and AI-generated illustrations may appear in the introduction; it is distinct from an individual story’s author credit.",
+        "Use the image controls to hide an illustration or show it again. Text has separate show and hide controls. Text and images cannot both be hidden: at least one must remain visible. On phones, text controls may be hidden while the text remains available to read.",
+        "Where available, the author and source are listed alongside the story. A general source notice is not repeated beneath every story. A general note about editing and AI-generated illustrations may appear in the introduction; it does not replace the author and source information for an individual story.",
         "After navigating to a story, copy the browser address to share it. Keep the # and story identifier at the end of the address, for example #friendship-of-horses."
       ]
     },
@@ -58,9 +58,9 @@
       "caption": "The expanded reading dialog opened from a story title.",
       "paras": [
         "Select the story title itself to open the expanded reading dialog. Read the text, moral and any author or source information, scrolling inside the dialog as needed. The globe beside the title opens the separate multilingual comparison view. If the illustration appears before the text, scroll down to the text.",
-        "Select an illustration to open it in a separate enlarged overlay. If it is hidden, restore it with the show-image control first. The enlarged view makes the title and moral within the illustration easier to read.",
+        "Select an illustration to open it in a separate enlarged view. If it is hidden, restore it with the show-image control first. The enlarged view makes the title and moral within the illustration easier to read.",
         "Close the reading or illustration dialog with × or Esc. Clicking the shaded area outside the illustration also closes its dialog. You can then continue reading in the main story list.",
-        "Audio playback controls are not currently offered. Listening to stories or opening an MP3 player is not a user feature of this version."
+        "This version does not offer audio playback, read-aloud features or an MP3 player."
       ]
     },
     {
@@ -69,9 +69,9 @@
       "caption": "The same story in five languages with comparison controls above.",
       "paras": [
         "Select the globe beside a story title to open the multilingual view. Available translations of the same story appear side by side. Use AZ, DE, EN, KY and RU to show or hide language columns. Keep only the languages you want to compare for easier reading.",
-        "Text and image groups have independent show and hide controls. At least one must remain visible. Comparison initially shows text with illustrations hidden; enable illustrations separately here. On later visits, the browser restores the saved language and illustration choices.",
-        "< and > open the previous and next stories; << and >> open the first and last. The number field shows the current position and total. Enter a valid story number and press Enter to jump to it. This is a position in the list, not a permanent story identifier.",
-        "Scroll to read longer text in the columns. Not every story necessarily has a version in every language. Close comparison with × at the top right or Esc to return to the main page."
+        "Text and illustrations have separate show and hide controls. At least one must remain visible. When you first open the comparison view, the text is visible and illustrations are hidden. Use the image control in this view to show them. On later visits, the browser restores the saved language and illustration choices.",
+        "< and > open the previous and next stories; << and >> open the first and last. The number field shows the current story’s position and the total number of stories. Enter a valid story number and press Enter to jump to it. This is a position in the list, not a permanent story identifier.",
+        "Scroll to read longer text in the columns. Some stories are not available in every language. Close comparison with × at the top right or Esc to return to the main page."
       ]
     },
     {
@@ -80,9 +80,9 @@
       "caption": "The language selector and browser-based reading preferences.",
       "paras": [
         "The website remembers some choices in the current browser: language, home and category view modes, image visibility and, where applicable, text visibility. Home-page and category-page views may be stored separately.",
-        "Comparison remembers selected languages and illustration visibility. Hiding comparison text is not stored as a lasting preference. Do not rely on search queries or every filter setting being remembered permanently.",
+        "The comparison view remembers which languages you selected and whether illustrations are shown. The browser does not remember the choice to hide text in the comparison view. Search queries and some filter settings may not be restored when you return.",
         "These choices are not linked to an account and do not automatically synchronise between devices. Another browser, device or private window may show different settings. Clearing the browser’s site data may also remove saved preferences.",
-        "If images are missing, check the show-image control first. Images are visible for a new visitor, but a previous hide choice may have been remembered. If the view is unexpected, check the controls and active filters, then refresh the page."
+        "If images are missing, check the show-image control first. Images are visible for a new visitor, but the browser may remember that you previously hid them. If the page does not look as you expect, check the controls and active filters, then refresh the page."
       ]
     },
     {
@@ -90,9 +90,9 @@
       "shot": "mobile",
       "caption": "The main menu opened on a narrow screen.",
       "paras": [
-        "On narrow screens, the main menu collapses behind the three-line “Open menu” button. Open it and select a section, or use “Close menu” to dismiss it. Language and search remain in the header; search may appear as a magnifying-glass icon only.",
+        "On narrow screens, select the three-line “Open menu” button to open the main menu. Choose a section, or use “Close menu” to dismiss it. Language and search remain in the header; search may appear as a magnifying-glass icon only.",
         "If the Stories panel is collapsed, use “Open stories menu”. Tap a title to reach the story. Text show and hide controls may not appear on phones; image controls remain available for managing illustrations.",
-        "In comparison, select fewer languages to suit the small screen and scroll through longer content. The expanded reading dialog can also help. With a keyboard, use Tab to reach links, Enter to open them and Esc to close dialogs."
+        "In the comparison view, select fewer languages for easier reading on a small screen and scroll through longer content. The expanded reading dialog can also help. With a keyboard, use Tab to reach links, Enter to open them and Esc to close dialogs."
       ]
     },
     {
@@ -103,7 +103,7 @@
         "Open “Feedback” from the main menu or footer. Complete the required fields marked *: “Name”, “Email address”, “Feedback type”, “Subject” and “Your feedback”. Use a valid email address where you can receive a reply.",
         "Choose general feedback, a suggestion, a technical problem, a content correction or other feedback. Keep the subject brief. For a content correction, include the story’s language and title, the current wording and your suggested correction.",
         "For a technical problem, describe your steps, what you expected and what happened. Include your device and browser. Paste the full address of the affected page into “Related page URL”; it is filled automatically when you arrive through a page-specific feedback link.",
-        "The limits are 120 characters for the name, 200 each for email and subject, 5000 for the message and 500 for the related URL. Shorten a long explanation or use a suitable attachment. The next page explains submission."
+        "The limits are 120 characters for the name, 200 each for email and subject, 5000 for the message and 500 for the related URL. Shorten a long explanation or use a suitable attachment. The next section explains how to submit your feedback."
       ]
     },
     {
@@ -113,7 +113,7 @@
       "paras": [
         "Optionally use “Choose file” to attach a screenshot or PDF. Accepted formats are JPG, PNG, WEBP, GIF and PDF, with a maximum file size of 5 MB. Check the selected filename. “Replace” chooses a different file; “Remove” clears the attachment.",
         "Read the Privacy notice and tick the required box confirming that you understand how the message will be used. Then select “Send feedback” and wait for the result.",
-        "Successful submission displays a thank-you message confirming that your feedback was sent. Continue with the link back to the home page. Clicking the submit button alone does not prove success; wait for confirmation.",
+        "Successful submission displays a thank-you message confirming that your feedback was sent. Use the link provided to return to the home page. Clicking the submit button alone does not prove success; wait for confirmation.",
         "If a field or attachment error appears, correct it and try again. For a connection or server error, do not assume the message was sent; keep a copy of it. If the problem continues, you can contact info@birinci.cloud."
       ]
     },
@@ -122,9 +122,9 @@
       "shot": "sitemap",
       "caption": "The sitemap provides section links, story links and its own search.",
       "paras": [
-        "“Sitemap” links to the main sections, categories and individual stories. Use the section shortcuts at the top to move to the relevant area. Its page-search field filters sitemap content; change or clear the query if there are no results.",
+        "“Sitemap” links to the main sections, categories and individual stories. Use the section shortcuts at the top to move to the relevant area. Its search field filters the links shown on the sitemap; change or clear the query if there are no results.",
         "The language buttons near the bottom appear in a single row in the order AZ, DE, EN, KY, RU. Choose a language to open that version.",
-        "“Our Mission, Vision, and Values” explains the website’s purpose and principles. The value links lead to their explanations. Open this page from the About us menu or sitemap.",
+        "“Our Mission, Vision, and Values” explains the website’s purpose and principles. Select a value to read its explanation. Open this page from the About us menu or sitemap.",
         "The legal pages explain different subjects: “Privacy notice” covers information use, “Terms of use” covers using the website, “Cookie policy” covers browser storage, and “Legal notice (Imprint)” gives the website’s legal information. Read the corresponding page for the complete current text."
       ]
     },
@@ -133,10 +133,83 @@
       "shot": "footer",
       "caption": "The footer links to contact, feedback, legal information and the sitemap.",
       "paras": [
-        "Choose a story: topic card → category → Stories list. Find one: page search or global search in the header. Clear filters: × and “All authors”.",
+        "Choose a story: topic card → category → Stories list. Find one: page search or global search in the header. Clear search text: × beside the search field. Reset the author selection: “All authors”.",
         "Read: story title → expanded reading dialog. Enlarge an image: select the visible illustration. Compare: globe → choose languages → enable images if wanted. Close: × or Esc.",
         "Change language: header language button → AZ / DE / EN / KY / RU. Share a story: copy the full address including the # part. Send feedback: Feedback → required fields → privacy confirmation → submit.",
         "If content is missing, check the search, filters and image/text choices. Refresh the page; if the problem remains, include the page URL and a screenshot in your feedback. Contact: info@birinci.cloud."
+      ]
+    },
+    {
+      "id": "offline-install",
+      "title": "Installing the offline edition on a tablet",
+      "topic": "settings",
+      "paras": [
+        "Birİnci Offline is a separate edition at https://birinci.cloud/offline/. Install it using a stable Wi-Fi connection, then download your chosen languages inside the installed app. Adding the app icon does not download stories or illustrations. You do not need a Birİnci account or a download from the App Store or Play Store.",
+        "On iPad — 1. Open the address in Safari using a normal tab. Wait for the Language library and five language cards. 2. Tap Share, then More or View More if necessary, and Add to Home Screen. 3. If Open as Web App appears, turn it on, name the app Birİnci Offline and tap Add.",
+        "On iPad — 4. Leave Safari and open Birİnci Offline from its Home Screen icon. Download your language packs here; do not assume files saved in a Safari tab are available in the installed app.",
+        "On Android — 1. Open the address in an up-to-date Chrome browser using a normal tab, not Incognito or another app’s built-in browser. 2. Open the three-dot menu and choose Install and create shortcut, then Install. Depending on the version, the option may be Install app or Add to Home screen. Confirm the installation.",
+        "On Android — 3. Open Birİnci Offline from the Home screen or app list. If the icon is only in the app list, touch and hold it and drag it to the Home screen. If Install is missing, check for an existing installation and update Chrome. A Create shortcut option adds a link; it does not download the library.",
+        "For the exact button labels used below, select EN · English in the offline library’s interface-language menu. This changes the language of the controls, not the stories. The same five language packs are available on both platforms. System menu wording varies by device and version."
+      ],
+      "url": "https://birinci.cloud/offline/",
+      "link_label": "Open Birİnci Offline"
+    },
+    {
+      "id": "offline-download",
+      "title": "Downloading languages and illustrations",
+      "topic": "settings",
+      "paras": [
+        "Available packs are AZ — Azərbaycan, DE — Deutsch, EN — English, KY — Кыргызча and RU — Русский. Download one language pack at a time while connected to the internet. Check the available storage in your tablet’s settings; allow about 3 GB for all five packs with illustrations. The browser may impose its own storage limit.",
+        "1. Open the installed app and find the language card. Tick Include illustrations and guide screenshots before tapping Download. Leave it unticked if you want to download only the text.",
+        "2. Tap Download. The first download also saves the shared files needed to read the stories. These currently take up about 29.5 MB. Text adds about 2–3 MB per language; illustrations add roughly 131–458 MB. Check the current sizes shown on the cards. Keep the app open and the screen awake until completion.",
+        "3. Wait for Ready offline · with illustrations. Ready offline · text confirms only the text download. If you previously saved text only, tick the illustration option and tap Download / repair to add the pictures.",
+        "4. Tap Verify and wait for All saved files verified. If files are missing or damaged, reconnect, keep the illustration option selected and use Download / repair, then Verify again. Verify checks what was saved; it does not automatically add illustrations.",
+        "Use Pause download if needed. While online, Download or Download / repair resumes an interrupted download using the files already saved. Repeat for your other languages. Download both languages you plan to navigate between or compare. Keep using the same installed app and browser profile; downloads do not automatically transfer to another device."
+      ],
+      "url": "https://birinci.cloud/offline/",
+      "link_label": "Open Birİnci Offline"
+    },
+    {
+      "id": "offline-test",
+      "title": "Checking stories and illustrations without internet",
+      "topic": "settings",
+      "paras": [
+        "Finish downloads and verification first. Test inside the installed app, using several stories you did not open during setup. A page that was already open does not, on its own, confirm that the library works offline.",
+        "On iPad, turn on Airplane Mode in Settings, then explicitly turn Wi-Fi OFF. On cellular models, confirm Cellular Data or Mobile Data is OFF. Disconnect any wired internet adapter. Close Birİnci from the app switcher and reopen the app from its Home Screen icon while disconnected.",
+        "On Android, open Quick Settings and turn on Airplane mode or Flight mode. Explicitly switch Wi-Fi OFF and, if the tablet has a SIM, mobile data OFF. Disconnect any wired internet adapter. In Recent apps, swipe Birİnci away, then reopen the app from its icon. Do not clear app storage or uninstall it. Wi-Fi can remain on in Airplane mode, so check that it is switched off.",
+        "1. In the offline library, tap Open on the card for a downloaded language. 2. Open a previously unread story and check its title, body and moral. Tap the title to check expanded reading. 3. Confirm the actual illustration loads, not an empty frame or generic placeholder. If images were hidden, restore their display; enlarge an illustration to check its title and moral.",
+        "4. Search for another story and test at least three stories from different categories. 5. Repeat for each required language and check side-by-side comparison where needed. Return to the library using Downloads in the offline edition bar.",
+        "The check passes when the app reopens and the required text, illustrations, search and reading views work with internet connections off. Reconnect to repair any failed pack, then repeat the disconnected test. Turn your usual connections back on when finished. Feedback, external websites and updates require internet."
+      ],
+      "url": "https://birinci.cloud/offline/",
+      "link_label": "Open Birİnci Offline"
+    },
+    {
+      "id": "offline-usb",
+      "title": "USB use, updates and storage",
+      "topic": "settings",
+      "paras": [
+        "The separate Windows and macOS USB packages contain all five languages and illustrations. Extract all files from the appropriate ZIP archive and keep the Birinci-Offline folder structure intact. Copy that folder to the computer or USB stick; do not run files from inside the ZIP.",
+        "On Windows, open Start Birinci.cmd. On macOS, open Start Birinci.command; Intel and Apple Silicon launchers are included. The browser opens http://127.0.0.1:18775/. Choose a language, then select Open. Keep the server window open while reading; close it or press Ctrl+C when finished. No Python, Node or Go installation is needed.",
+        "The launchers are unsigned, so the operating system may request approval. Follow the package’s READ-ME-FIRST.txt and your system’s standard approval procedure if you trust the package. Do not disable security protections. Opening web/index.html directly does not start the USB edition correctly. USB executables do not run on iPad or Android; copying files into a tablet file manager does not install the offline app.",
+        "Before travelling, connect to the internet and use Check for updates in the installed app. If a language card shows Update available, keep the illustration option selected if you want pictures, then tap Update. Wait for the update to finish, select Verify, and repeat the test without an internet connection. A newer USB release can also require updating or removing older packs saved in the browser.",
+        "Request protected storage asks the browser to protect downloads; approval is not guaranteed. Saved packs may be removed if storage runs low or you clear website or app data. Check them before each trip. Remove illustrations keeps text; Remove language removes that language’s saved packs, while the shared files remain. Reconnect and download again if content disappears.",
+        "If installation or downloads repeatedly fail, check the internet connection and storage, keep the app open and retry Download / repair. If pictures are missing, check that the status is Ready offline · with illustrations and that images are set to be shown. Report the language and exact error through online Feedback if the problem persists."
+      ],
+      "url": "https://birinci.cloud/offline/",
+      "link_label": "Open Birİnci Offline"
+    },
+    {
+      "id": "help",
+      "shot": "help",
+      "topic": "navigation",
+      "title": "Using Help",
+      "caption": "The Help page with the Help button, guide search, topic filter and Contents panel.",
+      "paras": [
+        "Select “Help” at the end of the main navigation bar to open the user guide in your current language. It explains how to read stories, view illustrations and compare translations, send feedback and use the offline edition. On a phone or narrow tablet screen, open the three-line menu first, then select “Help”.",
+        "Enter a word or phrase in the search field to find instructions. Choose a category from the dropdown to show only its sections. The categories match the groups in Contents. Search and the category filter work together. To show the complete guide again, clear the search field and choose “All topics”.",
+        "Topics in Contents are grouped into categories. Select a category heading to expand or collapse its group, then select a topic to jump to that section. The section you are reading stays highlighted, and its group opens automatically. On wider screens, Contents remains below the search panel as you scroll. On narrow screens, open the Contents panel when needed. Select a section heading in the main content area to collapse or expand its instructions.",
+        "Select a screenshot to enlarge it; close it with × or Esc. “Link to section” provides a direct link to the relevant instructions. The page arrows take you to the top or bottom of the page. Use the language selector to open the guide in another language, or the main navigation to return to stories."
       ]
     }
   ]

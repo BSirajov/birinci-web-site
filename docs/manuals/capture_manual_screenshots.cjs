@@ -5,13 +5,15 @@ const types={'.html':'text/html; charset=utf-8','.js':'application/javascript; c
 const server=http.createServer((req,res)=>{const p=path.resolve(root,'.'+decodeURIComponent(req.url.split('?')[0]));if(!p.startsWith(root+path.sep)){res.writeHead(403);return res.end();}fs.readFile(p,(e,b)=>{res.writeHead(e?404:200,{'Content-Type':types[path.extname(p)]||'application/octet-stream'});res.end(e?'Not found':b);});});
 (async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const base='http://127.0.0.1:'+server.address().port;const browser=await chromium.launch({channel:'msedge',headless:true});const records=[];try{
 for(const lang of (process.argv.slice(2).length?process.argv.slice(2):['az','en','de','ru','ky'])){
- const dir=path.resolve('docs/manuals/screenshots-20261030',lang);fs.mkdirSync(dir,{recursive:true});
+ const dir=path.resolve('docs/manuals/screenshots-20261031',lang);fs.mkdirSync(dir,{recursive:true});
  const ctx=await browser.newContext({viewport:{width:1440,height:900},deviceScaleFactor:1,colorScheme:'light'});
  await ctx.route('**/*',r=>r.request().url().startsWith(base)?r.continue():r.abort());
  const page=await ctx.newPage();page.setDefaultTimeout(12000);
  const go=async url=>{await page.goto(base+'/'+lang+'/'+url,{waitUntil:'domcontentloaded'});await page.waitForTimeout(600);};
  const shot=async name=>{await page.evaluate(async()=>{await document.fonts.ready;await Promise.all([...document.images].filter(i=>i.getBoundingClientRect().top<innerHeight&&i.getBoundingClientRect().bottom>0).map(i=>i.decode().catch(()=>{})));});await page.screenshot({path:path.join(dir,name+'.png')});records.push({lang,name,url:page.url().replace(base,'https://birinci.cloud')});};
- await go('index.html?view=cards');await shot('home');
+ if(process.env.MANUAL_MOBILE_ONLY){const mobile=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:1,isMobile:true,hasTouch:true,colorScheme:'light'});await mobile.route('**/*',r=>r.request().url().startsWith(base)?r.continue():r.abort());const mp=await mobile.newPage();await mp.goto(base+'/'+lang+'/index.html?view=cards');await mp.locator('#nav-toggle').click();await mp.waitForTimeout(300);await mp.addStyleTag({content:'.site-header.is-nav-open .nav-toggle span{transform:none!important;opacity:1!important}'});await mp.screenshot({path:path.join(dir,'mobile.png'),animations:'disabled'});await mobile.close();console.log('Updated Fig. 8',lang);await ctx.close();continue;}
+ if(process.env.MANUAL_HELP_ONLY){await go('user-manual.html');await shot('help');await ctx.close();continue;}
+ await go('index.html?view=cards');await page.locator('[data-nav-help]').waitFor({state:'visible'});await shot('home');
  await page.locator('.lang-switcher__toggle').click();await shot('languages');await page.keyboard.press('Escape');
  await page.locator('#global-search-toggle').click();await page.locator('#global-search-input').fill({az:'dost',en:'friend',de:'Freund',ru:'друг',ky:'дос'}[lang]);await page.waitForTimeout(700);await shot('search');await page.keyboard.press('Escape');
  await go('categories/dostluq-ve-insan-munasibetleri.html');await shot('category');
@@ -27,7 +29,9 @@ for(const lang of (process.argv.slice(2).length?process.argv.slice(2):['az','en'
  await go('sitemap.html');await shot('sitemap');
  await page.locator('#site-footer').scrollIntoViewIfNeeded();await shot('footer');
  await go('about/mission-vision-values.html');await shot('mission');
+ await go('user-manual.html');await page.locator('[data-nav-help]').waitFor({state:'visible'});await shot('help');
  await ctx.close();
- const mobile=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:1,isMobile:true,hasTouch:true,colorScheme:'light'});await mobile.route('**/*',r=>r.request().url().startsWith(base)?r.continue():r.abort());const mp=await mobile.newPage();await mp.goto(base+'/'+lang+'/index.html?view=cards');await mp.locator('#nav-toggle').click();await mp.waitForTimeout(300);await mp.screenshot({path:path.join(dir,'mobile.png')});await mobile.close();console.log('Captured',lang,14,'screenshots');
+ const mobile=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:1,isMobile:true,hasTouch:true,colorScheme:'light'});await mobile.route('**/*',r=>r.request().url().startsWith(base)?r.continue():r.abort());const mp=await mobile.newPage();await mp.goto(base+'/'+lang+'/index.html?view=cards');await mp.locator('#nav-toggle').click();await mp.waitForTimeout(300);await mp.addStyleTag({content:'.site-header.is-nav-open .nav-toggle span{transform:none!important;opacity:1!important}'});await mp.screenshot({path:path.join(dir,'mobile.png'),animations:'disabled'});await mobile.close();console.log('Captured',lang,14,'screenshots');
 }fs.writeFileSync('tmp/manual-refresh/screenshot-records.json',JSON.stringify(records,null,2));
 }finally{await browser.close();server.close();}})().catch(e=>{console.error(e);server.close();process.exitCode=1;});
+

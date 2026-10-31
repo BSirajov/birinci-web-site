@@ -3,9 +3,13 @@ from pathlib import Path
 import html
 import json
 import re
+import io
+import time
+from manual_button_images import render_button_paragraph
 
 ROOT = Path(__file__).resolve().parents[1]
 LANGS = ('az', 'de', 'en', 'ky', 'ru')
+FIGURE_LABELS = {'az': 'Şəkil', 'en': 'Fig.', 'de': 'Abb.', 'ru': 'Рис.', 'ky': 'Сүрөт'}
 LABELS = {
  'az': ['İstifadəçi təlimatı','Sayta qayıt','Təlimatda axtar','Mövzu','Bütün mövzular','Naviqasiya','Hekayələri oxuma','Dil müqayisəsi','Rəy və təklif','Mobil və ayarlar','Təmizlə','Hamısını aç','Hamısını yığ','Çap et / PDF','bölmə','Uyğun bölmə tapılmadı. Axtarışı və ya mövzu filtrini dəyişin.','Şəkli böyüt','Bağla','Bölməyə keçid','Yuxarı','Saytın xəritəsi','Əsas məzmuna keç','Dillər'],
  'en': ['User guide','Back to website','Search this guide','Topic','All topics','Navigation','Reading stories','Language comparison','Feedback','Mobile and settings','Clear','Expand all','Collapse all','Print / PDF','sections','No matching sections. Try another search or topic.','Enlarge screenshot','Close','Link to section','Back to top','Sitemap','Skip to content','Languages'],
@@ -14,11 +18,41 @@ LABELS = {
  'ky': ['Колдонуучу колдонмосу','Сайтка кайтуу','Колдонмодон издөө','Тема','Бардык темалар','Навигация','Аңгемелерди окуу','Тилдерди салыштыруу','Пикир','Телефон жана жөндөөлөр','Тазалоо','Баарын ачуу','Баарын жабуу','Басып чыгаруу / PDF','бөлүм','Туура келген бөлүм табылган жок. Издөөнү же теманы өзгөртүңүз.','Сүрөттү чоңойтуу','Жабуу','Бөлүмгө шилтеме','Жогору','Сайт картасы','Мазмунга өтүү','Тилдер'],
 }
 GROUPS = ['navigation','reading','navigation','reading','reading','comparison','settings','settings','feedback','feedback','navigation','navigation']
-TOPICS = ['navigation','reading','comparison','feedback','settings']
+CONTENTS_GROUPS = [
+ ('navigation', ['home','search','sitemap','help','footer']),
+ ('reading', ['category','story','reading','comparison']),
+ ('devices', ['languages','mobile']),
+ ('offline', ['offline-install','offline-download','offline-test','offline-usb']),
+ ('feedback', ['feedback','attachment']),
+]
+CONTENTS_LABELS = {
+ 'az': ['Başlanğıc və naviqasiya','Hekayələrin oxunması','Cihazlar və istifadəçi seçimləri','Oflayn istifadə','Rəy və təkliflər'],
+ 'en': ['Getting started and navigation','Reading stories','Devices and preferences','Offline use','Feedback'],
+ 'de': ['Einstieg und Navigation','Geschichten lesen','Geräte und Einstellungen','Offline-Nutzung','Feedback'],
+ 'ru': ['Начало работы и навигация','Чтение рассказов','Устройства и настройки','Использование без интернета','Обратная связь'],
+ 'ky': ['Баштоо жана багыт алуу','Аңгемелерди окуу','Түзмөктөр жана жөндөөлөр','Интернетсиз колдонуу','Пикир билдирүү'],
+}
+TOPICS = [key for key, _ in CONTENTS_GROUPS]
+
+def grouped_contents(items, lang):
+    expected = [topic for _, topics in CONTENTS_GROUPS for topic in topics]
+    assert len(expected) == len(set(expected)) and set(expected) == set(items), 'Every topic must appear exactly once'
+    return ''.join(f'<li class="contents-category"><details class="contents-group" open><summary>{e(CONTENTS_LABELS[lang][i])}</summary><ol>{"".join(items[t] for t in topics)}</ol></details></li>' for i, (_, topics) in enumerate(CONTENTS_GROUPS))
 e = html.escape
 
 def sitemap_link(lang):
     return f'<a class="sitemap-jump__chip sitemap-jump__chip--manual" href="user-manual.html">{e(LABELS[lang][0])}</a>'
+
+def render_help_paragraph(text, lang, anchor, index):
+    rendered = render_button_paragraph(text, lang, anchor, index)
+    # Link only the plain homepage address, leaving sentence punctuation and
+    # longer addresses (such as the offline edition) untouched.
+    parts = re.split(r'(<[^>]+>)', rendered)
+    for i in range(0, len(parts), 2):
+        parts[i] = re.sub(r'https://birinci\.cloud(?![\w/])',
+                          '<a href="https://birinci.cloud">https://birinci.cloud</a>', parts[i])
+    return ''.join(parts)
+
 
 def main():
     from lxml import html as lh
@@ -50,23 +84,39 @@ def main():
         site_css = site.xpath('//link[contains(@href,"assets/site.css")]/@href')[0]
         site_js = site.xpath('//script[contains(@src,"assets/site.js")]/@src')[0]
         i18n_js = site.xpath('//script[contains(@src,"assets/i18n.js")]/@src')[0]
-        sections, contents = [], []
+        sections, contents = [], {}
+        figure_number = 0
         for i, s in enumerate(m['sections']):
-            anchor = s['shot']
-            dest = ROOT / 'assets/manuals' / lang / f'{anchor}.webp'
-            dest.parent.mkdir(parents=True, exist_ok=True)
-            source = ROOT / 'docs/manuals/screenshots-20261030' / lang / f'{anchor}.png'
-            with Image.open(source) as im:
-                w, h = im.size
-                if not dest.exists() or dest.stat().st_mtime < source.stat().st_mtime:
-                    im.save(dest, 'WEBP', quality=88, method=6)
-            contents.append(f'<li><a href="#{anchor}" data-section="{anchor}">{e(s["title"])}</a></li>')
-            paras = ''.join(f'<p data-search-text>{e(p)}</p>' for p in s['paras'])
-            sections.append(f'''<section class="guide-section" data-topic="{GROUPS[i]}" id="{anchor}">
+            anchor = s.get('id') or s['shot']
+            figure = ''
+            if s.get('shot'):
+                figure_number += 1
+                dest = ROOT / 'assets/manuals' / lang / f'{anchor}.webp'
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                source = ROOT / 'docs/manuals/screenshots-20261031' / lang / f'{anchor}.png'
+                with Image.open(source) as im:
+                    w, h = im.size
+                    if not dest.exists() or dest.stat().st_mtime < source.stat().st_mtime:
+                        buffer = io.BytesIO()
+                        im.save(buffer, 'WEBP', quality=88, method=6)
+                        for attempt in range(5):
+                            try:
+                                dest.write_bytes(buffer.getvalue())
+                                break
+                            except OSError:
+                                if attempt == 4: raise
+                                time.sleep(0.5)
+                figure = f'<figure><a class="screenshot" href="../assets/manuals/{lang}/{anchor}.webp" aria-label="{e(t[16])}: {e(s["title"])}"><img src="../assets/manuals/{lang}/{anchor}.webp" width="{w}" height="{h}" loading="lazy" decoding="async" alt="{e(s["caption"])}"></a><figcaption data-search-text>{e(FIGURE_LABELS[lang])} {figure_number}. {e(s["caption"])}</figcaption></figure>'
+            contents[anchor] = f'<li><a href="#{anchor}" data-section="{anchor}">{e(s["title"])}</a></li>'
+            paras = ''.join(f'<p data-search-text>{render_help_paragraph(p, lang, anchor, j)}</p>' for j, p in enumerate(s['paras']))
+            if s.get('url'):
+                paras += f'<p><a href="{e(s["url"])}">{e(s["link_label"])}</a></p>'
+            topic = next(key for key, members in CONTENTS_GROUPS if anchor in members)
+            sections.append(f'''<section class="guide-section" data-topic="{topic}" id="{anchor}">
 <details open><summary><h2 data-search-text>{e(s['title'])}</h2></summary>
-<div class="section-body">{paras}<figure><a class="screenshot" href="../assets/manuals/{lang}/{anchor}.webp" aria-label="{e(t[16])}: {e(s['title'])}"><img src="../assets/manuals/{lang}/{anchor}.webp" width="{w}" height="{h}" loading="lazy" decoding="async" alt="{e(s['caption'])}"></a><figcaption data-search-text>{e(s['caption'])}</figcaption></figure>
+<div class="section-body">{paras}{figure}
 <a class="permalink" href="#{anchor}">{e(t[18])} ↗</a></div></details></section>''')
-        options = ''.join(f'<option value="{g}">{e(t[j+5])}</option>' for j,g in enumerate(TOPICS))
+        options = ''.join(f'<option value="{g}">{e(CONTENTS_LABELS[lang][j])}</option>' for j,g in enumerate(TOPICS))
         alternates = ''.join(f'<link rel="alternate" hreflang="{l}" href="https://birinci.cloud/{l}/user-manual.html">' for l in LANGS)
         page = f'''<!doctype html>
 <html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light"><title>{e(m['title'])} · Birİnci</title><meta name="description" content="{e(m['intro'])}"><link rel="canonical" href="https://birinci.cloud/{lang}/user-manual.html">{alternates}<link rel="icon" href="../assets/favicon.ico"><link rel="stylesheet" href="{site_css}"><link rel="stylesheet" href="../assets/user-manual.css?v={SITE_ASSET_VERSION}"><script src="{i18n_js}"></script><script src="{site_js}" defer></script><script src="../assets/user-manual.js?v={SITE_ASSET_VERSION}" defer></script></head>
@@ -82,7 +132,7 @@ def main():
 </div><div class="intro__visual"><img src="../assets/pearl-hero.webp" alt="" width="1536" height="1024" decoding="async"></div></div>
 </section>
 <div class="manual-content">
-<div class="layout"><aside><nav aria-label="{e(m['contents'])}"><h2>{e(m['contents'])}<button type="button" class="contents-toggle" aria-expanded="false" aria-controls="manual-contents-list" aria-label="{e(m['contents'])}" hidden><span aria-hidden="true">☰</span></button></h2><ol id="manual-contents-list">{''.join(contents)}</ol></nav></aside>
+<div class="layout"><aside><nav aria-label="{e(m['contents'])}"><h2>{e(m['contents'])}<button type="button" class="contents-toggle" aria-expanded="false" aria-controls="manual-contents-list" aria-label="{e(m['contents'])}" hidden><span aria-hidden="true">☰</span></button></h2><ol id="manual-contents-list">{grouped_contents(contents,lang)}</ol></nav></aside>
 <main id="main">
 <p id="no-results" role="status" hidden>{e(t[15])}</p>{''.join(sections)}</main></div>
 <dialog id="screenshot-dialog" aria-labelledby="screenshot-caption"><button type="button" id="close-dialog">{e(t[17])} ×</button><img alt=""><p id="screenshot-caption"></p></dialog></div>
@@ -96,7 +146,7 @@ def main():
         text = re.sub(r'(<a class="sitemap-jump__chip sitemap-jump__chip--languages"[^>]*>.*?</a>)',
                       lambda match: match[1] + sitemap_link(lang), text, count=1)
         _atomic_write_text(sitemap, text)
-    print('Built 5 HTML guides with 60 optimized screenshots.')
+    print('Built 5 HTML guides with localized optimized screenshots.')
 
 if __name__ == '__main__':
     main()

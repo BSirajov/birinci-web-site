@@ -10,13 +10,45 @@ const server=http.createServer((req,res)=>{const p=path.resolve(root,'.'+decodeU
  const browser=await chromium.launch({channel:'msedge',headless:true});
  fs.mkdirSync('tmp/manual-html',{recursive:true});
  try {
- for(const lang of ['az','de','en','ky','ru']) {
+ for(const lang of (process.argv.slice(2).length?process.argv.slice(2):['az','de','en','ky','ru'])) {
+  const source=JSON.parse(fs.readFileSync(`docs/manuals/manual-${lang}.json`,'utf8'));
+  const sectionCount=source.sections.length;
   const ctx=await browser.newContext({viewport:{width:1440,height:1000},colorScheme:'dark'});
   const page=await ctx.newPage(),errors=[];
   page.on('pageerror',e=>errors.push(e.message));
   page.on('response',r=>{if(r.status()>=400)errors.push(r.url()+': '+r.status());});
   await page.goto(`${base}/${lang}/user-manual.html`);
-  assert.equal(await page.locator('.guide-section').count(),12);
+  const checkReadingTypography=async()=>{
+   const storyPage=await ctx.newPage();
+   await storyPage.setViewportSize(page.viewportSize());
+   await storyPage.goto(`${base}/${lang}/categories/dostluq-ve-insan-munasibetleri.html`);
+   const typography=el=>{const s=getComputedStyle(el);return Object.fromEntries(['fontFamily','fontSize','lineHeight','fontWeight','marginTop','marginBottom'].map(k=>[k,s[k]]));};
+   const expected=await storyPage.locator('.story__text p').first().evaluate(typography);
+   const actual=await page.locator('.section-body > p').first().evaluate(typography);
+   assert.deepEqual(actual,expected,`${lang}: Help and story typography at ${page.viewportSize().width}px`);
+   await storyPage.close();
+  };
+  await checkReadingTypography();
+  assert.equal(await page.locator('.guide-section').count(),sectionCount);
+  assert.equal(await page.locator('.contents-group').count(),5);
+  const entries=await page.locator('#manual-contents-list [data-section]').evaluateAll(nodes=>nodes.map(n=>[n.dataset.section,n.textContent]));
+  assert.equal(new Set(entries.map(([id])=>id)).size,sectionCount);
+  assert.equal(entries.length,sectionCount);
+  for(const s of source.sections)assert(entries.some(([id,title])=>id===(s.id||s.shot)&&title===s.title));
+  await page.locator('.contents-group').last().locator('summary').click();
+  assert(await page.locator('.contents-group').last().evaluate(n=>n.open));
+  await page.locator('.contents-group').last().locator('summary').click();
+  assert(!(await page.locator('.contents-group').last().evaluate(n=>n.open)));
+  assert.equal(await page.locator('#help .screenshot img').count(),1);
+  const buttonCount=await page.locator('img.button-reference').count();
+  assert(buttonCount>60,`${lang}: inline button references throughout the guide`);
+  assert.equal(await page.locator('#category img[src$="/clear-filter.png"]').count(),1);
+  await page.locator('img.button-reference').evaluateAll(async images=>{
+    await Promise.all(images.map(img=>{img.loading='eager';return img.decode();}));
+    if(images.some(img=>!img.naturalWidth||img.getBoundingClientRect().height>26))throw Error('Missing or oversized button reference');
+  });
+  assert.equal(await page.locator('[data-nav-help]').getAttribute('href'),'user-manual.html');
+  assert(await page.locator('#help').textContent().then(t=>t.includes({az:'Kömək',en:'Help',de:'Hilfe',ru:'Помощь',ky:'Жардам'}[lang])));
   assert.equal(await page.locator('.manual-tools button').count(),0);
   assert(await page.evaluate(()=>{const a=document.querySelector('.manual-tools').getBoundingClientRect(),b=document.querySelector('.breadcrumbs').getBoundingClientRect();return Math.abs(a.left-b.left)<1&&Math.abs(a.width-b.width)<1;}));
   await page.evaluate(()=>scrollTo(0,1200));
@@ -26,29 +58,40 @@ const server=http.createServer((req,res)=>{const p=path.resolve(root,'.'+decodeU
   assert(await page.evaluate(()=>{const a=document.querySelector('.manual-tools').getBoundingClientRect(),b=document.querySelector('.breadcrumbs').getBoundingClientRect();return Math.abs(a.top-b.bottom)<2;}));
   await page.locator('#back-to-top').click();
   await page.waitForFunction(()=>scrollY<5);
-  assert.equal(await page.locator('.guide-section:visible').count(),12);
+  assert.equal(await page.locator('.guide-section:visible').count(),sectionCount);
   for (const id of ['story','comparison','feedback']) {
     await page.locator('#'+id).evaluate(n=>n.scrollIntoView());
     await page.waitForFunction(id=>document.querySelector('aside a[data-section="'+id+'"]').getAttribute('aria-current')==='location',id);
-    assert(await page.locator('aside a[data-section="'+id+'"]').evaluate(a=>{const r=a.getBoundingClientRect(),p=a.closest('ol').getBoundingClientRect();return r.top>=p.top-1&&r.bottom<=p.bottom+1;}));
+    assert(await page.locator('aside a[data-section="'+id+'"]').evaluate(a=>{const r=a.getBoundingClientRect(),p=a.closest('#manual-contents-list').getBoundingClientRect();return a.closest('details').open&&r.top>=p.top-1&&r.bottom<=p.bottom+1;}));
   }
-  const source=JSON.parse(fs.readFileSync(`docs/manuals/manual-${lang}.json`,'utf8'));
   for (const s of source.sections) for (const p of s.paras) assert((await page.locator('main').textContent()).includes(p));
+  await page.locator('#guide-search').fill('birinci.cloud/offline');
+  assert(await page.locator('#offline-install').isVisible());
+  assert.equal(await page.locator('#offline-install a[href="https://birinci.cloud/offline/"]').count(),1);
+  await page.locator('#guide-search').fill('');
+  const categoryNames=await page.locator('.contents-group>summary').allTextContents();
+  assert.deepEqual(await page.locator('#guide-topic option:not([value="all"])').allTextContents(),categoryNames);
+  await page.locator('#guide-topic').selectOption('offline');
+  for(const id of ['offline-install','offline-download','offline-test','offline-usb']) assert(await page.locator('#'+id).isVisible());
+  assert.equal(await page.locator('.contents-category:visible').count(),1);
   await page.locator('#guide-topic').selectOption('feedback');
   assert.equal(await page.locator('.guide-section:visible').count(),2);
   await page.locator('#guide-search').fill('PDF');
+  assert.equal(await page.locator('img.button-reference').count(),buttonCount,'search preserves button screenshots');
   assert((await page.locator('mark').count())>0);
   assert((await page.locator('.guide-section:visible').count())>=1);
   await page.reload();assert.equal(await page.locator('#guide-search').inputValue(),'PDF');
   await page.locator('#guide-search').fill('zz-no-match-123');assert(await page.locator('#no-results').isVisible());
-  await page.locator('#guide-search').fill(''); await page.locator('#guide-topic').selectOption('all');assert.equal(await page.locator('.guide-section:visible').count(),12);
+  await page.locator('#guide-search').fill(''); await page.locator('#guide-topic').selectOption('all');assert.equal(await page.locator('.guide-section:visible').count(),sectionCount);
+  assert.equal(await page.locator('img.button-reference').count(),buttonCount,'reset preserves button screenshots');
   await page.locator('.guide-section summary').evaluateAll(nodes=>nodes.forEach(n=>n.click()));assert.equal(await page.locator('.guide-section details[open]').count(),0);
+  await page.locator('aside a[href="#comparison"]').evaluate(a=>a.closest('details').open=true);
   await page.locator('aside a[href="#comparison"]').click();assert(await page.locator('#comparison details').getAttribute('open')!==null);
   await page.locator('#comparison .screenshot').click();assert(await page.locator('dialog').isVisible());
   await page.keyboard.press('Escape');assert(!(await page.locator('dialog').isVisible()));
-  await page.locator('.guide-section:not(:has(details[open])) summary').evaluateAll(nodes=>nodes.forEach(n=>n.click()));assert.equal(await page.locator('.guide-section details[open]').count(),12);
+  await page.locator('.guide-section:not(:has(details[open])) summary').evaluateAll(nodes=>nodes.forEach(n=>n.click()));assert.equal(await page.locator('.guide-section details[open]').count(),sectionCount);
   await page.evaluate(()=>{dispatchEvent(new Event('beforeprint'));});
-  assert.equal(await page.locator('.guide-section details[open]').count(),12);
+  assert.equal(await page.locator('.guide-section details[open]').count(),sectionCount);
   await page.evaluate(()=>{dispatchEvent(new Event('afterprint'));});
   await page.locator('.lang-switcher__toggle').click(); await page.locator('.lang-switcher__option[data-lang="en"]').click();assert(new URL(page.url()).pathname==='/en/user-manual.html');
   await page.goto(`${base}/${lang}/user-manual.html`);
@@ -59,10 +102,14 @@ const server=http.createServer((req,res)=>{const p=path.resolve(root,'.'+decodeU
   await page.evaluate(()=>scrollTo(0,0));
   await page.screenshot({path:`tmp/manual-html/${lang}-desktop.png`});
   await page.setViewportSize({width:390,height:844});
+  await checkReadingTypography();
   assert(!(await page.locator('#manual-contents-list').isVisible()));
   await page.locator('.contents-toggle').click(); assert(await page.locator('#manual-contents-list').isVisible());
   await page.keyboard.press('Escape'); assert(!(await page.locator('#manual-contents-list').isVisible()));
-  await page.locator('.contents-toggle').click(); await page.locator('aside a[href="#story"]').click();
+  await page.locator('.contents-toggle').click();
+  const readingGroup=page.locator('.contents-group').filter({has:page.locator('a[href="#story"]')});
+  if(!(await readingGroup.evaluate(n=>n.open)))await readingGroup.locator('summary').click();
+  await page.locator('aside a[href="#story"]').click();
   assert(!(await page.locator('#manual-contents-list').isVisible()));
   await page.waitForFunction(()=>document.querySelector('aside a[href="#story"]').getAttribute('aria-current')==='location');
   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
@@ -76,10 +123,10 @@ const server=http.createServer((req,res)=>{const p=path.resolve(root,'.'+decodeU
   await page.locator('#site-footer').scrollIntoViewIfNeeded();
   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
   await page.screenshot({path:`tmp/manual-html/${lang}-footer-mobile.png`});
-  await page.locator('#guide-topic').selectOption('reading');assert.equal(await page.locator('.guide-section:visible').count(),3);
+  await page.locator('#guide-topic').selectOption('reading');assert.equal(await page.locator('.guide-section:visible').count(),4);
   await page.locator('#story .screenshot').click();await page.locator('#close-dialog').click();assert(!(await page.locator('dialog').isVisible()));
   assert.deepEqual(errors,[]);await ctx.close();
-  const nojs=await browser.newContext({javaScriptEnabled:false});const fallback=await nojs.newPage();await fallback.goto(`${base}/${lang}/user-manual.html`);assert.equal(await fallback.locator('.guide-section:visible').count(),12);await nojs.close();
+  const nojs=await browser.newContext({javaScriptEnabled:false});const fallback=await nojs.newPage();await fallback.goto(`${base}/${lang}/user-manual.html`);assert.equal(await fallback.locator('.guide-section:visible').count(),sectionCount);await nojs.close();
   console.log('PASS',lang,'content, search, filters, URL state, anchors, dialog, print, mobile/dark, no-JS');
  }
  }finally{await browser.close();server.close();}

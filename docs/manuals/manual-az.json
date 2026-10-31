@@ -2,119 +2,119 @@
   "lang": "az",
   "title": "Birİnci saytının istifadə qaydası",
   "subtitle": "Azərbaycan dilində istifadəçi təlimatı",
-  "date": "30 oktyabr 2026",
+  "date": "31 oktyabr 2026",
   "contents": "Mündəricat",
   "figure": "Şəkil",
-  "intro": "Bu təlimat Birİnci saytında hekayə tapmağı, oxumağı, illüstrasiyalara baxmağı, dilləri müqayisə etməyi və rəy göndərməyi izah edir. Kompüter və telefon üçün göstərişlər, ekran şəkilləri və qısa yaddaş vərəqi daxildir. Oxumaq üçün hesab yaratmaq lazım deyil.",
-  "scope": "Təlimat ictimai hekayə səhifələrini əhatə edir. Səsli oxuma və hesab qeydiyyatı hazırda təqdim edilmir. Kəşf və ixtiralar bölməsi ictimai nəşrə daxil deyil.",
+  "intro": "Bu təlimatda Birİnci saytında hekayələrin axtarılması və oxunması, illüstrasiyalara baxılması, müxtəlif dillərdəki mətnlərin müqayisəsi və rəy göndərilməsi izah olunur. Təlimata kompüter və telefondan istifadə qaydaları, ekran şəkilləri və qısa yaddaş vərəqi daxildir. Hekayələri oxumaq üçün qeydiyyatdan keçmək tələb olunmur. iPad və Android planşetlərində oflayn versiyanın quraşdırılması, dil paketlərinin yüklənməsi və Windows ilə macOS sistemlərində USB daşıyıcısından istifadə qaydaları da burada açıqlanır.",
+  "scope": "Təlimat saytın istifadəçilərə açıq olan hekayə səhifələrini əhatə edir. Hazırda hekayələrin səsləndirilməsi və istifadəçi hesabının yaradılması nəzərdə tutulmayıb. Kəşf və ixtiralar bölməsi saytın yayımlanan versiyasına daxil deyil.",
   "sections": [
     {
-      "title": "Saytda naviqasiya və dil seçimi",
+      "title": "Saytda bölmələrə keçid və dilin seçilməsi",
       "shot": "home",
-      "caption": "Ana səhifədə əsas menyu, dil seçimi və kateqoriya kartları.",
+      "caption": "Əsas menyu, Kömək düyməsi, dil seçicisi və kateqoriya vərəqləri olan ana səhifə.",
       "paras": [
-        "Sayta https://birinci.cloud ünvanından daxil olun. Birİnci loqosu ana girişə aparır. Əsas menyuda «İbrətamiz hekayələr», «Haqqımızda», ayrıca «Rəy və təklif» və «Saytın xəritəsi» keçidləri var. «Haqqımızda» menyusundan məram və hüquqi məlumat səhifələrinə keçə bilərsiniz.",
-        "Başlığın sağındakı dil düyməsini açın və istədiyiniz dili seçin: AZ — Azərbaycan, DE — Deutsch, EN — English, KY — Кыргызча, RU — Русский. Düymələr Latin əlifbasına görə kod sırası ilə verilir. Qarşılığı varsa, dil dəyişərkən eyni səhifə və hekayə saxlanılır.",
-        "Başlığın altındakı naviqasiya yolu sizi ana səhifəyə və əvvəlki bölməyə qaytarır. Sağ aşağıdakı oxlar səhifənin sonuna və əvvəlinə aparır. Altlıqda əlaqə, rəy, hüquqi məlumat və sayt xəritəsi keçidləri var; QR kod saytı başqa cihazda açmağa imkan verir.",
-        "Klaviatura ilə hərəkət üçün Tab istifadə edin. İlk keçid «Məzmuna keç» görünəndə Enter basaraq əsas məzmuna keçin. Seçilmiş düyməni Enter və ya boşluq düyməsi ilə işə salın."
+        "Sayta https://birinci.cloud ünvanından daxil olun. Birİnci loqosuna basdıqda saytın giriş səhifəsi açılır. Əsas menyuda «İbrətamiz hekayələr», «Haqqımızda», «Rəy və təklif», «Saytın xəritəsi» və «Kömək» keçidləri yerləşir. «Haqqımızda» menyusundan saytın məramı və hüquqi məlumatlarla tanış ola bilərsiniz. «Kömək» düyməsi seçdiyiniz dildə istifadəçi təlimatını açır.",
+        "Saytın yuxarı sağ hissəsindəki dil düyməsinə basaraq istədiyiniz dili seçin: AZ — Azərbaycan, DE — Deutsch, EN — English, KY — Кыргызча, RU — Русский. Dil kodları latın əlifbası sırası ilə düzülüb. Açıq olan səhifənin və ya hekayənin seçdiyiniz dildə qarşılığı varsa, həmin məzmuna keçəcəksiniz.",
+        "Əsas menyunun altındakı keçidlər vasitəsilə ana səhifəyə və əvvəlki bölməyə qayıda bilərsiniz. Sağ aşağı küncdəki oxlar səhifənin əvvəlinə və sonuna keçmək üçündür. Səhifənin aşağı hissəsində əlaqə, rəy, hüquqi məlumat və sayt xəritəsi keçidləri yerləşir. QR-kodu skan edərək saytı başqa cihazda aça bilərsiniz.",
+        "Keçidlər və düymələr arasında hərəkət etmək üçün Tab düyməsindən istifadə edin. «Məzmuna keç» keçidi seçildikdə Enter düyməsini basaraq əsas məzmuna keçin. Seçilmiş düyməni Enter və ya boşluq düyməsi ilə aktivləşdirə bilərsiniz."
       ]
     },
     {
-      "title": "Hekayələri seçmək və süzmək",
+      "title": "Hekayələrin seçilməsi və filtrlənməsi",
       "shot": "category",
       "caption": "Kateqoriya səhifəsində axtarış, müəllif filtri və görünüş düymələri.",
       "paras": [
-        "«Təsnifatlı» görünüşdə mövzu kartlarını görürsünüz. Hər kartda kateqoriyanın adı, qısa təsviri və hekayə sayı göstərilir. Mövzunu seçərək kateqoriyanı açın. «Ardıcıl» görünüş hekayələri oxumaq üçün siyahı şəklində təqdim edir.",
-        "Sol «Hekayələr» panelində başlığa basın: səhifə həmin hekayəyə keçir. Qısa hekayə kartını seçdikdə də siyahı görünüşündə müvafiq hekayə açılır. Başlıq yanındakı saylar cari səhifəyə aiddir və məzmun yeniləndikcə dəyişə bilər.",
-        "«Müəllif» siyahısından müəllif seçin; bütün məzmunu qaytarmaq üçün «Bütün müəlliflər» seçiminə qayıdın. Kateqoriya seçimi görünən yerdə mövzunu da dəyişə bilərsiniz. Filtr çipindəki × və ya «Filtri təmizlə» seçimi müvafiq filtri silir.",
-        "Siyahının alətlər panelindəki şəkil və mətn düymələri səhifədəki hekayələrin görünüşünü idarə edir. Ayrı hekayədəki düymələr həmin hekayə ilə işləməyə imkan verir. Hekayələr üçün təsadüfi qarışdırma və «Hamısını aç» düymələri yoxdur."
+        "«Təsnifatlı» görünüşdə hekayələr mövzular üzrə vərəqlərdə təqdim olunur. Hər vərəqdə kateqoriyanın adı, qısa təsviri və hekayələrin sayı göstərilir. Kateqoriyanı açmaq üçün müvafiq mövzunu seçin. «Ardıcıl» görünüşdə isə hekayələr oxumaq üçün vahid siyahıda göstərilir.",
+        "Soldakı «Hekayələr» panelində başlığa basaraq həmin hekayəyə keçin. Hekayənin qısa təqdimat vərəqini seçdikdə də müvafiq mətn siyahıda açılır. Başlıqların yanındakı rəqəmlər həmin səhifədəki hekayələrin sayını göstərir və məzmun yeniləndikcə dəyişə bilər.",
+        "«Müəllif» siyahısından istədiyiniz müəllifi seçin. Müəllif seçimini ləğv etmək üçün «Bütün müəlliflər» seçin. Kateqoriya seçimi olan səhifələrdə mövzunu da dəyişə bilərsiniz. Axtarış sahəsinin yanındakı × düyməsi («Filtri təmizlə») yalnız axtarış mətnini silir; müəllif və kateqoriya seçimlərini dəyişmir.",
+        "Siyahının alətlər panelindəki düymələr səhifədəki hekayələrin mətn və şəkillərini göstərmək və ya gizlətmək üçündür. Hekayənin daxilindəki düymələr isə yalnız həmin hekayəyə təsir edir. Hekayələri təsadüfi ardıcıllıqla göstərmək və ya hamısını birdən açmaq üçün ayrıca düymə yoxdur."
       ]
     },
     {
-      "title": "Səhifədə və bütün saytda axtarış",
+      "title": "Səhifədə və bütün saytda axtarışın aparılması",
       "shot": "search",
       "caption": "Qlobal axtarışda sorğuya uyğun hekayələr və onların dil kodları.",
       "paras": [
-        "Səhifənin alətlər panelindəki «Axtar…» sahəsi cari səhifənin kartlarını və ya hekayələrini süzür. Sözü yazın, uyğun nəticəni seçin. Nəticə yoxdursa, sözü qısaldın və aktiv müəllif və kateqoriya filtrlərini yoxlayın. Axtarış mətnini silməklə siyahını bərpa edin.",
-        "Bütün dillərdə axtarmaq üçün sayt başlığındakı lupa və ya «Axtar…» düyməsinə basın. Ctrl+K qısayolu da qlobal axtarış pəncərəsini açır. Sorğunu yazdıqdan sonra nəticələrdə hekayənin adını, dilini və kateqoriyasını yoxlayın.",
-        "Nəticəni seçdikdə hekayənin yerləşdiyi səhifə açılır. Başqa dilin nəticəsini seçsəniz, həmin dildəki səhifəyə keçəcəksiniz. Axtarış pəncərəsini ×, Esc və ya pəncərədən kənardakı tünd fonla bağlamaq olar.",
-        "Sayt xəritəsinin ayrıca axtarış sahəsi yalnız xəritədəki bölmə və hekayə keçidlərini süzür. Bu sahəni bütün saytı əhatə edən qlobal axtarışla qarışdırmayın."
+        "Səhifənin alətlər panelindəki «Axtar…» sahəsi cari səhifənin vərəqlərini və ya hekayələrini filtrləyir. Axtardığınız sözü yazın və uyğun nəticəni seçin. Nəticə yoxdursa, sözü qısaldın və aktiv müəllif və kateqoriya filtrlərini yoxlayın. Axtarış mətnini silməklə siyahını bərpa edin.",
+        "Bütün dillərdə axtarmaq üçün saytın yuxarı hissəsindəki lupa və ya «Axtar…» düyməsinə basın. Ctrl+K qısayolu da bütün sayt üzrə axtarış pəncərəsini açır. Sorğunu yazdıqdan sonra nəticələrdə hekayənin adını, dilini və kateqoriyasını yoxlayın.",
+        "Axtarış nəticəsini seçdikdə hekayənin yerləşdiyi səhifə açılır. Nəticə başqa dildədirsə, həmin dildəki səhifəyə keçəcəksiniz. Axtarış pəncərəsini bağlamaq üçün × işarəsinə, Esc düyməsinə və ya pəncərədən kənardakı tünd sahəyə basın.",
+        "Sayt xəritəsindəki axtarış sahəsi yalnız həmin səhifədəki bölmə və hekayə keçidlərini filtrləyir. Bütün saytda axtarış aparmaq üçün yuxarıdakı ümumi axtarışdan istifadə edin."
       ]
     },
     {
-      "title": "Hekayə mətni və illüstrasiyalar",
+      "title": "Hekayələrin mətni və illüstrasiyaları",
       "shot": "story",
-      "caption": "Hekayə mətni, açıq krem rəngli ibrət paneli və şəkil idarələri.",
+      "caption": "Hekayə mətni, açıq krem rəngli ibrət paneli və şəkillərin göstərilməsi və gizlədilməsi düymələri.",
       "paras": [
         "Hekayə başlıqdan, əsas mətndən, ibrət hissəsindən və illüstrasiyadan ibarətdir. İbrət açıq krem rəngli paneldə vurğulanır. Hekayə səhifələrində illüstrasiyalar ilk açılışda görünür; onları görmək üçün əvvəlcə «Şəkli göstər» düyməsinə basmaq lazım deyil.",
-        "Şəkli gizlətmək üçün «Şəkli gizlət», geri qaytarmaq üçün «Şəkli göstər» seçin. Mətn üçün ayrıca göstərmə və gizlətmə düymələri var. Mətnlə şəkli eyni vaxtda gizlətmək olmaz: ən azı biri görünməlidir. Telefonda mətn idarələri gizlənə bilər və mətn oxumaq üçün açıq qalır.",
-        "Müəllif adı və konkret mənbə göstərilibsə, onları hekayənin yanında oxuyun. Bütün hekayələrin altında eyni ümumi mənbə qeydi təkrarlanmır. Saytın ümumi redaktə və süni intellektlə yaradılmış illüstrasiyalar haqqında qeydi giriş hissəsində ola bilər; bu, ayrıca hekayənin müəllif krediti ilə eyni deyil.",
+        "İllüstrasiyanı gizlətmək üçün «Şəkli gizlət», yenidən göstərmək üçün «Şəkli göstər» düyməsini seçin. Mətnin göstərilməsi və gizlədilməsi üçün ayrıca düymələr var. Mətnlə şəkli eyni vaxtda gizlətmək mümkün deyil: onlardan ən azı biri görünməlidir. Telefonda mətn düymələri göstərilməsə də, mətn yenə də görünür və onu oxumaq mümkündür.",
+        "Müəllif və mənbə haqqında məlumat verilibsə, həmin məlumatı hekayənin yanında görə bilərsiniz. Eyni ümumi mənbə qeydi bütün hekayələrin altında təkrarlanmır. Redaktə və süni intellektlə hazırlanmış illüstrasiyalar haqqında ümumi qeyd giriş hissəsində verilə bilər. Bu qeyd ayrı-ayrı hekayələrin müəllifi və mənbəyi haqqında məlumatı əvəz etmir.",
         "Hekayəyə keçdikdən sonra brauzerdəki ünvanı kopyalayaraq paylaşa bilərsiniz. Ünvanın sonundakı # işarəsi və hekayə identifikatoru saxlanmalıdır; məsələn, #friendship-of-horses."
       ]
     },
     {
-      "title": "Mətni və şəkli böyütmək",
+      "title": "Mətnin və şəkillərin böyüdülməsi",
       "shot": "reading",
       "caption": "Başlığa basdıqda açılan geniş oxu pəncərəsi.",
       "paras": [
-        "Hekayə başlığının özünə basın. Geniş oxu pəncərəsində mətni, ibrəti və mövcud müəllif və mənbə məlumatını oxuyun. Uzun mətn üçün pəncərənin içində sürüşdürün. Başlıq yanındakı kürə başqa funksiyanı — çoxdilli müqayisəni açır. İllüstrasiya mətndən əvvəl görünürsə, aşağı sürüşdürərək mətnə keçin.",
-        "İllüstrasiyanı böyütmək üçün şəklin üzərinə basın. Şəkil ayrıca örtük pəncərədə açılır. Şəkil gizlidirsə, əvvəlcə onu göstərmə düyməsi ilə bərpa edin. Böyüdülmüş görünüş şəkil daxilindəki başlığı və ibrəti oxumağı asanlaşdırır.",
-        "Oxu və şəkil pəncərələrini × və ya Esc ilə bağlayın. Şəkil pəncərəsində kənardakı tünd fona basmaq da onu bağlayır. Sonra əsas hekayə siyahısında oxumağa davam edə bilərsiniz.",
-        "Saytda səsli oxuma düymələri hazırda təqdim edilmir. Mətni dinləmək və ya MP3 pleyeri açmaq bu versiyanın istifadəçi funksiyası deyil."
+        "Hekayənin başlığına basaraq geniş oxu pəncərəsini açın. Burada mətn, ibrət hissəsi, həmçinin varsa, müəllif və mənbə haqqında məlumat göstərilir. Uzun mətni oxumaq üçün pəncərənin daxilində aşağıya doğru sürüşdürün. İllüstrasiya mətndən əvvəl yerləşirsə, mətni görmək üçün aşağı keçin. Başlığın yanındakı kürə nişanı isə hekayəni müxtəlif dillərdə müqayisə etmək üçündür.",
+        "İllüstrasiyanın üzərinə basdıqda şəkil ayrıca pəncərədə böyüdülür. Şəkil gizlidirsə, əvvəlcə göstərmə düyməsi ilə onu açın. Böyüdülmüş şəkildə başlığı və ibrət hissəsini oxumaq daha rahatdır.",
+        "Oxu və şəkil pəncərələrini × və ya Esc ilə bağlayın. Şəkil pəncərəsində kənardakı tünd fona basmaq da onu bağlayır. Sonra hekayələrin əsas siyahısına qayıdaraq oxumağa davam edə bilərsiniz.",
+        "Hazırda saytda hekayələrin səsləndirilməsi nəzərdə tutulmayıb. Buna görə mətni dinləmək və ya MP3 pleyerini açmaq üçün düymə yoxdur."
       ]
     },
     {
-      "title": "Çoxdilli müqayisə",
+      "title": "Hekayələrin müxtəlif dillərdə müqayisəsi",
       "shot": "comparison",
       "caption": "Eyni hekayənin beş dildə müqayisəsi və yuxarıdakı idarəetmə paneli.",
       "paras": [
         "Hekayə başlığının yanındakı kürəyə — «Çoxdilli görünüş» düyməsinə basın. Eyni hekayənin mövcud tərcümələri yan-yana açılır. AZ, DE, EN, KY və RU düymələri ilə sütunları göstərin və ya gizlədin. Rahat oxumaq üçün yalnız müqayisə etdiyiniz dilləri açıq saxlaya bilərsiniz.",
         "«Mətn» və «Şəkil» qruplarının göstərmə və gizlətmə düymələri müstəqildir. Ən azı biri açıq qalmalıdır. Müqayisə ilk dəfə açıldıqda mətn görünür, şəkillər gizli olur; şəkilləri burada ayrıca aktivləşdirin. Sonrakı açılışlarda dil və şəkil seçimi brauzerdə saxlanmış seçimə uyğun bərpa olunur.",
-        "< və > əvvəlki və növbəti hekayəyə, << və >> birinci və son hekayəyə aparır. Nömrə sahəsi cari hekayəni və ümumi sayı göstərir. Başqa hekayəyə keçmək üçün etibarlı sıra nömrəsini yazıb Enter basın; bu nömrə ayrıca sabit hekayə identifikatoru deyil.",
-        "Sütundakı uzun mətni sürüşdürərək oxuyun. Hər hekayənin bütün dillərdə qarşılığı olmaya bilər. Müqayisəni üst sağdakı × və ya Esc ilə bağlayıb əsas səhifəyə qayıdın."
+        "< və > düymələri əvvəlki və növbəti, << və >> düymələri isə birinci və son hekayəni açır. Nömrə sahəsində açıq olan hekayənin sıra nömrəsi və hekayələrin ümumi sayı göstərilir. Başqa hekayəyə keçmək üçün onun sıra nömrəsini yazıb Enter düyməsini basın. Bu nömrə hekayənin siyahıdakı yerini göstərir və onun daimi kodu deyil.",
+        "Uzun mətnləri oxumaq üçün sütunları aşağıya doğru sürüşdürün. Hər hekayənin bütün dillərdə tərcüməsi olmaya bilər. Müqayisəni yuxarı sağ küncdəki × və ya Esc ilə bağlayıb əsas səhifəyə qayıdın."
       ]
     },
     {
-      "title": "Yadda saxlanan seçimlər",
+      "title": "İstifadəçi seçimlərinin yadda saxlanması",
       "shot": "languages",
       "caption": "Dil seçimi və brauzerdə saxlanan oxu seçimləri.",
       "paras": [
-        "Sayt bəzi seçimləri həmin brauzerdə yadda saxlayır: seçilmiş dil, ana və kateqoriya səhifələrində görünüş rejimi, şəkillərin görünməsi və uyğun yerlərdə mətnin görünməsi. Ana səhifə və kateqoriya üçün görünüş seçimi ayrı saxlanıla bilər.",
-        "Müqayisə pəncərəsi seçilmiş dilləri və illüstrasiyaların görünməsini yadda saxlayır. Müqayisədə mətnin gizlədilməsi daimi seçim kimi saxlanmır. Axtarış sorğularını və hər filtrin vəziyyətini daimi yaddaş kimi qəbul etməyin.",
-        "Bu seçimlər hesaba bağlı deyil və cihazlar arasında avtomatik sinxronlaşdırılmır. Başqa brauzer, başqa cihaz və ya məxfi pəncərə fərqli görünüş göstərə bilər. Brauzerin sayt məlumatlarını təmizlədikdə saxlanmış seçimlər də silinə bilər.",
-        "Şəkillər görünmürsə, əvvəlcə göstərmə düyməsini yoxlayın; yeni ziyarətçi üçün açıq olsalar da, əvvəlki gizlətmə seçiminiz yadda qala bilər. Görünüş gözlənilməzdirsə, idarəetmə düymələrini və aktiv filtrləri yoxlayıb səhifəni yeniləyin."
+        "Sayt bəzi seçimləri həmin brauzerdə yadda saxlayır: seçilmiş dil, ana səhifənin və kateqoriya səhifələrinin görünüş rejimi, şəkillərin görünməsi və bu seçim mövcud olduqda mətnin görünməsi. Ana səhifə və kateqoriya üçün görünüş seçimi ayrı saxlanıla bilər.",
+        "Müqayisə pəncərəsində seçdiyiniz dillər və şəkillərin göstərilib-göstərilməməsi yadda saxlanılır. Mətni gizlətmək seçimi isə daimi yadda saxlanmır. Axtarış sözləri və bütün filtr seçimləri növbəti dəfə səhifəni açdıqda bərpa olunmaya bilər.",
+        "Bu seçimlər hesaba bağlı deyil və cihazlar arasında avtomatik sinxronlaşdırılmır. Başqa brauzerdə, başqa cihazda və ya məxfi pəncərədə bu seçimlər fərqli ola bilər. Brauzerin sayt məlumatlarını təmizlədikdə saxlanmış seçimlər də silinə bilər.",
+        "Şəkillər görünmürsə, əvvəlcə göstərmə düyməsini yoxlayın. Sayta ilk dəfə daxil olduqda şəkillər açıq olur, lakin əvvəlki gizlətmə seçiminiz yadda saxlanmış ola bilər. Səhifə gözlədiyiniz kimi görünmürsə, mətn və şəkil düymələrini, həmçinin aktiv filtrləri yoxlayıb səhifəni yeniləyin."
       ]
     },
     {
-      "title": "Telefonda və klaviatura ilə istifadə",
+      "title": "Saytdan telefonda və klaviatura vasitəsilə istifadə",
       "shot": "mobile",
       "caption": "Dar ekranda açılmış əsas menyu.",
       "paras": [
-        "Dar ekranda əsas menyu üç xətli «Menyunu aç» düyməsinin altında yığılır. Düyməyə basın, bölməni seçin və ya «Menyunu bağla» ilə menyunu bağlayın. Dil seçimi və axtarış başlıqda qalır; axtarış yalnız lupa kimi görünə bilər.",
+        "Dar ekranda əsas menyunu açmaq üçün üzərində üç üfüqi xətt olan «Menyunu aç» düyməsinə basın. Sonra istədiyiniz bölməni seçin. Menyunu «Menyunu bağla» düyməsi ilə bağlaya bilərsiniz. Dil seçimi və axtarış saytın yuxarı hissəsində qalır; axtarış düyməsi yalnız lupa nişanı ilə göstərilə bilər.",
         "«Hekayələr» paneli yığılıbsa, «Hekayələr menyusunu aç» düyməsini seçin. Başlığa toxunaraq hekayəyə keçin. Telefonda mətn göstərmə və gizlətmə düymələri görünməyə bilər; şəkil düymələri ilə illüstrasiyanı idarə edə bilərsiniz.",
-        "Müqayisədə kiçik ekrana uyğun olaraq daha az dil seçin və uzun məzmunu sürüşdürün. Mətnin böyüdülmüş oxu pəncərəsi də rahat oxumağa kömək edir. Klaviatura ilə Tab vasitəsilə keçidlərə keçin, Enter ilə açın və dialoqları Esc ilə bağlayın."
+        "Kiçik ekranda müqayisəni rahat oxumaq üçün daha az dil seçin və uzun mətnləri aşağıya doğru sürüşdürün. Geniş oxu pəncərəsində də mətni daha rahat oxuya bilərsiniz. Klaviaturada Tab düyməsi ilə keçidlər arasında hərəkət edin, Enter ilə seçilmiş keçidi açın, Esc ilə pəncərəni bağlayın."
       ]
     },
     {
-      "title": "Rəy və düzəliş göndərmək",
+      "title": "Rəylərin və düzəliş təkliflərinin göndərilməsi",
       "shot": "feedback",
-      "caption": "Rəy formasında ulduzla işarələnmiş məcburi sahələr.",
+      "caption": "Rəy formasında ulduz işarəsi ilə göstərilmiş doldurulması məcburi sahələr.",
       "paras": [
-        "Əsas menyuda və ya altlıqda «Rəy və təklif» keçidini açın. * ilə işarələnmiş «Ad», «E-poçt ünvanı», «Rəy növü», «Mövzu» və «Rəyiniz» sahələrini doldurun. Cavab ala biləcəyiniz düzgün e-poçt ünvanını yazın.",
-        "«Rəy növü» sahəsində ümumi rəy, təklif, texniki problem, məzmun düzəlişi və ya digər seçimini edin. Mövzunu qısa yazın. Məzmun düzəlişində hekayənin dilini, adını, mövcud ifadəni və təklif etdiyiniz düzəlişi göstərin.",
-        "Texniki problem üçün hansı addımları etdiyinizi, nə gözlədiyinizi və nə baş verdiyini izah edin. Cihaz və brauzer məlumatını əlavə edin. «Əlaqəli səhifənin ünvanı» sahəsinə problemin olduğu səhifənin tam keçidini yerləşdirin; səhifəyə aid rəy keçidindən gəldikdə bu sahə avtomatik dolur.",
-        "Ad üçün 120, e-poçt və mövzu üçün 200, mesaj üçün 5000, əlaqəli ünvan üçün 500 simvol həddi var. Uzun izahı qısaldın və ya uyğun əlavə fayldan istifadə edin. Göndərmə addımları növbəti səhifədədir."
+        "Əsas menyuda və ya səhifənin aşağı hissəsində «Rəy və təklif» keçidini açın. * ilə işarələnmiş «Ad», «E-poçt ünvanı», «Rəy növü», «Mövzu» və «Rəyiniz» sahələrini doldurun. Cavab ala biləcəyiniz düzgün e-poçt ünvanını yazın.",
+        "«Rəy növü» siyahısından müraciətinizə uyğun bəndi seçin: ümumi rəy, təklif, texniki problem, məzmun düzəlişi və ya digər. Mövzunu qısa ifadə edin. Mətnə düzəliş təklif edirsinizsə, hekayənin dilini, adını, dəyişdirilməsini istədiyiniz ifadəni və təklif etdiyiniz variantı göstərin.",
+        "Texniki problem barədə yazarkən hansı addımları yerinə yetirdiyinizi, hansı nəticəni gözlədiyinizi və əslində nə baş verdiyini izah edin. İstifadə etdiyiniz cihazı və brauzeri də qeyd edin. «Əlaqəli səhifənin ünvanı» sahəsinə problem olan səhifənin tam ünvanını yazın. Həmin səhifədəki rəy keçidindən istifadə etdikdə bu sahə avtomatik doldurulur.",
+        "Ad üçün 120, e-poçt ünvanı və mövzu üçün ayrı-ayrılıqda 200, mesaj üçün 5000, səhifə ünvanı üçün isə 500 simvol nəzərdə tutulub. İzahınız bu həddi aşırsa, onu qısaldın və ya əlavə fayl kimi göndərin. Rəyin göndərilməsi qaydası növbəti bölmədə izah olunur."
       ]
     },
     {
-      "title": "Əlavə fayl və göndərmə nəticəsi",
+      "title": "Faylın əlavə edilməsi və göndərilmənin təsdiqi",
       "shot": "attachment",
       "caption": "Əlavə fayl, məxfilik təsdiqi və göndərmə düyməsi.",
       "paras": [
-        "İstəyə bağlı olaraq «Fayl seçin» düyməsi ilə ekran şəkli və ya PDF əlavə edin. Qəbul edilən formatlar JPG, PNG, WEBP, GIF və PDF-dir; fayl ən çoxu 5 MB olmalıdır. Seçilmiş faylın adını yoxlayın. «Əvəz et» başqa fayl seçir, «Sil» əlavəni çıxarır.",
-        "Məxfilik bildirişini oxuyun və mesajın orada təsvir olunduğu qaydada istifadə ediləcəyini başa düşdüyünüzü təsdiqləyən məcburi xananı işarələyin. Sonra «Rəyi göndər» düyməsinə basın və nəticəni gözləyin.",
+        "Lazım gələrsə, «Fayl seçin» düyməsi ilə ekran şəkli və ya PDF sənədi əlavə edin. JPG, PNG, WEBP, GIF və PDF formatları qəbul olunur; faylın həcmi 5 MB-dan çox olmamalıdır. Seçilmiş faylın adını yoxlayın. «Əvəz et» düyməsi ilə başqa fayl seçə, «Sil» düyməsi ilə isə əlavə etdiyiniz faylı silə bilərsiniz.",
+        "Məxfilik bildirişini oxuyun. Mesajınızdan necə istifadə olunacağını başa düşdüyünüzü təsdiqləmək üçün müvafiq xananı işarələyin. Sonra «Rəyi göndər» düyməsinə basın və təsdiq bildirişini gözləyin.",
         "Uğurlu göndərmədən sonra «Təşəkkür edirik. Rəyiniz göndərildi.» təsdiqi görünür. «Ana səhifəyə qayıt» keçidi ilə davam edin. Təkcə düyməyə basmaq göndərmənin uğurlu olduğunu göstərmir; təsdiq mesajını gözləyin.",
-        "Sahə və ya fayl xətası göstərilirsə, onu düzəldib yenidən cəhd edin. Bağlantı və ya server xətasında göndərildiyini güman etməyin; mesajın surətini saxlayın. Problem davam edərsə, info@birinci.cloud ünvanından istifadə edə bilərsiniz."
+        "Sahələrdən biri və ya əlavə etdiyiniz faylla bağlı xəta göstərilirsə, onu düzəldib yenidən cəhd edin. Bağlantı və ya server xətası baş verdikdə mesajın göndərildiyinə əmin olmaq mümkün deyil; mətnin surətini saxlayın. Problem davam edərsə, info@birinci.cloud ünvanına yaza bilərsiniz."
       ]
     },
     {
@@ -122,21 +122,94 @@
       "shot": "sitemap",
       "caption": "Sayt xəritəsində bölmələr, hekayə keçidləri və axtarış.",
       "paras": [
-        "«Saytın xəritəsi» səhifəsi əsas bölmələrə, kateqoriyalara və ayrı hekayələrə keçid verir. Yuxarıdakı bölmə keçidləri ilə istədiyiniz hissəyə keçin. «Bu səhifədə axtar» sahəsi xəritənin məzmununu süzür; nəticə yoxdursa, sorğunu dəyişin və ya silin.",
+        "«Saytın xəritəsi» səhifəsi əsas bölmələrə, kateqoriyalara və ayrı-ayrı hekayələrə keçid verir. Yuxarıdakı bölmə keçidləri ilə istədiyiniz hissəyə keçin. «Bu səhifədə axtar» sahəsi xəritənin məzmununu filtrləyir; nəticə yoxdursa, sorğunu dəyişin və ya silin.",
         "Aşağıdakı dillər bölməsində düymələr bir sırada AZ, DE, EN, KY, RU ardıcıllığı ilə yerləşir. İstədiyiniz dili seçərək digər dil versiyasına keçin.",
-        "«Məramımız, Baxış və Dəyərlərimiz» səhifəsi saytın məqsədini və əsas prinsiplərini izah edir. Dəyər keçidləri müvafiq izaha aparır. Bu səhifəni «Haqqımızda» menyusundan və ya xəritədən açmaq olar.",
-        "Hüquqi səhifələr: «Məxfilik bildirişi» məlumatların istifadəsini, «İstifadə şərtləri» saytın istifadə qaydalarını, «Kuki siyasəti» brauzerdə saxlanan məlumatları, «Hüquqi rekvizitlər» isə saytın hüquqi məlumatlarını izah edir. Tam və aktual mətni müvafiq səhifədə oxuyun."
+        "«Məramımız, Baxış və Dəyərlərimiz» səhifəsi saytın məqsədini və əsas prinsiplərini izah edir. Hər dəyərin adına basdıqda onun izahı açılır. Bu səhifəni «Haqqımızda» menyusundan və ya xəritədən açmaq olar.",
+        "Hüquqi səhifələr: «Məxfilik bildirişi» məlumatların istifadəsini, «İstifadə şərtləri» saytın istifadə qaydalarını, «Kuki siyasəti» brauzerdə saxlanan məlumatları, «Hüquqi rekvizitlər» isə saytın hüquqi məlumatlarını izah edir. Mətnin tam və aktual versiyasını müvafiq səhifədə oxuyun."
       ]
     },
     {
       "title": "Qısa yaddaş vərəqi",
       "shot": "footer",
-      "caption": "Altlıqda əlaqə, rəy, hüquqi məlumat və sayt xəritəsi keçidləri.",
+      "caption": "Səhifənin aşağı hissəsində əlaqə, rəy, hüquqi məlumat və sayt xəritəsi keçidləri.",
       "paras": [
-        "Hekayə seçmək: mövzu kartı → kateqoriya → «Hekayələr» siyahısı. Tapmaq: səhifə axtarışı və ya başlıqdakı qlobal axtarış. Filtrləri silmək: × və «Bütün müəlliflər» seçimi.",
-        "Oxumaq: hekayə başlığı → geniş oxu pəncərəsi. Şəkli böyütmək: görünən illüstrasiyaya basın. Müqayisə: kürə nişanı → dilləri seçin → lazım olduqda şəkilləri açın. Bağlamaq: × və ya Esc.",
-        "Dil dəyişmək: başlıqdakı dil düyməsi → AZ / DE / EN / KY / RU. Hekayəni paylaşmaq: # hissəsi ilə birlikdə tam ünvanı kopyalayın. Rəy bildirmək: «Rəy və təklif» → məcburi sahələr → məxfilik təsdiqi → göndərmə.",
+        "Hekayənin seçilməsi: mövzu vərəqi → kateqoriya → «Hekayələr» siyahısı. Hekayənin axtarılması: səhifədəki axtarış sahəsi və ya saytın yuxarı hissəsindəki ümumi axtarış. Axtarış mətninin silinməsi: axtarış sahəsinin yanındakı ×. Müəllif seçiminin ləğvi: «Bütün müəlliflər».",
+        "Mətnin oxunması: hekayənin başlığı → geniş oxu pəncərəsi. Şəklin böyüdülməsi: illüstrasiyanın üzərinə basılması. Dillərin müqayisəsi: kürə nişanı → dillərin seçilməsi → lazım olduqda şəkillərin açılması. Pəncərənin bağlanması: × və ya Esc.",
+        "Dilin dəyişdirilməsi: yuxarıdakı dil düyməsi → AZ / DE / EN / KY / RU. Hekayənin paylaşılması: # işarəsindən sonrakı hissə də daxil olmaqla tam ünvanın kopyalanması. Rəyin göndərilməsi: «Rəy və təklif» → tələb olunan sahələrin doldurulması → məxfilik bildirişinin oxunduğunun təsdiqi → göndərmə.",
         "Məzmun görünmürsə, axtarış və filtrləri, şəkil və mətn seçimlərini yoxlayın. Səhifəni yeniləyin; xəta qalarsa, səhifə ünvanını və ekran şəklini rəy formasına əlavə edin. Əlaqə: info@birinci.cloud."
+      ]
+    },
+    {
+      "id": "offline-install",
+      "title": "Oflayn versiyanın planşetdə quraşdırılması",
+      "topic": "settings",
+      "paras": [
+        "Birİnci Offline saytın internet olmadan istifadə üçün hazırlanmış ayrıca versiyasıdır: https://birinci.cloud/offline/. Onu sabit Wi-Fi bağlantısı ilə quraşdırın, sonra tətbiqi açaraq istədiyiniz dil paketlərini yükləyin. Tətbiqin işarəsini ana ekrana əlavə etdikdə hekayələr və şəkillər avtomatik yüklənmir. Hesab yaratmağa, App Store və ya Play Store-dan proqram yükləməyə ehtiyac yoxdur.",
+        "iPad — 1. Ünvanı Safari-də adi brauzer vərəqində açın və dil kitabxanasında beş dil vərəqinin görünməsini gözləyin. 2. Paylaş (Share), lazım gəlsə More və ya View More, sonra Ana ekrana əlavə et (Add to Home Screen) seçin. 3. Open as Web App görünürsə, aktivləşdirin, Birİnci Offline adını verin və Add düyməsinə toxunun.",
+        "iPad — 4. Safari-dən çıxın və Ana ekrandakı işarəyə toxunaraq Birİnci Offline tətbiqini açın. Faylları məhz bu tətbiqdə yükləyin; Safari vərəqində saxlanmış faylların quraşdırılmış tətbiqdə də mövcud olduğunu güman etməyin.",
+        "Android — 1. Ünvanı yenilənmiş Chrome brauzerinin adi vərəqində açın; gizli rejimdən və başqa tətbiqin daxili brauzerindən istifadə etməyin. 2. Üç nöqtəli menyudan Install and create shortcut, sonra Install seçin. Versiyadan asılı olaraq Install app və ya Add to Home screen görünə bilər. Quraşdırmanı təsdiqləyin.",
+        "Android — 3. Birİnci Offline tətbiqini Ana ekrandan və ya tətbiqlər siyahısından açın. İşarə yalnız siyahıdadırsa, üzərinə basıb saxlayın və Ana ekrana sürüşdürün. Install yoxdursa, tətbiqin artıq quraşdırılıb-quraşdırılmadığını yoxlayın və Chrome-u yeniləyin. Create shortcut yalnız keçid yaradır, kitabxananı yükləmir.",
+        "Aşağıdakı düymə adlarını olduğu kimi görmək üçün oflayn kitabxananın interfeys dili menyusunda EN · English seçin. Bu seçim hekayələrin dilini deyil, idarəetmə mətnlərini dəyişir. Hər iki platformada eyni beş dil paketi mövcuddur. Sistem menyularının adları cihaz və versiyaya görə dəyişə bilər."
+      ],
+      "url": "https://birinci.cloud/offline/",
+      "link_label": "Birİnci Offline versiyasını aç"
+    },
+    {
+      "id": "offline-download",
+      "title": "Dil paketlərinin və illüstrasiyaların yüklənməsi",
+      "topic": "settings",
+      "paras": [
+        "Dil paketləri: AZ — Azərbaycan, DE — Deutsch, EN — English, KY — Кыргызча və RU — Русский. İnternetə qoşulduqdan sonra paketləri bir-bir yükləyin. Planşetin yaddaş ayarlarından boş yeri yoxlayın. Beş dilin hamısını illüstrasiyalarla yükləmək üçün təxminən 3 GB boş yer ayırmağınız məsləhətdir. Brauzerin saxlama limiti ayrıca məhdudiyyət yarada bilər.",
+        "1. Quraşdırılmış tətbiqi açın və dil vərəqini tapın. Download düyməsinə toxunmazdan ƏVVƏL Include illustrations and guide screenshots seçimini işarələyin. Yalnız mətn istəyirsinizsə, seçimi işarələməyin.",
+        "2. Download düyməsinə toxunun. İlk yükləmə zamanı tətbiqin işləməsi üçün lazım olan ümumi fayllar da saxlanılır; onların həcmi hazırda təxminən 29,5 MB-dır. Hər dil üzrə mətnlər təxminən 2–3 MB, illüstrasiyalar isə 131–458 MB yer tutur. Dəqiq həcmi dil vərəqlərində yoxlayın. Yükləmə başa çatanadək tətbiqi açıq saxlayın və ekranın sönməsinə imkan verməyin.",
+        "3. Ready offline · with illustrations vəziyyətini gözləyin. Ready offline · text yalnız mətnin saxlandığını bildirir. Əvvəllər yalnız mətn yükləmisinizsə, illüstrasiya seçimini işarələyib Download / repair düyməsi ilə şəkilləri əlavə edin.",
+        "4. Verify düyməsinə toxunun və All saved files verified bildirişini gözləyin. Fayllar çatışmırsa və ya zədələnibsə, internetə qoşulun, illüstrasiya seçimini işarəli saxlayaraq Download / repair, sonra isə yenidən Verify düyməsinə basın. Verify saxlanmış faylları yoxlayır, illüstrasiyaları avtomatik əlavə etmir.",
+        "Lazım olduqda Pause download seçin. İnternetə qoşulduqdan sonra Download və ya Download / repair artıq yüklənmiş fayllardan istifadə edərək yükləməni davam etdirir. Eyni addımları digər dillər üçün də təkrarlayın. Aralarında keçid etmək və ya mətnlərini müqayisə etmək istədiyiniz hər iki dilin paketini yükləyin. Eyni quraşdırılmış tətbiq və brauzer profilindən istifadə edin; yükləmələr başqa cihaza avtomatik köçürülmür."
+      ],
+      "url": "https://birinci.cloud/offline/",
+      "link_label": "Birİnci Offline versiyasını aç"
+    },
+    {
+      "id": "offline-test",
+      "title": "Hekayələrin və illüstrasiyaların internetsiz açılmasının yoxlanması",
+      "topic": "settings",
+      "paras": [
+        "Əvvəlcə yükləmələrin və faylların yoxlanmasının başa çatmasını gözləyin. Sonra tətbiqdə əvvəllər açmadığınız bir neçə hekayəni internet olmadan açmağa çalışın. Yalnız əvvəlcədən açıq qalmış səhifəyə baxmaq tətbiqin oflayn işlədiyini yoxlamaq üçün kifayət deyil.",
+        "iPad-də Ayarlardan Təyyarə rejimini aktivləşdirin, sonra Wi-Fi-ni ayrıca SÖNDÜRÜN. Mobil bağlantılı modeldə mobil verilənlərin də sönülü olduğunu yoxlayın. Naqilli internet adapterini ayırın. Açıq tətbiqlər siyahısında Birİnci-ni bağlayın və internet bağlantısı olmadan Ana ekrandakı işarəyə toxunaraq yenidən açın.",
+        "Android-də sürətli ayarlardan Təyyarə rejimini (Airplane mode və ya Flight mode) aktivləşdirin. Wi-Fi-ni və SIM-li planşetdə mobil verilənləri ayrıca SÖNDÜRÜN. Naqilli internet adapterini ayırın. Son tətbiqlər siyahısından Birİnci-ni sürüşdürüb bağlayın, sonra işarəsindən açın. Tətbiqin yaddaşını təmizləməyin və onu silməyin. Təyyarə rejimi Wi-Fi bağlantısını açıq saxlaya bilər; bağlantı seçimlərini ayrıca yoxlayın.",
+        "1. Oflayn kitabxanada saxlanmış dilin Open düyməsinə toxunun. 2. Əvvəl açmadığınız hekayənin başlığını, mətnini və ibrətini yoxlayın; başlığa toxunaraq geniş oxu pəncərəsini açın. 3. Boş çərçivə və ya ümumi nişan əvəzinə əsl illüstrasiyanın göründüyünü təsdiqləyin. Şəkillər gizlədilibsə, onları yenidən göstərin. Şəkli böyüdərək başlığın və ibrət mətninin oxunaqlı olduğunu yoxlayın.",
+        "4. Axtarışla başqa hekayə tapın və müxtəlif kateqoriyalardan ən azı üç hekayəni sınayın. 5. Yoxlamanı lazım olan hər dildə təkrarlayın və yan-yana dil müqayisəsini yoxlayın. Oflayn versiyanın panelindəki Downloads keçidi ilə kitabxanaya qayıdın.",
+        "Tətbiq yenidən açılır, mətnlər və şəkillər görünür, axtarış və oxu funksiyaları internet olmadan işləyirsə, yoxlama uğurla başa çatıb. Hər hansı paket açılmırsa, internetə qoşulub onu bərpa edin, sonra yoxlamanı təkrarlayın. İşiniz bitdikdə internet bağlantısını yenidən aktivləşdirin. Rəy göndərilməsi, kənar saytların açılması və yeniləmələrin yüklənməsi üçün internet lazımdır."
+      ],
+      "url": "https://birinci.cloud/offline/",
+      "link_label": "Birİnci Offline versiyasını aç"
+    },
+    {
+      "id": "offline-usb",
+      "title": "USB daşıyıcısından istifadə və yüklənmiş məzmunun idarə edilməsi",
+      "topic": "settings",
+      "paras": [
+        "Windows və macOS üçün ayrı-ayrı USB paketləri mövcuddur. Hər paketə beş dilin hamısı və illüstrasiyalar daxildir. Uyğun ZIP arxivindəki bütün faylları çıxarın və Birinci-Offline qovluğunu bütöv saxlayın. Qovluğu kompüterə və ya USB daşıyıcısına köçürün; faylları ZIP daxilindən işə salmayın.",
+        "Windows-da Start Birinci.cmd, macOS-da Start Birinci.command faylını açın; Intel və Apple Silicon üçün işəsalma proqramları daxildir. Brauzerdə http://127.0.0.1:18775/ açılır. Dili seçin və Open düyməsinə basın. Oxuyarkən server pəncərəsini açıq saxlayın; oxuyub bitirdikdə pəncərəni bağlayın və ya Ctrl+C düymələrini basın. Python, Node və Go quraşdırmaq lazım deyil.",
+        "İşəsalma proqramlarının rəqəmsal imzası yoxdur; əməliyyat sistemi icazə istəyə bilər. Paketə etibar edirsinizsə, READ-ME-FIRST.txt faylındakı göstərişlərə və əməliyyat sistemində proqramın işə salınmasına icazə verilməsi qaydasına əməl edin. Təhlükəsizlik qorumasını söndürməyin. USB versiyasını işə salmaq üçün web/index.html faylını birbaşa açmaq düzgün üsul deyil. USB proqramları iPad və Android-də işləmir; planşetə fayl köçürmək oflayn tətbiqi quraşdırmır.",
+        "Səfərdən əvvəl internetə qoşulub quraşdırılmış tətbiqdə Check for updates seçin. Dil vərəqində Update available görünürsə, yeniləmə mövcuddur. İllüstrasiyalar da lazımdırsa, onların yüklənməsi seçimini işarəli saxlayın. Sonra Update düyməsinə toxunun. Yeniləmə başa çatdıqdan sonra Verify düyməsinə basın və tətbiqi internet bağlantısı olmadan yenidən yoxlayın. Yeni USB versiyasında da brauzerdə saxlanmış köhnə paketləri yeniləmək və ya silmək lazım gələ bilər.",
+        "Request protected storage brauzerdən yükləmələrin qorunmasını istəyir; brauzer bu sorğunu qəbul etməyə bilər. Yaddaş çatışmazlığı və ya sayt/tətbiq məlumatlarının təmizlənməsi paketləri silə bilər. Hər səfərdən əvvəl yoxlayın. Remove illustrations mətni saxlayır; Remove language həmin dilin paketlərini silir, ümumi proqram faylları isə qalır. Məzmun silinərsə, internetə qoşulub onu yenidən yükləyin.",
+        "Quraşdırma və yükləmə təkrar uğursuz olarsa, internet bağlantısını və yaddaşdakı boş yeri yoxlayın, tətbiqi açıq saxlayıb Download / repair seçin. Şəkil çatışmırsa, Ready offline · with illustrations vəziyyətini və şəkillərin göstərilməsi seçiminin aktiv olduğunu yoxlayın. Problem davam edərsə, istifadə etdiyiniz dili və xəta bildirişinin tam mətnini «Rəy və təklif» bölməsindən göndərin."
+      ],
+      "url": "https://birinci.cloud/offline/",
+      "link_label": "Birİnci Offline versiyasını aç"
+    },
+    {
+      "id": "help",
+      "shot": "help",
+      "topic": "navigation",
+      "title": "Kömək bölməsindən istifadə",
+      "caption": "Kömək düyməsi, təlimatda axtarış, mövzu filtri və Mündəricat paneli olan Kömək səhifəsi.",
+      "paras": [
+        "Seçdiyiniz dildə istifadəçi təlimatını açmaq üçün əsas menyunun sonundakı «Kömək» düyməsinə basın. Burada hekayələrin oxunması, illüstrasiyalara baxılması, müxtəlif dillərdəki mətnlərin müqayisəsi, rəy göndərilməsi və oflayn versiyadan istifadə qaydaları izah olunur. Telefon və ya dar ekranlı planşetdə əvvəlcə üç üfüqi xətlə göstərilən menyu düyməsinə basın, sonra «Kömək» seçin.",
+        "Lazım olan izahı tapmaq üçün axtarış sahəsinə söz və ya ifadə yazın. Açılan siyahıdan kateqoriya seçdikdə yalnız həmin kateqoriyaya aid bölmələr göstərilir. Siyahıdakı kateqoriyalar «Mündəricat» panelindəki qruplarla eynidir. Axtarış və kateqoriya filtrindən birlikdə istifadə edə bilərsiniz. Bütün bölmələri yenidən göstərmək üçün axtarış sahəsini təmizləyin və «Bütün mövzular» seçin.",
+        "«Mündəricat» panelində mövzular kateqoriyalar üzrə qruplaşdırılıb. Qrupu açmaq və ya yığmaq üçün kateqoriyanın başlığına, istədiyiniz bölməyə keçmək üçün isə həmin bölmənin başlığına basın. Oxuduğunuz bölmənin başlığı paneldə vurğulanır və aid olduğu qrup açılır. Geniş ekranda səhifəni sürüşdürdükdə də panel axtarış sahəsinin altında görünməyə davam edir. Dar ekranda paneli lazım olduqda açın. İzahın mətnini gizlətmək və ya göstərmək üçün əsas məzmun sahəsindəki bölmə başlığına basın.",
+        "Ekran şəklini böyütmək üçün üzərinə basın. Açılan pəncərəni × işarəsi və ya Esc düyməsi ilə bağlayın. «Bölməyə keçid» seçimi həmin izaha birbaşa keçid verir. Səhifədəki oxlarla əvvələ və sona keçə bilərsiniz. Təlimatı başqa dildə açmaq üçün dil düyməsindən, hekayələrə qayıtmaq üçün isə əsas menyudan istifadə edin."
       ]
     }
   ]
