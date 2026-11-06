@@ -22,6 +22,7 @@ from chrome_restore import pin_asset_versions
 from story_note_markup import MORAL, strip_moral_label
 from story_source_policy import is_generic_story_notice, is_story_collection
 from unpublished_stories import UNPUBLISHED_STEMS
+from story_routes import routes_script
 
 ROOT = Path(__file__).resolve().parents[1]
 LEGACY_NOTICES = {
@@ -32,7 +33,7 @@ LEGACY_NOTICES = {
     "Аңгемелер интернеттен чогултулуп, жасалма интеллекттин жардамы менен иштелип чыккан. Бардык сүрөттөр жасалма интеллект аркылуу түзүлгөн.",
     "Geschichten aus dem Internet gesammelt und mithilfe von KI bearbeitet. Alle Illustrationen sind KI-generiert.",
 }
-POEMS = {"flowers", "my-lifes-journey", "pandemic-and-quarantine", "reflections", "time-has-passed"}
+POEMS = set(json.loads((ROOT / 'tools/poem-translations.json').read_text(encoding='utf-8')))
 
 
 def normalize(text):
@@ -61,9 +62,7 @@ def read_story(path, lang, stem, approved_title, keep_urls=False, preserve_break
         else:
             keep_break = preserve_breaks is True or (isinstance(preserve_breaks, list) and len(body) in preserve_breaks)
             body.append(p if keep_break else normalize(p))
-    if lang == "de":
-        body = [re.sub(r"^(?:Moral|(?:Die )?Lehre)\s*:", "Lehre:", p, flags=re.I) for p in body]
-    if not any(MORAL.match(p) for p in body) and not (lang == "az" and stem in POEMS):
+    if not any(MORAL.match(p) for p in body) and stem not in POEMS:
         raise ValueError(f"Missing moral: {path}")
     if credit_display:
         for i, p in enumerate(body):
@@ -103,6 +102,14 @@ def patch_page(text, stories):
         if len(titles) != 1 or len(bodies) != 1:
             raise ValueError(f"Ambiguous story template: {stem}")
         titles[0].text = story['title']
+        # Reviewed accessibility labels belong to the story identifier, not an
+        # old template heading. Keep explicit visual descriptions in the manifest.
+        if story.get('imageAlt'):
+            for image in node.xpath('.//img'):
+                image.set('alt', story['imageAlt'])
+        if story.get('imageOpenLabel'):
+            for button in node.xpath('.//button[contains(concat(" ", normalize-space(@class), " "), " story__figure-open ")]'):
+                button.set('aria-label', story['imageOpenLabel'])
         if node.get('data-title') is not None:
             node.set('data-title', story['title'])
         body = bodies[0]
@@ -163,7 +170,7 @@ def plan_build(root, langs):
                 stories[stem] = story
                 search.append(dict(title=title, stem=stem, category=category['title'], slug=category['slug'],
                                    href=story.get('href') or f"categories/{category['slug']}.html#{stem}",
-                                   hay=' '.join([title, category['title'], *paragraphs]).lower()))
+                                   hay=' '.join([title, category['title'], *[strip_moral_label(p) for p in paragraphs]]).lower()))
             category['count'] = len(category['stories'])
         counts[lang] = len(stories)
         seen = set()
@@ -184,10 +191,13 @@ def plan_build(root, langs):
             raise ValueError(f"Missing story page templates: {lang}: {sorted(set(stories) - seen)}")
         for story in stories.values():
             story.pop('_imageSize', None)
+            # Keep the moral marker as internal structure for both JS renderers.
+            # Each renderer strips it from visible text, just like paragraph_markup.
         writes[root / lang / 'assets/stories-data.js'] = 'window.__BIRINCI_STORIES__ = ' + json.dumps(catalog, ensure_ascii=False, separators=(',', ':')) + ';\n'
         writes[root / lang / 'assets/search-index.js'] = 'window.__BIRINCI_SEARCH__ = ' + json.dumps(search, ensure_ascii=False, separators=(',', ':')) + ';\n'
     for path in root.glob('*.html'):
         writes[path] = pin_asset_versions(path.read_text(encoding='utf-8'))
+    writes[root / "assets/story-routes.js"] = routes_script(manifest)
     return writes, counts
 
 
@@ -201,7 +211,7 @@ def main(argv=None):
     if not args.check:
         from dev_story_edit_server import _atomic_write_text
         for path, text in writes.items():
-            if path.read_text(encoding='utf-8') != text:
+            if not path.exists() or path.read_text(encoding='utf-8') != text:
                 _atomic_write_text(path, text)
         from chrome_restore import write_lang_i18n_from_locale
         for lang in langs:

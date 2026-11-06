@@ -798,7 +798,7 @@
       "story_file": "Həyat dərsi.docx",
       "image_file": "Həyat dərsi.png",
       "en_stem": "light-of-the-world",
-      "new_story_file": "light-of-the-world.docx",
+      "new_story_file": "appearances-can-be-deceptive.docx",
       "new_image_file": "light-of-the-world.png"
     },
     {
@@ -1238,7 +1238,7 @@
       "story_file": "Piyada və şah.docx",
       "image_file": "Piyada və şah.png",
       "en_stem": "pawn-and-the-king",
-      "new_story_file": "pawn-and-the-king.docx",
+      "new_story_file": "changing-fortunes.docx",
       "new_image_file": "pawn-and-the-king.png"
     },
     {
@@ -1872,14 +1872,6 @@
       "en_stem": "candles-conversation",
       "new_story_file": "candles-conversation.docx",
       "new_image_file": "candles-conversation.png"
-    },
-    {
-      "az_stem": "Şeytanı daşlama",
-      "story_file": "Şeytanı daşlama.docx",
-      "image_file": "Şeytanı daşlama.png",
-      "en_stem": "stoning-the-devil",
-      "new_story_file": "stoning-the-devil.docx",
-      "new_image_file": "stoning-the-devil.png"
     },
     {
       "az_stem": "Şəhadət şərbəti içmək",

@@ -1,0 +1,973 @@
+KY LOCALIZATION ASSESSMENT — COMPLETE
+English integration summary
+
+All 256 available Kyrgyz translations were read in full against Azerbaijani. Most are comprehensible and preserve plot, dialogue, emotion, moral and cultural setting. Thirteen stories have essential localized findings (three P1 semantic/moral changes and ten P2 clarity issues); six have optional P3 refinements; 237 have no material issue identified. Five poems have neither Kyrgyz DOCX nor published target. High-confidence reversals deserve priority; medium-confidence usage judgments require native bilingual confirmation. No native validation or external historical/medical verification was performed.
+
+Coverage: 261 unique inventory rows; 256 complete AZ-KY pairs fully read; 5 missing KY poems; 0 unread; 0 unpublished-only KY entries.
+All_Stories_Combined.docx is an aggregate, excluded from the inventory.
+Status counts: {"essential": 13, "no_material_issue": 237, "optional": 6, "missing": 5}
+Finding counts: {"P2": 10, "P3": 6, "P1": 3}
+Confidence counts: {"medium": 14, "high": 5}
+Essential findings include medium-confidence issues awaiting native confirmation; they are not claims of native validation.
+No native validation performed. Standard religious phrases are not presumed unnatural. No originals, DOCX files, site content or assets were rewritten.
+
+261 unique ordered stems match input; all 256 existing DOCX/published targets and all AZ sources reviewed; five absent targets retained as missing; all 19 AZ/KY finding quotations verified as exact substrings; input SHA256 unchanged; counts recomputed from ledger.
+
+VERSION AND SOURCE-CREDIT DIFFERENCES
+Version counts: {"az": {"source_credit_only": 240, "identical": 9, "formatting_only": 12, "substantive_difference": 0}, "target": {"identical": 252, "source_credit_only": 4, "missing_version": 5, "substantive_difference": 0}}
+Four KY DOCX credits use Окуя ачык интернет булактарынан алынды.; published versions use the plural source-credit plus AI-illustration disclosure. These differences do not change any story. AZ credits differ in 240 rows; capitalization/spacing differ in 12 more. Credit changes are separate from translation findings.
+No substantive KY DOCX/published story differences found. All identified issues concern the actual published reader text as well as the matching DOCX narrative.
+User reports five poems absent from EN/RU/KY and DE DOCX present but unpublished. KY absence verified here; EN/RU/DE were not independently inspected.
+
+MISSING KY POEMS
+changing-times-enduring-friendship.docx — AZ read; neither KY version available.
+cherishing-flowers-in-spring.docx — AZ read; neither KY version available.
+from-reflection-to-hope.docx — AZ read; neither KY version available.
+hopeful-journey-through-life.docx — AZ read; neither KY version available.
+quarantine-days-hopeful-hearts.docx — AZ read; neither KY version available.
+
+FINDINGS — ESSENTIAL P1/P2 AND OPTIONAL P3
+All quotations are short exact excerpts verified in the supplied published AZ and KY text.
+
+advice-for-those-who-marry.docx — P2 / clarity / confidence=medium
+AZ: Bir-birinizin keçmişini eşələməyin
+KY: Бири-бириңердин өткөнүңөрдү чукуп ээлебегиле.
+The extra verb ээлебегиле normally concerns possessing/occupying rather than digging into someone's past. It makes this otherwise clear advice awkward and locally confusing; a Kyrgyz editor should confirm the intended verb.
+Source ambiguity: False
+Native review: Confirm identified medium-confidence Kyrgyz usage with a native bilingual editor before revision.
+
+albrecht-durer.docx — P3 / semantic_nuance / confidence=high
+AZ: onun bir çox müəllimini sənətkarlıqda üstələdiyi
+KY: анын көптөгөн эмгектери устаттарынын чыгармаларынан да күчтүү
+AZ says he surpassed many teachers in craftsmanship; KY compares many of his works with teachers' works. The achievement and story's moral remain intact, but the comparison's subject and quantifier shift.
+Source ambiguity: False
+Native review: High-confidence textual discrepancy; native editorial review recommended for the replacement wording. No native validation performed.
+
+blessings-god-has-given.docx — P3 / semantic_nuance / confidence=medium
+AZ: güc veribsə — ədalətinə
+KY: Бийлик берилсе — адилеттүү болдубу?
+AZ gives strength/power as the first blessing, followed separately by rank. KY makes the first item specifically authority/ruling power, narrowing the range of strength. The ethical message remains clear; optional precision edit.
+Source ambiguity: AZ güc can mean either strength or power; authority is a possible contextual reading, so this is not a definite mistranslation.
+Native review: Confirm identified medium-confidence Kyrgyz usage with a native bilingual editor before revision.
+
+dead-remain-in-life.docx — P3 / word_choice / confidence=medium
+AZ: Ayrılıq sevginin dərinliyini daha da duyurur.
+KY: Ажырашуу сүйүүнүн тереңдигин дагы да сездирет.
+Ажырашуу may evoke divorce as well as separation. The body explicitly identifies bereavement, so the meaning remains recoverable; a native editor can decide whether the moral needs a less divorce-associated word.
+Source ambiguity: False
+Native review: Confirm identified medium-confidence Kyrgyz usage with a native bilingual editor before revision.
+
+do-not-do-these-things.docx — P1 / moral_fidelity / confidence=medium
+AZ: Başqasının məhrum olduğu nemətlə öyünüb onun yarasını təzələmə.
+KY: Бирөөнүн кем-карчын бетине салып, көңүлүн оорутпа.
+The AZ moral warns against boasting about one's blessings in front of someone deprived of them. KY instead warns against throwing another person's shortcomings/lacks in their face. Related kindness advice, but the moral loses the specific self-boasting mechanism established by the list. Restore that link; native review should confirm how кем-карчын reads.
+Source ambiguity: False
+Native review: Confirm identified medium-confidence Kyrgyz usage with a native bilingual editor before revision.
+
+dont-open-your-mouth.docx — P2 / clarity / confidence=medium
+AZ: sükut daha ucadan danışır.
+KY: унчукпаган сөз катуураак сүйлөйт.
+AZ personifies silence as speaking louder; KY gives that role to an 'unspoken/silent word'. This makes the final image less clear and shifts the focal contrast from speech versus silence to kinds of words. Native editorial review recommended.
+Source ambiguity: False
+Native review: Confirm identified medium-confidence Kyrgyz usage with a native bilingual editor before revision.
+
+from-the-memoirs-of-a-lady-from-istanbul.docx — P3 / cultural_adaptation / confidence=medium
+AZ: Nişanlandıq.
+KY: Сөйкө салынды.
+Generic betrothal in the Istanbul setting becomes an earring ceremony, and AZ Nişanı qaytardıq later becomes Сөйкөнү кайтарып. This may be conventional Kyrgyz idiom for engagement rather than a reader-perceived added event. Ask a native editor whether it imports a specifically Kyrgyz ritual into the Turkish setting; retain as optional, not an established semantic error.
+Source ambiguity: False
+Native review: Confirm identified medium-confidence Kyrgyz usage with a native bilingual editor before revision.
+
+help-yourself-o-exalted-god.docx — P1 / emotion_fidelity / confidence=high
+AZ: Könlü yarda olana
+KY: Көңүлү жарадар болгонго
+AZ yar here means the beloved: this prayer includes someone whose heart is with their beloved, paired with waiting/watchful eyes. KY instead names someone with a wounded heart. The sympathetic tone remains, but the named emotional condition changes from longing/love to injury. The adjacent waiting image supports the beloved reading rather than AZ yara (wound).
+Source ambiguity: Poetic phrasing is compressed, but yar (beloved) and yara (wound) are distinct; the adjacent gözü yolda line supports longing.
+Native review: High-confidence textual discrepancy; native editorial review recommended for the replacement wording. No native validation performed.
+
+human-emerged.docx — P3 / poetic_device / confidence=high
+AZ: Düşüncəni qəlblə vurdum
+KY: Ойду жүрөк менен бириктирдим
+AZ uses multiplication, followed by addition and division, to build a miniature arithmetic metaphor. KY's first verb means combined, while addition and bread division remain. Values and moral are preserved, but mathematical pattern is slightly weakened. Optional poetic precision.
+Source ambiguity: False
+Native review: High-confidence textual discrepancy; native editorial review recommended for the replacement wording. No native validation performed.
+
+lawful-morsel.docx — P2 / lexical_clarity / confidence=medium
+AZ: halal tikə ilə bəsləmək
+KY: адал тилке менен багуу
+AZ tikə means a morsel/piece of food. KY тилке normally means a strip, band or section, and is repeated in the title and table-food moral. The earning/food context makes the intended lesson recoverable, but the central noun sounds like a section rather than a morsel. Confirm with a native Kyrgyz editor and use the appropriate food-word consistently.
+Source ambiguity: False
+Native review: Confirm identified medium-confidence Kyrgyz usage with a native bilingual editor before revision.
+
+most-beautiful-places-in-the-world.docx — P2 / grammar_clarity / confidence=medium
+AZ: İnsanın ola biləcəyi ən gözəl yer
+KY: Адам боло ала турган эң сонун жер
+AZ means the finest place a person can be. KY's clause can read as 'the finest place where one can become a person/human', because адам боло ала турган joins human with become. The preceding paragraph supplies the intended meaning, but the moral's syntax is locally confusing. Native review should confirm a locative construction for a person's place.
+Source ambiguity: False
+Native review: Confirm identified medium-confidence Kyrgyz usage with a native bilingual editor before revision.
+
+mullah-and-the-scholar.docx — P2 / cultural_term_clarity / confidence=medium
+AZ: üstündə qarası olsa, yeyərəm
+KY: Үстүндө карасы болсо, жейм
+In the pilaf passage, AZ qarası points to its topping/accompaniment. KY literally preserves 'its black [part]' without a food explanation. A Kyrgyz reader may not recover that culinary use, weakening the hungry Molla's answer. Check native recognition of this borrowed culinary expression; if unrecognized, gloss the accompaniment without inventing its ingredients.
+Source ambiguity: AZ gives no ingredients or precise form of the qara accompaniment; do not assume a particular meat or fruit.
+Native review: Confirm identified medium-confidence Kyrgyz usage with a native bilingual editor before revision.
+
+only-my-mother-would-weep.docx — P2 / clarity / confidence=medium
+AZ: səmimi sevgisi əvəzsizdir
+KY: чын ыкластуу сүйүүсүнүн орду жок
+AZ calls mother's sincere love irreplaceable. KY орду жок literally says it has no place, rather than its place cannot be filled. Surrounding praise makes intent recoverable, but the closing wording risks an unintended dismissive reading. Native review should distinguish colloquial acceptability from the clearer irreplaceability expression.
+Source ambiguity: False
+Native review: Confirm identified medium-confidence Kyrgyz usage with a native bilingual editor before revision.
+
+our-qualities-can-become-our-enemies.docx — P2 / idiom_clarity / confidence=medium
+AZ: Tovuzu quyruğu, bülbülü dili ələ verir
+KY: Тоосту куйругу, булбулду тили эле берет
+AZ ələ verir means betrays/gives away, causing capture in this context. KY эле берет reads as 'merely gives' and does not clearly express exposure or capture. The fable body explains the intended lesson, but the moral needs a Kyrgyz verb conveying betrayal/capture. The joined сапаттаркээде elsewhere is a minor spacing defect.
+Source ambiguity: False
+Native review: Confirm identified medium-confidence Kyrgyz usage with a native bilingual editor before revision.
+
+purple-jacket.docx — P3 / cultural_detail / confidence=high
+AZ: zurna-qaval
+KY: сурнай-керней
+AZ pairs a zurna with a frame drum; KY pairs surnay with kerney, a different instrument pairing. The halted-celebration scene and moral are intact, but the concrete sound-setting changes. Optional culturally precise rendering should retain the percussion component.
+Source ambiguity: False
+Native review: High-confidence textual discrepancy; native editorial review recommended for the replacement wording. No native validation performed.
+
+say-what-you-know.docx — P1 / moral_reversal / confidence=high
+AZ: susmağı bacar
+KY: унчукканды бил
+AZ instructs knowing how to remain silent. Kyrgyz унчукканды is affirmative ('speaking/making a sound'); the negative needed for silence is absent. This reverses one instruction in the moral although the body correctly uses Унчукпай туруу.
+Source ambiguity: False
+Native review: High-confidence textual discrepancy; native editorial review recommended for the replacement wording. No native validation performed.
+
+stoning-the-devil.docx — P2 / case_construction / confidence=medium
+AZ: öz içimizdəki şeytanı daşlamalı
+KY: ичибиздеги шайтанды таш ыргытып
+The construction uses accusative шайтанды with таш ыргытып ('throwing stones'), leaving the verb's target relation malformed. For throwing stones at the inner devil, Kyrgyz normally marks the target with dative шайтанга. The intended spiritual metaphor is recoverable, but native editing should confirm the construction.
+Source ambiguity: False
+Native review: Confirm identified medium-confidence Kyrgyz usage with a native bilingual editor before revision.
+
+that-was-not-your-right.docx — P2 / lexical_typo / confidence=medium
+AZ: Haqq tanıyan ata
+KY: Акыкты билген ата
+The moral's Акыкты appears to name agate (акык), rather than another person's rightful entitlement/justice intended by AZ haqq. The battlefield narrative makes the intention clear, but this conspicuous word in the moral needs native confirmation and correction.
+Source ambiguity: False
+Native review: Confirm identified medium-confidence Kyrgyz usage with a native bilingual editor before revision.
+
+those-you-should-not-befriend.docx — P2 / false_friend_idiom / confidence=medium
+AZ: Çox danışar, boş danışar, kəm danışar
+KY: Көп сүйлөйт, куру сүйлөйт, кем сүйлөйт
+AZ kəm danışar describes bad/hurtful speech in this negative character list. KY кем сүйлөйт naturally suggests speaking less or inadequately, and is especially confusing beside көп сүйлөйт ('speaks a lot'). Confirm with a native Kyrgyz editor and express the harmful-speech sense explicitly.
+Source ambiguity: AZ kəm may encompass malicious, disparaging or otherwise bad speech; the precise negative tone is not specified.
+Native review: Confirm identified medium-confidence Kyrgyz usage with a native bilingual editor before revision.
+
+PER-STORY LEDGER — ALL 261 ROWS
+001. advice-for-those-who-marry.docx | essential | DOCX reviewed=True | published reviewed=True
+Marriage advice preserves comparisons, communication, boundaries and reassurance; one locally confusing verb merits native review.
+Native review: Confirm identified medium-confidence Kyrgyz usage with a native bilingual editor before revision.
+002. aging.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Ageing mountain image and compensating experience preserved; title phrasing could receive ordinary native copyediting, not a diagnosed defect.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+003. albrecht-durer.docx | optional | DOCX reviewed=True | published reviewed=True
+Brothers' sacrifice, ruined hands, tears and named painting preserved; optional precision in teachers comparison.
+Native review: High-confidence textual discrepancy; native editorial review recommended for the replacement wording. No native validation performed.
+004. ant-that-carries-water.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Nimrod, Ibrahim, fire, mocking question and declaration of allegiance preserved; moral remains support for truth and loved ones.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+005. architect-sinan-dies-in-a-house-without-water.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Ottoman setting, oral permission, missing written decree, cut water line and afterlife motivation preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+006. attitude-toward-a-problem.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+All problem/no-problem and solvable/unsolvable branches preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+007. avoid-these-questions.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Sensitive unemployment, salary, childlessness, marriage and knowledge questions preserved without material alteration.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+008. baklava.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Baklava, olives, bread, humiliation, mother's sacrificed portion and lifelong remorse preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+009. be-sure-of-your-purpose.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Opposing inward/outward goals and chest joke preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+010. bedouin-whose-camel-was-stolen.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Bedouin setting, stolen camel, request for secrecy and protecting charitable trust preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+011. being-human.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Virtue list, honesty, humility, rights and anti-hypocrisy emphasis preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+012. bell-to-hang-on-the-cats-neck.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Bell plan, approval, elder's implementation challenge and moral preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+013. beloved-is-one-who-gives-love-to-people.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+China, daughter-in-law conflict, three-month supposed poison, remorse and vitamin revelation preserved; stronger laugh is immaterial.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+014. beware-of-those-you-love.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Father's grief, time regret, two named sons and five-minute reversal preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+015. blessings-god-has-given.docx | optional | DOCX reviewed=True | published reviewed=True
+Blessing/accountability list preserved; strength/authority nuance is source-dependent.
+Native review: Confirm identified medium-confidence Kyrgyz usage with a native bilingual editor before revision.
+016. blind-well.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Dry well, initially abandoned rescue, shaken earth and self-rescue preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+017. blind-who-have-eyes.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Physical sight versus understanding metaphor and moral preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+018. bookstore.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Bursa bookshop, unaffordable text, visits, reserved book and unpaid treatment of poor patients preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+019. builder-of-the-nest.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Female-bird nest image and valuing women's family work preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+020. calamity-and-blessing.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Calamity/blessing reversal and explicitly religious criterion preserved; ordinary native register check for nemat, not a diagnosed omission.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+021. can-a-broken-heart-love-again.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Broken-heart/container dialogue and continued drinking/loving analogy preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+022. candles-conversation.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Four named values, extinguishing, child tears and hope rekindling preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+023. chief-accountant-and-the-ceo.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Investment-in-staff dilemma and risk of retaining undeveloped staff preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+024. church-bell.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Four levels of funeral bells, wrongful conviction and fifth bell for justice preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+025. communication.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Elders' experience and children's innocence preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+026. compassion.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Illness mistaken for drunkenness, hospital rescue, reunion, driver's gratitude and active-compassion moral preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+027. compliment.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+New York, hat compliments, confidence, forgotten purchase and internal-change revelation preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+028. credit-ledger.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Debt-ledger purchase, orphan support, Ramadan, burial and Judgment Day preserved; maternal-uncle joke retained.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+029. dead-remain-in-life.docx | optional | DOCX reviewed=True | published reviewed=True
+Bereavement and survivor's living-death image preserved; separation word in moral merits optional native check.
+Native review: Confirm identified medium-confidence Kyrgyz usage with a native bilingual editor before revision.
+030. dervishs-clothes.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Dishevelled dervish's inner-world explanation and judging the heart rather than clothing preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+031. dervishs-robe.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Bird's broken wing, deceptive robe, threatened punishment and request to remove robe preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+032. dervishs-spoons.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Long-spoon constraint, failed selfish feeding and successful mutual feeding preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+033. diderot-effect.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Diderot, Catherine, library purchase/gift, 25 years' pay, red robe and spending cascade preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+034. different-path.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Cow's winding track becomes habitual road; half-hour versus three hours and unthinking conformity preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+035. do-not-complain-about-any-day-you-have-lived.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Good/bad/best/worst-day distinctions and corresponding rewards preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+036. do-not-do-these-things.docx | essential | DOCX reviewed=True | published reviewed=True
+Full deprivation-sensitive list preserved; moral changes from self-boasting to confronting another's lacks.
+Native review: Confirm identified medium-confidence Kyrgyz usage with a native bilingual editor before revision.
+037. do-not-let-your-hearts-part.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Hearts' emotional distance, shouting/whispering and warning against irreversible separation preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+038. do-you-have-spending-money.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Parents' needs, practical help within means and irreplaceability preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+039. doctors-appointment.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Child fed before fasting examination; mother's lost effort and checking context before helping preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+040. donkeys-law.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Donkey ruler, twelve-hour silence, execution, unquestioning obedience and absurd-law admission preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+041. dont-be-words-for-mouths-dust-for-feet.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Gossip/dust idioms receive explanations and dignity moral remains clear.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+042. dont-open-your-mouth.docx | essential | DOCX reviewed=True | published reviewed=True
+Opening advice preserved; final personification shifts from silence to an unspoken word.
+Native review: Confirm identified medium-confidence Kyrgyz usage with a native bilingual editor before revision.
+043. dont-say-i-couldnt-deliver-or-i-couldnt-manage.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Unfinished work, continued hope, tomorrow's full day and new-page moral preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+044. drinking-the-sherbet-of-martyrdom.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Ottoman dying soldiers, sweet sherbet, Zamzam water and expression-origin framing preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+045. early-marriage.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Girls' altered exams, twelve/thirteen versus fifteen/sixteen, inspector's gratitude and anti-early-marriage moral preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+046. eat-less-and-stay-on-the-right-path.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Moderation rather than starvation and honest conduct rather than legal trouble preserved, including source's categorical proverb.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+047. education-or-character.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Cat training versus character, six months, mouse and tray-drop reveal preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+048. elephant-and-the-rope.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Elephant's learned inability and freedom preserved; social-judgment moral is already a source tangent.
+Source note: The social-judgment fear in the AZ moral is not established by the elephant narrative. KY retains it; this is source-level thematic discontinuity, not target invention.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+049. everyone-is-the-same-here.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Young official, equal service, sick mother, money/card and equality motto preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+050. everything-is-in-our-own-hands.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+India folklore, concealed bird, attempted trap and choice/intentions answer preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+051. explaining-ones-sorrow.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Four ways of carrying sorrow and deepest-silence moral preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+052. expressions-you-should-stay-away-from.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+All five offending expressions, explanations and proposed gentler alternatives preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+053. faith-is-half-of-success.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Random selection of pupils AND teachers, two revelations and belief moral preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+054. fallen-teeth.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Two interpretations of same dream, anger versus reward and tact moral preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+055. father-and-son.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Family rupture, hidden paternal monitoring, friend warning, reunion and timely-love moral preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+056. fathers-footprints.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Father's footsteps reversal and modelling behaviour preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+057. festive-gift.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Holiday wordplay becomes cheering others and receiving poor people's blessing; core generosity preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+058. fish-shop.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Fish quantities, bread, eye medicine, donation, seller's waiver and walk through rain preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+059. flower-of-honesty.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Prince, six-month seed test, empty pot and honest bride revelation preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+060. fly-in-the-china-shop.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Fly/ox chain reaction, superstition/falsehood/bias and critical judgment moral preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+061. for-those-who-have-reached-sixty.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Full long advice list preserved, including personal spending, family independence, health, style, social contact and forgiveness.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+062. forbidden-money.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Lost cash deliberately kept, cinema expenses, lost work, fight/injuries and ironic later warning preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+063. former-minister-at-the-seminar.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Former minister's perks versus self-funded travel, coffee cup reversal and position-versus-person lesson preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+064. fortieth-day-rite.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Fortieth-day custom, purported Göktürk origin and all six symbolic gifts preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+065. friend-of-god.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Shoeless child's prayer, benefactor's tears and God's-friend revelation preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+066. friendship-and-love.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Leaves/clouds/snow imagery and newborn hearts bearing enduring friendship/love preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+067. friendship-of-horses.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Blind horse, smaller horse's bell, pauses and helper-as-divine-means moral preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+068. from-a-wise-fathers-advice-to-his-son.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Father's entire advice sequence and all three types of people preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+069. from-the-memoirs-of-a-lady-from-istanbul.docx | optional | DOCX reviewed=True | published reviewed=True
+Istanbul 1919, mistaken judgment of coffin carrier, weapons/Anatolia reveal and patriotic moral preserved; optional engagement-ritual adaptation check.
+Native review: Confirm identified medium-confidence Kyrgyz usage with a native bilingual editor before revision.
+070. garden-and-the-gardener.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Gardener's apparently paradoxical statement preserved; KY moral makes the source's shared-growth explanation explicit.
+Source note: AZ says the garden cannot be said to grow thanks to the gardener, then explains that both self-effort and care matter. Literal categorical wording is paradoxical in AZ; KY inherits it.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+071. generous-man.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Ladle/cook analogy, intermediary role and divine giver preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+072. glass-of-milk.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Milk gift, strengthened faith, doctor recognition, healing and paid-in-milk bill preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+073. go-but-come-again.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Ottoman inward-pointing shoes and return invitation preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+074. gods-pleasure.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Named religious speaker, pleasing others and avoiding hurt hearts preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+075. goose-to-be-plucked.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Coded six/thirty-two, daughters, paid explanations and plucked-goose joke preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+076. gossip.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Gossip denial, victim's demand, pillow feathers and inability to retrieve words preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+Target version comparison: {"category": "source_credit_only", "docx_credit": "Окуя ачык интернет булактарынан алынды.", "published_credit": "Аңгемелер ачык интернет булактарынан алынган, иллюстрациялар болсо ЖИ менен түзүлгөн."}
+077. grandfather-and-grandson-at-the-market.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Grandfather's self-directed calming, names and surprise reversal preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+078. grocery-shop-and-the-supermarket.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Manat prices, false butter offer, community benefit and generosity joke preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+079. hajj-pilgrimage.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Hajj, self-directed struggle, quatrain and inner-value moral preserved; verse is present rather than omitted.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+080. handful-of-roasted-chickpeas.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Roasted chickpeas, adult's larger handful, child's cleverness and provider moral preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+081. hayats-life-story.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Long abuse/forced-marriage account, letter halves, invented Story name, Turkish currency, family careers, individual forgiveness and refusal to forgive systemic abuse preserved; maternal-uncle address adapted to respectful bayke.
+Source note: The narrator forgives the abusive husband individually while condemning social complicity. This tension belongs to AZ and is retained. Do not replace the narrator voice with an editorial judgment.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+082. he-would-not-have-given-so-little.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Child's refusal, royal generosity joke and family-upbringing moral preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+083. help-yourself-o-exalted-god.docx | essential | DOCX reviewed=True | published reviewed=True
+Complete prayer list and spiritual moral present; beloved/longing line mistranslated as wounded heart.
+Native review: High-confidence textual discrepancy; native editorial review recommended for the replacement wording. No native validation performed.
+084. henry-fords-choice.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Ford dinner selection, tasting before salt, treatment of waiters and two stated reasons preserved; source hearsay retained.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+085. his-hand-is-at-work.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Ten eggs at ten versus nine qəpik, loss-making appearance of trade and activity-versus-value moral preserved.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+086. hold-my-hand.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Bridge, child-versus-parent grip and unrelenting love preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+087. homeland-and-land.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Water/mud versus blood/homeland and patriotic sacrifice preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+088. honey-or-dry-bread.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Honey with ignorant company versus dry bread with scholar preserved; katkan hard/stale is a minor natural rendering of dry bread, not a material defect.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+089. hot-bread.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Full Ramadan story, Friday bread, zakat envelope, grocery gifts, grandson's prayer, deceased father dream and dental money retained.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+090. how-can-i-escape-my-thoughts.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Pole-gripping demonstration and release of painful thoughts preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+091. how-to-ward-off-insults.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Samurai setting, provocative warrior's tactic, nonacceptance of gifts/insults and composure moral preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+092. how-we-treat-people.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Saadi attribution, fire-distance image and measured relationships preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+093. human-emerged.docx | optional | DOCX reviewed=True | published reviewed=True
+Arithmetic construction becomes general combining in first line; essential values and division-of-bread image remain clear.
+Native review: High-confidence textual discrepancy; native editorial review recommended for the replacement wording. No native validation performed.
+094. humanity.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Kamal's abandoned exam, pregnancy rescue, delayed career, father's later recognition and tears preserved; no substantive plot omission.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+095. hunters-description.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Lion/hunter narrative-power proverb and African attribution preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+096. i-am-aware-now.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Self-worth, exclusion of gossip/liars, forgiveness and authentic company retained; repeated understood framing is stylistic.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+097. i-am-tired-mother.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Exhausted son's refuge and mother's own motherlessness, lap image and gratitude preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+098. i-am-waiting-for-the-teeth.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Shared meal and shared teeth twist preserved; dependency moral already unusual in AZ, not target invention.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+099. i-got-busy-with-cleaning.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Entire inner-cleaning sequence, disappointments, forgiveness, jealousy, chained fears, giving and acceptance-versus-submission preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+100. i-kiss-your-eyes.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Eyes suffering longing and deserving reunion preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+101. i-love-you.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Nightingale/white rose, rejected love, fatal thorn, red rose symbolism and too-late regret preserved; source's tragic framing retained.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+102. i-want-a-friend.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Friend versus property and prayer/remembrance after death preserved; religious usage not treated as defective without native evidence.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+103. i-would-not-trade-it-for-anything.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Complete poem, sun/love against war, oppression, falsehood, fear and hunger, and poet credit preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+104. idle-devil.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Dervish, idle devil and humans' own cruelty punchline preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+105. if-i-dont-do-it-these-days-the-world-wont-collapse.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Complete workplace account, dismissive delay, harmed trust, no apology/task completion and alternative solution preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+106. if-the-door-before-you-wont-open-it-is-not-your-door.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Dismissal, later successful company, gratitude and closed-door opportunity moral preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+107. if-the-road-does-not-tire-you-it-is-because-of-your-companion.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Young bride's quilt difficulty, husband's discreet help and companion-lightens-road saying preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+108. it-is-in-vain.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Fool/ignorant/hypocrite distinctions and wasted-time moral preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+109. it-wont-go-to-waste.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Whole good-deed list and light/health/beauty consequences preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+110. just-verdict-of-the-frankfurt-judge.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Frankfurt 1506, church/Gospel oaths, 800/900/100/5 amounts and judge's reversal preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+111. know-your-friend.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Friendship tested by hardship/conflict/self-interest preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+112. lawful-morsel.docx | essential | DOCX reviewed=True | published reviewed=True
+Flour/water/yeast analogy, lawful earning and child character preserved; repeated morsel noun is potentially wrong.
+Native review: Confirm identified medium-confidence Kyrgyz usage with a native bilingual editor before revision.
+113. lecturer-and-the-groom.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Single horse remaining versus twenty horses' feed and listener-appropriate length preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+114. let-prayer-come-and-find-you.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Aid to poor/orphan/child and earned blessing metaphor preserved; ak bata is intelligible blessing register.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+115. life-is-short.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Short life spent with loving company and avoiding harmful relationships preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+116. life-lesson.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Wolf cub, sheep/meat, shepherd/stick and dog-resemblance warning preserved; moral still warns against deceptive similarity.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+117. light-of-the-universe.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Hunt, London academy, lantern figure, missing exterior handle and inward-opening heart explanation preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+118. lions-footprint.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Boastful hunter's retreat from real lion versus footprints preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+119. liver.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+All four Azerbaijani ciyər idioms retained with Kyrgyz glosses; Babylon/Greek belief account and historical-language moral preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+120. living-in-the-past.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Backward-looking walking, stumbling, unchanged past and blocked opportunity preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+121. loving-from-afar.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Friend's reluctance, cinema/theatre, jealousy/quarrels and unlived-love loss moral preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+122. magnificent-lesson.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Ottoman names, prince's entitlement, planned slap/apology, re-entry permission and parental example preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+123. mature-person.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Old friends, avoiding exhausting/ignorant company and protecting inner peace preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+124. may-your-face-always-smile.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Smiling vinegar seller versus frowning honey seller and no-cost smile moral preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+125. meaningless-question.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Complete rabbi/Berkeley dialogue, language prerequisites, three inconsistent answers and final premise challenge preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+126. meddling-in-others-lives.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Unwanted advice/meddling and prayer against idleness preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+127. mercedes.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Full naming narrative, racing victories, 1902 production, Vienna death/date/age and father's love preserved; factual verification not performed.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+128. mihrimah-sultan-and-architect-sinan.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Love legend, Persian name explanation, two mosques, sun/moon coincidence and explicit uncertainty retained; neither version presents the architectural calculation as established fact.
+Source note: AZ repeatedly frames the romance and astronomical alignment as legend and questions prior calculation. KY preserves these caveats; historical verification is outside this text-fidelity review.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+Target version comparison: {"category": "source_credit_only", "docx_credit": "Окуя ачык интернет булактарынан алынды.", "published_credit": "Аңгемелер ачык интернет булактарынан алынган, иллюстрациялар болсо ЖИ менен түзүлгөн."}
+129. mockery-is-unacceptable.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Anti-mockery instruction and early-childhood teaching preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+130. more-effective-way.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Blunt axe, twenty remaining trees and sharpening-time efficiency preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+131. most-beautiful-gift.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+All nine recipient/gift pairings, including deceased prayer and afterlife goodness, preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+132. most-beautiful-places-in-the-world.docx | essential | DOCX reviewed=True | published reviewed=True
+Loved ones' thought/prayer/heart location preserved; moral's first clause has a possible human-becoming/place construction problem.
+Native review: Confirm identified medium-confidence Kyrgyz usage with a native bilingual editor before revision.
+133. most-beautiful-portion.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Listening companion as greatest blessing and being heard/loved parallel preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+134. mother-and-son.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Full care-home scene, school-first-day mirror, glass handprint, whisper and sobbing ending preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+135. mother-of-pearl-flower.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Full court account, fifty-year watering routine, doctor's instruction, hidden draining, missed awakening and silent care reveal preserved.
+Source note: AZ O bilməz is terse and its referent is unclear in a story where the husband knows about the plant. KY literal rendering inherits that narrative ambiguity. Medical and horticultural claims are part of AZ, not new target claims; not independently validated.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+136. mothers-advice-fakir-baykurt-never-forgot.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Fakir Baykurt, hot tea, no slap, later teaching visit and child's inner lion/self-confidence preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+137. mothers-love.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Every age stage one through fifty-five, mother's absence/death, life's unavailable replay buttons and present affection preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+138. mullah-and-the-scholar.docx | essential | DOCX reviewed=True | published reviewed=True
+Timur, all gestures, learned interpretation versus hungry-food interpretation and perspective joke preserved; pilaf topping calque may obscure local detail.
+Native review: Confirm identified medium-confidence Kyrgyz usage with a native bilingual editor before revision.
+139. my-alif-has-been-dotted.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Turkish expression explicitly identified, Ottoman letters/shapes, ah and joy-to-sorrow explanation preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+140. newtons-second-law.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Teacher's accidental self-understanding after three explanations and joke retained.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+141. no-need-to-be-sane-when-everyone-is-mad.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Warning, water stockpile, majority ridicule, surrender and sanity moral preserved; ironic title-versus-moral tension belongs to AZ.
+Source note: The title says sanity is unnecessary, the plot ends in conformity, but the AZ moral recommends preserving reason. KY reproduces this source tension rather than resolving it.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+142. no-one-listens-to-constant-complainers.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Three repetitions of joke and solutions rather than complaints moral preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+143. not-every-sorrow-is-told-to-people.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Disclosure being weaponized and choosing confidants preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+144. not-leaving-the-right-path.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Inherited wealth, oil jar, two guards, death threat, distraction-free focus and divine witness preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+145. nothing-is-ever-truly-lost.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Success-or-learning reframing and failure-as-lesson preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+146. o-god-give-first-to-the-mountains-and-stones.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Ancient Turkic prayer order from nature/others to self and generosity preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+147. o-god-heal-our-sorrows.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+All divine names and corresponding petitions, forgiveness/repentance, sustenance/healing/open doors preserved; no assumed religious-register defect.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+148. one-who-knows-and-the-one-who-does-not.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+All four knowledge/self-awareness categories and teach/wake/avoid/follow commands preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+149. only-my-mother-would-weep.docx | essential | DOCX reviewed=True | published reviewed=True
+Mother's authentic grief preserved; moral's irreplaceability phrase potentially says no place.
+Native review: Confirm identified medium-confidence Kyrgyz usage with a native bilingual editor before revision.
+150. other-peoples-opinions.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Five punctuation losses, remaining quotation marks and loss-of-own-values metaphor preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+151. our-qualities-can-become-our-enemies.docx | essential | DOCX reviewed=True | published reviewed=True
+Peacock tail, nightingale song, fox coat and strengths-as-vulnerabilities preserved; moral's capture verb unclear.
+Native review: Confirm identified medium-confidence Kyrgyz usage with a native bilingual editor before revision.
+152. pair-of-boots.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Boots prize, lottery, poor Amina, class solidarity and teacher's tears preserved; early own-name wording generalized but reveal intact.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+153. pawn-and-the-king.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Pawn/king/mate metaphor preserved; pawn-becomes-king is source metaphor, not correct chess promotion instruction.
+Source note: AZ explicitly makes the pawn become a king, contrary to literal chess promotion mechanics. KY preserves the social-rise metaphor; do not count the source's metaphor as a translation error.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+154. pay-rent-for-the-water.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Well-versus-water distinction, rent/removal judicial reversal and rights moral preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+155. people-who-need-something-from-you.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Reframing need-only contacts as trust and aid-seeking preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+156. permission-or-apology.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Grace Hopper attribution qualifier, full automation example, reversible/low-risk limits and responsible initiative preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+157. power-of-truth.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Truth's unbending sword/wrist image and endurance past power changes preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+158. pray-while-washing-your-dishes.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Dishwashing gratitude, feeding/care and those without food/company preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+159. price-of-a-miracle.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Entire eight-year-old Liza/Oliver account, pharmacy dialogue, $1.11, surgeon identity, free surgery and faith reveal preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+160. properties-of-water.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+All seven water properties and social-contact versus stagnation analogy preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+161. puppies-for-sale.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+All puppy prices/payments, refusal of free gift, equal worth, child's disability and support-friend reveal preserved.
+Source note: AZ qılça sümüyü is an unusual/uncertain anatomical expression. KY chooses baltyrynyň ichke söögü, a specific lower-leg thin bone. Do not diagnose a hip-to-fibula error without AZ lexical clarification; disability/equal-worth moral is intact.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+162. purple-jacket.docx | optional | DOCX reviewed=True | published reviewed=True
+Turkic purple-jacket distress signal, community defense, husband's exclusion and anti-violence moral preserved; musical instruments adapted.
+Native review: High-confidence textual discrepancy; native editorial review recommended for the replacement wording. No native validation performed.
+163. raising-children.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Entire bear-trainer account, short obedience, theft/lying, wise man's rebuke and parental-love remedy preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+164. ramadan-prayer.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+All supplications, Ramadan greeting and spiritual moral retained. Religious terminology not diagnosed as unnatural.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+Target version comparison: {"category": "source_credit_only", "docx_credit": "Окуя ачык интернет булактарынан алынды.", "published_credit": "Аңгемелер ачык интернет булактарынан алынган, иллюстрациялар болсо ЖИ менен түзүлгөн."}
+165. red-dress.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Complete dying mother's regret, unworn dress, husband's opera taunt, deferred desires, promise and self-care moral preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+166. road-to-the-cotton-field.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Cotton-field directions and the teacher's concealed authorship of professional letters preserve the reveal and educational moral.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+167. rose.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Measured watering, decay and neglect preserve the rose-care analogy.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+168. rotten-seed.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Abandonment, adoption, affectionate care and recovered health preserve the child/seed metaphor.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+169. sacrificial-meat.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Earthquake unemployment, injury, neglected holiday sharing and grandmother's sacrifice retain the narrative and the child's guilt.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+170. say-what-you-know.docx | essential | DOCX reviewed=True | published reviewed=True
+Body preserves listening and silence; the moral has a localized reversal of the silence instruction.
+Native review: High-confidence textual discrepancy; native editorial review recommended for the replacement wording. No native validation performed.
+171. saying-the-word-in-its-place.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Speech appropriate to the occasion and avoiding subsequent apology retain the advice.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+172. scarf-seller.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Read the complete long scarf-seller story: refusal, discreet gift, honest payment exchange and narrator's final reflection remain intact.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+173. searching.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Loyalty, manners and mercy advice remains intelligible and faithful.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+174. secret-of-living-well-and-longevity.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Tibetan-attributed half/double/triple/unlimited advice retains each quantity.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+175. sharing-justice.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Sharing poem retains collective justice, love and holiday meat imagery.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+176. shepherd-must-be-called.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Teacher's shepherd question, failed force/flight answers and appeal to the controller remain complete.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+177. shepherds-word.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Shepherd's broken reward promise and dignity-based reply preserve dialogue and moral.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+178. silence.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Silence aphorism, timing and interlocutor-worth distinction remain faithful.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+179. skins-of-the-lambs.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Ottoman Damascus setting, officials, extortion dialogue and quantities preserved; moral's ethical tension is inherited.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+180. sound-of-the-doorbell.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Lonely widower's sealed mailbox, doorbell subscription and emergency request preserve emotion and reveal.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+181. sowing-millet-at-the-bottom.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Sapling gifts, three payments and treasury joke retain sequence; millet idiom is literal but context supplies the threat to treasury.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+182. spare-time.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Spare time versus deliberately making time and gratitude remain faithful.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+183. spend-your-time-with-people.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Bank, local-shop support and online-delivery argument preserve all dialogue and human-contact moral.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+184. spinach.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Child's rejection of spinach, mother's diary and late gratitude preserve the long emotional arc.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+185. stoning-the-devil.docx | essential | DOCX reviewed=True | published reviewed=True
+Hajj setting and inner-self moral retained; one object/case construction needs Kyrgyz correction.
+Native review: Confirm identified medium-confidence Kyrgyz usage with a native bilingual editor before revision.
+186. strength-and-sorrow.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Prayer balances strength and suffering; conventional religious language is coherent.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+187. strongest-shield.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Distance-as-shield maxim and boundary-setting moral preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+188. teacher-hello-do-you-remember-me.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Watch theft, confidential search and teacher's closed-eye reveal preserve dignity and all dialogue.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+189. telling-lies.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Self-motivating exaggeration and acknowledgement of stronger others retained.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+190. that-was-not-your-right.docx | essential | DOCX reviewed=True | published reviewed=True
+Battlefield allocation, dying son and impartiality retained; moral contains an apparent lexical typo.
+Native review: Confirm identified medium-confidence Kyrgyz usage with a native bilingual editor before revision.
+191. think-speak-and-act-positively.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Thought-to-word/action/habit/value/fate chain preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+192. this-boat-is-empty-too.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Empty boat, anger, meditation and choice of interpretation retained.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+193. those-you-should-not-befriend.docx | essential | DOCX reviewed=True | published reviewed=True
+Three unsuitable friend types retained; one calqued phrase risks changing harmful speech into little speech.
+Native review: Confirm identified medium-confidence Kyrgyz usage with a native bilingual editor before revision.
+194. three-best-things.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Food, sleep and heart-as-home dialogue preserved, including source's change of perspective in moral.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+195. three-essential-things-for-a-city.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Sewer/bath/library analogy and attribution preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+196. three-landscapes.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+All three surreal scenes and religious explanations retained without treating religious vocabulary as a defect.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+197. three-questions.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Three questions and servant/vizier exchange retain sequence and reveal.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+198. three-statues.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Three statues, wire tests, secrecy and timely speech preserve all distinctions.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+199. to-be-alone.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Brief loneliness dialogue and sensitivity moral retained.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+200. to-be-cool-headed.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Calm assessment and beneficial decisions retain the advice.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+201. to-be-fasting.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Illness exception and ethical-versus-food fasting contrast preserved with conventional Kyrgyz religious terms.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+202. to-be-full-or-to-be-gone.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Sharing/division rhyme and unity moral retained effectively.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+203. to-be-self-confident.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+All nine confidence, awareness, resolve, dignity and faith injunctions retained.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+204. to-dream.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Dream/hope religious aphorism and moral preserved; no defect inferred from religious loanwords.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+205. to-forgive.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Forgiveness explicitly distinguished from affection, continued contact and exoneration; freedom and learning retained.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+206. to-give-up.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Complete list of people to distance oneself from and self-respect moral retained, including source's family-affection ambiguity.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+207. to-meet-and-to-know.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Meeting versus truly knowing and disappointment wordplay retained.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+208. tongue.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Language-as-flower image preserved with Kyrgyz rhyme; moral supplies disappearance and daily language use.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+209. true-love.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+All personified emotions' refusals and Time's rescue preserve dialogue, allegory and reveal.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+210. try-to-think-this-way.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+All six negative-to-constructive reframings and learning moral remain complete.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+211. turning-hardship-into-opportunity.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Hardship versus opportunity and learning moral preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+212. turtles-wrong-calculation.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Turtle's forecast, malicious overturning and supportive-people prayer retain humour and cause.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+213. two-bowls-of-water.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Two purchases of water and halves of wealth retain the valuation argument.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+214. two-donkeys.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Both proposed insults, monkey's donkey retort and reflected-humiliation moral retained.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+Target version comparison: {"category": "source_credit_only", "docx_credit": "Окуя ачык интернет булактарынан алынды.", "published_credit": "Аңгемелер ачык интернет булактарынан алынган, иллюстрациялар болсо ЖИ менен түзүлгөн."}
+215. value-of-your-family.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+One-hour earnings, fifty-dollar loan, second anger and purchased family time preserve quantities and emotional resolution.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+216. we-are-rich.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Nintoku, three-year tax respite, palace decay and public prosperity retained.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+217. weight-of-the-oil.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Bread/butter weighing reveal retained; improbable palm-weighing method is explicitly in AZ.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+218. welcome-my-bey.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Complete mother's lifelong wait, deathbed greeting, named memorial credits and historical commentary retained; historical assertions are inherited and not fact-checked.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+219. what-breaks-a-marriage.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Eraser exercise, reciprocal forgiveness and both spouses' duties retained.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+220. what-changed-after-sixty.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+All fourteen ageing reflections, spouse's vulnerability and strength/patience/wisdom prayer retained.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+221. what-do-i-need-it-for.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Suleyman's dates, Yahya's apparent dismissal, institutional decline warning and public responsibility moral preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+222. what-is-a-word.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+AZ hurt/pearl pun cannot retain its identical sound in KY; both meanings and pearl moral correctly conveyed.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+223. what-is-loyalty.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+All loyalty images, shared sorrow, medicine/water and thorned flower retained.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+224. what-it-means-to-be-late.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Timely love, forgiveness, apologies and fewer regrets remain complete.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+225. what-matters-in-life.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Golf balls, gravel, sand and life-priority sequence preserve dialogue and distinctions.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+226. what-we-learn-in-life.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Learning good qualities and recognizing betrayal both retained.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+227. what-women-have-endured-in-this-world.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Complete lament preserves imposed stereotypes, denied personhood, emotional exploitation and motherhood; condemnatory stance remains clear.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+228. where-does-calamity-come-from.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+All four self-examination questions and inherited calamity/acts moral retained.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+229. where-does-this-road-go.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Stationary-road joke and fifty-year claim retained.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+230. who-handles-honey-licks-his-finger.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Honey weighing, finger licking, protest and opportunistic-benefit moral retained.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+231. why-am-i-poor.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Buddha encounter and all five nonmaterial gifts preserve dialogue and moral.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+232. why-are-you-waiting-for-the-last-day-of-the-world.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+All twelve last-day answers, American university setting and teacher's challenge retained.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+233. why-injustice-when-there-is-justice.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Seven peace/justice contrasts, attribution and choice/responsibility moral retained.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+234. why-people-shout-when-they-argue.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Shouting-to-whispering-to-silent understanding metaphor and warning retain complete dialogue.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+235. windmill-turning-in-still-air.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Windmill hidden-cause proverb and source attribution retained.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+236. with-this-nation-the-world-can-be-conquered.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Three shopkeepers' shared first-sale opportunity retained; batman measure preserved and siftah meaning expressed idiomatically.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+237. woman-and-the-mirror.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Three/two/one/no hair sequence, hairstyles and cheerful acceptance preserved.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+238. woman-whose-house-was-robbed.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Robbed woman's reply preserves ruler-responsibility irony.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+239. word-and-silence.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+All silence/speech, intention, flowers/thorns and harm/warmth distinctions retained.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+240. yellow-and-red-flowers.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Yellow illness/noise and red mature daughter/speech signs retained with the subtle-warning moral.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+241. you-cannot-descend-a-well-on-his-rope.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Defective flax rope, descending/returning joke and workmanship reputation moral retained.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+242. your-friends.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Wedding invitation test retains fifty/fifteen counts and support-based friendship reveal.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+243. your-hand-at-work-your-hope-in-god.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Full dervish, disabled fox, lion's leftovers, starvation and corrective voice preserve work/trust distinction.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+244. discussion-and-conflict.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Complete project-team exchange, private correction and confidential gratitude retain dignity and discussion/conflict moral.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+245. everyone-has-work-to-do.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Teacher's advice, prompt refusal and damaging silent delays preserve respect and trust argument.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+246. if-fate-allows-we-will-meet.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Fate-personification, relational distance and deliberate meeting moral retained; borrowing кысмет is understandable in repeated context.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+247. organization-without-an-action-plan.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Ship's known port but absent chart/roles and organization's loss of hope/members retained.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+248. silent-corridor.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Sponsor's procedural rejection, unanswered follow-up and responsibility of both sides retained.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+249. weeds-must-be-pulled-from-the-root.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Family gardening, neighbour's drinking-water well and deep-root removal moral retained; bostan expanded as melon/watermelon planting in conventional crop sense.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+250. caring-call-brightens-the-day.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Caring calls, belonging and emotional support imagery retained; medical-sounding longevity line is inherited metaphor, not independently validated.
+Native review: No specific native-language defect established; native editorial sign-off not performed.
+251. changing-times-enduring-friendship.docx | missing | DOCX reviewed=False | published reviewed=False
+Complete AZ poem read; both KY versions absent. Availability issue, not an assessed translation failure.
+Native review: Full bilingual review required.
+Target version comparison: {"category": "missing_version"}
+252. cherish-today-with-loved-ones.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Full time/irreversible moments meditation and urgency of expressing affection retained.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+253. cherishing-flowers-in-spring.docx | missing | DOCX reviewed=False | published reviewed=False
+Complete AZ poem read; both KY versions absent. Availability issue, not an assessed translation failure.
+Native review: Full bilingual review required.
+Target version comparison: {"category": "missing_version"}
+254. day-gratefully-lived.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+End-of-day reflection, divine trust, time's irreversibility and book/page image retained.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+255. from-reflection-to-hope.docx | missing | DOCX reviewed=False | published reviewed=False
+Complete AZ poem read; both KY versions absent. Availability issue, not an assessed translation failure.
+Native review: Full bilingual review required.
+Target version comparison: {"category": "missing_version"}
+256. hopeful-journey-through-life.docx | missing | DOCX reviewed=False | published reviewed=False
+Complete AZ poem read; both KY versions absent. Availability issue, not an assessed translation failure.
+Native review: Full bilingual review required.
+Target version comparison: {"category": "missing_version"}
+257. humanity-rebuilds-in-peace.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Beauty, war's damage to lives/memories, life-preserving strength and peace moral retained.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+258. kindness-builds-stronger-bonds.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Family/kin/friend/colleague relationships and kindness-as-bridge image retained.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+259. nails-lasting-lesson.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Nails added for hurtful words, removed on restrained days, surviving holes and apologies' limits retained.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+260. quarantine-days-hopeful-hearts.docx | missing | DOCX reviewed=False | published reviewed=False
+Complete AZ poem read; both KY versions absent. Availability issue, not an assessed translation failure.
+Native review: Full bilingual review required.
+Target version comparison: {"category": "missing_version"}
+261. small-changes-big-meaning.docx | no_material_issue | DOCX reviewed=True | published reviewed=True
+Repetition, small novelty, window/page imagery and agency in meaningful living retained.
+Native review: No specific native-language defect established; routine native editorial sign-off remains unperformed.
+
+STRATEGY
+essential: P1 means a material semantic/moral change; P2 means a localized clarity issue. Verify medium-confidence Kyrgyz usage with a native bilingual editor before applying a correction. Preserve sound passages.
+optional: P3 is optional precision/style/cultural-idiom refinement and is not a blocking quality failure. Source ambiguity lowers certainty.
+native_review: Request a Kyrgyz native editor comfortable with Azerbaijani source reading or an AZ/KY bilingual collaboration. Focus on flagged clauses, not presumed unnaturalness of all religious wording. No native validation claimed.
+missing_poems: Treat five missing poems separately from prose quality. Translation and publication are an independent editorial decision; preserve attribution and poetic imagery.
+counts: Final counts derive directly from 261 unique ledger rows. All 256 existing target pairs are fully reviewed; five missing targets are availability entries, not failed translations. No unread rows remain.
+integration: Address P1 moral/emotional changes first, then native-confirm P2 lexical/case/idiom findings. P3 changes are optional. Keep source ambiguities and inherited narrative/historical claims separate from translation defects. Review each full story around the quoted clause before any subsequent authorized edit.

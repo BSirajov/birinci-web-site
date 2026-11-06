@@ -48,3 +48,18 @@ def test_page_refresh_keeps_controls_and_poem_line_breaks():
     assert 'class="story__source">Etibar Siracsoy' in rebuilt
     assert 'story__moral' not in rebuilt
     assert patch_page(rebuilt, {'flowers': story})[0] == rebuilt
+
+
+def test_reviewed_image_labels_replace_stale_template_labels():
+    original = ('<article id="door"><h2 class="story__title">Old</h2>'
+                '<div class="story__text"><p>Old</p></div>'
+                '<button class="story__figure-open" aria-label="Wrong story">Open</button>'
+                '<img src="same.webp" alt="Wrong story"></article>')
+    story = {'title': 'Door', 'paragraphs': ['Text'],
+             'imageAlt': 'Illustration of Door', 'imageOpenLabel': 'Enlarge Door'}
+    rebuilt, seen = patch_page(original, {'door': story})
+    assert seen == {'door'}
+    assert 'alt="Illustration of Door"' in rebuilt
+    assert 'aria-label="Enlarge Door"' in rebuilt
+    assert 'same.webp' in rebuilt and 'Wrong story' not in rebuilt
+    assert patch_page(rebuilt, {'door': story})[0] == rebuilt

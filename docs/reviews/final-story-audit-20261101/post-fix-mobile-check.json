@@ -1,0 +1,23 @@
+{
+  "languages": [
+    "az",
+    "en",
+    "de",
+    "ru",
+    "ky"
+  ],
+  "viewports": [
+    390
+  ],
+  "color_schemes": [
+    "light",
+    "dark"
+  ],
+  "checks": [
+    "stable breadcrumbs",
+    "image loading",
+    "expanded reading",
+    "bidirectional scroll spy"
+  ],
+  "result": "10 passed"
+}

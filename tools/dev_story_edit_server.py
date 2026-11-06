@@ -18,7 +18,7 @@ from pathlib import Path
 from typing import Any
 
 from docx import Document
-from story_note_markup import strip_moral_label
+from story_note_markup import MORAL as MORAL_RE, strip_moral_label
 from story_source_policy import is_generic_story_notice, visible_story_paragraphs
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -26,7 +26,6 @@ HOST = "127.0.0.1"
 PORT = 8768
 LANGS = frozenset({"az", "en", "ru", "ky"})
 STEM_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
-MORAL_RE = re.compile(r"^(ibrət|ibret|moral|мораль|үлгү|сабак)\s*:", re.I)
 SOURCE_RE = re.compile(
     r"(stories collected from the internet|hekayələr internetdən|geschichten aus dem internet|internet\s+sources|internet\s+mənb|открыт\w*\s+источник|интернет|"
     r"(?:source|mənbə|kaynak|источник|булак|булагы)\s*:|"
@@ -168,7 +167,9 @@ def update_search_index(
     path = ROOT / lang / "assets" / "search-index.js"
     prefix, entries, suffix = _load_json_assignment(path, "window.__BIRINCI_SEARCH__")
     source = (source or "").strip() or SITE_SOURCE[lang]
-    hay = " ".join(p for p in [title, category or "", *body, moral, source] if p).lower()
+    hay = " ".join(
+        p for p in [title, category or "", *body, strip_moral_label(moral), source] if p
+    ).lower()
     found = False
     for entry in entries:
         if entry.get("stem") != stem:

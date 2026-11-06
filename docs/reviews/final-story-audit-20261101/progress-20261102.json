@@ -1,0 +1,69 @@
+{
+  "date": "2026-11-02",
+  "complete": false,
+  "findings": 88,
+  "counts_by_category": {
+    "Translation": 25,
+    "Content": 39,
+    "Technical": 2,
+    "Language": 15,
+    "Cross-story": 6,
+    "Structure": 1
+  },
+  "counts_by_severity": {
+    "Medium": 14,
+    "Low": 71,
+    "Info": 3
+  },
+  "counts_by_status": {
+    "Open": 29,
+    "Needs decision": 59
+  },
+  "source_hash_changes": [],
+  "first_by_category": {
+    "Language": {
+      "Reviewed": 1280
+    },
+    "Content": {
+      "Reviewed": 1280
+    },
+    "Structure": {
+      "Reviewed": 1280
+    },
+    "Translation": {
+      "Reviewed": 1275,
+      "Not applicable: Azerbaijani-only poem": 5
+    },
+    "Technical": {
+      "Reviewed": 1280
+    },
+    "Cross-story": {
+      "Reviewed": 1280
+    }
+  },
+  "verification_by_category": {
+    "Language": {
+      "Reviewed": 1280
+    },
+    "Content": {
+      "Reviewed": 1280
+    },
+    "Structure": {
+      "Reviewed": 1280
+    },
+    "Translation": {
+      "Reviewed": 1275,
+      "Not applicable: Azerbaijani-only poem": 5
+    },
+    "Technical": {
+      "Reviewed": 1280
+    },
+    "Cross-story": {
+      "Reviewed": 1280
+    }
+  },
+  "notes": "All first and second category passes now cover every applicable record. Content and cross-story verification ledgers each contain 1,280 records. F-080 additionally includes Ford and title-framing limits for Sinan. The second round produced F-063 through F-088; it is not an all-category zero-new-findings round. Source documents, site and illustrations remain unchanged.",
+  "next_work": [
+    "Perform subsequent full editorial verification until a complete pass adds no new findings; do not infer this from automated checks."
+  ]
+}

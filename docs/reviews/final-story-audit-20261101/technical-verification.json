@@ -1,0 +1,7 @@
+{
+  "count": 1280,
+  "new_signals": 0,
+  "existing_signals": 58,
+  "source_hashes_unchanged": true,
+  "scope": "Automated source encoding/markup-leak screening; Word/catalog/search/site text synchronization; article identity, titles, document language, duplicate IDs, aria-controls targets, image existence and nonempty alt text, expected moral and text panel counts. All 58 alt-title differences manually adjudicated. Repeated HTML/metadata checks and source hashes produced no new signal. This does not replace unfinished editorial, visual, factual or translation verification."
+}

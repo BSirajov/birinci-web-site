@@ -3,11 +3,18 @@
 To restore a story, remove its stem below and rebuild the website.
 """
 import json
+import os
 import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-UNPUBLISHED_STEMS = frozenset({'ill-gotten-money', 'forbidden-money'})
+UNPUBLISHED_STEMS = frozenset({'ill-gotten-money', 'forbidden-money', 'butter-price-war', 'hajj-pilgrimage', 'vizier-and-the-scholar', 'empty-boat', 'dreaming'})
+
+
+def _write(path, text):
+    temporary = path.with_suffix(path.suffix + '.tmp')
+    temporary.write_bytes(text.encode('utf-8'))
+    os.replace(temporary, path)
 
 
 def apply_unpublished_stories(root=ROOT, langs=('az', 'en', 'ru', 'ky', 'de')):
@@ -29,7 +36,7 @@ def apply_unpublished_stories(root=ROOT, langs=('az', 'en', 'ru', 'ky', 'de')):
                     category['count'] = len(category['stories'])
             updated = original[:start] + json.dumps(data, ensure_ascii=False, separators=(',', ':')) + original[end:]
             if updated != original:
-                path.write_text(updated, encoding='utf-8')
+                _write(path, updated)
         paths = [folder / 'sitemap.html', folder / 'index.html', *sorted((folder / 'categories').glob('*.html'))]
         for path in paths:
             if not path.exists():
@@ -64,7 +71,7 @@ def apply_unpublished_stories(root=ROOT, langs=('az', 'en', 'ru', 'ky', 'de')):
                 count = len(re.findall(r'<article\b[^>]*\bclass="story\b', updated))
                 if count:
                     updated = re.sub(r'(<span data-tools-count>)\d+(</span>)', rf'\g<1>{count}\2', updated)
-                path.write_text(updated, encoding='utf-8')
+                _write(path, updated)
 
 
 if __name__ == '__main__':

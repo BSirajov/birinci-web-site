@@ -18,6 +18,7 @@ from urllib.parse import quote, urlsplit, urlunsplit
 from docx import Document
 from lxml import etree, html
 
+from story_note_markup import MORAL, strip_moral_label
 from stories_catalog import load_stories_catalog
 from unpublished_stories import UNPUBLISHED_STEMS
 from chrome_restore import SITE_CHROME_ASSET_VERSION
@@ -41,7 +42,7 @@ ETIBAR_DE_SENTENCE_TITLES = {
     "another-day": "Wieder einen Tag gelebt …",
     "humanity-etibar-siracsoy": "Menschlichkeit",
     "relationships": "Beziehungen",
-    "nails-lesson": "Die Geschichte eines Nagels",
+    "nails-lesson": "Ein Wort im Zorn",
     "small-changes-great-value": "Kleine Neuerungen, große Werte …",
 }
 
@@ -49,7 +50,7 @@ ETIBAR_DE_SENTENCE_TITLES = {
 ILLUSTRATION_STAMP = "20261019illust"
 FORM_JUNK = frozenset({"top of form", "bottom of form"})
 MORAL_LABEL_RE = re.compile(
-    r"^(?:die\s+)?(?:lehre|moral)\s*:\s*(.*)$",
+    r"^((?:die\s+)?(?:lehre|moral))\s*:\s*(.*)$",
     re.I | re.S,
 )
 
@@ -71,8 +72,8 @@ def sentence_case_de(title: str) -> str:
     return " ".join(title.split()).strip()
 
 
-def normalize_de_paragraphs(paragraphs: list[str]) -> list[str]:
-    """Strip citation URLs / form junk; normalize moral label to Lehre:."""
+def normalize_de_paragraphs(paragraphs: list[str], preserve_breaks=False) -> list[str]:
+    """Strip citation URLs and form junk. Keep the moral marker written in the source."""
     paras = [p.strip() for p in paragraphs if p and p.strip()]
     while paras:
         last = paras[-1].strip()
@@ -88,10 +89,14 @@ def normalize_de_paragraphs(paragraphs: list[str]) -> list[str]:
             continue
         m = MORAL_LABEL_RE.match(p)
         if m:
-            body = " ".join(m.group(1).split()).strip()
-            out.append(f"Lehre: {body}" if body else "Lehre:")
+            label = " ".join(m.group(1).split())
+            body = " ".join(m.group(2).split()).strip()
+            out.append(f"{label}: {body}" if body else f"{label}:")
         else:
-            out.append(" ".join(p.split()).strip())
+            keep_breaks = preserve_breaks is True or (
+                isinstance(preserve_breaks, list) and len(out) in preserve_breaks
+            )
+            out.append(p if keep_breaks else " ".join(p.split()).strip())
     return visible_story_paragraphs(out)
 
 
@@ -216,7 +221,7 @@ class Builder:
                 stem = original["stem"]
                 if stem in ETIBAR_POETRY_STEMS:
                     continue
-                story = dict(stem=stem, **self.sources[stem], hasImage=True, hasAudio=False,
+                story = dict(stem=stem, **self.sources[stem], hasImage=True,
                              href=f"categories/{category['slug']}.html#{stem}")
                 cat["stories"].append(story)
                 self.all.append((story, cat))
@@ -276,9 +281,9 @@ class Builder:
                 or paragraph.startswith("Geschichten aus dem Internet")
                 or paragraph.startswith("Die Geschichten stammen")
             )
-            if paragraph.startswith("Lehre:"):
+            if MORAL.match(paragraph):
                 p.set("class", "story__moral")
-                p.text = paragraph.removeprefix("Lehre:").lstrip()
+                p.text = strip_moral_label(paragraph)
             elif is_source:
                 p.set("class", "story__source")
                 lines = [ln.strip() for ln in str(paragraph or "").splitlines() if ln.strip()]
@@ -481,9 +486,13 @@ class Builder:
         # Catalog and search use the same shared runtime formats as other locales.
         assetdir = ROOT / "de/assets"
         assetdir.mkdir(parents=True, exist_ok=True)
-        (assetdir / "stories-data.js").write_text("window.__BIRINCI_STORIES__ = " + json.dumps(self.catalog, ensure_ascii=False, separators=(",", ":")) + ";\n", encoding="utf-8")
+        published = json.loads(json.dumps(self.catalog))
+        for category in published["categories"]:
+            for story in category["stories"]:
+                story["paragraphs"] = [strip_moral_label(p) for p in story["paragraphs"]]
+        (assetdir / "stories-data.js").write_text("window.__BIRINCI_STORIES__ = " + json.dumps(published, ensure_ascii=False, separators=(",", ":")) + ";\n", encoding="utf-8")
         search = [dict(title=s["title"], stem=s["stem"], category=c["title"], slug=c["slug"],
-                       href=s["href"], hay=" ".join([s["title"], c["title"], *s["paragraphs"]]).lower()) for s, c in self.all]
+                       href=s["href"], hay=" ".join([s["title"], c["title"], *[strip_moral_label(p) for p in s["paragraphs"]]]).lower()) for s, c in self.all]
         (assetdir / "search-index.js").write_text("window.__BIRINCI_SEARCH__ = " + json.dumps(search, ensure_ascii=False, separators=(",", ":")) + ";\n", encoding="utf-8")
         from chrome_restore import write_lang_i18n_from_locale
         write_lang_i18n_from_locale("de")

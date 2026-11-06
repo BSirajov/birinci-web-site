@@ -1,0 +1,44 @@
+[
+  {
+    "language": "en",
+    "entries": 125,
+    "fixed": 66,
+    "needs_decision": 59,
+    "offline": true,
+    "search": true,
+    "filters": true,
+    "sort": true,
+    "details": true,
+    "theme": true,
+    "print": true,
+    "mobile": true
+  },
+  {
+    "language": "az",
+    "entries": 125,
+    "fixed": 66,
+    "needs_decision": 59,
+    "offline": true,
+    "search": true,
+    "filters": true,
+    "sort": true,
+    "details": true,
+    "theme": true,
+    "print": true,
+    "mobile": true
+  },
+  {
+    "language": "ru",
+    "entries": 125,
+    "fixed": 66,
+    "needs_decision": 59,
+    "offline": true,
+    "search": true,
+    "filters": true,
+    "sort": true,
+    "details": true,
+    "theme": true,
+    "print": true,
+    "mobile": true
+  }
+]

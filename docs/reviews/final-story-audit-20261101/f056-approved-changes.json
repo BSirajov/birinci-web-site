@@ -1,0 +1,37 @@
+[
+  {
+    "language": "az",
+    "source": "az/wisdom-stories/i-love-you.docx",
+    "old": "Gül bülbülün sevgisinin dərinliyini yalnız onu itirəndə anladı. Amma artıq gec idi. Hər gecə eşitdiyi nəğmə əbədi susmuşdu.",
+    "new": "Gül susdu. Artıq heç nə bülbülü də, onun nəğməsini də geri qaytara bilməzdi.",
+    "other_paragraphs_and_moral_unchanged": true
+  },
+  {
+    "language": "en",
+    "source": "en/wisdom-stories/i-love-you.docx",
+    "old": "Only after losing him did the rose understand the depth of his love. But it was too late. The song she had heard every night had fallen silent forever.",
+    "new": "The rose fell silent. Nothing could bring the nightingale or his song back.",
+    "other_paragraphs_and_moral_unchanged": true
+  },
+  {
+    "language": "de",
+    "source": "de/wisdom-stories/i-love-you.docx",
+    "old": "Erst als sie die Nachtigall verloren hatte, begriff die Rose, wie tief deren Liebe gewesen war. Doch es war zu spät. Das Lied, das sie jede Nacht gehört hatte, war für immer verstummt.",
+    "new": "Die Rose schwieg. Nichts konnte die Nachtigall oder ihren Gesang zurückbringen.",
+    "other_paragraphs_and_moral_unchanged": true
+  },
+  {
+    "language": "ru",
+    "source": "ru/wisdom-stories/i-love-you.docx",
+    "old": "Лишь потеряв соловья, роза поняла, как глубоко он её любил. Но было уже поздно. Песня, которую она слышала каждую ночь, умолкла навсегда.",
+    "new": "Роза замолчала. Ничто уже не могло вернуть ни соловья, ни его песню.",
+    "other_paragraphs_and_moral_unchanged": true
+  },
+  {
+    "language": "ky",
+    "source": "ky/wisdom-stories/i-love-you.docx",
+    "old": "Булбулдан айрылгандан кийин гана роза анын сүйүүсү канчалык терең болгонун түшүндү. Бирок кеч болуп калган эле. Ар түнү угулуп турган сайроо түбөлүккө тынган.",
+    "new": "Роза унчукпай калды. Эми булбулду да, анын сайраганын да эч нерсе кайтара албайт эле.",
+    "other_paragraphs_and_moral_unchanged": true
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "language": "en",
+    "source": "en/wisdom-stories/prayer-for-everyone.docx",
+    "old": "To those whose faith has faltered, who feel far from You—",
+    "new": "To those without faith, who feel far from You—",
+    "other_text_and_line_breaks_unchanged": true
+  },
+  {
+    "language": "de",
+    "source": "de/wisdom-stories/prayer-for-everyone.docx",
+    "old": "Den Menschen, deren Glaube wankt, die sich Dir fern fühlen —",
+    "new": "Den Menschen ohne Glauben, die sich Dir fern fühlen —",
+    "other_text_and_line_breaks_unchanged": true
+  },
+  {
+    "language": "ru",
+    "source": "ru/wisdom-stories/prayer-for-everyone.docx",
+    "old": "Тем, чья вера пошатнулась, кто чувствует себя вдали от Тебя, —",
+    "new": "Тем, у кого нет веры, кто чувствует себя вдали от Тебя, —",
+    "other_text_and_line_breaks_unchanged": true
+  },
+  {
+    "language": "ky",
+    "source": "ky/wisdom-stories/prayer-for-everyone.docx",
+    "old": "Ыйманы солгундаганга, Өзүңдөн алыстаганга —",
+    "new": "Ыйманы жокко, Өзүңдөн алыстаганга —",
+    "other_text_and_line_breaks_unchanged": true
+  }
+]

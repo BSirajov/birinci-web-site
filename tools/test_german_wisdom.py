@@ -17,11 +17,12 @@ import re
 from urllib.parse import unquote, urlsplit
 import xml.etree.ElementTree as ET
 from zipfile import ZipFile
+from story_note_markup import strip_moral_label
 from unpublished_stories import UNPUBLISHED_STEMS
 from publish_policy import SEPARATELY_PUBLISHED_URLS
 
-EXPECTED_AZ = 261
-EXPECTED_DE = 256
+EXPECTED_AZ = 260
+EXPECTED_DE = 255
 # Etibar verse published in AZ but omitted from the German site.
 ETIBAR_POETRY_STEMS = {
     "time-has-passed",
@@ -255,8 +256,14 @@ class Audit:
 
     def inventory(self, paths, kind):
         result = defaultdict(list)
+        manifest = json.loads((self.root / 'tools/story-build-manifest.json').read_text(encoding='utf-8'))
+        source_ids = {
+            (self.root / s['source']).resolve(): s['stem']
+            for lang in manifest.values() for category in lang['categories']
+            for s in category['stories'] if s.get('source')
+        }
         for path in sorted(paths):
-            result[canonical_stem(path.stem)].append(path)
+            result[source_ids.get(path.resolve(), canonical_stem(path.stem))].append(path)
         self.counts[kind] = sum(map(len, result.values()))
         if self.counts[kind] != EXPECTED_DE:
             self.fail(f"{kind}: expected {EXPECTED_DE}, found {self.counts[kind]}")
@@ -311,7 +318,7 @@ class Audit:
         return size
 
     def preservation(self, docs, images):
-        path = self.root / "docs/reviews/de-preservation-baseline-20261020.json"
+        path = self.root / "tools/fixtures/de-preservation-baseline.json"
         try:
             baseline = json.loads(path.read_text(encoding="utf-8-sig"))
             expected = {self.label(p) for p in [*docs.values(), *images.values()]}
@@ -371,6 +378,12 @@ class Audit:
         images = {stem: path for stem, path in images.items() if stem not in UNPUBLISHED_STEMS}
         self.story_stems = set(docs)
         sources = {}
+        manifest = json.loads((self.root / "tools/story-build-manifest.json").read_text(encoding="utf-8"))
+        line_breaks = {
+            story["stem"]: story.get("preserveLineBreaks", False)
+            for category in manifest["de"]["categories"]
+            for story in category["stories"]
+        }
         for stem, path in docs.items():
             try:
                 raw = docx_paragraphs(path)
@@ -378,7 +391,7 @@ class Audit:
                     self.fail(f"{self.label(path)}: missing title/body")
                     continue
                 title = ETIBAR_DE_SENTENCE_TITLES.get(stem) or sentence_case_de(raw[0])
-                body = normalize_de_paragraphs(raw[1:])
+                body = normalize_de_paragraphs(raw[1:], line_breaks.get(stem, False))
                 sources[stem] = [title, *body]
             except (OSError, ValueError, ET.ParseError, KeyError) as exc:
                 self.fail(f"{self.label(path)}: DOCX read failed: {exc}")
@@ -448,7 +461,7 @@ class Audit:
                 continue
             page = Page(re.sub(r'<(/?)h2\b', r'<\1h1', match[0]))
             self.exact(f"{stem} title", page.headings, paragraphs[:1])
-            self.exact(f"{stem} story__text p", page.paragraphs, [p.removeprefix("Lehre:").lstrip() for p in paragraphs[1:]])
+            self.exact(f"{stem} story__text p", page.paragraphs, [strip_moral_label(p) for p in paragraphs[1:]])
             rule = f'RewriteRule ^{re.escape(stem)}\\.html$ /de/categories/{routes[stem]}.html#{stem} [R=301,L,NE]'
             if rule not in redirect_text:
                 self.fail(f"missing permanent redirect: {stem}")

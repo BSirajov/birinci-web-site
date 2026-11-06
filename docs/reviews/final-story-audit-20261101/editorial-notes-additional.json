@@ -1,0 +1,15 @@
+{
+  "purpose": "Unconfirmed candidates from the first language pass; not final findings.",
+  "candidates": [
+    {"category":"Cross-story","language":"de","note":"Same author appears as Baxtiyar Siracov and Bakhtiyar Sirajov. Inventory all bylines; ask preferred German spelling."},
+    {"category":"Structure","language":"ru","note":"Inline narrative colon followed by dialogue dash instead of paragraph dialogue or quotation marks: lifes-finest-blessing, those-who-give-love-receive-love, baklava p2/4/5, stolen-camel p3/4, belling-the-cat p1/3, ant-carrying-water p2/5, albrecht-durer p5/6/7, sinans-waterless-house p1/3/11/14. Confirm punctuation rule and inventory every occurrence."},
+    {"category":"Cross-story","language":"ru","note":"Moral label Урок in Etibar Siracsoy works versus Мораль elsewhere. Possibly intentional author convention; Needs decision, not automatically wrong."},
+    {"category":"Translation","language":"ru","story":"flower-of-honesty","note":"Moral says выдавать чужой результат за свой. Replacement flowers could be grown by participants themselves; issue is lying about seed provenance, not appropriating another person's work. Compare source."},
+    {"category":"Structure","languages":["ru","ky"],"stories":["think-before-speaking","every-day-has-meaning","in-your-hands","learning-from-loss","price-of-belonging"],"note":"Titles are more absolute than qualified narratives/morals. Could be intentional rhetorical titles; Needs decision, compare all languages."},
+    {"category":"Language","languages":["de","ru"],"story":"market-of-good-neighbors","note":"Batman traditional weight unit unexplained, unlike English gloss. Consider reader-facing gloss rather than unsupported numeric conversion."},
+    {"category":"Translation","language":"ky","story":"humanity","paragraph":26,"text":"ыраазычылыгымды билдирип, ыраазычылыгын алмакмын","note":"Woman wants to thank rescuer and receive his gratitude; possibly mistranslated asking him to absolve her debt/forgive sacrifice. Compare Azerbaijani and other versions."},
+    {"category":"Translation","language":"ky","story":"justice-and-compassion","paragraph":3,"text":"Ал сенин акыңа тийген эмес.","note":"Unclear antecedent and literal idiom, also used as title. Verify intended meaning concerning morphine allocation before proposing natural wording."},
+    {"category":"Cross-story","language":"ky","stories":["vizier-and-the-scholar","education-or-character","plucking-the-goose"],"note":"Вазир versus увазир; verify accepted variants before suggesting a house-style choice."},
+    {"category":"Cross-story","language":"ky","story":"friend-of-allah","note":"Аллах in title versus Кудай in body; both legitimate Kyrgyz usage. Prior explicit Allah consistency request applied EN/RU only, so not an automatic requirement for KY."}
+  ]
+}

@@ -57,6 +57,12 @@ _IGNORE_PUBLISH_PATTERNS = [
     # Retained locally for possible restoration, never published.
     "ill-gotten-money.*",
     "forbidden-money.*",
+    "butter-price-war.*",
+    "hajj-pilgrimage.*",
+    "vizier-and-the-scholar.*",
+    "empty-boat.*",
+    "dreaming.*",
+    "story-sources.js",
     "*.pdf",
     "*.PDF",
     "*.docx",

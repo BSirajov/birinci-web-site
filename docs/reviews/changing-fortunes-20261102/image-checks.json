@@ -1,0 +1,47 @@
+[
+  {
+    "language": "az",
+    "file": "az\\wisdom-stories\\illustrations\\pawn-and-the-king.webp",
+    "dimensions": [
+      1536,
+      1159
+    ],
+    "sha256": "e65b6911d8fa817011b961e8ad21cd78910270e4d1357053ea37336116ca1409"
+  },
+  {
+    "language": "en",
+    "file": "en\\wisdom-stories\\illustrations\\pawn-and-the-king.webp",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "sha256": "389aee3b3311e9810b159fd0b3b2ec5735c698b9456c302f38b81f7cb4ee0bad"
+  },
+  {
+    "language": "de",
+    "file": "de\\wisdom-stories\\illustrations\\pawn-and-the-king.webp",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "sha256": "cbb791978eab997bf83c8fb5ed78c96f3b1072276ca86591ef5da5a025d09450"
+  },
+  {
+    "language": "ru",
+    "file": "ru\\wisdom-stories\\illustrations\\pawn-and-the-king.webp",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "sha256": "28dbd129e3a69eae62bf62f655a4f14118f87762c92b566f46984aea438c49f7"
+  },
+  {
+    "language": "ky",
+    "file": "ky\\wisdom-stories\\illustrations\\pawn-and-the-king.webp",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "sha256": "b3571bef73a59a7a28a604716d26d0932a8f3c90cef9831b2e0111ba977b4a1d"
+  }
+]

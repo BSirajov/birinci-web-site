@@ -1,0 +1,28 @@
+[
+  {
+    "lang": "az",
+    "records": 10352,
+    "offline": true,
+    "search": true,
+    "filters": true,
+    "pagination": true,
+    "sort": true,
+    "expand": true,
+    "dark_mode": true,
+    "print": true,
+    "mobile": true
+  },
+  {
+    "lang": "ru",
+    "records": 10352,
+    "offline": true,
+    "search": true,
+    "filters": true,
+    "pagination": true,
+    "sort": true,
+    "expand": true,
+    "dark_mode": true,
+    "print": true,
+    "mobile": true
+  }
+]

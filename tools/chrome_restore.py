@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import html
+import hashlib
 import json
 import re
 import time
@@ -35,7 +36,7 @@ from i18n_config import (  # noqa: E402
     story_audio_dir,
     story_illustrations_dir,
 )
-from publish_policy import publish_discoveries_enabled  # noqa: E402
+from publish_policy import OMIT_AUDIO_FROM_PUBLISH, publish_discoveries_enabled  # noqa: E402
 
 
 def write_text_resilient(
@@ -107,14 +108,16 @@ def install_resilient_path_writes() -> None:
 DISABLE_DISCOVERY_VIDEOS = True
 
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
-SITE_ASSET_VERSION = "20261030qafixes"
+SITE_ASSET_VERSION = "20261103titles"
+# All active story illustration text panels synchronized with their Word sources.
+ILLUSTRATION_ASSET_VERSION = "20261106anger"
 # Shared site.css / site.js (phone illustration-control chrome).
-SITE_CHROME_ASSET_VERSION = "20261030qafixes"
+SITE_CHROME_ASSET_VERSION = "20261106morals"
 INVENTIONS_BRIDGE_ASSET_VERSION = "20260924bg"
 # Discoveries catalog JS (view=list URL cache-bust). Independent of site chrome.
 KT_INVENTIONS_JS_VERSION = "20261004qa1"
 STORY_COMPARE_CSS_VERSION = "20261030qafixes"
-STORY_COMPARE_JS_VERSION = "20261030qafixes"
+STORY_COMPARE_JS_VERSION = "20261106morals"
 FEEDBACK_FORM_JS_VERSION = "20261031guard"
 COMPARE_WINDOW_JS_VERSION = "20261005de"
 DISCOVERY_COMPARE_ASSET_VERSION = "20261006noaud"
@@ -150,10 +153,17 @@ ILLUSTRATION_STAMPS = frozenset(
         "20261019illust",
     }
 )
+def story_routes_asset_version() -> str:
+    payload = ((ROOT / "tools/story-build-manifest.json").read_bytes()
+               + (ROOT / "tools/poem-translations.json").read_bytes())
+    return SITE_CHROME_ASSET_VERSION + hashlib.sha256(payload).hexdigest()[:12]
+
+
 KNOWN_ASSET_STAMPS = frozenset(
     {
         SITE_ASSET_VERSION,
         SITE_CHROME_ASSET_VERSION,
+        story_routes_asset_version(),
         INVENTIONS_BRIDGE_ASSET_VERSION,
         KT_INVENTIONS_JS_VERSION,
         STORY_COMPARE_CSS_VERSION,
@@ -899,10 +909,11 @@ def ensure_site_css_chrome(css: str) -> str:
             1,
         )
 
-    # The background file is JPEG data named .jpg. Do not point CSS at a missing WebP or PNG.
-    if (ROOT / "assets" / "diaspor-body-top-bg.jpg").is_file():
-        css = css.replace("diaspor-body-top-bg.webp", "diaspor-body-top-bg.jpg")
-        css = css.replace("diaspor-body-top-bg.png", "diaspor-body-top-bg.jpg")
+    # The page background is JPEG data. Point CSS at that file, not a missing WebP or PNG.
+    if (ROOT / "assets" / "paisley-light.jpg").is_file():
+        css = css.replace("diaspor-body-top-bg.webp", "paisley-light.jpg")
+        css = css.replace("diaspor-body-top-bg.png", "paisley-light.jpg")
+        css = css.replace("diaspor-body-top-bg.jpg", "paisley-light.jpg")
 
     if ".page-jump {" not in css:
         if not _BACK_TO_TOP_BLOCK_RE.search(css):
@@ -1722,8 +1733,10 @@ def pin_asset_versions(html: str) -> str:
     def _repl(match: re.Match[str]) -> str:
         stamp = match.group(2)
         window = html[max(0, match.start() - 96) : match.start()]
+        if window.endswith("story-routes.js"):
+            return match.group(1) + story_routes_asset_version()
         # Shared story chrome. A new stamp so phones pick up illustration controls.
-        if window.endswith("site.js") or window.endswith("site.css"):
+        if any(window.endswith(name) for name in ("site.js", "site.css", "story-routes.js", "story-navigation.js")):
             return match.group(1) + SITE_CHROME_ASSET_VERSION
         if window.endswith("kt-inventions.js"):
             return match.group(1) + KT_INVENTIONS_JS_VERSION
@@ -1741,10 +1754,10 @@ def pin_asset_versions(html: str) -> str:
             return match.group(1) + COMPARE_WINDOW_JS_VERSION
         if window.endswith("discovery-compare.js"):
             return match.group(1) + DISCOVERY_COMPARE_ASSET_VERSION
-        # Wisdom-story illustrations use a language stamp, not the shared page stamp.
+        # Story illustrations have their own cache version, independent of page chrome.
         lookback = html[max(0, match.start() - 220) : match.start()]
-        if "/illustrations/" in lookback and lookback.rstrip().endswith((".webp", ".png")):
-            return match.group(1) + "20261030qafixes"
+        if "/illustrations/" in lookback.lower() and lookback.rstrip().endswith((".webp", ".png")):
+            return match.group(1) + ILLUSTRATION_ASSET_VERSION
         # Kyrgyz illustration scripts use their own stamp. The background
         # stylesheets use 20260924bg so a cached copy cannot keep the old .png URL.
         if stamp in ("20260924kyill", "20260925azill"):
@@ -1753,6 +1766,13 @@ def pin_asset_versions(html: str) -> str:
             return match.group(1) + INVENTIONS_BRIDGE_ASSET_VERSION
         return match.group(1) + SITE_ASSET_VERSION
 
+    # Every page using shared chrome gets the same generated story routes.
+    html = re.sub(r'<script\b[^>]*src=["\'][^"\']*/(?:story-routes|story-navigation)\.js[^"\']*["\'][^>]*>\s*</script>\s*', '', html)
+    html = re.sub(
+        r'(<script\b[^>]*src=["\'])([^"\']*?assets/)site\.js([^>]*>\s*</script>)',
+        lambda m: (f'<script src="{m[2]}story-routes.js?v={SITE_CHROME_ASSET_VERSION}" defer></script>\n'
+                   f'<script src="{m[2]}story-navigation.js?v={SITE_CHROME_ASSET_VERSION}" defer></script>\n'
+                   + m[0]), html)
     html = _ASSET_VERSION_RE.sub(_repl, html)
     html = _DATA_ASSET_VERSION_RE.sub(f'data-asset-version="{SITE_ASSET_VERSION}"', html)
     html = _PEARL_SRC_RE.sub(rf"\1?v={SITE_ASSET_VERSION}\2", html)
@@ -3854,9 +3874,10 @@ def ensure_shared_site_js_tags(markup: str, lang: str, rel_path: str = "") -> st
         i18n_src = f"../assets/i18n.js?v={SITE_ASSET_VERSION}"
         tts_src = f"../../assets/tts-proxy.js?v={SITE_ASSET_VERSION}"
         site_src = f"../../assets/site.js?v={SITE_ASSET_VERSION}"
+    tts_tag = "" if OMIT_AUDIO_FROM_PUBLISH else f'  <script src="{tts_src}"></script>\n'
     block = (
         f'  <script src="{i18n_src}"></script>\n'
-        f'  <script src="{tts_src}"></script>\n'
+        f"{tts_tag}"
         f'  <script src="{site_src}" defer></script>\n'
     )
     if _SITE_RUNTIME_SCRIPTS_RE.search(markup):
@@ -4038,6 +4059,29 @@ def ensure_sidebar_expand_collapse_buttons(markup: str, lang: str) -> str:
         markup = _relabel_toc_action_button(markup, _COLLAPSE_BTN_RE, collapse, collapse_aria)
 
     return markup
+
+
+def ensure_site_js_stable_story_spy(js: str) -> str:
+    """Keep wrapped breadcrumbs from oscillating the active story on mobile."""
+    old = "      return active || visible[0].link;"
+    new = '''      // A new breadcrumb can wrap to another line on narrow screens. Its
+      // changed sticky height must not switch the spy back to the preceding
+      // story, which would shrink the breadcrumb and repeat the cycle.
+      const currentIndex = visible.findIndex((entry) => entry.link === lastActiveLink);
+      const candidate = active || visible[0].link;
+      const candidateIndex = visible.findIndex((entry) => entry.link === candidate);
+      if (currentIndex > candidateIndex) {
+        const currentTop = visible[currentIndex].el.getBoundingClientRect().top;
+        const crumb = document.querySelector(".breadcrumbs");
+        const wrapAllowance = crumb ? crumb.getBoundingClientRect().height : 0;
+        if (currentTop <= offset + wrapAllowance) return lastActiveLink;
+      }
+      return candidate;'''
+    start = js.find("    const pickActiveStory = () => {")
+    end = js.find("    const updateActive =", start)
+    if start < 0 or end < 0:
+        return js
+    return js[:start] + js[start:end].replace(old, new) + js[end:]
 
 
 def ensure_site_js_i18n_chrome(js: str) -> str:
@@ -4698,6 +4742,7 @@ def apply_shared_assets() -> None:
         rest = ensure_site_js_go_to_bottom(rest)
         rest = ensure_site_js_search(rest)
         rest = ensure_site_js_i18n_chrome(rest)
+        rest = ensure_site_js_stable_story_spy(rest)
         rest = rewrite_content_media_paths(rest)
         shared_path.write_text(rest, encoding="utf-8")
 

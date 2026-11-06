@@ -2,6 +2,7 @@
   "use strict";
 
   (function loadTtsProxyIfNeeded() {
+    if (window.__BIRINCI_AUDIO_CONTROLS_ENABLED__ !== true) return;
     if (window.BirinciTtsProxy) return;
     var cur = document.currentScript;
     if (!cur || !cur.src) return;

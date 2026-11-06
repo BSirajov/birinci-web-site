@@ -92,7 +92,8 @@ EN_ETIBAR_ALIAS = {
 }
 
 LABEL_ONLY_RE = re.compile(
-    r"^(ibrət|ibret|moral|мораль|үлгү|сабак)\s*:\s*$", re.I
+    r"^(?:ibrət|ibret|nəticə|moral|lesson|(?:die\s+)?lehre|мораль|урок|үлгү|сабак)\s*:\s*$",
+    re.I,
 )
 AZ_LOWER_MAP = {
     "İ": "i",
@@ -459,7 +460,7 @@ def discover_sources(lang: str, published: set[str]) -> tuple[dict[str, Parsed],
 def story_paragraphs_for_data(parsed: Parsed) -> list[str]:
     paras = list(parsed.body)
     if parsed.moral:
-        paras.append(parsed.moral)
+        paras.append(strip_moral_label(parsed.moral))
     if parsed.source:
         paras.append(parsed.source)
     return visible_story_paragraphs(paras)
@@ -815,10 +816,15 @@ def sync_lang(lang: str) -> LangReport:
         if story is not None:
             pub_title, pub_body, pub_moral, pub_source = published_content(story)
             new_source = parsed.source or pub_source
+            expected_moral = strip_moral_label(parsed.moral or "")
+            actual_body = list(pub_body)
+            actual_moral = strip_moral_label(pub_moral or "")
+            if not actual_moral and expected_moral and actual_body and actual_body[-1] == expected_moral:
+                actual_moral = actual_body.pop()
             if (
                 parsed.title != pub_title
-                or parsed.body != pub_body
-                or (parsed.moral or "") != (pub_moral or "")
+                or parsed.body != actual_body
+                or expected_moral != actual_moral
                 or (new_source or "") != (pub_source or "")
             ):
                 text_changed = True
@@ -846,7 +852,7 @@ def sync_lang(lang: str) -> LangReport:
                         parsed.title,
                         cat_title or "",
                         *parsed.body,
-                        parsed.moral,
+                        strip_moral_label(parsed.moral),
                         new_source or "",
                     ]
                     if p

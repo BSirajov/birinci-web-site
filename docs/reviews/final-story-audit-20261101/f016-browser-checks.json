@@ -1,0 +1,65 @@
+{
+  "stories": [
+    {
+      "lang": "az",
+      "mobile": false,
+      "moral": true,
+      "image": true
+    },
+    {
+      "lang": "az",
+      "mobile": true,
+      "moral": true,
+      "image": true
+    },
+    {
+      "lang": "en",
+      "mobile": false,
+      "moral": true,
+      "image": true
+    },
+    {
+      "lang": "en",
+      "mobile": true,
+      "moral": true,
+      "image": true
+    },
+    {
+      "lang": "de",
+      "mobile": false,
+      "moral": true,
+      "image": true
+    },
+    {
+      "lang": "de",
+      "mobile": true,
+      "moral": true,
+      "image": true
+    },
+    {
+      "lang": "ru",
+      "mobile": false,
+      "moral": true,
+      "image": true
+    },
+    {
+      "lang": "ru",
+      "mobile": true,
+      "moral": true,
+      "image": true
+    },
+    {
+      "lang": "ky",
+      "mobile": false,
+      "moral": true,
+      "image": true
+    },
+    {
+      "lang": "ky",
+      "mobile": true,
+      "moral": true,
+      "image": true
+    }
+  ],
+  "reports": 3
+}

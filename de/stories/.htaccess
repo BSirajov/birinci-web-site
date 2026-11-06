@@ -21,7 +21,7 @@ RewriteRule ^beyond\-first\-impressions\.html$ /de/categories/dostluq-ve-insan-m
 RewriteRule ^beyond\-the\-cotton\-field\.html$ /de/categories/hikmet-ve-heyat-dersleri.html#beyond-the-cotton-field [R=301,L,NE]
 RewriteRule ^bookstore\.html$ /de/categories/hikmet-ve-heyat-dersleri.html#bookstore [R=301,L,NE]
 RewriteRule ^busy\-but\-unproductive\.html$ /de/categories/emek-ruzi-ve-servet.html#busy-but-unproductive [R=301,L,NE]
-RewriteRule ^butter\-price\-war\.html$ /de/categories/emek-ruzi-ve-servet.html#butter-price-war [R=301,L,NE]
+RewriteRule ^butter\-price\-war\.html$ /de/categories/emek-ruzi-ve-servet.html [R=301,L]
 RewriteRule ^call\-the\-shepherd\.html$ /de/categories/soz-sukut-ve-unsiyyet.html#call-the-shepherd [R=301,L,NE]
 RewriteRule ^can\-a\-broken\-heart\-love\-again\.html$ /de/categories/sevgi-ve-evlilik.html#can-a-broken-heart-love-again [R=301,L,NE]
 RewriteRule ^candles\-conversation\.html$ /de/categories/soz-sukut-ve-unsiyyet.html#candles-conversation [R=301,L,NE]

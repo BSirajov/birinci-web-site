@@ -1,0 +1,2744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wisdom Stories localization QA — EN, RU, KY against AZ</title>
+  <style>
+    :root { color-scheme: light; }
+    body {
+      margin: 0;
+      padding: 2rem 1.25rem 3rem;
+      font: 16px/1.5 "Segoe UI", system-ui, sans-serif;
+      color: #1c2430;
+      background: #f6f4ef;
+    }
+    main { max-width: 1280px; margin: 0 auto; }
+    h1 { font-size: 1.7rem; line-height: 1.25; margin: 0 0 0.4rem; }
+    h2 { font-size: 1.15rem; margin: 1.6rem 0 0.5rem; }
+    p { max-width: 78ch; }
+    .meta { color: #5c6775; margin-top: 0; }
+    .summary {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin: 1rem 0 1.25rem;
+    }
+    .summary div {
+      background: #fff;
+      border: 1px solid #e2dcd0;
+      border-radius: 10px;
+      padding: 0.7rem 0.9rem;
+      min-width: 9rem;
+    }
+    .summary strong { display: block; font-size: 1.35rem; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border: 1px solid #e2dcd0;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    th, td {
+      text-align: left;
+      vertical-align: top;
+      padding: 0.7rem 0.75rem;
+      border-bottom: 1px solid #eee6da;
+    }
+    th {
+      background: #243044;
+      color: #fff;
+      font-size: 0.82rem;
+      letter-spacing: 0.02em;
+    }
+    tr:last-child td { border-bottom: 0; }
+    .stem { display: block; color: #6b7280; font-size: 0.78rem; margin-top: 0.15rem; }
+    .lang { font-weight: 700; white-space: nowrap; }
+    .err {
+      color: #9f1239;
+      background: #ffe4e6;
+      font-weight: 700;
+      padding: 0 0.15em;
+      border-radius: 3px;
+    }
+    .type {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #9f1239;
+      white-space: nowrap;
+    }
+    caption {
+      caption-side: bottom;
+      text-align: left;
+      color: #5c6775;
+      font-size: 0.85rem;
+      padding-top: 0.6rem;
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Wisdom Stories localization QA</h1>
+  <p class="meta">Azerbaijani is the source of truth. English, Russian, and Kyrgyz were checked against it. Date: 27 September 2026.</p>
+
+  <div class="summary">
+    <div><strong>249</strong> stories in AZ, EN, RU, and KY</div>
+    <div><strong>0</strong> missing or extra stems</div>
+    <div><strong>329</strong> confirmed issues in this report</div>
+  </div>
+
+  <h2>How this was reviewed</h2>
+  <p>Every story stem is present in all four catalogs. Closings were compared: the standard source line is translated consistently, and the three author credits (Bəxtiyar Siracov, including the spelling kept on “Müzakirə və münaqişə”) match the Azerbaijani decision for those stories. The stories were read against the Azerbaijani wording, including morals and titles. Rows below are meaning, omission, addition, grammar, or title problems. Faithful rewording and paragraph splits that keep the story intact are not listed.</p>
+
+  <h2>Findings</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Story/Section</th>
+        <th>Language</th>
+        <th>Original Text (AZ)</th>
+        <th>Translated Text</th>
+        <th>Issue Type</th>
+        <th>Suggested Correction</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Kainat işığı<span class="stem">light-of-the-universe</span></td>
+        <td class="lang">English</td>
+        <td>Kainat işığı</td>
+        <td><span class="err">The Door of the Heart</span></td>
+        <td class="type">Title</td>
+        <td>The Light of the Universe</td>
+      </tr>
+      <tr>
+        <td>Kainat işığı<span class="stem">light-of-the-universe</span></td>
+        <td class="lang">English</td>
+        <td>Britaniyalı rəssam Uilyam Holman Hantın «Kainat işığı» əsəri London Kral Akademiyasında nümayiş etdirilir.</td>
+        <td><span class="err">A story about the British painter William Holman Hunt</span> describes a picture of a figure standing at a closed door…</td>
+        <td class="type">Omission</td>
+        <td>The British painter William Holman Hunt’s work “The Light of the Universe” is exhibited at the Royal Academy in London.</td>
+      </tr>
+      <tr>
+        <td>Çürük toxum<span class="stem">rotten-seed</span></td>
+        <td class="lang">English</td>
+        <td>Çürük toxum</td>
+        <td><span class="err">The Seed That Grew</span></td>
+        <td class="type">Title</td>
+        <td>The Rotten Seed</td>
+      </tr>
+      <tr>
+        <td>Çürük toxum<span class="stem">rotten-seed</span></td>
+        <td class="lang">English</td>
+        <td>kiçik oğlunu «çürük toxum» adlandıran ata onu xor görür və yetimlər evinə verir.</td>
+        <td>a man sent his often-ill young son to an orphanage, <span class="err">dismissing him as hopeless</span>.</td>
+        <td class="type">Omission</td>
+        <td>After his wife died, the father scorned his often-ill young son, calling him a “rotten seed,” and sent him to an orphanage.</td>
+      </tr>
+      <tr>
+        <td>Qab-qacağınızı yuyarkən dua edin<span class="stem">pray-while-washing-your-dishes</span></td>
+        <td class="lang">English</td>
+        <td>Qab-qacağınızı yuyarkən dua edin</td>
+        <td><span class="err">Gratitude at the Kitchen Sink</span></td>
+        <td class="type">Title</td>
+        <td>Pray While You Wash the Dishes</td>
+      </tr>
+      <tr>
+        <td>Həcc ziyarəti<span class="stem">hajj-pilgrimage</span></td>
+        <td class="lang">English</td>
+        <td>Hər nə axtarırsansa, özündə axtar, Qüdsdə, Məkkədə, hacda <span class="err">deyildir</span>.</td>
+        <td>Whatever you seek, first seek it within yourself — <span class="err">not only</span> in Jerusalem, Mecca, or the Hajj.</td>
+        <td class="type">Mistranslation</td>
+        <td>Whatever you seek, seek it in yourself; it is not in Jerusalem, Mecca, or the Hajj.</td>
+      </tr>
+      <tr>
+        <td>Həcc ziyarəti<span class="stem">hajj-pilgrimage</span></td>
+        <td class="lang">Russian</td>
+        <td>Hər nə axtarırsansa, özündə axtar, Qüdsdə, Məkkədə, hacda deyildir.</td>
+        <td>Что бы ни искал ты, прежде ищи в себе — <span class="err">не только</span> в Иерусалиме, Мекке или хадже.</td>
+        <td class="type">Mistranslation</td>
+        <td>Что бы ты ни искал, ищи в себе — не в Иерусалиме, не в Мекке и не в хадже.</td>
+      </tr>
+      <tr>
+        <td>İşsiz şeytan<span class="stem">idle-devil</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>İbrət: İnsanlar bir-birinə o qədər zülm edir ki, şeytana iş qalmır. Pisliyin çoxu kənardan yox, öz içimizdən gəlir.</td>
+        <td><span class="err">Сабак: Кылган жамандыгыңды шайтанга шылтаба. Адам адегенде өз ниетин, өз ишин оңдосун.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Сабак: Адамдар бири-бирине ушунчалык зулум кылгандыктан, шайтанга иш калбайт. Жамандыктын көбү сырттан эмес, өз ичибизден чыгат.</td>
+      </tr>
+      <tr>
+        <td>Doğru yoldan ayrılmamaq<span class="stem">not-leaving-the-right-path</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>İbrət: Gördüyü hər işə tam diqqətlə yanaşan, üstəlik Allahın onu gördüyünü unutmayan insan doğru yoldan azmaz.</td>
+        <td>Сабак: Милдетиңе бүт дитиңди коюп, абийириңди таза сакта. <span class="err">Ар бир ишиң үчүн жооп берериңди унутпа.</span></td>
+        <td class="type">Omission</td>
+        <td>Сабак: Ар бир ишине толук көңүл буруп, Кудайдын өзүн көрүп турганын унутпаган адам туура жолдон тайбайт.</td>
+      </tr>
+      <tr>
+        <td>Allahın verdiyi nemətlər<span class="stem">blessings-god-has-given</span></td>
+        <td class="lang">English</td>
+        <td>sərvət veribsə — əxlaqına</td>
+        <td>If He gave you wealth, did you <span class="err">remain honest</span>?</td>
+        <td class="type">Mistranslation</td>
+        <td>If He gave you wealth, what of your character?</td>
+      </tr>
+      <tr>
+        <td>Allahın verdiyi nemətlər<span class="stem">blessings-god-has-given</span></td>
+        <td class="lang">Russian</td>
+        <td>sərvət veribsə — əxlaqına</td>
+        <td>богатство — сохранили ли <span class="err">честность</span></td>
+        <td class="type">Mistranslation</td>
+        <td>богатство — сохранили ли нравственность</td>
+      </tr>
+      <tr>
+        <td>Allahın verdiyi nemətlər<span class="stem">blessings-god-has-given</span></td>
+        <td class="lang">Russian</td>
+        <td>Allah kimə nemət veribsə, ondan necə istifadə etdiyinə də baxacaq: güc veribsə — ədalətinə…</td>
+        <td><span class="err">Если Он даровал вам:</span> власть — были ли вы справедливы…</td>
+        <td class="type">Grammar</td>
+        <td>Если Он даровал вам власть — были ли вы справедливы; высокое положение — проявляли ли милосердие…</td>
+      </tr>
+      <tr>
+        <td>Oruclu olmaq<span class="stem">to-be-fasting</span></td>
+        <td class="lang">Russian</td>
+        <td>Xəstəliyimə görə yalnız ac qala bilmirəm.</td>
+        <td>А от еды не могу отказаться <span class="err">из-за болезни желудка</span>.</td>
+        <td class="type">Addition</td>
+        <td>Из-за болезни я не могу оставаться голодным.</td>
+      </tr>
+      <tr>
+        <td>Oruclu olmaq<span class="stem">to-be-fasting</span></td>
+        <td class="lang">Russian</td>
+        <td>Yalan danışmıram, heç kimə pis gözlə baxmıram, adamları ələ salmıram…</td>
+        <td>Я не лгу, не унижаю людей, не насмехаюсь, не сплетничаю, не завидую и не расточительствую. <span class="err">[the line “I do not look at anyone with an evil eye” is absent]</span></td>
+        <td class="type">Omission</td>
+        <td>Я не лгу, ни на кого не смотрю дурным глазом, не насмехаюсь над людьми, не расточительствую, никого не унижаю, не сплетничаю и не зарюсь на чужое.</td>
+      </tr>
+      <tr>
+        <td>Ana və oğul<span class="stem">mother-and-son</span></td>
+        <td class="lang">Russian</td>
+        <td>Valideynə vəfa təkcə maddi qayğı göstərmək deyil, onu sevgidən və diqqətdən məhrum etməməkdir.</td>
+        <td>Истинная преданность родителю — это <span class="err">не физическая забота, а любовь и внимание</span>.</td>
+        <td class="type">Mistranslation</td>
+        <td>Верность родителю — это не только материальная забота: нельзя лишать его любви и внимания.</td>
+      </tr>
+      <tr>
+        <td>Ana və oğul<span class="stem">mother-and-son</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Bir vaxt anasının əlindən yapışan uşaq böyüyüb onu tək qoya bilər. Valideynə vəfa təkcə maddi qayğı göstərmək deyil, onu sevgidən və diqqətdən məhrum etməməkdir.</td>
+        <td>Сабак: Ата-энеге башпаанек менен тамак эле эмес, мээрим, көңүл да керек. <span class="err">Бала кезде өзүң издеген жылуулукту алардан аяба.</span></td>
+        <td class="type">Omission</td>
+        <td>Сабак: Бир кезде энесинин колунан кармаган бала чоңоюп, аны жалгыз калтырышы мүмкүн. Ата-энеге берилгендик материалдык камкордук гана эмес — аларды мээримден жана көңүлдөн кур калтырбоо.</td>
+      </tr>
+      <tr>
+        <td>Övlad tərbiyəsi<span class="stem">raising-children</span></td>
+        <td class="lang">English</td>
+        <td>Övladına tərbiyə verən təlimçi və ya kənar adam deyil — sevgi göstərən valideyndir.</td>
+        <td>It is not a <span class="err">teacher</span> or an outsider who educates a child—it is a loving parent.</td>
+        <td class="type">Mistranslation</td>
+        <td>A child is raised not by a trainer or an outsider, but by a loving parent.</td>
+      </tr>
+      <tr>
+        <td>Övlad tərbiyəsi<span class="stem">raising-children</span></td>
+        <td class="lang">Russian</td>
+        <td>Övladına tərbiyə verən təlimçi və ya kənar adam deyil — sevgi göstərən valideyndir.</td>
+        <td>Ребенка воспитывает не <span class="err">учитель</span> или посторонний человек, а любящий родитель.</td>
+        <td class="type">Mistranslation</td>
+        <td>Ребёнка воспитывает не дрессировщик и не посторонний, а любящий родитель.</td>
+      </tr>
+      <tr>
+        <td>Erkən evlilik<span class="stem">early-marriage</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>İbrət: Bir müəllimin kiçik qayğısı bir qızın taleyini dəyişə bilər. Erkən evlilik uşaqları elmdən məhrum edir; buna göz yummayaq.</td>
+        <td>Сабак: Мугалимдин камкордугу баланын тагдырына жол ачат. <span class="err">Кыздардын окуусун улантып, балалыгын балалык бойдон өткөрүшүнө шарт түзөлү.</span></td>
+        <td class="type">Omission</td>
+        <td>Сабак: Мугалимдин кичинекей камкордугу бир кыздын тагдырын өзгөртүшү мүмкүн. Эрте нике балдарды билимден ажыратат; буга көз жумбашыбыз керек.</td>
+      </tr>
+      <tr>
+        <td>Ailənizin dəyəri<span class="stem">value-of-your-family</span></td>
+        <td class="lang">Russian</td>
+        <td>Ata, bir saatını ala bilərəm? Sabah işdən tez gəl, birlikdə yemək yeyək.</td>
+        <td>Папа, можно я куплю час твоего времени? Приди завтра пораньше, <span class="err">поужинаем</span> вместе.</td>
+        <td class="type">Mistranslation</td>
+        <td>Папа, можно я куплю час твоего времени? Приди завтра с работы пораньше, поедим вместе.</td>
+      </tr>
+      <tr>
+        <td>Həcc ziyarəti<span class="stem">hajj-pilgrimage</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>İbrət: Əsl mübarizə kənardakı şeytanla yox, insanın öz nəfsi ilədir.</td>
+        <td>Сабак: <span class="err">Напсиңди тыйып, ички дүйнөңдү тазалоого умтул.</span></td>
+        <td class="type">Omission</td>
+        <td>Сабак: Чыныгы күрөш сырттагы шайтан менен эмес, адамдын өз напси менен. Касиет ташта да, таажыда да эмес — адамдын өз ичинде.</td>
+      </tr>
+      <tr>
+        <td>Dərviş qaşıqları<span class="stem">dervishs-spoons</span></td>
+        <td class="lang">English</td>
+        <td>Həyat bazarında həmişə alan deyil, verən qazanar.</td>
+        <td>We gain from giving <span class="err">as well as receiving</span>.</td>
+        <td class="type">Mistranslation</td>
+        <td>In life’s marketplace, the one who gives is the one who gains, not the one who only takes.</td>
+      </tr>
+      <tr>
+        <td>Dərviş qaşıqları<span class="stem">dervishs-spoons</span></td>
+        <td class="lang">Russian</td>
+        <td>Həyat bazarında həmişə alan deyil, verən qazanar.</td>
+        <td>В жизни выигрывает <span class="err">не только тот, кто берёт, но и тот</span>, кто умеет отдавать.</td>
+        <td class="type">Mistranslation</td>
+        <td>На базаре жизни выигрывает не тот, кто только берёт, а тот, кто отдаёт.</td>
+      </tr>
+      <tr>
+        <td>Allahın verdiyi nemətlər<span class="stem">blessings-god-has-given</span></td>
+        <td class="lang">English</td>
+        <td>Hər nemət həm də bir imtahandır. Sənin kimliyini qazandıqların deyil, onlardan necə istifadə etdiyin göstərir.</td>
+        <td>Every blessing from Allah <span class="err">carries a responsibility</span>; we honor His gifts by using them with justice, compassion, gratitude, and faithfulness.</td>
+        <td class="type">Omission</td>
+        <td>Every blessing is also a test. What shows who you are is not what you have gained, but how you use it.</td>
+      </tr>
+      <tr>
+        <td>Doğru yoldan ayrılmamaq<span class="stem">not-leaving-the-right-path</span></td>
+        <td class="lang">English</td>
+        <td>Əgər gördüyün hər işdə, sənə verilən hər vəzifədə belə diqqətli olsan</td>
+        <td>Give the same care to <span class="err">what is right</span>, devote yourself to your duties</td>
+        <td class="type">Mistranslation</td>
+        <td>If you are this careful in every task you do and in every duty given to you, devote yourself to your work, and never forget that Allah’s eye is always upon you, you will never leave the right path.</td>
+      </tr>
+      <tr>
+        <td>Ey Allahım, əvvəlcə dağa-daşa ver<span class="stem">o-god-give-first-to-the-mountains-and-stones</span></td>
+        <td class="lang">Russian</td>
+        <td>Ey Allahım, əvvəlcə dağa-daşa ver</td>
+        <td>О <span class="err">Боже</span>, сначала дай горам и камням!</td>
+        <td class="type">Mistranslation</td>
+        <td>О Аллах, сначала дай горам и камням!</td>
+      </tr>
+      <tr>
+        <td>Ey Allahım, əvvəlcə dağa-daşa ver<span class="stem">o-god-give-first-to-the-mountains-and-stones</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Bu duada bir xalqın bölüşmək, başqasına pay ayırmaq ənənəsi yaşayır.</td>
+        <td>Ырыскыны бөлүшө билүүдө элдин ынтымагы, <span class="err">табиятка болгон урматы</span> көрүнөт.</td>
+        <td class="type">Addition</td>
+        <td>Бул дубада элдин ырыскыны бөлүшүп, башкага үлүш бөлүү салты жашайт.</td>
+      </tr>
+      <tr>
+        <td>Həcc ziyarəti<span class="stem">hajj-pilgrimage</span></td>
+        <td class="lang">English</td>
+        <td>Oğul, bizim buradakı şeytanla nə işimiz var? Əvvəl öz içimizdəki şeytanı daşlamalıyıq</td>
+        <td>My son, why should we concern ourselves <span class="err">only with the devil outside us</span>? We must also confront the devil within</td>
+        <td class="type">Mistranslation</td>
+        <td>My son, what business do we have with the devil here? First we must stone the devil within ourselves.</td>
+      </tr>
+      <tr>
+        <td>Həcc ziyarəti<span class="stem">hajj-pilgrimage</span></td>
+        <td class="lang">Russian</td>
+        <td>Oğul, bizim buradakı şeytanla nə işimiz var? Əvvəl öz içimizdəki şeytanı daşlamalıyıq</td>
+        <td>Сынок, зачем видеть шайтана <span class="err">только снаружи</span>? Нам надо побороть и того, что живёт внутри нас</td>
+        <td class="type">Mistranslation</td>
+        <td>Сынок, какое нам дело до шайтана здесь? Сначала нужно побить камнями шайтана внутри себя.</td>
+      </tr>
+      <tr>
+        <td>Halal tikə<span class="stem">lawful-morsel</span></td>
+        <td class="lang">Russian</td>
+        <td>Uşağın mənəvi tərbiyəsi süfrəsinə qoyulan tikədən başlayır.</td>
+        <td>Нравственное воспитание начинается с <span class="err">семейного уклада</span>.</td>
+        <td class="type">Mistranslation</td>
+        <td>Нравственное воспитание ребёнка начинается с куска, который кладут ему на стол.</td>
+      </tr>
+      <tr>
+        <td>Halal tikə<span class="stem">lawful-morsel</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Uşağın mənəvi tərbiyəsi süfrəsinə qoyulan tikədən başlayır.</td>
+        <td>Баланын тарбиясына <span class="err">айткан сөзүң да</span>, тапкан ырыскың да таасир этет.</td>
+        <td class="type">Addition</td>
+        <td>Баланын тарбиясы дасторконго коюлган тилкеден башталат.</td>
+      </tr>
+      <tr>
+        <td>Haqqın qüdrəti<span class="stem">power-of-truth</span></td>
+        <td class="lang">English</td>
+        <td>sonda yenə haqq öz yerini tapar</td>
+        <td>in the end, <span class="err">the righteous one stands firm</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Time passes and power changes, but in the end truth finds its place again.</td>
+      </tr>
+      <tr>
+        <td>Kilsə zəngi<span class="stem">church-bell</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Ədalət ölərsə, kraldan da böyük bir şey ölür.</td>
+        <td>Адилеттик жоголсо, <span class="err">элдин таянары калбайт</span>.</td>
+        <td class="type">Mistranslation</td>
+        <td>Адилеттик өлсө, падышадан да чоң нерсе өлөт.</td>
+      </tr>
+      <tr>
+        <td>Molla və alim<span class="stem">mullah-and-the-scholar</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>üstündə qarası olsa, yeyərəm</td>
+        <td>Үстүндө <span class="err">эти</span> болсо, жейм</td>
+        <td class="type">Mistranslation</td>
+        <td>Үстүндө карасы болсо, жейм.</td>
+      </tr>
+      <tr>
+        <td>Möcüzənin qiyməti<span class="stem">price-of-a-miracle</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>İnam möhtəşəm bir qüvvədir. Bəzən bir uşağın saf inamı bir insanın xeyirxahlığı ilə görüşəndə möcüzə yaranır.</td>
+        <td>Баланын ак тилеги боорукер адамдын жардамына жол ачты. Ишенимге аракет, мээримге кол кабыш кошулганда <span class="err">үмүт жанат</span>.</td>
+        <td class="type">Mistranslation</td>
+        <td>Ишеним зор күч. Кээде баланын таза ишеними адамдын жакшылыгына жолукканда керемет жаралат.</td>
+      </tr>
+      <tr>
+        <td>Müsibət və nemət<span class="stem">calamity-and-blessing</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Əgər müsibət səni Allaha yaxınlaşdırırsa, nemətdir.</td>
+        <td>Кырсык сени Аллахка жакындатса, <span class="err">анын да жакшылыгы бар</span>.</td>
+        <td class="type">Mistranslation</td>
+        <td>Кырсык сени Аллахка жакындатса, ал өзү жакшылык.</td>
+      </tr>
+      <tr>
+        <td>Qismət olarsa görüşərik<span class="stem">if-fate-allows-we-will-meet</span></td>
+        <td class="lang">Russian</td>
+        <td>Mən dəyişməmişəm</td>
+        <td>Я не <span class="err">изменилась</span>, мое отношение к нему такое же теплое, как и прежде. Я бы с огромным удовольствием встретилась с ним снова.</td>
+        <td class="type">Grammar</td>
+        <td>Я не изменился, моё отношение к нему такое же тёплое, как и прежде. Я бы с огромным удовольствием встретился с ним снова.</td>
+      </tr>
+      <tr>
+        <td>Qurban əti<span class="stem">sacrificial-meat</span></td>
+        <td class="lang">English</td>
+        <td>Ramazan bayramına bir neçə gün qalmışdı.</td>
+        <td>A few days <span class="err">before Ramadan</span>, he came home beaming</td>
+        <td class="type">Mistranslation</td>
+        <td>A few days before Eid al-Fitr, he came home beaming.</td>
+      </tr>
+      <tr>
+        <td>Qurban əti<span class="stem">sacrificial-meat</span></td>
+        <td class="lang">Russian</td>
+        <td>Ramazan bayramına bir neçə gün qalmışdı.</td>
+        <td><span class="err">До Рамадана</span> оставалось несколько дней.</td>
+        <td class="type">Mistranslation</td>
+        <td>До праздника Рамадана оставалось несколько дней.</td>
+      </tr>
+      <tr>
+        <td>Qırx çıxarma<span class="stem">fortieth-day-rite</span></td>
+        <td class="lang">English</td>
+        <td>evinə bərəkət gəlsin deyə düyü</td>
+        <td><span class="err">wheat</span> for abundance at home</td>
+        <td class="type">Mistranslation</td>
+        <td>rice so that blessing may come to the home</td>
+      </tr>
+      <tr>
+        <td>Qırx çıxarma<span class="stem">fortieth-day-rite</span></td>
+        <td class="lang">Russian</td>
+        <td>evinə bərəkət gəlsin deyə düyü</td>
+        <td><span class="err">пшеницу</span> — к благополучию дома</td>
+        <td class="type">Mistranslation</td>
+        <td>рис — к благополучию дома</td>
+      </tr>
+      <tr>
+        <td>Ramazan duası<span class="stem">ramadan-prayer</span></td>
+        <td class="lang">English</td>
+        <td>Ramazan bayramınız mübarək olsun!</td>
+        <td>May you have a <span class="err">blessed Ramadan</span>!</td>
+        <td class="type">Mistranslation</td>
+        <td>May your Eid al-Fitr be blessed!</td>
+      </tr>
+      <tr>
+        <td>Ramazan duası<span class="stem">ramadan-prayer</span></td>
+        <td class="lang">Russian</td>
+        <td>Ramazan bayramınız mübarək olsun!</td>
+        <td>Благословенного вам <span class="err">Рамадана</span>!</td>
+        <td class="type">Mistranslation</td>
+        <td>Пусть будет благословен ваш праздник Рамадана!</td>
+      </tr>
+      <tr>
+        <td>Sən özün yardım et, uca Allahım!<span class="stem">help-yourself-o-exalted-god</span></td>
+        <td class="lang">Russian</td>
+        <td>Ümidsiz olana, çarəsiz qalana</td>
+        <td>отчаявшемуся, <span class="err">сбившемуся с пути</span></td>
+        <td class="type">Mistranslation</td>
+        <td>отчаявшемуся, оставшемуся без выхода</td>
+      </tr>
+      <tr>
+        <td>Şeytanı daşlama<span class="stem">stoning-the-devil</span></td>
+        <td class="lang">English</td>
+        <td>bizim buradakı şeytanla nə işimiz var? Əvvəl öz içimizdəki şeytanı daşlamalıyıq</td>
+        <td>why think <span class="err">only of the devil outside us</span>? We must confront the devil within too</td>
+        <td class="type">Mistranslation</td>
+        <td>My son, what business do we have with the devil here? First we must stone the devil within ourselves.</td>
+      </tr>
+      <tr>
+        <td>Şeytanı daşlama<span class="stem">stoning-the-devil</span></td>
+        <td class="lang">Russian</td>
+        <td>bizim buradakı şeytanla nə işimiz var? Əvvəl öz içimizdəki şeytanı daşlamalıyıq</td>
+        <td>зачем искать шайтана <span class="err">только снаружи</span>? Нам нужно победить шайтана и в самих себе</td>
+        <td class="type">Mistranslation</td>
+        <td>Сынок, какое нам дело до шайтана здесь? Сначала нужно побить камнями шайтана внутри себя.</td>
+      </tr>
+      <tr>
+        <td>Əlin işdə, ümidin Allahda<span class="stem">your-hand-at-work-your-hope-in-god</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>İşə sərf etdiyim vaxtı ibadətə ayırıb daha çox savab qazana bilərəm. Bundan sonra işləməyəcəyəm.</td>
+        <td>Мен <span class="err">ибадатка арнай турган сааттарымды кыскартып, ишке коротуп</span> жатам.</td>
+        <td class="type">Mistranslation</td>
+        <td>Ишке сарптаган убактымды ибадатка арнап, көбүрөөк сооп тапсам болот. Мындан ары иштебейм.</td>
+      </tr>
+      <tr>
+        <td>Alaq otları<span class="stem">weeds-must-be-pulled-from-the-root</span></td>
+        <td class="lang">English</td>
+        <td>Alaq otları</td>
+        <td><span class="err">Pull Out the Roots</span></td>
+        <td class="type">Title</td>
+        <td>Weeds</td>
+      </tr>
+      <tr>
+        <td>Dişləri gözləyirəm<span class="stem">i-am-waiting-for-the-teeth</span></td>
+        <td class="lang">Russian</td>
+        <td>Dişləri...! Dişləri gözləyirəm, bala.</td>
+        <td>Зубов жду, сынок… <span class="err">У нас один протез на двоих.</span></td>
+        <td class="type">Addition</td>
+        <td>Зубов…! Зубов жду, сынок.</td>
+      </tr>
+      <tr>
+        <td>Fakir Baykurtun unutmadığı ana nəsihəti<span class="stem">mothers-advice-fakir-baykurt-never-forgot</span></td>
+        <td class="lang">English</td>
+        <td>hirslənsəydim, içindəki aslan küsərdi. Döysəydim, o aslan ölərdi!</td>
+        <td>If I had shouted, the lion inside you would have <span class="err">roared back</span>. If I had beaten you, I might have killed that lion.</td>
+        <td class="type">Mistranslation</td>
+        <td>If I had lost my temper, the lion inside you would have withdrawn in hurt. If I had beaten you, that lion would have died.</td>
+      </tr>
+      <tr>
+        <td>Fakir Baykurtun unutmadığı ana nəsihəti<span class="stem">mothers-advice-fakir-baykurt-never-forgot</span></td>
+        <td class="lang">Russian</td>
+        <td>ikinci çayı bu dəfə üfləyə-üfləyə içir</td>
+        <td>Байкурт выпил вторую чашку чая, на этот раз <span class="err">причмокивая</span>.</td>
+        <td class="type">Mistranslation</td>
+        <td>На этот раз Байкурт пил чай, подув на него.</td>
+      </tr>
+      <tr>
+        <td>Fakir Baykurtun unutmadığı ana nəsihəti<span class="stem">mothers-advice-fakir-baykurt-never-forgot</span></td>
+        <td class="lang">Russian</td>
+        <td>hirslənsəydim, içindəki aslan küsərdi. Döysəydim, o aslan ölərdi!</td>
+        <td>Если бы я дала волю гневу и <span class="err">ударила тебя, то могла бы убить</span> льва в твоей душе</td>
+        <td class="type">Mistranslation</td>
+        <td>Если бы я рассердилась, лев в тебе обиделся бы. Если бы я тебя побила, тот лев умер бы.</td>
+      </tr>
+      <tr>
+        <td>Müdrik atanın oğluna öyüd-nəsihətlərindən<span class="stem">from-a-wise-fathers-advice-to-his-son</span></td>
+        <td class="lang">English</td>
+        <td>Onları illərlə sınamışam: qədərində yemək və yediklərimi həzm etmək üçün gəzib-dolaşmaq.</td>
+        <td><span class="err">Through many trials, Allah has taught me</span> two habits that have helped preserve my health</td>
+        <td class="type">Mistranslation</td>
+        <td>By Allah’s leave, two habits have kept me healthy. I have tested them for years: eating in moderation, and walking so that what I eat can be digested.</td>
+      </tr>
+      <tr>
+        <td>Müdrik atanın oğluna öyüd-nəsihətlərindən<span class="stem">from-a-wise-fathers-advice-to-his-son</span></td>
+        <td class="lang">Russian</td>
+        <td>Onları illərlə sınamışam: qədərində yemək və yediklərimi həzm etmək üçün gəzib-dolaşmaq.</td>
+        <td>по милости Аллаха <span class="err">испытания научили меня</span> двум привычкам</td>
+        <td class="type">Mistranslation</td>
+        <td>По милости Аллаха меня сохранили здоровым две привычки. Я испытывал их годами: есть в меру и гулять, чтобы пища переваривалась.</td>
+      </tr>
+      <tr>
+        <td>Satılıq küçüklər<span class="stem">puppies-for-sale</span></td>
+        <td class="lang">Russian</td>
+        <td>arxa otaqdakı xanımına səsləndi</td>
+        <td>позвал свою <span class="err">работницу</span> в подсобку</td>
+        <td class="type">Mistranslation</td>
+        <td>Продавец улыбнулся и позвал жену из задней комнаты.</td>
+      </tr>
+      <tr>
+        <td>Satılıq küçüklər<span class="stem">puppies-for-sale</span></td>
+        <td class="lang">Russian</td>
+        <td>uşaq iflicindən zədələnmiş ayağını və metal dayaqları göstərdi</td>
+        <td>показав свою ногу, поврежденную полиомиелитом, и железные <span class="err">протезы</span> на ней</td>
+        <td class="type">Mistranslation</td>
+        <td>Он показал ногу, повреждённую детским параличом, и металлические опоры на ней.</td>
+      </tr>
+      <tr>
+        <td>Yoruldum, ana<span class="stem">i-am-tired-mother</span></td>
+        <td class="lang">English</td>
+        <td>Ana həyat verəndir, oğlum, həmişə yanındayam.</td>
+        <td><span class="err">I’m your mother</span>, son. I’ll always be here for you.</td>
+        <td class="type">Omission</td>
+        <td>A mother is the one who gives life, son. I am always beside you.</td>
+      </tr>
+      <tr>
+        <td>Yoruldum, ana<span class="stem">i-am-tired-mother</span></td>
+        <td class="lang">Russian</td>
+        <td>Ana həyat verəndir, oğlum, həmişə yanındayam.</td>
+        <td><span class="err">Я твоя мама</span>, сынок. Где бы ты ни был, моё сердце всегда с тобой.</td>
+        <td class="type">Omission</td>
+        <td>Мать — та, кто даёт жизнь, сынок. Я всегда рядом с тобой.</td>
+      </tr>
+      <tr>
+        <td>Övlad tərbiyəsi<span class="stem">raising-children</span></td>
+        <td class="lang">English</td>
+        <td>Onda heyvan xüsusiyyətləri görürəm.</td>
+        <td>He behaves like a <span class="err">frightened animal</span>.</td>
+        <td class="type">Mistranslation</td>
+        <td>I see animal traits in him.</td>
+      </tr>
+      <tr>
+        <td>Ən gözəl hədiyyə<span class="stem">most-beautiful-gift</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>dost üçün — vəfa</td>
+        <td>доско <span class="err">ишеним</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Доско берилгендик бер.</td>
+      </tr>
+      <tr>
+        <td>Bənövşəyi çəpkən<span class="stem">purple-jacket</span></td>
+        <td class="lang">English</td>
+        <td>şiddətə məruz qalan qadınların sayı az qala yox səviyyəsində imiş</td>
+        <td>The account credits this custom with <span class="err">helping to deter abuse</span>.</td>
+        <td class="type">Mistranslation</td>
+        <td>It is said that, for this reason, the number of women subjected to violence was almost none.</td>
+      </tr>
+      <tr>
+        <td>Bənövşəyi çəpkən<span class="stem">purple-jacket</span></td>
+        <td class="lang">Russian</td>
+        <td>şiddətə məruz qalan qadınların sayı az qala yox səviyyəsində imiş</td>
+        <td>этот обычай помогал <span class="err">сдерживать домашнее насилие</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Говорят, именно поэтому число женщин, подвергавшихся насилию, было почти равно нулю.</td>
+      </tr>
+      <tr>
+        <td>Gözlərindən öpərəm<span class="stem">i-kiss-your-eyes</span></td>
+        <td class="lang">English</td>
+        <td>vüsala ən çox onlar layiqdir</td>
+        <td>they deserve our tenderest <span class="err">farewell</span></td>
+        <td class="type">Mistranslation</td>
+        <td>The eyes suffer the pain of longing most of all. That is why they most deserve the reunion.</td>
+      </tr>
+      <tr>
+        <td>Gözlərindən öpərəm<span class="stem">i-kiss-your-eyes</span></td>
+        <td class="lang">Russian</td>
+        <td>Həsrətin acısını ən çox gözlər çəkir. Elə buna görə də vüsala ən çox onlar layiqdir.</td>
+        <td>глаза больше всего устают от тоски и ожидания. Именно они больше всего заслуживают <span class="err">нежности</span>.</td>
+        <td class="type">Mistranslation</td>
+        <td>Боль разлуки сильнее всех переносят глаза. Поэтому именно они больше всех достойны встречи.</td>
+      </tr>
+      <tr>
+        <td>Həqiqi eşq<span class="stem">true-love</span></td>
+        <td class="lang">English</td>
+        <td>Çox islanmısan, yelkənimi məhv edərsən</td>
+        <td><span class="err">You’re soaking wet. You’ll spoil my beautiful boat.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>I cannot help you, Love. You are soaking wet; you will ruin my sail.</td>
+      </tr>
+      <tr>
+        <td>Həqiqi eşq<span class="stem">true-love</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Yalnız zaman əsl eşqin dəyərini bilir. Səmimi sevgini zaman yaşadar, saxtasını isə söndürüb unutdurar.</td>
+        <td><span class="err">Чыныгы сүйүү убакыттын сыноосунан өтөт. Өткөн жылдар анын баркын дагы терең ачат.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Чыныгы сүйүүнүн баркын убакыт гана билет. Убакыт чын сүйүүнү жашатат, жалган сүйүүнү болсо өчүрүп, унуттурат.</td>
+      </tr>
+      <tr>
+        <td>Nələr çəkdi qadın bu dünyada...<span class="stem">what-women-have-endured-in-this-world</span></td>
+        <td class="lang">English</td>
+        <td>Əllərin unludur, otur yerində, kimsəyə qarışma</td>
+        <td><span class="err">Your hands are covered in flour. Stay in the kitchen. Don’t interfere.</span></td>
+        <td class="type">Addition</td>
+        <td>Your hands are covered in flour. Sit where you belong. Don’t interfere with anyone.</td>
+      </tr>
+      <tr>
+        <td>Nələr çəkdi qadın bu dünyada...<span class="stem">what-women-have-endured-in-this-world</span></td>
+        <td class="lang">English</td>
+        <td>Sevgini büruzə verəndə bəziləri sənin ağan olduğunu zənn etdilər.</td>
+        <td><span class="err">Some mistook your love for a wish to control them.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>When you showed your love, some thought they were your master.</td>
+      </tr>
+      <tr>
+        <td>Nələr çəkdi qadın bu dünyada...<span class="stem">what-women-have-endured-in-this-world</span></td>
+        <td class="lang">Russian</td>
+        <td>Sevgini büruzə verəndə bəziləri sənin ağan olduğunu zənn etdilər.</td>
+        <td><span class="err">Твою любовь порой принимали как должное.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Когда ты открыто проявляла любовь, некоторые считали себя твоими господами.</td>
+      </tr>
+      <tr>
+        <td>Nələr çəkdi qadın bu dünyada...<span class="stem">what-women-have-endured-in-this-world</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Gözünün içinə baxa-baxa hətta orada gördüklərini də inkar etdilər.</td>
+        <td><span class="err">Көзүңө тике карап туруп, ал жерден көргөндөрүн да танышты.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Көзүңө тике карап туруп, ал жерден көргөндөрүн да инкар кылышты.</td>
+      </tr>
+      <tr>
+        <td>Nələr çəkdi qadın bu dünyada...<span class="stem">what-women-have-endured-in-this-world</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Qadına dəyər verilməyən yerdə nə dinclik, nə sevgi olar. Onun əməyini və qəlbini görmək cəmiyyətin borcudur.</td>
+        <td><span class="err">Аялдын мээримин, эмгегин кадимки нерсе катары кабыл алба. Анын да үнүн угуп, укугун, кадырын сыйла.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Аял бааланбаган жерде тынчтык да, сүйүү да болбойт. Анын эмгегин жана жүрөгүн көрүү — коомдун милдети.</td>
+      </tr>
+      <tr>
+        <td>Qadın və güzgü<span class="stem">woman-and-the-mirror</span></td>
+        <td class="lang">English</td>
+        <td>Xoşbəxtliyi yalnız başqasından gözləmə; çətin gündə də sevinməyə bir səbəb tapmağa çalış.</td>
+        <td><span class="err">We cannot control every change, but our outlook can help us meet it with good humor.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Our outlook on life affects our mood. Do not expect happiness only from someone else; even on a hard day, try to find a reason to rejoice.</td>
+      </tr>
+      <tr>
+        <td>Qadın və güzgü<span class="stem">woman-and-the-mirror</span></td>
+        <td class="lang">Russian</td>
+        <td>Xoşbəxtliyi yalnız başqasından gözləmə</td>
+        <td><span class="err">Ищите повод для улыбки даже тогда, когда обстоятельства меняются не к лучшему.</span></td>
+        <td class="type">Omission</td>
+        <td>Не ждите счастья только от других; даже в трудный день ищите повод порадоваться.</td>
+      </tr>
+      <tr>
+        <td>Qadın və güzgü<span class="stem">woman-and-the-mirror</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Həyata baxışımız əhvalımıza təsir edir. Xoşbəxtliyi yalnız başqasından gözləmə; çətin gündə də sevinməyə bir səbəb tapmağa çalış.</td>
+        <td><span class="err">Өзгөртө албаган нерсенин да жеңил жагын табууга болот. Жайдары көз караш күнүмдүк жашоого кубаныч кошот.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Жашоого болгон көз карашыбыз маанайыбызга таасир этет. Бактыны башкадан гана күтпө; оор күндө да сүйүнө турган себеп тап.</td>
+      </tr>
+      <tr>
+        <td>Qırmızı don<span class="stem">red-dress</span></td>
+        <td class="lang">Russian</td>
+        <td>Anama dəyməyə gəldim və onu gördüyüm anda ömrünün son anlarını yaşadığını anladım.</td>
+        <td><span class="err">Я подошла к постели матери и взяла её за руку.</span></td>
+        <td class="type">Addition</td>
+        <td>Я пришла навестить мать и, едва увидев её, поняла, что она проживает последние мгновения.</td>
+      </tr>
+      <tr>
+        <td>Qırmızı don<span class="stem">red-dress</span></td>
+        <td class="lang">Russian</td>
+        <td>öz arzularını yaşamadığını anlayır</td>
+        <td><span class="err">однажды обнаружит, что не может жить ни ради чего</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Человек, который постоянно забывает о себе, однажды понимает, что так и не прожил собственные желания.</td>
+      </tr>
+      <tr>
+        <td>Qəlblərinizin ayrılmasına imkan verməyin<span class="stem">do-not-let-your-hearts-part</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Qışqırıq qəlblər arasındakı məsafənin səsidir.</td>
+        <td><span class="err">Ачууланганда айткан сөзүң жүрөктөрдү алыстатпасын.</span></td>
+        <td class="type">Omission</td>
+        <td>Кыйкырык — жүрөктөрдүн ортосундагы аралыктын үнү. Талашта ошол аралыкты чоңойткудай сөз айтпа, болбосо кайра кайтуу кыйындайт.</td>
+      </tr>
+      <tr>
+        <td>Sarı və qırmızı çiçəklər<span class="stem">yellow-and-red-flowers</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>İnsanlara hörməti bəzən bir zərif işarə ilə də bildirmək olur.</td>
+        <td><span class="err">Өзгөнүн абалын сезип, майда ишаратка да көңүл бур.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Адамдарга сыйды кээде назик бир ишарат менен да билдирүүгө болот. Эскертүү үчүн дайыма үн көтөрүү шарт эмес.</td>
+      </tr>
+      <tr>
+        <td>Sınan qəlb yenə sevərmi?<span class="stem">can-a-broken-heart-love-again</span></td>
+        <td class="lang">Russian</td>
+        <td>Bir qab sındı deyə sudan əl çəkilmədiyi kimi, insan da sevməyə davam edir.</td>
+        <td><span class="err">Как разбитый сосуд не избавляет от жажды, так и пережитая боль не отменяет потребности в любви.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Как не отказываются от воды из-за того, что сосуд разбился, так и человек продолжает любить.</td>
+      </tr>
+      <tr>
+        <td>Sədəf çiçəyi<span class="stem">mother-of-pearl-flower</span></td>
+        <td class="lang">English</td>
+        <td>gözləri ağlamaqdan çuxura düşmüş qadına</td>
+        <td><span class="err">The woman’s eyes were swollen from crying.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>The woman’s eyes were sunken from crying.</td>
+      </tr>
+      <tr>
+        <td>Sədəf çiçəyi<span class="stem">mother-of-pearl-flower</span></td>
+        <td class="lang">English</td>
+        <td>Sədəf çiçəyini gecə sulamaq yaxşı deyil</td>
+        <td><span class="err">The plant didn’t need all that water</span></td>
+        <td class="type">Mistranslation</td>
+        <td>It is not good to water a mother-of-pearl flower at night, Your Honor.</td>
+      </tr>
+      <tr>
+        <td>Sədəf çiçəyi<span class="stem">mother-of-pearl-flower</span></td>
+        <td class="lang">Russian</td>
+        <td>Hər gecə sanki o çiçək mən oldum</td>
+        <td><span class="err">Глядя на неё, я сам словно оживал.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Каждую ночь мне казалось, будто тот цветок — это я.</td>
+      </tr>
+      <tr>
+        <td>Sədəf çiçəyi<span class="stem">mother-of-pearl-flower</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Sevdiyimizi qoruyaq, qəlb qırmaqdan uzaq duraq.</td>
+        <td><span class="err">Жакыныңды айыптоодон мурда анын ниетин түшүнүүгө аракет кыл.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Сүйгөн адамыбызды коргойлу, жүрөк оорутуудан алыс бололу.</td>
+      </tr>
+      <tr>
+        <td>Uzaqdan sevmək<span class="stem">loving-from-afar</span></td>
+        <td class="lang">Russian</td>
+        <td>yaşanmamış sevgi də bir itkidir</td>
+        <td><span class="err">неразделенная любовь — это тоже потеря</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Но не прожитая любовь — тоже потеря.</td>
+      </tr>
+      <tr>
+        <td>Uzaqdan sevmək<span class="stem">loving-from-afar</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Amma yaşanmamış sevgi də bir itkidir.</td>
+        <td><span class="err">Коркуу сүйүүнүн жолун тоспосун.</span></td>
+        <td class="type">Omission</td>
+        <td>Кээде адам жоготуп алуудан коркуп, сүйүүсүн айтуудан тартат. Бирок жашалбаган сүйүү да жоготуу.</td>
+      </tr>
+      <tr>
+        <td>Atların dostluğu<span class="stem">friendship-of-horses</span></td>
+        <td class="lang">Russian</td>
+        <td>Uzaqdan baxanda bu atlar digərlərindən heç nə ilə seçilmir.</td>
+        <td><span class="err">Издалека они совсем не похожи на остальных.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Издалека эти лошади ничем не выделяются среди остальных.</td>
+      </tr>
+      <tr>
+        <td>Atların dostluğu<span class="stem">friendship-of-horses</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Rəbb bizi çətin anda tək qoymur; ehtiyacımız olanda köməyi bir insanın əli ilə göndərir.</td>
+        <td><span class="err">Кыйын учурда жанга жөлөк болгон дос — чоң ырыскы.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Жараткан бизди кыйын учурда жалгыз таштабайт; жардам керек болгондо аны адамдын колу аркылуу жиберет. Кээде ошол жардамчы болуу өзүбүзгө туш келет.</td>
+      </tr>
+      <tr>
+        <td>Bir cüt çəkmə<span class="stem">pair-of-boots</span></td>
+        <td class="lang">Russian</td>
+        <td>Hər şagird adını bir kağıza yazıb</td>
+        <td><span class="err">Каждый ученик написал своё имя на листке</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Каждый ученик написал на листке имя, сложил его и положил в коробку.</td>
+      </tr>
+      <tr>
+        <td>Bir cüt çəkmə<span class="stem">pair-of-boots</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Hər şagird adını bir kağıza yazıb</td>
+        <td><span class="err">Ар бир окуучу өз атын кагазга жазып</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Ар бир окуучу кагазга бир ат жазып, бүктөйт да мугалимдин үстөлүндөгү кутуга салат.</td>
+      </tr>
+      <tr>
+        <td>Bir ovuc ləbləbi<span class="stem">handful-of-roasted-chickpeas</span></td>
+        <td class="lang">Russian</td>
+        <td>Verənin ovucu böyükdürsə, payın da çox olar.</td>
+        <td><span class="err">У щедрого человека и горсть щедрее.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Если ладонь дающего больше, то и доля будет больше.</td>
+      </tr>
+      <tr>
+        <td>Bir ovuc ləbləbi<span class="stem">handful-of-roasted-chickpeas</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Bəzən nə istədiyin qədər kimdən istədiyin də vacibdir. Verənin ovucu böyükdürsə, payın da çox olar.</td>
+        <td><span class="err">Баланын баамчылдыгы кээде чоң кишини да таң калтырат.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Кээде эмне сураганың эмес, кимден сураганың да маанилүү. Бергендин уучу чоң болсо, үлүшүң да көп болот.</td>
+      </tr>
+      <tr>
+        <td>Dost istərəm<span class="stem">i-want-a-friend</span></td>
+        <td class="lang">English</td>
+        <td>Hansı mülk öləndə rəhmət oxumuş sahibinə? Mənə rəhmət oxuyacaq dost istərəm.</td>
+        <td><span class="err">What possession will mourn its owner after death? I want a friend who will remember me with love.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>What possession has ever recited a prayer of mercy for its owner? I want a friend who will pray mercy for me.</td>
+      </tr>
+      <tr>
+        <td>Dost istərəm<span class="stem">i-want-a-friend</span></td>
+        <td class="lang">Russian</td>
+        <td>Hansı mülk öləndə rəhmət oxumuş sahibinə? Mənə rəhmət oxuyacaq dost istərəm.</td>
+        <td><span class="err">Разве имущество сохранит обо мне добрую память? Мне нужен друг, который помянет меня добрым словом.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Какое имущество читало по своему хозяину молитву о милости? Мне нужен друг, который прочтёт по мне эту молитву.</td>
+      </tr>
+      <tr>
+        <td>Dostluq etməyəcəklərin<span class="stem">those-you-should-not-befriend</span></td>
+        <td class="lang">English</td>
+        <td>Dostluq etməyəcəklərin</td>
+        <td><span class="err">Choose Your Friends Wisely</span></td>
+        <td class="type">Title</td>
+        <td>Those You Should Not Befriend</td>
+      </tr>
+      <tr>
+        <td>Dostluq etməyəcəklərin<span class="stem">those-you-should-not-befriend</span></td>
+        <td class="lang">English</td>
+        <td>Çox danışar, boş danışar, kəm danışar</td>
+        <td><span class="err">who talks endlessly but listens little</span></td>
+        <td class="type">Addition</td>
+        <td>who talks a great deal, talks emptily, and talks poorly</td>
+      </tr>
+      <tr>
+        <td>Dostluq etməyəcəklərin<span class="stem">those-you-should-not-befriend</span></td>
+        <td class="lang">Russian</td>
+        <td>Çox danışar, boş danışar, kəm danışar</td>
+        <td><span class="err">слушать других он не умеет</span></td>
+        <td class="type">Addition</td>
+        <td>Он много говорит, говорит пустое и говорит скудно.</td>
+      </tr>
+      <tr>
+        <td>Dostunu tanı<span class="stem">know-your-friend</span></td>
+        <td class="lang">Russian</td>
+        <td>Bir də mənfəətinə toxun, onda gör.</td>
+        <td><span class="err">А потом посмотри, каким он становится, добившись успеха.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>А потом затронь его выгоду — и тогда посмотри.</td>
+      </tr>
+      <tr>
+        <td>Gedin, amma yenə gəlin<span class="stem">go-but-come-again</span></td>
+        <td class="lang">English</td>
+        <td>Gedin, amma yenə gəlin</td>
+        <td><span class="err">Come Again Soon</span></td>
+        <td class="type">Title</td>
+        <td>Go, but Come Again</td>
+      </tr>
+      <tr>
+        <td>Gedin, amma yenə gəlin<span class="stem">go-but-come-again</span></td>
+        <td class="lang">Russian</td>
+        <td>bu da «gedin, amma yenə gəlin» mənasını verərmiş</td>
+        <td><span class="err">«Уходи, но возвращайся. Здесь тебе всегда рады».</span></td>
+        <td class="type">Addition</td>
+        <td>Этот жест означал: «Уходи, но приходи снова».</td>
+      </tr>
+      <tr>
+        <td>İnsanlara olan münasibət<span class="stem">how-we-treat-people</span></td>
+        <td class="lang">English</td>
+        <td>İnsanlara olan münasibət</td>
+        <td><span class="err">Keeping the Right Distance</span></td>
+        <td class="type">Title</td>
+        <td>How We Treat People</td>
+      </tr>
+      <tr>
+        <td>İnsanlara olan münasibət<span class="stem">how-we-treat-people</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>nə həddindən artıq uzaqlaş ki, soyuyasan, nə də çox yaxınlaş ki, yanasan</td>
+        <td><span class="err">Элден безип алыстаба, өз кадырыңды жоготуп жакындай бербе.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Адам менен мамиледе ченемди сакта: үшүп калгыдай алыстаба, күйүп калгыдай жакындаба.</td>
+      </tr>
+      <tr>
+        <td>İnsanlıq<span class="stem">humanity</span></td>
+        <td class="lang">English</td>
+        <td>kaş o oğlanı da tapıb ondan halallıq ala biləydim</td>
+        <td><span class="err">I wish I could find that young man and tell him what I owe him.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>I wish I could find that young man and receive his forgiveness.</td>
+      </tr>
+      <tr>
+        <td>İnsanlıq<span class="stem">humanity</span></td>
+        <td class="lang">Russian</td>
+        <td>Halaldır, ana, narahat olma</td>
+        <td><span class="err">Вам не за что просить прощения, матушка.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Я прощаю вас, матушка, не тревожьтесь.</td>
+      </tr>
+      <tr>
+        <td>İnsanlıq<span class="stem">humanity</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>kaş o oğlanı da tapıb ondan halallıq ala biləydim</td>
+        <td><span class="err">ошол жигитти таап, ыраазычылыгын алсам кана</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Эх, ошол жигитти таап, анын адалдыгын алсам кана.</td>
+      </tr>
+      <tr>
+        <td>Məsxərə yolverilməzdir<span class="stem">mockery-is-unacceptable</span></td>
+        <td class="lang">English</td>
+        <td>Məsxərə yolverilməzdir</td>
+        <td><span class="err">Teach Children Not to Mock</span></td>
+        <td class="type">Title</td>
+        <td>Mockery Is Unacceptable</td>
+      </tr>
+      <tr>
+        <td>Niyə insanlar mübahisə edəndə qışqırırlar?<span class="stem">why-people-shout-when-they-argue</span></td>
+        <td class="lang">English</td>
+        <td>Niyə insanlar mübahisə edəndə qışqırırlar?</td>
+        <td><span class="err">Why Do We Shout?</span></td>
+        <td class="type">Title</td>
+        <td>Why Do People Shout When They Argue?</td>
+      </tr>
+      <tr>
+        <td>Niyə insanlar mübahisə edəndə qışqırırlar?<span class="stem">why-people-shout-when-they-argue</span></td>
+        <td class="lang">English</td>
+        <td>Nə qədər ucadan qışqırırlarsa, deməli, ürəkləri də bir o qədər bir-birindən uzaqdır.</td>
+        <td><span class="err">They shout as though trying to make themselves heard across that distance.</span></td>
+        <td class="type">Omission</td>
+        <td>The louder they shout, the farther apart their hearts are.</td>
+      </tr>
+      <tr>
+        <td>Niyə insanlar mübahisə edəndə qışqırırlar?<span class="stem">why-people-shout-when-they-argue</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Qışqırıq qəlblərin bir-birindən uzaqlaşdığının səsidir. Sevgidə pıçıltı bəs edir</td>
+        <td><span class="err">Ачуу сөз жүрөктөрдү алыстатат. Талашсаң да сыйды сактап, кайра жараша турган жолду жаппа.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Кыйкырык — жүрөктөрдүн бири-биринен алыстаганынын үнү. Сүйүүдө шыбыр жетиштүү — ортоңордогу аралыкты чоңойтпогула.</td>
+      </tr>
+      <tr>
+        <td>Qapı zənginin səsi...<span class="stem">sound-of-the-doorbell</span></td>
+        <td class="lang">Russian</td>
+        <td>Yalnız qapı zənginin səsinə abunə olmuşam.</td>
+        <td><span class="err">Я жду звонка в дверь.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Я подписался только на звук дверного звонка.</td>
+      </tr>
+      <tr>
+        <td>Qapı zənginin səsi...<span class="stem">sound-of-the-doorbell</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Bəzi insanlar üçün bir zəng səsi, bir salam bütün dünyaya dəyər.</td>
+        <td><span class="err">Жалгыз адамга бир саламдын өзү чоң кубаныч. Убакыт таап, эшигин кагып, ал-жайын сурап тур.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Айрым адамдар үчүн бир коңгуроонун үнү, бир салам бүт дүйнөгө тете. Жалгыздардын эшигин каккылоону унутпайлы.</td>
+      </tr>
+      <tr>
+        <td>Sənin dostların<span class="stem">your-friends</span></td>
+        <td class="lang">Russian</td>
+        <td>sınaqdan çıxan az dostun qiymətlidir</td>
+        <td><span class="err">те немногие друзья, которые выдерживают испытание временем</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Ценны не многочисленные знакомые, а те немногие друзья, которые выдерживают испытание.</td>
+      </tr>
+      <tr>
+        <td>Tanış olmaq və tanımaq<span class="stem">to-meet-and-to-know</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>insanı yaxından tanıyanda bəzən məyus olursan</td>
+        <td><span class="err">Адамдын чыныгы жүзү убакыт өткөндө, жакындан тааныганда билинет.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Таанышуу сүйүнтүшү мүмкүн, бирок адамды жакындан тааныганда кээде капа болосуң. Ар кимди кандай болсо, ошондой көрүү оңой эмес.</td>
+      </tr>
+      <tr>
+        <td>Təhqirləri necə dəf etməli<span class="stem">how-to-ward-off-insults</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Qəbul etmədiyin təhqir sahibinə qayıdır — eynilə geri qaytarılan hədiyyə kimi. Pisliyə pisliklə yox, təmkinlə cavab ver.</td>
+        <td><span class="err">Ар бир ачуу сөздү жүрөгүңө жакын ала бербе. Өзүңдү кармай билсең, бирөөнүн жек көрүүсү сени башкарбайт.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Кабыл албаган кемсинтүү ээсине кайтат — кайтарылган белектей. Жамандыкка жамандык менен эмес, токтоолук менен жооп бер.</td>
+      </tr>
+      <tr>
+        <td>Tənha olmaq<span class="stem">to-be-alone</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Ən böyük dərd insanların içində belə özünü tənha hiss etməkdir.</td>
+        <td><span class="err">Жалгыздык адамдын көңүлүн оорутат. Жаныңдагынын үнсүз муңун байкап, жылуу сөзүңдү аяба.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Эң чоң кайгы — адамдардын арасында жүрсөң да өзүңдү жалгыз сезүү. Жаныңдагынын жалгыздыгын байкоо — чыныгы сезимталдык.</td>
+      </tr>
+      <tr>
+        <td>Xoş gəldin, bəyim<span class="stem">welcome-my-bey</span></td>
+        <td class="lang">English</td>
+        <td>Xoş gəldin, bəyim</td>
+        <td><span class="err">Welcome Home</span></td>
+        <td class="type">Title</td>
+        <td>Welcome, My Bey</td>
+      </tr>
+      <tr>
+        <td>Xoş gəldin, bəyim<span class="stem">welcome-my-bey</span></td>
+        <td class="lang">English</td>
+        <td>burada yaşayan xalqlar bir-birinə düşmən edilib qırdırılacaq</td>
+        <td><span class="err">conflict among its peoples</span></td>
+        <td class="type">Mistranslation</td>
+        <td>the peoples living there would have been set against one another and slaughtered</td>
+      </tr>
+      <tr>
+        <td>Xoş gəldin, bəyim<span class="stem">welcome-my-bey</span></td>
+        <td class="lang">Russian</td>
+        <td>Xalangilə gedirəm.</td>
+        <td><span class="err">Я иду в Халангил.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Я иду к твоей тёте. Если придёт твой отец, сразу дай мне знать.</td>
+      </tr>
+      <tr>
+        <td>Xoş gəldin, bəyim<span class="stem">welcome-my-bey</span></td>
+        <td class="lang">Russian</td>
+        <td>Bursa Çınar Anadolu Liseyinin coğrafiya müəllimi Mustafa Doğru</td>
+        <td><span class="err">учитель географии в Анатолийской средней школе им. Мустафа Догру, Бурса Чинар</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Мустафа Догру, исследователь и писатель, учитель географии Анатолийской средней школы Бурса Чынар.</td>
+      </tr>
+      <tr>
+        <td>Xoş gəldin, bəyim<span class="stem">welcome-my-bey</span></td>
+        <td class="lang">Russian</td>
+        <td>haqqınızı halal edin</td>
+        <td><span class="err">Простите, если была вам в тягость</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Вы хорошо обо мне заботились, простите меня и отпустите мне мой долг перед вами.</td>
+      </tr>
+      <tr>
+        <td>Yol yormursa, yoldaşındandır<span class="stem">if-the-road-does-not-tire-you-it-is-because-of-your-companion</span></td>
+        <td class="lang">Russian</td>
+        <td>Yol deyil, yanındakı adam yorur və ya yükünü yüngülləşdirir.</td>
+        <td><span class="err">Хороший спутник облегчает даже трудную дорогу.</span></td>
+        <td class="type">Omission</td>
+        <td>Утомляет или облегчает ношу не дорога, а человек рядом.</td>
+      </tr>
+      <tr>
+        <td>Yol yormursa, yoldaşındandır<span class="stem">if-the-road-does-not-tire-you-it-is-because-of-your-companion</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Yol deyil, yanındakı adam yorur və ya yükünü yüngülləşdirir.</td>
+        <td><span class="err">Жакыныңа жүк болбой, жөлөк бол.</span></td>
+        <td class="type">Addition</td>
+        <td>Чарчаткан да, жүктү жеңилдеткен да жол эмес, жаныңдагы адам. Туура жолдош оор ишти да жеңилдетет.</td>
+      </tr>
+      <tr>
+        <td>Bağışlamaq<span class="stem">to-forgive</span></td>
+        <td class="lang">English</td>
+        <td>başınıza gələndən dərs alın ki, yenə eyni yerdən yaralanmayasınız</td>
+        <td><span class="err">Forgive, but never forget, otherwise you will be hurt again.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Forgive and be free. But learn the lesson of what happened, so you are not wounded in the same place again.</td>
+      </tr>
+      <tr>
+        <td>Bağışlamaq<span class="stem">to-forgive</span></td>
+        <td class="lang">Russian</td>
+        <td>başınıza gələndən dərs alın ki, yenə eyni yerdən yaralanmayasınız</td>
+        <td><span class="err">Простите, но никогда не забывайте, иначе вас снова ранят.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Простите и освободитесь. Но извлеките урок из случившегося, чтобы снова не быть раненными в том же месте.</td>
+      </tr>
+      <tr>
+        <td>Artıq anlayıram<span class="stem">i-am-aware-now</span></td>
+        <td class="lang">English</td>
+        <td>Bağışlamağı bacarmayan, mərhəmətsiz, sərt adamlardan uzaq dururam.</td>
+        <td><span class="err">I no longer want to be harsh or unforgiving.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>I stay away from people who cannot forgive, who are merciless and harsh.</td>
+      </tr>
+      <tr>
+        <td>Artıq anlayıram<span class="stem">i-am-aware-now</span></td>
+        <td class="lang">Russian</td>
+        <td>Bağışlamağı bacarmayan, mərhəmətsiz, sərt adamlardan uzaq dururam.</td>
+        <td><span class="err">Я учусь отличать прощение от готовности терпеть жестокость.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Я держусь подальше от тех, кто не умеет прощать, кто безжалостен и суров.</td>
+      </tr>
+      <tr>
+        <td>Ağızlara söz, ayaqlara toz olma<span class="stem">dont-be-words-for-mouths-dust-for-feet</span></td>
+        <td class="lang">Russian</td>
+        <td>Ağızlara söz, ayaqlara toz olma</td>
+        <td><span class="err">Береги доброе имя и достоинство</span></td>
+        <td class="type">Title</td>
+        <td>Не становись пересудом на устах и пылью под ногами</td>
+      </tr>
+      <tr>
+        <td>Bal tutan barmağını yalayar<span class="stem">who-handles-honey-licks-his-finger</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>İnsan ucundan bucağından qarışsa da qarışdığı işdən az-çox yararlanar.</td>
+        <td><span class="err">Иштин башында турган адам андан өзүнө да үлүш чыгарып алууга азгырылышы мүмкүн.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Адам ишке четинен гана аралашса да, аралашкан ишинен аздыр-көптүр пайда көрөт.</td>
+      </tr>
+      <tr>
+        <td>Bu qədər az verməzdi<span class="stem">he-would-not-have-given-so-little</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Böyük işlər ailədən, düzgün tərbiyədən başlayır. Dürüst böyüyən uşaq sabah dürüst insan olur.</td>
+        <td><span class="err">Орундуу, тапкыч жооп кээде каардуу адамдын да көңүлүн жибитет. Сөздүн жөнүн билүү — чоң өнөр.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Улуу иштер үй-бүлөдөн, туура тарбиядан башталат. Чынчыл өскөн бала эртең чынчыл адам болот.</td>
+      </tr>
+      <tr>
+        <td>Bunları etməyin<span class="stem">do-not-do-these-things</span></td>
+        <td class="lang">English</td>
+        <td>Bunları etməyin</td>
+        <td><span class="err">Be Mindful of What You Say</span></td>
+        <td class="type">Title</td>
+        <td>Do Not Do These Things</td>
+      </tr>
+      <tr>
+        <td>Bunları etməyin<span class="stem">do-not-do-these-things</span></td>
+        <td class="lang">Russian</td>
+        <td>dərdlinin yanında xoşbəxtliyinizdən</td>
+        <td><span class="err">о своем счастье перед нуждающимися</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Не говорите о своём счастье перед тем, кто в горе.</td>
+      </tr>
+      <tr>
+        <td>Durmadan şikayət edənə kimsə qulaq verməz<span class="stem">no-one-listens-to-constant-complainers</span></td>
+        <td class="lang">English</td>
+        <td>Durmadan şikayət edənə kimsə qulaq verməz</td>
+        <td><span class="err">The Same Complaint</span></td>
+        <td class="type">Title</td>
+        <td>No One Listens to Those Who Complain Constantly</td>
+      </tr>
+      <tr>
+        <td>Durmadan şikayət edənə kimsə qulaq verməz<span class="stem">no-one-listens-to-constant-complainers</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Eyni lətifəni ikinci dəfə danışır</td>
+        <td><span class="err">Ошол эле тамашату экинчи жолу айтат</span></td>
+        <td class="type">Grammar</td>
+        <td>Ошол эле тамашаны экинчи жолу айтат.</td>
+      </tr>
+      <tr>
+        <td>Düşüncələrimdən necə qurtula bilərəm?<span class="stem">how-can-i-escape-my-thoughts</span></td>
+        <td class="lang">English</td>
+        <td>Düşüncələrimdən necə qurtula bilərəm?</td>
+        <td><span class="err">Letting Go of Troubling Thoughts</span></td>
+        <td class="type">Title</td>
+        <td>How Can I Escape My Thoughts?</td>
+      </tr>
+      <tr>
+        <td>Dərdini anlatmaq<span class="stem">explaining-ones-sorrow</span></td>
+        <td class="lang">English</td>
+        <td>Dərdini sadəcə danışan dərdlidir, gözəl sözlərlə ifadə edən ədəbiyyatçı, halı ilə bildirən aşiq, təbəssümlə gizlədən isə arifdir.</td>
+        <td><span class="err">Someone who explains a problem plainly seeks a solution. Someone who speaks of it with love is a lover.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>One who merely tells their sorrow is a sorrowful person; one who expresses it in beautiful words is a writer; one who conveys it through their bearing is a lover; one who hides it with a smile is a sage.</td>
+      </tr>
+      <tr>
+        <td>Dərdini anlatmaq<span class="stem">explaining-ones-sorrow</span></td>
+        <td class="lang">Russian</td>
+        <td>Dərdini sadəcə danışan dərdlidir, gözəl sözlərlə ifadə edən ədəbiyyatçı, halı ilə bildirən aşiq, təbəssümlə gizlədən isə arifdir.</td>
+        <td><span class="err">Один говорит о своей беде прямо и ищет решение. Третий рассказывает о ней с любовью.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Кто просто рассказывает о своей боли — страдающий; кто выражает её красивыми словами — литератор; кто передаёт её своим состоянием — влюблённый; кто скрывает её улыбкой — мудрец.</td>
+      </tr>
+      <tr>
+        <td>Güc və dərd<span class="stem">strength-and-sorrow</span></td>
+        <td class="lang">English</td>
+        <td>Taqətindən ağır yükün altına girmə.</td>
+        <td><span class="err">In suffering, we may pray for greater strength or a lighter burden.</span></td>
+        <td class="type">Omission</td>
+        <td>Do not take on a burden heavier than you can bear.</td>
+      </tr>
+      <tr>
+        <td>Güc və dərd<span class="stem">strength-and-sorrow</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Taqətindən ağır yükün altına girmə.</td>
+        <td><span class="err">Жараткан эч кимге алы жетпес жүк артпасын.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Алың жетпеген жүктүн алдына кирбе.</td>
+      </tr>
+      <tr>
+        <td>Hər dərd insanlara söylənməz<span class="stem">not-every-sorrow-is-told-to-people</span></td>
+        <td class="lang">English</td>
+        <td>Hər dərd insanlara söylənməz</td>
+        <td><span class="err">Choose Your Confidants Carefully</span></td>
+        <td class="type">Title</td>
+        <td>Not Every Sorrow Is Told to People</td>
+      </tr>
+      <tr>
+        <td>Mənasız sual<span class="stem">meaningless-question</span></td>
+        <td class="lang">English</td>
+        <td>nə cavabların, nə də ömrün məna qazanar</td>
+        <td><span class="err">neither the answers nor the search will give you meaning</span></td>
+        <td class="type">Mistranslation</td>
+        <td>neither your answers nor your life will gain meaning</td>
+      </tr>
+      <tr>
+        <td>Məqsədinizdən əmin olun<span class="stem">be-sure-of-your-purpose</span></td>
+        <td class="lang">Russian</td>
+        <td>Məqsədinizdən əmin olun</td>
+        <td><span class="err">Сначала договоритесь о цели</span></td>
+        <td class="type">Title</td>
+        <td>Будьте уверены в своей цели</td>
+      </tr>
+      <tr>
+        <td>O sənin haqqın deyildi<span class="stem">that-was-not-your-right</span></td>
+        <td class="lang">English</td>
+        <td>O sənin haqqın deyildi</td>
+        <td><span class="err">Not Mine to Give</span></td>
+        <td class="type">Title</td>
+        <td>That Was Not Your Right</td>
+      </tr>
+      <tr>
+        <td>O sənin haqqın deyildi<span class="stem">that-was-not-your-right</span></td>
+        <td class="lang">English</td>
+        <td>o sənin haqqın deyildi</td>
+        <td><span class="err">It was not mine to give you.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Forgive me, my son. That was not your right.</td>
+      </tr>
+      <tr>
+        <td>O sənin haqqın deyildi<span class="stem">that-was-not-your-right</span></td>
+        <td class="lang">English</td>
+        <td>Haqq tanıyan ata öz övladına belə haqsız pay verməz.</td>
+        <td><span class="err">a father refuses to claim for his son what has been reserved for others</span></td>
+        <td class="type">Mistranslation</td>
+        <td>A father who knows what is rightful will not give an unjust share even to his own child.</td>
+      </tr>
+      <tr>
+        <td>O sənin haqqın deyildi<span class="stem">that-was-not-your-right</span></td>
+        <td class="lang">Russian</td>
+        <td>O sənin haqqın deyildi</td>
+        <td><span class="err">Прости меня, сынок</span></td>
+        <td class="type">Title</td>
+        <td>Это было не твоё право</td>
+      </tr>
+      <tr>
+        <td>Mühazirəçi və mehtər<span class="stem">lecturer-and-the-groom</span></td>
+        <td class="lang">Russian</td>
+        <td>On doqquzu qaçıb getsə, biri qalsa, onu ac-susuz qoymaram.</td>
+        <td><span class="err">Если придёт только одна, я всё равно её накормлю.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Если девятнадцать убегут и останется одна, я всё равно не оставлю её без корма и воды.</td>
+      </tr>
+      <tr>
+        <td>Nyutonun 2-ci qanunu<span class="stem">newtons-second-law</span></td>
+        <td class="lang">English</td>
+        <td>Başa düşmədən izah etmək nə müəllimə, nə də şagirdə fayda verir.</td>
+        <td><span class="err">Repetition alone cannot replace clarity.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Explaining something you do not understand helps neither the teacher nor the student.</td>
+      </tr>
+      <tr>
+        <td>Nyutonun 2-ci qanunu<span class="stem">newtons-second-law</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Başa düşmədən izah etmək nə müəllimə, nə də şagirdə fayda verir.</td>
+        <td><span class="err">Анан угуучуга жеткидей жөнөкөй тил менен түшүндүрүүнүн жолун тап.</span></td>
+        <td class="type">Addition</td>
+        <td>Өзүң түшүнбөй туруп түшүндүргөн сөздөн мугалимге да, окуучуга да пайда жок.</td>
+      </tr>
+      <tr>
+        <td>Nəyimə lazımdır<span class="stem">what-do-i-need-it-for</span></td>
+        <td class="lang">English</td>
+        <td>haqsızlıq ərşə qalxarsa</td>
+        <td><span class="err">injustice takes the throne</span></td>
+        <td class="type">Mistranslation</td>
+        <td>and injustice rises to the heavens</td>
+      </tr>
+      <tr>
+        <td>Nəyimə lazımdır<span class="stem">what-do-i-need-it-for</span></td>
+        <td class="lang">English</td>
+        <td>Haqsızlığa göz yummaq da haqsızlığa şərik olmaqdır.</td>
+        <td><span class="err">Indifference allows oppression to grow.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>To look away from injustice is to take part in it.</td>
+      </tr>
+      <tr>
+        <td>Nəyimə lazımdır<span class="stem">what-do-i-need-it-for</span></td>
+        <td class="lang">Russian</td>
+        <td>bu narahat düşüncəsini də süd qardaşı, məşhur alim Yəhya Əfəndiyə açmaq</td>
+        <td><span class="err">спросить совета у близкого ему учёного Яхьи-эфенди</span></td>
+        <td class="type">Omission</td>
+        <td>Он решил открыть эту тревожную мысль своему молочному брату, известному учёному Яхье-эфенди.</td>
+      </tr>
+      <tr>
+        <td>Nəyimə lazımdır<span class="stem">what-do-i-need-it-for</span></td>
+        <td class="lang">Russian</td>
+        <td>Haqsızlığa göz yummaq da haqsızlığa şərik olmaqdır.</td>
+        <td><span class="err">мы позволяем злу расти.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Закрывать глаза на несправедливость — значит становиться её соучастником.</td>
+      </tr>
+      <tr>
+        <td>Nəyimə lazımdır<span class="stem">what-do-i-need-it-for</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Haqsızlığa göz yummaq da haqsızlığa şərik olmaqdır.</td>
+        <td><span class="err">Кайдыгерлик зулумдуктун күч алышына жол берет.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Адилетсиздикке көз жумуу — ага шерик болуу.</td>
+      </tr>
+      <tr>
+        <td>Pambıq tarlasına gedən yol<span class="stem">road-to-the-cotton-field</span></td>
+        <td class="lang">English</td>
+        <td>Pambıq tarlasına gedən yol</td>
+        <td><span class="err">The Road Beyond the Cotton Fields</span></td>
+        <td class="type">Title</td>
+        <td>The Road to the Cotton Field</td>
+      </tr>
+      <tr>
+        <td>Pambıq tarlasına gedən yol<span class="stem">road-to-the-cotton-field</span></td>
+        <td class="lang">English</td>
+        <td>İndi bəzilərimiz həkim, bəzilərimiz mühəndis, bəzilərimiz də müəllim olmağa hazırlaşırıq.</td>
+        <td><span class="err">Some of us trained as doctors, others as engineers or teachers.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Some of us are now preparing to become doctors, others engineers or teachers.</td>
+      </tr>
+      <tr>
+        <td>Piyada və şah<span class="stem">pawn-and-the-king</span></td>
+        <td class="lang">English</td>
+        <td>Gün gələr, ŞAH olar.</td>
+        <td><span class="err">One day, it may become a queen.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>One day, it may become a king.</td>
+      </tr>
+      <tr>
+        <td>Piyada və şah<span class="stem">pawn-and-the-king</span></td>
+        <td class="lang">Russian</td>
+        <td>Gün gələr, ŞAH olar.</td>
+        <td><span class="err">дойдя до последней горизонтали, она может стать ферзём.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Придёт день — и она станет королём.</td>
+      </tr>
+      <tr>
+        <td>Suyun xassələri<span class="stem">properties-of-water</span></td>
+        <td class="lang">English</td>
+        <td>Suyun xassələri</td>
+        <td><span class="err">What Water Teaches Us</span></td>
+        <td class="type">Title</td>
+        <td>The Properties of Water</td>
+      </tr>
+      <tr>
+        <td>Suyun xassələri<span class="stem">properties-of-water</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>İnsan qəlbi su kimidir: ünsiyyətdə canlanır, tənhalıqda durğunlaşıb solur.</td>
+        <td><span class="err">Суу акканда таза, көңүл бөлүшкөндө жай болот.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Адамдын жүрөгү суу сыяктуу: баарлашканда жанданат, жалгыздыкта туруп калып соолуйт.</td>
+      </tr>
+      <tr>
+        <td>Tox, ya yox olmaq<span class="stem">to-be-full-or-to-be-gone</span></td>
+        <td class="lang">English</td>
+        <td>Birliyimizi qorumaq üçün biliyimizi artırmalı, mənəviyyatımızı uca tutmalıyıq.</td>
+        <td><span class="err">Unity needs care and a shared sense of purpose.</span></td>
+        <td class="type">Omission</td>
+        <td>To protect our unity we must increase our knowledge and hold our spirituality high.</td>
+      </tr>
+      <tr>
+        <td>Xəyal qurmaq<span class="stem">to-dream</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Allah nəsib etməyəcəyi arzunu ürəyə salmaz — ümidini itirmə.</td>
+        <td><span class="err">Үмүтүңдү аракет менен коштоп, жакшылыктан күдөр үзбө.</span></td>
+        <td class="type">Addition</td>
+        <td>Кудай насип кылбай турган тилекти жүрөккө салбайт — үмүтүңдү үзбө.</td>
+      </tr>
+      <tr>
+        <td>Ölən həyatda qalandır<span class="stem">dead-remain-in-life</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>geridə qalan həsrətlə yaşayır, özünü diri ikən ölmüş kimi hiss edir.</td>
+        <td><span class="err">Сүйгөнү көздөн кетсе да, жүрөгүндө жашай берет.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Артта калганы сагыныч менен жашайт жана өзүн тирүүлөй өлгөндөй сезет.</td>
+      </tr>
+      <tr>
+        <td>Ömür qısadır<span class="stem">life-is-short</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Vaxtını sənə yaxşılıq gətirməyən münasibətlərə sərf etmə.</td>
+        <td><span class="err">Убактыңдын баркын бил.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Сага жакшылык алып келбеген мамилелерге убактыңды коротпо.</td>
+      </tr>
+      <tr>
+        <td>Açılmayan qapı bəlkə də sənin qapın deyil<span class="stem">if-the-door-before-you-wont-open-it-is-not-your-door</span></td>
+        <td class="lang">English</td>
+        <td>Açılmayan qapı bəlkə də sənin qapın deyil</td>
+        <td><span class="err">When One Door Closes</span></td>
+        <td class="type">Title</td>
+        <td>A Door That Will Not Open May Not Be Yours</td>
+      </tr>
+      <tr>
+        <td>Açılmayan qapı bəlkə də sənin qapın deyil<span class="stem">if-the-door-before-you-wont-open-it-is-not-your-door</span></td>
+        <td class="lang">English</td>
+        <td>«Yaxşı»dan məhrum olmaq bəzən «daha yaxşı»ya aparır.</td>
+        <td><span class="err">Losing one opportunity sometimes creates room for another.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Being deprived of something good sometimes leads to something better.</td>
+      </tr>
+      <tr>
+        <td>Üç heykəl<span class="stem">three-statues</span></td>
+        <td class="lang">English</td>
+        <td>qızıldan bir qarış hündürlükdə</td>
+        <td><span class="err">each an inch high</span></td>
+        <td class="type">Mistranslation</td>
+        <td>each a handspan high</td>
+      </tr>
+      <tr>
+        <td>Üç heykəl<span class="stem">three-statues</span></td>
+        <td class="lang">English</td>
+        <td>Dilini saxlamağı bacarmaq da müdriklikdir.</td>
+        <td><span class="err">Keeping your word is also a form of wisdom.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Knowing how to hold your tongue is also wisdom.</td>
+      </tr>
+      <tr>
+        <td>Üç heykəl<span class="stem">three-statues</span></td>
+        <td class="lang">Russian</td>
+        <td>qızıldan bir qarış hündürlükdə</td>
+        <td><span class="err">высотой в один дюйм</span></td>
+        <td class="type">Mistranslation</td>
+        <td>высотой в одну пядь</td>
+      </tr>
+      <tr>
+        <td>Üç sual<span class="stem">three-questions</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Allahın təhəmmül etdiyi bəndələrin qəm-qüssəsi</td>
+        <td><span class="err">Кудай пенделеринин камын жейт</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Кудай чыдап жүргөн нерсе — пенделеринин кайгы-муңу.</td>
+      </tr>
+      <tr>
+        <td>Baqqal dükanı və supermarket<span class="stem">grocery-shop-and-the-supermarket</span></td>
+        <td class="lang">English</td>
+        <td>Kərə yağı — 70 manat</td>
+        <td><span class="err">Butter: 70 dollars.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Butter: 70 manats.</td>
+      </tr>
+      <tr>
+        <td>Baqqal dükanı və supermarket<span class="stem">grocery-shop-and-the-supermarket</span></td>
+        <td class="lang">Russian</td>
+        <td>Kərə yağı — 70 manat</td>
+        <td><span class="err">Масло — 70 рублей</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Масло — 70 манатов</td>
+      </tr>
+      <tr>
+        <td>Baqqal dükanı və supermarket<span class="stem">grocery-shop-and-the-supermarket</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Kərə yağı — 70 manat</td>
+        <td><span class="err">Сары май — 70 сом</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Сары май — 70 манат</td>
+      </tr>
+      <tr>
+        <td>Biz zənginik<span class="stem">we-are-rich</span></td>
+        <td class="lang">English</td>
+        <td>Rəhbəri böyük edən vəzifəsi deyil, o vəzifədə xalqı üçün gördüyü işdir.</td>
+        <td><span class="err">A leader’s greatness lies not in the post, but in the meaning given to that post.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>What makes a leader great is not the post, but the work done for the people in that post.</td>
+      </tr>
+      <tr>
+        <td>Biz zənginik<span class="stem">we-are-rich</span></td>
+        <td class="lang">Russian</td>
+        <td>o vəzifədə xalqı üçün gördüyü işdir</td>
+        <td><span class="err">а в том смысле, который он вкладывает в свою работу</span></td>
+        <td class="type">Mistranslation</td>
+        <td>а в деле, которое он делает для народа на этом посту.</td>
+      </tr>
+      <tr>
+        <td>Hamının işi-gücü var<span class="stem">everyone-has-work-to-do</span></td>
+        <td class="lang">English</td>
+        <td>«o qədər işim var idi ki, vaxtım olmadı, çatdıra bilmədim» kimi ifadələrlə cavab verməyin — bu, doğru olsa belə.</td>
+        <td><span class="err">never to leave a request or an assigned task unanswered, however small it might seem.</span></td>
+        <td class="type">Omission</td>
+        <td>Never answer with “I had so much work that I had no time,” even if that is true.</td>
+      </tr>
+      <tr>
+        <td>Hamının işi-gücü var<span class="stem">everyone-has-work-to-do</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Başqalarının səni etibarsız, güvənilməz bir insan kimi tanıdığını bilə-bilə yaşamaq çox acıdır.</td>
+        <td><span class="err">Бирөөнүн ишенимин актоо — жоопкерчилик.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Башкалар сени ишенимсиз адам катары билип турганын сезип жашоо өтө ачуу.</td>
+      </tr>
+      <tr>
+        <td>İsti çörək<span class="stem">hot-bread</span></td>
+        <td class="lang">English</td>
+        <td>İsti çörək</td>
+        <td><span class="err">Fresh Bread</span></td>
+        <td class="type">Title</td>
+        <td>Hot Bread</td>
+      </tr>
+      <tr>
+        <td>İsti çörək<span class="stem">hot-bread</span></td>
+        <td class="lang">English</td>
+        <td>Kaş ki, rəhmətlik atan bu günləri görəydi.</td>
+        <td><span class="err">I wish your father were here to see this.</span></td>
+        <td class="type">Omission</td>
+        <td>I wish your late father could see these days.</td>
+      </tr>
+      <tr>
+        <td>İsti çörək<span class="stem">hot-bread</span></td>
+        <td class="lang">Russian</td>
+        <td>Allahdan isti çörəklə pendir istəmişdim</td>
+        <td><span class="err">Просил у Аллаха тёплого сыра и хлеба.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Просил у Аллаха горячего хлеба и сыра.</td>
+      </tr>
+      <tr>
+        <td>Keçmiş nazir seminarda<span class="stem">former-minister-at-the-seminar</span></td>
+        <td class="lang">English</td>
+        <td>Keçmiş nazir seminarda</td>
+        <td><span class="err">The Former Minister’s Cup</span></td>
+        <td class="type">Title</td>
+        <td>The Former Minister at the Seminar</td>
+      </tr>
+      <tr>
+        <td>Keçmiş nazir seminarda<span class="stem">former-minister-at-the-seminar</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>mövqe ilə öyünmə — o gedəndə əsl dəyərin görünəcək.</td>
+        <td><span class="err">Кызмат өтөт, адамдык барк калат.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Кызматың менен мактанба — ал кеткенде чыныгы баркың көрүнөт.</td>
+      </tr>
+      <tr>
+        <td>Nisyə dəftəri<span class="stem">credit-ledger</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Eləsi var ki, üç aydır pulsuz çörək aparır.</td>
+        <td><span class="err">Үч айдан бери карызга нан алып жүргөн бир аял бар.</span></td>
+        <td class="type">Addition</td>
+        <td>Үч айдан бери карызга нан алып жүргөн бирөө бар.</td>
+      </tr>
+      <tr>
+        <td>Yağın çəkisi<span class="stem">weight-of-the-oil</span></td>
+        <td class="lang">Russian</td>
+        <td>Əslində, mənim heç tərəzim yoxdur. Bir ovcuma satacağım yağı, o birinə isə hər gün çörəkçidən aldığım bir kiloluq çörəyi qoyub</td>
+        <td><span class="err">У меня нет гирь. На одну чашу весов я кладу килограммовую буханку, купленную у этого пекаря</span></td>
+        <td class="type">Mistranslation</td>
+        <td>У меня вовсе нет весов. Я кладу масло на одну ладонь, а на другую — килограммовый хлеб.</td>
+      </tr>
+      <tr>
+        <td>Yağın çəkisi<span class="stem">weight-of-the-oil</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Əslində, mənim heç tərəzim yoxdur. Bir ovcuma satacağım yağı, o birinə isə hər gün çörəkçidən aldığım bir kiloluq çörəyi qoyub</td>
+        <td><span class="err">Менин тараза ташым жок. Ошондуктан таразанын бир табагына майды</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Менин такыр таразам жок. Сатар майды бир алаканыма, наабайчынын бир килограммдык нанын экинчи алаканыма коюп өлчөйм.</td>
+      </tr>
+      <tr>
+        <td>Yağın çəkisi<span class="stem">weight-of-the-oil</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Necə çörək verirsənsə, elə də yağ alarsan.</td>
+        <td><span class="err">Өз ишиңди текшербей туруп башканы айыптаба.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Кантип нан берсең, ошондой май аласың.</td>
+      </tr>
+      <tr>
+        <td>Əli işdədir<span class="stem">his-hand-is-at-work</span></td>
+        <td class="lang">English</td>
+        <td>Əli işdədir</td>
+        <td><span class="err">At Least I Look Busy</span></td>
+        <td class="type">Title</td>
+        <td>His Hand Is at Work</td>
+      </tr>
+      <tr>
+        <td>Bu millət ilə dünya fəth edilə bilər<span class="stem">with-this-nation-the-world-can-be-conquered</span></td>
+        <td class="lang">English</td>
+        <td>Bu millət ilə dünya fəth edilə bilər</td>
+        <td><span class="err">The Strength of a Generous People</span></td>
+        <td class="type">Title</td>
+        <td>With This Nation the World Can Be Conquered</td>
+      </tr>
+      <tr>
+        <td>Bu millət ilə dünya fəth edilə bilər<span class="stem">with-this-nation-the-world-can-be-conquered</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Torpaq almaq yox, könül fəth etmək əsl qələbədir.</td>
+        <td><span class="err">Чыныгы күч — адал эмгекте, кең пейилде.</span></td>
+        <td class="type">Omission</td>
+        <td>Чыныгы күч куралда эмес, элдин адалдыгында. Жер алуу эмес, жүрөк багындыруу — чыныгы жеңиш.</td>
+      </tr>
+      <tr>
+        <td>Dəvəsi oğurlanmış bədəvinin hekayəsi<span class="stem">bedouin-whose-camel-was-stolen</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Bəzən insan başına gələni ona görə gizlədir ki, başqalarının yaxşılığa inamı itməsin.</td>
+        <td><span class="err">Бирөөнүн кыянаттыгы үчүн жакшылыктан түңүлбө.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Кээде адам башына түшкөндү жашырат, анткени башкалардын жакшылыкка болгон ишеними өчпөсүн.</td>
+      </tr>
+      <tr>
+        <td>Evi qarət olunan qadın<span class="stem">woman-whose-house-was-robbed</span></td>
+        <td class="lang">Russian</td>
+        <td>İnsanlar başçılarının ayıq-sayıq olduğunu bilsələr, evlərində arxayın yatarlar.</td>
+        <td><span class="err">Власть обязана оправдывать это доверие.</span></td>
+        <td class="type">Addition</td>
+        <td>Если люди знают, что их правитель бодрствует, они спокойно спят в своих домах.</td>
+      </tr>
+      <tr>
+        <td>Evi qarət olunan qadın<span class="stem">woman-whose-house-was-robbed</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>İnsanlar başçılarının ayıq-sayıq olduğunu bilsələr, evlərində arxayın yatarlar.</td>
+        <td><span class="err">Ошол ишенимди актоо — жетекчинин жоопкерчилиги.</span></td>
+        <td class="type">Addition</td>
+        <td>Эл жетекчиси ойгоо экенин билсе, үйүндө бейкапар жатат.</td>
+      </tr>
+      <tr>
+        <td>Frankfurt hakiminin ədalətli hökmü<span class="stem">just-verdict-of-the-frankfurt-judge</span></td>
+        <td class="lang">English</td>
+        <td>Frankfurt hakiminin ədalətli hökmü</td>
+        <td><span class="err">The Judge of Frankfurt</span></td>
+        <td class="type">Title</td>
+        <td>The Just Verdict of the Frankfurt Judge</td>
+      </tr>
+      <tr>
+        <td>Quzuların dərisi<span class="stem">skins-of-the-lambs</span></td>
+        <td class="lang">Russian</td>
+        <td>Ertəsi gün Əsəd Paşa qazını dəvət edir və ona: «Qazı əfəndi</td>
+        <td><span class="err">На следующий день Асад-паша приглашает Гази и говорит ему: «Гази Эффенди</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Асад-паша приглашает кадия… «Кади-эфенди»</td>
+      </tr>
+      <tr>
+        <td>Vətən və torpaq<span class="stem">homeland-and-land</span></td>
+        <td class="lang">Russian</td>
+        <td>Torpağı vətənə çevirən uğrunda tökülən qandır.</td>
+        <td><span class="err">Земля становится родиной, когда с ней связаны любовь, память и жертвы тех, кто её защищал.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Землю делает родиной кровь, пролитая за неё.</td>
+      </tr>
+      <tr>
+        <td>Ədaləti paylaşmaq<span class="stem">sharing-justice</span></td>
+        <td class="lang">Russian</td>
+        <td>Ədaləti paylaşmaq</td>
+        <td><span class="err">Радость, которой делятся</span></td>
+        <td class="type">Title</td>
+        <td>Делиться справедливостью</td>
+      </tr>
+      <tr>
+        <td>Ədaləti paylaşmaq<span class="stem">sharing-justice</span></td>
+        <td class="lang">Russian</td>
+        <td>ya da bayramda ət yeməyən qalmasın.</td>
+        <td><span class="err">либо позаботьтесь, чтобы в праздник у каждого было угощение.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>либо пусть в праздник не останется никого, кто не ел бы мяса.</td>
+      </tr>
+      <tr>
+        <td>Altmışdan sonra nə dəyişdi<span class="stem">what-changed-after-sixty</span></td>
+        <td class="lang">English</td>
+        <td>Könül rahatlığı mükəmməllikdən vacibdir.</td>
+        <td><span class="err">Being there for someone matters more.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Peace of heart matters more than perfection.</td>
+      </tr>
+      <tr>
+        <td>Altmışdan sonra nə dəyişdi<span class="stem">what-changed-after-sixty</span></td>
+        <td class="lang">English</td>
+        <td>öz xoşbəxtliyimə mən özüm cavabdehəm.</td>
+        <td><span class="err">My happiness is partly my responsibility.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>I myself am responsible for my own happiness.</td>
+      </tr>
+      <tr>
+        <td>Altmışdan sonra nə dəyişdi<span class="stem">what-changed-after-sixty</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>anlayış isə haqlı çıxmaqdan üstündür.</td>
+        <td><span class="err">Баарын оңдойм дебей, өзгөртө аларыңа күч жумшап, өзгөртө албасыңа сабыр кыл.</span></td>
+        <td class="type">Omission</td>
+        <td>Тынчтык кемчиликсиздиктен, түшүнүү болсо туура чыгуудан жогору.</td>
+      </tr>
+      <tr>
+        <td>Eşşəyin qanunu<span class="stem">donkeys-law</span></td>
+        <td class="lang">English</td>
+        <td>Mənasız qanunu ayaqda saxlayan onu verənin gücü yox, tabe olanların susqunluğudur.</td>
+        <td><span class="err">A senseless law survives not only through a ruler’s power, but through the silence of those who obey it.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>A senseless law is kept standing not by the power of the one who made it, but by the silence of those who obey.</td>
+      </tr>
+      <tr>
+        <td>Fil və ip<span class="stem">elephant-and-the-rope</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>«El nə deyər» qorxusunu qırmadan azad olmaq mümkün deyil.</td>
+        <td><span class="err">Өткөндөгү ийгиликсиздик бүгүнкү мүмкүнчүлүгүңдү чектебесин.</span></td>
+        <td class="type">Omission</td>
+        <td>«Эл эмне дейт?» деген коркунууну жеңмейинче эркин боло албайсың.</td>
+      </tr>
+      <tr>
+        <td>Ovçunun vəsfi<span class="stem">hunters-description</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Hekayəni danışan çox vaxt özünü qəhrəman göstərir.</td>
+        <td><span class="err">Окуяны бир гана тараптан уксаң, чындыктын жарымын гана билесиң.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Окуяны айткан адам көбүнчө өзүн баатыр кылып көрсөтөт.</td>
+      </tr>
+      <tr>
+        <td>Tısbağanın yanlış hesabı<span class="stem">turtles-wrong-calculation</span></td>
+        <td class="lang">English</td>
+        <td>Tısbağanın yanlış hesabı</td>
+        <td><span class="err">What the Tortoise Forgot</span></td>
+        <td class="type">Title</td>
+        <td>The Tortoise’s Wrong Calculation</td>
+      </tr>
+      <tr>
+        <td>Tısbağanın yanlış hesabı<span class="stem">turtles-wrong-calculation</span></td>
+        <td class="lang">English</td>
+        <td>Hər dəfə bir az sürətimi artıranda məni tutub arxası üstə çevirdilər.</td>
+        <td><span class="err">As soon as I set off, someone picked me up and turned me upside down.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Every time I tried to go a little faster, they caught me and turned me on my back.</td>
+      </tr>
+      <tr>
+        <td>Tısbağanın yanlış hesabı<span class="stem">turtles-wrong-calculation</span></td>
+        <td class="lang">Russian</td>
+        <td>Hər dəfə bir az sürətimi artıranda məni tutub arxası üstə çevirdilər.</td>
+        <td><span class="err">Едва я отправилась, кто-то перевернул меня на спину.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Каждый раз, когда я немного ускорялась, меня хватали и переворачивали на спину.</td>
+      </tr>
+      <tr>
+        <td>İstanbulu suya qovuşduran Memar Sinan susuz evdə vəfat etdi<span class="stem">architect-sinan-dies-in-a-house-without-water</span></td>
+        <td class="lang">English</td>
+        <td>Bunun üçün saysız-hesabsız qızıl kisəsi lazım olacaq.</td>
+        <td><span class="err">sacks filled with gold would have to be placed end to end.</span></td>
+        <td class="type">Addition</td>
+        <td>It will take countless sacks of gold.</td>
+      </tr>
+      <tr>
+        <td>İstanbulu suya qovuşduran Memar Sinan susuz evdə vəfat etdi<span class="stem">architect-sinan-dies-in-a-house-without-water</span></td>
+        <td class="lang">English</td>
+        <td>Nə qədər qızıl tələb olunsa, verəcəyəm.</td>
+        <td><span class="err">I will place the sacks not end to end, but side by side.</span></td>
+        <td class="type">Addition</td>
+        <td>However much gold it takes, I will give it.</td>
+      </tr>
+      <tr>
+        <td>İstanbulu suya qovuşduran Memar Sinan susuz evdə vəfat etdi<span class="stem">architect-sinan-dies-in-a-house-without-water</span></td>
+        <td class="lang">Russian</td>
+        <td>saysız-hesabsız qızıl kisəsi lazım olacaq.</td>
+        <td><span class="err">придётся выстроить в ряд мешки с золотом.</span></td>
+        <td class="type">Addition</td>
+        <td>Понадобится бесчисленное множество мешков золота.</td>
+      </tr>
+      <tr>
+        <td>İstanbulu suya qovuşduran Memar Sinan susuz evdə vəfat etdi<span class="stem">architect-sinan-dies-in-a-house-without-water</span></td>
+        <td class="lang">Russian</td>
+        <td>Nə qədər qızıl tələb olunsa, verəcəyəm.</td>
+        <td><span class="err">я поставлю мешки не в ряд, а бок о бок.</span></td>
+        <td class="type">Addition</td>
+        <td>Сколько бы золота ни потребовалось, я дам его.</td>
+      </tr>
+      <tr>
+        <td>İstanbulu suya qovuşduran Memar Sinan susuz evdə vəfat etdi<span class="stem">architect-sinan-dies-in-a-house-without-water</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>saysız-hesabsız qızıl kisəsi lazım olacaq.</td>
+        <td><span class="err">алтын толгон каптарды учма-уч тизүүгө туура келет.</span></td>
+        <td class="type">Addition</td>
+        <td>Буга сан жеткис алтын кап керек болот.</td>
+      </tr>
+      <tr>
+        <td>İstanbulu suya qovuşduran Memar Sinan susuz evdə vəfat etdi<span class="stem">architect-sinan-dies-in-a-house-without-water</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Nə qədər qızıl tələb olunsa, verəcəyəm.</td>
+        <td><span class="err">каптарды учма-уч эмес, катар-катар тизем.</span></td>
+        <td class="type">Addition</td>
+        <td>Канча алтын талап кылынса, ошончосун берем.</td>
+      </tr>
+      <tr>
+        <td>Onun ipi ilə quyuya enmək olmaz<span class="stem">you-cannot-descend-a-well-on-his-rope</span></td>
+        <td class="lang">English</td>
+        <td>Onun ipi ilə quyuya enmək olmaz</td>
+        <td><span class="err">Would You Trust His Rope?</span></td>
+        <td class="type">Title</td>
+        <td>You Cannot Go Down a Well on His Rope</td>
+      </tr>
+      <tr>
+        <td>Onun ipi ilə quyuya enmək olmaz<span class="stem">you-cannot-descend-a-well-on-his-rope</span></td>
+        <td class="lang">English</td>
+        <td>dərin bir quyuya bir quzu düşür</td>
+        <td><span class="err">a sheep fell into a well</span></td>
+        <td class="type">Mistranslation</td>
+        <td>One day, a lamb fell into a deep well.</td>
+      </tr>
+      <tr>
+        <td>Onun ipi ilə quyuya enmək olmaz<span class="stem">you-cannot-descend-a-well-on-his-rope</span></td>
+        <td class="lang">Russian</td>
+        <td>dərin bir quyuya bir quzu düşür</td>
+        <td><span class="err">Однажды овца упала в глубокий колодец.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Однажды ягнёнок упал в глубокий колодец.</td>
+      </tr>
+      <tr>
+        <td>Yaxşı düşünün, yaxşı danışın, yaxşı davranın<span class="stem">think-speak-and-act-positively</span></td>
+        <td class="lang">English</td>
+        <td>vərdiş isə taleyə çevrilir. Müsbət taleyin başlanğıcı müsbət düşüncədir.</td>
+        <td><span class="err">repeated actions become habits and values. A change in outlook can begin a change in life.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Thought becomes word, word becomes deed, deed becomes habit, and habit becomes destiny. A positive destiny begins with positive thought.</td>
+      </tr>
+      <tr>
+        <td>Problemə münasibət<span class="stem">attitude-toward-a-problem</span></td>
+        <td class="lang">Russian</td>
+        <td>Həll edə bildiyin problemə çarə axtar. Dəyişə bilmədiyin vəziyyətə görə isə özünü daim üzməyin faydası yoxdur.</td>
+        <td><span class="err">Бессмысленно изводить себя и из-за того, что можно исправить, и из-за того, чего изменить нельзя.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Ищи выход из проблемы, которую можешь решить. Нет пользы постоянно терзать себя из-за того, чего изменить нельзя.</td>
+      </tr>
+      <tr>
+        <td>Təhsil, ya xasiyyət<span class="stem">education-or-character</span></td>
+        <td class="lang">English</td>
+        <td>Təhsil, ya xasiyyət</td>
+        <td><span class="err">Training or Nature?</span></td>
+        <td class="type">Title</td>
+        <td>Education or Character?</td>
+      </tr>
+      <tr>
+        <td>Təhsil, ya xasiyyət<span class="stem">education-or-character</span></td>
+        <td class="lang">English</td>
+        <td>Təhsil xasiyyəti dəyişmir; fürsət düşəndə əsl mahiyyət üzə çıxır. Bilikli olmaq yaxşıdır, amma xarakter daha vacibdir.</td>
+        <td><span class="err">Training may shape behavior, but an opportunity can reveal the nature beneath it. Learning matters, but character matters too.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Education does not change character; when the chance comes, true nature shows itself. Learning is good, but character is more important.</td>
+      </tr>
+      <tr>
+        <td>Təhsil, ya xasiyyət<span class="stem">education-or-character</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Təhsil xasiyyəti dəyişmir; fürsət düşəndə əsl mahiyyət üzə çıxır. Bilikli olmaq yaxşıdır, amma xarakter daha vacibdir.</td>
+        <td><span class="err">Үйрөнгөн өнөр менен адамдын табияты бир нерсе эмес. Билим менен катар мүнөздү да тарбиялоо керек.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Билим мүнөздү өзгөртпөйт; мүмкүнчүлүк түшкөндө чыныгы табият ачылат. Билимдүү болуу жакшы, бирок мүнөз андан да маанилүү.</td>
+      </tr>
+      <tr>
+        <td>Təmizliklə məşğul oldum<span class="stem">i-got-busy-with-cleaning</span></td>
+        <td class="lang">English</td>
+        <td>Təmizliklə məşğul oldum</td>
+        <td><span class="err">A Little Inner Housekeeping</span></td>
+        <td class="type">Title</td>
+        <td>I Got Busy with Cleaning</td>
+      </tr>
+      <tr>
+        <td>Təmizliklə məşğul oldum<span class="stem">i-got-busy-with-cleaning</span></td>
+        <td class="lang">English</td>
+        <td>Necə təmizlədim, bilmirəm...</td>
+        <td><span class="err">Somehow, those had already gone.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>I don&#x27;t know how I cleaned them.</td>
+      </tr>
+      <tr>
+        <td>Təmizliklə məşğul oldum<span class="stem">i-got-busy-with-cleaning</span></td>
+        <td class="lang">English</td>
+        <td>Çılğınlıq, təbiilik, bağışlama əkdim içimə...</td>
+        <td><span class="err">I planted a little wildness, sincerity, and forgiveness.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>I planted wildness, naturalness, and forgiveness inside me.</td>
+      </tr>
+      <tr>
+        <td>Təmizliklə məşğul oldum<span class="stem">i-got-busy-with-cleaning</span></td>
+        <td class="lang">Russian</td>
+        <td>Necə təmizlədim, bilmirəm...</td>
+        <td><span class="err">И от этого на душе стало легче.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Не знаю, как я это очистила.</td>
+      </tr>
+      <tr>
+        <td>Təmizliklə məşğul oldum<span class="stem">i-got-busy-with-cleaning</span></td>
+        <td class="lang">Russian</td>
+        <td>Almadan verməyi, sevilmədən sevməyi, paylaşmağı əkdim...</td>
+        <td><span class="err">Щедрость без расчёта, любовь без ожидания ответа, сострадание…</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Я посадила умение отдавать, не получая, любить, не будучи любимой, и делиться.</td>
+      </tr>
+      <tr>
+        <td>Təmizliklə məşğul oldum<span class="stem">i-got-busy-with-cleaning</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Həm də bütün bədənimdə...</td>
+        <td><span class="err">Бул жолу үйүмдү эмес, өзүмдү тазаладым...</span></td>
+        <td class="type">Addition</td>
+        <td>Бүт денеме да тазалык жүргүздүм...</td>
+      </tr>
+      <tr>
+        <td>Təmizliklə məşğul oldum<span class="stem">i-got-busy-with-cleaning</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Hər şeydən əvvəl məyusluqları çıxarıb atdım... Atanda heç onların nə olduğuna belə baxmadım.</td>
+        <td><span class="err">Эң оболу көңүлүмдө калган таарынычтарды чыгардым. Кайсынысы кимден калганын териштирип отурган жокмун...</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Эң оболу көңүл калууларды чыгарып таштадым... Таштаганда алардын эмне экенине да караган жокмун.</td>
+      </tr>
+      <tr>
+        <td>Təmizliklə məşğul oldum<span class="stem">i-got-busy-with-cleaning</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>yeni narahatlıqlardan qaynaqlanan yeni qorxular yığılırdı</td>
+        <td><span class="err">жаңы тынчсыздануулардан жаралган жаңы коркунучтар топтоло берчү</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Күн сайын ичимде жаңы тынчсыздануулардан жаралган жаңы коркуулар топтоло берчү.</td>
+      </tr>
+      <tr>
+        <td>Təmizliklə məşğul oldum<span class="stem">i-got-busy-with-cleaning</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Çılğınlıq, təbiilik, bağışlama əkdim içimə...</td>
+        <td><span class="err">Эркиндикти, табигыйлыкты, кечиримди ичиме септим...</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Ичиме шайырдыкты, табигыйлыкты жана кечиримди септим...</td>
+      </tr>
+      <tr>
+        <td>Uzaq duracağınız ifadələr<span class="stem">expressions-you-should-stay-away-from</span></td>
+        <td class="lang">Russian</td>
+        <td>«Onun ərinə (arvadına) bax! O belə edir, elə edir, bəs sən?»</td>
+        <td><span class="err">«Посмотри, как другие мужья и жёны заботятся о семье! А ты?»</span></td>
+        <td class="type">Addition</td>
+        <td>«Посмотри на её мужа (его жену)! Он так делает, она эдак делает, а ты?»</td>
+      </tr>
+      <tr>
+        <td>Vaz keçmək<span class="stem">to-give-up</span></td>
+        <td class="lang">English</td>
+        <td>Bəzi insanlardan uzaqlaşmaq zəiflik deyil, özünə hörmətdir. Qədrini bilməyənə bel bağlamamaq da bir məziyyətdir.</td>
+        <td><span class="err">Stepping back from people who disregard your values can be an act of self-respect.</span></td>
+        <td class="type">Omission</td>
+        <td>Walking away from some people is not weakness; it is self-respect. Not leaning on someone who does not value you is a virtue too.</td>
+      </tr>
+      <tr>
+        <td>Vaz keçmək<span class="stem">to-give-up</span></td>
+        <td class="lang">Russian</td>
+        <td>«Gözəl xasiyyətdir vaz keçmək!»</td>
+        <td><span class="err">Иногда уйти — значит сохранить себя.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>«Умение уходить — прекрасное качество!»</td>
+      </tr>
+      <tr>
+        <td>Vaz keçmək<span class="stem">to-give-up</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>ana sevgisi, ata izzəti, övlad məhəbbətindən məhrum olandan</td>
+        <td><span class="err">эненин мээримин, атанын кадырын, баланын сүйүүсүн баалабаган адамдан</span></td>
+        <td class="type">Mistranslation</td>
+        <td>эненин мээриминен, атанын кадырынан, баланын сүйүүсүнөн ажыраган адамдан</td>
+      </tr>
+      <tr>
+        <td>Üstünlüyümüz bəlamıza çevrilə bilər<span class="stem">our-qualities-can-become-our-enemies</span></td>
+        <td class="lang">Russian</td>
+        <td>Üstünlüyümüz bəlamıza çevrilə bilər</td>
+        <td><span class="err">Наши качества могут стать нашими врагами.</span></td>
+        <td class="type">Title</td>
+        <td>Наше преимущество может обернуться бедой</td>
+      </tr>
+      <tr>
+        <td>Üstünlüyümüz bəlamıza çevrilə bilər<span class="stem">our-qualities-can-become-our-enemies</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Üstünlüyümüz bəlamıza çevrilə bilər</td>
+        <td><span class="err">Сапаттарыбыз өзүбүзгө душман болушу мүмкүн</span></td>
+        <td class="type">Title</td>
+        <td>Артыкчылыгыбыз өзүбүзгө кырсык болушу мүмкүн</td>
+      </tr>
+      <tr>
+        <td>Üstünlüyümüz bəlamıza çevrilə bilər<span class="stem">our-qualities-can-become-our-enemies</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>üstünlüyünə həddindən artıq arxalanma</td>
+        <td><span class="err">Сулуулугуңа, өнөрүңө ашкере ишенип, сактыгыңды жоготпо.</span></td>
+        <td class="type">Addition</td>
+        <td>Артыкчылыгыңа ашкере ишенип кетпе.</td>
+      </tr>
+      <tr>
+        <td>Yalan danışmaq<span class="stem">telling-lies</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>İnsan özünə inandığı qədər güclüdür.</td>
+        <td><span class="err">Ошол ишенимди билимге, эмгекке, аракетке айлант.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Кээде өзүңө айткан жакшы сөз — «колуңдан келет» — сени алдыга сүйрөгөн күчкө айланат. Адам өзүнө ишенгенге жараша күчтүү.</td>
+      </tr>
+      <tr>
+        <td>Yaşadığınız heç bir gündən şikayətçi olmayın<span class="stem">do-not-complain-about-any-day-you-have-lived</span></td>
+        <td class="lang">English</td>
+        <td>Yaşadığınız heç bir gündən şikayətçi olmayın</td>
+        <td><span class="err">Never Regret a Day</span></td>
+        <td class="type">Title</td>
+        <td>Do Not Complain About Any Day You Have Lived</td>
+      </tr>
+      <tr>
+        <td>Yaşadığınız heç bir gündən şikayətçi olmayın<span class="stem">do-not-complain-about-any-day-you-have-lived</span></td>
+        <td class="lang">English</td>
+        <td>Yaşadığınız heç bir gündən şikayətçi olmayın</td>
+        <td><span class="err">Never regret a day you have lived</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Do not complain about any day you have lived.</td>
+      </tr>
+      <tr>
+        <td>Yaşadığınız heç bir gündən şikayətçi olmayın<span class="stem">do-not-complain-about-any-day-you-have-lived</span></td>
+        <td class="lang">Russian</td>
+        <td>Yaşadığın heç bir günü hədər sayma.</td>
+        <td><span class="err">Не спешите жалеть о прожитом.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Ни один прожитый день не считай потраченным зря.</td>
+      </tr>
+      <tr>
+        <td>Yaşadığınız heç bir gündən şikayətçi olmayın<span class="stem">do-not-complain-about-any-day-you-have-lived</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Yaşadığın heç bir günü hədər sayma.</td>
+        <td><span class="err">Ар бир күндүн калтырган сабагын баалай бил.</span></td>
+        <td class="type">Omission</td>
+        <td>Жашаган бир да күнүңдү текке кетти деп эсептебе.</td>
+      </tr>
+      <tr>
+        <td>Yolunacaq qaz<span class="stem">goose-to-be-plucked</span></td>
+        <td class="lang">English</td>
+        <td>Altıya altı qatmayınca, otuz ikiyə yetmir</td>
+        <td><span class="err">Unless you add six to six, you cannot feed thirty-two</span></td>
+        <td class="type">Addition</td>
+        <td>Unless you add six to six, it does not come to thirty-two.</td>
+      </tr>
+      <tr>
+        <td>Yolunacaq qaz<span class="stem">goose-to-be-plucked</span></td>
+        <td class="lang">English</td>
+        <td>Onun əynindəki kürkü padşahdan başqası geyə bilməzdi.</td>
+        <td><span class="err">No one else could afford the fur he was wearing.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>No one but a king could wear the fur he had on.</td>
+      </tr>
+      <tr>
+        <td>Yolunacaq qaz<span class="stem">goose-to-be-plucked</span></td>
+        <td class="lang">English</td>
+        <td>yayın altı ayında işləmədinmi, indi qışın bu soyuğunda çalışırsan?</td>
+        <td><span class="err">why I hadn’t earned enough during the six warm months to rest in winter</span></td>
+        <td class="type">Mistranslation</td>
+        <td>He asked whether I had worked during the six months of summer, since I was working in this winter cold.</td>
+      </tr>
+      <tr>
+        <td>Yolunacaq qaz<span class="stem">goose-to-be-plucked</span></td>
+        <td class="lang">Russian</td>
+        <td>Əleykümü-əssəlam, ey sərdari-cahan</td>
+        <td><span class="err">— Ассаламу алейкум, о сардари-джахан</span></td>
+        <td class="type">Mistranslation</td>
+        <td>— Алейкум ассалам, о сардари-джахан</td>
+      </tr>
+      <tr>
+        <td>Yolunacaq qaz<span class="stem">goose-to-be-plucked</span></td>
+        <td class="lang">Russian</td>
+        <td>Altılarda nə etdin?</td>
+        <td><span class="err">Что ты делал в те шесть месяцев?</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Что ты делал в те шесть?</td>
+      </tr>
+      <tr>
+        <td>Yolunacaq qaz<span class="stem">goose-to-be-plucked</span></td>
+        <td class="lang">Russian</td>
+        <td>Altıya altı qatmayınca, otuz ikiyə yetmir</td>
+        <td><span class="err">Если к шести не прибавить ещё шесть, тридцать два не прокормишь</span></td>
+        <td class="type">Addition</td>
+        <td>Если к шести не прибавить ещё шесть, до тридцати двух не дойдёт.</td>
+      </tr>
+      <tr>
+        <td>Yolunacaq qaz<span class="stem">goose-to-be-plucked</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Altılarda nə etdin?</td>
+        <td><span class="err">Алты айда эмне кылдың?</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Алтыда эмне кылдың?</td>
+      </tr>
+      <tr>
+        <td>Yolunacaq qaz<span class="stem">goose-to-be-plucked</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>otuz iki dişin ruzisini çatdıra bilmərik</td>
+        <td><span class="err">нан таба албайбыз</span></td>
+        <td class="type">Omission</td>
+        <td>Жайында алты ай, кышында да алты ай иштебесек, отуз эки тиштин оокатын таба албайбыз.</td>
+      </tr>
+      <tr>
+        <td>Yolunacaq qaz<span class="stem">goose-to-be-plucked</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>bəzi cavabları insan özü tapmalıdır</td>
+        <td><span class="err">Зээндүү адам аз сөздөн көптү түшүнөт.</span></td>
+        <td class="type">Omission</td>
+        <td>Айрым жоопторду адам өзү табышы керек.</td>
+      </tr>
+      <tr>
+        <td>Belə düşünməyə çalışın<span class="stem">try-to-think-this-way</span></td>
+        <td class="lang">Russian</td>
+        <td>«Mən səhv etdim, kaş etməyəydim» deməyin.</td>
+        <td><span class="err">Не говорите: «Всё испорчено, я ошибся».</span></td>
+        <td class="type">Addition</td>
+        <td>Не говорите: «Я ошибся, лучше бы я этого не делал».</td>
+      </tr>
+      <tr>
+        <td>Belə düşünməyə çalışın<span class="stem">try-to-think-this-way</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Düşüncəni dəyişmək həyatını dəyişməyin ilk addımıdır. «Bacarmaram» demək yolu bağlayır, «öyrənərəm» demək isə yeni imkanlar açır.</td>
+        <td><span class="err">«Билбейм» дегенди «үйрөнөм» дегенге алмаштыр. Катаңдан сабак алып, башка жолун издеп көр.</span></td>
+        <td class="type">Omission</td>
+        <td>Оюңду өзгөртүү — жашооңду өзгөртүүнүн биринчи кадамы. «Колумдан келбейт» десең жол жабылат, «үйрөнөм» десең жаңы мүмкүнчүлүк ачылат.</td>
+      </tr>
+      <tr>
+        <td>Çatdırmadım, bacarmadım deməyin<span class="stem">dont-say-i-couldnt-deliver-or-i-couldnt-manage</span></td>
+        <td class="lang">English</td>
+        <td>Çatdırmadım, bacarmadım deməyin</td>
+        <td><span class="err">Tomorrow Is Another Chance</span></td>
+        <td class="type">Title</td>
+        <td>Don&#x27;t Say I Couldn&#x27;t Get It Done, I Couldn&#x27;t Manage</td>
+      </tr>
+      <tr>
+        <td>Çatdırmadım, bacarmadım deməyin<span class="stem">dont-say-i-couldnt-deliver-or-i-couldnt-manage</span></td>
+        <td class="lang">Russian</td>
+        <td>Ən başlıcası, ümidinizi itirməyin.</td>
+        <td><span class="err">С рассветом у вас появится новый день и новая возможность.</span></td>
+        <td class="type">Omission</td>
+        <td>Самое главное — не теряйте надежду. Когда завтра взойдёт солнце, перед вами будет целый день.</td>
+      </tr>
+      <tr>
+        <td>Çatdırmadım, bacarmadım deməyin<span class="stem">dont-say-i-couldnt-deliver-or-i-couldnt-manage</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Hər gün yeni bir səhifədir. Dünəni dəyişə bilməzsən, amma bu günü necə yazacağın sənin əlindədir.</td>
+        <td><span class="err">Бүгүн үлгүрбөсөң, үмүтүңдү үзбө. Эртең кайра аракет кылууга мүмкүнчүлүк бар.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Ар бир күн — жаңы барак. Кечээни өзгөртө албайсың, бирок бүгүнкүнү кантип жазарың өз колуңда.</td>
+      </tr>
+      <tr>
+        <td>Çətinliyi fürsətə çevirmək<span class="stem">turning-hardship-into-opportunity</span></td>
+        <td class="lang">English</td>
+        <td>Eyni çətinlik birini sındırar, o birini möhkəmləndirər.</td>
+        <td><span class="err">A difficulty can become a chance to learn or grow.</span></td>
+        <td class="type">Omission</td>
+        <td>The same hardship breaks one person and strengthens another.</td>
+      </tr>
+      <tr>
+        <td>Çətinliyi fürsətə çevirmək<span class="stem">turning-hardship-into-opportunity</span></td>
+        <td class="lang">Russian</td>
+        <td>Eyni çətinlik birini sındırar, o birini möhkəmləndirər.</td>
+        <td><span class="err">В трудности можно увидеть не только препятствие, но и возможность вырасти.</span></td>
+        <td class="type">Omission</td>
+        <td>Одна и та же трудность одного сломает, а другого закалит.</td>
+      </tr>
+      <tr>
+        <td>Çətinliyi fürsətə çevirmək<span class="stem">turning-hardship-into-opportunity</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Eyni çətinlik birini sındırar, o birini möhkəmləndirər.</td>
+        <td><span class="err">Кыйынчылыкка кабылсаң, андан эмнени үйрөнүүгө болорун ойлон.</span></td>
+        <td class="type">Omission</td>
+        <td>Бир эле кыйынчылык бирөөнү сындырып, экинчисин чыңдайт.</td>
+      </tr>
+      <tr>
+        <td>Özünə inan<span class="stem">to-be-self-confident</span></td>
+        <td class="lang">English</td>
+        <td>Vaqif ol!</td>
+        <td><span class="err">Keep learning.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Be aware!</td>
+      </tr>
+      <tr>
+        <td>Özünə inan<span class="stem">to-be-self-confident</span></td>
+        <td class="lang">English</td>
+        <td>İmanlı ol!</td>
+        <td><span class="err">Be faithful!</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Have faith!</td>
+      </tr>
+      <tr>
+        <td>Özünə inan<span class="stem">to-be-self-confident</span></td>
+        <td class="lang">Russian</td>
+        <td>Vaqif ol!</td>
+        <td><span class="err">Стремитесь к знаниям!</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Будьте бдительны!</td>
+      </tr>
+      <tr>
+        <td>Özünə inan<span class="stem">to-be-self-confident</span></td>
+        <td class="lang">Russian</td>
+        <td>İmanlı ol!</td>
+        <td><span class="err">Будьте верны!</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Имейте веру!</td>
+      </tr>
+      <tr>
+        <td>Özünə inan<span class="stem">to-be-self-confident</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Özünə inam insanın ən güclü dayağıdır.</td>
+        <td><span class="err">Үмүт, аракет, ар-намыс сени алдыга жетелесин.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Өзүнө ишенүү — адамдын эң күчтүү таянычы.</td>
+      </tr>
+      <tr>
+        <td>Özgələrin fikirləri<span class="stem">other-peoples-opinions</span></td>
+        <td class="lang">Russian</td>
+        <td>Sevincini, qəzəbini, bütün duyğularını əldən verdi.</td>
+        <td><span class="err">ушли радость, гнев и удивление</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Ушли радость, гнев и все чувства.</td>
+      </tr>
+      <tr>
+        <td>Özgələrin fikirləri<span class="stem">other-peoples-opinions</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Mənəvi köklərini qorumasan, sonda özün olmaqdan çıxarsan.</td>
+        <td><span class="err">Өз алдынча ойлонуп, суроо берип, сезимиңди билдирүүдөн калба.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Руханий тамырыңды сактабасаң, акыры өзүң болбой каласың.</td>
+      </tr>
+      <tr>
+        <td>Üzünüz daim gülsün<span class="stem">may-your-face-always-smile</span></td>
+        <td class="lang">English</td>
+        <td>Üzünüz daim gülsün</td>
+        <td><span class="err">May You Always Have Reason to Smile</span></td>
+        <td class="type">Title</td>
+        <td>May Your Face Always Smile</td>
+      </tr>
+      <tr>
+        <td>Üzünüz daim gülsün<span class="stem">may-your-face-always-smile</span></td>
+        <td class="lang">Russian</td>
+        <td>Təbəssüm xərc tələb etməz, amma könülləri fəth edər.</td>
+        <td><span class="err">Улыбка ничего не стоит, а значит порой больше дорогого товара.</span></td>
+        <td class="type">Grammar</td>
+        <td>Улыбка ничего не стоит, но покоряет сердца.</td>
+      </tr>
+      <tr>
+        <td>Üzünüz daim gülsün<span class="stem">may-your-face-always-smile</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Gülərüz adam qaşqabaqlıdan çox sevilər. Təbəssüm xərc tələb etməz, amma könülləri fəth edər.</td>
+        <td><span class="err">Жайдары жүз, жылуу сөз адамды өзүнө тартат.</span></td>
+        <td class="type">Addition</td>
+        <td>Жылмайган адам кабак бүркөгөндөн көбүрөөк сүйүлөт. Жылмаюу чыгым талап кылбайт, бирок жүрөктөрдү багындырат.</td>
+      </tr>
+      <tr>
+        <td>Ən güclü qalxan<span class="stem">strongest-shield</span></td>
+        <td class="lang">English</td>
+        <td>Hər kəsə həddindən artıq yaxın olmaq adamı incidə bilər.</td>
+        <td><span class="err">You need not remain close to everything or everyone that hurts you.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Being too close to everyone can hurt a person.</td>
+      </tr>
+      <tr>
+        <td>Ən güclü qalxan<span class="stem">strongest-shield</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Hər kəsə həddindən artıq yaxın olmaq adamı incidə bilər.</td>
+        <td><span class="err">Өзүңө зыян келтирген мамиленин чегин бил.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Ар кимге ашыкча жакын болуу адамды оорутушу мүмкүн.</td>
+      </tr>
+      <tr>
+        <td>Ən yaxşı üç şey<span class="stem">three-best-things</span></td>
+        <td class="lang">English</td>
+        <td>Xoşbəxtlik təkcə imkandan deyil, həyata baxışdan da asılıdır.</td>
+        <td><span class="err">Happiness is not in opportunity, but in perspective.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Happiness depends not only on means, but also on how you look at life.</td>
+      </tr>
+      <tr>
+        <td>Ən yaxşı üç şey<span class="stem">three-best-things</span></td>
+        <td class="lang">Russian</td>
+        <td>Ən yaxşı üç şey</td>
+        <td><span class="err">Три самых важных вещи</span></td>
+        <td class="type">Title</td>
+        <td>Три самые лучшие вещи</td>
+      </tr>
+      <tr>
+        <td>Ən yaxşı üç şey<span class="stem">three-best-things</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>İnsanlara qəlbində yer verərsənsə, bu, sənin ən yaxşı evin olar.</td>
+        <td><span class="err">Адамдардын жүрөгүнөн орун тапсаң, эң жакшы үйдө жашаганың ошол.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Адамдарга жүрөгүңдөн орун берсең, эң жакшы үйүң ошол болот.</td>
+      </tr>
+      <tr>
+        <td>Ən yaxşı üç şey<span class="stem">three-best-things</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Ən gözəl ev isə könüllərdə tutduğun yerdir. Xoşbəxtlik təkcə imkandan deyil, həyata baxışdan da asılıdır.</td>
+        <td><span class="err">Ырахаттын баары кымбат буюмда эмес. Адал эмгек, токчулук, адамдардын мээрими — бакыттын жөнөкөй тиректери.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Эң жакшы үй — жүрөктөрдөн алган ордуң. Бакыт мүмкүнчүлүктөн гана эмес, жашоого болгон көз караштан да көз каранды.</td>
+      </tr>
+      <tr>
+        <td>Bilən və bilməyən<span class="stem">one-who-knows-and-the-one-who-does-not</span></td>
+        <td class="lang">English</td>
+        <td>Bilən və bilməyən</td>
+        <td><span class="err">Knowing What You Know</span></td>
+        <td class="type">Title</td>
+        <td>The One Who Knows and the One Who Does Not</td>
+      </tr>
+      <tr>
+        <td>Bilən və bilməyən<span class="stem">one-who-knows-and-the-one-who-does-not</span></td>
+        <td class="lang">English</td>
+        <td>Ondan uzaq durun!</td>
+        <td><span class="err">Avoid their guidance.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Stay away from them.</td>
+      </tr>
+      <tr>
+        <td>Bilən və bilməyən<span class="stem">one-who-knows-and-the-one-who-does-not</span></td>
+        <td class="lang">Russian</td>
+        <td>həqiqətən bilənin isə ardınca get</td>
+        <td><span class="err">Следуй за подлинным знанием.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Следуй за тем, кто действительно знает.</td>
+      </tr>
+      <tr>
+        <td>Bilən və bilməyən<span class="stem">one-who-knows-and-the-one-who-does-not</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>qəflətdə olanı oyat, hər şeyi bildiyini güman edən nadandan uzaq dur</td>
+        <td><span class="err">Билбегениңди билүү — үйрөнүүнүн башаты. Билим издегенге көмөктөшүп, билгенден үлгү ал.</span></td>
+        <td class="type">Omission</td>
+        <td>Капарсыз жатканды ойгот, баарын билем деген наадан адамдан алыс бол.</td>
+      </tr>
+      <tr>
+        <td>Dil<span class="stem">tongue</span></td>
+        <td class="lang">English</td>
+        <td>Dil bir çiçəkdir, ağızda bitər</td>
+        <td><span class="err">Language is a flower that blooms when we speak</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Language is a flower; it grows in the mouth.</td>
+      </tr>
+      <tr>
+        <td>Dil<span class="stem">tongue</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Ana dilini yaşatmaq onu hər gün sevə-sevə işlətməkdir.</td>
+        <td><span class="err">Тил сүйлөгөндө, жазганда, кийинки муунга үйрөткөндө жашайт.</span></td>
+        <td class="type">Addition</td>
+        <td>Эне тилин жашатуу — аны күн сайын сүйүп колдонуу.</td>
+      </tr>
+      <tr>
+        <td>Söz nədir<span class="stem">what-is-a-word</span></td>
+        <td class="lang">English</td>
+        <td>Sözlə könül sındırmaq da olar, könül almaq da.</td>
+        <td><span class="err">A word can be both a wounding thorn and a precious pearl.</span></td>
+        <td class="type">Addition</td>
+        <td>With a word one can break a heart, and with a word one can win a heart.</td>
+      </tr>
+      <tr>
+        <td>Söz nədir<span class="stem">what-is-a-word</span></td>
+        <td class="lang">Russian</td>
+        <td>Söz var, incidir</td>
+        <td><span class="err">Слово — это рана</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Есть слово, которое ранит.</td>
+      </tr>
+      <tr>
+        <td>Söz nədir<span class="stem">what-is-a-word</span></td>
+        <td class="lang">Russian</td>
+        <td>Sözü inciyə çevirən onu necə və harada deməyindir.</td>
+        <td><span class="err">Всё зависит от того, с каким чувством и намерением оно сказано.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Слово превращает в жемчужину то, как и где его сказать.</td>
+      </tr>
+      <tr>
+        <td>Söz və sükut<span class="stem">word-and-silence</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Xeyir gətirməyəcək sözün yerinə sükut daha hikmətlidir.</td>
+        <td><span class="err">Пайдасыз кептен карманып, жүрөккө жылуулук бере турган сөздү танда.</span></td>
+        <td class="type">Omission</td>
+        <td>Пайда алып келбей турган сөздүн ордуна унчукпай коюу даанышмандык.</td>
+      </tr>
+      <tr>
+        <td>Sükut<span class="stem">silence</span></td>
+        <td class="lang">Russian</td>
+        <td>bəzən də qarşındakı cavaba layiq deyil</td>
+        <td><span class="err">либо собеседник не готов услышать</span></td>
+        <td class="type">Mistranslation</td>
+        <td>А иногда тот, кто перед тобой, не достоин ответа.</td>
+      </tr>
+      <tr>
+        <td>Sükut<span class="stem">silence</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>bəzən də qarşındakı cavaba layiq deyil</td>
+        <td><span class="err">кээде унчукпооң сөздөн өтүмдүү чыгат</span></td>
+        <td class="type">Omission</td>
+        <td>Кээде маектешиң жоопко татыктуу эмес.</td>
+      </tr>
+      <tr>
+        <td>Səssiz dəhliz<span class="stem">silent-corridor</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Bəzən əməkdaşlığa ən böyük zərəri uğursuzluq yox, səssizlik vurur.</td>
+        <td><span class="err">Унчукпай күтө берүү убакытты да, ишенимди да жоготот.</span></td>
+        <td class="type">Omission</td>
+        <td>Кээде кызматташтыкка эң чоң зыянды ийгиликсиздик эмес, жымжырттык алып келет.</td>
+      </tr>
+      <tr>
+        <td>Çobanı səsləmək lazımdır<span class="stem">shepherd-must-be-called</span></td>
+        <td class="lang">English</td>
+        <td>bir sürü quduz iti</td>
+        <td><span class="err">a shepherd’s fierce dogs</span></td>
+        <td class="type">Mistranslation</td>
+        <td>a shepherd’s pack of rabid dogs</td>
+      </tr>
+      <tr>
+        <td>Çobanı səsləmək lazımdır<span class="stem">shepherd-must-be-called</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Bəzən bir addım geri çəkilib fərqli baxmaq ən qısa çıxış yoludur.</td>
+        <td><span class="err">Кээде маселени чече ала турган адамга кайрылуу — эң туура жол.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Кээде бир кадам артка чегинип, башкача кароо — эң кыска чыгуу жолу.</td>
+      </tr>
+      <tr>
+        <td>Çobanın sözü<span class="stem">shepherds-word</span></td>
+        <td class="lang">English</td>
+        <td>kənd ağası</td>
+        <td><span class="err">the village chief</span></td>
+        <td class="type">Mistranslation</td>
+        <td>the village agha</td>
+      </tr>
+      <tr>
+        <td>Çobanın sözü<span class="stem">shepherds-word</span></td>
+        <td class="lang">Russian</td>
+        <td>kənd ağası</td>
+        <td><span class="err">староста деревни</span></td>
+        <td class="type">Mistranslation</td>
+        <td>деревенский ага</td>
+      </tr>
+      <tr>
+        <td>Çobanın sözü<span class="stem">shepherds-word</span></td>
+        <td class="lang">Russian</td>
+        <td>əsl kasıb sənsən</td>
+        <td><span class="err">какое же это богатство?</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Вы можете быть богаты, но если ваше слово ничего не стоит, настоящий бедняк — вы.</td>
+      </tr>
+      <tr>
+        <td>Çobanın sözü<span class="stem">shepherds-word</span></td>
+        <td class="lang">Russian</td>
+        <td>İnsanın əsl sərvəti mal-mülkü deyil, sözü, vicdanı və etibarıdır.</td>
+        <td><span class="err">Истинное богатство человека — это не его богатство, а его слово, совесть и доверие.</span></td>
+        <td class="type">Awkward phrasing</td>
+        <td>Истинное богатство человека — не имущество, а его слово, совесть и доверие.</td>
+      </tr>
+      <tr>
+        <td>Axtarmaq<span class="stem">searching</span></td>
+        <td class="lang">English</td>
+        <td>mərhəməti vicdansızda axtarmaq</td>
+        <td><span class="err">mercy in dishonesty</span></td>
+        <td class="type">Mistranslation</td>
+        <td>looking for mercy in someone without a conscience</td>
+      </tr>
+      <tr>
+        <td>Axtarmaq<span class="stem">searching</span></td>
+        <td class="lang">Russian</td>
+        <td>ədəbi həyasızda, mərhəməti vicdansızda axtarmaq</td>
+        <td><span class="err">скромность в бесстыдстве и милосердие в жестокости</span></td>
+        <td class="type">Mistranslation</td>
+        <td>искать благовоспитанность в бесстыдном и милосердие в бессовестном</td>
+      </tr>
+      <tr>
+        <td>Şamların söhbəti<span class="stem">candles-conversation</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>İnam, vəfa və sevgi sönəndə onları yenidən yandıran ümiddir.</td>
+        <td><span class="err">Үмүт бар жерде өчкөн ишенимди да, сүйүүнү да кайра жандырууга болот.</span></td>
+        <td class="type">Omission</td>
+        <td>Ишеним, берилгендик жана сүйүү өчкөндө аларды кайра жандырган нерсе — үмүт.</td>
+      </tr>
+      <tr>
+        <td>Bu günlərdə etməsəm, dünya dağılmaz ki<span class="stem">if-i-dont-do-it-these-days-the-world-wont-collapse</span></td>
+        <td class="lang">English</td>
+        <td>Bu günlərdə etməsəm, dünya dağılmaz ki</td>
+        <td><span class="err">The World Will Not Fall Apart</span></td>
+        <td class="type">Title</td>
+        <td>If I Don&#x27;t Do It These Days, the World Won&#x27;t Collapse</td>
+      </tr>
+      <tr>
+        <td>Bu günlərdə etməsəm, dünya dağılmaz ki<span class="stem">if-i-dont-do-it-these-days-the-world-wont-collapse</span></td>
+        <td class="lang">English</td>
+        <td>həmkərım nə dediyi sözün yanlışlığını anladı, nə buna görə üzr istədi, nə də tapşırığı yerinə yetirdi</td>
+        <td><span class="err">he seemed to recognize that his response was wrong, yet neither apologized nor completed the task</span></td>
+        <td class="type">Mistranslation</td>
+        <td>My colleague neither recognized that his words were wrong, nor apologized, nor completed the task.</td>
+      </tr>
+      <tr>
+        <td>Bu günlərdə etməsəm, dünya dağılmaz ki<span class="stem">if-i-dont-do-it-these-days-the-world-wont-collapse</span></td>
+        <td class="lang">Russian</td>
+        <td>Bu günlərdə etməsəm, dünya dağılmaz ki</td>
+        <td><span class="err">Мир не рухнет</span></td>
+        <td class="type">Title</td>
+        <td>Если я не сделаю это в эти дни, мир не рухнет</td>
+      </tr>
+      <tr>
+        <td>Bu günlərdə etməsəm, dünya dağılmaz ki<span class="stem">if-i-dont-do-it-these-days-the-world-wont-collapse</span></td>
+        <td class="lang">Russian</td>
+        <td>həmkərım nə dediyi sözün yanlışlığını anladı, nə buna görə üzr istədi, nə də tapşırığı yerinə yetirdi</td>
+        <td><span class="err">коллега, даже поняв неуместность своих слов, не извинился и не выполнил задание</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Коллега ни понял, что его слова были неверны, ни извинился за них, ни выполнил задание.</td>
+      </tr>
+      <tr>
+        <td>Bu qayıq da boşdur<span class="stem">this-boat-is-empty-too</span></td>
+        <td class="lang">Russian</td>
+        <td>səhər tezdən, dan yeri söküləndə</td>
+        <td><span class="err">рано утром, когда взошло солнце</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Однажды рано утром, на рассвете, я, как обычно, сидел в своей лодке.</td>
+      </tr>
+      <tr>
+        <td>Bu yol haraya gedir?<span class="stem">where-does-this-road-go</span></td>
+        <td class="lang">Russian</td>
+        <td>Hara getdiyini bilmədən yolun səni hara aparacağını soruşma.</td>
+        <td><span class="err">Важно понимать не только, куда ведёт путь, но и куда хочешь прийти ты сам.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Не спрашивай, куда тебя выведет дорога, пока сам не знаешь, куда идёшь.</td>
+      </tr>
+      <tr>
+        <td>Ciyər<span class="stem">liver</span></td>
+        <td class="lang">English</td>
+        <td>ağciyər</td>
+        <td><span class="err">agqıyar</span></td>
+        <td class="type">Untranslated</td>
+        <td>“aghjiyar” (literally “white liver,” the word for lung), for a coward</td>
+      </tr>
+      <tr>
+        <td>Ciyər<span class="stem">liver</span></td>
+        <td class="lang">Russian</td>
+        <td>ağciyər</td>
+        <td><span class="err">агкыяр</span></td>
+        <td class="type">Untranslated</td>
+        <td>«агджияр» (буквально «белая печень» — лёгкое), о трусе и беспомощном человеке</td>
+      </tr>
+      <tr>
+        <td>Daha səmərəli yol<span class="stem">more-effective-way</span></td>
+        <td class="lang">English</td>
+        <td>bir ağacı kəsmək üçün xeyli vaxtdır əlləşir</td>
+        <td><span class="err">hacking at a fallen tree</span></td>
+        <td class="type">Mistranslation</td>
+        <td>A woodcutter had been struggling for a long time to cut down a tree.</td>
+      </tr>
+      <tr>
+        <td>Daha səmərəli yol<span class="stem">more-effective-way</span></td>
+        <td class="lang">Russian</td>
+        <td>Daha səmərəli yol</td>
+        <td><span class="err">Сначала наточи топор</span></td>
+        <td class="type">Title</td>
+        <td>Более эффективный путь</td>
+      </tr>
+      <tr>
+        <td>Daha səmərəli yol<span class="stem">more-effective-way</span></td>
+        <td class="lang">Russian</td>
+        <td>bir ağacı kəsmək üçün xeyli vaxtdır əlləşir</td>
+        <td><span class="err">долго и с огромным трудом рубил поваленное дерево</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Дровосек уже долго и изо всех сил пытался срубить дерево.</td>
+      </tr>
+      <tr>
+        <td>Daha səmərəli yol<span class="stem">more-effective-way</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>bir ağacı kəsmək üçün xeyli vaxtdır əlləşir</td>
+        <td><span class="err">кыйган дарагын көптөн бери аябай кыйналып балталап жатыптыр</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Бир отунчу бир даракты кыюу үчүн көптөн бери аябай кыйналып балталап жатыптыр.</td>
+      </tr>
+      <tr>
+        <td>Dibinə darı əkmək<span class="stem">sowing-millet-at-the-bottom</span></td>
+        <td class="lang">English</td>
+        <td>Dibinə darı əkmək</td>
+        <td><span class="err">The Saplings That Bore Gold</span></td>
+        <td class="type">Title</td>
+        <td>Sowing Millet at the Bottom</td>
+      </tr>
+      <tr>
+        <td>Dibinə darı əkmək<span class="stem">sowing-millet-at-the-bottom</span></td>
+        <td class="lang">Russian</td>
+        <td>Dibinə darı əkmək</td>
+        <td><span class="err">Плоды доброго дела</span></td>
+        <td class="type">Title</td>
+        <td>Посеять просо на дне</td>
+      </tr>
+      <tr>
+        <td>Dibinə darı əkmək<span class="stem">sowing-millet-at-the-bottom</span></td>
+        <td class="lang">Russian</td>
+        <td>biz də sonrakılar üçün əkməliyik</td>
+        <td><span class="err">мы должны сажать то для тех, кто придет после нас</span></td>
+        <td class="type">Grammar</td>
+        <td>Мы тоже должны сажать для тех, кто придёт после нас.</td>
+      </tr>
+      <tr>
+        <td>Dibinə darı əkmək<span class="stem">sowing-millet-at-the-bottom</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>xəzinəmizin dibinə darı əkəcək</td>
+        <td><span class="err">карыянын көчөтү улам «мөмө берип», казынабызды какшытып бүтөт</span></td>
+        <td class="type">Omission</td>
+        <td>Бул карыя талаасына көчөт эмес, казынабыздын түбүнө таруу айдап коёт!</td>
+      </tr>
+      <tr>
+        <td>Didro effekti<span class="stem">diderot-effect</span></td>
+        <td class="lang">English</td>
+        <td>köhnənin ağası olmaq təzənin köləsi olmaqdan yaxşıdır</td>
+        <td><span class="err">it is better to own modest possessions than to be ruled by luxurious ones</span></td>
+        <td class="type">Mistranslation</td>
+        <td>It is better to be master of the old than slave of the new.</td>
+      </tr>
+      <tr>
+        <td>Dünyada ən gözəl yerlər<span class="stem">most-beautiful-places-in-the-world</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>sevdiklərinin fikrində, duasında və qəlbində tutduğun yerdir</td>
+        <td><span class="err">сени жакшы көргөн адамдардын оюнда, дубасында, жүрөгүндө болуу</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Дүйнөдөгү эң жакшы орун — өзүң сүйгөн адамдардын оюнда, дубасында жана жүрөгүндө ээлеген ордуң.</td>
+      </tr>
+      <tr>
+        <td>Gecikmək nə deməkdir?<span class="stem">what-it-means-to-be-late</span></td>
+        <td class="lang">English</td>
+        <td>Gecikmək nə deməkdir?</td>
+        <td><span class="err">Before It Is Too Late</span></td>
+        <td class="type">Title</td>
+        <td>What Does It Mean to Be Late?</td>
+      </tr>
+      <tr>
+        <td>Gözləri olan korlar<span class="stem">blind-who-have-eyes</span></td>
+        <td class="lang">Russian</td>
+        <td>eşidib anlamayan insan əsl kordur</td>
+        <td><span class="err">слушает, но не слышит</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Тот, кто смотрит, но не видит, и слышит, но не понимает, — по-настоящему слеп.</td>
+      </tr>
+      <tr>
+        <td>Gözləri olan korlar<span class="stem">blind-who-have-eyes</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Görmək üçün təkcə göz yetməz, gördüyünü dərk etmək də gərəkdir.</td>
+        <td><span class="err">Көз менен кароо аздык кылат, көкүрөк менен туюу да керек.</span></td>
+        <td class="type">Addition</td>
+        <td>Көрүү үчүн көз эле жетишсиз, көргөнүңдү аңдап түшүнүү да керек.</td>
+      </tr>
+      <tr>
+        <td>Hamı dəli olanda ağıllı olmağa gərək yoxdur<span class="stem">no-need-to-be-sane-when-everyone-is-mad</span></td>
+        <td class="lang">English</td>
+        <td>Hamı dəli olanda ağıllı olmağa gərək yoxdur</td>
+        <td><span class="err">Sane in a World Gone Mad</span></td>
+        <td class="type">Title</td>
+        <td>No Need to Be Sane When Everyone Is Mad</td>
+      </tr>
+      <tr>
+        <td>Hamı dəli olanda ağıllı olmağa gərək yoxdur<span class="stem">no-need-to-be-sane-when-everyone-is-mad</span></td>
+        <td class="lang">Russian</td>
+        <td>Hamı dəli olanda ağıllı olmağa gərək yoxdur</td>
+        <td><span class="err">Когда все вокруг безумны</span></td>
+        <td class="type">Title</td>
+        <td>Когда все безумны, незачем быть разумным</td>
+      </tr>
+      <tr>
+        <td>Hamı dəli olanda ağıllı olmağa gərək yoxdur<span class="stem">no-need-to-be-sane-when-everyone-is-mad</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Ağlını qoru, amma özünü hamıya sübut etməyə çalışıb taqətdən düşmə.</td>
+        <td><span class="err">Элге кошулам деп өз акылыңдан, ишенимиңден кечпе.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Акылыңды сакта, бирок өзүңдү баарына далилдеп чарчап калба.</td>
+      </tr>
+      <tr>
+        <td>Həyatda önəmli olan nədir?<span class="stem">what-matters-in-life</span></td>
+        <td class="lang">Russian</td>
+        <td>əvvəlcə ailənə, sevgiyə, sağlamlığına yer ayır</td>
+        <td><span class="err">Сначала найдите место для самого дорогого — семьи, любви и близких.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Сначала найдите в жизни место семье, любви и здоровью.</td>
+      </tr>
+      <tr>
+        <td>Həyatın həyat hekayəsi<span class="stem">hayats-life-story</span></td>
+        <td class="lang">English</td>
+        <td>qızlarının boşanmasını namussuzluq sayanlara</td>
+        <td><span class="err">those who call a daughter’s wish to escape daily beatings a disgrace</span></td>
+        <td class="type">Mistranslation</td>
+        <td>those who call it a disgrace when their daughters, whom they know suffer violence every day, seek a divorce</td>
+      </tr>
+      <tr>
+        <td>Həyatın həyat hekayəsi<span class="stem">hayats-life-story</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Anam həmin axşam özünü asıbmış.</td>
+        <td><span class="err">Ошол кечте апам кийим жайган жипти көп ойлонбой эле мойнуна салыптыр.</span></td>
+        <td class="type">Addition</td>
+        <td>Ошол кечте апам өзүн асып коюптур.</td>
+      </tr>
+      <tr>
+        <td>Həyatın həyat hekayəsi<span class="stem">hayats-life-story</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Adım «Astagəl» olmuşdu</td>
+        <td><span class="err">Эми менин атым «Шалдыраган» болуп калган</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Эми менин атым «Келчи» болуп калган.</td>
+      </tr>
+      <tr>
+        <td>İstanbullu bir xanımın xatirələrindən<span class="stem">from-the-memoirs-of-a-lady-from-istanbul</span></td>
+        <td class="lang">Russian</td>
+        <td>tabut daşımaqla özünə gün ağlayırmış</td>
+        <td><span class="err">он весь день плакал, неся гроб перед мечетью</span></td>
+        <td class="type">Mistranslation</td>
+        <td>он зарабатывал на жизнь, нося гробы перед мечетью</td>
+      </tr>
+      <tr>
+        <td>İstanbullu bir xanımın xatirələrindən<span class="stem">from-the-memoirs-of-a-lady-from-istanbul</span></td>
+        <td class="lang">Russian</td>
+        <td>kiçik dəsmallar toxuyur</td>
+        <td><span class="err">до рассвета вышивала полотенца</span></td>
+        <td class="type">Mistranslation</td>
+        <td>До рассвета при свете лампы я вязала маленькие полотенца.</td>
+      </tr>
+      <tr>
+        <td>İstanbullu bir xanımın xatirələrindən<span class="stem">from-the-memoirs-of-a-lady-from-istanbul</span></td>
+        <td class="lang">Russian</td>
+        <td>Nişanı qaytardıq, ayrıldıq.</td>
+        <td><span class="err">Мы попрощались и расстались.</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Мы вернули помолвку и расстались.</td>
+      </tr>
+      <tr>
+        <td>İtib batmaz<span class="stem">it-wont-go-to-waste</span></td>
+        <td class="lang">English</td>
+        <td>sənin də ömrünə nur, sağlamlıq və gözəllik qatar</td>
+        <td><span class="err">makes your own life richer and brighter</span></td>
+        <td class="type">Omission</td>
+        <td>It also brings light, health, and beauty to your own life.</td>
+      </tr>
+      <tr>
+        <td>İtib batmaz<span class="stem">it-wont-go-to-waste</span></td>
+        <td class="lang">Russian</td>
+        <td>sənin də ömrünə nur, sağlamlıq və gözəllik qatar</td>
+        <td><span class="err">мы делаем светлее и собственную жизнь</span></td>
+        <td class="type">Omission</td>
+        <td>Оно прибавляет и твоей жизни свет, здоровье и красоту.</td>
+      </tr>
+      <tr>
+        <td>İtib batmaz<span class="stem">it-wont-go-to-waste</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>sənin də ömrünə nur, sağlamlıq və gözəllik qatar</td>
+        <td><span class="err">өзүңдүн өмүрүңө да көрк, көңүлүңө тынчтык берет</span></td>
+        <td class="type">Mistranslation</td>
+        <td>Өзүңдүн өмүрүңө да нур, ден соолук жана көрк кошот.</td>
+      </tr>
+      <tr>
+        <td>Keçmişdə yaşamaq<span class="stem">living-in-the-past</span></td>
+        <td class="lang">Kyrgyz</td>
+        <td>Keçəni qaytara bilməzsən; üzünü irəli çevir, qarşındakı imkanları gör.</td>
+        <td><span class="err">Өткөндөн сабак ал, бирок ага байланып калба.</span></td>
+        <td class="type">Addition</td>
+        <td>Өткөндү кайтара албайсың; жүзүңдү алдыга бур, алдыңдагы мүмкүнчүлүктөрдү көр.</td>
+      </tr>
+    </tbody>
+    <caption>Faulty wording is marked in red. Suggestions stay in the target language.</caption>
+  </table>
+</main>
+</body>
+</html>

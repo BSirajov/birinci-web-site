@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project QA — 5 November 2026</title>
+<style>
+:root { color-scheme: light dark; --bg:#f4f7fa; --card:#fff; --ink:#173049; --line:#c5d3df; --ok:#1d7a46; --wait:#8a5a00; }
+body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.5 system-ui,sans-serif; }
+main { max-width:1440px; margin:auto; padding:24px; }
+h1 { font-size:clamp(1.6rem,3vw,2.2rem); line-height:1.2; }
+h2 { margin-top:2rem; }
+.card, table, .filters { background:var(--card); border:1px solid var(--line); border-radius:10px; }
+.cards, .filters { display:flex; gap:12px; flex-wrap:wrap; margin:16px 0; }
+.card { padding:14px 16px; min-width:140px; }
+.card b { display:block; font-size:1.4rem; }
+.filters { position:sticky; top:0; z-index:2; padding:12px; }
+input, select { font:inherit; padding:8px 10px; border:1px solid var(--line); border-radius:6px; background:var(--card); color:var(--ink); }
+input { flex:1; min-width:220px; }
+table { width:100%; border-collapse:collapse; }
+th, td { text-align:left; vertical-align:top; padding:10px; border-bottom:1px solid var(--line); }
+th { position:sticky; top:68px; background:var(--card); }
+.badge { display:inline-block; padding:2px 8px; border-radius:99px; font-size:.85rem; background:#e8eef4; }
+.Fixed { color:var(--ok); }
+.Needs { color:var(--wait); }
+code { font-family:ui-monospace,monospace; font-size:.92em; }
+ul { max-width:90ch; }
+</style>
+</head>
+<body>
+<main>
+<h1>Project QA — 5 November 2026</h1>
+<p>Local site check after the recent story, illustration, and catalog edits. Nothing was uploaded. Discoveries stayed out of the publish tree.</p>
+
+<h2>Baseline</h2>
+<p>Published stories: Azerbaijani <b>258</b>, English <b>253</b>, German <b>253</b>, Russian <b>253</b>, Kyrgyz <b>253</b>. Twelve categories in each language. Five Azerbaijani-only poems: <code>flowers</code>, <code>my-lifes-journey</code>, <code>pandemic-and-quarantine</code>, <code>reflections</code>, <code>time-has-passed</code>. Every published story, 1,270 in all, has an illustration whose address resolves with the correct folder case.</p>
+<p>Recent work visible in the project history and in the uncommitted files: German was added; three stories stay unpublished (<code>butter-price-war</code>, <code>ill-gotten-money</code>, <code>forbidden-money</code>); moral labels were removed from the published text; the <em>In your hands</em> titles and morals were aligned; illustration lettering was synchronized on 4 November and four moral panels were repainted after that.</p>
+
+<h2>What was checked</h2>
+<ul>
+<li>Word source, catalog, category page, and search text for all 1,270 published stories (<code>tools/audit_story_sync.py</code>: 0 errors).</li>
+<li>Language routes for every story, including the five poems, which stay on the Azerbaijani page and use the no-translation notice.</li>
+<li>The removed grocery story: absent from pages, lists, search, sitemaps, and the language map. Its Word file and illustration remain in each language.</li>
+<li>Moral labels in the published lists, search text, and visible morals. None remain. One English sentence still says “taught him a lesson:”; that is story prose.</li>
+<li>The twelve Azerbaijani poem titles are sentence case in the catalog and in the page headings: Ömür yolum, Bir mismarın hekayəsi, Diqqət, Münasibətlər, Ötdü dövran, Bir gün də yaşadım..., Düşüncələr, Güllər, Kiçik yeniliklər, böyük dəyərlər..., Pandemiya, karantin, İnsanlıq, Zaman — səssiz axan ömür.</li>
+<li>Story membership, identifiers, category totals inside the catalogs, previous/next order against the catalog, sitemap entries, and all 1,270 illustration addresses.</li>
+<li>Displayed home-card and category-hero counts against those catalogs.</li>
+</ul>
+<h2>Limits</h2>
+<ul>
+<li>This pass did not re-read every story for grammar, style, or cross-language meaning. The automated check shows that the Word file, the catalog, the page, and search carry the same text.</li>
+<li>Illustration lettering was not measured again on all 1,275 plates. A previous scan found no painted “Moral:”, “Lehre:”, or equivalent label. Four <em>In your hands</em> panels were repainted later and checked visually then.</li>
+<li>No print export, table of contents, page numbers, or Cambria layout was opened. No full mobile matrix and no console sweep of every page.</li>
+<li>Historical files under <code>docs/reviews/</code> were left as records. They are not the live pages.</li>
+</ul>
+
+<div class="cards" id="cards"></div>
+<div class="filters">
+<input id="q" type="search" placeholder="Search id, story, text, location">
+<select id="sev"><option value="">All severities</option></select>
+<select id="cat"><option value="">All categories</option></select>
+<select id="status"><option value="">All statuses</option></select>
+</div>
+<table>
+<thead><tr><th>ID</th><th>Severity</th><th>Status</th><th>Category</th><th>Story</th><th>Language</th><th>Location</th><th>Text</th><th>Why</th><th>Recommended fix</th></tr></thead>
+<tbody id="rows"></tbody>
+</table>
+
+<h2>Suggestions, not defects</h2>
+<ul>
+<li>Spoken audio files have been removed. The hidden Listen and Stop controls stay on the pages and do nothing until <code>AUDIO_CONTROLS_ENABLED</code> in <code>assets/site.js</code> is turned on.</li>
+<li>Refresh the 4 November illustration-text record so it includes the later <em>In your hands</em> moral panels.</li>
+<li>The Azerbaijani category pages and every language sitemap now follow the catalog order.</li>
+</ul>
+</main>
+<script>
+const issues = [
+{
+  id: "Q-001", severity: "Medium", status: "Fixed", category: "Data integrity",
+  story: "", language: "az, en, de, ru, ky",
+  location: "index.html category cards; category hero counts",
+  text: "Before: 17 home cards and 11 category heroes showed a stale total. Faith was 36 on several home cards while the catalog has 35 in Azerbaijani and 34 elsewhere. Family was 21 on the English and Russian heroes while those pages contain 22 stories. After: 0 mismatches.",
+  why: "The home page copies data-count into the visible label, so a stale attribute replaced a correct number. The category heroes disagreed with the stories on the same page.",
+  fix: "Set each home card and category hero to the catalog total. Rechecked: 0 mismatches."
+},
+{
+  id: "Q-002", severity: "Low", status: "Fixed", category: "Navigation",
+  story: "", language: "az",
+  location: "az/categories/{aile-ve-terbiye,dostluq-ve-insan-munasibetleri,edalet-ve-cemiyyet,hikmet-ve-heyat-dersleri,iman-ve-meneviyyat}.html",
+  text: "These five Azerbaijani pages listed the same stories as the catalog, in a different order. The list, the cards, and the articles now follow the catalog, which matches the build manifest and the other languages.",
+  why: "Previous and next on the Azerbaijani page did not follow the shared order.",
+  fix: "Reordered the navigation, the cards, and the articles. Each story kept its own text."
+},
+{
+  id: "Q-003", severity: "Info", status: "Needs decision", category: "Removed story",
+  story: "forbidden-money", language: "az, en, de, ru, ky",
+  location: "tools/unpublished_stories.py",
+  text: "The stem is excluded from publishing. It does not appear on the live pages. A Russian Word file exists; the other languages have neither that Word file nor an illustration.",
+  why: "The exclusion list names a story the project no longer holds in full. Deleting the name, or restoring the missing files, are different decisions.",
+  fix: "Keep the exclusion, or remove the name after confirming no publish path can revive it. Not changed."
+}
+];
+const q = document.querySelector("#q");
+const sev = document.querySelector("#sev");
+const cat = document.querySelector("#cat");
+const status = document.querySelector("#status");
+const rows = document.querySelector("#rows");
+const cards = document.querySelector("#cards");
+for (const value of [...new Set(issues.map(i => i.severity))]) sev.insertAdjacentHTML("beforeend", `<option>${value}</option>`);
+for (const value of [...new Set(issues.map(i => i.category))]) cat.insertAdjacentHTML("beforeend", `<option>${value}</option>`);
+for (const value of [...new Set(issues.map(i => i.status))]) status.insertAdjacentHTML("beforeend", `<option>${value}</option>`);
+function paint() {
+  const query = q.value.trim().toLowerCase();
+  const shown = issues.filter(i =>
+    (!sev.value || i.severity === sev.value) &&
+    (!cat.value || i.category === cat.value) &&
+    (!status.value || i.status === status.value) &&
+    (!query || JSON.stringify(i).toLowerCase().includes(query))
+  );
+  const tally = {};
+  for (const i of shown) tally[i.severity] = (tally[i.severity] || 0) + 1;
+  cards.innerHTML = Object.entries(tally).map(([name, n]) => `<div class="card"><b>${n}</b>${name}</div>`).join("")
+    || `<div class="card"><b>0</b>matching issues</div>`;
+  rows.innerHTML = shown.map(i => `<tr>
+    <td><b>${i.id}</b></td>
+    <td>${i.severity}</td>
+    <td class="${i.status.startsWith("Needs") ? "Needs" : "Fixed"}">${i.status}</td>
+    <td>${i.category}</td>
+    <td>${i.story}</td>
+    <td>${i.language}</td>
+    <td><code>${i.location}</code></td>
+    <td>${i.text}</td>
+    <td>${i.why}</td>
+    <td>${i.fix}</td>
+  </tr>`).join("");
+}
+q.addEventListener("input", paint);
+sev.addEventListener("change", paint);
+cat.addEventListener("change", paint);
+status.addEventListener("change", paint);
+paint();
+</script>
+</body>
+</html>

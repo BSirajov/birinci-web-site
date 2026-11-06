@@ -23,6 +23,7 @@ from docx import Document
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+from story_note_markup import strip_moral_label  # noqa: E402
 from dev_story_edit_server import (  # noqa: E402
     LANGS,
     MORAL_RE,
@@ -136,6 +137,9 @@ def parse_story_docx(path: Path) -> ParsedStory:
 
 
 def story_stem_from_docx(path: Path) -> str | None:
+    from story_filename_map import SOURCE_IDS
+    if path.resolve() in SOURCE_IDS:
+        return SOURCE_IDS[path.resolve()]
     stem = EDITORIAL_SUFFIX_RE.sub("", path.stem)
     if STEM_RE.match(stem):
         return stem
@@ -217,7 +221,9 @@ def apply_story(lang: str, parsed: ParsedStory, *, dry_run: bool) -> dict:
 def _patch_stories_blob(data: dict, parsed: ParsedStory, lang: str) -> str:
     """Update in-memory stories-data; return category slug."""
     source = (parsed.source or "").strip() or SITE_SOURCE[lang]
-    paragraphs = visible_story_paragraphs(list(parsed.body) + [parsed.moral, source])
+    paragraphs = visible_story_paragraphs(
+        list(parsed.body) + [strip_moral_label(parsed.moral), source]
+    )
     for cat in data.get("categories") or []:
         for story in cat.get("stories") or []:
             if story.get("stem") != parsed.stem:
@@ -237,7 +243,7 @@ def _patch_search_blob(
     source = (parsed.source or "").strip() or SITE_SOURCE[lang]
     hay = " ".join(
         p
-        for p in [parsed.title, category or "", *parsed.body, parsed.moral, source]
+        for p in [parsed.title, category or "", *parsed.body, strip_moral_label(parsed.moral), source]
         if p
     ).lower()
     for entry in entries:
@@ -330,7 +336,13 @@ def main() -> None:
     args = ap.parse_args()
     lang = args.lang
 
+    from unpublished_stories import UNPUBLISHED_STEMS
+
     sources = index_docx(lang)
+    held = sorted(set(sources) & UNPUBLISHED_STEMS)
+    sources = {stem: path for stem, path in sources.items() if stem not in UNPUBLISHED_STEMS}
+    if held:
+        print("unpublished, kept out of rebuild:", ", ".join(held))
     from stories_catalog import load_stories_catalog
 
     catalog = load_stories_catalog(lang)

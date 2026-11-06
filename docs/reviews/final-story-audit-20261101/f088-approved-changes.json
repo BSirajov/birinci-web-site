@@ -1,0 +1,37 @@
+[
+  {
+    "language": "az",
+    "source": "az/wisdom-stories/qualities-of-water.docx",
+    "old": "Odla qarşılaşsa, onu söndürər.",
+    "new": "Yanan odunu söndürə bilər.",
+    "other_paragraphs_unchanged": true
+  },
+  {
+    "language": "en",
+    "source": "en/wisdom-stories/qualities-of-water.docx",
+    "old": "When it meets fire, it puts it out.",
+    "new": "It can put out burning wood.",
+    "other_paragraphs_unchanged": true
+  },
+  {
+    "language": "de",
+    "source": "de/wisdom-stories/qualities-of-water.docx",
+    "old": "Trifft es auf Feuer, löscht es die Flammen.",
+    "new": "Es kann brennendes Holz löschen.",
+    "other_paragraphs_unchanged": true
+  },
+  {
+    "language": "ru",
+    "source": "ru/wisdom-stories/qualities-of-water.docx",
+    "old": "Встречаясь с огнём, гасит его.",
+    "new": "Может погасить горящую древесину.",
+    "other_paragraphs_unchanged": true
+  },
+  {
+    "language": "ky",
+    "source": "ky/wisdom-stories/qualities-of-water.docx",
+    "old": "Отко туш келсе, аны өчүрөт.",
+    "new": "Күйүп жаткан жыгачты өчүрө алат.",
+    "other_paragraphs_unchanged": true
+  }
+]

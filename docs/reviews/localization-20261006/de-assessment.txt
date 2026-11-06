@@ -1,0 +1,1673 @@
+German localization assessment — COMPLETE
+English integration summary
+Coverage: 261/261 complete pairs fully read; 261 DE DOCX, 256 DE publications, 5 intentionally unpublished poems. Unique stems: 261. Unread: 0.
+German is comprehensible and generally idiomatic, with narrative, dialogue, moral, emotional trajectory and cultural setting substantially preserved. No confirmed P1 semantic error or context-changing missing word was identified. Four P2 name-identification issues merit policy-aware correction; ten stories have optional P3 nuances.
+Status counts: {"no_material_issue": 242, "optional": 10, "essential": 4, "unpublished": 5}
+Finding counts: {"P1": 0, "P2": 4, "P3": 11}; total 15
+No native validation claimed. High confidence records observed evidence, not native certification.
+No substantive DE DOCX/publication narrative, dialogue or moral differences found; 250 exact matches and six byline-only differences.
+261 translated DE DOCX; 256 published texts. Five intentionally excluded poems are unpublished coverage gaps, not missing translations.
+Approved external-name policy unknown; record consistency question separately from translation errors. DOCX: Baxtiyar Siracov; publication: Bakhtiyar Sirajov.
+239 AZ DOCX singular open-Internet credit lines become a plural publication credit mentioning AI illustrations. One further AZ publication (sacrificial-meat) adds a generic credit where DOCX has none. DE credits are unchanged between DOCX and publication, vary in public/free Internet wording, and generally omit the AZ publication AI-illustration clause. This is separate boilerplate/policy scope, not narrative omission.
+Prior requested ə→a is authoritative. ciyar in liver needs an explicit linguistic-term orthography decision, not automatic reversal.
+
+Strategy:
+- Address the four P2 referent/name issues first, after confirming external-name policy: Çakmaca/Çəkməcə locality, Deni Didro/Denis Diderot, Uilyam Holman Hant/William Holman Hunt, Qreys Hopper/Grace Hopper.
+- Keep all P3 proposals optional; native review should resolve lexical, relationship and emotional readings before any edit.
+- Resolve source ambiguities with the AZ owner rather than silently repairing the German: especially quduz/tollwütig and inherited narrative/moral tensions.
+- Decide attribution transliteration, quoted linguistic-term orthography and boilerplate/AI-credit policy separately from narrative localization.
+- Retain the intentional five-poem publication exclusion unless policy changes; report it as reader coverage.
+- No originals, DOCX, site or assets were rewritten. Findings are an assessment of aligned supplied text, not historical/medical/etymological authentication or native validation.
+
+Complete per-story ledger:
+
+1. advice-for-those-who-marry — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/advice-for-those-who-marry.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+2. aging — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/aging.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+3. albrecht-durer — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/albrecht-durer.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+4. ant-that-carries-water — optional
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: medium.
+File: de/wisdom-stories/ant-that-carries-water.docx
+[P3] lexical_nuance; confidence medium
+AZ: haqqın yanında ol
+DE: Steh auf der Seite des Rechts
+The moral concerns siding with what is just or right. German 'des Rechts' can suggest law rather than moral justice; 'für das Rechte/die Gerechtigkeit' could make the ethical sense clearer. The narrative still makes the intended stance understandable.
+Source ambiguity: AZ haqq spans right, justice and truth; no single compulsory rendering.
+Native-review need: Bilingual native review of the cited literary/emotional nuance before revision; these are optional candidates.
+
+5. architect-sinan-dies-in-a-house-without-water — essential
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/architect-sinan-dies-in-a-house-without-water.docx
+[P2] cultural_name; confidence high
+AZ: Çəkməcədən Beşiktaşa qədər
+DE: von Çakmaca bis Beşiktaş
+The destination Beşiktaş is retained, but Çəkməcə becomes Çakmaca, an unsupported change of the place-name vowels. Verify the intended historical/local name and use its established spelling so readers can identify the route.
+Source ambiguity: AZ does not specify which Çəkməcə locality; establish the intended place before choosing a modern Turkish spelling.
+Native-review need: Confirm external-name policy and intended referent; bilingual/source-owner review especially needed for Çəkməcə locality.
+
+6. attitude-toward-a-problem — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/attitude-toward-a-problem.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+7. avoid-these-questions — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/avoid-these-questions.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+8. baklava — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/baklava.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Source/interpretation note: The school visit occurs on a bayram/Feiertag; any holiday/school chronology concern is inherited from AZ.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+9. be-sure-of-your-purpose — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/be-sure-of-your-purpose.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+10. bedouin-whose-camel-was-stolen — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/bedouin-whose-camel-was-stolen.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+11. being-human — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/being-human.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+12. bell-to-hang-on-the-cats-neck — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/bell-to-hang-on-the-cats-neck.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+13. beloved-is-one-who-gives-love-to-people — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/beloved-is-one-who-gives-love-to-people.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+14. beware-of-those-you-love — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/beware-of-those-you-love.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+15. blessings-god-has-given — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/blessings-god-has-given.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+16. blind-well — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/blind-well.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+17. blind-who-have-eyes — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/blind-who-have-eyes.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+18. bookstore — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/bookstore.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+19. builder-of-the-nest — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/builder-of-the-nest.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+20. calamity-and-blessing — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/calamity-and-blessing.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+21. can-a-broken-heart-love-again — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/can-a-broken-heart-love-again.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+22. candles-conversation — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/candles-conversation.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+23. chief-accountant-and-the-ceo — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/chief-accountant-and-the-ceo.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+24. church-bell — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/church-bell.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+25. communication — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/communication.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+26. compassion — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/compassion.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+27. compliment — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/compliment.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+28. credit-ledger — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/credit-ledger.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+29. dead-remain-in-life — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/dead-remain-in-life.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+30. dervishs-clothes — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/dervishs-clothes.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+31. dervishs-robe — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/dervishs-robe.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+32. dervishs-spoons — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/dervishs-spoons.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+33. diderot-effect — essential
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/diderot-effect.docx
+[P2] cultural_name; confidence high
+AZ: maarifçi Deni Didro
+DE: Aufklärer Deni Didro
+The title uses Diderot, but the German body retains the Azerbaijani phonetic name Deni Didro (and Deni alone) rather than Denis Diderot. This obscures recognition and creates a title/body identity inconsistency; normalize the body to the recognizable name.
+Source ambiguity: False
+Native-review need: Confirm external-name policy and intended referent; bilingual/source-owner review especially needed for Çəkməcə locality.
+
+34. different-path — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/different-path.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+35. do-not-complain-about-any-day-you-have-lived — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/do-not-complain-about-any-day-you-have-lived.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+36. do-not-do-these-things — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/do-not-do-these-things.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+37. do-not-let-your-hearts-part — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/do-not-let-your-hearts-part.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+38. do-you-have-spending-money — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/do-you-have-spending-money.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+39. doctors-appointment — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/doctors-appointment.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+40. donkeys-law — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/donkeys-law.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+41. dont-be-words-for-mouths-dust-for-feet — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/dont-be-words-for-mouths-dust-for-feet.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+42. dont-open-your-mouth — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/dont-open-your-mouth.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+43. dont-say-i-couldnt-deliver-or-i-couldnt-manage — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/dont-say-i-couldnt-deliver-or-i-couldnt-manage.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+44. drinking-the-sherbet-of-martyrdom — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/drinking-the-sherbet-of-martyrdom.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+45. early-marriage — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/early-marriage.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+46. eat-less-and-stay-on-the-right-path — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/eat-less-and-stay-on-the-right-path.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+47. education-or-character — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/education-or-character.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+48. elephant-and-the-rope — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/elephant-and-the-rope.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Source/interpretation note: The moral shifts from learned helplessness to fear of what people say; that shift is present in AZ and preserved, not introduced by DE.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+49. everyone-is-the-same-here — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/everyone-is-the-same-here.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+50. everything-is-in-our-own-hands — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/everything-is-in-our-own-hands.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+51. explaining-ones-sorrow — optional
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: medium.
+File: de/wisdom-stories/explaining-ones-sorrow.docx
+[P3] lexical_nuance; confidence medium
+AZ: halı ilə bildirən aşiq
+DE: wer es durch sein Wesen zeigt, ein Liebender
+Here halı points to the person's state or outward demeanor. 'Durch sein Wesen' can suggest essential character rather than visible emotional condition. A German literary reviewer could consider 'durch sein Verhalten/seinen Zustand' without changing the aphorism's classification.
+Source ambiguity: AZ hal can denote condition, demeanor or spiritual state; arif also carries a wisdom/mystic nuance, for which Weiser is defensible.
+Native-review need: Bilingual native review of the cited literary/emotional nuance before revision; these are optional candidates.
+
+52. expressions-you-should-stay-away-from — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/expressions-you-should-stay-away-from.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+53. faith-is-half-of-success — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/faith-is-half-of-success.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+54. fallen-teeth — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/fallen-teeth.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+55. father-and-son — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/father-and-son.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+56. fathers-footprints — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/fathers-footprints.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+57. festive-gift — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/festive-gift.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+58. fish-shop — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/fish-shop.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+59. flower-of-honesty — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/flower-of-honesty.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+60. fly-in-the-china-shop — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/fly-in-the-china-shop.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+61. for-those-who-have-reached-sixty — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/for-those-who-have-reached-sixty.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+62. forbidden-money — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/forbidden-money.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+63. former-minister-at-the-seminar — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/former-minister-at-the-seminar.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+64. fortieth-day-rite — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/fortieth-day-rite.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+65. friend-of-god — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/friend-of-god.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+66. friendship-and-love — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/friendship-and-love.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+67. friendship-of-horses — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/friendship-of-horses.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+68. from-a-wise-fathers-advice-to-his-son — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/from-a-wise-fathers-advice-to-his-son.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+69. from-the-memoirs-of-a-lady-from-istanbul — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/from-the-memoirs-of-a-lady-from-istanbul.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+70. garden-and-the-gardener — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/garden-and-the-gardener.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Source/interpretation note: DE adds allein to clarify the gardener-versus-natural-growth contrast; this is supported by the AZ moral, not a material distortion.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+71. generous-man — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/generous-man.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+72. glass-of-milk — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/glass-of-milk.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+73. go-but-come-again — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/go-but-come-again.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+74. gods-pleasure — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/gods-pleasure.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+75. goose-to-be-plucked — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/goose-to-be-plucked.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+76. gossip — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/gossip.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+77. grandfather-and-grandson-at-the-market — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/grandfather-and-grandson-at-the-market.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+78. grocery-shop-and-the-supermarket — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/grocery-shop-and-the-supermarket.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+79. hajj-pilgrimage — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/hajj-pilgrimage.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+80. handful-of-roasted-chickpeas — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/handful-of-roasted-chickpeas.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+81. hayats-life-story — optional
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: medium.
+File: de/wisdom-stories/hayats-life-story.docx
+[P3] emotional_fidelity; confidence medium
+AZ: Həsən əmi də yaxşı idi.
+DE: Auch Onkel Hasan war gut zu mir.
+Optional native-review nuance, not a confirmed semantic error. AZ describes Hasan as good; DE adds 'to me', explicitly characterizing his treatment of the narrator after the account of forced child marriage and hitting her. Context may support this interpretation. A bilingual native reviewer should decide whether the added relational wording narrows the narrator's conflicted judgment before any revision.
+Source ambiguity: AZ yaxşı idi is a broad evaluative statement; context may imply treatment, but does not explicitly say mənə qarşı (toward me).
+[P3] cultural_wordplay; confidence high
+AZ: adı Nağıl olan bir qız
+DE: ein sechsjähriges Mädchen namens Nağıl
+The name Nağıl means tale/fairy tale and echoes the repeated nağıl motif and granddaughter's naming. DE retains the name but does not explain its meaning. A brief first-use gloss could recover that literary layer; the plot is comprehensible without it.
+Source ambiguity: False
+Native-review need: Bilingual native review of the cited literary/emotional nuance before revision; these are optional candidates.
+
+82. he-would-not-have-given-so-little — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/he-would-not-have-given-so-little.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Source/interpretation note: The moral stresses upbringing although the narrative centers on the child's wit/generosity request; inherited from AZ.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+83. help-yourself-o-exalted-god — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/help-yourself-o-exalted-god.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+84. henry-fords-choice — optional
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/henry-fords-choice.docx
+[P3] cultural_name; confidence high
+AZ: Henri Fordun seçimi
+DE: Henri Fords Entscheidung
+Optional spelling normalization; the referent remains recognizable. German title and body retain AZ Henri rather than the usual Henry Ford. Standardizing this form would aid consistency, but no essential comprehension defect is established. The anecdote is faithfully transferred; historical authenticity is outside this assessment.
+Source ambiguity: False
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+85. his-hand-is-at-work — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/his-hand-is-at-work.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+86. hold-my-hand — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/hold-my-hand.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+87. homeland-and-land — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/homeland-and-land.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+88. honey-or-dry-bread — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/honey-or-dry-bread.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+89. hot-bread — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/hot-bread.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+90. how-can-i-escape-my-thoughts — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/how-can-i-escape-my-thoughts.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+91. how-to-ward-off-insults — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/how-to-ward-off-insults.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+92. how-we-treat-people — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/how-we-treat-people.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+93. human-emerged — optional
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: medium.
+File: de/wisdom-stories/human-emerged.docx
+[P3] figurative_pattern; confidence medium
+AZ: Çörəyi vicdanla böldüm
+DE: Ich teilte das Brot nach meinem Gewissen
+The German conveys conscientious sharing, but switches the repeated arithmetic pattern (multiply/add/divide/add) to 'according to my conscience' in the division line. A literary reviewer could restore a matching mathematical metaphor if it remains natural in German.
+Source ambiguity: AZ instrumental vicdanla accommodates both with conscience and by conscience; the arithmetic resonance is contextual.
+Native-review need: Bilingual native review of the cited literary/emotional nuance before revision; these are optional candidates.
+
+94. humanity — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/humanity.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+95. hunters-description — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/hunters-description.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+96. i-am-aware-now — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/i-am-aware-now.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+97. i-am-tired-mother — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/i-am-tired-mother.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+98. i-am-waiting-for-the-teeth — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/i-am-waiting-for-the-teeth.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+99. i-got-busy-with-cleaning — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/i-got-busy-with-cleaning.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Source/interpretation note: The clause about expelling fears without regretting having harbored them is unusual in AZ too; German follows it. Confirm source intention if editing.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+100. i-kiss-your-eyes — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/i-kiss-your-eyes.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+101. i-love-you — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/i-love-you.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+102. i-want-a-friend — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/i-want-a-friend.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+103. i-would-not-trade-it-for-anything — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/i-would-not-trade-it-for-anything.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+104. idle-devil — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/idle-devil.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+105. if-i-dont-do-it-these-days-the-world-wont-collapse — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/if-i-dont-do-it-these-days-the-world-wont-collapse.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+106. if-the-door-before-you-wont-open-it-is-not-your-door — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/if-the-door-before-you-wont-open-it-is-not-your-door.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+107. if-the-road-does-not-tire-you-it-is-because-of-your-companion — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/if-the-road-does-not-tire-you-it-is-because-of-your-companion.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+108. it-is-in-vain — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/it-is-in-vain.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+109. it-wont-go-to-waste — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/it-wont-go-to-waste.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+110. just-verdict-of-the-frankfurt-judge — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/just-verdict-of-the-frankfurt-judge.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+111. know-your-friend — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/know-your-friend.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+112. lawful-morsel — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/lawful-morsel.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+113. lecturer-and-the-groom — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/lecturer-and-the-groom.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+114. let-prayer-come-and-find-you — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/let-prayer-come-and-find-you.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+115. life-is-short — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/life-is-short.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+116. life-lesson — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/life-lesson.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+117. light-of-the-universe — essential
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/light-of-the-universe.docx
+[P2] cultural_name; confidence high
+AZ: Uilyam Holman Hantın
+DE: Uilyam Holman Hant
+The German body carries over the AZ phonetic rendering of the painter's name instead of William Holman Hunt. German readers looking up the artist or painting receive a misleading spelling; normalize the name in the opening and subsequent mentions. The heart-door metaphor and moral remain intact.
+Source ambiguity: False
+Native-review need: Confirm external-name policy and intended referent; bilingual/source-owner review especially needed for Çəkməcə locality.
+
+118. lions-footprint — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/lions-footprint.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+119. liver — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/liver.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Quoted AZ linguistic term ciyar must follow the previously requested ə→a policy or an explicit exception decision; do not automatically revert it.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+120. living-in-the-past — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/living-in-the-past.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+121. loving-from-afar — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/loving-from-afar.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+122. magnificent-lesson — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/magnificent-lesson.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+123. mature-person — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/mature-person.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+124. may-your-face-always-smile — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/may-your-face-always-smile.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+125. meaningless-question — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/meaningless-question.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+126. meddling-in-others-lives — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/meddling-in-others-lives.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+127. mercedes — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/mercedes.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+128. mihrimah-sultan-and-architect-sinan — optional
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: medium.
+File: de/wisdom-stories/mihrimah-sultan-and-architect-sinan.docx
+[P3] relationship_fidelity; confidence medium
+AZ: Sevdiyinə qovuşa bilməyən Sinan
+DE: Sinan konnte mit seiner Geliebten nicht zusammenkommen
+Optional native-review nuance, not a confirmed semantic error. German 'seine Geliebte' can suggest an established lover or mistress, but also has the literary meaning beloved woman. AZ refers to the person Sinan loved, with his marriage wish unfulfilled. A native reviewer could consider an unambiguously one-sided description if the lover reading dominates in this passage.
+Source ambiguity: Geliebte can also mean beloved woman in literary usage; a native German reviewer should confirm the unintended lover reading in this context.
+Native-review need: Bilingual native review of the cited literary/emotional nuance before revision; these are optional candidates.
+
+129. mockery-is-unacceptable — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/mockery-is-unacceptable.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+130. more-effective-way — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/more-effective-way.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+131. most-beautiful-gift — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/most-beautiful-gift.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+132. most-beautiful-places-in-the-world — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/most-beautiful-places-in-the-world.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+133. most-beautiful-portion — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/most-beautiful-portion.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+134. mother-and-son — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/mother-and-son.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+135. mother-of-pearl-flower — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/mother-of-pearl-flower.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Source/interpretation note: The plant identity and leaf-propagation/overnight watering account are not established by the source's common name; do not assert a botanical mistranslation without source-owner/native clarification.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+136. mothers-advice-fakir-baykurt-never-forgot — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/mothers-advice-fakir-baykurt-never-forgot.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+137. mothers-love — optional
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/mothers-love.docx
+[P3] attribution_name; confidence high
+AZ: Erix Fromm
+DE: Erix Fromm
+Optional spelling normalization; the referent remains recognizable. The attribution retains the Azerbaijani phonetic Erix in German instead of Erich Fromm. Normalize the name so German readers can identify the credited writer. This spelling assessment does not authenticate the anecdote or quotation attribution.
+Source ambiguity: The source supplies an attribution without a bibliographic citation; authorship is unverified.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+138. mullah-and-the-scholar — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/mullah-and-the-scholar.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+139. my-alif-has-been-dotted — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/my-alif-has-been-dotted.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Source/interpretation note: The letter-shape origin explanation is supplied by AZ; German transfers its explanation and characters. Historical etymology not authenticated.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+140. newtons-second-law — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/newtons-second-law.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+141. no-need-to-be-sane-when-everyone-is-mad — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/no-need-to-be-sane-when-everyone-is-mad.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Source/interpretation note: The title/narrative's conformity ending and the moral's instruction to preserve reason are in tension in AZ too.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+142. no-one-listens-to-constant-complainers — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/no-one-listens-to-constant-complainers.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+143. not-every-sorrow-is-told-to-people — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/not-every-sorrow-is-told-to-people.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+144. not-leaving-the-right-path — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/not-leaving-the-right-path.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+145. nothing-is-ever-truly-lost — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/nothing-is-ever-truly-lost.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+146. o-god-give-first-to-the-mountains-and-stones — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/o-god-give-first-to-the-mountains-and-stones.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+147. o-god-heal-our-sorrows — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/o-god-heal-our-sorrows.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+148. one-who-knows-and-the-one-who-does-not — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/one-who-knows-and-the-one-who-does-not.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+149. only-my-mother-would-weep — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/only-my-mother-would-weep.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+150. other-peoples-opinions — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/other-peoples-opinions.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+151. our-qualities-can-become-our-enemies — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/our-qualities-can-become-our-enemies.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+152. pair-of-boots — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/pair-of-boots.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Source/interpretation note: The initial claim everyone wrote their own name is contradicted by the reveal, identically in AZ and DE; this is the source's narrative device.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+153. pawn-and-the-king — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/pawn-and-the-king.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Source/interpretation note: A pawn becoming a king is figurative and does not follow chess promotion rules; this is already explicit in AZ, not a DE error.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+154. pay-rent-for-the-water — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/pay-rent-for-the-water.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+155. people-who-need-something-from-you — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/people-who-need-something-from-you.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+156. permission-or-apology — essential
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/permission-or-apology.docx
+[P2] attribution_name; confidence high
+AZ: Qreys Hopperə
+DE: Konteradmiralin Qreys Hopper
+The German attribution retains AZ Qreys instead of the recognizable Grace Hopper. This is a reader-identification concern under the external-name policy; confirm that policy and use the established name if the aim is standard German localization. The safety qualifications and initiative example are preserved.
+Source ambiguity: False
+Native-review need: Confirm external-name policy and intended referent; bilingual/source-owner review especially needed for Çəkməcə locality.
+
+157. power-of-truth — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/power-of-truth.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+158. pray-while-washing-your-dishes — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/pray-while-washing-your-dishes.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+159. price-of-a-miracle — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/price-of-a-miracle.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+160. properties-of-water — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/properties-of-water.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+161. puppies-for-sale — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/puppies-for-sale.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+162. purple-jacket — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/purple-jacket.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+163. raising-children — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/raising-children.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+164. ramadan-prayer — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/ramadan-prayer.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+165. red-dress — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/red-dress.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+166. road-to-the-cotton-field — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/road-to-the-cotton-field.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+167. rose — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/rose.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+168. rotten-seed — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/rotten-seed.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+169. sacrificial-meat — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/sacrificial-meat.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Source/interpretation note: The jump from the Ramadan festival to the following sacrifice festival and arm/leg bandage number change are inherited from AZ. DOCX has no generic credit; publication adds it only.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+170. say-what-you-know — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/say-what-you-know.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+171. saying-the-word-in-its-place — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/saying-the-word-in-its-place.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+172. scarf-seller — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/scarf-seller.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+173. searching — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/searching.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+174. secret-of-living-well-and-longevity — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/secret-of-living-well-and-longevity.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+175. sharing-justice — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/sharing-justice.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+176. shepherd-must-be-called — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: medium.
+File: de/wisdom-stories/shepherd-must-be-called.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Source/interpretation note: Quduz can mean rabid or ferocious; the obedience-to-shepherd ending makes the medical/rabid reading questionable. German tollwütig follows a literal AZ reading; source-owner bilingual review needed before changing.
+Native-review need: Source-owner/bilingual review of quduz: rabid versus ferocious; do not automatically change literal German tollwütig.
+
+177. shepherds-word — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/shepherds-word.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+178. silence — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/silence.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+179. skins-of-the-lambs — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/skins-of-the-lambs.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Source/interpretation note: The moral frames proceeds as recovery of unlawful gains, though the narrative uses threats/secret payments; the ethical tension is inherited from AZ.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+180. sound-of-the-doorbell — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/sound-of-the-doorbell.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+181. sowing-millet-at-the-bottom — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/sowing-millet-at-the-bottom.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+182. spare-time — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/spare-time.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+183. spend-your-time-with-people — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/spend-your-time-with-people.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Source/interpretation note: The father's loneliness and references to the mother are not explained by AZ; German does not invent a widowhood or remove the mother.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+184. spinach — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/spinach.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+185. stoning-the-devil — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/stoning-the-devil.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+186. strength-and-sorrow — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/strength-and-sorrow.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+187. strongest-shield — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/strongest-shield.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+188. teacher-hello-do-you-remember-me — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/teacher-hello-do-you-remember-me.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+189. telling-lies — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/telling-lies.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+190. that-was-not-your-right — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/that-was-not-your-right.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+191. think-speak-and-act-positively — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/think-speak-and-act-positively.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+192. this-boat-is-empty-too — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/this-boat-is-empty-too.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+193. those-you-should-not-befriend — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/those-you-should-not-befriend.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+194. three-best-things — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/three-best-things.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Source/interpretation note: The father's advice makes your heart a home for others, while the moral locates home in others' hearts. This directional shift is in AZ and faithfully preserved in DE.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+195. three-essential-things-for-a-city — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/three-essential-things-for-a-city.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+196. three-landscapes — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/three-landscapes.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+197. three-questions — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/three-questions.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+198. three-statues — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/three-statues.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+199. to-be-alone — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/to-be-alone.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+200. to-be-cool-headed — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/to-be-cool-headed.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+201. to-be-fasting — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/to-be-fasting.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+202. to-be-full-or-to-be-gone — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/to-be-full-or-to-be-gone.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+203. to-be-self-confident — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/to-be-self-confident.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+204. to-dream — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/to-dream.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+205. to-forgive — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/to-forgive.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+206. to-give-up — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/to-give-up.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+207. to-meet-and-to-know — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/to-meet-and-to-know.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+208. tongue — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/tongue.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+209. true-love — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/true-love.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+210. try-to-think-this-way — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/try-to-think-this-way.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+211. turning-hardship-into-opportunity — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/turning-hardship-into-opportunity.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+212. turtles-wrong-calculation — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/turtles-wrong-calculation.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+213. two-bowls-of-water — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/two-bowls-of-water.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+214. two-donkeys — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/two-donkeys.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+215. value-of-your-family — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/value-of-your-family.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+216. we-are-rich — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/we-are-rich.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+217. weight-of-the-oil — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/weight-of-the-oil.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+218. welcome-my-bey — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/welcome-my-bey.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+219. what-breaks-a-marriage — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/what-breaks-a-marriage.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+220. what-changed-after-sixty — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/what-changed-after-sixty.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+221. what-do-i-need-it-for — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/what-do-i-need-it-for.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+222. what-is-a-word — optional
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/what-is-a-word.docx
+[P3] wordplay; confidence high
+AZ: Söz var, incidir;
+söz var, inci-dir.
+DE: Ein Wort kann verletzen;
+ein Wort kann eine Perle sein.
+The German accurately transfers both meanings but loses the near-identical sound/spelling of incidir (hurts) and inci-dir (is a pearl), which is the aphorism's central verbal effect. Optional literary review could add a restrained explanation or seek a German wordplay; no essential semantic correction is needed.
+Source ambiguity: False
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+223. what-is-loyalty — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/what-is-loyalty.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+224. what-it-means-to-be-late — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/what-it-means-to-be-late.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+225. what-matters-in-life — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/what-matters-in-life.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+226. what-we-learn-in-life — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/what-we-learn-in-life.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+227. what-women-have-endured-in-this-world — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/what-women-have-endured-in-this-world.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+228. where-does-calamity-come-from — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/where-does-calamity-come-from.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+229. where-does-this-road-go — optional
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/where-does-this-road-go.docx
+[P3] wordplay; confidence high
+AZ: Dayı, bu yol haraya gedir?
+DE: Onkel, wohin führt dieser Weg?
+AZ gedir allows both the ordinary destination question and the joke that the road itself does not go anywhere. German führt states leading rather than moving, so the old man's literal reply is less tightly tied to the question's verb. Optional German native review could consider geht to retain the double reading; the reply and moral remain understandable.
+Source ambiguity: False
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+230. who-handles-honey-licks-his-finger — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/who-handles-honey-licks-his-finger.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+231. why-am-i-poor — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/why-am-i-poor.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+232. why-are-you-waiting-for-the-last-day-of-the-world — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/why-are-you-waiting-for-the-last-day-of-the-world.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+233. why-injustice-when-there-is-justice — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/why-injustice-when-there-is-justice.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+234. why-people-shout-when-they-argue — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/why-people-shout-when-they-argue.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+235. windmill-turning-in-still-air — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/windmill-turning-in-still-air.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+236. with-this-nation-the-world-can-be-conquered — optional
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/with-this-nation-the-world-can-be-conquered.docx
+[P3] cultural_measure; confidence high
+AZ: yarım batman yağ
+DE: ein halbes Batman Butter
+Batman is retained as a historical measure without a gloss. The repeated purchases and solidarity moral remain clear, but German readers may not know the unit. Optional first-use 'historische Gewichtseinheit' gloss would make the setting easier to read; do not invent a fixed kilogram conversion.
+Source ambiguity: The source supplies neither region-specific value nor a conversion for batman.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+237. woman-and-the-mirror — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/woman-and-the-mirror.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+238. woman-whose-house-was-robbed — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/woman-whose-house-was-robbed.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+239. word-and-silence — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/word-and-silence.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+240. yellow-and-red-flowers — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/yellow-and-red-flowers.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+241. you-cannot-descend-a-well-on-his-rope — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/you-cannot-descend-a-well-on-his-rope.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+242. your-friends — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/your-friends.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+243. your-hand-at-work-your-hope-in-god — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/your-hand-at-work-your-hope-in-god.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+244. discussion-and-conflict — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/Bakhtiyar Sirajov/bs_discussion-and-conflict.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+DOCX Baxtiyar Siracov; published Bakhtiyar Sirajov. Policy/consistency decision, not an automatic error.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+245. everyone-has-work-to-do — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/Bakhtiyar Sirajov/bs_everyone-has-work-to-do.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+DOCX Baxtiyar Siracov; published Bakhtiyar Sirajov. Policy/consistency decision, not an automatic error.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+246. if-fate-allows-we-will-meet — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/Bakhtiyar Sirajov/bs_if-fate-allows-we-will-meet.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+DOCX Baxtiyar Siracov; published Bakhtiyar Sirajov. Policy/consistency decision, not an automatic error.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+247. organization-without-an-action-plan — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/Bakhtiyar Sirajov/bs_organization-without-an-action-plan.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+DOCX Baxtiyar Siracov; published Bakhtiyar Sirajov. Policy/consistency decision, not an automatic error.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+248. silent-corridor — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/Bakhtiyar Sirajov/bs_silent-corridor.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+DOCX Baxtiyar Siracov; published Bakhtiyar Sirajov. Policy/consistency decision, not an automatic error.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+249. weeds-must-be-pulled-from-the-root — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/Bakhtiyar Sirajov/bs_weeds-must-be-pulled-from-the-root.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+DOCX Baxtiyar Siracov; published Bakhtiyar Sirajov. Policy/consistency decision, not an automatic error.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+250. caring-call-brightens-the-day — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/Etibar Siracsoy/es_caring-call-brightens-the-day.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+251. changing-times-enduring-friendship — unpublished
+DOCX fully reviewed: yes; publication reviewed: absent by intentional policy. Confidence: high.
+File: de/wisdom-stories/Etibar Siracsoy/es_changing-times-enduring-friendship.docx
+Intentional publication exclusion; translated poem fully reviewed with no material issue identified. Published coverage gap, not missing translation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+252. cherish-today-with-loved-ones — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/Etibar Siracsoy/es_cherish-today-with-loved-ones.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+253. cherishing-flowers-in-spring — unpublished
+DOCX fully reviewed: yes; publication reviewed: absent by intentional policy. Confidence: high.
+File: de/wisdom-stories/Etibar Siracsoy/es_cherishing-flowers-in-spring.docx
+Intentional publication exclusion; translated poem fully reviewed with no material issue identified. Published coverage gap, not missing translation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+254. day-gratefully-lived — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/Etibar Siracsoy/es_day-gratefully-lived.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+255. from-reflection-to-hope — unpublished
+DOCX fully reviewed: yes; publication reviewed: absent by intentional policy. Confidence: high.
+File: de/wisdom-stories/Etibar Siracsoy/es_from-reflection-to-hope.docx
+Intentional publication exclusion; translated poem fully reviewed with no material issue identified. Published coverage gap, not missing translation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+256. hopeful-journey-through-life — unpublished
+DOCX fully reviewed: yes; publication reviewed: absent by intentional policy. Confidence: high.
+File: de/wisdom-stories/Etibar Siracsoy/es_hopeful-journey-through-life.docx
+Intentional publication exclusion; translated poem fully reviewed with no material issue identified. Published coverage gap, not missing translation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+257. humanity-rebuilds-in-peace — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/Etibar Siracsoy/es_humanity-rebuilds-in-peace.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+258. kindness-builds-stronger-bonds — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/Etibar Siracsoy/es_kindness-builds-stronger-bonds.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+259. nails-lasting-lesson — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/Etibar Siracsoy/es_nail’s-lasting-lesson.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+260. quarantine-days-hopeful-hearts — unpublished
+DOCX fully reviewed: yes; publication reviewed: absent by intentional policy. Confidence: high.
+File: de/wisdom-stories/Etibar Siracsoy/es_quarantine-days-hopeful-hearts.docx
+Intentional publication exclusion; translated poem fully reviewed with no material issue identified. Published coverage gap, not missing translation.
+Native-review need: No specific native-review need identified; no native validation claimed.
+
+261. small-changes-big-meaning — no_material_issue
+DOCX fully reviewed: yes; publication reviewed: yes. Confidence: high.
+File: de/wisdom-stories/Etibar Siracsoy/es_small-changes-big-meaning.docx
+No material comprehension, idiomatic-fluency or semantic-fidelity defect identified in the complete pair. Literary wording may admit alternatives; this is not a claim of native validation.
+Native-review need: No specific native-review need identified; no native validation claimed.

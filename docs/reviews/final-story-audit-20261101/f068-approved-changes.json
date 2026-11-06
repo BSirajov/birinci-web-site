@@ -1,0 +1,37 @@
+[
+  {
+    "language": "az",
+    "source": "az/wisdom-stories/knowing-what-you-know.docx",
+    "old": "(Çin məsəli)",
+    "new": "Sərbəst işlənmiş hikmətli söz. Əl-Qəzalinin “Elm kitabı”nın VI bölməsində oxşar dörd hissəli fikir yer alır və orada Xəlil ibn Əhmədə aid edilir.",
+    "other_paragraphs_unchanged": true
+  },
+  {
+    "language": "en",
+    "source": "en/wisdom-stories/knowing-what-you-know.docx",
+    "old": "(A Chinese proverb)",
+    "new": "Adapted saying. A similar four-part formulation appears in al-Ghazali’s Book of Knowledge, section VI, attributed there to al-Khalil ibn Ahmad.",
+    "other_paragraphs_unchanged": true
+  },
+  {
+    "language": "de",
+    "source": "de/wisdom-stories/knowing-what-you-know.docx",
+    "old": "(Ein chinesisches Sprichwort)",
+    "new": "Frei bearbeiteter Sinnspruch. Eine ähnliche vierteilige Formulierung findet sich in al-Ghazalis Buch des Wissens, Abschnitt VI; dort wird sie al-Khalil ibn Ahmad zugeschrieben.",
+    "other_paragraphs_unchanged": true
+  },
+  {
+    "language": "ru",
+    "source": "ru/wisdom-stories/knowing-what-you-know.docx",
+    "old": "(Китайская пословица)",
+    "new": "Адаптированное изречение. Сходное высказывание из четырёх частей приводится в разделе VI «Книги знания» аль-Газали, где оно приписывается аль-Халилю ибн Ахмаду.",
+    "other_paragraphs_unchanged": true
+  },
+  {
+    "language": "ky",
+    "source": "ky/wisdom-stories/knowing-what-you-know.docx",
+    "old": "(Кытай накылы)",
+    "new": "Эркин иштелген накыл сөз. Аль-Газалинин «Илим китебинин» VI бөлүмүндө төрт бөлүктөн турган ушуга окшош ой келтирилип, ал аль-Халил ибн Ахмадга таандык деп көрсөтүлгөн.",
+    "other_paragraphs_unchanged": true
+  }
+]

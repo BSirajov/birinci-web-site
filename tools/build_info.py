@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 from datetime import datetime
 from pathlib import Path
 
@@ -43,11 +44,13 @@ def write_build_info(
     dest = (dest_dir or (ROOT / "assets")) / BUILD_INFO_NAME
     dest.parent.mkdir(parents=True, exist_ok=True)
     payload = make_build_info(now)
-    dest.write_text(
+    temporary = dest.with_suffix(dest.suffix + ".tmp")
+    temporary.write_text(
         json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
         newline="\n",
     )
+    os.replace(temporary, dest)
     return dest
 
 

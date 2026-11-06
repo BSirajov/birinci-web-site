@@ -1,0 +1,44 @@
+[
+  {
+    "story": "cost-of-indifference",
+    "language": "de",
+    "decision": "No confirmed defect",
+    "reason": "Read all five versions again. In diesen Tagen is a grammatical near-present expression; in den nächsten Tagen would be a stylistic alternative, not an established change in plot. The following paragraph explicitly describes a few days’ delay."
+  },
+  {
+    "story": "red-dress",
+    "language": "de",
+    "decision": "No confirmed defect",
+    "reason": "Sich selbst zuletzt bedenken is literary but intelligible in the distribution-of-attention context; the following sentence explains whose wishes are fulfilled. Do not substitute personal preference for a language error."
+  },
+  {
+    "story": "market-of-good-neighbors",
+    "language": "de",
+    "decision": "Needs further terminology check",
+    "reason": "Historical dictionary search yields masculine Batman but another historical source uses neuter; do not classify ein halbes Batman as a definite gender error without resolving accepted variation. A short unit gloss may improve accessibility."
+  },
+  {
+    "story": "share-what-you-know",
+    "language": "all",
+    "decision": "Authorial judgment, no correction proposed",
+    "reason": "Five versions checked together. The cowardice comparison is an aphoristic moral judgment, not a clinical claim. Replacing it with possible motives would change the author’s intended assertion."
+  },
+  {
+    "story": "well-chosen-words",
+    "language": "all",
+    "decision": "Authorial rhetoric, no correction proposed",
+    "reason": "Five versions checked together. The maxim uses idealized appropriate speech rather than a measurable promise. The moral explains thoughtful delivery; no clear factual or translation defect established."
+  },
+  {
+    "story": "your-friends",
+    "language": "all",
+    "decision": "Candidate resolved without new finding",
+    "reason": "Five versions checked together. The father’s deception is part of the plot, but the current moral does not condemn absent friends or present a single event as a reliable test; it explicitly stresses actions over time."
+  },
+  {
+    "story": "gifts-of-allah;adversity-and-blessing;two-bowls-of-water",
+    "language": "ky",
+    "decision": "No confirmed spelling defect",
+    "reason": "Немат occurs in contemporary Kyrgyz religious usage; competing transliterations alone do not justify forcing an unverified spelling."
+  }
+]

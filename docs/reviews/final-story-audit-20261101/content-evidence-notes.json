@@ -1,0 +1,211 @@
+[
+  {
+    "story": "door-to-the-heart",
+    "assessment": "Museum supports Hunt attribution and handleless-door symbolism. Critic dialogue remains legend.",
+    "url": "https://www.keble.ox.ac.uk/about/chapel/light-of-the-world/"
+  },
+  {
+    "story": "diderot-effect",
+    "assessment": "Primary essay supports scarlet gown, replacement furnishings, master/slave contrast and retained old carpet. No new content discrepancy established.",
+    "url": "https://www.gutenberg.org/cache/epub/13863/pg13863-images.html"
+  },
+  {
+    "story": "permission-or-forgiveness",
+    "assessment": "Official US Navy history supports association of forgiveness/permission saying with Hopper; source wording only credits popularization.",
+    "url": "https://www.history.navy.mil/news-and-events/news/2026/code-commission-character-grace-hopper.html"
+  },
+  {
+    "story": "not-my-concern",
+    "assessment": "Scholarly TDV biography reports foster/milk-brother relationship, citing early biographies. It does not authenticate the exact letter dialogue.",
+    "url": "https://islamansiklopedisi.org.tr/yahya-efendi-besiktasli"
+  },
+  {
+    "story": "albrecht-durer",
+    "assessment": "Holding museum identifies Praying Hands as an apostle study for Heller altarpiece. Current text explicitly labels brother tale legend; an explanatory factual note is optional, not an unqualified false-history finding.",
+    "url": "https://sammlungenonline.albertina.at/de/objects/40233/betende-hande-detail-aus-dem-helleraltar"
+  },
+  {
+    "story": "mercedes",
+    "assessment": "Biographical sources disagree on remarriage date and some vital dates. Current story gives no remarriage date. Do not infer false spouse-death claim solely from divergent Wikipedia language versions. Primary marriage/death record still needed.",
+    "url": "https://www.biografia.at/biografie/jellinek-mercedes/"
+  },
+  {
+    "story": "we-are-rich",
+    "assessment": "Academic primary-text quotation of Kojiki supports three years tax/labor remission and dilapidated palace; source is explicitly legend. Full Nihon Shoki/Empress exchange comparison pending.",
+    "url": "https://escholarship.org/uc/item/6749q8tw"
+  },
+  {
+    "story": "my-alif-has-been-dotted",
+    "assessment": "Turkish school publication supports circulation of dot/letter poetic explanation; does not establish historical etymology. Source text already qualifies explanation.",
+    "url": "https://caihl.meb.k12.tr/meb_iys_dosyalar/34/38/974776/dosyalar/2019_06/11104843_TERENNUM_DERGY.pdf"
+  },
+  {
+    "story": "compliment",
+    "assessment": "Rejected false positive: the Kyrgyz dictionaries include a general hat sense for калпак, including шляпа. The word in the woman’s hat story is not necessarily a male ceremonial hat.",
+    "url": "https://el-sozduk.kg/kalpak"
+  },
+  {
+    "story": "before-you-marry",
+    "assessment": "Schopenhauer’s 1851 porcupine parable directly supports treating the animal-warming passage as allegory; F-059 records framing and credit recommendation.",
+    "url": "https://de.wikisource.org/wiki/Die_Stachelschweine"
+  },
+  {
+    "story": "prayer-for-relief",
+    "assessment": "The epithets for mercy, forgiveness, accepting repentance, provision and healing have primary textual parallels in Quran 1:3, 20:82, 2:37, 51:58 and Bukhari 5743. Quran 34:26 uses al-Fattah in a judging context; the devotional opening-doors rendering is not being treated as a verbatim Quran translation. No new factual error established.",
+    "urls": [
+      "https://quran.com/1/3",
+      "https://quran.com/20/82",
+      "https://quran.com/2/37",
+      "https://quran.com/51/58",
+      "https://quran.com/34/26",
+      "https://sunnah.com/bukhari:5743"
+    ]
+  },
+  {
+    "story": "pleasure-of-allah",
+    "assessment": "TDV biography and searches identify Ahrar and service-to-others tradition, but do not authenticate the exact two-part saying. Existing qualified attribution should not be changed to an unqualified quotation. Original textual citation remains unresolved.",
+    "url": "https://islamansiklopedisi.org.tr/ubeydullah-ahrar"
+  },
+  {
+    "story": "honestly-earned-morsel",
+    "assessment": "Search located a modern newspaper paraphrase crediting Kimya-i Saadet for child-rearing and lawful nourishment. This does not authenticate the exact yeast analogy; retain qualified attribution pending an edition/page.",
+    "url": "https://www.milligazete.com.tr/gazali-den-cocuk-terbiyesi-uzerine-tavsiyeler"
+  },
+  {
+    "story": "living-with-loss",
+    "assessment": "Compared all five versions again. Death-while-living is an explicit literary grief metaphor, with the moral describing a feeling. Russian makes that figurative qualification more explicit. No clinical or factual error is inferred merely from poetic intensity."
+  },
+  {
+    "story": "humanity-etibar-siracsoy",
+    "assessment": "Compared all five versions again. Kyrgyz placement of күчүн can briefly attach to жок кылуудан, but the complete question supplies табат and the life-preservation contrast; no categorical mistranslation established."
+  },
+  {
+    "story": "mihrimah-and-sinan",
+    "assessment": "Marriage in 1539 and mosque authorship corroborated. The inferred 1522 birth makes age seventeen approximate, but the site already places that detail in the legend. Sun/moon romance is repeatedly distinguished from proven history. No new definite correction established.",
+    "urls": [
+      "https://islamansiklopedisi.org.tr/mihrimah-sultan",
+      "https://www.kulturportali.gov.tr/turkiye/istanbul/gezilecekyer/edirnekapi-mihrimah-sultan-kulliyesi"
+    ]
+  },
+  {
+    "story": "sinans-waterless-house",
+    "assessment": "Sinan’s waterworks under Suleiman corroborated by the culture ministry and a study referring to historical construction records. This does not authenticate the deathbed cutoff anecdote, which remains explicitly framed as legend.",
+    "urls": [
+      "https://www.ktb.gov.tr/EN-113827/the-long-aquaduct.html",
+      "https://acikerisim.fsm.edu.tr/server/api/core/bitstreams/77cca3c7-68bd-4ec4-89bb-c6affd0f7458/content"
+    ]
+  },
+  {
+    "story": "lambs-skins",
+    "assessment": "Asad Pasha’s identity as Ottoman governor of Damascus corroborated; the particular treasury anecdote remains a legend, not authenticated by the biography. The site moral explicitly rejects secret extortion.",
+    "url": "https://islamansiklopedisi.org.tr/esad-pasa-azmzade"
+  },
+  {
+    "story": "mothers-lasting-lesson",
+    "assessment": "Fakir Baykurt’s mother being Elif is corroborated by a scholarly literary biography. The tea/lion anecdote appears in a university cultural periodical, but an original memoir page was not established. Existing qualified anecdote framing is appropriate.",
+    "urls": [
+      "https://teis.yesevi.edu.tr/madde-detay/baykurt-fakir",
+      "https://www.butundunya.com/pdfs/2020/09/2020-09.pdf"
+    ]
+  },
+  {
+    "story": "mercedes",
+    "assessment": "Further search confirms that secondary accounts repeat death a few months after remarriage, while the Austrian biographical dictionary uses a different remarriage year. No independent primary marriage/death record resolved the discrepancy. Manufacturer archival captions support birth 1889/death 1929 and age thirty-nine. Do not call the story’s year or age wrong. Exact remarriage interval remains unresolved.",
+    "urls": [
+      "https://www.biografia.at/biografie/jellinek-mercedes/",
+      "https://media.mercedes-benz.fr/download/0152a1c6-aba6-4a76-a5ab-b4565bdb480a/260126_mercedes-benz_140jahreinnovation_fr.pdf"
+    ]
+  },
+  {
+    "story": "mothers-love",
+    "assessment": "Read the source-book passage on maternal love, printed page 39, in a transcription of The Art of Loving. The site explicitly calls its wording a free paraphrase, and the unconditional/not-demandable characterization matches the passage. No new attribution or meaning error established.",
+    "url": "https://studylib.net/doc/8758706/the-art-of-loving"
+  },
+  {
+    "story": "liver",
+    "assessment": "Historical account of the liver as a seat of soul and emotions is supported by the cited history-of-anatomy paper; museum evidence corroborates Mesopotamian liver divination. Azerbaijani dictionary/teaching resources support the figurative cowardly sense of ağciyər. The site expressly avoids deriving every idiom from one ancient belief. No new definite error established.",
+    "urls": [
+      "https://www.sciencedirect.com/science/article/pii/S1365182X15313897",
+      "https://www.metmuseum.org/art/collection/search/328932",
+      "https://adpuquba.edu.az/wp-content/uploads/2020/12/Az%C9%99rbaycan-dili-8.pdf"
+    ]
+  },
+  {
+    "story": "welcome-home-my-dear",
+    "assessment": "Official historical material corroborates the 18 March 1915 naval attack and repulse. The Cevdet Alkalp/Mustafa Doğru attribution is repeated in a contemporary newspaper, but the original interview remains unidentified. Keep the site’s qualified attribution; do not present the deathbed recollection as independently authenticated.",
+    "urls": [
+      "https://www.ktb.gov.tr/TR-96322/1915.html",
+      "https://mucadelegazete.com/canakkale-zaferi-ve-sehitler-gunu?ajax=1"
+    ]
+  },
+  {
+    "story": "reflections",
+    "assessment": "The quoted Azerbaijani couplet is associated with Nizami in presidential-library and national children’s-library material. The exact translator/edition for this wording remains unidentified; do not infer that the named overall poet authored the embedded quotation or substitute an unverified translator.",
+    "urls": [
+      "https://files.preslib.az/projects/nizami/e1.pdf",
+      "https://www.clb.az/biblioqrafik-xidm%C9%99t/melumat-biblioqrafiya/veblioqrafiya/nizami-g-nc-vi-soz-s-n-ti-mulkunun-sultani"
+    ]
+  },
+  {
+    "story": "fortieth-day-rite",
+    "assessment": "Scholarly study documents the first visit after forty days and symbolic egg, cotton, rice, salt, sugar and money gifts. The site expressly allows regional variation and rejects predictive effects. No correction established.",
+    "url": "https://dergipark.org.tr/tr/download/article-file/821909"
+  },
+  {
+    "story": "yellow-and-red-flowers",
+    "assessment": "Modern educational and cultural publications repeat the flower signal account, but no contemporary historical record was established. Existing hearsay framing is retained; historical authentication remains limited, not a proven factual error.",
+    "url": "https://dergipark.org.tr/tr/download/article-file/3384437"
+  },
+  {
+    "story": "go-but-come-again",
+    "assessment": "TDK-published discussion documents variants of shoe orientation etiquette, including turning shoes at departure. The story is explicitly a legend and should not be generalized to every Ottoman household. No categorical contradiction established.",
+    "url": "https://tdk.gov.tr/wp-content/uploads/2019/05/Nail-Tan-_-SEK%C4%B0Z-DEY%C4%B0M-%C3%9CZER%C4%B0NE-_10.pdf"
+  },
+  {
+    "story": "we-are-rich",
+    "assessment": "The empress exchange and leaking palace, as well as the three-year tax relief and smoke motif, are attested in older printed retellings. This resolves the specific suspicion that the exchange was a modern addition, not the historical truth of the legend. Existing explicit legend framing is appropriate.",
+    "urls": [
+      "https://en.wikisource.org/wiki/The_Land_of_the_Morning/Chapter_13",
+      "https://upload.wikimedia.org/wikipedia/commons/b/b5/Famous_people_of_Japan_%28ancient_and_modern%29_%28IA_famouspeopleofja00steprich%29.pdf"
+    ]
+  },
+  {
+    "story": "remarkable-lesson",
+    "assessment": "Sources document another discipline anecdote involving Molla Gürani and the prince, not the site’s staged slap of Murad by Akşemseddin. This is insufficient to substitute Gürani into the current tale. Exact incident remains unauthenticated; preserve explicit legend framing and avoid asserting a proved conflation.",
+    "url": "https://katalog.marmara.edu.tr/veriler/yordambt/cokluortam/5B/5d3723f467f7e.pdf"
+  },
+  {
+    "story": "lions-untold-story",
+    "assessment": "Achebe’s original Paris Review interview calls the lion/hunter saying a proverb. This supports its circulation as a proverb, not exclusive Achebe authorship or a specific national origin. The site’s qualified African-proverb description is not shown false; no invented country attribution is recommended.",
+    "url": "https://www.theparisreview.org/interviews/1720/the-art-of-fiction-no-139-chinua-achebe"
+  },
+  {
+    "story": "glass-of-milk",
+    "assessment": "Johns Hopkins archives verify Kelly’s identity and career, not the milk episode. A secondary retelling citing Audrey Davis describes a walking trip and a girl, rather than the site’s impoverished door-to-door seller and young woman. The original biography passage was not inspected. Keep qualified anecdote framing; exact historical particulars remain unresolved.",
+    "urls": [
+      "https://medicalarchives.jhmi.edu/collection/howard-a-kelly-collection/",
+      "https://bh.lccatmc.com/pdfs/A-Glass-of-Milk.pdf"
+    ]
+  },
+  {
+    "story": "henry-fords-choice",
+    "assessment": "F-080: competing executive names in secondary salt-test retellings do not authenticate Ford or prove that no such dinner occurred. Qualified literary presentation is already present. No original Ford document located.",
+    "urls": [
+      "https://davidsongrouphr.com/did-they-salt-their-food/"
+    ]
+  },
+  {
+    "story": "aging",
+    "assessment": "Mountain/view aphorism circulates with an Ingmar Bergman attribution in quotation collections; no original passage authenticated. The site does not assert that attribution. Do not add a named author from secondary quotation lists. Provenance remains unestablished, without a confirmed misattribution.",
+    "urls": [
+      "https://hamiltonagingtogether.ca/wp-content/uploads/2025/01/AgingwithSpirit_Quotations-2.pdf"
+    ]
+  },
+  {
+    "story": "land-and-homeland",
+    "assessment": "Water/mud and blood/homeland saying has parallel unattributed circulation. Similar patriotic verses are not sufficient to identify the author of this exact line. No author credit should be invented.",
+    "urls": [
+      "https://aztrq.com/neshrler/ark.pdf"
+    ]
+  }
+]

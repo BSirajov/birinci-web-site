@@ -60,12 +60,12 @@ for (language of ["az","en","ru","ky","de"]) {
   for (const category of context.window.__BIRINCI_STORIES__.categories) {
     for (const story of category.stories) {
       const markup=paragraphsHtml(story.paragraphs,story.stem);
-      assert.ok(!/class="story__moral">(?:İbrət|Moral|Lehre|Мораль|Урок|Сабак|Үлгү):/i.test(markup), language+" label remains");
+      assert.ok(!/class="story__moral">(?:İbrət|Moral|(?:Die\s+)?Lehre|Мораль|Урок|Сабак|Үлгү):/i.test(markup), language+" label remains");
       const morals=(markup.match(/class="story__moral"/g)||[]).length;
       const sources=(markup.match(/class="story__source"/g)||[]).length;
       assert.ok(morals<=1,language+" "+story.stem);
       if(!morals) noMoral++;
-      const moralIndex=story.paragraphs.findIndex(p=>/^(?:ibrət|ibret|nəticə|moral|lesson|lehre|мораль|урок|үлгү|сабак)\s*:/i.test(p.trim().replace(/[İIı]/g,"i")));
+      const moralIndex=story.paragraphs.findIndex(p=>/^(?:ibrət|ibret|nəticə|moral|lesson|(?:die\s+)?lehre|мораль|урок|үлгү|сабак)\s*:/i.test(p.trim().replace(/[İIı]/g,"i")));
       if(moralIndex>=0) assert.equal(sources,story.paragraphs.length-moralIndex-1,language+" "+story.stem+" credits changed");
       else assert.ok(sources>=1,language+" "+story.stem+" has no author credit");
       if(language==="en" && story.stem==="mercedes") assert.equal(sources,2);
@@ -102,7 +102,7 @@ assert.equal(de.source, 'Bakhtiyar Sirajov');
 
 def test_labels_removed_in_all_languages_without_changing_moral_text():
     from story_note_markup import strip_moral_label
-    for label in ["İbrət", "Nəticə", "Moral", "Lesson", "Lehre", "Мораль", "Урок", "Үлгү", "Сабак"]:
+    for label in ["İbrət", "Nəticə", "Moral", "Lesson", "Lehre", "Die Lehre", "Мораль", "Урок", "Үлгү", "Сабак"]:
         assert strip_moral_label(label + ": Keep: the text.") == "Keep: the text."
     assert strip_moral_label("Keep: the text.") == "Keep: the text."
 

@@ -1,0 +1,405 @@
+{
+  "complete": true,
+  "reviewed_candidate_ranges": [
+    [
+      0,
+      675
+    ]
+  ],
+  "confirmed_missing_comma_candidates": [
+    4,
+    15,
+    18,
+    25,
+    28,
+    30,
+    69,
+    74,
+    83,
+    94,
+    139,
+    146,
+    156,
+    157,
+    165,
+    173,
+    198,
+    204,
+    209,
+    234,
+    244,
+    262,
+    279,
+    290,
+    303,
+    315,
+    324,
+    325,
+    329,
+    338,
+    372,
+    393,
+    399,
+    400,
+    409,
+    450,
+    460,
+    466,
+    503,
+    505,
+    506,
+    528,
+    533,
+    547,
+    588,
+    596,
+    603,
+    622,
+    625,
+    629,
+    631,
+    636,
+    638,
+    639,
+    650
+  ],
+  "corrections": [
+    {
+      "candidate_index": 4,
+      "key": "de/moderation-and-honesty",
+      "index": 2,
+      "corrected_text": "Maßvoll zu essen, bedeutet nicht, zu hungern. Es bedeutet, auf die Bedürfnisse des Körpers zu achten und ausreichend, aber nicht übermäßig zu essen. Aufrichtig zu leben, heißt, gewissenhaft und gerecht zu handeln, ohne die Rechte anderer zu verletzen."
+    },
+    {
+      "candidate_index": 15,
+      "key": "de/staying-on-the-right-path",
+      "index": 12,
+      "corrected_text": "Lehre: Auf dem rechten Weg zu bleiben, beginnt mit den täglichen Entscheidungen. Sorgfalt bei der Arbeit, Verantwortung für die eigenen Verpflichtungen und das Bewusstsein, vor Gott Rechenschaft abzulegen, bewahren vor falschen Schritten."
+    },
+    {
+      "candidate_index": 18,
+      "key": "de/prayer-for-relief",
+      "index": 6,
+      "corrected_text": "Lehre: Ein aufrichtiges Gebet bringt sowohl unsere Hilflosigkeit als auch unsere Hoffnung zum Ausdruck. Sich Gott zuzuwenden, kann das Herz trösten und Kraft geben, schwierige Zeiten durchzustehen."
+    },
+    {
+      "candidate_index": 25,
+      "key": "de/hands-at-work-hope-in-god",
+      "index": 11,
+      "corrected_text": "Lehre: Auf Gott zu vertrauen, bedeutet nicht, die Hände in den Schoß zu legen. Es bedeutet, das eigene Möglichste zu tun und auf Ihn zu vertrauen. Wer Kraft und Gelegenheit hat, kann durch seine Arbeit für sich selbst sorgen und anderen beistehen."
+    },
+    {
+      "candidate_index": 28,
+      "key": "de/power-of-justice",
+      "index": 1,
+      "corrected_text": "Lehre: Gerechtigkeit schöpft ihre Kraft weder aus Rang noch aus Reichtum oder Gewalt. Die Zeiten mögen sich ändern, doch ihr Wert bleibt bestehen. Für das Rechte einzustehen, gibt innere Stärke."
+    },
+    {
+      "candidate_index": 30,
+      "key": "de/hajj-pilgrimage",
+      "index": 3,
+      "corrected_text": "„Mein Sohn, hier Steine zu werfen, genügt nicht. Zuerst müssen wir uns dem Bösen in uns selbst stellen, unsere selbstsüchtigen Wünsche zügeln und unser Herz reinigen.“"
+    },
+    {
+      "candidate_index": 69,
+      "key": "de/drinking-the-sherbet-of-martyrdom",
+      "index": 3,
+      "corrected_text": "Lehre: Sprache bewahrt Erinnerungen, Glaubensvorstellungen und Erzählungen aus der Vergangenheit. Dieses Erbe zu achten, bedeutet, seinen Sinn zu verstehen und zugleich Überlieferung von belegter Geschichte zu unterscheiden."
+    },
+    {
+      "candidate_index": 74,
+      "key": "de/hour-with-dad",
+      "index": 26,
+      "corrected_text": "Lehre: Für die Familie zu sorgen, bedeutet mehr, als Geld zu verdienen. Kinder brauchen Liebe, Aufmerksamkeit und gemeinsame Zeit. Kein Geschenk kann das ersetzen."
+    },
+    {
+      "candidate_index": 83,
+      "key": "de/mother-and-son",
+      "index": 27,
+      "corrected_text": "Lehre: Mit dem Alter wird das Bedürfnis nach Liebe und Nähe nicht geringer. Für die Eltern zu sorgen, bedeutet mehr, als ihnen ein angenehmes Zimmer zu geben und ihren Alltag zu erleichtern. Es bedeutet auch, sie spüren zu lassen, dass sie nicht vergessen und nicht allein sind."
+    },
+    {
+      "candidate_index": 94,
+      "key": "de/fathers-footsteps",
+      "index": 4,
+      "corrected_text": "Lehre: Einem Kind den Weg zu zeigen, bedeutet mehr, als Ratschläge zu geben. Es bedeutet, selbst mit gutem Beispiel voranzugehen. Kinder lernen aus unseren Worten und orientieren sich an unseren Taten."
+    },
+    {
+      "candidate_index": 139,
+      "key": "de/nest-builder",
+      "index": 0,
+      "corrected_text": "„Das Weibchen baut das Nest“, heißt es in einem Sprichwort. Es würdigt die Fürsorge und die Arbeit einer Frau, die ein Haus mit Wärme erfüllt und zu einem Zuhause macht. Diese Arbeit wertzuschätzen, bedeutet mehr, als Danke zu sagen: Es bedeutet, die alltäglichen Aufgaben und die Verantwortung miteinander zu teilen."
+    },
+    {
+      "candidate_index": 146,
+      "key": "de/early-marriage",
+      "index": 13,
+      "corrected_text": "Ich atmete erleichtert auf. Doch meine Unruhe blieb. Ein paar Antworten zu ändern, reichte nicht aus, um die Zukunft dieser Mädchen zu schützen. Ihr Recht, weiter zur Schule zu gehen, durfte weder von einer Prüfungsnote noch vom heimlichen Eingreifen einer Lehrkraft abhängen."
+    },
+    {
+      "candidate_index": 156,
+      "key": "de/before-you-marry",
+      "index": 8,
+      "corrected_text": "Lehre: Eine starke Ehe entsteht nicht zwischen zwei vollkommenen Menschen, sondern zwischen zwei Menschen, die einander zuhören, verstehen und mit Respekt begegnen. Ein gemeinsames Zuhause zu haben, bedeutet, einander Halt zu geben – nicht, einander zu besitzen."
+    },
+    {
+      "candidate_index": 157,
+      "key": "de/i-kiss-your-eyes",
+      "index": 2,
+      "corrected_text": "Lehre: In den Augen liegt die Sehnsucht, für die uns die Worte fehlen. Die Augen eines geliebten Menschen zu küssen, heißt, dieser Sehnsucht mit Zärtlichkeit zu begegnen."
+    },
+    {
+      "candidate_index": 165,
+      "key": "de/what-women-endure",
+      "index": 26,
+      "corrected_text": "Lehre: Frauen wertzuschätzen, bedeutet mehr, als ihre Opferbereitschaft zu loben. Es bedeutet, ihnen zuzuhören, ihre Arbeit anzuerkennen und ihre Entscheidungen und ihre Würde zu achten. Liebe und Frieden wachsen dort, wo alle Menschen gleich viel wert sind."
+    },
+    {
+      "candidate_index": 173,
+      "key": "de/red-dress",
+      "index": 23,
+      "corrected_text": "Lehre: Für geliebte Menschen zu sorgen, bedeutet nicht, sich selbst aufzugeben. Gib ihren Träumen Raum, aber halte auch deine eigenen lebendig. Dein Leben, deine Freude und deine Bedürfnisse sind ebenso wichtig."
+    },
+    {
+      "candidate_index": 198,
+      "key": "de/i-love-you",
+      "index": 9,
+      "corrected_text": "Lehre: Unerwiderte Liebe kann tief verletzen, mindert aber nicht den Wert eines Menschen. Niemand muss seine Liebe beweisen, indem er sich selbst zerstört. Mit den Gefühlen anderer behutsam umzugehen, ist ebenso wichtig, wie ihre Entscheidung zu respektieren und das eigene Leben wertzuschätzen."
+    },
+    {
+      "candidate_index": 204,
+      "key": "de/forgiveness",
+      "index": 0,
+      "corrected_text": "Jemandem zu vergeben, bedeutet nicht, dass du diesen Menschen lieben, mit ihm sprechen oder die Beziehung fortsetzen musst. Ebenso wenig bedeutet es, ihn für unschuldig zu erklären oder sein Verhalten für richtig zu halten."
+    },
+    {
+      "candidate_index": 209,
+      "key": "de/respecting-boundaries",
+      "index": 1,
+      "corrected_text": "Lehre: Für jemanden da zu sein, bedeutet nicht, ihm seine Entscheidungen abzunehmen. Ungefragte Ratschläge können zur Last werden; echte Hilfe beginnt mit Respekt vor den Entscheidungen und persönlichen Grenzen des anderen."
+    },
+    {
+      "candidate_index": 234,
+      "key": "de/thoughtfulness",
+      "index": 4,
+      "corrected_text": "Lehre: Jemanden zu fragen, wie es ihm geht, und an ihn zu denken, mag geringfügig erscheinen, kann ihm aber großen seelischen Halt geben. Sparen wir nicht mit unserer Fürsorge, damit sich niemand vergessen fühlt."
+    },
+    {
+      "candidate_index": 244,
+      "key": "de/permission-or-forgiveness",
+      "index": 9,
+      "corrected_text": "Lehre: Eigeninitiative gewinnt durch Verantwortung an Wert. Mit kleinen, rückgängig zu machenden Schritten einen Nutzen aufzuzeigen, kann wirksamer sein, als endlos auf Zustimmung zu warten. Sich hinterher entschuldigen zu können, entbindet jedoch nicht davon, vorher nachzudenken."
+    },
+    {
+      "candidate_index": 262,
+      "key": "de/mockery-is-unacceptable",
+      "index": 1,
+      "corrected_text": "Lehre: Anders zu sein, ist kein Grund, ausgelacht zu werden. Die Würde anderer zu achten, lernen Kinder durch die Worte und das Verhalten der Erwachsenen."
+    },
+    {
+      "candidate_index": 279,
+      "key": "de/request-for-help",
+      "index": 0,
+      "corrected_text": "Nehmt es Menschen nicht vorschnell übel, wenn sie sich nur melden, sobald sie etwas brauchen. Vielleicht stecken sie in Schwierigkeiten und bitten euch um Hilfe, weil sie euch vertrauen. Ihre Bitte aus diesem Blickwinkel zu betrachten, kann die Enttäuschung mildern."
+    },
+    {
+      "candidate_index": 290,
+      "key": "de/make-time-for-people",
+      "index": 17,
+      "corrected_text": "Lehre: Zeit zu sparen, ist sinnvoll. Doch nicht jede Stunde, die wir mit Menschen verbringen, ist verlorene Zeit. Nutze die Annehmlichkeiten der Technik, ohne den Wert eines Grußes, eines Gesprächs und gegenseitiger Unterstützung zu vergessen."
+    },
+    {
+      "candidate_index": 303,
+      "key": "de/being-human",
+      "index": 0,
+      "corrected_text": "„Ein Gelehrter zu werden, ist leicht; ein anständiger Mensch zu werden, ist schwer“, heißt es. Doch was bedeutet es, ein anständiger Mensch zu sein?"
+    },
+    {
+      "candidate_index": 315,
+      "key": "de/think-before-speaking",
+      "index": 1,
+      "corrected_text": "Freundlich zu sprechen, bedeutet nicht, die Wahrheit zu verschweigen. Auch eine schmerzhafte Wahrheit lässt sich aussprechen, ohne jemanden zu erniedrigen. Wenn deine Worte nur verletzen sollen, ist Schweigen die bessere Wahl."
+    },
+    {
+      "candidate_index": 324,
+      "key": "de/beyond-complaining",
+      "index": 4,
+      "corrected_text": "Ähnlich ist es, wenn man immer wieder dieselben Klagen vorbringt, ohne nach einer Lösung zu suchen: Irgendwann verlieren die Worte ihre Wirkung, und die Zuhörer werden müde. Über ein Problem zu sprechen, ist wichtig. Doch allein dadurch, dass man es wiederholt schildert, löst es sich nicht."
+    },
+    {
+      "candidate_index": 325,
+      "key": "de/beyond-complaining",
+      "index": 5,
+      "corrected_text": "Lehre: Sorgen zu teilen, kann Erleichterung bringen, doch Klagen allein verändert die Lage nicht. Nach einem Ausweg zu suchen, um Hilfe zu bitten und einen kleinen, machbaren Schritt zu gehen, kann der Anfang einer Veränderung sein."
+    },
+    {
+      "candidate_index": 329,
+      "key": "de/flower-of-honesty",
+      "index": 25,
+      "corrected_text": "Lehre: Ehrlichkeit bedeutet manchmal, den Mut zu haben, vor allen mit einem leeren Topf dazustehen. Es ist keine Schande, das erhoffte Ergebnis nicht zu erreichen. Einen Erfolg vorzutäuschen, heißt jedoch, gegen das eigene Gewissen zu handeln."
+    },
+    {
+      "candidate_index": 338,
+      "key": "de/sunlit-day",
+      "index": 4,
+      "corrected_text": "Lehre: Die Schönheit des Lebens zu bewahren, heißt, für Frieden, Mitgefühl und Wahrheit einzustehen. Ein sonniger Tag ist dann wirklich kostbar, wenn Menschen ihn in Freiheit, ohne Angst und Hunger erleben können."
+    },
+    {
+      "candidate_index": 372,
+      "key": "de/inner-housekeeping",
+      "index": 23,
+      "corrected_text": "Lehre: Für die eigene Seele zu sorgen, bedeutet, Gefühle zu verstehen, statt sie zu unterdrücken, und Belastendes nach und nach loszulassen. Wer sich selbst mit Mitgefühl begegnet, schafft Raum für Liebe, Hoffnung und innere Ruhe."
+    },
+    {
+      "candidate_index": 393,
+      "key": "de/plucking-the-goose",
+      "index": 31,
+      "corrected_text": "Lehre: Worte zu hören, heißt noch lange nicht, ihren Sinn zu verstehen. Ein hohes Amt macht niemanden automatisch weise. Manchmal erkennt ein einfacher Mensch mit Lebenserfahrung, was einem königlichen Berater verborgen bleibt."
+    },
+    {
+      "candidate_index": 399,
+      "key": "de/believe-in-yourself",
+      "index": 9,
+      "corrected_text": "Lehre: An dich selbst zu glauben, bedeutet nicht, zu glauben, dass du alles kannst. Es bedeutet, darauf zu vertrauen, dass du lernen und dich weiterentwickeln kannst. Lass dich dabei von Hoffnung, Entschlossenheit und Würde tragen."
+    },
+    {
+      "candidate_index": 400,
+      "key": "de/other-peoples-thoughts",
+      "index": 7,
+      "corrected_text": "Lehre: Wer aufhört, Fragen zu stellen, nachzudenken und Gefühle auszudrücken, verliert allmählich seine eigene Stimme. Von anderen zu lernen, ist wertvoll. Ihre Gedanken zu wiederholen, darf jedoch nicht das eigene Denken ersetzen."
+    },
+    {
+      "candidate_index": 409,
+      "key": "de/share-what-you-know",
+      "index": 1,
+      "corrected_text": "Schweigen bedeutet nicht Unwissenheit, und wer viel redet, weiß deshalb noch lange nicht viel. Andere herabzusetzen, ist töricht; sie mit unverdientem Lob zu überschütten, zeugt von Feigheit."
+    },
+    {
+      "candidate_index": 450,
+      "key": "de/sharpen-the-axe",
+      "index": 5,
+      "corrected_text": "Lehre: Effizient zu arbeiten, bedeutet, auch über die Arbeitsweise nachzudenken. Zeit für Vorbereitung und gutes Werkzeug ist keine verlorene Zeit: Sie erspart später unnötige Mühe."
+    },
+    {
+      "candidate_index": 460,
+      "key": "de/before-it-is-too-late",
+      "index": 0,
+      "corrected_text": "Zu spät zu kommen, bedeutet, etwas nicht rechtzeitig zu tun. In unseren Beziehungen kann dieses Versäumnis besonders schwer wiegen."
+    },
+    {
+      "candidate_index": 466,
+      "key": "de/seeing-without-understanding",
+      "index": 1,
+      "corrected_text": "Lehre: Wirklich zu sehen, erfordert Aufmerksamkeit, Nachdenken und Mitgefühl. Es bedeutet, das Wahrgenommene zu verstehen und am Leid anderer nicht gleichgültig vorbeizugehen."
+    },
+    {
+      "candidate_index": 503,
+      "key": "de/istanbul-woman-remembers",
+      "index": 20,
+      "corrected_text": "‚Ich konnte nicht. Ich hätte nicht nur mein eigenes Leben gefährdet, sondern auch das anderer Menschen. Dich zu verlieren, tat weh. Aber ich durfte das Geheimnis nicht preisgeben.‘"
+    },
+    {
+      "candidate_index": 505,
+      "key": "de/living-in-the-past",
+      "index": 0,
+      "corrected_text": "In der Vergangenheit zu leben, ist, als würde man beim Gehen ständig zurückblicken. Wer nur auf das schaut, was hinter ihm liegt, übersieht die Hindernisse vor sich und stolpert. So lässt sich weder das Vergangene ändern noch erkennen, welche Möglichkeiten sich gerade eröffnen."
+    },
+    {
+      "candidate_index": 506,
+      "key": "de/living-in-the-past",
+      "index": 1,
+      "corrected_text": "Lehre: Aus der Vergangenheit zu lernen, gibt Orientierung. In ihr gefangen zu bleiben, hindert uns am Weitergehen. Gestern lässt sich nicht ändern, doch welchen Schritt du heute gehst, liegt in deiner Hand."
+    },
+    {
+      "candidate_index": 528,
+      "key": "de/audience-of-one",
+      "index": 8,
+      "corrected_text": "Lehre: Gut zu sprechen, bedeutet nicht, viel zu sprechen. Ein hilfreicher Vortrag richtet sich nach den Bedürfnissen der Zuhörer und danach, wie viel sie verstehen und aufnehmen können."
+    },
+    {
+      "candidate_index": 533,
+      "key": "de/not-my-concern",
+      "index": 17,
+      "corrected_text": "Lehre: Unrecht breitet sich nicht nur durch die Macht der Täter aus, sondern auch durch die Gleichgültigkeit jener, die sagen: „Was geht mich das an?“ Eine Gesellschaft zu schützen, beginnt damit, die eigene Verantwortung zu erkennen."
+    },
+    {
+      "candidate_index": 547,
+      "key": "de/fish-shop",
+      "index": 4,
+      "corrected_text": "Ohne zu zögern, wandte er sich an den Fischhändler."
+    },
+    {
+      "candidate_index": 588,
+      "key": "de/busy-but-unproductive",
+      "index": 3,
+      "corrected_text": "Lehre: Beschäftigt zu wirken, heißt noch lange nicht, etwas Sinnvolles zu tun. Der Wert einer Arbeit zeigt sich in ihrem Ergebnis, nicht im Eindruck, den sie macht."
+    },
+    {
+      "candidate_index": 596,
+      "key": "de/choose-justice",
+      "index": 8,
+      "corrected_text": "Lehre: Liebe, Frieden und Gerechtigkeit sind mehr als Wünsche. Es sind Werte, die wir durch unsere täglichen Entscheidungen mit Leben füllen. Sie zu wählen und durch unser Handeln zu bewahren, liegt in unserer Verantwortung."
+    },
+    {
+      "candidate_index": 603,
+      "key": "de/judges-answer",
+      "index": 10,
+      "corrected_text": "Der Kaufmann schwor, ohne zu zögern."
+    },
+    {
+      "candidate_index": 622,
+      "key": "de/land-and-homeland",
+      "index": 1,
+      "corrected_text": "Lehre: Heimat ist mehr als der Ort, an dem wir leben. Sie trägt die Erinnerung an jene, die sie unter großen Opfern geschützt und uns anvertraut haben. Dieses Erbe zu bewahren, heißt, ihrer zu gedenken und kommenden Generationen ein Leben in Frieden zu ermöglichen."
+    },
+    {
+      "candidate_index": 625,
+      "key": "de/what-changed-after-sixty",
+      "index": 7,
+      "corrected_text": "Ich habe gelernt, unnötigen Stolz beiseitezulegen, wenn mir eine Beziehung wichtig ist. Immer recht zu haben, macht nicht glücklich. Manchmal zählt ein Schritt aufeinander zu mehr."
+    },
+    {
+      "candidate_index": 629,
+      "key": "de/life-after-sixty",
+      "index": 0,
+      "corrected_text": "Sechzig zu werden, ist kein Grund, sich zurückzuziehen. Vielleicht ist jetzt die Zeit gekommen, lange aufgeschobenen Wünschen Raum zu geben und besser für dich selbst zu sorgen."
+    },
+    {
+      "candidate_index": 631,
+      "key": "de/life-after-sixty",
+      "index": 2,
+      "corrected_text": "Liebe deine Kinder und Enkel weiterhin und unterstütze sie, soweit du kannst. Doch du musst nicht jede ihrer Sorgen tragen. Gib erwachsenen Kindern Raum, eigene Entscheidungen zu treffen, Verantwortung zu übernehmen und ihren Weg zu finden. Zeit und Geld für dich selbst aufzuwenden, macht dich nicht weniger fürsorglich."
+    },
+    {
+      "candidate_index": 636,
+      "key": "de/life-after-sixty",
+      "index": 11,
+      "corrected_text": "Versuche, alte Verletzungen leichter werden zu lassen. Bitte um Verzeihung, wenn du jemanden verletzt hast. Selbst vergeben zu können, braucht mitunter Zeit; dränge dich nicht dazu. Vergebung muss weder Vergessen bedeuten noch die Rückkehr in eine verletzende Beziehung."
+    },
+    {
+      "candidate_index": 638,
+      "key": "de/life-after-sixty",
+      "index": 14,
+      "corrected_text": "Lehre: Für dich selbst zu sorgen, bedeutet nicht, andere weniger zu lieben. Deine Zeit, dein Wohlbefinden und deine Wünsche zählen in jedem Alter. Es ist noch immer dein Leben."
+    },
+    {
+      "candidate_index": 639,
+      "key": "de/aging",
+      "index": 0,
+      "corrected_text": "Älter zu werden, ist wie ein Bergaufstieg: Je höher man kommt, desto schwerer werden die Schritte und desto knapper wird der Atem. Doch zugleich weitet sich der Blick."
+    },
+    {
+      "candidate_index": 650,
+      "key": "de/two-donkeys",
+      "index": 6,
+      "corrected_text": "Lehre: Wer andere lächerlich machen will, macht sich manchmal selbst zum Gespött. Andere herabzusetzen, macht einen selbst nicht größer."
+    }
+  ],
+  "excluded_examples": {
+    "102": "Chance zu wachsen: unextended infinitive; comma optional",
+    "190": "Fähigkeit zu lieben / Zeit zu heilen: unextended infinitives",
+    "389": "zu wissen: bare infinitive with following subordinate clause; separation recommended but not counted as mandatory",
+    "672": "Erlaubnis einzutreten: unextended infinitive; comma optional"
+  },
+  "scope": "All 675 screened paragraphs read individually. Pattern is a candidate generator, not a full parser; the full German text had also been reread. No sources changed."
+}

@@ -1,0 +1,310 @@
+{
+  "date": "2026-11-01",
+  "pass": "Repeat full editorial review",
+  "reviewed": {
+    "az": 260,
+    "en": 255,
+    "de": 255,
+    "ru": 255,
+    "ky": 255
+  },
+  "scope": "Full reread of every story title, body and moral in all five languages. Correct native phrasing, grammar, punctuation and clarity while preserving meaning, interface labels, identifiers, verse and illustrations.",
+  "changes": [
+    {
+      "lang": "en",
+      "stem": "mothers-love",
+      "before": "Do not put today’s closeness off until tomorrow: tomorrow will be a different day.",
+      "after": "Do not put off spending time together until tomorrow: tomorrow will be a different day.",
+      "reason": "Replace an unnatural collocation with idiomatic English while preserving the appeal to spend time together today.",
+      "path": "en/wisdom-stories/mothers-love.docx",
+      "title": "A Mother’s Love",
+      "paragraph": 17,
+      "source_before": "Hold your child today. Take their hand and listen. Make time for your parents today. Do not put today’s closeness off until tomorrow: tomorrow will be a different day.",
+      "source_after": "Hold your child today. Take their hand and listen. Make time for your parents today. Do not put off spending time together until tomorrow: tomorrow will be a different day."
+    },
+    {
+      "lang": "de",
+      "stem": "keep-your-hearts-close",
+      "before": "obwohl der Mensch neben uns uns auch so hören kann?",
+      "after": "obwohl uns der Mensch neben uns auch so hören kann?",
+      "reason": "Remove the awkward adjacent repetition of uns through natural German word order.",
+      "path": "de/wisdom-stories/keep-your-hearts-close.docx",
+      "title": "Lasst eure Herzen nicht auseinanderdriften",
+      "paragraph": 1,
+      "source_before": "Warum werden wir im Streit laut, obwohl der Mensch neben uns uns auch so hören kann?",
+      "source_after": "Warum werden wir im Streit laut, obwohl uns der Mensch neben uns auch so hören kann?"
+    },
+    {
+      "lang": "ru",
+      "stem": "dervishs-robe",
+      "before": "Меня удержало доверие к его одеянию.",
+      "after": "Я осталась на месте, потому что его одеяние внушало мне доверие.",
+      "reason": "Replace a literal, abstract construction with natural Russian explaining why the bird stayed.",
+      "path": "ru/wisdom-stories/dervishs-robe.docx",
+      "title": "Одеяние дервиша",
+      "paragraph": 10,
+      "source_before": "— На нём было одеяние дервиша. Знай я, что передо мной охотник, сразу бы улетела. Но я подумала: это милосердный, богобоязненный человек, он не причинит мне зла. Меня удержало доверие к его одеянию.",
+      "source_after": "— На нём было одеяние дервиша. Знай я, что передо мной охотник, сразу бы улетела. Но я подумала: это милосердный, богобоязненный человек, он не причинит мне зла. Я осталась на месте, потому что его одеяние внушало мне доверие."
+    },
+    {
+      "lang": "ru",
+      "stem": "if-fate-allows",
+      "before": "Здесь что-то странное.",
+      "after": "В этом есть что-то странное.",
+      "reason": "Use the natural Russian construction for finding a change in wording strange.",
+      "path": "ru/wisdom-stories/Bakhtiyar Sirajov/if-fate-allows.docx",
+      "title": "Если судьба позволит, мы встретимся",
+      "paragraph": 1,
+      "source_before": "Человек, который всегда говорил «мы встретимся», теперь говорит «если судьба позволит, мы встретимся». Здесь что-то странное. Я не изменился, моё отношение к нему такое же тёплое, как и прежде. Я бы с огромным удовольствием встретился с ним снова. Но это «если судьба позволит» кажется барьером между нами. Я не знаю о его судьбе, и он не знает о моей. Интересно, знают ли эти две судьбы друг о друге, могут ли они договориться между собой и помочь нам встретиться?",
+      "source_after": "Человек, который всегда говорил «мы встретимся», теперь говорит «если судьба позволит, мы встретимся». В этом есть что-то странное. Я не изменился, моё отношение к нему такое же тёплое, как и прежде. Я бы с огромным удовольствием встретился с ним снова. Но это «если судьба позволит» кажется барьером между нами. Я не знаю о его судьбе, и он не знает о моей. Интересно, знают ли эти две судьбы друг о друге, могут ли они договориться между собой и помочь нам встретиться?"
+    },
+    {
+      "lang": "ru",
+      "stem": "if-fate-allows",
+      "before": "Я не знаю о его судьбе, и он не знает о моей.",
+      "after": "Я ничего не знаю о его судьбе, и он ничего не знает о моей.",
+      "reason": "Complete the idiomatic Russian construction ничего не знать о чём-либо.",
+      "path": "ru/wisdom-stories/Bakhtiyar Sirajov/if-fate-allows.docx",
+      "title": "Если судьба позволит, мы встретимся",
+      "paragraph": 1,
+      "source_before": "Человек, который всегда говорил «мы встретимся», теперь говорит «если судьба позволит, мы встретимся». Здесь что-то странное. Я не изменился, моё отношение к нему такое же тёплое, как и прежде. Я бы с огромным удовольствием встретился с ним снова. Но это «если судьба позволит» кажется барьером между нами. Я не знаю о его судьбе, и он не знает о моей. Интересно, знают ли эти две судьбы друг о друге, могут ли они договориться между собой и помочь нам встретиться?",
+      "source_after": "Человек, который всегда говорил «мы встретимся», теперь говорит «если судьба позволит, мы встретимся». Здесь что-то странное. Я не изменился, моё отношение к нему такое же тёплое, как и прежде. Я бы с огромным удовольствием встретился с ним снова. Но это «если судьба позволит» кажется барьером между нами. Я ничего не знаю о его судьбе, и он ничего не знает о моей. Интересно, знают ли эти две судьбы друг о друге, могут ли они договориться между собой и помочь нам встретиться?"
+    },
+    {
+      "lang": "ru",
+      "stem": "pleasure-of-allah",
+      "before": "благоволению Всевышнего",
+      "after": "благоволению Аллаха",
+      "reason": "Honor the established naming convention: use Аллах in the body of a story whose title names Аллах.",
+      "path": "ru/wisdom-stories/pleasure-of-allah.docx",
+      "title": "Благоволение Аллаха",
+      "paragraph": 2,
+      "source_before": "«Я искал пути к благоволению Всевышнего и увидел, что самый короткий — радовать людские сердца.",
+      "source_after": "«Я искал пути к благоволению Аллаха и увидел, что самый короткий — радовать людские сердца."
+    },
+    {
+      "lang": "ru",
+      "stem": "pleasure-of-allah",
+      "before": "благоволение Всевышнего",
+      "after": "благоволение Аллаха",
+      "reason": "Keep the name Аллах consistent between the title, story and moral.",
+      "path": "ru/wisdom-stories/pleasure-of-allah.docx",
+      "title": "Благоволение Аллаха",
+      "paragraph": 4,
+      "source_before": "Мораль: Стремясь заслужить благоволение Всевышнего, дари людям радость. Добро, согревающее чужое сердце, приближает к Нему, а причинённая боль — отдаляет.",
+      "source_after": "Мораль: Стремясь заслужить благоволение Аллаха, дари людям радость. Добро, согревающее чужое сердце, приближает к Нему, а причинённая боль — отдаляет."
+    },
+    {
+      "lang": "en",
+      "stem": "everyone-is-equal-here",
+      "before": "When the boy finished, he paid him for his work and gave him some additional money to help.",
+      "after": "When the boy finished, the young man paid him for his work and gave him some additional money to help.",
+      "reason": "Identify the payer explicitly; the preceding subject is the boy, making he paid him ambiguous.",
+      "path": "en/wisdom-stories/everyone-is-equal-here.docx",
+      "title": "Everyone Is Equal Here",
+      "paragraph": 14,
+      "source_before": "When the boy finished, he paid him for his work and gave him some additional money to help. As they talked, he learned that the boy’s father had died. The boy attended school and worked afterward to help his mother.",
+      "source_after": "When the boy finished, the young man paid him for his work and gave him some additional money to help. As they talked, he learned that the boy’s father had died. The boy attended school and worked afterward to help his mother."
+    },
+    {
+      "lang": "en",
+      "stem": "gossip",
+      "before": "easy to spread, hard to gather back.",
+      "after": "easy to spread, hard to gather up again.",
+      "reason": "Use the idiomatic English phrasal verb gather up rather than gather back.",
+      "path": "en/wisdom-stories/gossip.docx",
+      "title": "Gossip",
+      "paragraph": 16,
+      "source_before": "Moral: Gossip is like feathers scattered on the wind: easy to spread, hard to gather back. An apology matters, but it cannot always undo the harm. Think before you speak.",
+      "source_after": "Moral: Gossip is like feathers scattered on the wind: easy to spread, hard to gather up again. An apology matters, but it cannot always undo the harm. Think before you speak."
+    },
+    {
+      "lang": "en",
+      "stem": "sharing-the-burden",
+      "before": "Life’s journey is lighter with someone",
+      "after": "Life’s journey is easier with someone",
+      "reason": "Use a natural collocation with journey while retaining the shared-burden metaphor.",
+      "path": "en/wisdom-stories/sharing-the-burden.docx",
+      "title": "Sharing the burden",
+      "paragraph": 9,
+      "source_before": "Moral: Life’s journey is lighter with someone who shares your burdens instead of judging you when you struggle. Sometimes love is shown not through grand declarations, but through a quietly offered helping hand.",
+      "source_after": "Moral: Life’s journey is easier with someone who shares your burdens instead of judging you when you struggle. Sometimes love is shown not through grand declarations, but through a quietly offered helping hand."
+    },
+    {
+      "lang": "en",
+      "stem": "price-of-belonging",
+      "before": "Widespread agreement does not make something wrong right.",
+      "after": "Widespread agreement does not turn wrong into right.",
+      "reason": "Replace the awkward sequence something wrong right with an idiomatic expression.",
+      "path": "en/wisdom-stories/price-of-belonging.docx",
+      "title": "The price of belonging",
+      "paragraph": 8,
+      "source_before": "Moral: Widespread agreement does not make something wrong right. Sometimes people give up their own judgment and convictions just to be accepted. The real test is to preserve independent thought under pressure, rather than simply become like everyone else.",
+      "source_after": "Moral: Widespread agreement does not turn wrong into right. Sometimes people give up their own judgment and convictions just to be accepted. The real test is to preserve independent thought under pressure, rather than simply become like everyone else."
+    },
+    {
+      "lang": "az",
+      "stem": "confidence-is-half-the-battle",
+      "before": "— direktor dedi.",
+      "after": "— dedi direktor.",
+      "reason": "Use natural Azerbaijani word order in the attribution following direct speech.",
+      "path": "az/wisdom-stories/confidence-is-half-the-battle.docx",
+      "title": "İnam uğurun yarısıdır!",
+      "paragraph": 11,
+      "source_before": "— Siz həm öz bacarığınıza, həm də uşaqların bacarığına inandınız, — direktor dedi. — Sonra bu inamı zəhmətə, səbrə və qayğıya çevirdiniz. Nəticəni yaradan da elə bu oldu.",
+      "source_after": "— Siz həm öz bacarığınıza, həm də uşaqların bacarığına inandınız, — dedi direktor. — Sonra bu inamı zəhmətə, səbrə və qayğıya çevirdiniz. Nəticəni yaradan da elə bu oldu."
+    },
+    {
+      "lang": "de",
+      "stem": "mothers-love",
+      "before": "Verschiebe die Nähe von heute nicht auf morgen:",
+      "after": "Verschiebe die gemeinsame Zeit nicht auf morgen:",
+      "reason": "Replace a literal collocation with natural German while retaining the appeal to spend time together.",
+      "path": "de/wisdom-stories/mothers-love.docx",
+      "title": "Mutterliebe",
+      "paragraph": 17,
+      "source_before": "Umarme dein Kind heute. Nimm es an die Hand und höre ihm zu. Nimm dir heute Zeit für deine Eltern. Verschiebe die Nähe von heute nicht auf morgen: Morgen ist schon ein anderer Tag.",
+      "source_after": "Umarme dein Kind heute. Nimm es an die Hand und höre ihm zu. Nimm dir heute Zeit für deine Eltern. Verschiebe die gemeinsame Zeit nicht auf morgen: Morgen ist schon ein anderer Tag."
+    },
+    {
+      "lang": "de",
+      "stem": "glass-of-milk",
+      "before": "Auch seine Verzweiflung war leichter geworden.",
+      "after": "Auch seine Verzweiflung hatte nachgelassen.",
+      "reason": "Use the idiomatic German verb for a feeling diminishing.",
+      "path": "de/wisdom-stories/glass-of-milk.docx",
+      "title": "Ein Glas Milch",
+      "paragraph": 10,
+      "source_before": "Als er weiterging, hatte nicht nur sein Hunger nachgelassen. Auch seine Verzweiflung war leichter geworden. Sein Vertrauen in Gott und in die Güte der Menschen hatte neue Kraft gefunden.",
+      "source_after": "Als er weiterging, hatte nicht nur sein Hunger nachgelassen. Auch seine Verzweiflung hatte nachgelassen. Sein Vertrauen in Gott und in die Güte der Menschen hatte neue Kraft gefunden."
+    },
+    {
+      "lang": "az",
+      "stem": "credit-ledger",
+      "before": "pulunu verərik. — Dükançı",
+      "after": "pulunu verərik, — dedi qız. Dükançı",
+      "reason": "Correct dialogue punctuation so the narration is not mistaken for a continuation of the girl’s speech.",
+      "path": "az/wisdom-stories/credit-ledger.docx",
+      "title": "Nisyə dəftəri",
+      "paragraph": 20,
+      "source_before": "— Əhməd əmi, anam deyir ki, iftara bir çörək, üç yumurta versin. Gələn ay dayım bizə gələndə pulunu verərik. — Dükançı qızın sözlərindən elə bil yuxudan ayıldı. Adəti üzrə dəftəri çıxarmaq üçün əlini piştaxtanın altına atdı. Bir an dayandı, gülümsədi və dedi:",
+      "source_after": "— Əhməd əmi, anam deyir ki, iftara bir çörək, üç yumurta versin. Gələn ay dayım bizə gələndə pulunu verərik, — dedi qız. Dükançı qızın sözlərindən elə bil yuxudan ayıldı. Adəti üzrə dəftəri çıxarmaq üçün əlini piştaxtanın altına atdı. Bir an dayandı, gülümsədi və dedi:"
+    },
+    {
+      "lang": "de",
+      "stem": "credit-ledger",
+      "before": "Eine Frau nimmt hier schon seit drei Monaten Brot auf Kredit mit.",
+      "after": "Eine Frau lässt hier schon seit drei Monaten ihr Brot anschreiben.",
+      "reason": "Use the natural German expression for a shopkeeper recording unpaid purchases in a ledger.",
+      "path": "de/wisdom-stories/credit-ledger.docx",
+      "title": "Das Schuldenbuch",
+      "paragraph": 4,
+      "source_before": "„Natürlich. Eine Frau nimmt hier schon seit drei Monaten Brot auf Kredit mit. Ehrlich gesagt weiß ich nicht, ob sie ihre Schulden je bezahlen kann. Aber sie zieht drei Kinder ohne Vater groß. Wir können die Kleinen doch nicht hungern lassen. Gott wird auch für uns sorgen. Wenn du etwas brauchst, nimm es. Das Brot schenke ich dir.“",
+      "source_after": "„Natürlich. Eine Frau lässt hier schon seit drei Monaten ihr Brot anschreiben. Ehrlich gesagt weiß ich nicht, ob sie ihre Schulden je bezahlen kann. Aber sie zieht drei Kinder ohne Vater groß. Wir können die Kleinen doch nicht hungern lassen. Gott wird auch für uns sorgen. Wenn du etwas brauchst, nimm es. Das Brot schenke ich dir.“"
+    },
+    {
+      "lang": "de",
+      "stem": "windmill-turning-without-wind",
+      "before": "Dreht sich die Mühle ohne Wind, bläst wohl jemand nach.",
+      "after": "Dreht sich die Mühle bei Windstille, muss wohl jemand für Wind sorgen.",
+      "reason": "Replace an unnatural use of nachblasen while retaining the windmill image and hidden cause.",
+      "path": "de/wisdom-stories/windmill-turning-without-wind.docx",
+      "title": "Eine Windmühle, die sich bei Windstille dreht",
+      "paragraph": 1,
+      "source_before": "Dreht sich die Mühle ohne Wind, bläst wohl jemand nach.",
+      "source_after": "Dreht sich die Mühle bei Windstille, muss wohl jemand für Wind sorgen."
+    },
+    {
+      "lang": "ru",
+      "stem": "hands-at-work-hope-in-god",
+      "before": "ушёл, оставив остатки.",
+      "after": "ушёл, оставив недоеденную добычу.",
+      "reason": "Remove a tautological phrase while keeping the uneaten prey explicit.",
+      "path": "ru/wisdom-stories/hands-at-work-hope-in-god.docx",
+      "title": "Руки — за работой, надежда — на Бога",
+      "paragraph": 4,
+      "source_before": "В этот миг вдали показался лев, тащивший пойманную газель. Он положил добычу на землю, наелся досыта и ушёл, оставив остатки.",
+      "source_after": "В этот миг вдали показался лев, тащивший пойманную газель. Он положил добычу на землю, наелся досыта и ушёл, оставив недоеденную добычу."
+    },
+    {
+      "lang": "ky",
+      "stem": "glass-of-milk",
+      "before": "Кийинки үйдөн бир нерсе жегенге сурайын деп чечти.",
+      "after": "Кийинки үйдөн жегенге бир нерсе сурайын деп чечти.",
+      "reason": "Use natural Kyrgyz word order for asking for something to eat.",
+      "path": "ky/wisdom-stories/glass-of-milk.docx",
+      "title": "Бир стакан сүт",
+      "paragraph": 2,
+      "source_before": "Окуусуна акча табыш үчүн үймө-үй кыдырып, майда буюмдарды саткан жигит бир күнү аябай ачка болду. Тамак сатып алганга акчасы калбаптыр. Кийинки үйдөн бир нерсе жегенге сурайын деп чечти.",
+      "source_after": "Окуусуна акча табыш үчүн үймө-үй кыдырып, майда буюмдарды саткан жигит бир күнү аябай ачка болду. Тамак сатып алганга акчасы калбаптыр. Кийинки үйдөн жегенге бир нерсе сурайын деп чечти."
+    },
+    {
+      "lang": "ky",
+      "stem": "compliment",
+      "before": "Жүзүнө жылмаюу пайда болуп, боюн түзөдү.",
+      "after": "Жүзүндө жылмаюу пайда болуп, боюн түзөдү.",
+      "reason": "Use the locative case with the appearance of a smile on her face.",
+      "path": "ky/wisdom-stories/compliment.docx",
+      "title": "Комплимент",
+      "paragraph": 9,
+      "source_before": "Мария күзгүгө карады. Ал көптөн бери өзүнө мынчалык кунт коюп, мынчалык жылуу карай элек болчу. Жүзүнө жылмаюу пайда болуп, боюн түзөдү.",
+      "source_after": "Мария күзгүгө карады. Ал көптөн бери өзүнө мынчалык кунт коюп, мынчалык жылуу карай элек болчу. Жүзүндө жылмаюу пайда болуп, боюн түзөдү."
+    },
+    {
+      "lang": "ky",
+      "stem": "credit-ledger",
+      "before": "акчасын төлөйбүз. — Кыздын сөзүн",
+      "after": "акчасын төлөйбүз, — деди кыз. Кыздын сөзүн",
+      "reason": "Mark the end of the girl’s speech explicitly so narration cannot be mistaken for continued dialogue.",
+      "path": "ky/wisdom-stories/credit-ledger.docx",
+      "title": "Карыз дептери",
+      "paragraph": 20,
+      "source_before": "— Ахмед байке, апам ооз ачарга бир нан, үч жумуртка берсин деди. Кийинки айда таякем бизге келгенде акчасын төлөйбүз. — Кыздын сөзүн уккан дүкөнчү уйкудан ойгонгондой болду. Адаттагыдай эле дептерин чыгармак болуп, колун текченин алдына сунду. Бир саамга токтоп, жылмайды да:",
+      "source_after": "— Ахмед байке, апам ооз ачарга бир нан, үч жумуртка берсин деди. Кийинки айда таякем бизге келгенде акчасын төлөйбүз, — деди кыз. Кыздын сөзүн уккан дүкөнчү уйкудан ойгонгондой болду. Адаттагыдай эле дептерин чыгармак болуп, колун текченин алдына сунду. Бир саамга токтоп, жылмайды да:"
+    }
+  ],
+  "validation": {
+    "status": "passed",
+    "source_catalog_html_search_sync": {
+      "stories": 1280,
+      "errors": 0
+    },
+    "pytest": {
+      "passed": 10
+    },
+    "german_preservation": {
+      "hashes": 512,
+      "illustrations": 256,
+      "published_stories": 255
+    },
+    "browser": {
+      "checks": 38,
+      "views": [
+        "category",
+        "expanded reading",
+        "language comparison"
+      ],
+      "modes": [
+        "desktop light",
+        "mobile dark"
+      ],
+      "horizontal_overflow": false,
+      "javascript_errors": 0
+    },
+    "word_layout": {
+      "documents": 19,
+      "pages": 23,
+      "method": "Microsoft Word print-layout page EMF export rendered to PNG; every page visually inspected",
+      "result": "Corrected text visible without clipping; existing source formatting retained. PDF export stalled; direct page-image export succeeded."
+    },
+    "illustrations": {
+      "assets": 1341,
+      "byte_identical": true
+    },
+    "report": "Offline search, combined filters, sorting, expandable details, light/dark mode, print and mobile checks passed."
+  },
+  "unpublished_draft": {
+    "path": "az/wisdom-stories/archive/life-lesson.docx",
+    "reason": "Text duplicates light-of-the-world; retained unchanged outside the active build inventory. User confirmed it must remain unpublished."
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "assets/site.js": "5768e853658862595f69dff79f32b454606f139ba2de337f4bd26df574a59842",
+  "assets/site.css": "5bbbe9abe47036519cb897bcc39f6cfcd914387aab94e8c2124a2f9c1ee55827",
+  "tools/story-build-manifest.json": "c9904eda60b04c1772a0e9e3551fb77ee48460c8781d5c11a5866001ebacdea7",
+  "tools/build_reviewed_site.py": "2b7c2989fa176cb11e0ff22a00ed69b47abc277103ff11a9b19e0998cacd7975",
+  "tools/chrome_restore.py": "9e6e73247e32472e2543623a26842534211a87687529cc4d4c0644bef4bd38c9"
+}

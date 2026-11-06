@@ -3,6 +3,7 @@ import json,re,types
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 DATA=json.loads((ROOT/'tools/story-filenames.json').read_text(encoding='utf-8'))
+SOURCE_IDS={(ROOT/rel).resolve():stem for sources in DATA['sources'].values() for stem,rel in sources.items()}
 def source_path(lang,stem):
     rel=DATA['sources'].get(lang,{}).get(stem)
     if rel is None: raise ValueError(f'Unknown story: {lang}/{stem}')

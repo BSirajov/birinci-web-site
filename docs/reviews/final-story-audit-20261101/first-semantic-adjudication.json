@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-02",
+  "first_content_records": 1280,
+  "first_cross_story_records": 1280,
+  "basis": [
+    "Separate full source-content reread ledger: 260 Azerbaijani texts.",
+    "Separate translated-content reread ledger: 1,020 texts.",
+    "All 260 source-content summaries reconsidered for collection-level plot overlap; all first translation comparisons complete.",
+    "Complete title/byline/moral-label and repeated-text inventories adjudicated; typography inventory and candidate decisions now recorded.",
+    "Named-source research outcomes either recorded as evidence notes or unresolved Needs decision findings."
+  ],
+  "limits": [
+    "Reviewed does not mean historically authenticated, corrected or approved.",
+    "Anonymous literary narratives are not automatically classified as factual eyewitness testimony.",
+    "Traditional sayings do not require invented origin claims; no source was invented where authentication failed.",
+    "Second Content and Cross-story passes are still pending; second Translation is partial.",
+    "No overall zero-new-findings pass or guarantee is claimed."
+  ],
+  "findings_at_adjudication": 83
+}

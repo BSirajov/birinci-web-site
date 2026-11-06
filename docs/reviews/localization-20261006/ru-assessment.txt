@@ -1,0 +1,443 @@
+RU LOCALIZATION ASSESSMENT — COMPLETE
+COMPLETE: 261/261 source rows reviewed; 256 complete AZ/RU pairs and five missing Russian poems.
+Input contains 261 unique aligned rows. This is a model-assisted read-only assessment; no native-speaker validation is claimed.
+Quality status counts for completed reviews only: {"no_material_issue":227,"optional":15,"essential":14,"missing":5}
+Finding counts for completed reviews only: {"P1":5,"P2":9,"P3":16}
+Missing Russian targets: 5. Pending full-text reviews: 0.
+All 261 rows have complete review_state and a substantive status. Missing targets have false target-review flags because no target exists; their AZ source was read completely.
+
+ESSENTIAL FINDINGS
+P1 elephant-and-the-rope
+AZ: Nə qədər dartınsalar da, ipi qıra bilmirlər.
+RU: По мере роста эти животные постепенно начинают верить, что не могут разорвать верёвку и убежать.
+The trainer's explanation omits the baby elephants' repeated unsuccessful attempts to break the rope. Instead belief appears to develop simply as they grow. That loses the causal link between early failures and later learned restraint, which is central to the plot and moral. Restore that link.
+Confidence: high
+P1 expressions-you-should-stay-away-from
+AZ: Sən başa düşməzsən!
+RU: Ты не понимаешь!
+The cited forbidden phrase changes prospective dismissal ('you would not/will not understand') to a present assertion ('you do not understand'). Since this is an article defining specific phrases and alternatives, preserve the dismissal of the spouse's ability to understand rather than changing the phrase being discussed.
+Confidence: medium
+P2 fish-shop
+AZ: Get, qardaşım, halal olsun.
+RU: Иди, брат, пусть будет халяль.
+In this scene the fishmonger waives payment for the fish. The bare Russian 'пусть будет халяль' does not clearly express that debt release and can be read as a food-permissibility statement. Render the speech act of freely giving/forgiving payment, retaining the religious goodwill if desired.
+Confidence: high
+Source ambiguity: 'Halal olsun' is a contextual blessing/permission formula; this judgment follows the unpaid-fish context, not a blanket rule for all uses.
+P1 fortieth-day-rite
+AZ: ağzının dadı qaçmasın deyə duz
+RU: соль — чтобы вкус его рта не пропал
+The salt gift's wish is reduced to a literal 'taste of his mouth'. The AZ expression can convey continuing well-being/enjoyment of life, while RU gives an obscure bodily wish. Ask a bilingual reviewer to establish the intended ritual nuance and make that wish intelligible.
+Confidence: medium
+Source ambiguity: The cultural idiom may deliberately retain a taste image alongside figurative well-being; confirm the tradition-specific meaning before choosing a definitive replacement.
+P2 from-the-memoirs-of-a-lady-from-istanbul
+AZ: Nişanı qaytardıq, ayrıldıq.
+RU: Мы вернули помолвку и расстались.
+'Вернули помолвку' is a literal and nonstandard way to express breaking off an engagement. 'Расстались' helps readers infer the event, but the engagement action itself should be stated clearly.
+Confidence: high
+P2 hajj-pilgrimage
+AZ: kəramət başdadır, tacda deyildir.
+RU: керамет — в голове, а не в венце.
+The untranslated 'керамет' carries the central contrast between inward spiritual worth and outward signs. Its meaning is not explained in either the verse or moral, making the lesson difficult for a general Russian reader unfamiliar with the term. Add an accurate contextual gloss after bilingual review.
+Confidence: medium
+Source ambiguity: Kəramət has religious shades beyond a simple one-word secular equivalent; retain the intended shade rather than flattening it.
+P2 hayats-life-story
+AZ: Haqqını halal et
+RU: Сделай дозволенным то, что я тебе должен
+Verified in the full deathbed passage: this is a request for forgiveness/release of moral claims, not an instruction to legalize what is owed. The literal imperative is awkward and obscures the emotional speech act, although the next sentence says she forgave him. Make the deathbed request intelligible and retain its connection with her subsequent refusal to forgive the enablers.
+Confidence: high
+P1 help-yourself-o-exalted-god
+AZ: Könlü yarda olana, gözü yolda qalana,
+RU: тому, чьё сердце изранено, и тому, чей взгляд остался на дороге,
+The source line refers to a heart with/longing for the beloved and eyes waiting for someone, whereas RU introduces a wounded heart and leaves the waiting image as a literal gaze left on the road. Preserve the beloved/expectant-longing sense rather than substituting injury.
+Confidence: medium
+Source ambiguity: Confirm the precise poetic shade of 'könlü yarda' and 'gözü yolda' with an Azerbaijani/Russian reviewer; the source does not explicitly say the heart is wounded.
+P2 humanity
+AZ: ondan halallıq ala biləydim
+RU: получить от него халяль
+The woman wants release from obligation to the youth who sacrificed his exam, not 'halal' as an object to obtain. The literal religious formula is opaque in general Russian. Clarify the forgiveness/release request and the doctor's reassurance in the same context.
+Confidence: high
+Source ambiguity: Halallıq is not necessarily an admission of wrongdoing; avoid making the woman guilty merely because she needed help.
+P2 mullah-and-the-scholar
+AZ: üstündə qarası olsa, yeyərəm.
+RU: если сверху есть чернота — съем.
+The mullah's reply about plov translates 'qarası' literally as blackness. In this food context the term refers to a plov accompaniment/topping; blackness makes the comic food interpretation obscure. Use an intelligible food description while preserving the downward-hand gesture.
+Confidence: medium
+Source ambiguity: Confirm the exact traditional accompaniment intended; AZ does not list its ingredients, so do not invent a specific recipe.
+P2 nothing-is-ever-truly-lost
+AZ: Həyatda yalnız itki görməyin.
+RU: Не видьте в жизни только потерю.
+'Не видьте' is an unsuitable imperative form in this instruction and impedes idiomatic reading. Express 'do not see only loss in life' with a normal Russian imperative construction. The success/learning moral otherwise remains intact.
+Confidence: high
+P2 those-you-should-not-befriend
+AZ: Çox danışar, boş danışar, kəm danışar
+RU: он много говорит, говорит пустое и говорит скудно
+'Говорит скудно' is unclear and conflicts awkwardly with speaking a lot. The AZ list condemns the quality of the self-important person's speech; confirm 'kəm danışar' and render its negative speech-quality sense intelligibly.
+Confidence: medium
+Source ambiguity: Kəm may carry bad/deficient or disparaging shades in this expression. Confirm the intended shade; do not assume that scant quantity is the point.
+P2 welcome-my-bey
+AZ: Heç bir ananın gözü yolda qalmasın!
+RU: Пусть ни у одной матери взгляд не останется на дороге.
+The closing wish refers to mothers left waiting for their loved ones' return. The literal Russian gaze-left-on-the-road formulation obscures that emotional wish and recurs in the moral. Make the waiting/longing meaning explicit while retaining the memorial setting.
+Confidence: high
+P1 weeds-must-be-pulled-from-the-root
+AZ: belin köməyi ilə torpağın altını üstünə çevirər, alaq otlarını əzib qırardıq.
+RU: Мы рыхлили землю и пололи грядки,
+The Russian compresses away the children's specific ineffective method: turning soil over and crushing/breaking weeds instead of removing roots. The father's instruction to drive the spade deeply is also generalized. The moral survives, but the practical before/after demonstration loses substantive detail; restore that causal contrast.
+Confidence: high
+
+OPTIONAL FINDINGS
+blind-well — The moral's 'стряхнуть это' has a vague object and sounds literal. The surrounding story makes the soil metaphor clear; smoothing the reference is optional.
+AZ: Çarəsizlikdən qurtuluş sızlamaqda yox, silkələnib mübarizə aparmaqdadır.
+RU: Выход из беспомощности не в жалобах, а в том, чтобы стряхнуть это и бороться.
+Confidence: high
+compliment — The moral moves from plural 'нас' to singular 'ему'. The person is recoverable from the preceding sentence, but consistent reference would read more smoothly.
+AZ: insanın daxilində və ona göstərilən səmimi diqqətdədir.
+RU: а внутри нас и в искреннем внимании, которое ему оказывают.
+Confidence: high
+dead-remain-in-life — The grief paradox is preserved, but 'остался в жизни' is an awkward literal phrase in both title and body. An idiomatic expression for the survivor would improve fluency without weakening the paradox.
+AZ: əsl ölən həyatda qalandır.
+RU: истинно умерший — тот, кто остался в жизни.
+Confidence: high
+diderot-effect — The source itself speaks of a rug matching his money and himself. The Russian preserves that wording too literally; a formulation about means and taste would be smoother, subject to bilingual confirmation of nuance.
+AZ: puluna və özünə uyğun bir xalça alır.
+RU: купил ковёр, подходящий его деньгам и ему самому.
+Confidence: medium
+different-path — The sentence shifts from feminine 'дорога/улица' to masculine 'самый неудобный' without an explicit head noun. An implied 'путь' may explain the masculine form, but a fully consistent construction would read more smoothly. Meaning remains clear, so this is optional editorial polish.
+AZ: Mövcud yolların ən əlverişsizi olsa da
+RU: Хотя это был самый неудобный из существующих дорог
+Confidence: medium
+donkeys-law — The moral calques a metaphor for sustaining a law. Its meaning is recoverable, but a natural Russian expression for what keeps the law in force would improve fluency.
+AZ: Mənasız qanunu ayaqda saxlayan
+RU: Бессмысленный закон держит на ногах
+Confidence: high
+drinking-the-sherbet-of-martyrdom — The dying soldiers' final taste is conveyed with an unnatural literal phrase. Make the sweetness experienced in their last moments idiomatic while retaining the Ottoman/Zamzam setting. The underlying historical claim is source content, not independently validated.
+AZ: son nəfəslərində ağızları şirin olsun deyə
+RU: чтобы у них стал сладок рот.
+Confidence: high
+education-or-character — The source's vizier becomes a generic minister, and the ruler alternates between 'король' and 'царь'. The fable remains clear, but retaining 'визирь' and consistent royal terminology would preserve the source register more closely.
+AZ: Padşah vəzirindən soruşur:
+RU: Король спрашивает своего министра:
+Confidence: medium
+hayats-life-story — Nağıl also means 'tale/fairy tale', linking her imaginary refuge to the granddaughter's name. Pure transliteration preserves the name but leaves that transparent source wordplay inaccessible. A light gloss is optional.
+AZ: adı Nağıl olan bir qız varmış.
+RU: девочка по имени Нагыл.
+Confidence: high
+how-can-i-escape-my-thoughts — The AZ release formula is rendered as saving one's life, which sounds overdramatic for letting go of a pole. The metaphor and moral remain intelligible; use a natural release/free-yourself expression for smoother dialogue.
+AZ: Burax onu, canın qurtulsun!
+RU: Отпустите его, пусть спасётся ваша жизнь.
+Confidence: high
+loving-from-afar — The colloquial 'durduğum yerdə' is made into a physical location, producing an unnatural sentence. The speaker fears needlessly getting himself into romantic complications; smoothing that idiom is optional because the following dialogue explains his fear.
+AZ: Durduğum yerdə başıma iş açıb eşqə düşərəm.
+RU: На месте, где стою, наживу себе беду и влюблюсь.
+Confidence: high
+our-qualities-can-become-our-enemies — The source's 'sweet tongue' evokes the nightingale's attractive voice/song. The literal Russian tongue image is less idiomatic; naming the sweet song would make the causal image more natural while preserving the metaphor.
+AZ: Bülbülü qəfəsə salan şirin dilidir.
+RU: Соловей попадает в клетку из-за своего сладкого языка.
+Confidence: high
+sowing-millet-at-the-bottom — The millet-at-the-bottom idiom is preserved as a literal image in title and punchline. The repeated bags of gold allow readers to infer depletion, but a light clarification of 'empty the treasury' would make the joke easier to follow without replacing the agrarian imagery.
+AZ: xəzinəmizin dibinə darı əkəcək!
+RU: дно нашей казны просом.
+Confidence: high
+think-speak-and-act-positively — The 'hold values high' wording is a literal spatial idiom. The intended respect/commitment to values is clear from the list, but an idiomatic Russian expression would improve fluency.
+AZ: Dəyərlərinizi uca tutun
+RU: Держите свои ценности высоко
+Confidence: high
+to-be-full-or-to-be-gone — Verified in the full poem and moral. The spatial wording is a literal calque for valuing/upholding moral or spiritual integrity. The unity lesson remains clear; replace the calque with an idiomatic Russian formulation after confirming the ethical/spiritual shade of mənəviyyat.
+AZ: mənəviyyatımızı uca tutmalıyıq.
+RU: высоко держать духовность.
+Confidence: high
+what-is-loyalty — The literal 'share one state' is stiff Russian for being emotionally alongside a friend. The preceding reference to sharing pain preserves the meaning; polishing this line is optional.
+AZ: Vəfa dostunla həmhal olmaq deməkdir,
+RU: Верность означает разделять с другом одно состояние,
+Confidence: high
+
+SOURCE CREDIT / VERSION DIFFERENCES
+AZ commonly replaces singular open-Internet source credit with plural credit plus AI-illustration notice. RU sometimes replaces a quoted singular source credit with the same standard plural/AI notice. These are attribution/production disclosures, not narrative mistranslations. Later authored entries change the Russian DOCX author credit Этибар Сираджсой to the published Latin Etibar Siracsoy; the verified exact credit appears in difference_pool. The RU narrative otherwise matches DOCX apart from one double-space normalization; AZ also has title-case and whitespace normalization.
+Each reviewed row references exact version differences in the JSON difference_pool; boilerplate is kept outside quality findings.
+
+SOURCE AMBIGUITIES
+AZ frequently does not specify narrator gender; Russian gender selection is not automatically a semantic error.
+garden-and-the-gardener denies a simple gardener-only explanation while its moral balances help and personal effort; the conceptual tension is inherited from AZ.
+Historical claims embedded in the source, including Durer, Diderot, Ottoman customs and the 1919 memoir, were not fact-checked and must not be attributed to translation error.
+no-need-to-be-sane-when-everyone-is-mad: title/action and moral pull in different directions in AZ as well as RU.
+pawn-and-the-king: the pawn becoming a king is a chess-inaccurate source image, not a Russian-added mistake.
+shepherd-must-be-called: rabid dogs becoming obedient is an inherited source inconsistency.
+three-best-things: giving others a place in your heart versus taking a place in others’ hearts differs between source dialogue and source moral; RU retains both.
+to-give-up: family-love/reverence wording permits receiving-versus-showing interpretations; a bilingual reviewer should clarify intent before changing the Russian.
+weight-of-the-oil: the informal hand-balance measurement is inherited from AZ.
+
+MISSING RUSSIAN POEMS
+changing-times-enduring-friendship — AZ fully read; no Russian DOCX or published target supplied.
+cherishing-flowers-in-spring — AZ fully read; no Russian DOCX or published target supplied.
+from-reflection-to-hope — AZ fully read; no Russian DOCX or published target supplied.
+hopeful-journey-through-life — AZ fully read; no Russian DOCX or published target supplied.
+quarantine-days-hopeful-hearts — AZ fully read; no Russian DOCX or published target supplied.
+
+STRATEGY
+Address P1 loss of causal/dialogue/cultural meaning and P2 unclear idioms or broken grammar before optional polish. Resolve medium-confidence AZ nuance with a bilingual reviewer.
+Polish demonstrably literal wording only where it improves Russian reading. Preserve moral, emotional restraint, dialogue, religious setting and names; avoid a blanket rewrite.
+Full-text coverage is complete. Resolve essential findings first, supply the five missing poems, and request targeted bilingual review of medium-confidence source nuance. Originals were not changed.
+User reports five poems absent in EN/RU/KY and DOCX-only in DE. This RU inventory confirms the five missing RU target rows; other languages are outside this input and have not been independently verified.
+
+PER-STORY COVERAGE LEDGER
+advice-for-those-who-marry | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+aging | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+albrecht-durer | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+ant-that-carries-water | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+architect-sinan-dies-in-a-house-without-water | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+attitude-toward-a-problem | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+avoid-these-questions | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+baklava | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+be-sure-of-your-purpose | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+bedouin-whose-camel-was-stolen | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+being-human | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+bell-to-hang-on-the-cats-neck | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+beloved-is-one-who-gives-love-to-people | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+beware-of-those-you-love | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+blessings-god-has-given | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+blind-well | optional | complete | DOCX=true | published=true | P3:idiomatic_fluency | No material semantic loss identified beyond any specifically documented clarity issue.
+blind-who-have-eyes | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+bookstore | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+builder-of-the-nest | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+calamity-and-blessing | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+can-a-broken-heart-love-again | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+candles-conversation | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+chief-accountant-and-the-ceo | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+church-bell | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+communication | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+compassion | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+compliment | optional | complete | DOCX=true | published=true | P3:reference_consistency | No material semantic loss identified beyond any specifically documented clarity issue.
+credit-ledger | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+dead-remain-in-life | optional | complete | DOCX=true | published=true | P3:idiomatic_fluency | No material semantic loss identified beyond any specifically documented clarity issue.
+dervishs-clothes | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+dervishs-robe | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+dervishs-spoons | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+diderot-effect | optional | complete | DOCX=true | published=true | P3:idiomatic_fluency | No material semantic loss identified beyond any specifically documented clarity issue.
+different-path | optional | complete | DOCX=true | published=true | P3:grammar_fluency | No material semantic loss identified beyond any specifically documented clarity issue.
+do-not-complain-about-any-day-you-have-lived | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+do-not-do-these-things | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+do-not-let-your-hearts-part | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+do-you-have-spending-money | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+doctors-appointment | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+donkeys-law | optional | complete | DOCX=true | published=true | P3:idiomatic_fluency | No material semantic loss identified beyond any specifically documented clarity issue.
+dont-be-words-for-mouths-dust-for-feet | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+dont-open-your-mouth | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+dont-say-i-couldnt-deliver-or-i-couldnt-manage | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+drinking-the-sherbet-of-martyrdom | optional | complete | DOCX=true | published=true | P3:idiomatic_fluency | No material semantic loss identified beyond any specifically documented clarity issue.
+early-marriage | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+eat-less-and-stay-on-the-right-path | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+education-or-character | optional | complete | DOCX=true | published=true | P3:cultural_setting | No material semantic loss identified beyond any specifically documented clarity issue.
+elephant-and-the-rope | essential | complete | DOCX=true | published=true | P1:semantic_omission | Listed substantive semantic/detail issues require correction; overall message remains recognizable.
+everyone-is-the-same-here | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+everything-is-in-our-own-hands | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+explaining-ones-sorrow | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+expressions-you-should-stay-away-from | essential | complete | DOCX=true | published=true | P1:dialogue_semantics | Listed substantive semantic/detail issues require correction; overall message remains recognizable.
+faith-is-half-of-success | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+fallen-teeth | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+father-and-son | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+fathers-footprints | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+festive-gift | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+fish-shop | essential | complete | DOCX=true | published=true | P2:cultural_idiom_clarity | No material semantic loss identified beyond any specifically documented clarity issue.
+flower-of-honesty | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+fly-in-the-china-shop | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+for-those-who-have-reached-sixty | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+forbidden-money | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+former-minister-at-the-seminar | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+fortieth-day-rite | essential | complete | DOCX=true | published=true | P1:cultural_idiom_semantics | Listed substantive semantic/detail issues require correction; overall message remains recognizable.
+friend-of-god | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+friendship-and-love | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+friendship-of-horses | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+from-a-wise-fathers-advice-to-his-son | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+from-the-memoirs-of-a-lady-from-istanbul | essential | complete | DOCX=true | published=true | P2:idiom_clarity | No material semantic loss identified beyond any specifically documented clarity issue.
+garden-and-the-gardener | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue. | Source: Source tension between denial of a gardener-only explanation and the balanced help/personal-effort moral.
+generous-man | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+glass-of-milk | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+go-but-come-again | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+gods-pleasure | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+goose-to-be-plucked | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+gossip | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+grandfather-and-grandson-at-the-market | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+grocery-shop-and-the-supermarket | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+hajj-pilgrimage | essential | complete | DOCX=true | published=true | P2:cultural_term_clarity | No material semantic loss identified beyond any specifically documented clarity issue.
+handful-of-roasted-chickpeas | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+hayats-life-story | essential | complete | DOCX=true | published=true | P2:cultural_idiom_clarity, P3:name_wordplay | No material semantic loss identified beyond any specifically documented clarity issue.
+he-would-not-have-given-so-little | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+help-yourself-o-exalted-god | essential | complete | DOCX=true | published=true | P1:emotion_semantics | Listed substantive semantic/detail issues require correction; overall message remains recognizable.
+henry-fords-choice | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+his-hand-is-at-work | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+hold-my-hand | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+homeland-and-land | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+honey-or-dry-bread | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+hot-bread | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+how-can-i-escape-my-thoughts | optional | complete | DOCX=true | published=true | P3:idiomatic_fluency | No material semantic loss identified beyond any specifically documented clarity issue.
+how-to-ward-off-insults | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+how-we-treat-people | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+human-emerged | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+humanity | essential | complete | DOCX=true | published=true | P2:cultural_idiom_clarity | No material semantic loss identified beyond any specifically documented clarity issue.
+hunters-description | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+i-am-aware-now | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+i-am-tired-mother | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+i-am-waiting-for-the-teeth | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+i-got-busy-with-cleaning | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+i-kiss-your-eyes | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+i-love-you | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+i-want-a-friend | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+i-would-not-trade-it-for-anything | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+idle-devil | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+if-i-dont-do-it-these-days-the-world-wont-collapse | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+if-the-door-before-you-wont-open-it-is-not-your-door | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+if-the-road-does-not-tire-you-it-is-because-of-your-companion | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+it-is-in-vain | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+it-wont-go-to-waste | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+just-verdict-of-the-frankfurt-judge | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+know-your-friend | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+lawful-morsel | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+lecturer-and-the-groom | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+let-prayer-come-and-find-you | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+life-is-short | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+life-lesson | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+light-of-the-universe | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+lions-footprint | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+liver | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+living-in-the-past | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+loving-from-afar | optional | complete | DOCX=true | published=true | P3:idiomatic_fluency | No material semantic loss identified beyond any specifically documented clarity issue.
+magnificent-lesson | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+mature-person | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+may-your-face-always-smile | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+meaningless-question | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+meddling-in-others-lives | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+mercedes | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+mihrimah-sultan-and-architect-sinan | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+mockery-is-unacceptable | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+more-effective-way | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+most-beautiful-gift | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+most-beautiful-places-in-the-world | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+most-beautiful-portion | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+mother-and-son | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+mother-of-pearl-flower | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+mothers-advice-fakir-baykurt-never-forgot | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+mothers-love | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+mullah-and-the-scholar | essential | complete | DOCX=true | published=true | P2:cultural_food_clarity | No material semantic loss identified beyond any specifically documented clarity issue.
+my-alif-has-been-dotted | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+newtons-second-law | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+no-need-to-be-sane-when-everyone-is-mad | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue. | Source: Source title/action and moral pull in different directions; inherited in Russian.
+no-one-listens-to-constant-complainers | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+not-every-sorrow-is-told-to-people | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+not-leaving-the-right-path | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+nothing-is-ever-truly-lost | essential | complete | DOCX=true | published=true | P2:grammar_clarity | No material semantic loss identified beyond any specifically documented clarity issue.
+o-god-give-first-to-the-mountains-and-stones | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+o-god-heal-our-sorrows | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+one-who-knows-and-the-one-who-does-not | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+only-my-mother-would-weep | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+other-peoples-opinions | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+our-qualities-can-become-our-enemies | optional | complete | DOCX=true | published=true | P3:idiomatic_fluency | No material semantic loss identified beyond any specifically documented clarity issue.
+pair-of-boots | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+pawn-and-the-king | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue. | Source: Chess-inaccurate pawn-to-king image occurs in AZ too.
+pay-rent-for-the-water | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+people-who-need-something-from-you | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+permission-or-apology | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+power-of-truth | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+pray-while-washing-your-dishes | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+price-of-a-miracle | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+properties-of-water | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+puppies-for-sale | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+purple-jacket | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+raising-children | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+ramadan-prayer | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+red-dress | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+road-to-the-cotton-field | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+rose | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+rotten-seed | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+sacrificial-meat | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+say-what-you-know | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+saying-the-word-in-its-place | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+scarf-seller | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+searching | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+secret-of-living-well-and-longevity | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+sharing-justice | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+shepherd-must-be-called | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue. | Source: Rabid dogs then obeying the shepherd is an inherited source inconsistency.
+shepherds-word | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+silence | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+skins-of-the-lambs | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+sound-of-the-doorbell | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+sowing-millet-at-the-bottom | optional | complete | DOCX=true | published=true | P3:cultural_idiom_fluency | No material semantic loss identified beyond any specifically documented clarity issue.
+spare-time | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+spend-your-time-with-people | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+spinach | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+stoning-the-devil | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+strength-and-sorrow | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+strongest-shield | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+teacher-hello-do-you-remember-me | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+telling-lies | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+that-was-not-your-right | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+think-speak-and-act-positively | optional | complete | DOCX=true | published=true | P3:idiomatic_fluency | No material semantic loss identified beyond any specifically documented clarity issue.
+this-boat-is-empty-too | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+those-you-should-not-befriend | essential | complete | DOCX=true | published=true | P2:lexical_clarity | No material semantic loss identified beyond any specifically documented clarity issue.
+three-best-things | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue. | Source: AZ dialogue and moral reverse whose heart accommodates whom; Russian preserves both.
+three-essential-things-for-a-city | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+three-landscapes | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+three-questions | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+three-statues | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+to-be-alone | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+to-be-cool-headed | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+to-be-fasting | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+to-be-full-or-to-be-gone | optional | complete | DOCX=true | published=true | P3:idiomatic_fluency | No material semantic loss identified beyond any specifically documented clarity issue.
+to-be-self-confident | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+to-dream | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+to-forgive | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+to-give-up | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue. | Source: Family-love/reverence phrase has receiving-versus-showing ambiguity; bilingual clarification needed before semantic revision.
+to-meet-and-to-know | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+tongue | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+true-love | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+try-to-think-this-way | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+turning-hardship-into-opportunity | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+turtles-wrong-calculation | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+two-bowls-of-water | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+two-donkeys | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+value-of-your-family | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+we-are-rich | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+weight-of-the-oil | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue. | Source: Informal measurement using hands rather than scales is inherited from AZ.
+welcome-my-bey | essential | complete | DOCX=true | published=true | P2:emotion_idiom_clarity | No material semantic loss identified beyond any specifically documented clarity issue.
+what-breaks-a-marriage | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+what-changed-after-sixty | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+what-do-i-need-it-for | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+what-is-a-word | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+what-is-loyalty | optional | complete | DOCX=true | published=true | P3:idiomatic_fluency | No material semantic loss identified beyond any specifically documented clarity issue.
+what-it-means-to-be-late | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+what-matters-in-life | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+what-we-learn-in-life | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+what-women-have-endured-in-this-world | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+where-does-calamity-come-from | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+where-does-this-road-go | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+who-handles-honey-licks-his-finger | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+why-am-i-poor | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+why-are-you-waiting-for-the-last-day-of-the-world | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+why-injustice-when-there-is-justice | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+why-people-shout-when-they-argue | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+windmill-turning-in-still-air | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+with-this-nation-the-world-can-be-conquered | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+woman-and-the-mirror | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+woman-whose-house-was-robbed | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+word-and-silence | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+yellow-and-red-flowers | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+you-cannot-descend-a-well-on-his-rope | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+your-friends | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+your-hand-at-work-your-hope-in-god | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+discussion-and-conflict | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+everyone-has-work-to-do | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+if-fate-allows-we-will-meet | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+organization-without-an-action-plan | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+silent-corridor | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+weeds-must-be-pulled-from-the-root | essential | complete | DOCX=true | published=true | P1:semantic_omission | Listed substantive semantic/detail issues require correction; overall message remains recognizable.
+caring-call-brightens-the-day | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+changing-times-enduring-friendship | missing | complete | DOCX=false | published=false |  | Absent translation: complete source poem has no target.
+cherish-today-with-loved-ones | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+cherishing-flowers-in-spring | missing | complete | DOCX=false | published=false |  | Absent translation: complete source poem has no target.
+day-gratefully-lived | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+from-reflection-to-hope | missing | complete | DOCX=false | published=false |  | Absent translation: complete source poem has no target.
+hopeful-journey-through-life | missing | complete | DOCX=false | published=false |  | Absent translation: complete source poem has no target.
+humanity-rebuilds-in-peace | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+kindness-builds-stronger-bonds | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+nails-lasting-lesson | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.
+quarantine-days-hopeful-hearts | missing | complete | DOCX=false | published=false |  | Absent translation: complete source poem has no target.
+small-changes-big-meaning | no_material_issue | complete | DOCX=true | published=true |  | No material semantic loss identified beyond any specifically documented clarity issue.

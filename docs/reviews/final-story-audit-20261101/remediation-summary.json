@@ -1,0 +1,18 @@
+{
+  "open_findings_fixed": 29,
+  "word_sources_updated": 114,
+  "paragraph_changes": 160,
+  "site_records_verified": 1280,
+  "pending_decisions_unchanged": 59,
+  "report_entries": 125,
+  "fixed_including_historical": 66,
+  "open": 0,
+  "reports": [
+    "report.html",
+    "report-az.html",
+    "report-ru.html"
+  ],
+  "illustrations_changed": false,
+  "deployed": false,
+  "limit": "Subsequent all-category zero-new-findings editorial pass not completed."
+}

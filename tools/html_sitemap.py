@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import html
 import json
-import locale
 import re
 from pathlib import Path
 
@@ -112,13 +111,6 @@ def _sitemap_copy(lang: str) -> dict:
 
 
 _NUM_PREFIX_RE = re.compile(r"^(?:§\s*)?\d+(?:\.\d+)*\.?\s+")
-_LOCALE_CANDIDATES = {
-    "az": ("az_AZ.UTF-8", "az_AZ", "az", "Azerbaijani_Azerbaijan.1254"),
-    "en": ("en_US.UTF-8", "en_US", "en", "English_United States.1252"),
-    "ru": ("ru_RU.UTF-8", "ru_RU", "ru", "Russian_Russia.1251"),
-    "ky": ("ky_KG.UTF-8", "ky_KG", "ky", "Kyrgyz_Kyrgyzstan.1251", "ru_RU.UTF-8"),
-    "de": ("de_DE.UTF-8", "de_DE", "de", "German_Germany.1252"),
-}
 
 
 def _esc(text: str) -> str:
@@ -127,30 +119,6 @@ def _esc(text: str) -> str:
 
 def _visible_label(text: str) -> str:
     return _NUM_PREFIX_RE.sub("", str(text or "")).strip()
-
-
-def _locale_sort_titles(items: list, lang: str, key=lambda item: item.get("title") or "") -> list:
-    titles = list(items)
-    old = locale.setlocale(locale.LC_COLLATE, None)
-    applied = False
-    for cand in _LOCALE_CANDIDATES.get(lang, _LOCALE_CANDIDATES["en"]):
-        try:
-            locale.setlocale(locale.LC_COLLATE, cand)
-            applied = True
-            break
-        except locale.Error:
-            continue
-    try:
-        if applied:
-            titles.sort(key=lambda item: locale.strxfrm(str(key(item) or "")))
-        else:
-            titles.sort(key=lambda item: str(key(item) or "").casefold())
-    finally:
-        try:
-            locale.setlocale(locale.LC_COLLATE, old)
-        except locale.Error:
-            pass
-    return titles
 
 
 def _count_label(template: str, n: int) -> str:
@@ -238,14 +206,11 @@ def _story_categories(lang: str) -> list[dict]:
     rows = []
     for slug, meta in (loc.get("categories") or {}).items():
         blob = by_slug.get(slug) or {}
-        stories = _locale_sort_titles(
-            [
-                {"stem": story.get("stem"), "title": story.get("title")}
-                for story in (blob.get("stories") or [])
-                if story.get("stem") and story.get("title")
-            ],
-            lang,
-        )
+        stories = [
+            {"stem": story.get("stem"), "title": story.get("title")}
+            for story in (blob.get("stories") or [])
+            if story.get("stem") and story.get("title")
+        ]
         rows.append(
             {
                 "slug": slug,

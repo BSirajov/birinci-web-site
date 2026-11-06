@@ -1,0 +1,344 @@
+{
+  "date": "2026-11-01",
+  "reviewed": {
+    "az": 260,
+    "en": 255,
+    "de": 255,
+    "ru": 255,
+    "ky": 255
+  },
+  "scope": "Full reading of published story bodies and morals in all five languages. Surgical wording corrections preserve meaning, titles, routes, interface labels and source formatting. Verse layout follows existing Word line breaks.",
+  "changes": [
+    {
+      "lang": "ky",
+      "stem": "if-fate-allows",
+      "before": "Аны менен дагы эле чоң кубанычта жолугушкум келет.",
+      "after": "Аны менен дагы эле кубаныч менен жолугушкум келет.",
+      "reason": "Natural Kyrgyz expression for meeting someone gladly.",
+      "path": "ky/wisdom-stories/Bakhtiyar Sirajov/if-fate-allows.docx",
+      "paragraph": 1,
+      "source_before": "Дайыма «көрүшөбүз» деген адам эми «кысмет болсо, көрүшөбүз» деп калды. Мында бир бөтөнчүлүк бар. Мен өзгөргөн жокмун, ага болгон мамилем да мурдагыдай жылуу. Аны менен дагы эле чоң кубанычта жолугушкум келет. Бирок бул «кысмет болсо» деген сөз ортобузга тосмо болуп калгандай. Мен анын тагдырын билбейм, ал да меникин билбейт. Кызык, ушул эки тагдыр бири-биринен кабардар бекен, өз ара макулдашып, бизди жолуктура алар бекен?",
+      "source_after": "Дайыма «көрүшөбүз» деген адам эми «кысмет болсо, көрүшөбүз» деп калды. Мында бир бөтөнчүлүк бар. Мен өзгөргөн жокмун, ага болгон мамилем да мурдагыдай жылуу. Аны менен дагы эле кубаныч менен жолугушкум келет. Бирок бул «кысмет болсо» деген сөз ортобузга тосмо болуп калгандай. Мен анын тагдырын билбейм, ал да меникин билбейт. Кызык, ушул эки тагдыр бири-биринен кабардар бекен, өз ара макулдашып, бизди жолуктура алар бекен?"
+    },
+    {
+      "lang": "en",
+      "stem": "handful-of-roasted-chickpeas",
+      "before": "When the shopkeeper realized that his mother wasn’t going to buy any,",
+      "after": "When the shopkeeper realized that the boy’s mother wasn’t going to buy any,",
+      "reason": "Remove an ambiguous possessive that could refer to the shopkeeper’s mother.",
+      "path": "en/wisdom-stories/handful-of-roasted-chickpeas.docx",
+      "paragraph": 3,
+      "source_before": "When the shopkeeper realized that his mother wasn’t going to buy any, he decided to treat the boy.",
+      "source_after": "When the shopkeeper realized that the boy’s mother wasn’t going to buy any, he decided to treat the boy."
+    },
+    {
+      "lang": "en",
+      "stem": "everyone-is-equal-here",
+      "before": "A newly elected young head of the local council",
+      "after": "The young, newly elected head of the local council",
+      "reason": "Natural modifier order and clearer opening.",
+      "path": "en/wisdom-stories/everyone-is-equal-here.docx",
+      "paragraph": 1,
+      "source_before": "A newly elected young head of the local council decided to explore the neighborhood on foot. After walking for a while, he stopped at a teahouse on a side street and ordered some tea.",
+      "source_after": "The young, newly elected head of the local council decided to explore the neighborhood on foot. After walking for a while, he stopped at a teahouse on a side street and ordered some tea."
+    },
+    {
+      "lang": "en",
+      "stem": "silent-corridor",
+      "before": "There were two organizations working together — one was the sponsor, the other was the project development agency.",
+      "after": "Two organizations were working together: one was the sponsor, and the other was the agency developing the project.",
+      "reason": "Remove a comma splice and clarify the agency’s role without changing it.",
+      "path": "en/wisdom-stories/Bakhtiyar Sirajov/silent-corridor.docx",
+      "paragraph": 1,
+      "source_before": "There were two organizations working together — one was the sponsor, the other was the project development agency.",
+      "source_after": "Two organizations were working together: one was the sponsor, and the other was the agency developing the project."
+    },
+    {
+      "lang": "de",
+      "stem": "thoughtfulness",
+      "before": "In diesem Augenblick begreifst du, dass irgendwo in dieser weiten Welt Menschen sind, die an dich denken und denen dein Dasein etwas bedeutet.",
+      "after": "In diesem Augenblick begreifen wir, dass es irgendwo in dieser weiten Welt Menschen gibt, die an uns denken und denen unser Dasein etwas bedeutet.",
+      "reason": "Keep the narrative perspective consistently in the first-person plural.",
+      "path": "de/wisdom-stories/Etibar Siracsoy/thoughtfulness.docx",
+      "paragraph": 1,
+      "source_before": "Zu den kostbarsten Gaben des menschlichen Lebens gehört es, Aufmerksamkeit und Fürsorge zu erfahren. Manchmal geht schon ein kurzer Anruf eines Verwandten, Freundes oder Bekannten, der einfach wissen möchte, wie es uns geht, wie eine Sonne in unserem Herzen auf. In diesem Augenblick begreifst du, dass irgendwo in dieser weiten Welt Menschen sind, die an dich denken und denen dein Dasein etwas bedeutet.",
+      "source_after": "Zu den kostbarsten Gaben des menschlichen Lebens gehört es, Aufmerksamkeit und Fürsorge zu erfahren. Manchmal geht schon ein kurzer Anruf eines Verwandten, Freundes oder Bekannten, der einfach wissen möchte, wie es uns geht, wie eine Sonne in unserem Herzen auf. In diesem Augenblick begreifen wir, dass es irgendwo in dieser weiten Welt Menschen gibt, die an uns denken und denen unser Dasein etwas bedeutet."
+    },
+    {
+      "lang": "de",
+      "stem": "fathers-footsteps",
+      "before": "Pass auf deine Schritte auf, mein Sohn. Achte darauf, wohin du gehst.",
+      "after": "Achte auf deine Schritte, mein Sohn. Pass auf, wohin du trittst.",
+      "reason": "Replace an awkward repeated particle while retaining the footsteps metaphor.",
+      "path": "de/wisdom-stories/fathers-footsteps.docx",
+      "paragraph": 2,
+      "source_before": "„Pass auf deine Schritte auf, mein Sohn. Achte darauf, wohin du gehst.“",
+      "source_after": "„Achte auf deine Schritte, mein Sohn. Pass auf, wohin du trittst.“"
+    },
+    {
+      "lang": "de",
+      "stem": "im-tired-mom",
+      "before": "Werde du nicht müde, schätze das, was du hast",
+      "after": "Überanstrenge dich nicht und schätze, was du hast",
+      "reason": "Idiomatic expression of the mother’s advice not to wear oneself out.",
+      "path": "de/wisdom-stories/im-tired-mom.docx",
+      "paragraph": 8,
+      "source_before": "— Ihr macht mich nicht müde, mein Sohn. Meine Müdigkeit kommt daher, dass ich keine Mutter mehr habe. Meine Mutter ist nicht mehr da, und ich kann meinen Kopf nicht mehr in ihren Schoß legen, mein Sohn … Werde du nicht müde, schätze das, was du hast …",
+      "source_after": "— Ihr macht mich nicht müde, mein Sohn. Meine Müdigkeit kommt daher, dass ich keine Mutter mehr habe. Meine Mutter ist nicht mehr da, und ich kann meinen Kopf nicht mehr in ihren Schoß legen, mein Sohn … Überanstrenge dich nicht und schätze, was du hast …"
+    },
+    {
+      "lang": "de",
+      "stem": "avoid-these-questions",
+      "before": "Eine Frage, die für uns nur beiläufige Neugier ist,",
+      "after": "Eine Frage, die wir nur aus beiläufiger Neugier stellen,",
+      "reason": "Replace a literal construction with idiomatic German.",
+      "path": "de/wisdom-stories/avoid-these-questions.docx",
+      "paragraph": 4,
+      "source_before": "Eine Frage, die für uns nur beiläufige Neugier ist, kann bei einem anderen eine alte Wunde aufreißen. Überlege deshalb, bevor du fragst: Möchtest du diesem Menschen beistehen oder nur deine Neugier befriedigen?",
+      "source_after": "Eine Frage, die wir nur aus beiläufiger Neugier stellen, kann bei einem anderen eine alte Wunde aufreißen. Überlege deshalb, bevor du fragst: Möchtest du diesem Menschen beistehen oder nur deine Neugier befriedigen?"
+    },
+    {
+      "lang": "de",
+      "stem": "another-day",
+      "before": "Was auf dieser Seite steht, weiß allein Gott am besten.",
+      "after": "Was auf dieser Seite steht, weiß Gott allein.",
+      "reason": "Remove the conflicting combination of exclusive and comparative wording.",
+      "path": "de/wisdom-stories/Etibar Siracsoy/another-day.docx",
+      "paragraph": 7,
+      "source_before": "So habe ich wieder einen Tag gelebt … Im unendlichen Buch der Zeit wurde eine weitere Seite meines Lebens umgeblättert. Was auf dieser Seite steht, weiß allein Gott am besten.",
+      "source_after": "So habe ich wieder einen Tag gelebt … Im unendlichen Buch der Zeit wurde eine weitere Seite meines Lebens umgeblättert. Was auf dieser Seite steht, weiß Gott allein."
+    },
+    {
+      "lang": "az",
+      "stem": "handful-of-roasted-chickpeas",
+      "before": "Anasının almaq niyyətində olmadığını görən satıcı",
+      "after": "Uşağın anasının ləbləbi almaq niyyətində olmadığını görən satıcı",
+      "reason": "Clarify whose mother is meant and the omitted object.",
+      "path": "az/wisdom-stories/handful-of-roasted-chickpeas.docx",
+      "paragraph": 3,
+      "source_before": "Anasının almaq niyyətində olmadığını görən satıcı uşağın könlünü almaq istədi:",
+      "source_after": "Uşağın anasının ləbləbi almaq niyyətində olmadığını görən satıcı uşağın könlünü almaq istədi:"
+    },
+    {
+      "lang": "az",
+      "stem": "avoid-these-questions",
+      "before": "Bizim üçün ötəri maraq olan bir sual",
+      "after": "Sadəcə ötəri maraqla verdiyimiz bir sual",
+      "reason": "Replace an awkward nominal construction with a natural expression.",
+      "path": "az/wisdom-stories/avoid-these-questions.docx",
+      "paragraph": 4,
+      "source_before": "Bizim üçün ötəri maraq olan bir sual başqasının köhnə yarasını sızıldada bilər. Soruşmazdan əvvəl düşünün: bu insana qayğı göstərmək istəyirsiniz, yoxsa sadəcə öz marağınızı ödəmək?",
+      "source_after": "Sadəcə ötəri maraqla verdiyimiz bir sual başqasının köhnə yarasını sızıldada bilər. Soruşmazdan əvvəl düşünün: bu insana qayğı göstərmək istəyirsiniz, yoxsa sadəcə öz marağınızı ödəmək?"
+    },
+    {
+      "lang": "az",
+      "stem": "price-of-a-miracle",
+      "before": "Liza valideynlərinin kiçik qardaşı Oliver haqqında danışdıqlarını eşidəndə səkkiz yaşında idi.",
+      "after": "Səkkiz yaşlı Liza valideynlərinin onun kiçik qardaşı Oliver haqqında danışdıqlarını eşitdi.",
+      "reason": "Clarify the family relationship and simplify the opening.",
+      "path": "az/wisdom-stories/price-of-a-miracle.docx",
+      "paragraph": 1,
+      "source_before": "Liza valideynlərinin kiçik qardaşı Oliver haqqında danışdıqlarını eşidəndə səkkiz yaşında idi. Bildiyi yalnız bu idi: qardaşı ağır xəstədir, ata-anasının isə onun müalicəsinə pulu çatmır.",
+      "source_after": "Səkkiz yaşlı Liza valideynlərinin onun kiçik qardaşı Oliver haqqında danışdıqlarını eşitdi. Bildiyi yalnız bu idi: qardaşı ağır xəstədir, ata-anasının isə onun müalicəsinə pulu çatmır."
+    },
+    {
+      "lang": "ru",
+      "stem": "friend-of-allah",
+      "before": "У мужчины защипало глаза.",
+      "after": "У мужчины защипало в глазах.",
+      "reason": "Correct the idiomatic construction.",
+      "path": "ru/wisdom-stories/friend-of-allah.docx",
+      "paragraph": 4,
+      "source_before": "У мужчины защипало глаза. Он присел перед ребёнком и ответил:",
+      "source_after": "У мужчины защипало в глазах. Он присел перед ребёнком и ответил:"
+    },
+    {
+      "lang": "ru",
+      "stem": "loving-from-afar",
+      "before": "гулять за руку",
+      "after": "гулять, держась за руки",
+      "reason": "Use the natural Russian expression for walking hand in hand.",
+      "path": "ru/wisdom-stories/loving-from-afar.docx",
+      "paragraph": 6,
+      "source_before": "— Сказал бы, да боюсь лишиться покоя. Только хлопот себе наживу. Начнём ходить в кино, в театр, гулять за руку. Потом пойдут ссоры, примирения: «Почему ты на неё посмотрел?», «Зачем этой улыбнулся?» Если в конце концов всё равно расстанемся, к чему вся эта канитель?",
+      "source_after": "— Сказал бы, да боюсь лишиться покоя. Только хлопот себе наживу. Начнём ходить в кино, в театр, гулять, держась за руки. Потом пойдут ссоры, примирения: «Почему ты на неё посмотрел?», «Зачем этой улыбнулся?» Если в конце концов всё равно расстанемся, к чему вся эта канитель?"
+    },
+    {
+      "lang": "ky",
+      "stem": "fasting",
+      "before": "көзүмдү жаман ниеттен",
+      "after": "көзүмдү бирөөгө жаман ниет менен кароодон",
+      "reason": "Clarify the intended act of looking at others with ill intent, preserving the source metaphor.",
+      "path": "ky/wisdom-stories/fasting.docx",
+      "paragraph": 8,
+      "source_before": "— Тилимди жалгандан, көзүмдү жаман ниеттен, колумду бирөөнүн мүлкүнө тийүүдөн тыям. Эч кимди шылдыңдабайм, кемсинтпейм, ушактабайм. Ысырап кылуудан алысмын. Оорумдан улам ачка жүрө албайм. Бирок сөзүм менен ишимди ушул айдын рухуна ылайык кылууга аракеттенем.",
+      "source_after": "— Тилимди жалгандан, көзүмдү бирөөгө жаман ниет менен кароодон, колумду бирөөнүн мүлкүнө тийүүдөн тыям. Эч кимди шылдыңдабайм, кемсинтпейм, ушактабайм. Ысырап кылуудан алысмын. Оорумдан улам ачка жүрө албайм. Бирок сөзүм менен ишимди ушул айдын рухуна ылайык кылууга аракеттенем."
+    },
+    {
+      "lang": "de",
+      "stem": "fasting",
+      "before": "Ich hüte meine Zunge vor Lügen, meinen Blick vor bösen Absichten und meine Hände davor, fremdes Eigentum zu nehmen.",
+      "after": "Ich hüte mich davor, zu lügen, andere mit böser Absicht anzusehen oder mir fremdes Eigentum anzueignen.",
+      "reason": "Replace an awkward literal construction while preserving all three actions.",
+      "path": "de/wisdom-stories/fasting.docx",
+      "paragraph": 8,
+      "source_before": "„Ich hüte meine Zunge vor Lügen, meinen Blick vor bösen Absichten und meine Hände davor, fremdes Eigentum zu nehmen. Ich verspotte und erniedrige niemanden und rede nicht hinter dem Rücken anderer schlecht über sie. Ich vermeide Verschwendung. Wegen meiner Krankheit kann ich nicht auf Nahrung verzichten. Doch ich versuche, meine Worte und Taten nach dem Geist dieses Monats auszurichten.“",
+      "source_after": "„Ich hüte mich davor, zu lügen, andere mit böser Absicht anzusehen oder mir fremdes Eigentum anzueignen. Ich verspotte und erniedrige niemanden und rede nicht hinter dem Rücken anderer schlecht über sie. Ich vermeide Verschwendung. Wegen meiner Krankheit kann ich nicht auf Nahrung verzichten. Doch ich versuche, meine Worte und Taten nach dem Geist dieses Monats auszurichten.“"
+    },
+    {
+      "lang": "ky",
+      "stem": "handful-of-roasted-chickpeas",
+      "before": "Апасы сатып бербей турганын байкаган сатуучу",
+      "after": "Баланын апасы нокот сатып бербей турганын байкаган сатуучу",
+      "reason": "Clarify whose mother is meant and what she will not buy.",
+      "path": "ky/wisdom-stories/handful-of-roasted-chickpeas.docx",
+      "paragraph": 3,
+      "source_before": "Апасы сатып бербей турганын байкаган сатуучу баланы сүйүндүргүсү келди:",
+      "source_after": "Баланын апасы нокот сатып бербей турганын байкаган сатуучу баланы сүйүндүргүсү келди:"
+    },
+    {
+      "lang": "ky",
+      "stem": "everyone-is-equal-here",
+      "before": "чайканага кирип, чай буюртма берди.",
+      "after": "чайканага кирип, чай буюрду.",
+      "reason": "Use the natural verb for ordering tea.",
+      "path": "ky/wisdom-stories/everyone-is-equal-here.docx",
+      "paragraph": 1,
+      "source_before": "Жергиликтүү башкарууга жаңы шайланган жаш жетекчи аймактын турмушу менен жакындан таанышуу үчүн көчөлөрдү жөө кыдырып чыкты. Бир аз баскандан кийин тар көчөдөгү чайканага кирип, чай буюртма берди.",
+      "source_after": "Жергиликтүү башкарууга жаңы шайланган жаш жетекчи аймактын турмушу менен жакындан таанышуу үчүн көчөлөрдү жөө кыдырып чыкты. Бир аз баскандан кийин тар көчөдөгү чайканага кирип, чай буюрду."
+    },
+    {
+      "lang": "ky",
+      "stem": "avoid-these-questions",
+      "before": "Биз үчүн жөн гана кызыгуу болгон суроо",
+      "after": "Жөн гана кызыгып берген сурообуз",
+      "reason": "Replace a literal nominal construction with a natural clause.",
+      "path": "ky/wisdom-stories/avoid-these-questions.docx",
+      "paragraph": 4,
+      "source_before": "Биз үчүн жөн гана кызыгуу болгон суроо башка бирөөнүн эски жарасын козгошу мүмкүн. Сураардан мурун ойлон: бул адамга колдоо көрсөткүң келип жатабы же жөн гана билгиң келип жатабы?",
+      "source_after": "Жөн гана кызыгып берген сурообуз башка бирөөнүн эски жарасын козгошу мүмкүн. Сураардан мурун ойлон: бул адамга колдоо көрсөткүң келип жатабы же жөн гана билгиң келип жатабы?"
+    }
+  ],
+  "verse_layout": [
+    {
+      "lang": "az",
+      "stem": "hajj-pilgrimage",
+      "paragraph": 4,
+      "reason": "Preserve existing Word verse line breaks in published reading and comparison views."
+    },
+    {
+      "lang": "az",
+      "stem": "i-wish-for-a-friend",
+      "paragraph": 0,
+      "reason": "Preserve existing Word verse line breaks in published reading and comparison views."
+    },
+    {
+      "lang": "az",
+      "stem": "language",
+      "paragraph": 0,
+      "reason": "Preserve existing Word verse line breaks in published reading and comparison views."
+    },
+    {
+      "lang": "ru",
+      "stem": "hajj-pilgrimage",
+      "paragraph": 4,
+      "reason": "Preserve existing Word verse line breaks in published reading and comparison views."
+    },
+    {
+      "lang": "ru",
+      "stem": "prayer-for-everyone",
+      "paragraph": 0,
+      "reason": "Preserve existing Word verse line breaks in published reading and comparison views."
+    },
+    {
+      "lang": "ru",
+      "stem": "i-wish-for-a-friend",
+      "paragraph": 0,
+      "reason": "Preserve existing Word verse line breaks in published reading and comparison views."
+    },
+    {
+      "lang": "ru",
+      "stem": "language",
+      "paragraph": 0,
+      "reason": "Preserve existing Word verse line breaks in published reading and comparison views."
+    },
+    {
+      "lang": "ky",
+      "stem": "hajj-pilgrimage",
+      "paragraph": 4,
+      "reason": "Preserve existing Word verse line breaks in published reading and comparison views."
+    },
+    {
+      "lang": "ky",
+      "stem": "prayer-for-everyone",
+      "paragraph": 0,
+      "reason": "Preserve existing Word verse line breaks in published reading and comparison views."
+    },
+    {
+      "lang": "ky",
+      "stem": "i-wish-for-a-friend",
+      "paragraph": 0,
+      "reason": "Preserve existing Word verse line breaks in published reading and comparison views."
+    },
+    {
+      "lang": "ky",
+      "stem": "language",
+      "paragraph": 0,
+      "reason": "Preserve existing Word verse line breaks in published reading and comparison views."
+    },
+    {
+      "lang": "de",
+      "stem": "hajj-pilgrimage",
+      "paragraph": 4,
+      "reason": "Preserve existing Word verse line breaks in published reading and comparison views."
+    },
+    {
+      "lang": "de",
+      "stem": "prayer-for-everyone",
+      "paragraph": 0,
+      "reason": "Preserve existing Word verse line breaks in published reading and comparison views."
+    },
+    {
+      "lang": "de",
+      "stem": "i-wish-for-a-friend",
+      "paragraph": 0,
+      "reason": "Preserve existing Word verse line breaks in published reading and comparison views."
+    },
+    {
+      "lang": "de",
+      "stem": "language",
+      "paragraph": 0,
+      "reason": "Preserve existing Word verse line breaks in published reading and comparison views."
+    }
+  ],
+  "content_findings": [
+    {
+      "languages": [
+        "en",
+        "de",
+        "ru",
+        "ky"
+      ],
+      "stem": "light-of-the-world",
+      "detail": "Duplicates door-to-the-heart; AZ light-of-the-world is the wolf, sheep and sheepdog fable. Left unchanged because selecting/replacing the story is a separate content decision."
+    }
+  ],
+  "validation": {
+    "status": "Editorial corrections and site verification complete; Word visual rendering blocked by local export failure.",
+    "source_sync": {
+      "stories": 1280,
+      "errors": 0
+    },
+    "targeted_tests": {
+      "passed": 17,
+      "failed": 0
+    },
+    "german_integration": "PASS, including 512 preservation hashes",
+    "source_formatting": "All 19 edited Word documents: only intended paragraph text changed; paragraph/run formatting, sections and package part inventories preserved.",
+    "browser": "PASS: all 19 corrected story texts in desktop/light and mobile/dark; restored hajj verse in category, expanded and comparison views for all five languages.",
+    "rebuild_check": "PASS for all five languages",
+    "word_visual": "Open: LibreOffice unavailable; Word PDF export stalled on KY and AZ samples. Review-only Word processes stopped without saving sources.",
+    "report": "docs/reviews/story-review-20261101.html; 40 findings, 35 Fixed, 5 Open. Offline search/filter/sort/expand/theme/print/mobile checks passed with zero network requests and zero JavaScript errors.",
+    "deployment": "Not committed, pushed or deployed."
+  }
+}

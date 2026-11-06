@@ -1,0 +1,848 @@
+[
+  {
+    "source": "en\\wisdom-stories\\istanbul-woman-remembers.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\en_wisdom-stories_istanbul-woman-remembers-1.png",
+    "text_characters": 2537
+  },
+  {
+    "source": "ru\\wisdom-stories\\flower-of-honesty.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\ru_wisdom-stories_flower-of-honesty-1.png",
+    "text_characters": 1883
+  },
+  {
+    "source": "ru\\wisdom-stories\\flower-of-honesty.docx",
+    "page": 2,
+    "image": "tmp\\open-fixes-render\\ru_wisdom-stories_flower-of-honesty-2.png",
+    "text_characters": 507
+  },
+  {
+    "source": "en\\wisdom-stories\\windmill-turning-without-wind.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\en_wisdom-stories_windmill-turning-without-wind-1.png",
+    "text_characters": 318
+  },
+  {
+    "source": "en\\wisdom-stories\\human-being-emerged.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\en_wisdom-stories_human-being-emerged-1.png",
+    "text_characters": 576
+  },
+  {
+    "source": "de\\wisdom-stories\\glass-of-milk.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_glass-of-milk-1.png",
+    "text_characters": 2206
+  },
+  {
+    "source": "en\\wisdom-stories\\Etibar Siracsoy\\nails-lesson.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\en_wisdom-stories_Etibar_Siracsoy_nails-lesson-1.png",
+    "text_characters": 2032
+  },
+  {
+    "source": "ru\\wisdom-stories\\lifes-finest-blessing.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\ru_wisdom-stories_lifes-finest-blessing-1.png",
+    "text_characters": 405
+  },
+  {
+    "source": "ru\\wisdom-stories\\those-who-give-love-receive-love.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\ru_wisdom-stories_those-who-give-love-receive-love-1.png",
+    "text_characters": 1911
+  },
+  {
+    "source": "ru\\wisdom-stories\\those-who-give-love-receive-love.docx",
+    "page": 2,
+    "image": "tmp\\open-fixes-render\\ru_wisdom-stories_those-who-give-love-receive-love-2.png",
+    "text_characters": 589
+  },
+  {
+    "source": "ru\\wisdom-stories\\baklava.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\ru_wisdom-stories_baklava-1.png",
+    "text_characters": 1525
+  },
+  {
+    "source": "ru\\wisdom-stories\\stolen-camel.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\ru_wisdom-stories_stolen-camel-1.png",
+    "text_characters": 1049
+  },
+  {
+    "source": "ru\\wisdom-stories\\belling-the-cat.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\ru_wisdom-stories_belling-the-cat-1.png",
+    "text_characters": 1000
+  },
+  {
+    "source": "ru\\wisdom-stories\\ant-carrying-water.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\ru_wisdom-stories_ant-carrying-water-1.png",
+    "text_characters": 986
+  },
+  {
+    "source": "ru\\wisdom-stories\\albrecht-durer.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\ru_wisdom-stories_albrecht-durer-1.png",
+    "text_characters": 1962
+  },
+  {
+    "source": "ru\\wisdom-stories\\sinans-waterless-house.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\ru_wisdom-stories_sinans-waterless-house-1.png",
+    "text_characters": 2351
+  },
+  {
+    "source": "ky\\wisdom-stories\\those-who-give-love-receive-love.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\ky_wisdom-stories_those-who-give-love-receive-love-1.png",
+    "text_characters": 1900
+  },
+  {
+    "source": "ky\\wisdom-stories\\those-who-give-love-receive-love.docx",
+    "page": 2,
+    "image": "tmp\\open-fixes-render\\ky_wisdom-stories_those-who-give-love-receive-love-2.png",
+    "text_characters": 724
+  },
+  {
+    "source": "ky\\wisdom-stories\\baklava.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\ky_wisdom-stories_baklava-1.png",
+    "text_characters": 1634
+  },
+  {
+    "source": "ky\\wisdom-stories\\belling-the-cat.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\ky_wisdom-stories_belling-the-cat-1.png",
+    "text_characters": 1082
+  },
+  {
+    "source": "ky\\wisdom-stories\\stolen-camel.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\ky_wisdom-stories_stolen-camel-1.png",
+    "text_characters": 1200
+  },
+  {
+    "source": "ky\\wisdom-stories\\ant-carrying-water.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\ky_wisdom-stories_ant-carrying-water-1.png",
+    "text_characters": 1103
+  },
+  {
+    "source": "ky\\wisdom-stories\\albrecht-durer.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\ky_wisdom-stories_albrecht-durer-1.png",
+    "text_characters": 1827
+  },
+  {
+    "source": "ky\\wisdom-stories\\albrecht-durer.docx",
+    "page": 2,
+    "image": "tmp\\open-fixes-render\\ky_wisdom-stories_albrecht-durer-2.png",
+    "text_characters": 336
+  },
+  {
+    "source": "ky\\wisdom-stories\\sinans-waterless-house.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\ky_wisdom-stories_sinans-waterless-house-1.png",
+    "text_characters": 1781
+  },
+  {
+    "source": "ky\\wisdom-stories\\sinans-waterless-house.docx",
+    "page": 2,
+    "image": "tmp\\open-fixes-render\\ky_wisdom-stories_sinans-waterless-house-2.png",
+    "text_characters": 788
+  },
+  {
+    "source": "az\\wisdom-stories\\vizier-and-the-scholar.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\az_wisdom-stories_vizier-and-the-scholar-1.png",
+    "text_characters": 2697
+  },
+  {
+    "source": "az\\wisdom-stories\\vizier-and-the-scholar.docx",
+    "page": 2,
+    "image": "tmp\\open-fixes-render\\az_wisdom-stories_vizier-and-the-scholar-2.png",
+    "text_characters": 334
+  },
+  {
+    "source": "ru\\wisdom-stories\\fasting.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\ru_wisdom-stories_fasting-1.png",
+    "text_characters": 1030
+  },
+  {
+    "source": "az\\wisdom-stories\\Bakhtiyar Sirajov\\discussion-and-conflict.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\az_wisdom-stories_Bakhtiyar_Sirajov_discussion-and-conflict-1.png",
+    "text_characters": 1939
+  },
+  {
+    "source": "ky\\wisdom-stories\\doorbell.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\ky_wisdom-stories_doorbell-1.png",
+    "text_characters": 1461
+  },
+  {
+    "source": "ky\\wisdom-stories\\do-not-deepen-anothers-pain.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\ky_wisdom-stories_do-not-deepen-anothers-pain-1.png",
+    "text_characters": 879
+  },
+  {
+    "source": "de\\wisdom-stories\\avoid-these-questions.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_avoid-these-questions-1.png",
+    "text_characters": 1193
+  },
+  {
+    "source": "ru\\wisdom-stories\\hayats-life-story.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\ru_wisdom-stories_hayats-life-story-1.png",
+    "text_characters": 2537
+  },
+  {
+    "source": "ru\\wisdom-stories\\hayats-life-story.docx",
+    "page": 2,
+    "image": "tmp\\open-fixes-render\\ru_wisdom-stories_hayats-life-story-2.png",
+    "text_characters": 2034
+  },
+  {
+    "source": "ru\\wisdom-stories\\hayats-life-story.docx",
+    "page": 3,
+    "image": "tmp\\open-fixes-render\\ru_wisdom-stories_hayats-life-story-3.png",
+    "text_characters": 2377
+  },
+  {
+    "source": "ru\\wisdom-stories\\hayats-life-story.docx",
+    "page": 4,
+    "image": "tmp\\open-fixes-render\\ru_wisdom-stories_hayats-life-story-4.png",
+    "text_characters": 490
+  },
+  {
+    "source": "ky\\wisdom-stories\\hot-bread.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\ky_wisdom-stories_hot-bread-1.png",
+    "text_characters": 1344
+  },
+  {
+    "source": "ky\\wisdom-stories\\hot-bread.docx",
+    "page": 2,
+    "image": "tmp\\open-fixes-render\\ky_wisdom-stories_hot-bread-2.png",
+    "text_characters": 1337
+  },
+  {
+    "source": "ky\\wisdom-stories\\hot-bread.docx",
+    "page": 3,
+    "image": "tmp\\open-fixes-render\\ky_wisdom-stories_hot-bread-3.png",
+    "text_characters": 615
+  },
+  {
+    "source": "az\\wisdom-stories\\before-you-marry.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\az_wisdom-stories_before-you-marry-1.png",
+    "text_characters": 1993
+  },
+  {
+    "source": "en\\wisdom-stories\\before-you-marry.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\en_wisdom-stories_before-you-marry-1.png",
+    "text_characters": 1905
+  },
+  {
+    "source": "de\\wisdom-stories\\before-you-marry.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_before-you-marry-1.png",
+    "text_characters": 2280
+  },
+  {
+    "source": "ru\\wisdom-stories\\before-you-marry.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\ru_wisdom-stories_before-you-marry-1.png",
+    "text_characters": 1873
+  },
+  {
+    "source": "ky\\wisdom-stories\\before-you-marry.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\ky_wisdom-stories_before-you-marry-1.png",
+    "text_characters": 2149
+  },
+  {
+    "source": "ky\\wisdom-stories\\education-or-character.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\ky_wisdom-stories_education-or-character-1.png",
+    "text_characters": 1314
+  },
+  {
+    "source": "ky\\wisdom-stories\\more-than-money.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\ky_wisdom-stories_more-than-money-1.png",
+    "text_characters": 799
+  },
+  {
+    "source": "en\\wisdom-stories\\life-after-sixty.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\en_wisdom-stories_life-after-sixty-1.png",
+    "text_characters": 3180
+  },
+  {
+    "source": "az\\wisdom-stories\\red-dress.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\az_wisdom-stories_red-dress-1.png",
+    "text_characters": 2583
+  },
+  {
+    "source": "az\\wisdom-stories\\red-dress.docx",
+    "page": 2,
+    "image": "tmp\\open-fixes-render\\az_wisdom-stories_red-dress-2.png",
+    "text_characters": 309
+  },
+  {
+    "source": "az\\wisdom-stories\\make-time-for-people.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\az_wisdom-stories_make-time-for-people-1.png",
+    "text_characters": 2230
+  },
+  {
+    "source": "az\\wisdom-stories\\learning-to-say-yet.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\az_wisdom-stories_learning-to-say-yet-1.png",
+    "text_characters": 1192
+  },
+  {
+    "source": "az\\wisdom-stories\\price-of-belonging.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\az_wisdom-stories_price-of-belonging-1.png",
+    "text_characters": 1090
+  },
+  {
+    "source": "az\\wisdom-stories\\credit-ledger.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\az_wisdom-stories_credit-ledger-1.png",
+    "text_characters": 2354
+  },
+  {
+    "source": "ky\\wisdom-stories\\credit-ledger.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\ky_wisdom-stories_credit-ledger-1.png",
+    "text_characters": 1602
+  },
+  {
+    "source": "ky\\wisdom-stories\\credit-ledger.docx",
+    "page": 2,
+    "image": "tmp\\open-fixes-render\\ky_wisdom-stories_credit-ledger-2.png",
+    "text_characters": 802
+  },
+  {
+    "source": "en\\wisdom-stories\\red-dress.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\en_wisdom-stories_red-dress-1.png",
+    "text_characters": 2616
+  },
+  {
+    "source": "en\\wisdom-stories\\red-dress.docx",
+    "page": 2,
+    "image": "tmp\\open-fixes-render\\en_wisdom-stories_red-dress-2.png",
+    "text_characters": 369
+  },
+  {
+    "source": "de\\wisdom-stories\\Bakhtiyar Sirajov\\discussion-and-conflict.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_Bakhtiyar_Sirajov_discussion-and-conflict-1.png",
+    "text_characters": 2182
+  },
+  {
+    "source": "de\\wisdom-stories\\moderation-and-honesty.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_moderation-and-honesty-1.png",
+    "text_characters": 961
+  },
+  {
+    "source": "de\\wisdom-stories\\staying-on-the-right-path.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_staying-on-the-right-path-1.png",
+    "text_characters": 1949
+  },
+  {
+    "source": "de\\wisdom-stories\\prayer-for-relief.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_prayer-for-relief-1.png",
+    "text_characters": 741
+  },
+  {
+    "source": "de\\wisdom-stories\\hands-at-work-hope-in-god.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_hands-at-work-hope-in-god-1.png",
+    "text_characters": 2364
+  },
+  {
+    "source": "de\\wisdom-stories\\power-of-justice.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_power-of-justice-1.png",
+    "text_characters": 437
+  },
+  {
+    "source": "de\\wisdom-stories\\hajj-pilgrimage.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_hajj-pilgrimage-1.png",
+    "text_characters": 1213
+  },
+  {
+    "source": "de\\wisdom-stories\\drinking-the-sherbet-of-martyrdom.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_drinking-the-sherbet-of-martyrdom-1.png",
+    "text_characters": 1080
+  },
+  {
+    "source": "de\\wisdom-stories\\hour-with-dad.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_hour-with-dad-1.png",
+    "text_characters": 2151
+  },
+  {
+    "source": "de\\wisdom-stories\\hour-with-dad.docx",
+    "page": 2,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_hour-with-dad-2.png",
+    "text_characters": 109
+  },
+  {
+    "source": "de\\wisdom-stories\\mother-and-son.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_mother-and-son-1.png",
+    "text_characters": 2589
+  },
+  {
+    "source": "de\\wisdom-stories\\mother-and-son.docx",
+    "page": 2,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_mother-and-son-2.png",
+    "text_characters": 728
+  },
+  {
+    "source": "de\\wisdom-stories\\fathers-footsteps.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_fathers-footsteps-1.png",
+    "text_characters": 555
+  },
+  {
+    "source": "de\\wisdom-stories\\nest-builder.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_nest-builder-1.png",
+    "text_characters": 600
+  },
+  {
+    "source": "de\\wisdom-stories\\early-marriage.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_early-marriage-1.png",
+    "text_characters": 2065
+  },
+  {
+    "source": "de\\wisdom-stories\\i-kiss-your-eyes.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_i-kiss-your-eyes-1.png",
+    "text_characters": 584
+  },
+  {
+    "source": "de\\wisdom-stories\\what-women-endure.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_what-women-endure-1.png",
+    "text_characters": 2120
+  },
+  {
+    "source": "de\\wisdom-stories\\red-dress.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_red-dress-1.png",
+    "text_characters": 3028
+  },
+  {
+    "source": "de\\wisdom-stories\\red-dress.docx",
+    "page": 2,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_red-dress-2.png",
+    "text_characters": 516
+  },
+  {
+    "source": "de\\wisdom-stories\\i-love-you.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_i-love-you-1.png",
+    "text_characters": 1350
+  },
+  {
+    "source": "de\\wisdom-stories\\forgiveness.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_forgiveness-1.png",
+    "text_characters": 914
+  },
+  {
+    "source": "de\\wisdom-stories\\respecting-boundaries.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_respecting-boundaries-1.png",
+    "text_characters": 478
+  },
+  {
+    "source": "de\\wisdom-stories\\Etibar Siracsoy\\thoughtfulness.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_Etibar_Siracsoy_thoughtfulness-1.png",
+    "text_characters": 1505
+  },
+  {
+    "source": "de\\wisdom-stories\\permission-or-forgiveness.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_permission-or-forgiveness-1.png",
+    "text_characters": 2075
+  },
+  {
+    "source": "de\\wisdom-stories\\mockery-is-unacceptable.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_mockery-is-unacceptable-1.png",
+    "text_characters": 468
+  },
+  {
+    "source": "de\\wisdom-stories\\request-for-help.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_request-for-help-1.png",
+    "text_characters": 640
+  },
+  {
+    "source": "de\\wisdom-stories\\make-time-for-people.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_make-time-for-people-1.png",
+    "text_characters": 2814
+  },
+  {
+    "source": "de\\wisdom-stories\\being-human.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_being-human-1.png",
+    "text_characters": 1733
+  },
+  {
+    "source": "de\\wisdom-stories\\think-before-speaking.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_think-before-speaking-1.png",
+    "text_characters": 668
+  },
+  {
+    "source": "de\\wisdom-stories\\beyond-complaining.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_beyond-complaining-1.png",
+    "text_characters": 1029
+  },
+  {
+    "source": "de\\wisdom-stories\\flower-of-honesty.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_flower-of-honesty-1.png",
+    "text_characters": 2501
+  },
+  {
+    "source": "de\\wisdom-stories\\flower-of-honesty.docx",
+    "page": 2,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_flower-of-honesty-2.png",
+    "text_characters": 358
+  },
+  {
+    "source": "de\\wisdom-stories\\sunlit-day.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_sunlit-day-1.png",
+    "text_characters": 731
+  },
+  {
+    "source": "de\\wisdom-stories\\inner-housekeeping.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_inner-housekeeping-1.png",
+    "text_characters": 2746
+  },
+  {
+    "source": "de\\wisdom-stories\\inner-housekeeping.docx",
+    "page": 2,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_inner-housekeeping-2.png",
+    "text_characters": 1275
+  },
+  {
+    "source": "de\\wisdom-stories\\plucking-the-goose.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_plucking-the-goose-1.png",
+    "text_characters": 2211
+  },
+  {
+    "source": "de\\wisdom-stories\\plucking-the-goose.docx",
+    "page": 2,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_plucking-the-goose-2.png",
+    "text_characters": 568
+  },
+  {
+    "source": "de\\wisdom-stories\\believe-in-yourself.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_believe-in-yourself-1.png",
+    "text_characters": 616
+  },
+  {
+    "source": "de\\wisdom-stories\\other-peoples-thoughts.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_other-peoples-thoughts-1.png",
+    "text_characters": 1150
+  },
+  {
+    "source": "de\\wisdom-stories\\share-what-you-know.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_share-what-you-know-1.png",
+    "text_characters": 660
+  },
+  {
+    "source": "de\\wisdom-stories\\sharpen-the-axe.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_sharpen-the-axe-1.png",
+    "text_characters": 832
+  },
+  {
+    "source": "de\\wisdom-stories\\before-it-is-too-late.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_before-it-is-too-late-1.png",
+    "text_characters": 1265
+  },
+  {
+    "source": "de\\wisdom-stories\\seeing-without-understanding.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_seeing-without-understanding-1.png",
+    "text_characters": 528
+  },
+  {
+    "source": "de\\wisdom-stories\\istanbul-woman-remembers.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_istanbul-woman-remembers-1.png",
+    "text_characters": 2361
+  },
+  {
+    "source": "de\\wisdom-stories\\istanbul-woman-remembers.docx",
+    "page": 2,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_istanbul-woman-remembers-2.png",
+    "text_characters": 109
+  },
+  {
+    "source": "de\\wisdom-stories\\living-in-the-past.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_living-in-the-past-1.png",
+    "text_characters": 633
+  },
+  {
+    "source": "de\\wisdom-stories\\audience-of-one.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_audience-of-one-1.png",
+    "text_characters": 1237
+  },
+  {
+    "source": "de\\wisdom-stories\\not-my-concern.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_not-my-concern-1.png",
+    "text_characters": 2834
+  },
+  {
+    "source": "de\\wisdom-stories\\fish-shop.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_fish-shop-1.png",
+    "text_characters": 2526
+  },
+  {
+    "source": "de\\wisdom-stories\\busy-but-unproductive.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_busy-but-unproductive-1.png",
+    "text_characters": 651
+  },
+  {
+    "source": "de\\wisdom-stories\\choose-justice.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_choose-justice-1.png",
+    "text_characters": 719
+  },
+  {
+    "source": "de\\wisdom-stories\\judges-answer.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_judges-answer-1.png",
+    "text_characters": 2386
+  },
+  {
+    "source": "de\\wisdom-stories\\land-and-homeland.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_land-and-homeland-1.png",
+    "text_characters": 503
+  },
+  {
+    "source": "de\\wisdom-stories\\what-changed-after-sixty.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_what-changed-after-sixty-1.png",
+    "text_characters": 3260
+  },
+  {
+    "source": "de\\wisdom-stories\\what-changed-after-sixty.docx",
+    "page": 2,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_what-changed-after-sixty-2.png",
+    "text_characters": 109
+  },
+  {
+    "source": "de\\wisdom-stories\\life-after-sixty.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_life-after-sixty-1.png",
+    "text_characters": 3417
+  },
+  {
+    "source": "de\\wisdom-stories\\life-after-sixty.docx",
+    "page": 2,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_life-after-sixty-2.png",
+    "text_characters": 109
+  },
+  {
+    "source": "de\\wisdom-stories\\aging.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_aging-1.png",
+    "text_characters": 445
+  },
+  {
+    "source": "de\\wisdom-stories\\two-donkeys.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_two-donkeys-1.png",
+    "text_characters": 806
+  },
+  {
+    "source": "de\\wisdom-stories\\lambs-skins.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_lambs-skins-1.png",
+    "text_characters": 2556
+  },
+  {
+    "source": "de\\wisdom-stories\\lambs-skins.docx",
+    "page": 2,
+    "image": "tmp\\open-fixes-render\\de_wisdom-stories_lambs-skins-2.png",
+    "text_characters": 392
+  },
+  {
+    "source": "en\\wisdom-stories\\dervishs-long-spoons.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\en_wisdom-stories_dervishs-long-spoons-1.png",
+    "text_characters": 1692
+  },
+  {
+    "source": "en\\wisdom-stories\\dervishs-appearance.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\en_wisdom-stories_dervishs-appearance-1.png",
+    "text_characters": 494
+  },
+  {
+    "source": "en\\wisdom-stories\\fathers-footsteps.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\en_wisdom-stories_fathers-footsteps-1.png",
+    "text_characters": 447
+  },
+  {
+    "source": "en\\wisdom-stories\\mothers-lasting-lesson.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\en_wisdom-stories_mothers-lasting-lesson-1.png",
+    "text_characters": 2087
+  },
+  {
+    "source": "en\\wisdom-stories\\fathers-advice.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\en_wisdom-stories_fathers-advice-1.png",
+    "text_characters": 2582
+  },
+  {
+    "source": "en\\wisdom-stories\\Etibar Siracsoy\\relationships.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\en_wisdom-stories_Etibar_Siracsoy_relationships-1.png",
+    "text_characters": 939
+  },
+  {
+    "source": "en\\wisdom-stories\\Etibar Siracsoy\\thoughtfulness.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\en_wisdom-stories_Etibar_Siracsoy_thoughtfulness-1.png",
+    "text_characters": 1240
+  },
+  {
+    "source": "en\\wisdom-stories\\do-not-deepen-anothers-pain.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\en_wisdom-stories_do-not-deepen-anothers-pain-1.png",
+    "text_characters": 852
+  },
+  {
+    "source": "en\\wisdom-stories\\kings-generosity.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\en_wisdom-stories_kings-generosity-1.png",
+    "text_characters": 762
+  },
+  {
+    "source": "en\\wisdom-stories\\grocers-sticky-fingers.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\en_wisdom-stories_grocers-sticky-fingers-1.png",
+    "text_characters": 1041
+  },
+  {
+    "source": "en\\wisdom-stories\\alis-unreliable-rope.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\en_wisdom-stories_alis-unreliable-rope-1.png",
+    "text_characters": 903
+  },
+  {
+    "source": "en\\wisdom-stories\\doctors-office.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\en_wisdom-stories_doctors-office-1.png",
+    "text_characters": 1423
+  },
+  {
+    "source": "en\\wisdom-stories\\Etibar Siracsoy\\another-day.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\en_wisdom-stories_Etibar_Siracsoy_another-day-1.png",
+    "text_characters": 1143
+  },
+  {
+    "source": "en\\wisdom-stories\\hayats-life-story.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\en_wisdom-stories_hayats-life-story-1.png",
+    "text_characters": 2709
+  },
+  {
+    "source": "en\\wisdom-stories\\hayats-life-story.docx",
+    "page": 2,
+    "image": "tmp\\open-fixes-render\\en_wisdom-stories_hayats-life-story-2.png",
+    "text_characters": 2233
+  },
+  {
+    "source": "en\\wisdom-stories\\hayats-life-story.docx",
+    "page": 3,
+    "image": "tmp\\open-fixes-render\\en_wisdom-stories_hayats-life-story-3.png",
+    "text_characters": 2408
+  },
+  {
+    "source": "en\\wisdom-stories\\hayats-life-story.docx",
+    "page": 4,
+    "image": "tmp\\open-fixes-render\\en_wisdom-stories_hayats-life-story-4.png",
+    "text_characters": 321
+  },
+  {
+    "source": "en\\wisdom-stories\\lifes-lessons.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\en_wisdom-stories_lifes-lessons-1.png",
+    "text_characters": 470
+  },
+  {
+    "source": "en\\wisdom-stories\\judges-answer.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\en_wisdom-stories_judges-answer-1.png",
+    "text_characters": 2119
+  },
+  {
+    "source": "en\\wisdom-stories\\Etibar Siracsoy\\life-flows-silently.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\en_wisdom-stories_Etibar_Siracsoy_life-flows-silently-1.png",
+    "text_characters": 1844
+  },
+  {
+    "source": "en\\wisdom-stories\\lions-untold-story.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\en_wisdom-stories_lions-untold-story-1.png",
+    "text_characters": 462
+  },
+  {
+    "source": "en\\wisdom-stories\\sinans-waterless-house.docx",
+    "page": 1,
+    "image": "tmp\\open-fixes-render\\en_wisdom-stories_sinans-waterless-house-1.png",
+    "text_characters": 2612
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "width": 390,
+    "to": "en",
+    "menu_click": true,
+    "notice_dismissal": true,
+    "pass": true
+  },
+  {
+    "width": 390,
+    "to": "de",
+    "menu_click": true,
+    "notice_dismissal": true,
+    "pass": true
+  },
+  {
+    "width": 390,
+    "to": "ru",
+    "menu_click": true,
+    "notice_dismissal": true,
+    "pass": true
+  },
+  {
+    "width": 390,
+    "to": "ky",
+    "menu_click": true,
+    "notice_dismissal": true,
+    "pass": true
+  },
+  {
+    "width": 1280,
+    "to": "en",
+    "menu_click": true,
+    "notice_dismissal": true,
+    "pass": true
+  },
+  {
+    "width": 1280,
+    "to": "de",
+    "menu_click": true,
+    "notice_dismissal": true,
+    "pass": true
+  },
+  {
+    "width": 1280,
+    "to": "ru",
+    "menu_click": true,
+    "notice_dismissal": true,
+    "pass": true
+  },
+  {
+    "width": 1280,
+    "to": "ky",
+    "menu_click": true,
+    "notice_dismissal": true,
+    "pass": true
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "language": "az",
+    "source": "az/wisdom-stories/red-dress.docx",
+    "credit": "Kerol Linn Pirsonun “Millie’s Mother’s Red Dress” şeirinin motivləri əsasında sərbəst nəsr uyğunlaşdırması. Yekundakı ibrət mətni bu uyğunlaşdırma üçün əlavə edilib.",
+    "original_paragraphs_unchanged": true
+  },
+  {
+    "language": "en",
+    "source": "en/wisdom-stories/red-dress.docx",
+    "credit": "A free prose adaptation of Carol Lynn Pearson’s poem “Millie’s Mother’s Red Dress”. The concluding moral was added for this adaptation.",
+    "original_paragraphs_unchanged": true
+  },
+  {
+    "language": "de",
+    "source": "de/wisdom-stories/red-dress.docx",
+    "credit": "Freie Prosabearbeitung nach Carol Lynn Pearsons Gedicht „Millie’s Mother’s Red Dress“. Die abschließende Lehre wurde für diese Bearbeitung hinzugefügt.",
+    "original_paragraphs_unchanged": true
+  },
+  {
+    "language": "ru",
+    "source": "ru/wisdom-stories/red-dress.docx",
+    "credit": "Вольная прозаическая адаптация стихотворения Кэрол Линн Пирсон «Millie’s Mother’s Red Dress». Заключительная мораль добавлена для этой адаптации.",
+    "original_paragraphs_unchanged": true
+  },
+  {
+    "language": "ky",
+    "source": "ky/wisdom-stories/red-dress.docx",
+    "credit": "Кэрол Линн Пирсондун «Millie’s Mother’s Red Dress» ырынын негизинде прозада эркин баяндалган аңгеме. Аягындагы сабак бул нуска үчүн кошулган.",
+    "original_paragraphs_unchanged": true
+  }
+]

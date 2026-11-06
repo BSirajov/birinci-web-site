@@ -1,0 +1,30 @@
+[
+  {
+    "candidate": "English regional spelling",
+    "decision": "No confirmed inconsistency in the 50 matched paragraphs/titles: the inspected diagnostic spellings are American. Do not treat ordinary words such as flats, pupils or towards as spelling errors merely because they are more frequent in another variety."
+  },
+  {
+    "candidate": "Russian and Kyrgyz curly quotation marks",
+    "decision": "All five Russian and five Kyrgyz inventory locations were inspected. They occur as inner quotations inside extended outer quotations, including continued paragraphs. Retain nesting; do not globally replace inner quotes with outer guillemets."
+  },
+  {
+    "candidate": "Azerbaijani quotation shapes",
+    "decision": "Both guillemets and curly quotation marks are used. Both are intelligible editorial conventions; no grammatical defect follows from shape alone. A uniform outer-quote policy may be chosen, but indiscriminate replacement risks flattening nested quotations. Existing mixed German dialogue markers remain separately recorded in F-066."
+  },
+  {
+    "candidate": "Russian moral heading",
+    "decision": "The seven Урок labels correspond to the Etibar author series; Мораль appears elsewhere. Treat as an author-series convention, not a missing moral or mistranslation."
+  },
+  {
+    "candidate": "Kyrgyz Allah/Кудай",
+    "decision": "Both referents are legitimate in context. The prior explicit Allah consistency instruction applied to English/Russian titles. Do not infer a new Kyrgyz religious terminology mandate."
+  },
+  {
+    "candidate": "German vizier / Kyrgyz vizier",
+    "decision": "The confirmed Kyrgyz увазир spelling issue is already F-060; do not duplicate it as a cross-story issue."
+  },
+  {
+    "candidate": "Author bylines and duplicate plots/titles",
+    "decision": "The existing complete byline and semantic-summary inventories support F-011, F-012, F-022 and F-023. Preserve variants and author names pending their recorded decisions; do not merge stories automatically."
+  }
+]

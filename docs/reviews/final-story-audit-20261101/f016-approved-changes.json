@@ -1,0 +1,165 @@
+[
+  {
+    "language": "az",
+    "source": "az/wisdom-stories/appearances-can-be-deceptive.docx",
+    "image": "az/wisdom-stories/illustrations/light-of-the-world.webp",
+    "old": "İbrət: Bəzən ən böyük zərəri bizə oxşayan, amma niyyəti başqa olanlardan görürük. Özünü qorumaq üçün zahiri bənzərliyə aldanmamaq, ikiüzlülüyü vaxtında sezmək lazımdır.",
+    "new": "İbrət: Zahiri bənzərlik niyyətlərin və məqsədlərin də eyni olması demək deyil. Kimə güvənəcəyimizə qərar verərkən görünüşünə deyil, davranışına və əməllərinə baxmalıyıq.",
+    "moral": "Zahiri bənzərlik niyyətlərin və məqsədlərin də eyni olması demək deyil. Kimə güvənəcəyimizə qərar verərkən görünüşünə deyil, davranışına və əməllərinə baxmalıyıq.",
+    "fit": {
+      "font_size": 32,
+      "bounds": [
+        258.5,
+        1022.5,
+        1276.5,
+        1123.5
+      ],
+      "lines": [
+        "Zahiri bənzərlik niyyətlərin və məqsədlərin də eyni olması demək deyil.",
+        "Kimə güvənəcəyimizə qərar verərkən görünüşünə deyil, davranışına və",
+        "əməllərinə baxmalıyıq."
+      ],
+      "safe_box": [
+        235,
+        1013,
+        1300,
+        1133
+      ]
+    },
+    "artwork_title_and_frame_unchanged": true,
+    "dimensions": [
+      1536,
+      1159
+    ]
+  },
+  {
+    "language": "en",
+    "source": "en/wisdom-stories/appearances-can-be-deceptive.docx",
+    "image": "en/wisdom-stories/illustrations/light-of-the-world.webp",
+    "old": "Moral: Sometimes the greatest harm comes from those who resemble us but have very different intentions. To protect ourselves, we must look beyond outward similarities and recognize deceit before it is too late.",
+    "new": "Moral: Outward resemblance does not mean that people share the same intentions or goals. When deciding whom to trust, we should look at their behaviour and actions, not their appearance.",
+    "moral": "Outward resemblance does not mean that people share the same intentions or goals. When deciding whom to trust, we should look at their behaviour and actions, not their appearance.",
+    "fit": {
+      "font_size": 30,
+      "bounds": [
+        151.5,
+        898.5,
+        1378.5,
+        961.5
+      ],
+      "lines": [
+        "Outward resemblance does not mean that people share the same intentions or goals. When",
+        "deciding whom to trust, we should look at their behaviour and actions, not their appearance."
+      ],
+      "safe_box": [
+        150,
+        883,
+        1380,
+        977
+      ]
+    },
+    "artwork_title_and_frame_unchanged": true,
+    "dimensions": [
+      1536,
+      1024
+    ]
+  },
+  {
+    "language": "de",
+    "source": "de/wisdom-stories/appearances-can-be-deceptive.docx",
+    "image": "de/wisdom-stories/illustrations/light-of-the-world.webp",
+    "old": "Lehre: Manchmal schaden uns gerade diejenigen am meisten, die uns ähneln, aber andere Absichten haben. Um uns zu schützen, dürfen wir uns nicht von äußerlichen Gemeinsamkeiten täuschen lassen. Wir müssen erkennen, wenn jemand ein falsches Spiel mit uns spielt.",
+    "new": "Lehre: Äußerliche Ähnlichkeit bedeutet nicht, dass Menschen dieselben Absichten oder Ziele haben. Wenn wir entscheiden, wem wir vertrauen, sollten wir auf sein Verhalten und seine Taten achten, nicht auf sein Aussehen.",
+    "moral": "Äußerliche Ähnlichkeit bedeutet nicht, dass Menschen dieselben Absichten oder Ziele haben. Wenn wir entscheiden, wem wir vertrauen, sollten wir auf sein Verhalten und seine Taten achten, nicht auf sein Aussehen.",
+    "fit": {
+      "font_size": 28,
+      "bounds": [
+        158.0,
+        887.0,
+        1377.0,
+        978.0
+      ],
+      "lines": [
+        "Äußerliche Ähnlichkeit bedeutet nicht, dass Menschen dieselben Absichten oder Ziele haben.",
+        "Wenn wir entscheiden, wem wir vertrauen, sollten wir auf sein Verhalten und seine Taten achten,",
+        "nicht auf sein Aussehen."
+      ],
+      "safe_box": [
+        145,
+        886,
+        1390,
+        979
+      ]
+    },
+    "artwork_title_and_frame_unchanged": true,
+    "dimensions": [
+      1536,
+      1024
+    ]
+  },
+  {
+    "language": "ru",
+    "source": "ru/wisdom-stories/appearances-can-be-deceptive.docx",
+    "image": "ru/wisdom-stories/illustrations/light-of-the-world.webp",
+    "old": "Мораль: Иногда самый большой вред причиняют те, кто похож на нас, но чьи намерения совсем иные. Чтобы защитить себя, важно не обманываться внешним сходством и вовремя распознавать двуличие.",
+    "new": "Мораль: Внешнее сходство не означает, что у людей одинаковые намерения и цели. Решая, кому доверять, нужно смотреть на поведение и поступки человека, а не на его внешность.",
+    "moral": "Внешнее сходство не означает, что у людей одинаковые намерения и цели. Решая, кому доверять, нужно смотреть на поведение и поступки человека, а не на его внешность.",
+    "fit": {
+      "font_size": 31,
+      "bounds": [
+        119.5,
+        924.5,
+        1415.5,
+        988.5
+      ],
+      "lines": [
+        "Внешнее сходство не означает, что у людей одинаковые намерения и цели. Решая, кому",
+        "доверять, нужно смотреть на поведение и поступки человека, а не на его внешность."
+      ],
+      "safe_box": [
+        110,
+        918,
+        1425,
+        995
+      ]
+    },
+    "artwork_title_and_frame_unchanged": true,
+    "dimensions": [
+      1536,
+      1024
+    ]
+  },
+  {
+    "language": "ky",
+    "source": "ky/wisdom-stories/appearances-can-be-deceptive.docx",
+    "image": "ky/wisdom-stories/illustrations/light-of-the-world.webp",
+    "old": "Сабак: Кээде эң чоң зыянды өзүбүзгө окшош, бирок ниети башка болгондордон көрөбүз. Өзүбүздү коргоо үчүн сырткы окшоштукка алданбай, эки жүздүүлүктү өз убагында байкай билишибиз керек.",
+    "new": "Сабак: Сырткы окшоштук адамдардын ниети менен максаты да бирдей дегенди билдирбейт. Кимге ишенүүнү чечкенде, анын сырткы көрүнүшүнө эмес, жүрүм-турумуна жана кылган иштерине карашыбыз керек.",
+    "moral": "Сырткы окшоштук адамдардын ниети менен максаты да бирдей дегенди билдирбейт. Кимге ишенүүнү чечкенде, анын сырткы көрүнүшүнө эмес, жүрүм-турумуна жана кылган иштерине карашыбыз керек.",
+    "fit": {
+      "font_size": 28,
+      "bounds": [
+        306.0,
+        889.5,
+        1264.0,
+        982.5
+      ],
+      "lines": [
+        "Сырткы окшоштук адамдардын ниети менен максаты да бирдей дегенди",
+        "билдирбейт. Кимге ишенүүнү чечкенде, анын сырткы көрүнүшүнө эмес,",
+        "жүрүм-турумуна жана кылган иштерине карашыбыз керек."
+      ],
+      "safe_box": [
+        255,
+        889,
+        1315,
+        983
+      ]
+    },
+    "artwork_title_and_frame_unchanged": true,
+    "dimensions": [
+      1536,
+      1024
+    ]
+  }
+]

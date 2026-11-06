@@ -12,8 +12,8 @@
 | `flags/{code}.svg` | Mini flags for the language dropdown |
 | `tools/locales/{code}.json` | UI chrome + category titles |
 | `{code}/` | Generated locale trees (`i18n.js`, stories data) |
-| `{code}/wisdom-stories/` | Story Word sources, audio, and illustrations |
-| `{code}/discovery-articles/` | Discovery Word sources and audio |
+| `{code}/wisdom-stories/` | Story Word sources and illustrations |
+| `{code}/discovery-articles/` | Discovery Word sources |
 | `assets/site.js` | Shared site runtime |
 | `docs/i18n/translation_manifest.json` | Progress: text/audio/illustration |
 | `tools/i18n_config.py` | Loads `languages.json` for builds |
@@ -61,7 +61,7 @@ Do **not** copy AZ WebPs. Mark `illustration_<lang>` in the manifest when done.
 | A — Shell / builder / switcher | **Done** (AZ, EN, RU, KY) |
 | B — Translate 250×N | AZ/EN/RU/KY **250 / 250** in `stories-data.js` |
 | B2 — Illustrations | Locale folders ready; do not copy AZ art into other langs blindly |
-| C — Audio | **AZ 250/250** MP3s (`audio_az=done` in manifest); EN/RU/KY story listen off / no MP3s yet |
+| C — Audio | No audio files. Hidden Listen/Stop controls stay inert until `AUDIO_CONTROLS_ENABLED` in `assets/site.js` is set to `true` |
 | D — Deploy | `python tools/build_deployment.py` writes a local `deployment/` copy (not in git) |
 | E — Discoveries | Locale trees live (121 articles); default publish + XML sitemap hide Discoveries |
 

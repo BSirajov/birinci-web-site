@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-03",
+  "scope": "Integrate completed, approved story and illustration edits into the local online project",
+  "published_story_counts": {
+    "az": 259,
+    "en": 254,
+    "de": 254,
+    "ru": 254,
+    "ky": 254
+  },
+  "total_stories": 1275,
+  "source_site_sync_errors": 0,
+  "completed": [
+    "Rebuilt all five languages from Word sources and tracked manifest",
+    "Integrated F-007, F-020, F-022 and F-023 corrections and F-019 approved plant identification",
+    "Retained subsequent approved flower-story wording in all languages",
+    "Kept stable story identifiers, approved source filename changes and removal of stoning-the-devil",
+    "Integrated five staged-market illustrations for windmill-turning-without-wind",
+    "Updated catalog/comparison cache version and targeted windmill image cache version",
+    "Updated 11 German preservation hashes only for approved changed files",
+    "Updated stale comparison inventory assertion to use manifest count"
+  ],
+  "validation": {
+    "build_source_route_tests": 10,
+    "comparison_tests": 2,
+    "german_integration": "passed; 510 preservation hashes and 272 referenced image dimensions",
+    "browser": "25 affected story pages; 5 expanded reading views; 5 comparison views; 5 updated illustrations; mobile dark mode without horizontal overflow",
+    "browser_transport": "Local filesystem-backed Playwright routes; direct localhost denied by environment",
+    "wolf_story_and_cache_tests": 2
+  },
+  "limits": [
+    "All ten embedded titles for humanity and mother-of-pearl-flower are updated. Russian humanity artwork, moral and link corrected. Pixels outside authorized text panels verified unchanged.",
+    "Word page rendering unavailable because LibreOffice is not installed",
+    "F-019 lifespan and propagation questions remain Needs decision",
+    "Offline release packages were not rebuilt",
+    "No commit, push or deployment performed"
+  ]
+}

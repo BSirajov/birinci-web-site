@@ -1,0 +1,1224 @@
+EN LOCALIZATION ASSESSMENT — COMPLETE
+
+Ledger: 261 unique rows. Fully read available pairs: 256. Missing EN: 5. Unpublished EN: 0. Unassessed: 0.
+Status counts: {"no_material_issue": 234, "optional": 7, "essential": 15, "missing": 5}
+Confirmed translation finding counts (excluding missing and source clarification): {"P3": 8, "P1": 7, "P2": 10}
+
+All 261 rows have been assessed: 256 available pairs fully read, plus five source poems with no English target. Counts derive from the actual final ledger. No material issue means none identified in this model review, not native validation.
+Published English is the reader-facing priority. Model assessment only; no native validation. Distinct DOCX text was inspected; exact duplicates compared automatically.
+
+Source credit and publication comparison:
+English body differences found by automated comparison: none
+Credit differences: albrecht-durer, be-sure-of-your-purpose, blind-well, builder-of-the-nest, can-a-broken-heart-love-again, dervishs-clothes, fathers-footprints, fly-in-the-china-shop, meddling-in-others-lives, my-alif-has-been-dotted, o-god-give-first-to-the-mountains-and-stones, o-god-heal-our-sorrows, pay-rent-for-the-water, rose, spare-time
+Etibar author credit uses Sirajsoy in DOCX and Siracsoy in published text; this is transliteration metadata, not omitted story content. Title casing and joined Moral paragraphs are presentation changes.
+Five absent EN poems: changing-times-enduring-friendship, cherishing-flowers-in-spring, from-reflection-to-hope, hopeful-journey-through-life, quarantine-days-hopeful-hearts
+RU/KY/DE availability is user-provided context, not independently assessed.
+
+PER-STORY LEDGER
+
+advice-for-those-who-marry — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+aging — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+albrecht-durer — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+ant-that-carries-water — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+architect-sinan-dies-in-a-house-without-water — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+attitude-toward-a-problem — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+avoid-these-questions — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+baklava — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: A holiday is followed by attendance at school in AZ; EN preserves this. The type of holiday or school celebration is unstated. No translation error asserted.
+
+be-sure-of-your-purpose — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+bedouin-whose-camel-was-stolen — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+being-human — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+bell-to-hang-on-the-cats-neck — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+beloved-is-one-who-gives-love-to-people — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+beware-of-those-you-love — optional
+Review: fully_read; EN DOCX=True; EN published=True
+P3 idiomatic_fluency [high]
+AZ: oğlumu daha beş dəqiqə izləmək xoşbəxtliyini yaşayıram.
+EN: I live the happiness of watching my son for five more minutes.
+The meaning is preserved, but 'I live the happiness' is an unnatural English collocation. 'I get the joy of watching my son for five more minutes' would sound more natural. Optional polish; the emotional reversal remains understandable.
+Source ambiguity: False
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+blessings-god-has-given — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: AZ itself ends with English source/AI boilerplate; this is a source-language metadata issue, not a translation-fidelity issue.
+
+blind-well — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+blind-who-have-eyes — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+bookstore — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+builder-of-the-nest — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+calamity-and-blessing — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+can-a-broken-heart-love-again — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+candles-conversation — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+chief-accountant-and-the-ceo — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+church-bell — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+communication — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+compassion — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: AZ has the patient smile while unable to speak and later recover consciousness; EN follows this loose sequence. Do not blame EN for the source's clinical chronology.
+
+compliment — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+credit-ledger — essential
+Review: fully_read; EN DOCX=True; EN published=True
+P1 unsupported_specificity [medium]
+AZ: Eləsi var ki, üç aydır pulsuz çörək aparır.
+EN: There’s a man who has been taking bread on credit for three months
+AZ does not specify this customer's gender ('there is someone'). English adds a man and male pronouns. Restore a gender-neutral customer unless an Azerbaijani reviewer confirms a intended male referent. The charitable action and moral are otherwise preserved.
+Source ambiguity: The unnamed customer's gender is unstated; the later widow may or may not be the same household. Native Azerbaijani review is needed before identifying them.
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+dead-remain-in-life — optional
+Review: fully_read; EN DOCX=True; EN published=True
+P3 idiomatic_fluency [high]
+AZ: əsl ölən həyatda qalandır.
+EN: the one who truly dies is the one who remains in life.
+The grief paradox is preserved and clarified by the moral, but 'remains in life' sounds translated. 'The one left alive' or 'the one who survives' would read more naturally in the title and sentence.
+Source ambiguity: False
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+dervishs-clothes — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+dervishs-robe — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+dervishs-spoons — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+diderot-effect — essential
+Review: fully_read; EN DOCX=True; EN published=True
+P3 idiomatic_fluency [high]
+AZ: puluna və özünə uyğun bir xalça alır.
+EN: bought a carpet suited to his money and to himself.
+The purchase and spending escalation are clear, but 'suited to his money and to himself' is awkward. A carpet suited to his budget and taste would convey the phrase more naturally.
+Source ambiguity: False
+P1 changed_ownership [high]
+AZ: onun kitabxanasını pulla alıb yenidən ona hədiyyə edir.
+EN: buying his library and allowing him to keep it.
+AZ says Catherine buys the library and gives it back to Diderot as a gift. English says she allows him to keep it, which does not convey the gift or return of ownership. Translate the supplied AZ claim faithfully; any historical correction would be a separate source-editing decision.
+Source ambiguity: False
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+different-path — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+do-not-complain-about-any-day-you-have-lived — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+do-not-do-these-things — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+do-not-let-your-hearts-part — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+do-you-have-spending-money — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+doctors-appointment — essential
+Review: fully_read; EN DOCX=True; EN published=True
+P2 unclear_medical_context [high]
+AZ: Həkim uşağı müayinəyə ac gətirməyi tapşırmışdı.
+EN: The doctor had told us to bring the child to the examination hungry.
+'Hungry' suggests a subjective feeling rather than the doctor's requirement not to eat before examination. 'Bring the child in fasting' or 'bring him without having eaten' makes the reason the appointment is spoiled clear. This is a translation-context finding, not medical advice.
+Source ambiguity: False
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+donkeys-law — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+dont-be-words-for-mouths-dust-for-feet — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+dont-open-your-mouth — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+dont-say-i-couldnt-deliver-or-i-couldnt-manage — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+drinking-the-sherbet-of-martyrdom — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+early-marriage — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+eat-less-and-stay-on-the-right-path — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+education-or-character — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+elephant-and-the-rope — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+everyone-is-the-same-here — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+everything-is-in-our-own-hands — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+explaining-ones-sorrow — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+expressions-you-should-stay-away-from — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+faith-is-half-of-success — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+fallen-teeth — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+father-and-son — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+fathers-footprints — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+festive-gift — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+fish-shop — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+flower-of-honesty — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: AZ calls the non-germinating seeds fake without explaining their physical nature; EN preserves this. No invented explanation required.
+
+fly-in-the-china-shop — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+for-those-who-have-reached-sixty — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+forbidden-money — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+former-minister-at-the-seminar — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+fortieth-day-rite — essential
+Review: fully_read; EN DOCX=True; EN published=True
+P2 opaque_idiom [medium]
+AZ: ağzının dadı qaçmasın deyə duz
+EN: salt so the taste of his mouth never fades
+The literal wording leaves an English reader unsure what blessing the salt symbolizes. Render the wish for continued enjoyment/contentment, preserving any intended literal taste association. Confirm the idiom's nuance with a native Azerbaijani reviewer.
+Source ambiguity: The expression may combine literal taste with the idiomatic wish that life's enjoyment not be spoiled; native review needed.
+Notes: The symbolic salt blessing needs a native idiom reading; the infant is gender-neutral in AZ. EN uses masculine pronouns, which should be checked if inclusive neutral reference is desired.
+
+friend-of-god — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: AZ 'Bu gecə ... demişdim' is temporally context-dependent; EN 'Tonight I cried' follows the deictic wording. Native review can resolve whether last night is intended.
+
+friendship-and-love — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+friendship-of-horses — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+from-a-wise-fathers-advice-to-his-son — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+from-the-memoirs-of-a-lady-from-istanbul — essential
+Review: fully_read; EN DOCX=True; EN published=True
+P2 opaque_idiom [high]
+AZ: Nişanı qaytardıq, ayrıldıq.
+EN: We returned the engagement and parted.
+'Returned the engagement' is not an English expression and may suggest returning an object. AZ means breaking off the engagement. Use that idiom to make the narrative turning point clear.
+Source ambiguity: False
+P1 over_specific_school_stage [medium]
+AZ: Orta məktəbi təzəcə bitirmişdim.
+EN: I had just finished middle school.
+Orta məktəb denotes secondary school; 'middle school' specifies a narrower English-language schooling stage and can imply a substantially younger narrator. Prefer 'secondary school' unless source/editor review establishes that middle school is intended.
+Source ambiguity: The precise completed grade and historical school structure are not stated; native Azerbaijani review should confirm the intended stage.
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+garden-and-the-gardener — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: The dialogue appears to deny the gardener's contribution absolutely, while the moral asks recognition of both own effort and help. This tension is inherited from AZ; EN should not silently repair it.
+
+generous-man — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+glass-of-milk — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+go-but-come-again — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+gods-pleasure — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+goose-to-be-plucked — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+gossip — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+grandfather-and-grandson-at-the-market — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+grocery-shop-and-the-supermarket — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+hajj-pilgrimage — essential
+Review: fully_read; EN DOCX=True; EN published=True
+P2 unexplained_cultural_term [medium]
+AZ: kəramət başdadır, tacda deyildir.
+EN: karamat lies in the head, not in a crown.
+An unexplained transliteration obscures a central contrast in the embedded verse and moral. Explain karamat in accessible English while preserving its spiritual meaning; a bilingual reviewer should choose the gloss. Nafs also merits a brief gloss, although 'discipline' and 'purify' already help readers infer it.
+Source ambiguity: Kəramət has a spiritual sense whose exact poetic nuance needs Azerbaijani and Sufi-context review.
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+handful-of-roasted-chickpeas — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+hayats-life-story — essential
+Review: fully_read; EN DOCX=True; EN published=True
+P3 source_clarification [low]
+AZ: Adım «Astagəl» olmuşdu
+EN: My name became “Come-here”
+The recurring nickname Astagəl and its rendering 'Come-here' need source clarification. Do not prescribe a replacement or count this as a confirmed semantic error before a native Azerbaijani reviewer establishes the nickname's intended function and nuance. The erasure of Hayat's proper name is preserved in English.
+Source ambiguity: Whether Astagəl is intended literally as 'come slowly', as a taunt meaning slowcoach, or as another established nickname needs native confirmation; no final replacement is asserted.
+P2 lost_name_wordplay [high]
+AZ: adı Nağıl olan bir qız varmış.
+EN: a six-year-old girl named Nagil.
+Nağıl means tale/fairy tale. Transliteration alone hides the name's connection to Hayat's dream stories and the granddaughter's later naming. Retain the name with a brief meaning gloss, or use an editorially agreed meaningful rendering; do not rename the character without review.
+Source ambiguity: False
+Notes: Astagəl requires source clarification. Preserve the full abuse narrative, religious marriage, divided letter, stepchildren's identities, forgiveness of Hasan and refusal to forgive supporters of oppression. The condemnation and emotional ambivalence survive in EN.
+
+he-would-not-have-given-so-little — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+help-yourself-o-exalted-god — essential
+Review: fully_read; EN DOCX=True; EN published=True
+P1 changed_emotional_meaning [high]
+AZ: Könlü yarda olana
+EN: to the one with a wounded heart
+AZ describes someone whose heart is with a beloved, not explicitly someone whose heart is wounded. Restore the beloved/longing meaning in this prayer; English adds injury and loses the lover's attachment.
+Source ambiguity: Native review can refine the poetic lover/longing nuance of 'yar'; the wounded-heart wording is not explicitly supported.
+P2 opaque_idiom [medium]
+AZ: gözü yolda qalana
+EN: to the one whose eyes wait on the road
+This literal image can puzzle English readers. Convey waiting or watching for someone to arrive while retaining the poem's longing; 'those watching the road for a loved one's return' is one possible direction, subject to bilingual review.
+Source ambiguity: The awaited person's identity and whether this is a return or first arrival are not specified; do not add them as facts.
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+henry-fords-choice — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+his-hand-is-at-work — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+hold-my-hand — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+homeland-and-land — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+honey-or-dry-bread — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+hot-bread — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+how-can-i-escape-my-thoughts — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+how-to-ward-off-insults — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+how-we-treat-people — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+human-emerged — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+humanity — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: The older woman's account puts a now-adult teacher's birth at Kamal's entrance-exam rescue. The length of Kamal's intervening career is not specified; chronology is inherited from AZ. No EN-specific chronology error asserted.
+
+hunters-description — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+i-am-aware-now — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+i-am-tired-mother — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+i-am-waiting-for-the-teeth — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+i-got-busy-with-cleaning — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: The source says there were no grudges/hatred and immediately says it does not know how it cleaned; EN preserves this reflective discontinuity.
+
+i-kiss-your-eyes — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+i-love-you — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+i-want-a-friend — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+i-would-not-trade-it-for-anything — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+idle-devil — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+if-i-dont-do-it-these-days-the-world-wont-collapse — optional
+Review: fully_read; EN DOCX=True; EN published=True
+P3 idiomatic_fluency [high]
+AZ: Bu günlərdə etməsəm, dünya dağılmaz ki
+EN: The world won’t fall apart if I don’t do it these days.
+The dismissive attitude is preserved, but 'do it these days' sounds unnatural for a delay of a few days. 'If I don't get it done in the next few days' fits the following discussion more naturally; polish the title consistently.
+Source ambiguity: False
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+if-the-door-before-you-wont-open-it-is-not-your-door — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+if-the-road-does-not-tire-you-it-is-because-of-your-companion — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+it-is-in-vain — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+it-wont-go-to-waste — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+just-verdict-of-the-frankfurt-judge — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+know-your-friend — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+lawful-morsel — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+lecturer-and-the-groom — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+let-prayer-come-and-find-you — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+life-is-short — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+life-lesson — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+light-of-the-universe — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+lions-footprint — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+liver — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+living-in-the-past — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+loving-from-afar — optional
+Review: fully_read; EN DOCX=True; EN published=True
+P3 literal_idiom [high]
+AZ: Durduğum yerdə başıma iş açıb eşqə düşərəm.
+EN: Right where I stand I’ll get into trouble and fall in love.
+'Right where I stand' makes the idiom sound spatial. The speaker fears needlessly inviting complications into his currently peaceful life. 'I'd be getting myself into trouble' conveys that thought more naturally; the broader fear-of-relationship message remains clear.
+Source ambiguity: False
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+magnificent-lesson — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+mature-person — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+may-your-face-always-smile — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+meaningless-question — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+meddling-in-others-lives — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+mercedes — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+mihrimah-sultan-and-architect-sinan — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+mockery-is-unacceptable — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+more-effective-way — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+most-beautiful-gift — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+most-beautiful-places-in-the-world — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+most-beautiful-portion — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+mother-and-son — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+mother-of-pearl-flower — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+mothers-advice-fakir-baykurt-never-forgot — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+mothers-love — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+mullah-and-the-scholar — essential
+Review: fully_read; EN DOCX=True; EN published=True
+P1 cultural_food_mistranslation [medium]
+AZ: üstündə qarası olsa, yeyərəm.
+EN: If it has a dark crust on top, I’ll eat it.
+In the pilaf context, qara refers to the accompaniment/topping served with rice, rather than a dark crust. English substitutes a different food component and changes the Mullah's imagined request. A native Azerbaijani reviewer should confirm the most appropriate food gloss; do not specify ingredients the source does not name.
+Source ambiguity: The source does not identify the accompaniment's ingredients. Confirm the regional culinary sense with a native reviewer.
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+my-alif-has-been-dotted — optional
+Review: fully_read; EN DOCX=True; EN published=True
+P3 quoted_expression_consistency [high]
+AZ: «əlifim nöqtələndi»
+EN: people say “alifim noktalandı,”
+The English opening correctly quotes Turkish 'elifim noktalandı', but later gives a mixed 'alifim noktalandı'. Keep the quoted Turkish expression consistent; reserve 'alif' for the English letter name. This does not prevent understanding the explanation.
+Source ambiguity: The explanation of the letter shapes and idiom origin is inherited from AZ and has not been externally or natively validated.
+Notes: The letter-shape explanation and etymology are source claims, not verified linguistic history. Seek native Turkish/Ottoman-script expertise if factual validation is requested.
+
+newtons-second-law — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+no-need-to-be-sane-when-everyone-is-mad — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+no-one-listens-to-constant-complainers — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+not-every-sorrow-is-told-to-people — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+not-leaving-the-right-path — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+nothing-is-ever-truly-lost — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+o-god-give-first-to-the-mountains-and-stones — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+o-god-heal-our-sorrows — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+one-who-knows-and-the-one-who-does-not — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+only-my-mother-would-weep — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+other-peoples-opinions — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+our-qualities-can-become-our-enemies — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+pair-of-boots — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+pawn-and-the-king — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: The pawn becoming a king is the source's metaphor and is reproduced in EN. If editors want chess-rule accuracy, review the AZ metaphor first rather than labeling faithful EN alone defective.
+
+pay-rent-for-the-water — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+people-who-need-something-from-you — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+permission-or-apology — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+power-of-truth — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+pray-while-washing-your-dishes — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+price-of-a-miracle — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+properties-of-water — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+puppies-for-sale — essential
+Review: fully_read; EN DOCX=True; EN published=True
+P1 unsupported_anatomical_specificity [medium]
+AZ: qılça sümüyünün anadangəlmə qüsurlu olduğunu
+EN: he was born with a congenitally defective fibula.
+English names the fibula, a specific bone, where AZ refers to a leg bone without that anatomical name. Preserve the source's level of specificity instead of adding a precise diagnosis. Confirm the regional sense of qılça with a native Azerbaijani reviewer before final wording.
+Source ambiguity: The exact affected bone is not named by a standard anatomical term in the supplied AZ; native terminology confirmation is recommended.
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+purple-jacket — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+raising-children — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+ramadan-prayer — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+red-dress — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+road-to-the-cotton-field — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+rose — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+rotten-seed — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+sacrificial-meat — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+say-what-you-know — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+saying-the-word-in-its-place — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+scarf-seller — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+searching — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+secret-of-living-well-and-longevity — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+sharing-justice — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+shepherd-must-be-called — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+shepherds-word — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+silence — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+skins-of-the-lambs — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+sound-of-the-doorbell — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+sowing-millet-at-the-bottom — essential
+Review: fully_read; EN DOCX=True; EN published=True
+P2 opaque_punchline_idiom [high]
+AZ: xəzinəmizin dibinə darı əkəcək!
+EN: he’ll sow millet at the bottom of our treasury
+The idiom means exhausting or emptying the treasury. Literal millet planting obscures the vizier's punchline and leaves the title unexplained for English readers. Convey 'empty our treasury' or add a short idiom explanation while retaining the planting wordplay.
+Source ambiguity: False
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+spare-time — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+spend-your-time-with-people — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+spinach — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+stoning-the-devil — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+strength-and-sorrow — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+strongest-shield — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+teacher-hello-do-you-remember-me — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+telling-lies — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+that-was-not-your-right — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+think-speak-and-act-positively — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+this-boat-is-empty-too — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+those-you-should-not-befriend — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+three-best-things — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: The source dialogue locates others in one's own heart, while its moral locates one's home in other people's hearts. English broadly preserves this reciprocal metaphor; clarify the source direction before imposing a correction.
+
+three-essential-things-for-a-city — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+three-landscapes — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+three-questions — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+three-statues — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+to-be-alone — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+to-be-cool-headed — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+to-be-fasting — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+to-be-full-or-to-be-gone — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+to-be-self-confident — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+to-dream — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+to-forgive — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+to-give-up — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+to-meet-and-to-know — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+tongue — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+true-love — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+try-to-think-this-way — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+turning-hardship-into-opportunity — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+turtles-wrong-calculation — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+two-bowls-of-water — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+two-donkeys — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+value-of-your-family — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+we-are-rich — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+weight-of-the-oil — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+welcome-my-bey — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+what-breaks-a-marriage — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+what-changed-after-sixty — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+what-do-i-need-it-for — essential
+Review: fully_read; EN DOCX=True; EN published=True
+P2 cultural_term_clarity [medium]
+AZ: Kəşfinə, kəramətinə inandığı
+EN: in whose unveiling and miraculous gift he believed
+Unexplained 'unveiling' is opaque in ordinary English. Here kəşf refers to spiritual insight or disclosure, paired with a miraculous gift. Clarify the religious sense while retaining the Ottoman and Sufi setting; do not replace it with ordinary scientific discovery.
+Source ambiguity: Native review should settle the precise spiritual gloss for kəşf in this context.
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+what-is-a-word — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+what-is-loyalty — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+what-it-means-to-be-late — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+what-matters-in-life — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+what-we-learn-in-life — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+what-women-have-endured-in-this-world — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: The rendering of saf as 'virtuous' may emphasize moral purity rather than innocence or naivety. The Azerbaijani word allows related senses; native source review should establish the intended contrast with pis before treating this as an error.
+
+where-does-calamity-come-from — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+where-does-this-road-go — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+who-handles-honey-licks-his-finger — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+why-am-i-poor — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+why-are-you-waiting-for-the-last-day-of-the-world — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+why-injustice-when-there-is-justice — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+why-people-shout-when-they-argue — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+windmill-turning-in-still-air — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+with-this-nation-the-world-can-be-conquered — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+woman-and-the-mirror — optional
+Review: fully_read; EN DOCX=True; EN published=True
+P3 narrative_fluency [high]
+AZ: Qadın səhər-səhər oyanıb güzgüyə baxır.
+EN: A woman wakes up in the morning and looks in the mirror.
+The English alternates present narration ('wakes up', 'she says', 'She does') with past narration ('she decided', 'She did', 'she exclaimed') across successive days. Use a consistent narrative tense. The successive hair-loss jokes and optimistic moral are intact.
+Source ambiguity: False
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+woman-whose-house-was-robbed — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+word-and-silence — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+yellow-and-red-flowers — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+you-cannot-descend-a-well-on-his-rope — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+your-friends — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+your-hand-at-work-your-hope-in-god — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+discussion-and-conflict — essential
+Review: fully_read; EN DOCX=True; EN published=True
+P2 unclear_referent [high]
+AZ: O, Nadiri bir stəkan çay içmək bəhanəsi ilə şirkətin kafesinə dəvət etdi
+EN: On the pretext of a glass of tea, he invited him to the company café.
+AZ explicitly names Nadir, the colleague who made the accusation. English replaces that name with 'him' after a paragraph about Kamal, leaving the corrective conversation's recipient briefly unclear. Restore Nadir's name here.
+Source ambiguity: False
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+everyone-has-work-to-do — optional
+Review: fully_read; EN DOCX=True; EN published=True
+P3 idiomatic_fluency [high]
+AZ: Çünki o sizə ümid bəsləyir, güvənir.
+EN: because they hope in you and trust you.
+'Hope in you' sounds unusually elevated in a practical workplace reflection. 'They are counting on you and trust you' would be more natural without changing the message.
+Source ambiguity: False
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+if-fate-allows-we-will-meet — essential
+Review: fully_read; EN DOCX=True; EN published=True
+P2 moral_clarity [high]
+AZ: bu gün görüş, bu gün könül al.
+EN: we meet; cheer the heart today.
+The AZ imperatives urge meeting today and making a loved one feel cared for. 'We meet' is an unexpected declarative and drops 'today' from the meeting instruction; 'cheer the heart' also leaves whose heart unclear. Restore the direct appeal: meet today and brighten their day.
+Source ambiguity: False
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+organization-without-an-action-plan — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+silent-corridor — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+weeds-must-be-pulled-from-the-root — essential
+Review: fully_read; EN DOCX=True; EN published=True
+P1 omitted_action_detail [high]
+AZ: belin köməyi ilə torpağın altını üstünə çevirər, alaq otlarını əzib qırardıq.
+EN: We learned to turn the soil and clear the weeds, but they were not so easy to clear.
+English compresses away the children's initial method: using a spade to turn over the soil and crush/break the weeds. That failed superficial method sets up the father's instruction to dig deeply and remove roots. Restore the concrete action for full narrative fidelity; the overall moral remains understandable.
+Source ambiguity: False
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+caring-call-brightens-the-day — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+changing-times-enduring-friendship — missing
+Review: missing_target_source_read; EN DOCX=False; EN published=False
+P1 missing_translation [high]
+AZ: Ötdü dövran
+EN: [absent]
+No English DOCX or published translation exists in the supplied aligned row. This is an availability gap, not a judged translation defect.
+Source ambiguity: False
+Notes: English absent; no target quality judgment.
+
+cherish-today-with-loved-ones — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+cherishing-flowers-in-spring — missing
+Review: missing_target_source_read; EN DOCX=False; EN published=False
+P1 missing_translation [high]
+AZ: Güllər
+EN: [absent]
+No English DOCX or published translation exists in the supplied aligned row. This is an availability gap, not a judged translation defect.
+Source ambiguity: False
+Notes: English absent; no target quality judgment.
+
+day-gratefully-lived — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+from-reflection-to-hope — missing
+Review: missing_target_source_read; EN DOCX=False; EN published=False
+P1 missing_translation [high]
+AZ: Düşüncələr
+EN: [absent]
+No English DOCX or published translation exists in the supplied aligned row. This is an availability gap, not a judged translation defect.
+Source ambiguity: False
+Notes: English absent; no target quality judgment.
+
+hopeful-journey-through-life — missing
+Review: missing_target_source_read; EN DOCX=False; EN published=False
+P1 missing_translation [high]
+AZ: Ömür yolum
+EN: [absent]
+No English DOCX or published translation exists in the supplied aligned row. This is an availability gap, not a judged translation defect.
+Source ambiguity: False
+Notes: English absent; no target quality judgment.
+
+humanity-rebuilds-in-peace — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+kindness-builds-stronger-bonds — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+nails-lasting-lesson — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: EN moral recasts the nail metaphor and does not explicitly repeat AZ's point that apology may be insufficient; the body explicitly retains apology, forgiveness and lasting scars. No essential reader loss identified.
+
+quarantine-days-hopeful-hearts — missing
+Review: missing_target_source_read; EN DOCX=False; EN published=False
+P1 missing_translation [high]
+AZ: Pandemiya, karantin
+EN: [absent]
+No English DOCX or published translation exists in the supplied aligned row. This is an availability gap, not a judged translation defect.
+Source ambiguity: False
+Notes: English absent; no target quality judgment.
+
+small-changes-big-meaning — no_material_issue
+Review: fully_read; EN DOCX=True; EN published=True
+Notes: No material issue identified in comprehensibility, idiom, narrative, dialogue, emotion, cultural setting or moral on this model review.
+
+STRATEGY
+Coverage complete. Integrate the final ledger; incremental saves were made after every substantial batch.
+Integrate confirmed P1 semantic and P2 clarity issues first. Preserve complete narrative details, dialogue speakers, emotion, cultural setting, moral and meaningful names.
+Resolve source ambiguity with an Azerbaijani native reviewer before fixing medium-confidence specifics. Astagəl is explicitly a source-clarification request, not a confirmed mistranslation.
+Use an English editor for optional P3 phrasing only after fidelity fixes; do not rewrite clean stories simply to increase issue counts.
+Keep body fidelity separate from source-credit boilerplate, title capitalization, split Moral formatting and author transliteration.
+No native validation or external historical validation has been performed.

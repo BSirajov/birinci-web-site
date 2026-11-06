@@ -3,13 +3,14 @@ import html
 import re
 from story_source_policy import is_generic_story_notice
 
-MORAL = re.compile(r"^(?:ibrət|ibret|nəticə|moral|lesson|lehre|мораль|урок|үлгү|сабак)\s*:", re.I)
+_MORAL_LABEL = r"(?:ibrət|ibret|nəticə|moral|lesson|(?:die\s+)?lehre|мораль|урок|үлгү|сабак)"
+MORAL = re.compile(rf"^{_MORAL_LABEL}\s*:", re.I)
 ARTICLE = re.compile(r"<article\b[^>]*>.*?</article>", re.S | re.I)
 PARAGRAPH = re.compile(r"(<p\b[^>]*>)(.*?)(</p>)", re.S | re.I)
 
 
 def strip_moral_label(text: str) -> str:
-    return re.sub(r"^\s*(?:ibrət|ibret|nəticə|moral|lesson|lehre|мораль|урок|үлгү|сабак)\s*:\s*", "", text, count=1, flags=re.I)
+    return re.sub(rf"^\s*{_MORAL_LABEL}\s*:\s*", "", text, count=1, flags=re.I)
 
 
 def restore_shared_note_styles(css: str) -> str:

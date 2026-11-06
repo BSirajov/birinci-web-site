@@ -1,0 +1,21 @@
+{
+  "unique_stories": 260,
+  "published_language_versions": 1280,
+  "directed_pairs": 5120,
+  "all_expected_cases_present": true,
+  "post_fix_failures": 0,
+  "pytest_passed": 8,
+  "source_sync_errors": 0,
+  "german_integration": "passed",
+  "deployed": false,
+  "source_hashes": {
+    "assets/site.js": "6ff9ba54318cdf1d98e4c65e15b09a39b7dfe6ff4fc6ab2579999f834a4cf6d8",
+    "assets/site.css": "dc00112714c914ec3ce1adb2429ac463e7d91bcc1ea4378ca39ccc49f5d65343",
+    "assets/story-routes.js": "0358b75059e5ac5565289277f8d1851a205afaecabf4dc858362fdf3c0e2be14",
+    "assets/story-navigation.js": "e30fca8accdce1df857f0872d1298cc386d2131c5b89b805469669e84c945fac",
+    "tools/story_routes.py": "47d5ad23da48595ec2f9a916368d7815926bd34962f1d1b02c08cbf0e57c719a",
+    "tools/poem-translations.json": "c905fe12179bcd80b9a906cf23b2a5619f4b6bc4ce67ee212717d58858f0d3ca",
+    "tools/build_reviewed_site.py": "739edd6f450d668a1cb61643459e14acb23a88c52daa1aa93e7c47cf7a002a5e",
+    "tools/chrome_restore.py": "622b39e30bab4acb32a537156d3c4c3dda51e7d51acc4acf5f11dcb75e4685d6"
+  }
+}

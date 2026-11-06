@@ -18,7 +18,7 @@ def test_comparison_preserves_explicit_morals_and_poetry():
         (['Text','Lehre: Sei freundlich.','Geschichten aus dem Internet gesammelt.'],'test','de','Lehre: Sei freundlich.'),
     ]
     script=classifier+'\nconst cases='+json.dumps(cases)+'; console.log(JSON.stringify(cases.map(c=>classifyParagraphs(c[0],c[1],c[2]))));'
-    results=json.loads(subprocess.check_output([node,'-e',script],text=True,encoding='utf-8'))
+    results=json.loads(subprocess.check_output([node,'-e',script],text=True,encoding='utf-8',stdin=subprocess.DEVNULL, stderr=subprocess.PIPE))
     for case,result in zip(cases,results):
         assert result['moral']==case[3]
         assert result['source']==case[0][-1]
@@ -60,5 +60,9 @@ for (const lang of ['az', 'de', 'en', 'ky', 'ru']) {
 }
 console.log(count);
 """
-    result = subprocess.check_output([node, '-e', script], cwd=ROOT, text=True)
-    assert int(result.strip()) == 1280
+    result = subprocess.check_output([node, '-e', script], cwd=ROOT, text=True, stdin=subprocess.DEVNULL, stderr=subprocess.PIPE)
+    manifest = json.loads((ROOT / 'tools/story-build-manifest.json').read_text(encoding='utf-8'))
+    expected = sum(len(category['stories']) for catalog in manifest.values()
+                   for category in catalog['categories'])
+    assert int(result.strip()) == expected
+

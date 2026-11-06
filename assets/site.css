@@ -8073,3 +8073,8 @@ body.dev-story-edit .story__text p[contenteditable="true"] {
 /* Shared story prose and legacy archive pagination. */
 .story__text p { white-space: pre-line; }
 .wisdom-pager { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; margin: 1.5rem 0; }
+
+/* Language-switch availability and retained-search feedback. */
+.story-translation-notice { margin: 1rem auto; padding: .9rem 1.2rem; max-width: 75rem; border: 1px solid currentColor; border-radius: .6rem; line-height: 1.5; }
+.story-translation-notice a { display: inline-block; margin-inline: .35rem; font-weight: 700; }
+.poem-translation-notice { position: fixed; z-index: 2147483647; bottom: 1.25rem; left: 50%; transform: translateX(-50%); width: max-content; max-width: calc(100vw - 2rem); margin: 0; padding: .8rem 1rem; border: 1px solid var(--line-strong); border-radius: .6rem; background: var(--surface); color: var(--ink); font: 1rem/1.5 var(--font-ui); }

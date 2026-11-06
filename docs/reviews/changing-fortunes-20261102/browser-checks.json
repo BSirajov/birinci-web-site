@@ -1,0 +1,82 @@
+[
+  {
+    "lang": "az",
+    "mobile": false,
+    "dark": false,
+    "title": true,
+    "text": true,
+    "image": true
+  },
+  {
+    "lang": "az",
+    "mobile": true,
+    "dark": true,
+    "title": true,
+    "text": true,
+    "image": true
+  },
+  {
+    "lang": "en",
+    "mobile": false,
+    "dark": false,
+    "title": true,
+    "text": true,
+    "image": true
+  },
+  {
+    "lang": "en",
+    "mobile": true,
+    "dark": true,
+    "title": true,
+    "text": true,
+    "image": true
+  },
+  {
+    "lang": "de",
+    "mobile": false,
+    "dark": false,
+    "title": true,
+    "text": true,
+    "image": true
+  },
+  {
+    "lang": "de",
+    "mobile": true,
+    "dark": true,
+    "title": true,
+    "text": true,
+    "image": true
+  },
+  {
+    "lang": "ru",
+    "mobile": false,
+    "dark": false,
+    "title": true,
+    "text": true,
+    "image": true
+  },
+  {
+    "lang": "ru",
+    "mobile": true,
+    "dark": true,
+    "title": true,
+    "text": true,
+    "image": true
+  },
+  {
+    "lang": "ky",
+    "mobile": false,
+    "dark": false,
+    "title": true,
+    "text": true,
+    "image": true
+  },
+  {
+    "lang": "ky",
+    "mobile": true,
+    "dark": true,
+    "title": true,
+    "text": true,
+    "image": true
+  }
+]

@@ -1,0 +1,84 @@
+[
+  {
+    "language": "de",
+    "old": "Wenn alle verrückt sind, braucht man nicht vernünftig zu sein",
+    "new": "Die Mehrheit hat nicht immer recht",
+    "source": "de/wisdom-stories/price-of-belonging.docx",
+    "image": "de/wisdom-stories/illustrations/price-of-belonging.webp",
+    "fit": {
+      "font_size": 48,
+      "bounds": [
+        401.5,
+        38.5,
+        1133.5,
+        72.5
+      ],
+      "lines": [
+        "Die Mehrheit hat nicht immer recht"
+      ],
+      "safe_box": [
+        142,
+        19,
+        1393,
+        92
+      ]
+    },
+    "pixels_outside_title_unchanged": true,
+    "body_and_moral_unchanged": true
+  },
+  {
+    "language": "ru",
+    "old": "Когда все безумны, незачем быть разумным",
+    "new": "Большинство не всегда право",
+    "source": "ru/wisdom-stories/price-of-belonging.docx",
+    "image": "ru/wisdom-stories/illustrations/price-of-belonging.webp",
+    "fit": {
+      "font_size": 48,
+      "bounds": [
+        441.5,
+        16.0,
+        1093.5,
+        58.0
+      ],
+      "lines": [
+        "Большинство не всегда право"
+      ],
+      "safe_box": [
+        112,
+        14,
+        1423,
+        60
+      ]
+    },
+    "pixels_outside_title_unchanged": true,
+    "body_and_moral_unchanged": true
+  },
+  {
+    "language": "ky",
+    "old": "Баары жинди болгондо акылдуу болуунун кереги жок",
+    "new": "Көпчүлүк дайыма эле туура боло бербейт",
+    "source": "ky/wisdom-stories/price-of-belonging.docx",
+    "image": "ky/wisdom-stories/illustrations/price-of-belonging.webp",
+    "fit": {
+      "font_size": 47,
+      "bounds": [
+        374.5,
+        21.5,
+        1160.5,
+        115.5
+      ],
+      "lines": [
+        "Көпчүлүк дайыма эле туура боло",
+        "бербейт"
+      ],
+      "safe_box": [
+        282,
+        21,
+        1253,
+        116
+      ]
+    },
+    "pixels_outside_title_unchanged": true,
+    "body_and_moral_unchanged": true
+  }
+]

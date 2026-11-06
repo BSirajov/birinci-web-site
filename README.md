@@ -52,8 +52,8 @@ Chrome and version policy live in `tools/chrome_restore.py`. The supported websi
 ## Layout
 
 ```text
-{lang}/wisdom-stories/     Story Word sources + audio + illustrations
-{lang}/discovery-articles/ Discovery Word sources + audio
+{lang}/wisdom-stories/     Story Word sources and illustrations
+{lang}/discovery-articles/ Discovery Word sources
 tools/locales/             UI strings
 tools/inventions/          Discoveries HTML bodies
 tools/chrome_restore.py    Durable chrome / SEO / i18n

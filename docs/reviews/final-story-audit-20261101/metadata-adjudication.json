@@ -1,0 +1,524 @@
+[
+  {
+    "key": "az/permission-or-forgiveness",
+    "page": "az\\categories\\dostluq-ve-insan-munasibetleri.html",
+    "kind": "image-alt-title",
+    "text": "İcazə, yoxsa üzr istəmək illüstrasiyası",
+    "current_title": "İcazə almaq, yoxsa üzr istəmək?",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "az/choose-justice",
+    "page": "az\\categories\\edalet-ve-cemiyyet.html",
+    "kind": "image-alt-title",
+    "text": "Ədalət var ikən haqsızlıq niyə illüstrasiyası",
+    "current_title": "Ədalət var ikən haqsızlıq niyə?",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "az/honey-or-dry-bread",
+    "page": "az\\categories\\exlaq-ve-xarakter.html",
+    "kind": "image-alt-title",
+    "text": "Bal ya quru çörək illüstrasiyası",
+    "current_title": "Bal, yoxsa quru çörək?",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "az/education-or-character",
+    "page": "az\\categories\\exlaq-ve-xarakter.html",
+    "kind": "image-alt-title",
+    "text": "Təhsil, ya xasiyyət illüstrasiyası",
+    "current_title": "Təhsil, yoxsa xasiyyət?",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "az/do-you-remember-me",
+    "page": "az\\categories\\hikmet-ve-heyat-dersleri.html",
+    "kind": "image-alt-title",
+    "text": "Müəllim, salam, xatırladınız məni? illüstrasiyası",
+    "current_title": "Müəllim, salam! Məni xatırladınız?",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "az/different-door",
+    "page": "az\\categories\\hikmet-ve-heyat-dersleri.html",
+    "kind": "image-alt-title",
+    "text": "Açılmayan qapı bəlkə də sənin qapın deyil illüstrasiyası",
+    "current_title": "Açılmayan qapı, bəlkə də, sənin qapın deyil",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "az/what-is-a-word",
+    "page": "az\\categories\\soz-sukut-ve-unsiyyet.html",
+    "kind": "image-alt-title",
+    "text": "Söz nədir illüstrasiyası",
+    "current_title": "Söz nədir?",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "az/what-changed-after-sixty",
+    "page": "az\\categories\\yaslanma-ve-zaman.html",
+    "kind": "image-alt-title",
+    "text": "Altmışdan sonra nə dəyişdi illüstrasiyası",
+    "current_title": "Altmışdan sonra nə dəyişdi?",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "en/henry-fords-choice",
+    "page": "en\\categories\\emek-ruzi-ve-servet.html",
+    "kind": "image-alt-title",
+    "text": "Illustration of Henry Ford's Choice",
+    "current_title": "Henry Ford’s Choice",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "en/think-before-speaking",
+    "page": "en\\categories\\exlaq-ve-xarakter.html",
+    "kind": "image-alt-title",
+    "text": "Illustration of Don't open your mouth",
+    "current_title": "Think before speaking",
+    "disposition": "Finding: stale or materially different label",
+    "reason": "The label retains a replaced title, awkward translation, changed addressee or changed meaning; refresh it from the approved current title."
+  },
+  {
+    "key": "en/try-again",
+    "page": "en\\categories\\exlaq-ve-xarakter.html",
+    "kind": "image-alt-title",
+    "text": "Illustration of Don't Say I Couldn't Get It Done, I Couldn't Manage",
+    "current_title": "Try again",
+    "disposition": "Finding: stale or materially different label",
+    "reason": "The label retains a replaced title, awkward translation, changed addressee or changed meaning; refresh it from the approved current title."
+  },
+  {
+    "key": "en/other-peoples-thoughts",
+    "page": "en\\categories\\exlaq-ve-xarakter.html",
+    "kind": "image-alt-title",
+    "text": "Illustration of Other People's Opinions",
+    "current_title": "Other People’s Thoughts",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "en/cost-of-indifference",
+    "page": "en\\categories\\hikmet-ve-heyat-dersleri.html",
+    "kind": "image-alt-title",
+    "text": "Illustration of If I Don't Do It These Days, the World Won't Collapse",
+    "current_title": "The cost of indifference",
+    "disposition": "Finding: stale or materially different label",
+    "reason": "The label retains a replaced title, awkward translation, changed addressee or changed meaning; refresh it from the approved current title."
+  },
+  {
+    "key": "en/prayer-for-relief",
+    "page": "en\\categories\\iman-ve-meneviyyat.html",
+    "kind": "image-alt-title",
+    "text": "Illustration of O Allah, find a solution to our problems",
+    "current_title": "A prayer for relief",
+    "disposition": "Finding: stale or materially different label",
+    "reason": "The label retains a replaced title, awkward translation, changed addressee or changed meaning; refresh it from the approved current title."
+  },
+  {
+    "key": "en/give-to-me-last",
+    "page": "en\\categories\\iman-ve-meneviyyat.html",
+    "kind": "image-alt-title",
+    "text": "Illustration of O Allah, first give to the mountains and stones",
+    "current_title": "Give to me last",
+    "disposition": "Finding: stale or materially different label",
+    "reason": "The label retains a replaced title, awkward translation, changed addressee or changed meaning; refresh it from the approved current title."
+  },
+  {
+    "key": "en/dervishs-appearance",
+    "page": "en\\categories\\iman-ve-meneviyyat.html",
+    "kind": "image-alt-title",
+    "text": "Illustration of The Dervish's Dress",
+    "current_title": "The Dervish's Appearance",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "en/eraser-in-marriage",
+    "page": "en\\categories\\sevgi-ve-evlilik.html",
+    "kind": "image-alt-title",
+    "text": "Illustration of An Eraser in Marriage",
+    "current_title": "An Eraser for Marriage",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "en/shepherds-word",
+    "page": "en\\categories\\soz-sukut-ve-unsiyyet.html",
+    "kind": "image-alt-title",
+    "text": "Illustration of The Shepherd's Word",
+    "current_title": "The Shepherd’s Word",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "en/lions-tracks",
+    "page": "en\\categories\\temsiller-ve-meseller.html",
+    "kind": "image-alt-title",
+    "text": "Illustration of The Lion's Track",
+    "current_title": "The Lion’s Tracks",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "de/door-to-the-heart",
+    "page": "de\\categories\\iman-ve-meneviyyat.html",
+    "kind": "image-alt-title",
+    "text": "Comic-Illustration zu „Der Schein kann trügen“ mit mehreren Bildtafeln.",
+    "current_title": "Das Licht der Welt",
+    "disposition": "Already reported in F-003",
+    "reason": "Incorrectly names the wolf story."
+  },
+  {
+    "key": "ru/everyone-is-equal-here",
+    "page": "ru\\categories\\dostluq-ve-insan-munasibetleri.html",
+    "kind": "image-alt-title",
+    "text": "Иллюстрация: У нас все одинаковы",
+    "current_title": "У нас все равны",
+    "disposition": "Finding: stale or materially different label",
+    "reason": "The label retains a replaced title, awkward translation, changed addressee or changed meaning; refresh it from the approved current title."
+  },
+  {
+    "key": "ru/sharing-justice",
+    "page": "ru\\categories\\edalet-ve-cemiyyet.html",
+    "kind": "image-alt-title",
+    "text": "Иллюстрация: Делиться справедливостью",
+    "current_title": "Делиться по справедливости",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "ru/busy-but-unproductive",
+    "page": "ru\\categories\\emek-ruzi-ve-servet.html",
+    "kind": "image-alt-title",
+    "text": "Иллюстрация: Рука за работой",
+    "current_title": "При деле",
+    "disposition": "Finding: stale or materially different label",
+    "reason": "The label retains a replaced title, awkward translation, changed addressee or changed meaning; refresh it from the approved current title."
+  },
+  {
+    "key": "ru/keep-your-self-respect",
+    "page": "ru\\categories\\exlaq-ve-xarakter.html",
+    "kind": "image-alt-title",
+    "text": "Иллюстрация: Не становись пересудом на устах и пылью под ногами",
+    "current_title": "Не становись мишенью для пересудов и пылью под ногами",
+    "disposition": "Finding: stale or materially different label",
+    "reason": "The label retains a replaced title, awkward translation, changed addressee or changed meaning; refresh it from the approved current title."
+  },
+  {
+    "key": "ru/do-not-deepen-anothers-pain",
+    "page": "ru\\categories\\exlaq-ve-xarakter.html",
+    "kind": "image-alt-title",
+    "text": "Иллюстрация: Не делайте этих вещей",
+    "current_title": "Не поступайте так",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "ru/sharpen-the-axe",
+    "page": "ru\\categories\\hikmet-ve-heyat-dersleri.html",
+    "kind": "image-alt-title",
+    "text": "Иллюстрация: Сначала наточи топор",
+    "current_title": "Более эффективный способ",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "ru/cost-of-indifference",
+    "page": "ru\\categories\\hikmet-ve-heyat-dersleri.html",
+    "kind": "image-alt-title",
+    "text": "Иллюстрация: Если я не сделаю это в эти дни, мир не рухнет",
+    "current_title": "Если я не сделаю это в ближайшие дни, мир не рухнет",
+    "disposition": "Finding: stale or materially different label",
+    "reason": "The label retains a replaced title, awkward translation, changed addressee or changed meaning; refresh it from the approved current title."
+  },
+  {
+    "key": "ru/hayats-life-story",
+    "page": "ru\\categories\\hikmet-ve-heyat-dersleri.html",
+    "kind": "image-alt-title",
+    "text": "Иллюстрация: Жизненная история Хаят",
+    "current_title": "История жизни Хаят",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "ru/living-with-loss",
+    "page": "ru\\categories\\hikmet-ve-heyat-dersleri.html",
+    "kind": "image-alt-title",
+    "text": "Иллюстрация: Умерший — тот, кто остался в жизни",
+    "current_title": "Словно умер вместе с любимым человеком",
+    "disposition": "Finding: stale or materially different label",
+    "reason": "The label retains a replaced title, awkward translation, changed addressee or changed meaning; refresh it from the approved current title."
+  },
+  {
+    "key": "ru/ramadan-prayer",
+    "page": "ru\\categories\\iman-ve-meneviyyat.html",
+    "kind": "image-alt-title",
+    "text": "Иллюстрация: Молитва Рамазана",
+    "current_title": "Молитва в Рамадан",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "ru/prayer-for-relief",
+    "page": "ru\\categories\\iman-ve-meneviyyat.html",
+    "kind": "image-alt-title",
+    "text": "Иллюстрация: О Аллах, найди решение наших проблем.",
+    "current_title": "О Аллах, облегчи наши страдания",
+    "disposition": "Finding: stale or materially different label",
+    "reason": "The label retains a replaced title, awkward translation, changed addressee or changed meaning; refresh it from the approved current title."
+  },
+  {
+    "key": "ru/dervishs-appearance",
+    "page": "ru\\categories\\iman-ve-meneviyyat.html",
+    "kind": "image-alt-title",
+    "text": "Иллюстрация: Одежда дервиша",
+    "current_title": "Внешний вид дервиша",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "ru/why-wait",
+    "page": "ru\\categories\\iman-ve-meneviyyat.html",
+    "kind": "image-alt-title",
+    "text": "Иллюстрация: Почему вы ждёте последнего дня мира?",
+    "current_title": "Зачем ждать конца света?",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "ru/prayer-finds-you",
+    "page": "ru\\categories\\iman-ve-meneviyyat.html",
+    "kind": "image-alt-title",
+    "text": "Иллюстрация: Пусть молитва придёт и найдёт тебя.",
+    "current_title": "Пусть молитва найдёт тебя",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "ru/lifes-finest-blessing",
+    "page": "ru\\categories\\iman-ve-meneviyyat.html",
+    "kind": "image-alt-title",
+    "text": "Иллюстрация: Дервиша спросили:",
+    "current_title": "Лучший дар судьбы",
+    "disposition": "Finding: stale or materially different label",
+    "reason": "The label retains a replaced title, awkward translation, changed addressee or changed meaning; refresh it from the approved current title."
+  },
+  {
+    "key": "ru/door-to-the-heart",
+    "page": "ru\\categories\\iman-ve-meneviyyat.html",
+    "kind": "image-alt-title",
+    "text": "Иллюстрация: Свет вселенной",
+    "current_title": "Дверь сердца",
+    "disposition": "Finding: stale or materially different label",
+    "reason": "The label retains a replaced title, awkward translation, changed addressee or changed meaning; refresh it from the approved current title."
+  },
+  {
+    "key": "ru/confidence-is-half-the-battle",
+    "page": "ru\\categories\\iman-ve-meneviyyat.html",
+    "kind": "image-alt-title",
+    "text": "Иллюстрация: Уверенность – половина дела!",
+    "current_title": "Уверенность — половина дела!",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "ky/unwelcome-gifts",
+    "page": "ky\\categories\\dostluq-ve-insan-munasibetleri.html",
+    "kind": "image-alt-title",
+    "text": "Кемсинтүүлөрдү кантип кайтаруу керек сүрөтү",
+    "current_title": "Кемсинтүүгө кантип жооп берүү керек?",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "ky/welcome-home-my-dear",
+    "page": "ky\\categories\\dostluq-ve-insan-munasibetleri.html",
+    "kind": "image-alt-title",
+    "text": "Кош келдиңиз, мырзам сүрөтү",
+    "current_title": "Кош келдиң, жан жолдошум",
+    "disposition": "Finding: stale or materially different label",
+    "reason": "The label retains a replaced title, awkward translation, changed addressee or changed meaning; refresh it from the approved current title."
+  },
+  {
+    "key": "ky/why-shout",
+    "page": "ky\\categories\\dostluq-ve-insan-munasibetleri.html",
+    "kind": "image-alt-title",
+    "text": "Эмне үчүн адамдар талашканда кыйкырышат сүрөтү",
+    "current_title": "Эмне үчүн адамдар урушканда кыйкырышат?",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "ky/more-than-money",
+    "page": "ky\\categories\\emek-ruzi-ve-servet.html",
+    "kind": "image-alt-title",
+    "text": "Чыгымыңызга акчаңыз барбы? сүрөтү",
+    "current_title": "Керектөөңүзгө акчаңыз жетеби?",
+    "disposition": "Finding: stale or materially different label",
+    "reason": "The label retains a replaced title, awkward translation, changed addressee or changed meaning; refresh it from the approved current title."
+  },
+  {
+    "key": "ky/giving-without-money",
+    "page": "ky\\categories\\emek-ruzi-ve-servet.html",
+    "kind": "image-alt-title",
+    "text": "Мен эмнеге кедеймин сүрөтү",
+    "current_title": "Мен эмнеге кедеймин?",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "ky/honey-or-dry-bread",
+    "page": "ky\\categories\\exlaq-ve-xarakter.html",
+    "kind": "image-alt-title",
+    "text": "Балбы же каткан нанбы сүрөтү",
+    "current_title": "Балбы же каткан нанбы?",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "ky/education-or-character",
+    "page": "ky\\categories\\exlaq-ve-xarakter.html",
+    "kind": "image-alt-title",
+    "text": "Билимби же мүнөзбү сүрөтү",
+    "current_title": "Билимби же мүнөзбү?",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "ky/letting-go-of-painful-thoughts",
+    "page": "ky\\categories\\exlaq-ve-xarakter.html",
+    "kind": "image-alt-title",
+    "text": "Ойлорумдан кантип кутулам сүрөтү",
+    "current_title": "Ойлорумдан кантип кутулам?",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "ky/strengths-and-vulnerabilities",
+    "page": "ky\\categories\\exlaq-ve-xarakter.html",
+    "kind": "image-alt-title",
+    "text": "Сапаттарыбыз өзүбүзгө душман болушу мүмкүн сүрөтү",
+    "current_title": "Артыкчылыгыбыз башыбызга балээ болушу мүмкүн",
+    "disposition": "Finding: stale or materially different label",
+    "reason": "The label retains a replaced title, awkward translation, changed addressee or changed meaning; refresh it from the approved current title."
+  },
+  {
+    "key": "ky/its-pointless",
+    "page": "ky\\categories\\hikmet-ve-heyat-dersleri.html",
+    "kind": "image-alt-title",
+    "text": "Текке кеткен аракет сүрөтү",
+    "current_title": "Бекер убара",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "ky/where-does-this-road-go",
+    "page": "ky\\categories\\hikmet-ve-heyat-dersleri.html",
+    "kind": "image-alt-title",
+    "text": "Бул жол кайда барат сүрөтү",
+    "current_title": "Бул жол кайда барат?",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "ky/what-matters-in-life",
+    "page": "ky\\categories\\hikmet-ve-heyat-dersleri.html",
+    "kind": "image-alt-title",
+    "text": "Жашоодо эмне маанилүү сүрөтү",
+    "current_title": "Жашоодо эмне маанилүү?",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "ky/before-it-is-too-late",
+    "page": "ky\\categories\\hikmet-ve-heyat-dersleri.html",
+    "kind": "image-alt-title",
+    "text": "Кечигүү деген эмне сүрөтү",
+    "current_title": "Кечигүү деген эмне?",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "ky/living-with-loss",
+    "page": "ky\\categories\\hikmet-ve-heyat-dersleri.html",
+    "kind": "image-alt-title",
+    "text": "Өлгөн — жашоодо калганы сүрөтү",
+    "current_title": "Өлгөн — тирүү калганы",
+    "disposition": "Finding: stale or materially different label",
+    "reason": "The label retains a replaced title, awkward translation, changed addressee or changed meaning; refresh it from the approved current title."
+  },
+  {
+    "key": "ky/door-to-the-heart",
+    "page": "ky\\categories\\iman-ve-meneviyyat.html",
+    "kind": "image-alt-title",
+    "text": "Сырткы көрүнүш алдамчы болушу мүмкүн сүрөтү",
+    "current_title": "Дүйнөнүн жарыгы",
+    "disposition": "Already reported in F-003",
+    "reason": "Incorrectly names the wolf story."
+  },
+  {
+    "key": "ky/begin-with-self-examination",
+    "page": "ky\\categories\\iman-ve-meneviyyat.html",
+    "kind": "image-alt-title",
+    "text": "Кырсык кайдан келет сүрөтү",
+    "current_title": "Кырсык кайдан келет?",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "ky/before-you-marry",
+    "page": "ky\\categories\\sevgi-ve-evlilik.html",
+    "kind": "image-alt-title",
+    "text": "Үйлөнгөндөргө кеңеш сүрөтү",
+    "current_title": "Үй-бүлө курууга камынгандарга кеңеш",
+    "disposition": "Finding: stale or materially different label",
+    "reason": "The label retains a replaced title, awkward translation, changed addressee or changed meaning; refresh it from the approved current title."
+  },
+  {
+    "key": "ky/what-is-a-word",
+    "page": "ky\\categories\\soz-sukut-ve-unsiyyet.html",
+    "kind": "image-alt-title",
+    "text": "Сөз деген эмне сүрөтү",
+    "current_title": "Сөз деген эмне?",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "ky/sinans-waterless-house",
+    "page": "ky\\categories\\tarix-ve-taninmish-shexsiyyetler.html",
+    "kind": "image-alt-title",
+    "text": "Стамбулду сууга бөлөгөн архитектор Синан суусуз үйдө каза болду сүрөтү",
+    "current_title": "Стамбулга суу жеткирген архитектор Синан суусуз үйдө каза болду",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "ky/what-changed-after-sixty",
+    "page": "ky\\categories\\yaslanma-ve-zaman.html",
+    "kind": "image-alt-title",
+    "text": "Алтымыштан кийин эмне өзгөрдү сүрөтү",
+    "current_title": "Алтымыштан кийин эмне өзгөрдү?",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  },
+  {
+    "key": "ky/aging",
+    "page": "ky\\categories\\yaslanma-ve-zaman.html",
+    "kind": "image-alt-title",
+    "text": "Карылык сүрөтү",
+    "current_title": "Жаштын өтүшү",
+    "disposition": "Not a defect under this check",
+    "reason": "Different wording or punctuation still identifies the same subject; exact heading equality is not required for descriptive alt text."
+  }
+]

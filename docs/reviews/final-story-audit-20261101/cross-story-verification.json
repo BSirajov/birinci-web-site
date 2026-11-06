@@ -1,0 +1,18 @@
+{
+  "records": 1280,
+  "story_identifiers": 260,
+  "new_findings": 0,
+  "decisions": [
+    "No exact repeated 10-word passage between distinct stories in the current inventory; this does not disprove paraphrased overlap.",
+    "The two semantic variant pairs and five language-specific Humanity title collisions remain F-011/F-012/F-023.",
+    "German byline spelling F-022, English heading case F-073 and apostrophes F-077 retained.",
+    "Russian seven Урок labels belong to the author series; no forced replacement.",
+    "Azerbaijani title differences are locale-sensitive case folding; English not-my-concern has intentional authoring notes before its English source.",
+    "Boundaries and compassionate help are compatible where context and consent are distinguished.",
+    "Different language transliterations of personal names are not inherently errors; same-language German bylines are specifically flagged."
+  ],
+  "limits": [
+    "Semantic comparison is editorial judgment, not proof of literary originality.",
+    "Illustration pixels were not rereviewed or changed."
+  ]
+}

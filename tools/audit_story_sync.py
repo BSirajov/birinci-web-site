@@ -30,7 +30,6 @@ def parse(path,lang):
     mi=next((i for i in range(len(paras)-1,-1,-1) if rebuild.MORAL_RE.match(paras[i])),None)
     if mi is not None:
         moral=paras[mi];body=paras[:mi]
-        if lang=='de':moral=re.sub('^'+PATTERNS[lang]+r'\s*:', 'Lehre:',moral,flags=re.I)
     else:
         assert lang=='az' and path.stem in POEMS,'Missing moral '+str(path)
         body=paras[:-1]
@@ -38,13 +37,17 @@ def parse(path,lang):
 
 def audit(root=ROOT):
     result={};errors=[]
+    manifest=json.loads((root/'tools/story-build-manifest.json').read_text(encoding='utf-8'))
     for lang in SUPPORTED_LANGS:
         importlib.reload(rebuild);rebuild.MORAL_RE=re.compile('^'+PATTERNS[lang]+r'\s*:',re.I)
         _,catalog,_=_load_json_assignment(root/lang/'assets/stories-data.js','window.__BIRINCI_STORIES__')
         entries=[s for c in catalog['categories'] for s in c['stories']];stories={s['stem']:s for s in entries}
         retained_docs=[p for p in (root/lang/'wisdom-stories').rglob('*.docx') if active(p)]
-        docs=[p for p in retained_docs if p.stem not in UNPUBLISHED_STEMS];sources={p.stem:p for p in docs}
-        expected_count=(261 if lang=='az' else 256)-(len(retained_docs)-len(docs))
+        docs=[p for p in retained_docs if p.stem not in UNPUBLISHED_STEMS]
+        # Source filenames may change while public story identifiers stay stable.
+        source_ids={(root/s['source']).resolve():s['stem'] for c in manifest[lang]['categories'] for s in c['stories']}
+        sources={source_ids.get(p.resolve(),p.stem):p for p in docs}
+        expected_count=(260 if lang=='az' else 255)-(len(retained_docs)-len(docs))
         def check(ok,detail):
             if not ok:errors.append({'language':lang,'detail':detail})
         check(len(docs)==len(sources)==len(entries)==len(stories)==expected_count,'Inventory count or duplicate mismatch')
@@ -57,10 +60,10 @@ def audit(root=ROOT):
             if lang=='az' and title!=s['title'] and title.replace('İ','i').replace('I','ı').lower()==s['title'].replace('İ','i').replace('I','ı').lower():
                 exceptions.append({'stem':stem,'word':title,'website':s['title']});title=s['title']
             check(title==s['title'],'Catalog title '+stem)
-            check(body==[norm(p) for p in s['paragraphs'][:len(body)]],'Catalog text '+stem)
+            check([strip_moral_label(p) for p in body]==[strip_moral_label(norm(p)) for p in s['paragraphs'][:len(body)]],'Catalog text '+stem)
             e=search.get(stem,{})
             check(e.get('title')==s['title'],'Search title '+stem)
-            check(all(p.lower() in norm(e.get('hay','')) for p in [title,*body]),'Search text '+stem)
+            check(all(strip_moral_label(p).lower() in norm(e.get('hay','')) for p in [title,*body]),'Search text '+stem)
         copies=0;seen=set()
         for p in (root/lang).rglob('*.html'):
             if not active(p) or any(v in {'wisdom-stories','discovery-articles','assets'} for v in p.parts):continue

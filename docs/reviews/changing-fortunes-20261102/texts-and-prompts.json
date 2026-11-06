@@ -1,0 +1,37 @@
+{
+  "az": {
+    "title": "Dəyişən talelər",
+    "paragraphs": [
+      "Kimsəni kiçik görmə — gün gələr, şah olar.",
+      "Şahdır deyə güvənmə — gün gələr, mat olar."
+    ]
+  },
+  "en": {
+    "title": "Changing Fortunes",
+    "paragraphs": [
+      "Never look down on anyone — one day, they may rise to power.",
+      "Never feel secure just because you hold power — one day, you may face defeat."
+    ]
+  },
+  "de": {
+    "title": "Wendungen des Schicksals",
+    "paragraphs": [
+      "Sieh auf niemanden herab — eines Tages kann er ganz oben stehen.",
+      "Verlass dich nicht auf deine Macht — eines Tages kannst auch du scheitern."
+    ]
+  },
+  "ru": {
+    "title": "Превратности судьбы",
+    "paragraphs": [
+      "Не смотри ни на кого свысока — однажды этот человек может обрести власть.",
+      "Не обольщайся своей властью — однажды и ты можешь потерпеть поражение."
+    ]
+  },
+  "ky": {
+    "title": "Тагдырдын бурулуштары",
+    "paragraphs": [
+      "Эч кимди кемсинтпе — күн келип, ал бийик даражага жетиши мүмкүн.",
+      "Бийлигиңе таянып бейкапар болбо — күн келип, сен да жеңилип калышың мүмкүн."
+    ]
+  }
+}
