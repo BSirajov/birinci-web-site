@@ -1916,7 +1916,7 @@
         "stories": [
           {
             "stem": "honestly-earned-morsel",
-            "title": "An honestly earned morsel",
+            "title": "A halal morsel",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/honestly-earned-morsel.docx"
@@ -3975,7 +3975,7 @@
           },
           {
             "stem": "begin-with-self-examination",
-            "title": "Откуда приходит беда",
+            "title": "Сначала взгляни на себя",
             "hasAudio": false,
             "hasImage": true,
             "source": "ru/wisdom-stories/begin-with-self-examination.docx"
@@ -4029,12 +4029,12 @@
           },
           {
             "stem": "door-to-the-heart",
-            "title": "Дверь сердца",
+            "title": "Свет вселенной",
             "hasAudio": false,
             "hasImage": true,
             "source": "ru/wisdom-stories/door-to-the-heart.docx",
-            "imageAlt": "Иллюстрация: Дверь сердца",
-            "imageOpenLabel": "Увеличить иллюстрацию: Дверь сердца"
+            "imageAlt": "Иллюстрация: Свет вселенной",
+            "imageOpenLabel": "Увеличить иллюстрацию: Свет вселенной"
           },
           {
             "stem": "power-of-justice",
@@ -4731,7 +4731,7 @@
           },
           {
             "stem": "telling-lies",
-            "title": "Говорить неправду",
+            "title": "Вера в себя и правда",
             "hasAudio": false,
             "hasImage": true,
             "source": "ru/wisdom-stories/telling-lies.docx"
@@ -4775,14 +4775,14 @@
           },
           {
             "stem": "try-again",
-            "title": "Не говорите: «Я не справился, я не смог это сделать»",
+            "title": "Не вышло — начни снова",
             "hasAudio": false,
             "hasImage": true,
             "source": "ru/wisdom-stories/try-again.docx"
           },
           {
             "stem": "do-not-deepen-anothers-pain",
-            "title": "Не поступайте так",
+            "title": "Не трогайте чужую рану",
             "hasAudio": false,
             "hasImage": true,
             "source": "ru/wisdom-stories/do-not-deepen-anothers-pain.docx"
@@ -4852,7 +4852,7 @@
           },
           {
             "stem": "learning-to-say-yet",
-            "title": "Попробуйте мыслить так",
+            "title": "Измени мысль и попробуй снова",
             "hasAudio": false,
             "hasImage": true,
             "source": "ru/wisdom-stories/learning-to-say-yet.docx"
@@ -4950,7 +4950,7 @@
           },
           {
             "stem": "justice-and-compassion",
-            "title": "Это не принадлежало тебе по праву",
+            "title": "Между справедливостью и милосердием",
             "hasAudio": false,
             "hasImage": true,
             "source": "ru/wisdom-stories/justice-and-compassion.docx"
@@ -5173,7 +5173,7 @@
           },
           {
             "stem": "istanbul-woman-remembers",
-            "title": "Из воспоминаний женщины из Стамбула",
+            "title": "Видимая и невидимая правда",
             "hasAudio": false,
             "hasImage": true,
             "source": "ru/wisdom-stories/istanbul-woman-remembers.docx"
@@ -5220,12 +5220,12 @@
           },
           {
             "stem": "living-with-loss",
-            "title": "Словно умер вместе с любимым человеком",
+            "title": "По-настоящему умирает тот, кто остаётся",
             "hasAudio": false,
             "hasImage": true,
             "source": "ru/wisdom-stories/living-with-loss.docx",
-            "imageAlt": "Иллюстрация: Словно умер вместе с любимым человеком",
-            "imageOpenLabel": "Увеличить иллюстрацию: Словно умер вместе с любимым человеком"
+            "imageAlt": "Иллюстрация: По-настоящему умирает тот, кто остаётся",
+            "imageOpenLabel": "Увеличить иллюстрацию: По-настоящему умирает тот, кто остаётся"
           },
           {
             "stem": "doctors-office",
@@ -5498,7 +5498,7 @@
           },
           {
             "stem": "giving-without-money",
-            "title": "Почему я беден?",
+            "title": "Отдать можно и без денег",
             "hasAudio": false,
             "hasImage": true,
             "source": "ru/wisdom-stories/giving-without-money.docx"
