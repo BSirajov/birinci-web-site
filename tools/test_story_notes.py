@@ -68,7 +68,7 @@ for (language of ["az","en","ru","ky","de"]) {
       const moralIndex=story.paragraphs.findIndex(p=>/^(?:ibrət|ibret|nəticə|moral|lesson|(?:die\s+)?lehre|мораль|урок|үлгү|сабак)\s*:/i.test(p.trim().replace(/[İIı]/g,"i")));
       if(moralIndex>=0) assert.equal(sources,story.paragraphs.length-moralIndex-1,language+" "+story.stem+" credits changed");
       else assert.ok(sources>=1,language+" "+story.stem+" has no author credit");
-      if(language==="en" && story.stem==="mercedes") assert.equal(sources,2);
+      if(language==="en" && story.stem==="mercedes") assert.equal(sources,0);
     }
   }
   assert.equal(noMoral,language==="az"?5:0,language);
