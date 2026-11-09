@@ -7569,15 +7569,15 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         (pageLang === "de" ? "Illustration zu „{title}“" : tUi("illustration_alt", "{title} illüstrasiyası")).replace("{title}", story.title || "")
       );
       // Unified stamp after full illustration refresh (az|en|ru|ky|de).
-      const illustVersion = story.stem === "light-of-the-world" ? "20261101wolf" : "20261030qafixes";
+      const illustVersion = "20261109panels1530";
       const illustExt = "webp";
       const kyPage = kyPageEarly;
       const azPage = pageLang === "az" || pageLang.startsWith("az-");
       const kyBox = kyPage ? KY_ILLUST_SIZE[story.stem] : null;
       const azBox = azPage ? AZ_ILLUST_SIZE[story.stem] : null;
       const box = kyBox || azBox;
-      const illustWidth = box ? String(box[0]) : "1536";
-      const illustHeight = box ? String(box[1]) : "1024";
+      const illustWidth = "1530";
+      const illustHeight = "1200";
       const bakedImage = String(story.image || "").trim();
       const relativeIllustPath = bakedImage
         ? bakedImage

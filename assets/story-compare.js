@@ -460,7 +460,7 @@
       /^(discussion-and-conflict|everyone-has-work-to-do|if-fate-allows-we-will-meet|organization-without-an-action-plan|silent-corridor|weeds-must-be-pulled-from-the-root)$/.test(
         storyStem || ""
       );
-    const stamp = storyStem === "justice-and-compassion" ? "?v=20261102f006" : (storyStem === "price-of-belonging" ? "?v=20261102f043" : (storyStem === "pawn-and-the-king" ? "?v=20261102fortunes" : (storyStem === "light-of-the-world" ? "?v=20261102f016" : "?v=20261030qafixes")));
+    const stamp = "?v=20261109panels1530";
     const baked = String(bakedImage || "").trim().replace(/^\/+/, "");
     if (baked) {
       const stamped = baked.indexOf("?") >= 0 ? baked : baked + stamp;
@@ -738,8 +738,8 @@
     const kyBox = code === "ky" && story && story.stem ? KY_ILLUST_SIZE[story.stem] : null;
     const azBox = code === "az" && story && story.stem ? AZ_ILLUST_SIZE[story.stem] : null;
     const box = kyBox || azBox;
-    const illustW = box ? String(box[0]) : "768";
-    const illustH = box ? String(box[1]) : "512";
+    const illustW = "1530";
+    const illustH = "1200";
     const imgSrc = escapeHtml(
       illustrationUrl(code, story && (story.imageStem || story.stem), ctx.assetQuery, story && story.image)
     );
@@ -754,41 +754,7 @@
       illustH +
       '" onerror="this.closest(\'figure\').hidden=true" />';
     let figureHtml = "";
-    if (showImage && code === "ky") {
-      const natW = kyBox ? kyBox[0] : 1431;
-      const natH = kyBox ? kyBox[1] : 1099;
-      const guessTop = Math.max(1, Math.round(natH * 0.12));
-      const guessBot = Math.max(1, Math.round(natH * 0.135));
-      const sliceImg = (sliceAlt, handlers) =>
-        '<img class="sc-col__image" src="' +
-        imgSrc +
-        '" alt="' +
-        sliceAlt +
-        '" decoding="async" width="' +
-        illustW +
-        '" height="' +
-        illustH +
-        '" ' +
-        handlers +
-        " />";
-      figureHtml =
-        '<figure class="sc-col__figure sc-col__figure--ky" style="' +
-        kyPlateVars(natW, natH, guessTop, guessBot) +
-        '">' +
-        '<div class="sc-ky-slice sc-ky-slice--top">' +
-        sliceImg(
-          escapeHtml(alt),
-          'loading="eager" onload="window.__birinciFitKyPlate(this)" onerror="this.closest(\'figure\').hidden=true"'
-        ) +
-        "</div>" +
-        '<div class="sc-ky-slice sc-ky-slice--mid">' +
-        sliceImg("", 'aria-hidden="true" loading="eager"') +
-        "</div>" +
-        '<div class="sc-ky-slice sc-ky-slice--bot">' +
-        sliceImg("", 'aria-hidden="true" loading="eager" onerror="this.closest(\'figure\').hidden=true"') +
-        "</div>" +
-        "</figure>";
-    } else if (showImage) {
+    if (showImage) {
       figureHtml = '<figure class="sc-col__figure">' + imgHtml + "</figure>";
     }
     return (

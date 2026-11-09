@@ -54,6 +54,8 @@ for (const lang of ['az', 'de', 'en', 'ky', 'ru']) {
     });
     assert.ok(html.includes('sc-col__prose'), lang + '/' + story.stem);
     assert.ok(html.includes('<img '), lang + '/' + story.stem);
+    assert.ok(html.includes('width="1530" height="1200"'), lang + '/' + story.stem);
+    assert.ok(!html.includes('sc-ky-slice'), 'Full frames must remain intact: ' + lang + '/' + story.stem);
     assert.ok(!/width="(?:undefined|NaN)"|height="(?:undefined|NaN)"/.test(html));
     count++;
   }

@@ -412,7 +412,7 @@
         "title": "Sevgi və evlilik",
         "slug": "sevgi-ve-evlilik",
         "blurb": "Eşq, vəfa və birgə ömrün sınaqları.",
-        "count": 20,
+        "count": 19,
         "stories": [
           {
             "stem": "purple-jacket",
@@ -476,13 +476,6 @@
             "hasAudio": false,
             "hasImage": true,
             "source": "az/wisdom-stories/what-women-endure.docx"
-          },
-          {
-            "stem": "woman-and-the-mirror",
-            "title": "Qadın və güzgü",
-            "hasAudio": false,
-            "hasImage": true,
-            "source": "az/wisdom-stories/woman-and-the-mirror.docx"
           },
           {
             "stem": "red-dress",
@@ -2311,7 +2304,7 @@
         "title": "Love and marriage",
         "slug": "sevgi-ve-evlilik",
         "blurb": "Love, loyalty, and the trials of a shared life.",
-        "count": 20,
+        "count": 19,
         "stories": [
           {
             "stem": "those-who-give-love-receive-love",
@@ -2443,13 +2436,6 @@
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/can-a-broken-heart-love-again.docx"
-          },
-          {
-            "stem": "woman-and-the-mirror",
-            "title": "The woman and the mirror",
-            "hasAudio": false,
-            "hasImage": true,
-            "source": "en/wisdom-stories/woman-and-the-mirror.docx"
           },
           {
             "stem": "yellow-and-red-flowers",
@@ -4259,7 +4245,7 @@
         "title": "Любовь и брак",
         "slug": "sevgi-ve-evlilik",
         "blurb": "Любовь, верность и испытания совместной жизни.",
-        "count": 20,
+        "count": 19,
         "stories": [
           {
             "stem": "five-more-minutes",
@@ -4274,13 +4260,6 @@
             "hasAudio": false,
             "hasImage": true,
             "source": "ru/wisdom-stories/friendship-and-love.docx"
-          },
-          {
-            "stem": "woman-and-the-mirror",
-            "title": "Женщина и зеркало",
-            "hasAudio": false,
-            "hasImage": true,
-            "source": "ru/wisdom-stories/woman-and-the-mirror.docx"
           },
           {
             "stem": "yellow-and-red-flowers",
@@ -6161,7 +6140,7 @@
         "title": "Сүйүү жана нике",
         "slug": "sevgi-ve-evlilik",
         "blurb": "Сүйүү, берилгендик жана бирге жашоонун сыноолору.",
-        "count": 20,
+        "count": 19,
         "stories": [
           {
             "stem": "loving-from-afar",
@@ -6169,13 +6148,6 @@
             "hasAudio": false,
             "hasImage": true,
             "source": "ky/wisdom-stories/loving-from-afar.docx"
-          },
-          {
-            "stem": "woman-and-the-mirror",
-            "title": "Аял жана күзгү",
-            "hasAudio": false,
-            "hasImage": true,
-            "source": "ky/wisdom-stories/woman-and-the-mirror.docx"
           },
           {
             "stem": "what-is-loyalty",
@@ -8335,7 +8307,7 @@
         "slug": "sevgi-ve-evlilik",
         "title": "Liebe und Ehe",
         "blurb": "Liebe, Treue und die Prüfungen eines gemeinsamen Lebens.",
-        "count": 20,
+        "count": 19,
         "stories": [
           {
             "stem": "purple-jacket",
@@ -8444,18 +8416,6 @@
             "hasAudio": false,
             "href": "categories/sevgi-ve-evlilik.html#what-women-endure",
             "source": "de/wisdom-stories/what-women-endure.docx"
-          },
-          {
-            "stem": "woman-and-the-mirror",
-            "path": "de/wisdom-stories/woman-and-the-mirror.docx",
-            "imageStem": "woman-and-the-mirror",
-            "title": "Die Frau und der Spiegel",
-            "authorKey": "",
-            "image": "wisdom-stories/illustrations/woman-and-the-mirror.webp",
-            "hasImage": true,
-            "hasAudio": false,
-            "href": "categories/sevgi-ve-evlilik.html#woman-and-the-mirror",
-            "source": "de/wisdom-stories/woman-and-the-mirror.docx"
           },
           {
             "stem": "red-dress",

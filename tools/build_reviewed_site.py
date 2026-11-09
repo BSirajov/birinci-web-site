@@ -198,9 +198,8 @@ def plan_build(root, langs):
                 image = root / lang / unquote(story.get('image') or f"wisdom-stories/illustrations/{story.get('imageStem') or stem}.webp")
                 if not image.is_file():
                     raise FileNotFoundError(image)
-                if lang == 'ky':
-                    with Image.open(image) as opened:
-                        story['_imageSize'] = opened.size
+                with Image.open(image) as opened:
+                    story['_imageSize'] = opened.size
                 stories[stem] = story
                 search.append(dict(title=title, stem=stem, category=category['title'], slug=category['slug'],
                                    href=story.get('href') or f"categories/{category['slug']}.html#{stem}",

@@ -18,7 +18,7 @@ def test_wolf_story_is_distinct_from_painting_and_has_correct_assets():
         assert paragraphs[0]==title
         assert len(paragraphs)==11
         assert paragraphs[1]!=painting[1]
-        assert Image.open(ROOT/lang/'wisdom-stories/illustrations/light-of-the-world.webp').size==(1536,1159 if lang=='az' else 1024)
+        assert Image.open(ROOT/lang/'wisdom-stories/illustrations/light-of-the-world.webp').size==(1530,1200)
 
 def test_story_illustration_cache_revision_is_repeatable():
     markup='<img src="../wisdom-stories/illustrations/light-of-the-world.webp?v=20261030qafixes"><img src="../wisdom-stories/illustrations/door-to-the-heart.webp?v=20261030qafixes">'
@@ -33,3 +33,4 @@ def test_uppercase_poem_illustration_folder_gets_current_cache_version():
     result=pin_asset_versions(markup)
     assert f'my-lifes-journey.webp?v={ILLUSTRATION_ASSET_VERSION}' in result
     assert pin_asset_versions(result)==result
+
