@@ -79,14 +79,9 @@ jobs:
           persist-credentials: false
       - name: Reject superseded offline source
         run: test "$(git -C offline-source rev-parse HEAD)" = "$(git -C offline-head-check rev-parse HEAD)"
-      - name: Publish online runtime and verify live files
-        env:
-          DEPLOY_SSH_KEY: ${{ secrets.ONLINE_DEPLOY_KEY }}
-          DEPLOY_KNOWN_HOSTS: ${{ vars.DEPLOY_KNOWN_HOSTS }}
-          DEPLOY_HOST: ${{ vars.DEPLOY_HOST }}
-          DEPLOY_PORT: ${{ vars.DEPLOY_PORT }}
-          DEPLOY_USER: ${{ vars.DEPLOY_USER }}
-        run: python tools/deploy_runtime.py --bundle releases/online.tar --edition online --run "$GITHUB_RUN_ID"
+      # Restore the offline entry point first if it is missing. Its deployment
+      # verifies the existing online site; the online switch then preserves and
+      # verifies the freshly published offline edition.
       - name: Publish offline runtime and verify live files
         env:
           DEPLOY_SSH_KEY: ${{ secrets.OFFLINE_DEPLOY_KEY }}
@@ -95,3 +90,11 @@ jobs:
           DEPLOY_PORT: ${{ vars.DEPLOY_PORT }}
           DEPLOY_USER: ${{ vars.DEPLOY_USER }}
         run: python tools/deploy_runtime.py --bundle releases/offline.tar --edition offline --run "$GITHUB_RUN_ID"
+      - name: Publish online runtime and verify live files
+        env:
+          DEPLOY_SSH_KEY: ${{ secrets.ONLINE_DEPLOY_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ vars.DEPLOY_KNOWN_HOSTS }}
+          DEPLOY_HOST: ${{ vars.DEPLOY_HOST }}
+          DEPLOY_PORT: ${{ vars.DEPLOY_PORT }}
+          DEPLOY_USER: ${{ vars.DEPLOY_USER }}
+        run: python tools/deploy_runtime.py --bundle releases/online.tar --edition online --run "$GITHUB_RUN_ID"
