@@ -110,7 +110,7 @@ DISABLE_DISCOVERY_VIDEOS = True
 # Keep in sync with tools/build_website.py SITE_ASSET_VERSION
 SITE_ASSET_VERSION = "20261103titles"
 # All active story illustration text panels synchronized with their Word sources.
-ILLUSTRATION_ASSET_VERSION = "20261106anger"
+ILLUSTRATION_ASSET_VERSION = "20261108frame"
 # Shared site.css / site.js (phone illustration-control chrome).
 SITE_CHROME_ASSET_VERSION = "20261106morals"
 INVENTIONS_BRIDGE_ASSET_VERSION = "20260924bg"

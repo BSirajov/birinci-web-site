@@ -1358,13 +1358,6 @@
             "source": "az/wisdom-stories/lifes-lessons.docx"
           },
           {
-            "stem": "hayats-life-story",
-            "title": "Həyatın həyat hekayəsi",
-            "hasAudio": false,
-            "hasImage": true,
-            "source": "az/wisdom-stories/hayats-life-story.docx"
-          },
-          {
             "stem": "two-bowls-of-water",
             "title": "İki qab su",
             "hasAudio": false,
@@ -2000,7 +1993,7 @@
           },
           {
             "stem": "prayer-for-everyone",
-            "title": "A prayer for everyone",
+            "title": "Help us, Almighty Allah",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/prayer-for-everyone.docx",
@@ -2018,7 +2011,7 @@
           },
           {
             "stem": "door-to-the-heart",
-            "title": "The door to the heart",
+            "title": "Light of the universe",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/door-to-the-heart.docx"
@@ -2053,25 +2046,25 @@
           },
           {
             "stem": "prayer-for-relief",
-            "title": "A prayer for relief",
+            "title": "O Allah, ease our suffering",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/prayer-for-relief.docx",
-            "imageAlt": "Illustration of A prayer for relief",
-            "imageOpenLabel": "Enlarge illustration: A prayer for relief"
+            "imageAlt": "Illustration of O Allah, ease our suffering",
+            "imageOpenLabel": "Enlarge illustration: O Allah, ease our suffering"
           },
           {
             "stem": "give-to-me-last",
-            "title": "Give to me last",
+            "title": "O Allah, give first to the mountains and stones",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/give-to-me-last.docx",
-            "imageAlt": "Illustration of Give to me last",
-            "imageOpenLabel": "Enlarge illustration: Give to me last"
+            "imageAlt": "Illustration of O Allah, give first to the mountains and stones",
+            "imageOpenLabel": "Enlarge illustration: O Allah, give first to the mountains and stones"
           },
           {
             "stem": "gratitude-at-the-sink",
-            "title": "Gratitude at the sink",
+            "title": "Pray while washing the dishes",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/gratitude-at-the-sink.docx"
@@ -2141,7 +2134,7 @@
           },
           {
             "stem": "why-wait",
-            "title": "Why wait?",
+            "title": "Why wait for the last day of the world?",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/why-wait.docx"
@@ -2177,7 +2170,7 @@
           },
           {
             "stem": "mothers-lasting-lesson",
-            "title": "A mother's lasting lesson",
+            "title": "The advice from his mother that Fakir Baykurt never forgot",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/mothers-lasting-lesson.docx"
@@ -2191,14 +2184,14 @@
           },
           {
             "stem": "fathers-advice",
-            "title": "A father's advice",
+            "title": "A wise father’s advice to his son",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/fathers-advice.docx"
           },
           {
             "stem": "stay-calm-arif",
-            "title": "Stay calm, Arif",
+            "title": "Grandfather and grandson go shopping",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/stay-calm-arif.docx"
@@ -2292,7 +2285,7 @@
           },
           {
             "stem": "hour-with-dad",
-            "title": "An hour with Dad",
+            "title": "The value of your family",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/hour-with-dad.docx"
@@ -2397,7 +2390,7 @@
           },
           {
             "stem": "five-more-minutes",
-            "title": "Five more minutes",
+            "title": "Take care of those you love",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/five-more-minutes.docx"
@@ -2532,7 +2525,7 @@
           },
           {
             "stem": "beyond-first-impressions",
-            "title": "Beyond first impressions",
+            "title": "Meeting someone and knowing them",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/beyond-first-impressions.docx",
@@ -2556,7 +2549,7 @@
           },
           {
             "stem": "unwelcome-gifts",
-            "title": "Unwelcome gifts",
+            "title": "How to respond to insults",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/unwelcome-gifts.docx"
@@ -2582,14 +2575,14 @@
           },
           {
             "stem": "sharing-the-burden",
-            "title": "Sharing the burden",
+            "title": "If the road feels easy, thank your companion",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/sharing-the-burden.docx"
           },
           {
             "stem": "respecting-boundaries",
-            "title": "Respecting boundaries",
+            "title": "Interfering in other people’s lives",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/respecting-boundaries.docx"
@@ -2610,7 +2603,7 @@
           },
           {
             "stem": "request-for-help",
-            "title": "A request for help",
+            "title": "People who need your help",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/request-for-help.docx"
@@ -2669,7 +2662,7 @@
           },
           {
             "stem": "choosing-friends",
-            "title": "Choosing friends",
+            "title": "People you should not befriend",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/choosing-friends.docx"
@@ -2747,7 +2740,7 @@
           },
           {
             "stem": "shared-goal",
-            "title": "A shared goal",
+            "title": "Be clear about your goal",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/shared-goal.docx"
@@ -2775,7 +2768,7 @@
           },
           {
             "stem": "do-not-deepen-anothers-pain",
-            "title": "Do not deepen another's pain",
+            "title": "Do not deepen another’s pain",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/do-not-deepen-anothers-pain.docx"
@@ -2791,12 +2784,12 @@
           },
           {
             "stem": "try-again",
-            "title": "Try again",
+            "title": "If it did not work, start again",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/try-again.docx",
-            "imageAlt": "Illustration of Try again",
-            "imageOpenLabel": "Enlarge illustration: Try again"
+            "imageAlt": "Illustration of If it did not work, start again",
+            "imageOpenLabel": "Enlarge illustration: If it did not work, start again"
           },
           {
             "stem": "education-or-character",
@@ -2807,7 +2800,7 @@
           },
           {
             "stem": "in-your-hands",
-            "title": "In your hands",
+            "title": "The choice is in our hands",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/in-your-hands.docx"
@@ -2831,7 +2824,7 @@
           },
           {
             "stem": "kings-generosity",
-            "title": "A king's generosity",
+            "title": "He would not give so little",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/kings-generosity.docx"
@@ -2845,7 +2838,7 @@
           },
           {
             "stem": "letting-go-of-painful-thoughts",
-            "title": "Letting go of painful thoughts",
+            "title": "How can I free myself from my thoughts?",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/letting-go-of-painful-thoughts.docx"
@@ -2859,7 +2852,7 @@
           },
           {
             "stem": "inner-housekeeping",
-            "title": "Inner housekeeping",
+            "title": "I have been cleaning",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/inner-housekeeping.docx",
@@ -2873,7 +2866,7 @@
           },
           {
             "stem": "sunlit-day",
-            "title": "A sunlit day",
+            "title": "I would not trade it for anything",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/sunlit-day.docx",
@@ -2885,21 +2878,21 @@
           },
           {
             "stem": "justice-and-compassion",
-            "title": "Justice and compassion",
+            "title": "Between justice and compassion",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/justice-and-compassion.docx"
           },
           {
             "stem": "telling-lies",
-            "title": "Telling lies",
+            "title": "Self-belief and truth",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/telling-lies.docx"
           },
           {
             "stem": "welcoming-smile",
-            "title": "The welcoming smile",
+            "title": "May your face always wear a smile",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/welcoming-smile.docx"
@@ -2913,7 +2906,7 @@
           },
           {
             "stem": "every-day-has-meaning",
-            "title": "Every day has meaning",
+            "title": "Every day has a lesson",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/every-day-has-meaning.docx",
@@ -2923,14 +2916,14 @@
           },
           {
             "stem": "beyond-complaining",
-            "title": "Beyond complaining",
+            "title": "From complaints to solutions",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/beyond-complaining.docx"
           },
           {
             "stem": "choose-your-confidant",
-            "title": "Choose your confidant",
+            "title": "Do not share every sorrow with everyone",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/choose-your-confidant.docx"
@@ -2944,7 +2937,7 @@
           },
           {
             "stem": "strengths-and-vulnerabilities",
-            "title": "Strengths and vulnerabilities",
+            "title": "Our strengths can become our downfall",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/strengths-and-vulnerabilities.docx"
@@ -2993,35 +2986,35 @@
           },
           {
             "stem": "thought-word-and-deed",
-            "title": "Thought, word, and deed",
+            "title": "Think kindly, speak kindly, act kindly",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/thought-word-and-deed.docx"
           },
           {
             "stem": "learning-to-say-yet",
-            "title": "Learning to say “yet”",
+            "title": "Change your thinking and try again",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/learning-to-say-yet.docx"
           },
           {
             "stem": "obstacles-and-opportunities",
-            "title": "Obstacles and opportunities",
+            "title": "Turning hardship into opportunity",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/obstacles-and-opportunities.docx"
           },
           {
             "stem": "grocers-sticky-fingers",
-            "title": "The grocer's sticky fingers",
+            "title": "Whoever handles honey licks their fingers",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/grocers-sticky-fingers.docx"
           },
           {
             "stem": "alis-unreliable-rope",
-            "title": "Ali's unreliable rope",
+            "title": "Do not climb down a well on his rope",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/alis-unreliable-rope.docx"
@@ -3089,7 +3082,7 @@
           },
           {
             "stem": "knowing-what-you-know",
-            "title": "Knowing what you know",
+            "title": "Those who know and those who do not",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/knowing-what-you-know.docx"
@@ -3156,7 +3149,7 @@
           },
           {
             "stem": "sharpen-the-axe",
-            "title": "Sharpen the axe",
+            "title": "A more effective way",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/sharpen-the-axe.docx"
@@ -3198,7 +3191,7 @@
           },
           {
             "stem": "seeing-without-understanding",
-            "title": "Seeing without understanding",
+            "title": "Eyes that do not see",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/seeing-without-understanding.docx"
@@ -3226,30 +3219,23 @@
           },
           {
             "stem": "istanbul-woman-remembers",
-            "title": "An Istanbul woman remembers",
+            "title": "The truth we see and the truth we do not",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/istanbul-woman-remembers.docx"
           },
           {
-            "stem": "hayats-life-story",
-            "title": "Hayat’s life story",
-            "hasAudio": false,
-            "hasImage": true,
-            "source": "en/wisdom-stories/hayats-life-story.docx"
-          },
-          {
             "stem": "cost-of-indifference",
-            "title": "The cost of indifference",
+            "title": "The world will not end if I put it off a few days",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/Bakhtiyar Sirajov/cost-of-indifference.docx",
-            "imageAlt": "Illustration of The cost of indifference",
-            "imageOpenLabel": "Enlarge illustration: The cost of indifference"
+            "imageAlt": "Illustration of The world will not end if I put it off a few days",
+            "imageOpenLabel": "Enlarge illustration: The world will not end if I put it off a few days"
           },
           {
             "stem": "different-door",
-            "title": "A different door",
+            "title": "The door that will not open may not be yours",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/different-door.docx"
@@ -3273,7 +3259,7 @@
           },
           {
             "stem": "audience-of-one",
-            "title": "An audience of one",
+            "title": "The lecturer and the groom",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/audience-of-one.docx"
@@ -3340,28 +3326,28 @@
           },
           {
             "stem": "do-you-remember-me",
-            "title": "Do you remember me?",
+            "title": "Hello, teacher! Do you remember me?",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/do-you-remember-me.docx"
           },
           {
             "stem": "living-with-loss",
-            "title": "Living with loss",
+            "title": "The one left alive feels dead",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/living-with-loss.docx"
           },
           {
             "stem": "place-in-loving-hearts",
-            "title": "A place in loving hearts",
+            "title": "The most beautiful places in the world",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/place-in-loving-hearts.docx"
           },
           {
             "stem": "beyond-the-cotton-field",
-            "title": "Beyond the cotton field",
+            "title": "The road to the cotton field",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/beyond-the-cotton-field.docx",
@@ -3371,14 +3357,14 @@
           },
           {
             "stem": "living-well",
-            "title": "Living well",
+            "title": "Simple habits for living well",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/living-well.docx"
           },
           {
             "stem": "price-of-belonging",
-            "title": "The price of belonging",
+            "title": "The majority is not always right",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/price-of-belonging.docx"
@@ -3406,7 +3392,7 @@
           },
           {
             "stem": "stronger-together",
-            "title": "Stronger together",
+            "title": "Prosper or perish",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/stronger-together.docx"
@@ -3434,7 +3420,7 @@
           },
           {
             "stem": "before-it-is-too-late",
-            "title": "Before it is too late",
+            "title": "What does it mean to be too late?",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/before-it-is-too-late.docx"
@@ -3448,7 +3434,7 @@
           },
           {
             "stem": "lifes-lessons",
-            "title": "Life's lessons",
+            "title": "Life’s lessons",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/lifes-lessons.docx"
@@ -3471,7 +3457,7 @@
           {
             "stem": "without-a-plan",
             "image": "wisdom-stories/Bakhtiyar%20Sirajov/illustrations/without-a-plan.webp",
-            "title": "Without a plan",
+            "title": "An organization without an action plan",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/Bakhtiyar Sirajov/without-a-plan.docx"
@@ -3497,14 +3483,14 @@
           },
           {
             "stem": "investing-in-people",
-            "title": "Investing in people",
+            "title": "The chief accountant and the chief executive",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/investing-in-people.docx"
           },
           {
             "stem": "more-than-money",
-            "title": "More than money",
+            "title": "Do you have enough spending money?",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/more-than-money.docx"
@@ -3519,7 +3505,7 @@
           },
           {
             "stem": "plastic-cup",
-            "title": "The plastic cup",
+            "title": "A former minister at a seminar",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/plastic-cup.docx"
@@ -3540,7 +3526,7 @@
           },
           {
             "stem": "busy-but-unproductive",
-            "title": "Busy but unproductive",
+            "title": "Keeping busy",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/busy-but-unproductive.docx"
@@ -3630,7 +3616,7 @@
           },
           {
             "stem": "who-was-keeping-watch",
-            "title": "Who was keeping watch?",
+            "title": "The woman whose house was robbed",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/who-was-keeping-watch.docx"
@@ -3657,7 +3643,7 @@
           },
           {
             "stem": "judges-answer",
-            "title": "The judge's answer",
+            "title": "The judge’s fair verdict",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/judges-answer.docx"
@@ -3671,7 +3657,7 @@
           },
           {
             "stem": "stolen-camel",
-            "title": "The stolen camel",
+            "title": "The Bedouin whose camel was stolen",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/stolen-camel.docx",
@@ -3682,14 +3668,14 @@
           },
           {
             "stem": "market-of-good-neighbors",
-            "title": "A market of good neighbors",
+            "title": "With such a people, the world could be conquered",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/market-of-good-neighbors.docx"
           },
           {
             "stem": "choose-justice",
-            "title": "Choose justice",
+            "title": "Why injustice when there is justice?",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/choose-justice.docx"
@@ -3711,14 +3697,14 @@
           },
           {
             "stem": "life-flows-silently",
-            "title": "Life flows silently",
+            "title": "Time — life flowing silently",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/Etibar Siracsoy/life-flows-silently.docx"
           },
           {
             "stem": "life-after-sixty",
-            "title": "Life after sixty",
+            "title": "To those who have reached sixty",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/life-after-sixty.docx"
@@ -3761,7 +3747,7 @@
           },
           {
             "stem": "lions-untold-story",
-            "title": "The lion's untold story",
+            "title": "In praise of the hunter",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/lions-untold-story.docx"
@@ -3827,14 +3813,14 @@
           },
           {
             "stem": "mihrimah-and-sinan",
-            "title": "Mihrimah and Sinan",
+            "title": "Mihrimah Sultan and the architect Sinan",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/mihrimah-and-sinan.docx"
           },
           {
             "stem": "sinans-waterless-house",
-            "title": "Sinan's waterless house",
+            "title": "Sinan’s waterless house",
             "hasAudio": false,
             "hasImage": true,
             "source": "en/wisdom-stories/sinans-waterless-house.docx",
@@ -5151,13 +5137,6 @@
             }
           },
           {
-            "stem": "hayats-life-story",
-            "title": "История жизни Хаят",
-            "hasAudio": false,
-            "hasImage": true,
-            "source": "ru/wisdom-stories/hayats-life-story.docx"
-          },
-          {
             "stem": "life-is-short",
             "title": "Жизнь коротка",
             "hasAudio": false,
@@ -5752,7 +5731,7 @@
           },
           {
             "stem": "sinans-waterless-house",
-            "title": "Синан дал Стамбулу воду, но умер в доме без воды",
+            "title": "Дом архитектора Синана без воды",
             "hasAudio": false,
             "hasImage": true,
             "source": "ru/wisdom-stories/sinans-waterless-house.docx"
@@ -5780,12 +5759,12 @@
         "stories": [
           {
             "stem": "door-to-the-heart",
-            "title": "Дүйнөнүн жарыгы",
+            "title": "Ааламдын жарыгы",
             "hasAudio": false,
             "hasImage": true,
             "source": "ky/wisdom-stories/door-to-the-heart.docx",
-            "imageAlt": "Дүйнөнүн жарыгы сүрөтү",
-            "imageOpenLabel": "Дүйнөнүн жарыгы сүрөтүн чоңойтуу"
+            "imageAlt": "Ааламдын жарыгы сүрөтү",
+            "imageOpenLabel": "Ааламдын жарыгы сүрөтүн чоңойтуу"
           },
           {
             "stem": "honestly-earned-morsel",
@@ -5923,7 +5902,7 @@
           },
           {
             "stem": "begin-with-self-examination",
-            "title": "Кырсык кайдан келет?",
+            "title": "Адегенде өзүңө көз сал",
             "hasAudio": false,
             "hasImage": true,
             "source": "ky/wisdom-stories/begin-with-self-examination.docx"
@@ -6579,7 +6558,7 @@
         "stories": [
           {
             "stem": "try-again",
-            "title": "«Жетишпедим, колуман келбеди» дебегиле",
+            "title": "Ишке ашпаса, кайра башта",
             "hasAudio": false,
             "hasImage": true,
             "source": "ky/wisdom-stories/try-again.docx"
@@ -6698,7 +6677,7 @@
           },
           {
             "stem": "telling-lies",
-            "title": "Калп айтуу",
+            "title": "Өзүңө ишенүү жана чындык",
             "hasAudio": false,
             "hasImage": true,
             "source": "ky/wisdom-stories/telling-lies.docx"
@@ -6754,7 +6733,7 @@
           },
           {
             "stem": "do-not-deepen-anothers-pain",
-            "title": "Мунун баарын кылбаңыз",
+            "title": "Бирөөнүн жарасын козгобо",
             "hasAudio": false,
             "hasImage": true,
             "source": "ky/wisdom-stories/do-not-deepen-anothers-pain.docx"
@@ -6819,7 +6798,7 @@
           },
           {
             "stem": "learning-to-say-yet",
-            "title": "Ушинтип ойлонуп көргүлө",
+            "title": "Оюңду өзгөртүп, кайра аракет кыл",
             "hasAudio": false,
             "hasImage": true,
             "source": "ky/wisdom-stories/learning-to-say-yet.docx"
@@ -7202,7 +7181,7 @@
           },
           {
             "stem": "istanbul-woman-remembers",
-            "title": "Стамбулдук бир айымдын эскерүүлөрүнөн",
+            "title": "Көрүнгөн жана көрүнбөгөн чындык",
             "hasAudio": false,
             "hasImage": true,
             "source": "ky/wisdom-stories/istanbul-woman-remembers.docx"
@@ -7241,13 +7220,6 @@
             "hasAudio": false,
             "hasImage": true,
             "source": "ky/wisdom-stories/draining-the-coffers.docx"
-          },
-          {
-            "stem": "hayats-life-story",
-            "title": "Хаяттын жашоо баяны",
-            "hasAudio": false,
-            "hasImage": true,
-            "source": "ky/wisdom-stories/hayats-life-story.docx"
           },
           {
             "stem": "windmill-turning-without-wind",
@@ -7389,7 +7361,7 @@
           },
           {
             "stem": "more-than-money",
-            "title": "Керектөөңүзгө акчаңыз жетеби?",
+            "title": "Акчаңыз жетеби?",
             "hasAudio": false,
             "hasImage": true,
             "source": "ky/wisdom-stories/more-than-money.docx",
@@ -7405,7 +7377,7 @@
           },
           {
             "stem": "giving-without-money",
-            "title": "Мен эмнеге кедеймин?",
+            "title": "Акчасыз да берсе болот",
             "hasAudio": false,
             "hasImage": true,
             "source": "ky/wisdom-stories/giving-without-money.docx"
@@ -7660,7 +7632,7 @@
           },
           {
             "stem": "sinans-waterless-house",
-            "title": "Стамбулга суу жеткирген архитектор Синан суусуз үйдө каза болду",
+            "title": "Архитектор Синандын суусуз үйү",
             "hasAudio": false,
             "hasImage": true,
             "source": "ky/wisdom-stories/sinans-waterless-house.docx",
@@ -7724,7 +7696,7 @@
             "stem": "gifts-of-allah",
             "path": "de/wisdom-stories/gifts-of-allah.docx",
             "imageStem": "gifts-of-allah",
-            "title": "Gaben und Verantwortung",
+            "title": "Die Gaben Allahs",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/gifts-of-allah.webp",
             "hasImage": true,
@@ -7916,15 +7888,15 @@
             "stem": "door-to-the-heart",
             "path": "de/wisdom-stories/door-to-the-heart.docx",
             "imageStem": "door-to-the-heart",
-            "title": "Das Licht der Welt",
+            "title": "Das Licht des Universums",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/door-to-the-heart.webp",
             "hasImage": true,
             "hasAudio": false,
             "href": "categories/iman-ve-meneviyyat.html#door-to-the-heart",
             "source": "de/wisdom-stories/door-to-the-heart.docx",
-            "imageAlt": "Comic-Illustration zu „Das Licht der Welt“ mit mehreren Bildtafeln.",
-            "imageOpenLabel": "Illustration zu „Das Licht der Welt“ vergrößern"
+            "imageAlt": "Comic-Illustration zu „Das Licht des Universums“ mit mehreren Bildtafeln.",
+            "imageOpenLabel": "Illustration zu „Das Licht des Universums“ vergrößern"
           },
           {
             "stem": "church-bell",
@@ -7954,7 +7926,7 @@
             "stem": "begin-with-self-examination",
             "path": "de/wisdom-stories/begin-with-self-examination.docx",
             "imageStem": "begin-with-self-examination",
-            "title": "Woher kommt das Unglück?",
+            "title": "Schau zuerst auf dich selbst",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/begin-with-self-examination.webp",
             "hasImage": true,
@@ -8014,7 +7986,7 @@
             "stem": "fortieth-day-rite",
             "path": "de/wisdom-stories/fortieth-day-rite.docx",
             "imageStem": "fortieth-day-rite",
-            "title": "Kleine Gaben, große Wünsche",
+            "title": "Der Brauch zum vierzigsten Tag",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/fortieth-day-rite.webp",
             "hasImage": true,
@@ -8169,7 +8141,7 @@
             "stem": "stay-calm-arif",
             "path": "de/wisdom-stories/stay-calm-arif.docx",
             "imageStem": "stay-calm-arif",
-            "title": "Ruhig bleiben, Arif!",
+            "title": "Großvater und Enkel beim Einkaufen",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/stay-calm-arif.webp",
             "hasImage": true,
@@ -8289,7 +8261,7 @@
             "stem": "fathers-advice",
             "path": "de/wisdom-stories/fathers-advice.docx",
             "imageStem": "fathers-advice",
-            "title": "Was ich dir mitgeben möchte",
+            "title": "Aus den Ratschlägen eines weisen Vaters an seinen Sohn",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/fathers-advice.webp",
             "hasImage": true,
@@ -8325,7 +8297,7 @@
             "stem": "fallen-teeth",
             "path": "de/wisdom-stories/fallen-teeth.docx",
             "imageStem": "fallen-teeth",
-            "title": "Der Traum des Königs",
+            "title": "Ausgefallene Zähne",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/fallen-teeth.webp",
             "hasImage": true,
@@ -8349,7 +8321,7 @@
             "stem": "nest-builder",
             "path": "de/wisdom-stories/nest-builder.docx",
             "imageStem": "nest-builder",
-            "title": "Das Herz eines Zuhauses",
+            "title": "Die Nestbauerin",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/nest-builder.webp",
             "hasImage": true,
@@ -8381,7 +8353,7 @@
             "stem": "friendship-and-love",
             "path": "de/wisdom-stories/friendship-and-love.docx",
             "imageStem": "friendship-and-love",
-            "title": "Was in den Herzen bleibt",
+            "title": "Freundschaft und Liebe",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/friendship-and-love.webp",
             "hasImage": true,
@@ -8393,7 +8365,7 @@
             "stem": "early-marriage",
             "path": "de/wisdom-stories/early-marriage.docx",
             "imageStem": "early-marriage",
-            "title": "Damit die Kindheit nicht vorzeitig endet",
+            "title": "Frühe Heirat",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/early-marriage.webp",
             "hasImage": true,
@@ -8525,7 +8497,7 @@
             "stem": "five-more-minutes",
             "path": "de/wisdom-stories/five-more-minutes.docx",
             "imageStem": "five-more-minutes",
-            "title": "Noch fünf Minuten",
+            "title": "Gebt auf eure Liebsten acht",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/five-more-minutes.webp",
             "hasImage": true,
@@ -8537,7 +8509,7 @@
             "stem": "those-who-give-love-receive-love",
             "path": "de/wisdom-stories/those-who-give-love-receive-love.docx",
             "imageStem": "those-who-give-love-receive-love",
-            "title": "Freundlichkeit weckt Freundlichkeit",
+            "title": "Wer Liebe schenkt, erfährt Liebe",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/those-who-give-love-receive-love.webp",
             "hasImage": true,
@@ -8764,7 +8736,7 @@
             "stem": "go-but-come-again",
             "path": "de/wisdom-stories/go-but-come-again.docx",
             "imageStem": "go-but-come-again",
-            "title": "Kommt gerne wieder",
+            "title": "Geht, aber kommt wieder",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/go-but-come-again.webp",
             "hasImage": true,
@@ -9026,7 +8998,7 @@
             "stem": "think-before-speaking",
             "path": "de/wisdom-stories/think-before-speaking.docx",
             "imageStem": "think-before-speaking",
-            "title": "Deine Worte sollen guttun",
+            "title": "Denk nach, bevor du sprichst",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/think-before-speaking.webp",
             "hasImage": true,
@@ -9086,7 +9058,7 @@
             "stem": "avoid-these-questions",
             "path": "de/wisdom-stories/avoid-these-questions.docx",
             "imageStem": "avoid-these-questions",
-            "title": "Denk nach, bevor du fragst",
+            "title": "Vermeidet diese Fragen",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/avoid-these-questions.webp",
             "hasImage": true,
@@ -9098,7 +9070,7 @@
             "stem": "do-not-deepen-anothers-pain",
             "path": "de/wisdom-stories/do-not-deepen-anothers-pain.docx",
             "imageStem": "do-not-deepen-anothers-pain",
-            "title": "Wähle deine Worte mit Bedacht",
+            "title": "Rühre nicht an die Wunde eines anderen",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/do-not-deepen-anothers-pain.webp",
             "hasImage": true,
@@ -9134,7 +9106,7 @@
             "stem": "letting-go-of-painful-thoughts",
             "path": "de/wisdom-stories/letting-go-of-painful-thoughts.docx",
             "imageStem": "letting-go-of-painful-thoughts",
-            "title": "Loslassen lernen",
+            "title": "Wie kann ich mich von meinen Gedanken lösen?",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/letting-go-of-painful-thoughts.webp",
             "hasImage": true,
@@ -9194,7 +9166,7 @@
             "stem": "in-your-hands",
             "path": "de/wisdom-stories/in-your-hands.docx",
             "imageStem": "in-your-hands",
-            "title": "Die Antwort liegt in deinen Händen",
+            "title": "Die Entscheidung liegt in unseren Händen",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/in-your-hands.webp",
             "hasImage": true,
@@ -9218,7 +9190,7 @@
             "stem": "shared-goal",
             "path": "de/wisdom-stories/shared-goal.docx",
             "imageStem": "shared-goal",
-            "title": "Erst das gemeinsame Ziel klären",
+            "title": "Seid euch über euer Ziel im Klaren",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/shared-goal.webp",
             "hasImage": true,
@@ -9230,7 +9202,7 @@
             "stem": "justice-and-compassion",
             "path": "de/wisdom-stories/justice-and-compassion.docx",
             "imageStem": "justice-and-compassion",
-            "title": "Es stand dir nicht zu",
+            "title": "Zwischen Gerechtigkeit und Mitgefühl",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/justice-and-compassion.webp",
             "hasImage": true,
@@ -9266,7 +9238,7 @@
             "stem": "facing-a-problem",
             "path": "de/wisdom-stories/facing-a-problem.docx",
             "imageStem": "facing-a-problem",
-            "title": "Hilft es, sich Sorgen zu machen?",
+            "title": "Der Umgang mit einem Problem",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/facing-a-problem.webp",
             "hasImage": true,
@@ -9314,7 +9286,7 @@
             "stem": "words-to-avoid",
             "path": "de/wisdom-stories/words-to-avoid.docx",
             "imageStem": "words-to-avoid",
-            "title": "Verletzt einander nicht mit Worten",
+            "title": "Ausdrücke, die ihr vermeiden solltet",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/words-to-avoid.webp",
             "hasImage": true,
@@ -9350,7 +9322,7 @@
             "stem": "telling-lies",
             "path": "de/wisdom-stories/telling-lies.docx",
             "imageStem": "telling-lies",
-            "title": "Lügen",
+            "title": "Selbstvertrauen und Wahrheit",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/telling-lies.webp",
             "hasImage": true,
@@ -9362,7 +9334,7 @@
             "stem": "every-day-has-meaning",
             "path": "de/wisdom-stories/every-day-has-meaning.docx",
             "imageStem": "every-day-has-meaning",
-            "title": "Jeder Tag hinterlässt Spuren",
+            "title": "Jeder Tag hat seine Lektion",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/every-day-has-meaning.webp",
             "hasImage": true,
@@ -9398,7 +9370,7 @@
             "stem": "learning-to-say-yet",
             "path": "de/wisdom-stories/learning-to-say-yet.docx",
             "imageStem": "learning-to-say-yet",
-            "title": "Versucht, so zu denken",
+            "title": "Ändere deine Gedanken und versuche es erneut",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/learning-to-say-yet.webp",
             "hasImage": true,
@@ -9410,7 +9382,7 @@
             "stem": "try-again",
             "path": "de/wisdom-stories/try-again.docx",
             "imageStem": "try-again",
-            "title": "Wenn es heute nicht geklappt hat …",
+            "title": "Wenn es nicht geklappt hat, fang neu an",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/try-again.webp",
             "hasImage": true,
@@ -9470,7 +9442,7 @@
             "stem": "generous-man",
             "path": "de/wisdom-stories/generous-man.docx",
             "imageStem": "generous-man",
-            "title": "Gutes weitergeben",
+            "title": "Ein großzügiger Mann",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/generous-man.webp",
             "hasImage": true,
@@ -9637,7 +9609,7 @@
             "stem": "communication",
             "path": "de/wisdom-stories/communication.docx",
             "imageStem": "communication",
-            "title": "Jedes Alter hat uns etwas zu lehren",
+            "title": "Miteinander reden",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/communication.webp",
             "hasImage": true,
@@ -9837,7 +9809,7 @@
             "stem": "seeing-without-understanding",
             "path": "de/wisdom-stories/seeing-without-understanding.docx",
             "imageStem": "seeing-without-understanding",
-            "title": "Hinschauen heißt noch nicht sehen",
+            "title": "Augen, die nicht sehen",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/seeing-without-understanding.webp",
             "hasImage": true,
@@ -9861,7 +9833,7 @@
             "stem": "doctors-office",
             "path": "de/wisdom-stories/doctors-office.docx",
             "imageStem": "doctors-office",
-            "title": "Im Wartezimmer",
+            "title": "Beim Arzt",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/doctors-office.webp",
             "hasImage": true,
@@ -9906,18 +9878,6 @@
             "source": "de/wisdom-stories/lifes-lessons.docx"
           },
           {
-            "stem": "hayats-life-story",
-            "path": "de/wisdom-stories/hayats-life-story.docx",
-            "imageStem": "hayats-life-story",
-            "title": "Hayats halber Brief",
-            "authorKey": "",
-            "image": "wisdom-stories/illustrations/hayats-life-story.webp",
-            "hasImage": true,
-            "hasAudio": false,
-            "href": "categories/hikmet-ve-heyat-dersleri.html#hayats-life-story",
-            "source": "de/wisdom-stories/hayats-life-story.docx"
-          },
-          {
             "stem": "two-bowls-of-water",
             "path": "de/wisdom-stories/two-bowls-of-water.docx",
             "imageStem": "two-bowls-of-water",
@@ -9945,7 +9905,7 @@
             "stem": "istanbul-woman-remembers",
             "path": "de/wisdom-stories/istanbul-woman-remembers.docx",
             "imageStem": "istanbul-woman-remembers",
-            "title": "Die Wahrheit, die er verschweigen musste",
+            "title": "Die sichtbare und die unsichtbare Wahrheit",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/istanbul-woman-remembers.webp",
             "hasImage": true,
@@ -10217,7 +10177,7 @@
             "stem": "fish-shop",
             "path": "de/wisdom-stories/fish-shop.docx",
             "imageStem": "fish-shop",
-            "title": "Auch ich möchte etwas Gutes tun",
+            "title": "Im Fischladen",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/fish-shop.webp",
             "hasImage": true,
@@ -10337,7 +10297,7 @@
             "stem": "giving-without-money",
             "path": "de/wisdom-stories/giving-without-money.docx",
             "imageStem": "giving-without-money",
-            "title": "Warum bin ich arm?",
+            "title": "Geben kann man auch ohne Geld",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/giving-without-money.webp",
             "hasImage": true,
@@ -10361,7 +10321,7 @@
             "stem": "baklava",
             "path": "de/wisdom-stories/baklava.docx",
             "imageStem": "baklava",
-            "title": "Das Stück meiner Mutter",
+            "title": "Baklava",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/baklava.webp",
             "hasImage": true,
@@ -10385,7 +10345,7 @@
             "stem": "more-than-money",
             "path": "de/wisdom-stories/more-than-money.docx",
             "imageStem": "more-than-money",
-            "title": "Mehr als „Habt ihr genug Geld?“",
+            "title": "Habt ihr genug Geld für eure Ausgaben?",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/more-than-money.webp",
             "hasImage": true,
@@ -10453,7 +10413,7 @@
             "stem": "stolen-camel",
             "path": "de/wisdom-stories/stolen-camel.docx",
             "imageStem": "stolen-camel",
-            "title": "Raub den Menschen nicht den Glauben an das Gute",
+            "title": "Die Geschichte des Beduinen, dessen Kamel gestohlen wurde",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/stolen-camel.webp",
             "hasImage": true,
@@ -10549,7 +10509,7 @@
             "stem": "land-and-homeland",
             "path": "de/wisdom-stories/land-and-homeland.docx",
             "imageStem": "land-and-homeland",
-            "title": "Mehr als Erde",
+            "title": "Heimat und Erde",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/land-and-homeland.webp",
             "hasImage": true,
@@ -10581,7 +10541,7 @@
             "stem": "life-after-sixty",
             "path": "de/wisdom-stories/life-after-sixty.docx",
             "imageStem": "life-after-sixty",
-            "title": "Auch mit sechzig gehört das Leben dir",
+            "title": "An alle, die sechzig geworden sind",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/life-after-sixty.webp",
             "hasImage": true,
@@ -10729,7 +10689,7 @@
             "stem": "albrecht-durer",
             "path": "de/wisdom-stories/albrecht-durer.docx",
             "imageStem": "albrecht-durer",
-            "title": "Die Hände, die einen Traum ermöglichten",
+            "title": "Albrecht Dürer",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/albrecht-durer.webp",
             "hasImage": true,
@@ -10741,7 +10701,7 @@
             "stem": "sinans-waterless-house",
             "path": "de/wisdom-stories/sinans-waterless-house.docx",
             "imageStem": "sinans-waterless-house",
-            "title": "Der Baumeister, der einer Stadt Wasser brachte",
+            "title": "Sinans Haus ohne Wasser",
             "authorKey": "",
             "image": "wisdom-stories/illustrations/sinans-waterless-house.webp",
             "hasImage": true,

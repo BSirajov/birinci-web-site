@@ -4,7 +4,22 @@ from pathlib import Path
 
 import pytest
 
-from build_reviewed_site import ROOT, patch_page, plan_build, read_story
+from build_reviewed_site import ROOT, patch_page, patch_story_links, plan_build, read_story
+
+
+def test_story_links_follow_ids_and_leave_unrelated_prose_unchanged():
+    original = ('<p>A father’s advice</p><a href="#father">A father’s advice</a>'
+                '<a href="#father" data-title="A father\'s advice" class="cat-card">'
+                '<h2 class="card-title">A father’s advice</h2>'
+                '<div class="card-desc">Old preview</div><button>Listen</button></a>')
+    stories = {'father': {'title': 'A wise father’s advice', 'paragraphs': ['New preview']}}
+    result = patch_story_links(original, stories)
+    assert '<p>A father’s advice</p>' in result
+    assert '<a href="#father">A wise father’s advice</a>' in result
+    assert 'data-title="A wise father’s advice"' in result
+    assert '<div class="card-desc">New preview</div>' in result
+    assert '<button>Listen</button>' in result
+    assert patch_story_links(result, stories) == result
 from stories_catalog import load_stories_catalog
 
 

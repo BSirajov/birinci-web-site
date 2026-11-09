@@ -8,7 +8,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-UNPUBLISHED_STEMS = frozenset({'ill-gotten-money', 'forbidden-money', 'butter-price-war', 'hajj-pilgrimage', 'vizier-and-the-scholar', 'empty-boat', 'dreaming'})
+UNPUBLISHED_STEMS = frozenset({'ill-gotten-money', 'forbidden-money', 'butter-price-war', 'hajj-pilgrimage', 'vizier-and-the-scholar', 'empty-boat', 'dreaming', 'hayats-life-story'})
 
 
 def _write(path, text):

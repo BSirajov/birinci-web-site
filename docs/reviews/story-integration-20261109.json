@@ -1,0 +1,989 @@
+{
+  "date": "2026-11-09",
+  "canonical_language": "az",
+  "counts": {
+    "az": 253,
+    "de": 248,
+    "en": 248,
+    "ru": 248,
+    "ky": 248
+  },
+  "review": "Compared titles and morals across all 248 shared stories; preserved five Azerbaijani-only poems and natural idiomatic equivalents.",
+  "retired_stems": [
+    "butter-price-war",
+    "dreaming",
+    "empty-boat",
+    "forbidden-money",
+    "hajj-pilgrimage",
+    "hayats-life-story",
+    "ill-gotten-money",
+    "vizier-and-the-scholar"
+  ],
+  "changes": [
+    {
+      "language": "en",
+      "stem": "prayer-for-everyone",
+      "field": "title",
+      "old": "A prayer for everyone",
+      "new": "Help us, Almighty Allah",
+      "source": "en/wisdom-stories/prayer-for-everyone.docx"
+    },
+    {
+      "language": "en",
+      "stem": "door-to-the-heart",
+      "field": "title",
+      "old": "The door to the heart",
+      "new": "Light of the universe",
+      "source": "en/wisdom-stories/door-to-the-heart.docx"
+    },
+    {
+      "language": "en",
+      "stem": "prayer-for-relief",
+      "field": "title",
+      "old": "A prayer for relief",
+      "new": "O Allah, ease our suffering",
+      "source": "en/wisdom-stories/prayer-for-relief.docx"
+    },
+    {
+      "language": "en",
+      "stem": "give-to-me-last",
+      "field": "title",
+      "old": "Give to me last",
+      "new": "O Allah, give first to the mountains and stones",
+      "source": "en/wisdom-stories/give-to-me-last.docx"
+    },
+    {
+      "language": "en",
+      "stem": "gratitude-at-the-sink",
+      "field": "title",
+      "old": "Gratitude at the sink",
+      "new": "Pray while washing the dishes",
+      "source": "en/wisdom-stories/gratitude-at-the-sink.docx"
+    },
+    {
+      "language": "en",
+      "stem": "why-wait",
+      "field": "title",
+      "old": "Why wait?",
+      "new": "Why wait for the last day of the world?",
+      "source": "en/wisdom-stories/why-wait.docx"
+    },
+    {
+      "language": "en",
+      "stem": "mothers-lasting-lesson",
+      "field": "title",
+      "old": "A mother’s lasting lesson",
+      "new": "The advice from his mother that Fakir Baykurt never forgot",
+      "source": "en/wisdom-stories/mothers-lasting-lesson.docx"
+    },
+    {
+      "language": "en",
+      "stem": "fathers-advice",
+      "field": "title",
+      "old": "A father’s advice",
+      "new": "A wise father’s advice to his son",
+      "source": "en/wisdom-stories/fathers-advice.docx"
+    },
+    {
+      "language": "en",
+      "stem": "stay-calm-arif",
+      "field": "title",
+      "old": "Stay calm, Arif",
+      "new": "Grandfather and grandson go shopping",
+      "source": "en/wisdom-stories/stay-calm-arif.docx"
+    },
+    {
+      "language": "en",
+      "stem": "nails-lesson",
+      "field": "moral",
+      "old": "Moral:",
+      "new": "Moral: A word spoken in anger can leave a mark on the heart that even an apology cannot erase. When anger rises, pause and think before you speak.",
+      "source": "en/wisdom-stories/Etibar Siracsoy/nails-lesson.docx"
+    },
+    {
+      "language": "en",
+      "stem": "hour-with-dad",
+      "field": "title",
+      "old": "An hour with Dad",
+      "new": "The value of your family",
+      "source": "en/wisdom-stories/hour-with-dad.docx"
+    },
+    {
+      "language": "en",
+      "stem": "five-more-minutes",
+      "field": "title",
+      "old": "Five more minutes",
+      "new": "Take care of those you love",
+      "source": "en/wisdom-stories/five-more-minutes.docx"
+    },
+    {
+      "language": "en",
+      "stem": "beyond-first-impressions",
+      "field": "title",
+      "old": "Beyond first impressions",
+      "new": "Meeting someone and knowing them",
+      "source": "en/wisdom-stories/beyond-first-impressions.docx"
+    },
+    {
+      "language": "en",
+      "stem": "unwelcome-gifts",
+      "field": "title",
+      "old": "Unwelcome gifts",
+      "new": "How to respond to insults",
+      "source": "en/wisdom-stories/unwelcome-gifts.docx"
+    },
+    {
+      "language": "en",
+      "stem": "sharing-the-burden",
+      "field": "title",
+      "old": "Sharing the burden",
+      "new": "If the road feels easy, thank your companion",
+      "source": "en/wisdom-stories/sharing-the-burden.docx"
+    },
+    {
+      "language": "en",
+      "stem": "respecting-boundaries",
+      "field": "title",
+      "old": "Respecting boundaries",
+      "new": "Interfering in other people’s lives",
+      "source": "en/wisdom-stories/respecting-boundaries.docx"
+    },
+    {
+      "language": "en",
+      "stem": "request-for-help",
+      "field": "title",
+      "old": "A request for help",
+      "new": "People who need your help",
+      "source": "en/wisdom-stories/request-for-help.docx"
+    },
+    {
+      "language": "en",
+      "stem": "choosing-friends",
+      "field": "title",
+      "old": "Choosing friends",
+      "new": "People you should not befriend",
+      "source": "en/wisdom-stories/choosing-friends.docx"
+    },
+    {
+      "language": "en",
+      "stem": "shared-goal",
+      "field": "title",
+      "old": "A shared goal",
+      "new": "Be clear about your goal",
+      "source": "en/wisdom-stories/shared-goal.docx"
+    },
+    {
+      "language": "en",
+      "stem": "try-again",
+      "field": "title",
+      "old": "Try again",
+      "new": "If it did not work, start again",
+      "source": "en/wisdom-stories/try-again.docx"
+    },
+    {
+      "language": "en",
+      "stem": "in-your-hands",
+      "field": "title",
+      "old": "In your hands",
+      "new": "The choice is in our hands",
+      "source": "en/wisdom-stories/in-your-hands.docx"
+    },
+    {
+      "language": "en",
+      "stem": "kings-generosity",
+      "field": "title",
+      "old": "A king’s generosity",
+      "new": "He would not give so little",
+      "source": "en/wisdom-stories/kings-generosity.docx"
+    },
+    {
+      "language": "en",
+      "stem": "letting-go-of-painful-thoughts",
+      "field": "title",
+      "old": "Letting go of painful thoughts",
+      "new": "How can I free myself from my thoughts?",
+      "source": "en/wisdom-stories/letting-go-of-painful-thoughts.docx"
+    },
+    {
+      "language": "en",
+      "stem": "inner-housekeeping",
+      "field": "title",
+      "old": "Inner housekeeping",
+      "new": "I have been cleaning",
+      "source": "en/wisdom-stories/inner-housekeeping.docx"
+    },
+    {
+      "language": "en",
+      "stem": "sunlit-day",
+      "field": "title",
+      "old": "A sunlit day",
+      "new": "I would not trade it for anything",
+      "source": "en/wisdom-stories/sunlit-day.docx"
+    },
+    {
+      "language": "en",
+      "stem": "justice-and-compassion",
+      "field": "title",
+      "old": "Justice and compassion",
+      "new": "Between justice and compassion",
+      "source": "en/wisdom-stories/justice-and-compassion.docx"
+    },
+    {
+      "language": "en",
+      "stem": "telling-lies",
+      "field": "title",
+      "old": "Telling lies",
+      "new": "Self-belief and truth",
+      "source": "en/wisdom-stories/telling-lies.docx"
+    },
+    {
+      "language": "en",
+      "stem": "welcoming-smile",
+      "field": "title",
+      "old": "The welcoming smile",
+      "new": "May your face always wear a smile",
+      "source": "en/wisdom-stories/welcoming-smile.docx"
+    },
+    {
+      "language": "en",
+      "stem": "every-day-has-meaning",
+      "field": "title",
+      "old": "Every day has meaning",
+      "new": "Every day has a lesson",
+      "source": "en/wisdom-stories/every-day-has-meaning.docx"
+    },
+    {
+      "language": "en",
+      "stem": "beyond-complaining",
+      "field": "title",
+      "old": "Beyond complaining",
+      "new": "From complaints to solutions",
+      "source": "en/wisdom-stories/beyond-complaining.docx"
+    },
+    {
+      "language": "en",
+      "stem": "choose-your-confidant",
+      "field": "title",
+      "old": "Choose your confidant",
+      "new": "Do not share every sorrow with everyone",
+      "source": "en/wisdom-stories/choose-your-confidant.docx"
+    },
+    {
+      "language": "en",
+      "stem": "strengths-and-vulnerabilities",
+      "field": "title",
+      "old": "Strengths and vulnerabilities",
+      "new": "Our strengths can become our downfall",
+      "source": "en/wisdom-stories/strengths-and-vulnerabilities.docx"
+    },
+    {
+      "language": "en",
+      "stem": "thought-word-and-deed",
+      "field": "title",
+      "old": "Thought, word, and deed",
+      "new": "Think kindly, speak kindly, act kindly",
+      "source": "en/wisdom-stories/thought-word-and-deed.docx"
+    },
+    {
+      "language": "en",
+      "stem": "learning-to-say-yet",
+      "field": "title",
+      "old": "Learning to say “yet”",
+      "new": "Change your thinking and try again",
+      "source": "en/wisdom-stories/learning-to-say-yet.docx"
+    },
+    {
+      "language": "en",
+      "stem": "obstacles-and-opportunities",
+      "field": "title",
+      "old": "Obstacles and opportunities",
+      "new": "Turning hardship into opportunity",
+      "source": "en/wisdom-stories/obstacles-and-opportunities.docx"
+    },
+    {
+      "language": "en",
+      "stem": "grocers-sticky-fingers",
+      "field": "title",
+      "old": "The grocer’s sticky fingers",
+      "new": "Whoever handles honey licks their fingers",
+      "source": "en/wisdom-stories/grocers-sticky-fingers.docx"
+    },
+    {
+      "language": "en",
+      "stem": "alis-unreliable-rope",
+      "field": "title",
+      "old": "Ali’s unreliable rope",
+      "new": "Do not climb down a well on his rope",
+      "source": "en/wisdom-stories/alis-unreliable-rope.docx"
+    },
+    {
+      "language": "en",
+      "stem": "knowing-what-you-know",
+      "field": "title",
+      "old": "Knowing what you know",
+      "new": "Those who know and those who do not",
+      "source": "en/wisdom-stories/knowing-what-you-know.docx"
+    },
+    {
+      "language": "en",
+      "stem": "sharpen-the-axe",
+      "field": "title",
+      "old": "Sharpen the axe",
+      "new": "A more effective way",
+      "source": "en/wisdom-stories/sharpen-the-axe.docx"
+    },
+    {
+      "language": "en",
+      "stem": "seeing-without-understanding",
+      "field": "title",
+      "old": "Seeing without understanding",
+      "new": "Eyes that do not see",
+      "source": "en/wisdom-stories/seeing-without-understanding.docx"
+    },
+    {
+      "language": "en",
+      "stem": "istanbul-woman-remembers",
+      "field": "title",
+      "old": "An Istanbul woman remembers",
+      "new": "The truth we see and the truth we do not",
+      "source": "en/wisdom-stories/istanbul-woman-remembers.docx"
+    },
+    {
+      "language": "en",
+      "stem": "istanbul-woman-remembers",
+      "field": "moral",
+      "old": "Moral: What you see may be only part of the truth. Before passing judgment, ask, listen, and try to understand. Behind an ordinary-looking act, someone may be carrying a responsibility you cannot see.",
+      "new": "Moral: What you see may be only part of the truth. Before judging, ask, listen, and remember that there are things you do not know. Sometimes a mistaken judgment keeps us from recognizing someone’s unseen sacrifice.",
+      "source": "en/wisdom-stories/istanbul-woman-remembers.docx"
+    },
+    {
+      "language": "en",
+      "stem": "cost-of-indifference",
+      "field": "title",
+      "old": "The cost of indifference",
+      "new": "The world will not end if I put it off a few days",
+      "source": "en/wisdom-stories/Bakhtiyar Sirajov/cost-of-indifference.docx"
+    },
+    {
+      "language": "en",
+      "stem": "different-door",
+      "field": "title",
+      "old": "A different door",
+      "new": "The door that will not open may not be yours",
+      "source": "en/wisdom-stories/different-door.docx"
+    },
+    {
+      "language": "en",
+      "stem": "audience-of-one",
+      "field": "title",
+      "old": "An audience of one",
+      "new": "The lecturer and the groom",
+      "source": "en/wisdom-stories/audience-of-one.docx"
+    },
+    {
+      "language": "en",
+      "stem": "do-you-remember-me",
+      "field": "title",
+      "old": "Do you remember me?",
+      "new": "Hello, teacher! Do you remember me?",
+      "source": "en/wisdom-stories/do-you-remember-me.docx"
+    },
+    {
+      "language": "en",
+      "stem": "living-with-loss",
+      "field": "title",
+      "old": "Living with loss",
+      "new": "The one left alive feels dead",
+      "source": "en/wisdom-stories/living-with-loss.docx"
+    },
+    {
+      "language": "en",
+      "stem": "living-with-loss",
+      "field": "moral",
+      "old": "Moral: The one left behind lives with longing and feels dead while still alive. Separation can make the depth of that love painfully clear.",
+      "new": "Moral: When one of two people who deeply love each other dies, the one left behind lives with longing and feels dead while still alive. Separation makes the depth of that love even more keenly felt.",
+      "source": "en/wisdom-stories/living-with-loss.docx"
+    },
+    {
+      "language": "en",
+      "stem": "place-in-loving-hearts",
+      "field": "title",
+      "old": "A place in loving hearts",
+      "new": "The most beautiful places in the world",
+      "source": "en/wisdom-stories/place-in-loving-hearts.docx"
+    },
+    {
+      "language": "en",
+      "stem": "beyond-the-cotton-field",
+      "field": "title",
+      "old": "Beyond the cotton field",
+      "new": "The road to the cotton field",
+      "source": "en/wisdom-stories/beyond-the-cotton-field.docx"
+    },
+    {
+      "language": "en",
+      "stem": "living-well",
+      "field": "title",
+      "old": "Living well",
+      "new": "Simple habits for living well",
+      "source": "en/wisdom-stories/living-well.docx"
+    },
+    {
+      "language": "en",
+      "stem": "price-of-belonging",
+      "field": "title",
+      "old": "The price of belonging",
+      "new": "The majority is not always right",
+      "source": "en/wisdom-stories/price-of-belonging.docx"
+    },
+    {
+      "language": "en",
+      "stem": "stronger-together",
+      "field": "title",
+      "old": "Stronger together",
+      "new": "Prosper or perish",
+      "source": "en/wisdom-stories/stronger-together.docx"
+    },
+    {
+      "language": "en",
+      "stem": "before-it-is-too-late",
+      "field": "title",
+      "old": "Before it is too late",
+      "new": "What does it mean to be too late?",
+      "source": "en/wisdom-stories/before-it-is-too-late.docx"
+    },
+    {
+      "language": "en",
+      "stem": "without-a-plan",
+      "field": "title",
+      "old": "Without a plan",
+      "new": "An organization without an action plan",
+      "source": "en/wisdom-stories/Bakhtiyar Sirajov/without-a-plan.docx"
+    },
+    {
+      "language": "en",
+      "stem": "investing-in-people",
+      "field": "title",
+      "old": "Investing in people",
+      "new": "The chief accountant and the chief executive",
+      "source": "en/wisdom-stories/investing-in-people.docx"
+    },
+    {
+      "language": "en",
+      "stem": "more-than-money",
+      "field": "title",
+      "old": "More than money",
+      "new": "Do you have enough spending money?",
+      "source": "en/wisdom-stories/more-than-money.docx"
+    },
+    {
+      "language": "en",
+      "stem": "plastic-cup",
+      "field": "title",
+      "old": "The plastic cup",
+      "new": "A former minister at a seminar",
+      "source": "en/wisdom-stories/plastic-cup.docx"
+    },
+    {
+      "language": "en",
+      "stem": "busy-but-unproductive",
+      "field": "title",
+      "old": "Busy but unproductive",
+      "new": "Keeping busy",
+      "source": "en/wisdom-stories/busy-but-unproductive.docx"
+    },
+    {
+      "language": "en",
+      "stem": "who-was-keeping-watch",
+      "field": "title",
+      "old": "Who was keeping watch?",
+      "new": "The woman whose house was robbed",
+      "source": "en/wisdom-stories/who-was-keeping-watch.docx"
+    },
+    {
+      "language": "en",
+      "stem": "judges-answer",
+      "field": "title",
+      "old": "The judge’s answer",
+      "new": "The judge’s fair verdict",
+      "source": "en/wisdom-stories/judges-answer.docx"
+    },
+    {
+      "language": "en",
+      "stem": "stolen-camel",
+      "field": "title",
+      "old": "The stolen camel",
+      "new": "The Bedouin whose camel was stolen",
+      "source": "en/wisdom-stories/stolen-camel.docx"
+    },
+    {
+      "language": "en",
+      "stem": "market-of-good-neighbors",
+      "field": "title",
+      "old": "A market of good neighbors",
+      "new": "With such a people, the world could be conquered",
+      "source": "en/wisdom-stories/market-of-good-neighbors.docx"
+    },
+    {
+      "language": "en",
+      "stem": "choose-justice",
+      "field": "title",
+      "old": "Choose justice",
+      "new": "Why injustice when there is justice?",
+      "source": "en/wisdom-stories/choose-justice.docx"
+    },
+    {
+      "language": "en",
+      "stem": "life-flows-silently",
+      "field": "title",
+      "old": "Life flows silently",
+      "new": "Time — life flowing silently",
+      "source": "en/wisdom-stories/Etibar Siracsoy/life-flows-silently.docx"
+    },
+    {
+      "language": "en",
+      "stem": "life-after-sixty",
+      "field": "title",
+      "old": "Life after sixty",
+      "new": "To those who have reached sixty",
+      "source": "en/wisdom-stories/life-after-sixty.docx"
+    },
+    {
+      "language": "en",
+      "stem": "lions-untold-story",
+      "field": "title",
+      "old": "The lion’s untold story",
+      "new": "In praise of the hunter",
+      "source": "en/wisdom-stories/lions-untold-story.docx"
+    },
+    {
+      "language": "en",
+      "stem": "mihrimah-and-sinan",
+      "field": "title",
+      "old": "Mihrimah and Sinan",
+      "new": "Mihrimah Sultan and the architect Sinan",
+      "source": "en/wisdom-stories/mihrimah-and-sinan.docx"
+    },
+    {
+      "language": "ru",
+      "stem": "living-with-loss",
+      "field": "moral",
+      "old": "Мораль: Когда один из двоих уходит из жизни, по-настоящему умирает тот, кто остаётся. Разлука ещё острее даёт почувствовать глубину любви.",
+      "new": "Мораль: Когда один из двух искренне любящих друг друга людей уходит из жизни, оставшийся живёт с тоской и чувствует себя словно умершим при жизни. Разлука ещё острее даёт почувствовать глубину любви.",
+      "source": "ru/wisdom-stories/living-with-loss.docx"
+    },
+    {
+      "language": "ru",
+      "stem": "sinans-waterless-house",
+      "field": "title",
+      "old": "Синан дал Стамбулу воду, но умер в доме без воды",
+      "new": "Дом архитектора Синана без воды",
+      "source": "ru/wisdom-stories/sinans-waterless-house.docx"
+    },
+    {
+      "language": "ky",
+      "stem": "door-to-the-heart",
+      "field": "title",
+      "old": "Дүйнөнүн жарыгы",
+      "new": "Ааламдын жарыгы",
+      "source": "ky/wisdom-stories/door-to-the-heart.docx"
+    },
+    {
+      "language": "ky",
+      "stem": "begin-with-self-examination",
+      "field": "title",
+      "old": "Кырсык кайдан келет?",
+      "new": "Адегенде өзүңө көз сал",
+      "source": "ky/wisdom-stories/begin-with-self-examination.docx"
+    },
+    {
+      "language": "ky",
+      "stem": "try-again",
+      "field": "title",
+      "old": "«Жетишпедим, колуман келбеди» дебегиле",
+      "new": "Ишке ашпаса, кайра башта",
+      "source": "ky/wisdom-stories/try-again.docx"
+    },
+    {
+      "language": "ky",
+      "stem": "telling-lies",
+      "field": "title",
+      "old": "Калп айтуу",
+      "new": "Өзүңө ишенүү жана чындык",
+      "source": "ky/wisdom-stories/telling-lies.docx"
+    },
+    {
+      "language": "ky",
+      "stem": "do-not-deepen-anothers-pain",
+      "field": "title",
+      "old": "Мунун баарын кылбаңыз",
+      "new": "Бирөөнүн жарасын козгобо",
+      "source": "ky/wisdom-stories/do-not-deepen-anothers-pain.docx"
+    },
+    {
+      "language": "ky",
+      "stem": "do-not-deepen-anothers-pain",
+      "field": "moral",
+      "old": "Сабак: Бирөөнүн кем-карчын бетине салып, көңүлүн оорутпа. Анын кайгысын эсине сала бергендин ордуна, аны түшүнүүгө аракет кыл.",
+      "new": "Сабак: Колуңдагы жакшылыктар менен мактанып, бирөөнүн жарасын козгобо. Сөзүңдү түшүнүү менен танда: адамга эмнеси жок экенин эске салууга эмес, анын сезимдерин түшүнүүгө аракет кыл.",
+      "source": "ky/wisdom-stories/do-not-deepen-anothers-pain.docx"
+    },
+    {
+      "language": "ky",
+      "stem": "learning-to-say-yet",
+      "field": "title",
+      "old": "Ушинтип ойлонуп көргүлө",
+      "new": "Оюңду өзгөртүп, кайра аракет кыл",
+      "source": "ky/wisdom-stories/learning-to-say-yet.docx"
+    },
+    {
+      "language": "ky",
+      "stem": "istanbul-woman-remembers",
+      "field": "title",
+      "old": "Стамбулдук бир айымдын эскерүүлөрүнөн",
+      "new": "Көрүнгөн жана көрүнбөгөн чындык",
+      "source": "ky/wisdom-stories/istanbul-woman-remembers.docx"
+    },
+    {
+      "language": "ky",
+      "stem": "giving-without-money",
+      "field": "title",
+      "old": "Мен эмнеге кедеймин?",
+      "new": "Акчасыз да берсе болот",
+      "source": "ky/wisdom-stories/giving-without-money.docx"
+    },
+    {
+      "language": "ky",
+      "stem": "sinans-waterless-house",
+      "field": "title",
+      "old": "Стамбулга суу жеткирген архитектор Синан суусуз үйдө каза болду",
+      "new": "Архитектор Синандын суусуз үйү",
+      "source": "ky/wisdom-stories/sinans-waterless-house.docx"
+    },
+    {
+      "language": "de",
+      "stem": "gifts-of-allah",
+      "field": "title",
+      "old": "Gaben und Verantwortung",
+      "new": "Die Gaben Allahs",
+      "source": "de/wisdom-stories/gifts-of-allah.docx"
+    },
+    {
+      "language": "de",
+      "stem": "door-to-the-heart",
+      "field": "title",
+      "old": "Das Licht der Welt",
+      "new": "Das Licht des Universums",
+      "source": "de/wisdom-stories/door-to-the-heart.docx"
+    },
+    {
+      "language": "de",
+      "stem": "begin-with-self-examination",
+      "field": "title",
+      "old": "Woher kommt das Unglück?",
+      "new": "Schau zuerst auf dich selbst",
+      "source": "de/wisdom-stories/begin-with-self-examination.docx"
+    },
+    {
+      "language": "de",
+      "stem": "fortieth-day-rite",
+      "field": "title",
+      "old": "Kleine Gaben, große Wünsche",
+      "new": "Der Brauch zum vierzigsten Tag",
+      "source": "de/wisdom-stories/fortieth-day-rite.docx"
+    },
+    {
+      "language": "de",
+      "stem": "stay-calm-arif",
+      "field": "title",
+      "old": "Ruhig bleiben, Arif!",
+      "new": "Großvater und Enkel beim Einkaufen",
+      "source": "de/wisdom-stories/stay-calm-arif.docx"
+    },
+    {
+      "language": "de",
+      "stem": "fathers-advice",
+      "field": "title",
+      "old": "Was ich dir mitgeben möchte",
+      "new": "Aus den Ratschlägen eines weisen Vaters an seinen Sohn",
+      "source": "de/wisdom-stories/fathers-advice.docx"
+    },
+    {
+      "language": "de",
+      "stem": "fallen-teeth",
+      "field": "title",
+      "old": "Der Traum des Königs",
+      "new": "Ausgefallene Zähne",
+      "source": "de/wisdom-stories/fallen-teeth.docx"
+    },
+    {
+      "language": "de",
+      "stem": "nest-builder",
+      "field": "title",
+      "old": "Das Herz eines Zuhauses",
+      "new": "Die Nestbauerin",
+      "source": "de/wisdom-stories/nest-builder.docx"
+    },
+    {
+      "language": "de",
+      "stem": "friendship-and-love",
+      "field": "title",
+      "old": "Was in den Herzen bleibt",
+      "new": "Freundschaft und Liebe",
+      "source": "de/wisdom-stories/friendship-and-love.docx"
+    },
+    {
+      "language": "de",
+      "stem": "early-marriage",
+      "field": "title",
+      "old": "Damit die Kindheit nicht vorzeitig endet",
+      "new": "Frühe Heirat",
+      "source": "de/wisdom-stories/early-marriage.docx"
+    },
+    {
+      "language": "de",
+      "stem": "five-more-minutes",
+      "field": "title",
+      "old": "Noch fünf Minuten",
+      "new": "Gebt auf eure Liebsten acht",
+      "source": "de/wisdom-stories/five-more-minutes.docx"
+    },
+    {
+      "language": "de",
+      "stem": "those-who-give-love-receive-love",
+      "field": "title",
+      "old": "Freundlichkeit weckt Freundlichkeit",
+      "new": "Wer Liebe schenkt, erfährt Liebe",
+      "source": "de/wisdom-stories/those-who-give-love-receive-love.docx"
+    },
+    {
+      "language": "de",
+      "stem": "go-but-come-again",
+      "field": "title",
+      "old": "Kommt gerne wieder",
+      "new": "Geht, aber kommt wieder",
+      "source": "de/wisdom-stories/go-but-come-again.docx"
+    },
+    {
+      "language": "de",
+      "stem": "think-before-speaking",
+      "field": "title",
+      "old": "Deine Worte sollen guttun",
+      "new": "Denk nach, bevor du sprichst",
+      "source": "de/wisdom-stories/think-before-speaking.docx"
+    },
+    {
+      "language": "de",
+      "stem": "avoid-these-questions",
+      "field": "title",
+      "old": "Denk nach, bevor du fragst",
+      "new": "Vermeidet diese Fragen",
+      "source": "de/wisdom-stories/avoid-these-questions.docx"
+    },
+    {
+      "language": "de",
+      "stem": "do-not-deepen-anothers-pain",
+      "field": "title",
+      "old": "Wähle deine Worte mit Bedacht",
+      "new": "Rühre nicht an die Wunde eines anderen",
+      "source": "de/wisdom-stories/do-not-deepen-anothers-pain.docx"
+    },
+    {
+      "language": "de",
+      "stem": "letting-go-of-painful-thoughts",
+      "field": "title",
+      "old": "Loslassen lernen",
+      "new": "Wie kann ich mich von meinen Gedanken lösen?",
+      "source": "de/wisdom-stories/letting-go-of-painful-thoughts.docx"
+    },
+    {
+      "language": "de",
+      "stem": "in-your-hands",
+      "field": "title",
+      "old": "Die Antwort liegt in deinen Händen",
+      "new": "Die Entscheidung liegt in unseren Händen",
+      "source": "de/wisdom-stories/in-your-hands.docx"
+    },
+    {
+      "language": "de",
+      "stem": "shared-goal",
+      "field": "title",
+      "old": "Erst das gemeinsame Ziel klären",
+      "new": "Seid euch über euer Ziel im Klaren",
+      "source": "de/wisdom-stories/shared-goal.docx"
+    },
+    {
+      "language": "de",
+      "stem": "justice-and-compassion",
+      "field": "title",
+      "old": "Es stand dir nicht zu",
+      "new": "Zwischen Gerechtigkeit und Mitgefühl",
+      "source": "de/wisdom-stories/justice-and-compassion.docx"
+    },
+    {
+      "language": "de",
+      "stem": "facing-a-problem",
+      "field": "title",
+      "old": "Hilft es, sich Sorgen zu machen?",
+      "new": "Der Umgang mit einem Problem",
+      "source": "de/wisdom-stories/facing-a-problem.docx"
+    },
+    {
+      "language": "de",
+      "stem": "words-to-avoid",
+      "field": "title",
+      "old": "Verletzt einander nicht mit Worten",
+      "new": "Ausdrücke, die ihr vermeiden solltet",
+      "source": "de/wisdom-stories/words-to-avoid.docx"
+    },
+    {
+      "language": "de",
+      "stem": "telling-lies",
+      "field": "title",
+      "old": "Lügen",
+      "new": "Selbstvertrauen und Wahrheit",
+      "source": "de/wisdom-stories/telling-lies.docx"
+    },
+    {
+      "language": "de",
+      "stem": "every-day-has-meaning",
+      "field": "title",
+      "old": "Jeder Tag hinterlässt Spuren",
+      "new": "Jeder Tag hat seine Lektion",
+      "source": "de/wisdom-stories/every-day-has-meaning.docx"
+    },
+    {
+      "language": "de",
+      "stem": "learning-to-say-yet",
+      "field": "title",
+      "old": "Versucht, so zu denken",
+      "new": "Ändere deine Gedanken und versuche es erneut",
+      "source": "de/wisdom-stories/learning-to-say-yet.docx"
+    },
+    {
+      "language": "de",
+      "stem": "try-again",
+      "field": "title",
+      "old": "Wenn es heute nicht geklappt hat …",
+      "new": "Wenn es nicht geklappt hat, fang neu an",
+      "source": "de/wisdom-stories/try-again.docx"
+    },
+    {
+      "language": "de",
+      "stem": "generous-man",
+      "field": "title",
+      "old": "Gutes weitergeben",
+      "new": "Ein großzügiger Mann",
+      "source": "de/wisdom-stories/generous-man.docx"
+    },
+    {
+      "language": "de",
+      "stem": "communication",
+      "field": "title",
+      "old": "Jedes Alter hat uns etwas zu lehren",
+      "new": "Miteinander reden",
+      "source": "de/wisdom-stories/communication.docx"
+    },
+    {
+      "language": "de",
+      "stem": "seeing-without-understanding",
+      "field": "title",
+      "old": "Hinschauen heißt noch nicht sehen",
+      "new": "Augen, die nicht sehen",
+      "source": "de/wisdom-stories/seeing-without-understanding.docx"
+    },
+    {
+      "language": "de",
+      "stem": "doctors-office",
+      "field": "title",
+      "old": "Im Wartezimmer",
+      "new": "Beim Arzt",
+      "source": "de/wisdom-stories/doctors-office.docx"
+    },
+    {
+      "language": "de",
+      "stem": "istanbul-woman-remembers",
+      "field": "title",
+      "old": "Die Wahrheit, die er verschweigen musste",
+      "new": "Die sichtbare und die unsichtbare Wahrheit",
+      "source": "de/wisdom-stories/istanbul-woman-remembers.docx"
+    },
+    {
+      "language": "de",
+      "stem": "fish-shop",
+      "field": "title",
+      "old": "Auch ich möchte etwas Gutes tun",
+      "new": "Im Fischladen",
+      "source": "de/wisdom-stories/fish-shop.docx"
+    },
+    {
+      "language": "de",
+      "stem": "giving-without-money",
+      "field": "title",
+      "old": "Warum bin ich arm?",
+      "new": "Geben kann man auch ohne Geld",
+      "source": "de/wisdom-stories/giving-without-money.docx"
+    },
+    {
+      "language": "de",
+      "stem": "baklava",
+      "field": "title",
+      "old": "Das Stück meiner Mutter",
+      "new": "Baklava",
+      "source": "de/wisdom-stories/baklava.docx"
+    },
+    {
+      "language": "de",
+      "stem": "more-than-money",
+      "field": "title",
+      "old": "Mehr als „Habt ihr genug Geld?“",
+      "new": "Habt ihr genug Geld für eure Ausgaben?",
+      "source": "de/wisdom-stories/more-than-money.docx"
+    },
+    {
+      "language": "de",
+      "stem": "stolen-camel",
+      "field": "title",
+      "old": "Raub den Menschen nicht den Glauben an das Gute",
+      "new": "Die Geschichte des Beduinen, dessen Kamel gestohlen wurde",
+      "source": "de/wisdom-stories/stolen-camel.docx"
+    },
+    {
+      "language": "de",
+      "stem": "land-and-homeland",
+      "field": "title",
+      "old": "Mehr als Erde",
+      "new": "Heimat und Erde",
+      "source": "de/wisdom-stories/land-and-homeland.docx"
+    },
+    {
+      "language": "de",
+      "stem": "life-after-sixty",
+      "field": "title",
+      "old": "Auch mit sechzig gehört das Leben dir",
+      "new": "An alle, die sechzig geworden sind",
+      "source": "de/wisdom-stories/life-after-sixty.docx"
+    },
+    {
+      "language": "de",
+      "stem": "albrecht-durer",
+      "field": "title",
+      "old": "Die Hände, die einen Traum ermöglichten",
+      "new": "Albrecht Dürer",
+      "source": "de/wisdom-stories/albrecht-durer.docx"
+    },
+    {
+      "language": "de",
+      "stem": "sinans-waterless-house",
+      "field": "title",
+      "old": "Der Baumeister, der einer Stadt Wasser brachte",
+      "new": "Sinans Haus ohne Wasser",
+      "source": "de/wisdom-stories/sinans-waterless-house.docx"
+    }
+  ],
+  "checks": {
+    "docx_formatting_preserved": true,
+    "story_title_links": 2518,
+    "title_link_errors": []
+  }
+}

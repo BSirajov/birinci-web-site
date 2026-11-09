@@ -131,6 +131,37 @@ def patch_page(text, stories):
     return pin_asset_versions(text), seen
 
 
+def patch_story_links(text, stories):
+    """Refresh story links by stable ID, without replacing words in prose."""
+    def link(match):
+        markup = match.group()
+        opening = markup.split('>', 1)[0]
+        href = re.search(r'\bhref="([^"]*)"', opening)
+        if not href or '#' not in href[1]:
+            return markup
+        stem = unquote(href[1].rsplit('#', 1)[1])
+        if stem not in stories:
+            return markup
+        story = stories[stem]
+        node = html.fromstring(markup)
+        titles = node.xpath('.//*[contains(concat(" ", normalize-space(@class), " "), " card-title ")]')
+        if titles:
+            for title in titles:
+                title.text = story['title']
+            blurb = story['paragraphs'][0]
+            for desc in node.xpath('.//*[contains(concat(" ", normalize-space(@class), " "), " card-desc ")]'):
+                desc.text = blurb
+            node.set('data-title', story['title'])
+            node.set('data-blurb', blurb)
+        elif len(node) == 0 and (node.text or '').strip():
+            node.text = story['title']
+        else:
+            return markup
+        return html.tostring(node, encoding='unicode', method='html', with_tail=False)
+
+    return re.sub(r'<a\b[^>]*>.*?</a>', link, text, flags=re.S | re.I)
+
+
 def plan_build(root, langs):
     manifest = json.loads((root / 'tools/story-build-manifest.json').read_text(encoding='utf-8'))
     writes = {}
@@ -146,6 +177,7 @@ def plan_build(root, langs):
         }
         if active != registered:
             raise ValueError(f"Source manifest mismatch in {lang}: unregistered={sorted(active - registered)}, missing={sorted(registered - active)}")
+        locale = json.loads((root / 'tools/locales' / f'{lang}.json').read_text(encoding='utf-8'))
         stories = {}
         search = []
         for category in catalog['categories']:
@@ -161,6 +193,8 @@ def plan_build(root, langs):
                                                story.pop('preserveLineBreaks', False),
                                                story.pop('creditDisplay', None))
                 story.update(title=title, paragraphs=paragraphs)
+                story.setdefault('imageAlt', locale['ui']['illustration_alt'].format(title=title))
+                story.setdefault('imageOpenLabel', locale['ui']['enlarge_image'].format(title=title))
                 image = root / lang / unquote(story.get('image') or f"wisdom-stories/illustrations/{story.get('imageStem') or stem}.webp")
                 if not image.is_file():
                     raise FileNotFoundError(image)
@@ -178,12 +212,7 @@ def plan_build(root, langs):
             if any(p in {'wisdom-stories', 'discovery-articles', '_reviews', '_backups', 'Archive'} for p in path.relative_to(root).parts):
                 continue
             text = path.read_text(encoding='utf-8')
-            # Update names in navigation/card attributes before inserting DOCX text.
-            for cat in manifest[lang]['categories']:
-                for original in cat['stories']:
-                    old, new = original['title'], stories[original['stem']]['title']
-                    if old != new:
-                        text = text.replace(escape.escape(old, quote=True), escape.escape(new, quote=True))
+            text = patch_story_links(text, stories)
             updated, page_stems = patch_page(text, stories)
             seen.update(page_stems)
             writes[path] = updated

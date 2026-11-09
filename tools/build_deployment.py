@@ -13,6 +13,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 from build_info import write_build_info  # noqa: E402
+from unpublished_stories import UNPUBLISHED_STEMS  # noqa: E402
 from i18n_config import SUPPORTED_LANGS  # noqa: E402
 from publish_policy import (  # noqa: E402
     AUTHORING_JUNK_IGNORE_PATTERNS,
@@ -55,13 +56,7 @@ DISCOVERY_ONLY_ASSETS = (
 # OMIT_AUDIO_FROM_PUBLISH is True (listen UI gated off until copy is ready).
 _IGNORE_PUBLISH_PATTERNS = [
     # Retained locally for possible restoration, never published.
-    "ill-gotten-money.*",
-    "forbidden-money.*",
-    "butter-price-war.*",
-    "hajj-pilgrimage.*",
-    "vizier-and-the-scholar.*",
-    "empty-boat.*",
-    "dreaming.*",
+    *(stem + ".*" for stem in sorted(UNPUBLISHED_STEMS)),
     "story-sources.js",
     "*.pdf",
     "*.PDF",
