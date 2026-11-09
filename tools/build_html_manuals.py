@@ -5,6 +5,7 @@ import json
 import re
 import io
 import time
+import hashlib
 from manual_button_images import render_button_paragraph
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -59,7 +60,7 @@ def main():
     from PIL import Image
     from dev_story_edit_server import _atomic_write_text
     from legal_meta import render_breadcrumbs_nav
-    from chrome_restore import HELP_NAV_LABELS, SITE_ASSET_VERSION
+    from chrome_restore import HELP_NAV_LABELS, SITE_ASSET_VERSION, pin_asset_versions
     for lang in LANGS:
         m = json.loads((ROOT / 'docs/manuals' / f'manual-{lang}.json').read_text(encoding='utf-8'))
         t = LABELS[lang]
@@ -93,7 +94,7 @@ def main():
                 figure_number += 1
                 dest = ROOT / 'assets/manuals' / lang / f'{anchor}.webp'
                 dest.parent.mkdir(parents=True, exist_ok=True)
-                source = ROOT / 'docs/manuals/screenshots-20261031' / lang / f'{anchor}.png'
+                source = ROOT / 'docs/manuals' / m.get('screenshot_dir', 'screenshots-20261031') / lang / f'{anchor}.png'
                 with Image.open(source) as im:
                     w, h = im.size
                     if not dest.exists() or dest.stat().st_mtime < source.stat().st_mtime:
@@ -137,6 +138,13 @@ def main():
 <p id="no-results" role="status" hidden>{e(t[15])}</p>{''.join(sections)}</main></div>
 <dialog id="screenshot-dialog" aria-labelledby="screenshot-caption"><button type="button" id="close-dialog">{e(t[17])} ×</button><img alt=""><p id="screenshot-caption"></p></dialog></div>
 {page_jump}{footer}</body></html>'''
+        # Keep generated guides aligned with normal site-build routing and caches.
+        page = pin_asset_versions(page)
+        def version_screenshot(match):
+            asset = ROOT / match[0].removeprefix('../')
+            return match[0] + '?v=h' + hashlib.sha256(asset.read_bytes()).hexdigest()[:12]
+        page = re.sub(r'\.\./assets/manuals/[^/"?]+/[^/"?]+\.webp',
+                      version_screenshot, page)
         _atomic_write_text(ROOT / lang / 'user-manual.html', page)
         # Keep checked-in sitemaps discoverable without rebuilding unrelated pages.
         sitemap = ROOT / lang / 'sitemap.html'

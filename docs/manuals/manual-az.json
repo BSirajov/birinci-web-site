@@ -2,7 +2,7 @@
   "lang": "az",
   "title": "Birİnci saytının istifadə qaydası",
   "subtitle": "Azərbaycan dilində istifadəçi təlimatı",
-  "date": "31 oktyabr 2026",
+  "date": "10 noyabr 2026",
   "contents": "Mündəricat",
   "figure": "Şəkil",
   "intro": "Bu təlimatda Birİnci saytında hekayələrin axtarılması və oxunması, illüstrasiyalara baxılması, müxtəlif dillərdəki mətnlərin müqayisəsi və rəy göndərilməsi izah olunur. Təlimata kompüter və telefondan istifadə qaydaları, ekran şəkilləri və qısa yaddaş vərəqi daxildir. Hekayələri oxumaq üçün qeydiyyatdan keçmək tələb olunmur. iPad və Android planşetlərində oflayn versiyanın quraşdırılması, dil paketlərinin yüklənməsi və Windows ilə macOS sistemlərində USB daşıyıcısından istifadə qaydaları da burada açıqlanır.",
@@ -36,7 +36,7 @@
       "caption": "Qlobal axtarışda sorğuya uyğun hekayələr və onların dil kodları.",
       "paras": [
         "Səhifənin alətlər panelindəki «Axtar…» sahəsi cari səhifənin vərəqlərini və ya hekayələrini filtrləyir. Axtardığınız sözü yazın və uyğun nəticəni seçin. Nəticə yoxdursa, sözü qısaldın və aktiv müəllif və kateqoriya filtrlərini yoxlayın. Axtarış mətnini silməklə siyahını bərpa edin.",
-        "Bütün dillərdə axtarmaq üçün saytın yuxarı hissəsindəki lupa və ya «Axtar…» düyməsinə basın. Ctrl+K qısayolu da bütün sayt üzrə axtarış pəncərəsini açır. Sorğunu yazdıqdan sonra nəticələrdə hekayənin adını, dilini və kateqoriyasını yoxlayın.",
+        "Bütün dillərdə axtarmaq üçün saytın yuxarı hissəsindəki lupa və ya «Axtar…» düyməsinə basın. Windows/Linux-da Ctrl+K və ya Mac-da Command+K qısayolu da bütün sayt üzrə axtarış pəncərəsini açır. Sorğunu yazdıqdan sonra nəticələrdə hekayənin adını, dilini və kateqoriyasını yoxlayın.",
         "Axtarış nəticəsini seçdikdə hekayənin yerləşdiyi səhifə açılır. Nəticə başqa dildədirsə, həmin dildəki səhifəyə keçəcəksiniz. Axtarış pəncərəsini bağlamaq üçün × işarəsinə, Esc düyməsinə və ya pəncərədən kənardakı tünd sahəyə basın.",
         "Sayt xəritəsindəki axtarış sahəsi yalnız həmin səhifədəki bölmə və hekayə keçidlərini filtrləyir. Bütün saytda axtarış aparmaq üçün yuxarıdakı ümumi axtarışdan istifadə edin."
       ]
@@ -46,10 +46,11 @@
       "shot": "story",
       "caption": "Hekayə mətni, açıq krem rəngli ibrət paneli və şəkillərin göstərilməsi və gizlədilməsi düymələri.",
       "paras": [
-        "Hekayə başlıqdan, əsas mətndən, ibrət hissəsindən və illüstrasiyadan ibarətdir. İbrət açıq krem rəngli paneldə vurğulanır. Hekayə səhifələrində illüstrasiyalar ilk açılışda görünür; onları görmək üçün əvvəlcə «Şəkli göstər» düyməsinə basmaq lazım deyil.",
+        "Hekayələrin əksəriyyətində başlıq, əsas mətn, ayrıca vurğulanmış ibrət hissəsi və illüstrasiya var. Şeirlər kimi bəzi bədii mətnlərdə ayrıca ibrət hissəsi olmur. İbrət açıq krem rəngli paneldə vurğulanır. Hekayə səhifələrində illüstrasiyalar ilk açılışda görünür; onları görmək üçün əvvəlcə «Şəkli göstər» düyməsinə basmaq lazım deyil.",
         "İllüstrasiyanı gizlətmək üçün «Şəkli gizlət», yenidən göstərmək üçün «Şəkli göstər» düyməsini seçin. Mətnin göstərilməsi və gizlədilməsi üçün ayrıca düymələr var. Mətnlə şəkli eyni vaxtda gizlətmək mümkün deyil: onlardan ən azı biri görünməlidir. Telefonda mətn düymələri göstərilməsə də, mətn yenə də görünür və onu oxumaq mümkündür.",
-        "Müəllif və mənbə haqqında məlumat verilibsə, həmin məlumatı hekayənin yanında görə bilərsiniz. Eyni ümumi mənbə qeydi bütün hekayələrin altında təkrarlanmır. Redaktə və süni intellektlə hazırlanmış illüstrasiyalar haqqında ümumi qeyd giriş hissəsində verilə bilər. Bu qeyd ayrı-ayrı hekayələrin müəllifi və mənbəyi haqqında məlumatı əvəz etmir.",
-        "Hekayəyə keçdikdən sonra brauzerdəki ünvanı kopyalayaraq paylaşa bilərsiniz. Ünvanın sonundakı # işarəsi və hekayə identifikatoru saxlanmalıdır; məsələn, #friendship-of-horses."
+        "Müəllif və mənbə haqqında məlumat verildiyi hallarda göstərilir. Hər hekayənin ayrıca mənbə qeydi olmaya bilər.",
+        "Hekayəyə keçdikdən sonra brauzerdəki ünvanı kopyalayaraq paylaşa bilərsiniz. Ünvanın sonundakı # işarəsi və hekayə identifikatoru saxlanmalıdır; məsələn, #friendship-of-horses.",
+        "Eyni hekayənin müxtəlif dillərdəki illüstrasiyaları onun məzmununu fərqli səhnələrlə çatdıra bilər. Başlıq və ibrət panellərinin tərtibatı isə vahiddir."
       ]
     },
     {
@@ -159,9 +160,9 @@
       "title": "Dil paketlərinin və illüstrasiyaların yüklənməsi",
       "topic": "settings",
       "paras": [
-        "Dil paketləri: AZ — Azərbaycan, DE — Deutsch, EN — English, KY — Кыргызча və RU — Русский. İnternetə qoşulduqdan sonra paketləri bir-bir yükləyin. Planşetin yaddaş ayarlarından boş yeri yoxlayın. Beş dilin hamısını illüstrasiyalarla yükləmək üçün təxminən 3 GB boş yer ayırmağınız məsləhətdir. Brauzerin saxlama limiti ayrıca məhdudiyyət yarada bilər.",
+        "Dil paketləri: AZ — Azərbaycan, DE — Deutsch, EN — English, KY — Кыргызча və RU — Русский. İnternetə qoşulduqdan sonra paketləri bir-bir yükləyin. Dil vərəqlərində göstərilən cari yükləmə həcmini və cihazınızdakı boş yeri yoxlayın. Yeniləmələr və brauzerin saxladığı məlumatlar üçün əlavə boş yer ayırın; brauzerin ayrıca saxlama limiti ola bilər.",
         "1. Quraşdırılmış tətbiqi açın və dil vərəqini tapın. Download düyməsinə toxunmazdan ƏVVƏL Include illustrations and guide screenshots seçimini işarələyin. Yalnız mətn istəyirsinizsə, seçimi işarələməyin.",
-        "2. Download düyməsinə toxunun. İlk yükləmə zamanı tətbiqin işləməsi üçün lazım olan ümumi fayllar da saxlanılır; onların həcmi hazırda təxminən 29,5 MB-dır. Hər dil üzrə mətnlər təxminən 2–3 MB, illüstrasiyalar isə 131–458 MB yer tutur. Dəqiq həcmi dil vərəqlərində yoxlayın. Yükləmə başa çatanadək tətbiqi açıq saxlayın və ekranın sönməsinə imkan verməyin.",
+        "2. Download düyməsinə toxunun. İlk yükləmə zamanı hekayələri oxumaq üçün lazım olan ümumi fayllar da saxlanılır. Təlimatın ekran görüntülərini də əhatə edən illüstrasiya paketləri yalnız mətn paketlərindən xeyli böyükdür. Sabit təxmini rəqəmə deyil, dil vərəqlərində göstərilən cari həcmə əsaslanın. Yükləmə başa çatanadək tətbiqi açıq saxlayın və ekranın sönməsinə imkan verməyin.",
         "3. Ready offline · with illustrations vəziyyətini gözləyin. Ready offline · text yalnız mətnin saxlandığını bildirir. Əvvəllər yalnız mətn yükləmisinizsə, illüstrasiya seçimini işarələyib Download / repair düyməsi ilə şəkilləri əlavə edin.",
         "4. Verify düyməsinə toxunun və All saved files verified bildirişini gözləyin. Fayllar çatışmırsa və ya zədələnibsə, internetə qoşulun, illüstrasiya seçimini işarəli saxlayaraq Download / repair, sonra isə yenidən Verify düyməsinə basın. Verify saxlanmış faylları yoxlayır, illüstrasiyaları avtomatik əlavə etmir.",
         "Lazım olduqda Pause download seçin. İnternetə qoşulduqdan sonra Download və ya Download / repair artıq yüklənmiş fayllardan istifadə edərək yükləməni davam etdirir. Eyni addımları digər dillər üçün də təkrarlayın. Aralarında keçid etmək və ya mətnlərini müqayisə etmək istədiyiniz hər iki dilin paketini yükləyin. Eyni quraşdırılmış tətbiq və brauzer profilindən istifadə edin; yükləmələr başqa cihaza avtomatik köçürülmür."
@@ -212,5 +213,6 @@
         "Ekran şəklini böyütmək üçün üzərinə basın. Açılan pəncərəni × işarəsi və ya Esc düyməsi ilə bağlayın. «Bölməyə keçid» seçimi həmin izaha birbaşa keçid verir. Səhifədəki oxlarla əvvələ və sona keçə bilərsiniz. Təlimatı başqa dildə açmaq üçün dil düyməsindən, hekayələrə qayıtmaq üçün isə əsas menyudan istifadə edin."
       ]
     }
-  ]
+  ],
+  "screenshot_dir": "screenshots-20261110"
 }

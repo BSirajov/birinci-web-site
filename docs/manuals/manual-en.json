@@ -2,7 +2,7 @@
   "lang": "en",
   "title": "Birİnci website user manual",
   "subtitle": "English user guide",
-  "date": "31 October 2026",
+  "date": "10 November 2026",
   "contents": "Contents",
   "figure": "Figure",
   "intro": "This guide explains how to find and read stories on Birİnci, view illustrations, compare languages and send feedback. It includes desktop and phone instructions, screenshots and a quick reference. You do not need an account to read the stories. It also explains offline installation on iPad and Android tablets, language downloads and USB use on Windows and macOS.",
@@ -36,7 +36,7 @@
       "caption": "Global search results with story titles and language codes.",
       "paras": [
         "The search field in the page toolbar filters the current page’s cards or stories. Type a word and select a match. If there are no results, shorten the query and check the active author and category filters. Clear the search text to restore the list.",
-        "To search across languages, select the magnifying glass or “Search…” in the website header. Ctrl+K also opens global search. After entering a query, check each result’s title, language and category.",
+        "To search across languages, select the magnifying glass or “Search…” in the website header. Ctrl+K on Windows/Linux or Command+K on Mac also opens global search. After entering a query, check each result’s title, language and category.",
         "Selecting a result opens the page containing that story. A result in another language takes you to that language version. Close search with ×, Esc or the shaded area outside the dialog.",
         "The sitemap has its own search field, which filters only the section and story links in the sitemap. This is separate from global search across the website."
       ]
@@ -46,10 +46,11 @@
       "shot": "story",
       "caption": "Story text, the pale cream moral panel and image controls.",
       "paras": [
-        "A story contains a title, main text, moral and illustration. The moral is highlighted in a pale cream panel. Illustrations on story pages are visible on the first visit; you do not need to select “Show image” first.",
+        "Most stories include a title, main text, a highlighted moral and an illustration. Some literary texts, such as poems, do not have a separate moral. The moral is highlighted in a pale cream panel. Illustrations on story pages are visible on the first visit; you do not need to select “Show image” first.",
         "Use the image controls to hide an illustration or show it again. Text has separate show and hide controls. Text and images cannot both be hidden: at least one must remain visible. On phones, text controls may be hidden while the text remains available to read.",
-        "Where available, the author and source are listed alongside the story. A general source notice is not repeated beneath every story. A general note about editing and AI-generated illustrations may appear in the introduction; it does not replace the author and source information for an individual story.",
-        "After navigating to a story, copy the browser address to share it. Keep the # and story identifier at the end of the address, for example #friendship-of-horses."
+        "Author and source information is shown where provided. Not every story includes a separate source note.",
+        "After navigating to a story, copy the browser address to share it. Keep the # and story identifier at the end of the address, for example #friendship-of-horses.",
+        "Different language versions may use different scenes to convey the same story. Their title and moral panels follow a consistent design."
       ]
     },
     {
@@ -159,9 +160,9 @@
       "title": "Downloading languages and illustrations",
       "topic": "settings",
       "paras": [
-        "Available packs are AZ — Azərbaycan, DE — Deutsch, EN — English, KY — Кыргызча and RU — Русский. Download one language pack at a time while connected to the internet. Check the available storage in your tablet’s settings; allow about 3 GB for all five packs with illustrations. The browser may impose its own storage limit.",
+        "Available packs are AZ — Azərbaycan, DE — Deutsch, EN — English, KY — Кыргызча and RU — Русский. Download one language pack at a time while connected to the internet. Check the current download sizes on the language cards and the free space on your device. Allow additional free space for updates and browser storage; the browser may impose its own storage limit.",
         "1. Open the installed app and find the language card. Tick Include illustrations and guide screenshots before tapping Download. Leave it unticked if you want to download only the text.",
-        "2. Tap Download. The first download also saves the shared files needed to read the stories. These currently take up about 29.5 MB. Text adds about 2–3 MB per language; illustrations add roughly 131–458 MB. Check the current sizes shown on the cards. Keep the app open and the screen awake until completion.",
+        "2. Tap Download. The first download also saves the shared files needed to read the stories. Illustration packs, which also include guide screenshots, are substantially larger than text-only packs. Use the current sizes shown on the cards rather than a fixed estimate. Keep the app open and the screen awake until completion.",
         "3. Wait for Ready offline · with illustrations. Ready offline · text confirms only the text download. If you previously saved text only, tick the illustration option and tap Download / repair to add the pictures.",
         "4. Tap Verify and wait for All saved files verified. If files are missing or damaged, reconnect, keep the illustration option selected and use Download / repair, then Verify again. Verify checks what was saved; it does not automatically add illustrations.",
         "Use Pause download if needed. While online, Download or Download / repair resumes an interrupted download using the files already saved. Repeat for your other languages. Download both languages you plan to navigate between or compare. Keep using the same installed app and browser profile; downloads do not automatically transfer to another device."
@@ -212,5 +213,6 @@
         "Select a screenshot to enlarge it; close it with × or Esc. “Link to section” provides a direct link to the relevant instructions. The page arrows take you to the top or bottom of the page. Use the language selector to open the guide in another language, or the main navigation to return to stories."
       ]
     }
-  ]
+  ],
+  "screenshot_dir": "screenshots-20261110"
 }

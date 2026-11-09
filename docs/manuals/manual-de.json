@@ -2,7 +2,7 @@
   "lang": "de",
   "title": "Benutzerhandbuch für die Birİnci Website",
   "subtitle": "Anleitung auf Deutsch",
-  "date": "31. Oktober 2026",
+  "date": "10. November 2026",
   "contents": "Inhaltsverzeichnis",
   "figure": "Abbildung",
   "intro": "Diese Anleitung erklärt, wie du auf Birİnci Geschichten findest und liest, Illustrationen ansiehst, Sprachversionen vergleichst und Feedback sendest. Sie enthält Hinweise für Computer und Smartphone, Bildschirmaufnahmen und eine Kurzübersicht. Zum Lesen brauchst du kein Benutzerkonto. Außerdem erklärt sie die Offline-Installation auf iPad und Android-Tablets, das Herunterladen von Sprachpaketen und die USB-Nutzung unter Windows und macOS.",
@@ -36,7 +36,7 @@
       "caption": "Die Website-Suche zeigt passende Geschichten und Sprachkürzel.",
       "paras": [
         "Das Suchfeld in der Werkzeugleiste der Seite filtert die Karten oder Geschichten der aktuellen Seite. Gib einen Suchbegriff ein und wähle einen Treffer. Gibt es keine Treffer, kürze den Begriff und prüfe die aktiven Autoren- und Kategoriefilter. Lösche den Suchtext, um die Liste wiederherzustellen.",
-        "Für eine sprachübergreifende Suche wähle die Lupe oder die Suche im Kopfbereich. Strg+K öffnet ebenfalls die Website-Suche. Prüfe bei den Ergebnissen den Titel, die Sprache und die Kategorie.",
+        "Für eine sprachübergreifende Suche wähle die Lupe oder die Suche im Kopfbereich. Strg+K unter Windows/Linux oder Command+K auf dem Mac öffnet ebenfalls die Website-Suche. Prüfe bei den Ergebnissen den Titel, die Sprache und die Kategorie.",
         "Ein Treffer öffnet die Seite mit der betreffenden Geschichte. Ein anderssprachiger Treffer führt zur entsprechenden Sprachversion. Schließe die Suche mit ×, Esc oder einem Klick auf den abgedunkelten Bereich außerhalb des Fensters.",
         "Die Seitenübersicht hat ein eigenes Suchfeld. Es filtert nur die dort aufgeführten Bereiche und Links zu Geschichten. Es ist von der Suche auf der gesamten Website zu unterscheiden."
       ]
@@ -46,10 +46,11 @@
       "shot": "story",
       "caption": "Geschichtentext, Moral auf hellcremefarbenem Hintergrund und Schaltflächen für die Bildanzeige.",
       "paras": [
-        "Zu einer Geschichte gehören der Titel, der Text, die Moral und eine Illustration. Die Moral steht in einem hellcremefarbenen Feld. Illustrationen auf Geschichtenseiten sind beim ersten Besuch sichtbar. Du musst ihre Anzeige nicht erst aktivieren.",
+        "Die meisten Geschichten enthalten einen Titel, den Haupttext, eine hervorgehobene Moral und eine Illustration. Manche literarischen Texte, etwa Gedichte, haben keine gesonderte Moral. Die Moral steht in einem hellcremefarbenen Feld. Illustrationen auf Geschichtenseiten sind beim ersten Besuch sichtbar. Du musst ihre Anzeige nicht erst aktivieren.",
         "Mit dem Bildschalter zum Ausblenden verbirgst du eine Illustration; mit dem Schalter zum Anzeigen blendest du sie wieder ein. Für den Text gibt es eigene Schalter. Text und Bild lassen sich nicht gleichzeitig ausblenden: Mindestens eines bleibt sichtbar. Auf Smartphones können die Textschalter fehlen, während der Text lesbar bleibt.",
-        "Angaben zum Autor und zur Quelle findest du, soweit vorhanden, bei der jeweiligen Geschichte. Ein allgemeiner Quellenhinweis wird nicht unter jeder Geschichte wiederholt. Ein allgemeiner Hinweis zur Bearbeitung und zu KI-generierten Illustrationen kann im Einleitungstext stehen; er ersetzt nicht die Autoren- und Quellenangaben der einzelnen Geschichte.",
-        "Um eine Geschichte zu teilen, kopiere nach dem Aufrufen ihre Browseradresse. Behalte das # und die Kennung am Ende bei, zum Beispiel #friendship-of-horses."
+        "Autoren- und Quellenangaben werden angezeigt, soweit sie vorhanden sind. Nicht jede Geschichte enthält einen eigenen Quellenhinweis.",
+        "Um eine Geschichte zu teilen, kopiere nach dem Aufrufen ihre Browseradresse. Behalte das # und die Kennung am Ende bei, zum Beispiel #friendship-of-horses.",
+        "Die Illustrationen verschiedener Sprachfassungen können dieselbe Geschichte mit unterschiedlichen Szenen erzählen. Die Felder für Titel und Moral sind einheitlich gestaltet."
       ]
     },
     {
@@ -159,9 +160,9 @@
       "title": "Sprachen und Illustrationen herunterladen",
       "topic": "settings",
       "paras": [
-        "Verfügbar sind AZ — Azərbaycan, DE — Deutsch, EN — English, KY — Кыргызча und RU — Русский. Lade bei bestehender Verbindung jeweils eine Sprache herunter. Prüfe den freien Speicher in den Tablet-Einstellungen. Plane für alle fünf Pakete mit Illustrationen etwa 3 GB freien Speicher ein. Der Browser kann den verfügbaren Speicher zusätzlich begrenzen.",
+        "Verfügbar sind AZ — Azərbaycan, DE — Deutsch, EN — English, KY — Кыргызча und RU — Русский. Lade bei bestehender Internetverbindung jeweils eine Sprache herunter. Prüfe die aktuellen Downloadgrößen auf den Sprachkarten und den freien Speicher auf deinem Gerät. Plane zusätzlichen Platz für Aktualisierungen und Browserdaten ein; der Browser kann den verfügbaren Speicher zusätzlich begrenzen.",
         "1. Öffne die installierte App und suche die Sprachkarte. Aktiviere Include illustrations and guide screenshots, bevor du auf Download tippst. Lasse die Option nur deaktiviert, wenn du Text ohne Bildpaket möchtest.",
-        "2. Tippe auf Download. Beim ersten Mal werden auch gemeinsame Dateien für die Lesefunktionen gespeichert, derzeit etwa 29,5 MB. Pro Sprache kommen etwa 2–3 MB Text und 131–458 MB Bilder hinzu. Beachte die aktuellen Größen auf den Karten. Lass die App bis zum Abschluss geöffnet und achte darauf, dass sich der Bildschirm nicht ausschaltet.",
+        "2. Tippe auf Download. Beim ersten Download werden auch die gemeinsamen Dateien für die Lesefunktionen gespeichert. Bildpakete enthalten außerdem die Bildschirmaufnahmen des Handbuchs und sind deutlich größer als reine Textpakete. Richte dich nach den aktuellen Größen auf den Karten statt nach einer festen Schätzung. Lass die App bis zum Abschluss geöffnet und achte darauf, dass sich der Bildschirm nicht ausschaltet.",
         "3. Warte auf Ready offline · with illustrations. Ready offline · text bestätigt nur den Textdownload. Hast du bisher nur Text gespeichert, aktiviere die Bildoption und wähle Download / repair, um die Bilder hinzuzufügen.",
         "4. Tippe auf Verify und warte auf All saved files verified. Fehlen Dateien oder sind sie beschädigt, stelle die Verbindung her, lasse die Bildoption aktiviert und wähle Download / repair, anschließend erneut Verify. Verify prüft gespeicherte Dateien und ergänzt keine Bilder automatisch.",
         "Mit Pause download kannst du unterbrechen. Bei bestehender Verbindung setzt Download oder Download / repair den Vorgang fort und verwendet bereits heruntergeladene Dateien weiter. Wiederhole dies für weitere Sprachen. Lade beide Sprachen für Sprachwechsel und Vergleiche herunter. Verwende dieselbe installierte App und dasselbe Browserprofil; Downloads werden nicht automatisch auf andere Geräte übertragen."
@@ -212,5 +213,6 @@
         "Wähle einen Screenshot zum Vergrößern und schließe ihn mit × oder Esc. „Link zum Abschnitt“ führt direkt zur betreffenden Anleitung. Mit den Pfeilen gelangst du zum Anfang oder Ende der Seite. Über die Sprachauswahl öffnest du das Handbuch in einer anderen Sprache; über die Hauptnavigation gelangst du zurück zu den Geschichten."
       ]
     }
-  ]
+  ],
+  "screenshot_dir": "screenshots-20261110"
 }
