@@ -154,8 +154,10 @@ ILLUSTRATION_STAMPS = frozenset(
     }
 )
 def story_routes_asset_version() -> str:
-    payload = ((ROOT / "tools/story-build-manifest.json").read_bytes()
-               + (ROOT / "tools/poem-translations.json").read_bytes())
+    # Git checkouts use different line endings on Windows and Linux. Hash the
+    # normalized text so generated pages keep the same version in CI.
+    payload = ((ROOT / "tools/story-build-manifest.json").read_text(encoding="utf-8")
+               + (ROOT / "tools/poem-translations.json").read_text(encoding="utf-8")).encode("utf-8")
     return SITE_CHROME_ASSET_VERSION + hashlib.sha256(payload).hexdigest()[:12]
 
 

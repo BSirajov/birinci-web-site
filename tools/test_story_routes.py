@@ -62,3 +62,17 @@ def test_route_cache_stamp_is_recognized_by_structural_qa():
     result = pin_asset_versions('<script src="../assets/site.js?v=old" defer></script>')
     assert f'story-routes.js?v={stamp}' in result
     assert pin_asset_versions(result) == result
+
+
+def test_route_cache_stamp_ignores_checkout_line_endings(tmp_path, monkeypatch):
+    import chrome_restore
+    monkeypatch.setattr(chrome_restore, 'ROOT', tmp_path)
+    folder = tmp_path / 'tools'
+    folder.mkdir()
+    paths = [folder / 'story-build-manifest.json', folder / 'poem-translations.json']
+    for path in paths:
+        path.write_bytes(b'{\n  "stories": []\n}\n')
+    lf = chrome_restore.story_routes_asset_version()
+    for path in paths:
+        path.write_bytes(path.read_bytes().replace(b'\n', b'\r\n'))
+    assert chrome_restore.story_routes_asset_version() == lf
