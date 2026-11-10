@@ -219,6 +219,17 @@
     };
 
     let activeGlobeLang = fromLang;
+    const globeButton = els.globe && els.globe.closest(".sc-globe-button");
+    if (globeButton) {
+      globeButton.setAttribute("aria-expanded", "false");
+      const expandGlobe = (expanded) => {
+        globeButton.classList.toggle("is-expanded", expanded);
+        globeButton.setAttribute("aria-expanded", String(expanded));
+      };
+      globeButton.addEventListener("click", () => expandGlobe(globeButton.getAttribute("aria-expanded") !== "true"));
+      globeButton.addEventListener("blur", () => expandGlobe(false));
+      globeButton.addEventListener("keydown", event => { if (event.key === "Escape") expandGlobe(false); });
+    }
 
     const assetVerQuery = () => {
       const link = document.querySelector('link[href*="story-compare.css"]');
@@ -842,7 +853,7 @@
           els.brand.innerHTML = "<span>" + escapeHtml(primary.title) + "</span>";
         }
       } else if (els.brand) {
-        els.brand.textContent = "";
+        els.brand.textContent = tUi("multilingual_view", "Multilingual View");
       }
     };
 

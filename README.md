@@ -29,14 +29,16 @@ python tools/build_website.py --lang all
 python tools/build_deployment.py
 ```
 
-**CI:** GitHub Actions (`.github/workflows/site-qa.yml`) runs on push/PR: publish-policy tests, API pytest, `build_deployment.py`, and `python tools/full_site_qa.py --structural`. Tool pins: `tools/requirements.txt`. For a full local browser matrix (optional): `pip install -r tools/requirements.txt && playwright install chromium`, then `python tools/full_site_qa.py`.
+**CI and publication:** GitHub Actions (`.github/workflows/site-qa.yml`) runs credential, tooling, source-parity, German-preservation, API and structural checks. It rebuilds the reviewed site and packages an allowlisted runtime artifact. A successful current `main` run triggers `deploy-runtime.yml`, which verifies and publishes the offline edition, then the online edition. A push to `main` can therefore publish. Dependencies in `tools/requirements.txt` are version-constrained, not a complete lockfile. For a full local browser matrix (optional): `pip install -r tools/requirements.txt && playwright install chromium`, then `python tools/full_site_qa.py`.
 
 **Production deployment rule:** Upload only files required to run the public
 website, using the audited `deployment/` tree rather than the repository root.
 Never deploy Word sources or collections, backups, review reports, tests,
-development tools, temporary files, `.env` files, or secrets. The current
-GitHub Actions workflow performs QA only; publishing to Hostinger is a separate
-step after successful checks.
+development tools, temporary files, `.env` files, or secrets. Publish the audited
+CI artifact, never a manually copied repository or stale local deployment folder.
+The receiver validates the inventory and performs an atomic switch, retaining
+the previous runtime for rollback. Rebuild `deployment/` before local preview;
+`python tools/full_site_qa.py --structural` detects stale shared scripts.
 
 **Discoveries is dev-only by default.** `build_deployment.py` leaves the section out of the publish tree: it skips `{lang}/discoveries/` and `{lang}/discovery-articles/`, then removes the nav link, the home card, the sitemap chapter and the `sitemap.xml` entries from the copies. The root `sitemap.xml` also omits Discoveries unless you opt in (same flag), so accidentally uploading the repo root does not advertise unpublished URLs. The locale trees keep everything, so serving `az/`, `en/`, `ru/` or `ky/` locally still gives the full section. To publish it, add `--with-discoveries` (or set `BIRINCI_PUBLISH_DISCOVERIES=1`) and regenerate SEO with that env set.
 

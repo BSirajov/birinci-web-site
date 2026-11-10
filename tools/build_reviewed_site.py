@@ -17,6 +17,7 @@ from urllib.parse import unquote
 from docx import Document
 from lxml import html
 from PIL import Image
+from normalize_runtime_html import normalize as normalize_html
 
 from chrome_restore import pin_asset_versions
 from story_note_markup import MORAL, strip_moral_label
@@ -124,6 +125,8 @@ def patch_page(text, stories):
                 if '/illustrations/' in src.lower():
                     image.set('width', str(story['_imageSize'][0]))
                     image.set('height', str(story['_imageSize'][1]))
+                    preview = re.sub(r'wisdom-stories/.*', f'assets/story-previews/{stem}.webp?v=20261110auditfixes', src)
+                    image.set('data-preview', preview)
         seen.add(stem)
         return html.tostring(node, encoding='unicode', method='html', with_tail=False)
 
@@ -214,17 +217,17 @@ def plan_build(root, langs):
             text = patch_story_links(text, stories)
             updated, page_stems = patch_page(text, stories)
             seen.update(page_stems)
-            writes[path] = updated
+            writes[path] = normalize_html(updated)
         if seen != set(stories):
             raise ValueError(f"Missing story page templates: {lang}: {sorted(set(stories) - seen)}")
         for story in stories.values():
-            story.pop('_imageSize', None)
+            story['imageWidth'], story['imageHeight'] = story.pop('_imageSize')
             # Keep the moral marker as internal structure for both JS renderers.
             # Each renderer strips it from visible text, just like paragraph_markup.
         writes[root / lang / 'assets/stories-data.js'] = 'window.__BIRINCI_STORIES__ = ' + json.dumps(catalog, ensure_ascii=False, separators=(',', ':')) + ';\n'
         writes[root / lang / 'assets/search-index.js'] = 'window.__BIRINCI_SEARCH__ = ' + json.dumps(search, ensure_ascii=False, separators=(',', ':')) + ';\n'
     for path in root.glob('*.html'):
-        writes[path] = pin_asset_versions(path.read_text(encoding='utf-8'))
+        writes[path] = normalize_html(pin_asset_versions(path.read_text(encoding='utf-8')))
     writes[root / "assets/story-routes.js"] = routes_script(manifest)
     return writes, counts
 

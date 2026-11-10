@@ -22,9 +22,9 @@ def remaining_pages_de():
                 "birinci-lang — zuletzt gewählte Sprache;",
                 "birinci-home-view, birinci-category-view, birinci-inventions-view — Listen- oder Kartenansicht;",
                 "birinci-images-collapsed, birinci-images-collapsed-default-v2, birinci-texts-collapsed — ob Illustrationen oder Geschichtentexte eingeklappt bleiben;",
-                "birinci-audio-rate, birinci-audio-volume, birinci-audio-muted — Einstellungen der Vorlesefunktionen;",
+                "birinci-audio-rate, birinci-audio-volume, birinci-audio-muted — frühere Vorleseeinstellungen; die öffentliche Website bietet keine Wiedergabe an, diese Schlüssel können jedoch aus früheren Versionen erhalten bleiben;",
                 "sessionStorage-Schlüssel wie birinci-lang-ctx und birinci-compare-* — kurzzeitig gespeicherter Navigationskontext für Sprach- oder Vergleichsansichten;",
-                "birinci-dev-story-edit — eine Kennzeichnung für die Bearbeitung während der Entwicklung, keine öffentliche Funktion.",
+                "birinci-dev-story-edit — Kennzeichnung nur für die Entwicklung; öffentliche Seiten legen sie nicht an.",
             ]),
             _sec("host", "3. Hosting und andere Cookies", [
                 "Hostinger oder ein vorgeschaltetes Netzwerk zur Inhaltsauslieferung kann Cookies setzen, die zur Bereitstellung der Website, zur Lastverteilung oder zum Schutz vor Missbrauch erforderlich sind. Wir können hier nicht jedes Cookie des Hosting-Anbieters auflisten, da diese Cookies nicht von unseren Seiten erzeugt werden.",

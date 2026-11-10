@@ -7,6 +7,7 @@ import xml.etree.ElementTree as ET
 from lxml import html
 
 from publish_policy import SEPARATELY_PUBLISHED_URLS
+from runtime_bundle import allowed
 
 def audit(root):
     root=root.resolve(); errors=[]; warnings=[]; pages={}; refs=0
@@ -33,8 +34,10 @@ def audit(root):
         for alt in t.xpath('//link[@rel="alternate" and @hreflang]'):
             lang=alt.get('hreflang');u=urlsplit(alt.get('href',''));target=(root/unquote(u.path).lstrip('/')).resolve()
             if target in pages and lang!='x-default' and pages[target].get('lang')!=lang:fail('hreflang-language',alt.get('href'))
-        for node in t.xpath('//*[@href or @src or @data-src or @action]'):
-            for attr in ('href','src','data-src','action'):
+        for lang,count in Counter(t.xpath('//link[@rel="alternate"]/@hreflang')).items():
+            if count>1:fail('duplicate-hreflang',lang)
+        for node in t.xpath('//*[@href or @src or @data-src or @data-preview or @action]'):
+            for attr in ('href','src','data-src','data-preview','action'):
                 raw=node.get(attr)
                 if not raw:continue
                 u=urlsplit(raw)
@@ -55,6 +58,8 @@ def audit(root):
         for a in t.xpath('//a[@target="_blank"]'):
             if 'noopener' not in a.get('rel','').split():warnings.append({'file':rel,'kind':'external-tab-rel','detail':a.get('href')})
     for name in names:
+        if not allowed(name, 'online'):
+            errors.append({'file':name,'kind':'runtime-policy','detail':'Not permitted by release allowlist'})
         parts=Path(name).parts
         if any(v.lower() in {'.git','.env','backup','_backups','_reviews','tmp','tools','api'} for v in parts) or Path(name).suffix.lower() in {'.docx','.pdf','.zip','.py','.db'}:
             errors.append({'file':name,'kind':'authoring-exposure','detail':''})

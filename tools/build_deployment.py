@@ -58,6 +58,7 @@ _IGNORE_PUBLISH_PATTERNS = [
     # Retained locally for possible restoration, never published.
     *(stem + ".*" for stem in sorted(UNPUBLISHED_STEMS)),
     "story-sources.js",
+    "*.tmp", "*.TMP", "*.bak", "*.BAK", "*.orig", "*.swp",
     "*.pdf",
     "*.PDF",
     "*.docx",
@@ -313,20 +314,25 @@ def find_discovery_leaks(tree: Path) -> list[tuple[str, str]]:
     return leaks
 
 
-# Sent with every publish. Pages are never stored. Images, CSS, and scripts
-# must be rechecked, so a replaced file is not served from an earlier upload.
+# HTML stays fresh. Versioned static assets can be reused between page visits.
 PRODUCTION_HTACCESS = """\
-# Written by tools/build_deployment.py. Do not cache published pages or media.
+# Written by tools/build_deployment.py; runtime only.
 # Missing addresses use the site page, not the host default.
 ErrorDocument 404 /404.html
 <IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Strict-Transport-Security "max-age=86400"
+  Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob:; connect-src 'self' https://challenges.cloudflare.com; frame-src 'self' https://challenges.cloudflare.com; worker-src 'self' blob:; upgrade-insecure-requests"
   <FilesMatch "\\.(html|htm)$">
     Header set Cache-Control "no-cache, no-store, must-revalidate"
     Header set Pragma "no-cache"
     Header set Expires "0"
   </FilesMatch>
   <FilesMatch "\\.(css|js|mjs|png|jpe?g|gif|webp|svg|ico|avif|woff2?)$">
-    Header set Cache-Control "no-cache, must-revalidate"
+    Header set Cache-Control "public, max-age=3600"
+    Header set Cache-Control "public, max-age=31536000, immutable" "expr=%{QUERY_STRING} =~ m#(^|&)v=[A-Za-z0-9_-]+(&|$)#"
   </FilesMatch>
 </IfModule>
 <IfModule mod_expires.c>
@@ -464,9 +470,11 @@ def main() -> None:
                 + "\n  ".join(f"{path}: {marker}" for path, marker in leaks[:10])
             )
 
+    from build_story_previews import build as build_previews
+    build_previews(DEPLOY)
     stamp = fresh_cache_stamp()
     stamped = apply_deploy_cache_stamp(DEPLOY, stamp)
-    print(f"cache: publish stamp {stamp} on {stamped} files; pages and images are rechecked")
+    print(f"cache: publish stamp {stamp} on {stamped} files; HTML stays fresh, versioned assets are cacheable")
 
     public_stamp = write_build_info(ROOT / "assets")
     deploy_assets = DEPLOY / "assets"

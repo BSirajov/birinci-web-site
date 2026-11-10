@@ -175,7 +175,8 @@ body.sc-page {
 }
 
 .sc-toolbar__globe:hover,
-.sc-toolbar__globe:focus-visible {
+.sc-toolbar__globe:focus-visible,
+.sc-globe-button.is-expanded .sc-toolbar__globe {
   position: fixed;
   left: max(0.75rem, env(safe-area-inset-left));
   top: max(0.75rem, env(safe-area-inset-top));
@@ -835,3 +836,6 @@ body.sc-page[data-sc-show-illus="true"] .sc-col--align > .sc-col__source-slot {
     grid-template-columns: 1fr;
   }
 }
+
+.sc-globe-button { border: 0; padding: 0; background: transparent; display: flex; flex: 0 0 auto; align-items: center; cursor: zoom-in; }
+.sc-globe-button:focus-visible { outline: 2px solid #0069b4; outline-offset: 3px; }

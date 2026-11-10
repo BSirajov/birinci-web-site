@@ -369,9 +369,10 @@
       const span = document.createElement("span");
       span.className = "az-lex";
       span.tabIndex = 0;
+      span.setAttribute("role", "button");
       span.setAttribute("data-lex", id);
       span.setAttribute("aria-expanded", "false");
-      span.setAttribute("aria-haspopup", "true");
+      span.setAttribute("aria-controls", NOTE_ID);
       span.title = "Lüğət izahı (Azərbaycan dilinin izahlı lüğəti)";
       span.textContent = word;
       frag.appendChild(span);
@@ -499,6 +500,13 @@
 
   const onKeyDown = (event) => {
     if (event.key === "Escape") closeNote();
+    if (event.key === "Enter" || event.key === " ") {
+      const trigger = event.target.closest && event.target.closest(".az-lex");
+      if (trigger && isAzUiLang()) {
+        event.preventDefault();
+        trigger.click();
+      }
+    }
   };
 
   const onScrollOrResize = () => {

@@ -38,6 +38,7 @@ jobs:
 
       - name: Site tooling regression tests
         run: |
+          python tools/audit_credentials.py
           php -v
           php -r "exit(extension_loaded('fileinfo') ? 0 : 1);"
           PHP_BIN="$(command -v php)" python -m pytest tools -q

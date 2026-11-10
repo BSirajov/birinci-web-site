@@ -43,7 +43,7 @@ def test_home_note_classes_cover_real_catalogs_without_inventing_poem_morals():
         pytest.skip("Node.js is required for the home note regression")
     root = Path(__file__).resolve().parents[1]
     source = (root / "assets/site.js").read_text(encoding="utf-8")
-    renderer = source[source.index("    const paragraphsHtml = (paragraphs, stem) => {"):source.index("    const KY_ILLUST_SIZE =")]
+    renderer = source[source.index("    const paragraphsHtml = (paragraphs, stem) => {"):source.index("    const storyArticleHtml =")]
     script = r"""
 const fs = require("node:fs"), vm = require("node:vm"), assert = require("node:assert/strict");
 const I18N = {ui:{}};

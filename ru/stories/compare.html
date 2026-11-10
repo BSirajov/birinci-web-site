@@ -17,8 +17,8 @@
 <body class="sc-page" data-lang="ru" data-sc-show-text="true" data-sc-show-illus="false">
   <header class="sc-toolbar">
     <div class="sc-toolbar__brand-wrap">
-      <img class="sc-toolbar__globe" data-globe-lang="ru" src="../../assets/language-globe-turk-plus-RU.webp?v=20261103titles" alt="" width="40" height="40" decoding="async" draggable="false" tabindex="0" title="Show full-size brand icon" />
-      <h1 class="sc-toolbar__brand" id="sc-brand"></h1>
+      <button type="button" class="sc-globe-button" aria-label="Увеличить эмблему" title="Увеличить эмблему"><img class="sc-toolbar__globe" data-globe-lang="ru" src="../../assets/language-globe-turk-plus-RU.webp?v=20261103titles" alt="" width="40" height="40" decoding="async" draggable="false" /></button>
+      <h1 class="sc-toolbar__brand" id="sc-brand">Многоязычный просмотр</h1>
     </div>
     <div class="sc-toolbar__group sc-pager-group story__action-group">
       <span class="tools-bar__label" id="sc-pager-label">Рассказы</span>
@@ -33,7 +33,7 @@
     <div class="sc-views" id="sc-views" role="group" aria-label="Отображение"></div>
     <div class="sc-langs" id="sc-langs" role="group" aria-label="Языки"></div>
   </header>
-  <p class="sc-status" id="sc-status">Загрузка…</p>
+  <p class="sc-status" id="sc-status" role="status">Загрузка…</p>
   <main class="sc-scroll" id="sc-scroll">
     <div class="sc-grid" id="sc-grid" style="--sc-cols: 2"></div>
   </main>
