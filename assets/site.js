@@ -191,6 +191,45 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         .sort((a, b) => compareCatalogTitles(a.title, b.title)),
     }));
 
+  const storyGroupCollators = new Map();
+  const storyGroupAlphabets = {
+    az: "A B C Ç D E Ə F G Ğ H X I İ J K Q L M N O Ö P R S Ş T U Ü V Y Z",
+    ky: "А Б В Г Д Е Ё Ж З И Й К Л М Н Ң О Ө П Р С Т У Ү Ф Х Ц Ч Ш Щ Ъ Ы Ь Э Ю Я",
+  };
+  const storyGroupSortKey = (title) =>
+    visibleCatalogLabel(title).normalize("NFC").replace(/^[\s\p{P}\p{S}]+/u, "");
+  const sortedStoryNavGroups = (groups, lang = currentPageLang()) => {
+    if (!storyGroupCollators.has(lang)) {
+      // Ignore case, but retain alphabet distinctions such as Russian Е/Ё.
+      const collator = new Intl.Collator(lang, { usage: "sort", sensitivity: "accent" });
+      const alphabet = (storyGroupAlphabets[lang] || "").split(" ").filter(Boolean);
+      let compare = collator.compare;
+      // Some browsers silently fall back to English for AZ/KY. Check the
+      // actual alphabet, and retain its order when locale data is unavailable.
+      if (alphabet.some((letter, i) => i && compare(alphabet[i - 1], letter) >= 0)) {
+        const fold = (text) => (lang === "az" ? text.replace(/I/g, "ı").replace(/İ/g, "i") : text).toLocaleLowerCase(lang);
+        const ranks = new Map(alphabet.map((letter, i) => [fold(letter), i]));
+        compare = (a, b) => {
+          const left = Array.from(fold(a));
+          const right = Array.from(fold(b));
+          for (let i = 0; i < Math.min(left.length, right.length); i++) {
+            if (left[i] === right[i]) continue;
+            const order = ranks.has(left[i]) && ranks.has(right[i])
+              ? ranks.get(left[i]) - ranks.get(right[i])
+              : collator.compare(left[i], right[i]);
+            if (order) return order;
+          }
+          return left.length - right.length;
+        };
+      }
+      storyGroupCollators.set(lang, { compare });
+    }
+    const collator = storyGroupCollators.get(lang);
+    return [...(groups || [])].sort((a, b) =>
+      collator.compare(storyGroupSortKey(a.title), storyGroupSortKey(b.title))
+    );
+  };
+
   const groupedStoryNavMarkup = (groups, options = {}) => {
     const visible = options.visibleStems || null;
     const hrefForStory =
@@ -224,7 +263,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         )
         .join("");
     }
-    return groups
+    return sortedStoryNavGroups(groups)
       .map((group) => {
         const stories = group.stories || [];
         const shown = stories.filter((story) => !visible || visible.has(story.stem));
@@ -6187,7 +6226,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       clearTimeout(lockTimer);
       lockTimer = setTimeout(() => {
         programmaticLock = false;
-        updateActive(true);
+        // A click already positioned both the reader and the chosen menu row.
+        // Releasing the lock must not move the user's menu a second time.
+        updateActive(true, { skipSidebarScroll: true });
       }, ms);
     };
 
@@ -6310,7 +6351,13 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
           const el = document.getElementById(id);
           return el ? { link, el, id } : null;
         })
-        .filter(Boolean);
+        .filter(Boolean)
+        // The menu is locale-sorted independently of the reading pane. The
+        // scroll spy must scan targets in document order, not menu order.
+        .sort((a, b) => {
+          if (a.el === b.el) return 0;
+          return a.el.compareDocumentPosition(b.el) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
+        });
       updateActive();
     };
 
