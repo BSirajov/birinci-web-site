@@ -71,6 +71,7 @@ _IGNORE_PUBLISH_PATTERNS = [
 if OMIT_AUDIO_FROM_PUBLISH:
     _IGNORE_PUBLISH_PATTERNS.extend(
         (
+            "tts-proxy.js",
             "audio",
             "*.mp3",
             "*.MP3",

@@ -102,11 +102,47 @@
   <nav class="breadcrumbs" aria-label="Brotkrumennavigation">
   <div class="breadcrumbs__inner">
     <ol class="breadcrumbs__list">
-      <li class="breadcrumbs__item"><a href="../index.html">Startseite</a></li><li class="breadcrumbs__item"><span>Rechtliche Informationen</span></li><li class="breadcrumbs__item" aria-current="page"><span>Nutzungsbedingungen</span></li>
+      <li class="breadcrumbs__item"><a href="index.html">Startseite</a></li><li class="breadcrumbs__item"><span>Rechtliche Informationen</span></li><li class="breadcrumbs__item" aria-current="page"><span>Nutzungsbedingungen</span></li>
     </ol>
   </div>
 </nav>
-<main id="main">
+<div class="page-toolbar" data-page-toolbar="" role="region" aria-label="Ansicht"><div class="tools-bar tools-bar--inventions" data-tools="home">
+  <div class="tools-bar__search">
+    <label class="tools-bar__search-field">
+      <span class="visually-hidden">Suche</span>
+      <input type="search" data-tools-search placeholder="Suchen…" autocomplete="off">
+    </label>
+    <div class="tools-bar__search-chip" data-search-filter hidden>
+      <span class="tools-bar__search-chip-dot" aria-hidden="true"></span>
+      <span class="tools-bar__search-chip-text" data-search-filter-text aria-live="polite"></span>
+      <button type="button" class="tools-bar__view-btn tools-bar__search-clear" data-search-filter-clear title="Filter zurücksetzen" aria-label="Filter zurücksetzen">×</button>
+    </div>
+  </div>
+
+  <div class="tools-bar__field">
+    <span class="tools-bar__label" id="home-view-label">Ansicht</span>
+    <div class="tools-bar__views" role="group" aria-labelledby="home-view-label">
+      <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-home-view="cards" aria-pressed="true" title="Nach Kategorie" aria-label="Nach Kategorie" onclick="return window.__birinciSetHomeView ? window.__birinciSetHomeView('cards') : false"><svg class="tools-bar__glyph" viewbox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg></button>
+      <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-home-view="list" aria-pressed="false" title="Liste" aria-label="Liste" onclick="return window.__birinciSetHomeView ? window.__birinciSetHomeView('list') : false"><svg class="tools-bar__glyph" viewbox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13"></path><path d="M8 12h13"></path><path d="M8 18h13"></path><circle cx="4" cy="6" r="1"></circle><circle cx="4" cy="12" r="1"></circle><circle cx="4" cy="18" r="1"></circle></svg></button>
+    </div>
+  </div>
+  <div class="tools-bar__field" data-home-list-only hidden data-inventions-list-only>
+    <span class="tools-bar__label" id="tools-images-label">Bilder</span>
+    <div class="tools-bar__views tools-bar__images-toggle" role="group" aria-labelledby="tools-images-label" data-tools-images>
+      <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-images-mode="show" aria-pressed="true" title="Anzeigen" aria-label="Anzeigen"><svg class="tools-bar__glyph" viewbox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"></path><circle cx="12" cy="12" r="3"></circle></svg></button>
+      <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-images-mode="hide" aria-pressed="false" title="Ausblenden" aria-label="Ausblenden"><svg class="tools-bar__glyph" viewbox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"></path><path d="M10.6 10.6a3 3 0 0 0 4.2 4.2"></path><path d="M9.9 5.1A11 11 0 0 1 12 5c6.5 0 10 7 10 7a19 19 0 0 1-3.2 4.1"></path><path d="M6.1 6.1C3.6 7.8 2 12 2 12s3.5 7 10 7c1.6 0 3.1-.3 4.4-.9"></path></svg></button>
+    </div>
+  </div>
+  <div class="tools-bar__field" data-home-list-only hidden data-inventions-list-only>
+    <span class="tools-bar__label" id="tools-texts-label">Texte</span>
+    <div class="tools-bar__views tools-bar__texts-toggle" role="group" aria-labelledby="tools-texts-label" data-tools-texts>
+      <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-texts-mode="show" aria-pressed="true" title="Anzeigen" aria-label="Anzeigen"><svg class="tools-bar__glyph" viewbox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"></path><path d="M14 3v5h5"></path><path d="M9 13h6"></path><path d="M9 17h6"></path></svg></button>
+      <button type="button" class="tools-bar__view-btn tools-bar__view-btn--icon" data-texts-mode="hide" aria-pressed="false" title="Ausblenden" aria-label="Ausblenden"><svg class="tools-bar__glyph" viewbox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"></path><path d="M14 3v5h5"></path><path d="M9 13h6"></path><path d="M9 17h6"></path><path d="M5 5l14 14"></path></svg></button>
+    </div>
+  </div>
+  </div></div>
+
+  <main id="main">
 
 <div class="inventions-page-body stories-page-body"><div class="page-home__content">
 <div class="legal-page">
@@ -133,8 +169,8 @@
 <div class="legal-plain"><p class="legal-plain__label">Einfach erklärt</p><p>Du darfst die Seiten lesen und Links teilen. Stelle die Sammlung nicht als dein eigenes Produkt dar. Zwingende Verbraucherschutzvorschriften gelten weiterhin.</p></div>
 <h2 id="service">1. Die Website</h2><p>Birİnci veröffentlicht eine statische, mehrsprachige Website mit Weisheitsgeschichten sowie Seiten über unsere Mission. Der Bereich „Entdeckungen und Erfindungen“ und Audiodateien zu den Geschichten sind nicht Teil der öffentlichen Website.</p><p>Die Seiten werden in der vorliegenden Form bereitgestellt. Wir bemühen uns um sorgfältige Texte mit Quellenangaben, übernehmen jedoch keine Gewähr für Vollständigkeit oder Eignung für einen bestimmten Zweck.</p><h2 id="use">2. Zulässige Nutzung</h2><p>Du darfst öffentlich zugängliche Seiten aufrufen, lesen und Links darauf teilen. Nicht erlaubt ist es:</p><ul><li>den Hosting-Dienst anzugreifen, zu überlasten oder auf Schwachstellen zu untersuchen;</li><li>die Website fälschlich als offizielle staatliche, religiöse oder wissenschaftliche Einrichtung darzustellen;</li><li>Daten automatisiert so zu sammeln, dass der Dienst beeinträchtigt wird;</li><li>rechtswidrige Inhalte über Formulare zu übermitteln, die wir künftig hinzufügen.</li></ul><h2 id="content">3. Inhalte und Quellen</h2><p>Auf den Geschichtenseiten wird angegeben, dass die Geschichten aus offenen Internetquellen stammen und die Illustrationen mit künstlicher Intelligenz erstellt werden. Verstehe die Erzählungen als Weisheitsliteratur, nicht als medizinische, rechtliche oder finanzielle Fachberatung.</p><p>Marken und Namen Dritter, die in den Geschichten vorkommen, bleiben ihren jeweiligen Inhabern zugeordnet.</p><h2 id="liability">4. Haftung</h2><p>Soweit gesetzlich zulässig, haftet Birİnci nicht für Schäden, die aus der Nutzung der Website, Unterbrechungen des Hosting-Dienstes oder dem Vertrauen auf eine Geschichte entstehen. Diese Bedingungen beschränken keine Haftung, die gesetzlich nicht beschränkt werden darf.</p><h2 id="law">5. Anwendbares Recht</h2><p>Diese Bedingungen unterliegen dem Recht der Republik Österreich unter Ausschluss der Kollisionsnormen und des UN-Kaufrechts, soweit dieses anwendbar sein könnte. Zwingende Verbraucherschutzvorschriften deines Wohnsitzstaates bleiben unberührt, soweit das EU-Recht dies verlangt.</p><p>Sofern zwingendes Recht nichts anderes vorsieht, sind die österreichischen Gerichte zuständig. Ein konkreter Gerichtsstand wird hier genannt, sobald die Anschrift des Sitzes veröffentlicht ist.</p>
   </article>
-  </div>
-  </div>
+</div>
+</div>
 </main>
   <nav class="page-jump" aria-label="Seitennavigation">
     <a class="go-to-bottom" href="#site-footer" id="go-to-bottom" title="Zum Seitenende" aria-label="Zum Seitenende"></a>
@@ -144,7 +180,7 @@
     <div class="footer-inner">
       <div class="footer-grid">
         <div class="footer-col footer-col--about">
-          <a class="footer-qr" href="https://birinci.cloud" rel="noopener noreferrer" title="birinci.cloud"><img class="footer-qr__img" src="../assets/qr/birinci-cloud-qr.png?v=20261103titles" alt="QR code linking to birinci.cloud" width="88" height="88" decoding="async" /></a>
+          <a class="footer-qr" href="https://birinci.cloud" rel="noopener noreferrer" title="birinci.cloud"><img class="footer-qr__img" src="../assets/qr/birinci-cloud-qr.png?v=20261103titles" alt="QR-Code zur Website birinci.cloud" width="88" height="88" decoding="async"></a>
           <p class="footer-about">Unsere Plattform widmet sich der Bewahrung des Wissens und der Weisheit, die die Menschheit über Jahrhunderte gesammelt hat, und gibt dieses Erbe an kommende Generationen weiter. Von bahnbrechenden Entdeckungen bis zu Geschichten voller Weisheit laden wir dich ein, zu lernen, nachzudenken und dich inspirieren zu lassen.</p>
         </div>
         <div class="footer-col footer-col--brand">
@@ -186,7 +222,7 @@
     <div class="footer-bottom">
       <nav class="footer-legal" aria-label="Rechtliche Informationen und Seitenübersicht">
         <ul>
-          <li><a href="feedback.html">Feedback</a></li> <li><a href="privacy-notice.html">Datenschutzhinweise</a></li> <li><a href="terms-of-use.html" aria-current="page">Nutzungsbedingungen</a></li> <li><a href="cookie-policy.html">Cookie-Richtlinie</a></li> <li><a href="legal-notice.html">Impressum</a></li> <li><a href="sitemap.html">Seitenübersicht</a></li>
+          <li><a href="feedback.html">Feedback</a></li> <li><a href="privacy-notice.html">Datenschutzhinweise</a></li> <li><a href="terms-of-use.html">Nutzungsbedingungen</a></li> <li><a href="cookie-policy.html">Cookie-Richtlinie</a></li> <li><a href="legal-notice.html">Impressum</a></li> <li><a href="sitemap.html">Seitenübersicht</a></li>
         </ul>
       </nav>
       <div class="footer-copy">© Birİnci - All rights reserved</div>
@@ -194,7 +230,9 @@
   </footer>
 
   <script src="assets/i18n.js?v=20261103titles"></script>
-  <script src="../assets/story-routes.js?v=20261109panels153074b425567e7c" defer></script>
+  <script src="../assets/inventions/kt-sidebar-toc-groups.js?v=20261103titles" defer></script>
+  <script src="../assets/inventions/kt-catalog-multi-filter.js?v=20261103titles" defer></script>
+  <script src="../assets/story-routes.js?v=20261109panels1530433374fea11a" defer></script>
 <script src="../assets/story-navigation.js?v=20261109panels1530" defer></script>
 <script src="../assets/site.js?v=20261109panels1530" defer></script>
 </body>

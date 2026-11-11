@@ -5412,12 +5412,18 @@ def build_root_home_html(az_html: str) -> str:
 
     root_hero = build_root_intro_hero_html()
     entry = build_root_entry_section()
+    def _root_content(_match: re.Match[str]) -> str:
+        # A plain replacement string would treat JSON "\n" as a real line break.
+        return (
+            '<div class="page-home__content">\n'
+            + root_hero
+            + entry
+            + "\n</div>\n"
+        )
+
     html = re.sub(
         r"<div class=\"page-home__content\">[\s\S]*?</div>\s*(?=</main>)",
-        '<div class="page-home__content">\n'
-        + root_hero
-        + entry
-        + "\n</div>\n",
+        _root_content,
         html,
         count=1,
         flags=re.I,

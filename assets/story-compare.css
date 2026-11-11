@@ -656,11 +656,6 @@ body.sc-page[data-sc-show-illus="true"] .sc-col--align > .sc-col__source-slot {
   color: var(--sc-ink);
 }
 
-.sc-col__audio,
-.sc-page [data-sc-tts] {
-  display: none !important;
-}
-
 .sc-col__text {
   margin: 0;
   color: var(--sc-ink);
@@ -707,7 +702,9 @@ body.sc-page[data-sc-show-illus="true"] .sc-col--align > .sc-col__source-slot {
 /* Kyrgyz plates are baked into the bitmap. The figure stays the shared 3:2
    box. Top and bottom slices show the title and moral plates at full column
    width (uniform scale, nothing cropped). The middle slice is only the
-   artwork: same width scale, overflow hidden, vertically centered. */
+   artwork: same width scale,
+overflow hidden,
+vertically centered. */
 .sc-col__figure--ky {
   aspect-ratio: 3 / 2;
   display: flex;
@@ -807,10 +804,10 @@ body.sc-page[data-sc-show-illus="true"] .sc-col--align > .sc-col__source-slot {
     padding: 0.9rem 0.9rem 1.1rem;
   }
   .sc-col--align > .sc-col__title-row,
-  .sc-col--align > .sc-col__prose,
-  .sc-col--align > .sc-col__moral-slot,
-  .sc-col--align > .sc-col__source-slot,
-  .sc-col--align > .sc-col__figure-slot {
+.sc-col--align > .sc-col__prose,
+.sc-col--align > .sc-col__moral-slot,
+.sc-col--align > .sc-col__source-slot,
+.sc-col--align > .sc-col__figure-slot {
     padding-left: 0.9rem;
     padding-right: 0.9rem;
   }
@@ -831,7 +828,8 @@ body.sc-page[data-sc-show-illus="true"] .sc-col--align > .sc-col__source-slot {
   }
 
   /* Stack language cards on narrow viewports. Each card owns its own subgrid
-     row range, so moral/source stay in normal flow with no cross-column gaps. */
+     row range,
+so moral/source stay in normal flow with no cross-column gaps. */
   .sc-grid:has(> .sc-col--align) {
     grid-template-columns: 1fr;
   }

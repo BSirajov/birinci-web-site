@@ -12,8 +12,6 @@
       "implemented": true,
       "stories_ready": true,
       "nav_prefixes": [],
-      "show_audio_controls": true,
-      "tts_voice": "az-AZ-BabekNeural",
       "tts_dialogue_voice": "az-AZ-BanuNeural"
     },
     {
@@ -25,9 +23,9 @@
       "flag": "flags/en.svg",
       "implemented": true,
       "stories_ready": true,
-      "nav_prefixes": ["en"],
-      "show_audio_controls": true,
-      "tts_voice": "en-US-GuyNeural",
+      "nav_prefixes": [
+        "en"
+      ],
       "tts_dialogue_voice": "en-US-JennyNeural",
       "tts_voice_note": "Primary narrator on every English story: en-US-GuyNeural (male). Female dialogue: en-US-JennyNeural. One en-US locale for the whole collection — do not mix accents."
     },
@@ -40,9 +38,9 @@
       "flag": "flags/ru.svg",
       "implemented": true,
       "stories_ready": true,
-      "nav_prefixes": ["ru"],
-      "show_audio_controls": true,
-      "tts_voice": "ru-RU-DmitryNeural",
+      "nav_prefixes": [
+        "ru"
+      ],
       "tts_dialogue_voice": "ru-RU-SvetlanaNeural"
     },
     {
@@ -54,10 +52,10 @@
       "flag": "flags/ky.svg",
       "implemented": true,
       "stories_ready": true,
-      "nav_prefixes": ["ky", "kir"],
-      "show_audio_controls": true,
-      "show_discovery_listen": true,
-      "tts_voice": "kk-KZ-DauletNeural",
+      "nav_prefixes": [
+        "ky",
+        "kir"
+      ],
       "tts_dialogue_voice": "kk-KZ-AigulNeural",
       "tts_voice_note": "No Kyrgyz neural voice in Edge/Azure; Kazakh (closest Cyrillic Turkic) used for KY narration. Listen buttons stay visible but disabled site-wide until AUDIO_CONTROLS_ENABLED is flipped in assets/site.js."
     },
@@ -70,9 +68,12 @@
       "flag": "flags/de.svg",
       "implemented": true,
       "stories_ready": true,
-      "nav_prefixes": ["de"],
-      "show_audio_controls": false,
-      "available_sections": ["wisdom"]
+      "nav_prefixes": [
+        "de"
+      ],
+      "available_sections": [
+        "wisdom"
+      ]
     }
   ]
 }
