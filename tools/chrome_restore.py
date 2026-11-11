@@ -5445,7 +5445,14 @@ def build_root_home_html(az_html: str) -> str:
         'data-search-index="assets/search-index.js',
         'data-search-index="az/assets/search-index.js',
     )
-    html = html.replace('class="page-home"', 'class="page-home page-root-home"')
+    if "page-root-home" not in html:
+        html = re.sub(
+            r'(<body\b[^>]*\bclass=")([^"]*\bpage-home\b)([^"]*")',
+            r"\1\2 page-root-home\3",
+            html,
+            count=1,
+            flags=re.I,
+        )
     html = ensure_brand_home_href(html)
     html = ensure_literature_submenu(html, "az")
     html = re.sub(
