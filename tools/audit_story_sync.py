@@ -5,35 +5,57 @@ from unpublished_stories import UNPUBLISHED_STEMS
 from pathlib import Path
 from copy import deepcopy
 import argparse, importlib, json, re
+from docx import Document
 from lxml import html
 import rebuild_stories_from_docx as rebuild
+from build_reviewed_site import POEMS
 from dev_story_edit_server import _load_json_assignment
 from i18n_config import SUPPORTED_LANGS
 
 ROOT=Path(__file__).resolve().parents[1]
 PATTERNS={'az':r'(?:ibrət|nəticə)','en':r'(?:moral|lesson)','ru':r'(?:мораль|урок)','ky':'сабак','de':r'(?:moral|(?:die )?lehre)'}
-POEMS={'flowers','my-lifes-journey','pandemic-and-quarantine','reflections','time-has-passed'}
 def norm(s):return ' '.join(s.split())
 def text(n):
     n=deepcopy(n)
     for b in n.xpath('.//br'):b.text='\n'
     return norm(n.text_content())
 def active(p):return not any(v.lower() in {'backup','_backups','_reviews','archive'} for v in p.parts) and not p.name.startswith('~$') and not is_story_collection(p)
+def _docx_paragraphs(path, stem):
+    # Poems keep blank Word paragraphs as stanza breaks; prose drops them.
+    if stem in POEMS:
+        paras=[(p.text or '').rstrip() for p in Document(str(path)).paragraphs]
+        while paras and not paras[0].strip():
+            paras.pop(0)
+        while paras and not paras[-1].strip():
+            paras.pop()
+        return paras
+    return rebuild.read_docx_paragraphs(path)
 def parse(path,lang):
-    paras=rebuild.read_docx_paragraphs(path)
-    if lang=='en' and path.stem=='not-my-concern':paras=paras[paras.index('English')+1:]
+    stem=path.stem
+    paras=_docx_paragraphs(path, stem)
+    if lang=='en' and stem=='not-my-concern':paras=paras[paras.index('English')+1:]
     combined=[]
     for p in paras:
-        if combined and re.fullmatch('^'+PATTERNS[lang]+r'\s*:',combined[-1],re.I):combined[-1]+=' '+p
-        else:combined.append(p)
+        if stem in POEMS and not str(p).strip():
+            if combined and combined[-1] != '':
+                combined.append('')
+            continue
+        if combined and combined[-1] != '' and re.fullmatch('^'+PATTERNS[lang]+r'\s*:',combined[-1],re.I):
+            combined[-1]+=' '+p
+        else:
+            combined.append(p)
     paras=combined;title=norm(paras.pop(0));moral=''
-    mi=next((i for i in range(len(paras)-1,-1,-1) if rebuild.MORAL_RE.match(paras[i])),None)
+    mi=next((i for i in range(len(paras)-1,-1,-1) if paras[i] and rebuild.MORAL_RE.match(paras[i])),None)
     if mi is not None:
         moral=paras[mi];body=paras[:mi]
     else:
-        assert lang=='az' and path.stem in POEMS,'Missing moral '+str(path)
+        assert lang=='az' and stem in POEMS,'Missing moral '+str(path)
         body=paras[:-1]
-    return title,[norm(p) for p in body]+([norm(moral)] if moral else [])
+    while body and body[-1] == '':
+        body.pop()
+    if stem in POEMS and len(body) >= 2 and body[-2] == '':
+        body.pop(-2)
+    return title,[norm(p) if p else '' for p in body]+([norm(moral)] if moral else [])
 
 def audit(root=ROOT):
     result={};errors=[]
