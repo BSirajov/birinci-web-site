@@ -53,12 +53,21 @@ def test_german_wisdom_is_available_in_existing_category_switcher():
     assert 'data-lang="de"' in out
 
 
-def test_partial_german_locale_does_not_invent_unavailable_pages():
+def test_german_about_page_is_linked_when_present():
     out = ensure_lang_switcher_dropdown(NAV, "en", "en/about/mission-vision-values.html")
     assert 'data-lang="de"' in out
-    assert 'href="../../de/index.html"' in out
-    assert 'href="../../de/about/mission-vision-values.html"' not in out
+    assert 'href="../../de/about/mission-vision-values.html"' in out
     assert 'href="../../az/about/mission-vision-values.html"' in out
+
+
+def test_partial_german_locale_does_not_invent_unavailable_pages():
+    out = ensure_lang_switcher_dropdown(
+        NAV, "en", "en/discoveries/discoveries-and-inventions.html"
+    )
+    assert 'data-lang="de"' in out
+    assert 'href="../../de/index.html"' in out
+    assert 'href="../../de/discoveries/discoveries-and-inventions.html"' not in out
+    assert 'href="../../az/discoveries/discoveries-and-inventions.html"' in out
 
 
 def test_all_legal_language_switches_include_german_equivalent():

@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
-"""Local-only story edit API: save title/body/moral to DOCX + published assets.
+"""Local-only page edit API: stories + category/about/discovery/figure saves.
 
 Run:  python tools/dev_story_edit_server.py
 API:  http://127.0.0.1:8768/api/dev/ping
       http://127.0.0.1:8768/api/dev/save-story  (POST JSON)
+      http://127.0.0.1:8768/api/dev/save-category-meta
+      http://127.0.0.1:8768/api/dev/save-about-body
+      http://127.0.0.1:8768/api/dev/save-discovery
+      http://127.0.0.1:8768/api/dev/save-figure
 
 Only binds to 127.0.0.1. Intended for development, never production.
 """
@@ -382,6 +386,34 @@ def save_story(payload: dict[str, Any]) -> dict[str, Any]:
     if not slug:
         raise ValueError("category slug missing")
 
+    # Capture prior catalog text for the client-side diff / undo UI.
+    before = {"title": old_title, "body": [], "moral": "", "source": ""}
+    try:
+        _, catalog, _ = _load_json_assignment(
+            ROOT / lang / "assets" / "stories-data.js", "window.__BIRINCI_STORIES__"
+        )
+        for cat in catalog.get("categories") or []:
+            for story in cat.get("stories") or []:
+                if story.get("stem") != stem:
+                    continue
+                paras = [str(p) for p in (story.get("paragraphs") or []) if str(p).strip()]
+                if paras and MORAL_RE.match(paras[-1].strip()):
+                    before["moral"] = paras[-1].strip()
+                    before["body"] = paras[:-1]
+                elif len(paras) >= 2 and SOURCE_RE.search(paras[-1]):
+                    before["source"] = paras[-1].strip()
+                    if len(paras) >= 2 and MORAL_RE.match(paras[-2].strip()):
+                        before["moral"] = paras[-2].strip()
+                        before["body"] = paras[:-2]
+                    else:
+                        before["body"] = paras[:-1]
+                else:
+                    before["body"] = paras
+                before["title"] = str(story.get("title") or old_title)
+                break
+    except Exception:  # noqa: BLE001 — diff is best-effort
+        pass
+
     from story_filename_map import source_path
     docx_path = source_path(lang, stem)
     if not MORAL_RE.match(moral):
@@ -393,14 +425,57 @@ def save_story(payload: dict[str, Any]) -> dict[str, Any]:
     update_category_html(lang, slug, stem, title, body, moral, old_title, source=source or None)
     update_sitemap(lang, stem, slug, title)
 
+    rel_docx = str(docx_path.relative_to(ROOT)).replace("\\", "/")
+    paths = [
+        rel_docx,
+        f"{lang}/categories/{slug}.html",
+        f"{lang}/assets/stories-data.js",
+        f"{lang}/assets/search-index.js",
+        f"{lang}/sitemap.html",
+    ]
     return {
         "ok": True,
         "lang": lang,
         "stem": stem,
         "title": title,
         "slug": slug,
-        "docx": str(docx_path.relative_to(ROOT)).replace("\\", "/"),
+        "docx": rel_docx,
+        "paths": paths,
         "body_paragraphs": len(body),
+        "before": before,
+        "after": {
+            "title": title,
+            "body": body,
+            "moral": moral,
+            "source": source or SITE_SOURCE.get(lang, ""),
+        },
+    }
+
+
+SAVE_ROUTES = {
+    "/api/dev/save-story": save_story,
+    "/save-story": save_story,
+}
+
+
+def _load_page_saves():
+    """Lazy import so story-only saves still work if page helpers fail to import."""
+    from dev_page_edit_saves import (  # noqa: WPS433 — tools/ on path
+        save_about_body,
+        save_category_meta,
+        save_discovery,
+        save_figure,
+    )
+
+    return {
+        "/api/dev/save-category-meta": save_category_meta,
+        "/save-category-meta": save_category_meta,
+        "/api/dev/save-about-body": save_about_body,
+        "/save-about-body": save_about_body,
+        "/api/dev/save-discovery": save_discovery,
+        "/save-discovery": save_discovery,
+        "/api/dev/save-figure": save_figure,
+        "/save-figure": save_figure,
     }
 
 
@@ -436,18 +511,26 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_POST(self) -> None:  # noqa: N802
         path = self.path.split("?", 1)[0]
-        if path not in {"/api/dev/save-story", "/save-story"}:
+        routes = dict(SAVE_ROUTES)
+        try:
+            routes.update(_load_page_saves())
+        except Exception as exc:  # noqa: BLE001
+            if path not in SAVE_ROUTES:
+                self._json(500, {"ok": False, "error": f"page save helpers unavailable: {exc}"})
+                return
+        handler = routes.get(path)
+        if handler is None:
             self._json(404, {"ok": False, "error": "not found"})
             return
         length = int(self.headers.get("Content-Length") or 0)
-        if length <= 0 or length > 500_000:
+        if length <= 0 or length > 2_000_000:
             self._json(400, {"ok": False, "error": "bad content-length"})
             return
         try:
             payload = json.loads(self.rfile.read(length).decode("utf-8"))
             if not isinstance(payload, dict):
                 raise ValueError("JSON object required")
-            result = save_story(payload)
+            result = handler(payload)
             self._json(200, result)
         except Exception as exc:  # noqa: BLE001 — return to browser
             self._json(400, {"ok": False, "error": str(exc)})
@@ -465,9 +548,13 @@ def main() -> None:
             file=sys.stderr,
         )
         raise SystemExit(1) from exc
-    print(f"dev story edit API on http://{HOST}:{PORT}")
+    print(f"dev page edit API on http://{HOST}:{PORT}")
     print("  GET  /api/dev/ping")
     print("  POST /api/dev/save-story")
+    print("  POST /api/dev/save-category-meta")
+    print("  POST /api/dev/save-about-body")
+    print("  POST /api/dev/save-discovery")
+    print("  POST /api/dev/save-figure")
     try:
         server.serve_forever()
     except KeyboardInterrupt:

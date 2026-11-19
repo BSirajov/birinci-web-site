@@ -1,0 +1,17 @@
+---
+description: Azerbaijani word for a puppy is küçük; never suggest it balası
+alwaysApply: true
+---
+
+# Azerbaijani: küçük
+
+In Azerbaijani, “it balaları” is impolite and must not be used or suggested. The correct word for the young of a dog is “küçük” (plural “küçüklər”).
+
+- Do not flag “küçük” as a Turkish word, a calque, or a wrong word choice when it means a puppy.
+- Do not replace it with “it balası,” “it balaları,” or “kiçik.” “Kiçik” means “small” and would change the meaning.
+- If a story uses “it balası” or “it balaları,” propose “küçük” or “küçüklər” with the case ending, possessive, or plural the sentence needs.
+- In other languages, use the natural, polite word for puppies, not a term that sounds rude or dismissive.
+
+## Puppies for sale
+
+Ignore the language-review issues reported on 6 November 2026 for `puppies-for-sale`. Do not re-flag them, do not edit that story because of them, and leave every “küçük” in place. Do not count that story among issues or “Needs decision” items. If a new problem appears that was not in that earlier report, tell the user instead of skipping it.

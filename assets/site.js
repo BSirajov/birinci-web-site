@@ -18,9 +18,17 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   // buttons for Wisdom Stories and Discoveries (all locales). CSS key:
   // html.audio-buttons-enabled (see assets/site.css).
   const AUDIO_CONTROLS_ENABLED = false;
-  // Flip to true when in-page story editing is needed again.
-  const DEV_STORY_EDIT_ENABLED = false;
+  // Dev in-page story edit. Source trees keep this true; build_deployment.py
+  // forces false in deployment/assets/site.js so production never ships the UI.
+  // Also honor EDIT_MODE / window__BIRINCI_EDIT_MODE__} from the local serve stack.
+  const DEV_STORY_EDIT_BUILD_FLAG = true;
+  const DEV_STORY_EDIT_ENABLED =
+    DEV_STORY_EDIT_BUILD_FLAG ||
+    window.__BIRINCI_EDIT_MODE__ === true ||
+    window.__BIRINCI_EDIT_MODE__ === 1 ||
+    window.__BIRINCI_EDIT_MODE__ === "1";
   window.__BIRINCI_AUDIO_CONTROLS_ENABLED__ = AUDIO_CONTROLS_ENABLED;
+  window.__BIRINCI_DEV_STORY_EDIT_ENABLED__ = DEV_STORY_EDIT_ENABLED;
   let SHOW_AUDIO_CONTROLS = AUDIO_CONTROLS_ENABLED;
   let SHOW_DISCOVERY_LISTEN = AUDIO_CONTROLS_ENABLED;
   const applyAudioFlags = () => {
@@ -2113,24 +2121,64 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       };
     };
 
+    const langHrefRest = (href) => {
+      if (!href) return "";
+      try {
+        return localePathRest(new URL(href, window.location.href).pathname);
+      } catch (_) {
+        return "";
+      }
+    };
+
+    const alternateRestForLang = (code) => {
+      const alt = document.querySelector(`link[rel="alternate"][hreflang="${code}"]`);
+      if (!alt) return null;
+      return langHrefRest(alt.getAttribute("href") || alt.href || "");
+    };
+
+    const equivalentLangPath = (code, ctx) => {
+      const langPage = String(ctx.langPage || "").replace(/^\/+/, "") || "index.html";
+      if (ctx.isCategory && ctx.slug) {
+        return `../../${code}/categories/${encodeURIComponent(ctx.slug)}.html`;
+      }
+      if (langPage && langPage !== "index.html") {
+        const depth = langPage.split("/").filter(Boolean).length;
+        return `${"../".repeat(Math.max(1, depth))}${code}/${langPage}`;
+      }
+      return `../${code}/index.html`;
+    };
+
     const hrefForLang = (code, ctx) => {
       const storyHref = window.BirinciStoryNavigation?.href(code);
       if (storyHref) return storyHref;
-      const langPage = String(ctx.langPage || "").replace(/^\/+/, "");
-      let path = `../${code}/index.html`;
+      const langPage = String(ctx.langPage || "").replace(/^\/+/, "") || "index.html";
+      let path = equivalentLangPath(code, ctx);
       const targetLink = document.querySelector('.lang-switcher a[data-lang="' + code + '"]');
-      const target = targetLink && targetLink.getAttribute("data-lang-target");
-      if (target && langPage !== "index.html" && /\/index\.html$/.test(target)) return target;
-      if (ctx.isCategory && ctx.slug) {
-        path = `../../${code}/categories/${encodeURIComponent(ctx.slug)}.html`;
-      } else if (langPage && langPage !== "index.html") {
-        const depth = langPage.split("/").filter(Boolean).length;
-        path = `${"../".repeat(Math.max(1, depth))}${code}/${langPage}`;
-      } else if (ctx.isHome || langPage === "index.html") {
-        path = `../${code}/index.html`;
+      const authored = targetLink && targetLink.getAttribute("data-lang-target");
+      const authoredRest = langHrefRest(authored);
+      const altRest = alternateRestForLang(code);
+      // Prefer the same relative page in the target language. Use an authored
+      // home target only when the page is genuinely unpublished there (build
+      // marked index AND no hreflang alternate for the equivalent page).
+      if (langPage !== "index.html") {
+        const equivalentKnown =
+          authoredRest === langPage || (altRest !== null && altRest === langPage);
+        const markedMissing =
+          authoredRest === "index.html" &&
+          (altRest === null || altRest === "" || altRest === "index.html");
+        if (equivalentKnown && authoredRest === langPage && authored) {
+          path = authored;
+        } else if (!equivalentKnown && markedMissing) {
+          const depth = langPage.split("/").filter(Boolean).length;
+          path =
+            authored && /(?:^|\/)index\.html$/.test(authored)
+              ? authored
+              : `${"../".repeat(Math.max(1, depth))}${code}/index.html`;
+        }
+      } else if (authoredRest === "index.html" && authored) {
+        path = authored;
       }
 
-      if (target) path = target;
       if (!ctx.isBrowse) {
         return `${path}${window.location.search || ""}${window.location.hash || ""}`;
       }
@@ -2178,12 +2226,29 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
 
     const syncLangHrefs = () => {
       if (window.BirinciStoryNavigation?.activeStory()) { window.BirinciStoryNavigation.sync(); return; }
-      if (preserveAuthoredLangHrefs()) return;
       const ctx = browseContext();
+      // Wisdom builders may freeze authored URLs, but still repair clear
+      // href/target drift (e.g. sitemap href correct, data-lang-target left on index).
+      if (preserveAuthoredLangHrefs()) {
+        root.querySelectorAll("a[data-lang]").forEach((link) => {
+          const href = link.getAttribute("href") || "";
+          const target = link.getAttribute("data-lang-target") || "";
+          const hrefRest = langHrefRest(href);
+          const targetRest = langHrefRest(target);
+          if (hrefRest && targetRest && hrefRest !== targetRest) {
+            const pathOnly = href.split("#")[0].split("?")[0];
+            if (pathOnly) link.setAttribute("data-lang-target", pathOnly);
+          }
+        });
+        return;
+      }
       root.querySelectorAll("a[data-lang]").forEach((link) => {
         const code = link.getAttribute("data-lang");
         if (!code) return;
-        link.setAttribute("href", hrefForLang(code, ctx));
+        const next = hrefForLang(code, ctx);
+        link.setAttribute("href", next);
+        const pathOnly = String(next || "").split("#")[0].split("?")[0];
+        if (pathOnly) link.setAttribute("data-lang-target", pathOnly);
       });
     };
 
@@ -10904,8 +10969,22 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
     };
 
     const pathForLocale = (targetLang) => {
-      const menuLink = document.querySelector('.lang-switcher a[data-lang="' + targetLang + '"][data-lang-target]');
-      if (menuLink) {
+      if (typeof window.__birinciSyncLangHrefs === "function") {
+        try {
+          window.__birinciSyncLangHrefs();
+        } catch (_) {}
+      }
+      if (typeof window.__birinciHrefForLang === "function") {
+        try {
+          const href = window.__birinciHrefForLang(targetLang);
+          if (href) {
+            const target = new URL(href, window.location.href);
+            return target.pathname + target.search + target.hash;
+          }
+        } catch (_) {}
+      }
+      const menuLink = document.querySelector('.lang-switcher a[data-lang="' + targetLang + '"]');
+      if (menuLink && menuLink.getAttribute("href")) {
         const target = new URL(menuLink.getAttribute("href"), window.location.href);
         return target.pathname + target.search + target.hash;
       }
@@ -10913,19 +10992,10 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const parts = path.split("/").filter(Boolean);
       const qs = window.location.search || "";
       const hash = window.location.hash || "";
-      if (parts[0] === "de" && /^(?:stories|authors)$/.test(parts[1] || "") &&
-        document.body.hasAttribute("data-wisdom-static-breadcrumbs")) {
-        const link = document.querySelector('.lang-switcher a[data-lang="' + targetLang + '"]');
-        if (!link) return "/" + targetLang + "/index.html";
-        const target = new URL(link.getAttribute("href"), window.location.href);
-        return target.pathname + target.search + target.hash;
-      }
       if (!parts.length || (parts.length === 1 && parts[0] === "index.html")) {
         return "/" + targetLang + "/index.html" + qs + hash;
       }
       if (AUTH_LOCALES.indexOf(parts[0]) >= 0) {
-        if (targetLang === "de" && parts.length > 1 &&
-          !/^(?:index\.html|categories|stories|authors)$/.test(parts[1])) return "/de/index.html";
         parts[0] = targetLang;
         return "/" + parts.join("/") + qs + hash;
       }
@@ -11361,25 +11431,43 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         .toLowerCase()
         .slice(0, 2);
 
+    const badge = document.createElement("div");
+    badge.className = "dev-edit-mode-badge";
+    badge.hidden = true;
+    badge.textContent = "Edit mode";
+    document.body.appendChild(badge);
+
     const panel = document.createElement("aside");
     panel.className = "dev-story-edit-panel";
     panel.hidden = true;
     panel.innerHTML = `
-      <p class="dev-story-edit-panel__title">Dev story edit</p>
+      <p class="dev-story-edit-panel__title">Dev page edit</p>
       <div class="dev-story-edit-panel__row">
         <button type="button" data-dev-edit-toggle aria-pressed="false">Edit off</button>
-        <button type="button" data-dev-edit-save-focused disabled>Save story</button>
+        <button type="button" data-dev-edit-save-focused disabled>Save</button>
+        <button type="button" data-dev-edit-cancel-focused disabled>Cancel</button>
+        <button type="button" data-dev-edit-undo disabled>Undo last save</button>
       </div>
+      <p class="dev-story-edit-panel__hint">Saves update true sources (DOCX / locales / manifest) plus live HTML/JS. Stories, category cards/heroes, About body, Discoveries articles, and Prominent Figures.</p>
       <p class="dev-story-edit-panel__status" data-dev-edit-status>Checking local API…</p>
+      <pre class="dev-story-edit-panel__diff" data-dev-edit-diff hidden></pre>
     `;
     document.body.appendChild(panel);
 
     const toggleBtn = panel.querySelector("[data-dev-edit-toggle]");
     const saveBtn = panel.querySelector("[data-dev-edit-save-focused]");
+    const cancelBtn = panel.querySelector("[data-dev-edit-cancel-focused]");
+    const undoBtn = panel.querySelector("[data-dev-edit-undo]");
     const statusEl = panel.querySelector("[data-dev-edit-status]");
+    const diffEl = panel.querySelector("[data-dev-edit-diff]");
     let apiReady = false;
     let editOn = false;
-    let activeStory = null;
+    /** @type {{kind:string, el:Element, key:string}|null} */
+    let activeRegion = null;
+    /** @type {Map<string, {html:string, snapshot:object}>} */
+    const drafts = new Map();
+    /** @type {{kind:string, key:string, endpoint:string, before:object, after:object, payload:object}|null} */
+    let lastSave = null;
 
     const setStatus = (msg, kind) => {
       if (!statusEl) return;
@@ -11388,7 +11476,85 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       statusEl.classList.toggle("is-ok", kind === "ok");
     };
 
-    const storyEls = () => Array.from(document.querySelectorAll("article.story[data-stem], article.story[id]"));
+    const showDiff = (before, after, paths) => {
+      if (!diffEl) return;
+      const lines = [];
+      if (paths && paths.length) lines.push("Wrote:\n  " + paths.join("\n  "), "");
+      const walk = (prefix, a, b) => {
+        if (a === b) return;
+        if (Array.isArray(a) || Array.isArray(b)) {
+          const sa = JSON.stringify(a || []);
+          const sb = JSON.stringify(b || []);
+          if (sa !== sb) {
+            lines.push(`- ${prefix}: ${sa}`);
+            lines.push(`+ ${prefix}: ${sb}`);
+          }
+          return;
+        }
+        if (a && typeof a === "object" && b && typeof b === "object") {
+          const keys = new Set([...Object.keys(a), ...Object.keys(b)]);
+          keys.forEach((k) => walk(prefix ? prefix + "." + k : k, a[k], b[k]));
+          return;
+        }
+        lines.push(`- ${prefix}: ${a == null ? "" : a}`);
+        lines.push(`+ ${prefix}: ${b == null ? "" : b}`);
+      };
+      walk("", before || {}, after || {});
+      if (!lines.length) {
+        diffEl.hidden = true;
+        diffEl.textContent = "";
+        return;
+      }
+      diffEl.hidden = false;
+      diffEl.textContent = lines.join("\n");
+    };
+
+    const textOf = (el) => ((el && el.textContent) || "").replace(/\s+/g, " ").trim();
+
+    const storyEls = () =>
+      Array.from(document.querySelectorAll("article.story[data-stem], article.story[id]"));
+    const homeCards = () =>
+      Array.from(
+        document.querySelectorAll(
+          'body.page-home [data-view="cards"] a.cat-card[href^="categories/"]'
+        )
+      );
+    const categoryHero = () => document.querySelector("body.page-category .category-hero");
+    const aboutMain = () => document.querySelector("body.page-about .about-main");
+    const discoveryEntries = () =>
+      Array.from(
+        document.querySelectorAll(
+          'html[data-kt-page-id="discoveries-and-inventions"] article.inventions-entry[id]:not([data-figure-cat])'
+        )
+      );
+    const figureEntries = () =>
+      Array.from(
+        document.querySelectorAll(
+          "article.inventions-entry[id][data-figure-cat]"
+        )
+      );
+
+    const ensureCatBlurbSpan = (hero) => {
+      const lead = hero && hero.querySelector(".category-hero__lead");
+      if (!lead) return null;
+      let span = lead.querySelector("[data-edit-cat-blurb]");
+      if (span) return span;
+      const count = lead.querySelector("[data-tools-count]");
+      const raw = lead.innerHTML;
+      const sep = " · ";
+      if (count && raw.includes(sep)) {
+        const idx = raw.indexOf(sep);
+        const blurbHtml = raw.slice(0, idx);
+        const rest = raw.slice(idx);
+        lead.innerHTML = `<span data-edit-cat-blurb>${blurbHtml}</span>${rest}`;
+      } else {
+        const blurb = textOf(lead);
+        lead.innerHTML = `<span data-edit-cat-blurb>${blurb}</span>`;
+        if (count) lead.appendChild(document.createTextNode(" · "));
+        if (count) lead.appendChild(count);
+      }
+      return lead.querySelector("[data-edit-cat-blurb]");
+    };
 
     const readStory = (story) => {
       const stem = story.getAttribute("data-stem") || story.id || "";
@@ -11396,20 +11562,20 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       const textEl = story.querySelector(".story__text, .card-text");
       if (!stem || !titleEl || !textEl) return null;
       const nameEl = titleEl.querySelector(".inventions-entry-name");
-      const title = ((nameEl || titleEl).textContent || "").replace(/\s+/g, " ").trim();
+      const title = textOf(nameEl || titleEl);
       const moralEl = textEl.querySelector(".story__moral");
       const sourceEl = textEl.querySelector(".story__source");
       const body = Array.from(textEl.querySelectorAll("p"))
         .filter((p) => p !== moralEl && p !== sourceEl)
-        .map((p) => (p.textContent || "").replace(/\s+/g, " ").trim())
+        .map((p) => textOf(p))
         .filter(Boolean);
-      const moral = ((moralEl && moralEl.textContent) || "").replace(/\s+/g, " ").trim();
+      const moral = textOf(moralEl);
       let source = "";
       if (sourceEl) {
         const lineEls = sourceEl.querySelectorAll(".story__source-line");
         if (lineEls.length) {
           source = Array.from(lineEls)
-            .map((el) => (el.textContent || "").replace(/\s+/g, " ").trim())
+            .map((el) => textOf(el))
             .filter(Boolean)
             .join("\n");
         } else {
@@ -11425,115 +11591,756 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       return { stem, title, body, moral, source, titleEl, textEl, moralEl };
     };
 
+    const readCategoryCard = (card) => {
+      const href = card.getAttribute("href") || "";
+      const m = href.match(/categories\/([^/]+?)\.html/);
+      if (!m) return null;
+      const slug = m[1];
+      const titleEl = card.querySelector(".card-title");
+      const descEl = card.querySelector(".card-desc");
+      if (!titleEl || !descEl) return null;
+      return {
+        slug,
+        title: textOf(titleEl),
+        blurb: textOf(descEl),
+        titleEl,
+        descEl,
+      };
+    };
+
+    const readCategoryHero = (hero) => {
+      const h1 = hero.querySelector("h1");
+      const blurbEl = ensureCatBlurbSpan(hero);
+      if (!h1 || !blurbEl) return null;
+      const path = location.pathname || "";
+      const m = path.match(/\/categories\/([^/]+?)\.html/);
+      const slug = m ? m[1] : "";
+      if (!slug) return null;
+      return { slug, title: textOf(h1), blurb: textOf(blurbEl), titleEl: h1, blurbEl };
+    };
+
+    const readAbout = (root) => {
+      const missionTitle = root.querySelector("#missiya h2");
+      const missionBody = root.querySelector("#missiya .about-card__text");
+      const visionTitle = root.querySelector("#baxis h2");
+      const visionBody = root.querySelector("#baxis .about-card__text");
+      const valuesTitle =
+        root.querySelector("#about-values-detail-title") ||
+        root.querySelector("#deyerler h2");
+      const valuesIntro = root.querySelector("#values-detail .about-values-block__head p");
+      const values = Array.from(root.querySelectorAll("#values-detail article.about-vd")).map(
+        (vd) => ({
+          name: textOf(vd.querySelector(".about-vd__title")),
+          gloss: textOf(vd.querySelector(".about-vd__gloss")),
+          titleEl: vd.querySelector(".about-vd__title"),
+          glossEl: vd.querySelector(".about-vd__gloss"),
+          id: vd.id,
+        })
+      );
+      if (!missionTitle || !missionBody || !visionTitle || !visionBody || !valuesTitle || !valuesIntro) {
+        return null;
+      }
+      return {
+        mission_title: textOf(missionTitle),
+        mission_body: textOf(missionBody),
+        vision_title: textOf(visionTitle),
+        vision_body: textOf(visionBody),
+        values_title: textOf(valuesTitle),
+        values_intro: textOf(valuesIntro),
+        values: values.map((v) => ({ name: v.name, gloss: v.gloss })),
+        els: { missionTitle, missionBody, visionTitle, visionBody, valuesTitle, valuesIntro, values },
+      };
+    };
+
+    const readDiscovery = (article) => {
+      const id = article.id || "";
+      if (!id) return null;
+      const titleEl = article.querySelector(".inventions-entry-name");
+      const summaryEl = article.querySelector(".inventions-entry-visual-summary");
+      const metaEl = article.querySelector(".inventions-entry-meta");
+      const facts = Array.from(article.querySelectorAll(".inventions-key-facts li")).map((li) =>
+        textOf(li)
+      );
+      const sections = Array.from(article.querySelectorAll(":scope > .inventions-entry-section")).map(
+        (sec) => ({
+          heading: textOf(sec.querySelector("h3")),
+          paragraphs: Array.from(sec.querySelectorAll("p")).map((p) => textOf(p)).filter(Boolean),
+          headingEl: sec.querySelector("h3"),
+          paraEls: Array.from(sec.querySelectorAll("p")),
+        })
+      );
+      return {
+        id,
+        title: textOf(titleEl),
+        period_line: textOf(metaEl),
+        summary: textOf(summaryEl),
+        facts,
+        sections: sections.map((s) => ({ heading: s.heading, paragraphs: s.paragraphs })),
+        titleEl,
+        summaryEl,
+        metaEl,
+        factEls: Array.from(article.querySelectorAll(".inventions-key-facts li")),
+        sectionEls: sections,
+      };
+    };
+
+    const readFigure = (article) => {
+      const id = article.id || "";
+      const category_id = article.getAttribute("data-figure-cat") || "";
+      if (!id || !category_id) return null;
+      const titleEl = article.querySelector(".inventions-entry-name");
+      const altEl = article.querySelector(".inventions-entry-visual-figures");
+      const metaEl = article.querySelector(".inventions-entry-meta");
+      let alt = "";
+      if (altEl) {
+        alt = textOf(altEl).replace(/^Also known as:\s*/i, "").trim();
+      }
+      const body = [];
+      const sections = [];
+      Array.from(article.children).forEach((child) => {
+        if (!child.classList.contains("inventions-entry-section") && child.tagName === "UL") {
+          Array.from(child.querySelectorAll(":scope > li")).forEach((li) => {
+            body.push({ type: "li", text: textOf(li), el: li });
+          });
+          return;
+        }
+        if (!child.classList.contains("inventions-entry-section")) return;
+        const h3 = child.querySelector(":scope > h3");
+        if (!h3) {
+          Array.from(child.querySelectorAll(":scope > p")).forEach((p) => {
+            body.push({ type: "p", text: textOf(p), el: p });
+          });
+          Array.from(child.querySelectorAll(":scope > ul > li")).forEach((li) => {
+            body.push({ type: "li", text: textOf(li), el: li });
+          });
+          return;
+        }
+        sections.push({
+          heading: textOf(h3),
+          headingEl: h3,
+          paras: Array.from(child.querySelectorAll(":scope > p")).map((p) => ({
+            text: textOf(p),
+            el: p,
+          })),
+          items: Array.from(child.querySelectorAll(":scope > ul > li")).map((li) => ({
+            text: textOf(li),
+            el: li,
+          })),
+        });
+      });
+      return {
+        id,
+        category_id,
+        name: textOf(titleEl),
+        alt,
+        meta_line: textOf(metaEl),
+        body: body.map((b) => ({ type: b.type, text: b.text })),
+        sections: sections.map((s) => ({
+          heading: s.heading,
+          paras: s.paras.map((p) => p.text),
+          items: s.items.map((i) => i.text),
+        })),
+        titleEl,
+        altEl,
+        metaEl,
+        bodyEls: body,
+        sectionEls: sections,
+      };
+    };
+
+    const regionFromEl = (el) => {
+      if (!el || !el.closest) return null;
+      const story = el.closest("article.story");
+      if (story) return { kind: "story", el: story, key: "story:" + (story.getAttribute("data-stem") || story.id) };
+      const card = el.closest('a.cat-card[href^="categories/"]');
+      if (card && document.body.classList.contains("page-home")) {
+        const data = readCategoryCard(card);
+        return data ? { kind: "category-card", el: card, key: "cat:" + data.slug } : null;
+      }
+      const hero = el.closest(".category-hero");
+      if (hero && document.body.classList.contains("page-category")) {
+        const data = readCategoryHero(hero);
+        return data ? { kind: "category-hero", el: hero, key: "cat:" + data.slug } : null;
+      }
+      const about = el.closest(".about-main");
+      if (about) return { kind: "about", el: about, key: "about:" + pageLang() };
+      const fig = el.closest("article.inventions-entry[data-figure-cat]");
+      if (fig) return { kind: "figure", el: fig, key: "figure:" + fig.id };
+      const disc = el.closest("article.inventions-entry[id]");
+      if (disc && !disc.hasAttribute("data-figure-cat")) {
+        return { kind: "discovery", el: disc, key: "discovery:" + disc.id };
+      }
+      return null;
+    };
+
+    const captureDraft = (region) => {
+      if (!region || drafts.has(region.key)) return;
+      drafts.set(region.key, {
+        html: region.el.innerHTML,
+        snapshot: (() => {
+          if (region.kind === "story") {
+            const d = readStory(region.el);
+            return d
+              ? { title: d.title, body: d.body.slice(), moral: d.moral, source: d.source }
+              : {};
+          }
+          if (region.kind === "category-card") {
+            const d = readCategoryCard(region.el);
+            return d ? { title: d.title, blurb: d.blurb, slug: d.slug } : {};
+          }
+          if (region.kind === "category-hero") {
+            const d = readCategoryHero(region.el);
+            return d ? { title: d.title, blurb: d.blurb, slug: d.slug } : {};
+          }
+          if (region.kind === "about") {
+            const d = readAbout(region.el);
+            return d
+              ? {
+                  mission_title: d.mission_title,
+                  mission_body: d.mission_body,
+                  vision_title: d.vision_title,
+                  vision_body: d.vision_body,
+                  values_title: d.values_title,
+                  values_intro: d.values_intro,
+                  values: d.values.slice(),
+                }
+              : {};
+          }
+          if (region.kind === "discovery") {
+            const d = readDiscovery(region.el);
+            return d
+              ? {
+                  id: d.id,
+                  title: d.title,
+                  period_line: d.period_line,
+                  summary: d.summary,
+                  facts: d.facts.slice(),
+                  sections: d.sections.map((s) => ({
+                    heading: s.heading,
+                    paragraphs: s.paragraphs.slice(),
+                  })),
+                }
+              : {};
+          }
+          if (region.kind === "figure") {
+            const d = readFigure(region.el);
+            return d
+              ? {
+                  id: d.id,
+                  category_id: d.category_id,
+                  name: d.name,
+                  alt: d.alt,
+                  meta_line: d.meta_line,
+                  body: d.body.slice(),
+                  sections: d.sections.map((s) => ({
+                    heading: s.heading,
+                    paras: (s.paras || []).slice(),
+                    items: (s.items || []).slice(),
+                  })),
+                }
+              : {};
+          }
+          return {};
+        })(),
+      });
+    };
+
+    const restoreDraft = (region) => {
+      if (!region) return false;
+      const draft = drafts.get(region.key);
+      if (!draft) {
+        setStatus("Nothing to cancel for this region.", "error");
+        return false;
+      }
+      region.el.innerHTML = draft.html;
+      drafts.delete(region.key);
+      if (editOn) markEditable(true);
+      setStatus("Reverted unsaved edits.", "ok");
+      if (diffEl) {
+        diffEl.hidden = true;
+        diffEl.textContent = "";
+      }
+      return true;
+    };
+
+    const setEditable = (el, on) => {
+      if (!el) return;
+      el.contentEditable = on ? "true" : "false";
+      el.spellcheck = true;
+      if (on) el.classList.add("dev-page-edit-target");
+      else el.classList.remove("dev-page-edit-target");
+    };
+
+    const ensureRegionActions = (hostEl, kind) => {
+      let bar = hostEl.querySelector("[data-dev-page-actions]");
+      if (bar) return bar;
+      bar = document.createElement("div");
+      bar.className = "story__dev-actions";
+      bar.setAttribute("data-dev-page-actions", "1");
+      const save = document.createElement("button");
+      save.type = "button";
+      save.className = "tools-bar__view-btn story__dev-save";
+      save.setAttribute("data-dev-page-save", "1");
+      save.textContent = "Save";
+      const cancel = document.createElement("button");
+      cancel.type = "button";
+      cancel.className = "tools-bar__view-btn story__dev-cancel";
+      cancel.setAttribute("data-dev-page-cancel", "1");
+      cancel.textContent = "Cancel";
+      bar.appendChild(save);
+      bar.appendChild(cancel);
+      if (kind === "story") {
+        const actions = hostEl.querySelector(".story__actions");
+        if (actions) actions.appendChild(bar);
+        else hostEl.querySelector(".card-header")?.appendChild(bar);
+      } else if (kind === "category-card") {
+        hostEl.querySelector(".card-header")?.appendChild(bar) || hostEl.appendChild(bar);
+      } else if (kind === "category-hero") {
+        hostEl.appendChild(bar);
+      } else if (kind === "about") {
+        hostEl.insertBefore(bar, hostEl.firstChild);
+      } else {
+        const title = hostEl.querySelector(".inventions-entry-title");
+        if (title) title.appendChild(bar);
+        else hostEl.insertBefore(bar, hostEl.firstChild);
+      }
+      return bar;
+    };
+
     const markEditable = (on) => {
       storyEls().forEach((story) => {
         const data = readStory(story);
         if (!data) return;
-        data.titleEl.contentEditable = on ? "true" : "false";
-        data.titleEl.spellcheck = true;
-        Array.from(data.textEl.querySelectorAll("p")).forEach((p) => {
-          p.contentEditable = on ? "true" : "false";
-          p.spellcheck = true;
-        });
-        let save = story.querySelector("[data-dev-story-save]");
-        if (on) {
-          if (!save) {
-            const actions = story.querySelector(".story__actions");
-            save = document.createElement("button");
-            save.type = "button";
-            save.className = "tools-bar__view-btn story__dev-save";
-            save.setAttribute("data-dev-story-save", "1");
-            save.textContent = "Save";
-            save.title = "Save title, body, moral, and source to DOCX + site files";
-            if (actions) actions.appendChild(save);
-            else story.querySelector(".card-header")?.appendChild(save);
-          }
-        } else if (save) {
-          save.remove();
+        setEditable(data.titleEl, on);
+        Array.from(data.textEl.querySelectorAll("p")).forEach((p) => setEditable(p, on));
+        const bar = story.querySelector("[data-dev-page-actions], [data-dev-story-actions]");
+        if (on) ensureRegionActions(story, "story");
+        else if (bar) bar.remove();
+      });
+
+      homeCards().forEach((card) => {
+        const data = readCategoryCard(card);
+        if (!data) return;
+        setEditable(data.titleEl, on);
+        setEditable(data.descEl, on);
+        const bar = card.querySelector("[data-dev-page-actions]");
+        if (on) ensureRegionActions(card, "category-card");
+        else if (bar) bar.remove();
+      });
+
+      const hero = categoryHero();
+      if (hero) {
+        const data = readCategoryHero(hero);
+        if (data) {
+          setEditable(data.titleEl, on);
+          setEditable(data.blurbEl, on);
+          const bar = hero.querySelector("[data-dev-page-actions]");
+          if (on) ensureRegionActions(hero, "category-hero");
+          else if (bar) bar.remove();
         }
+      }
+
+      const about = aboutMain();
+      if (about) {
+        const data = readAbout(about);
+        if (data) {
+          setEditable(data.els.missionTitle, on);
+          setEditable(data.els.missionBody, on);
+          setEditable(data.els.visionTitle, on);
+          setEditable(data.els.visionBody, on);
+          setEditable(data.els.valuesTitle, on);
+          setEditable(data.els.valuesIntro, on);
+          data.els.values.forEach((v) => {
+            setEditable(v.titleEl, on);
+            setEditable(v.glossEl, on);
+          });
+          const deyerlerH2 = about.querySelector("#deyerler h2");
+          if (deyerlerH2 && deyerlerH2 !== data.els.valuesTitle) setEditable(deyerlerH2, on);
+          const bar = about.querySelector("[data-dev-page-actions]");
+          if (on) ensureRegionActions(about, "about");
+          else if (bar) bar.remove();
+        }
+      }
+
+      discoveryEntries().forEach((article) => {
+        const data = readDiscovery(article);
+        if (!data) return;
+        setEditable(data.titleEl, on);
+        setEditable(data.summaryEl, on);
+        setEditable(data.metaEl, on);
+        data.factEls.forEach((li) => setEditable(li, on));
+        data.sectionEls.forEach((sec) => {
+          sec.paraEls.forEach((p) => setEditable(p, on));
+        });
+        const bar = article.querySelector("[data-dev-page-actions]");
+        if (on) ensureRegionActions(article, "discovery");
+        else if (bar) bar.remove();
+      });
+
+      figureEntries().forEach((article) => {
+        const data = readFigure(article);
+        if (!data) return;
+        setEditable(data.titleEl, on);
+        if (data.altEl) {
+          // Keep strong label; edit whole line for simplicity.
+          setEditable(data.altEl, on);
+        }
+        setEditable(data.metaEl, on);
+        data.bodyEls.forEach((b) => setEditable(b.el, on));
+        data.sectionEls.forEach((sec) => {
+          setEditable(sec.headingEl, on);
+          sec.paras.forEach((p) => setEditable(p.el, on));
+          sec.items.forEach((i) => setEditable(i.el, on));
+        });
+        const bar = article.querySelector("[data-dev-page-actions]");
+        if (on) ensureRegionActions(article, "figure");
+        else if (bar) bar.remove();
       });
     };
 
     const setEditMode = (on) => {
       editOn = !!on && apiReady;
       document.body.classList.toggle("dev-story-edit", editOn);
+      badge.hidden = !editOn;
       if (toggleBtn) {
         toggleBtn.setAttribute("aria-pressed", editOn ? "true" : "false");
         toggleBtn.textContent = editOn ? "Edit on" : "Edit off";
       }
       if (saveBtn) saveBtn.disabled = !editOn;
+      if (cancelBtn) cancelBtn.disabled = !editOn;
+      if (undoBtn) undoBtn.disabled = !lastSave;
       markEditable(editOn);
       localStorage.setItem("birinci-dev-story-edit", editOn ? "1" : "0");
-      // Multilingual View is independent of Edit mode — keep buttons present either way.
       if (typeof window.__birinciRefreshStoryLangSwitchers === "function") {
         window.__birinciRefreshStoryLangSwitchers();
       }
       setStatus(
         editOn
-          ? "Click a story title or paragraph, then Save. Writes DOCX + HTML + catalog."
+          ? "Click editable text, then Save. Writes true sources + live HTML."
           : apiReady
-            ? "API ready. Turn Edit on to change stories."
+            ? "API ready. Turn Edit on to change page content."
             : "Start: python tools/dev_story_edit_server.py",
         apiReady ? "ok" : "error"
       );
     };
 
-    const saveStory = async (story) => {
-      const data = readStory(story);
-      if (!data) {
-        setStatus("Could not read story fields.", "error");
+    const applyStoryToDom = (story, data) => {
+      story.setAttribute("data-title", data.title);
+      const card = document.querySelector(
+        `a.cat-card[href="#${CSS.escape(data.stem)}"], a.cat-card[data-stem="${CSS.escape(data.stem)}"]`
+      );
+      if (card) {
+        card.setAttribute("data-title", data.title);
+        card.setAttribute("data-blurb", data.body[0] || data.title);
+        const cardTitle = card.querySelector(".card-title");
+        const cardDesc = card.querySelector(".card-desc");
+        if (cardTitle) cardTitle.textContent = data.title;
+        if (cardDesc) cardDesc.textContent = data.body[0] || data.title;
+      }
+      const toc = document.querySelector(`li[data-stem="${CSS.escape(data.stem)}"] a`);
+      if (toc) toc.textContent = data.title;
+      if (window.__BIRINCI_STORIES__) {
+        (window.__BIRINCI_STORIES__.categories || []).forEach((cat) => {
+          (cat.stories || []).forEach((row) => {
+            if (row.stem === data.stem) {
+              row.title = data.title;
+              row.paragraphs = data.body.concat([data.moral, data.source]);
+            }
+          });
+        });
+      }
+    };
+
+    const postSave = async (endpoint, payload) => {
+      const res = await fetch(`${API}${endpoint}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok || !json.ok) {
+        throw new Error((json && json.error) || res.statusText || "save failed");
+      }
+      return json;
+    };
+
+    const saveRegion = async (region, payloadOverride) => {
+      if (!region) {
+        setStatus("Focus an editable field first.", "error");
         return;
       }
-      if (!data.moral) {
-        setStatus("Moral paragraph missing (needs Moral:/İbrət:/Мораль:/Сабак:).", "error");
-        return;
-      }
-      setStatus(`Saving ${data.stem}…`);
+      captureDraft(region);
+      const draft = drafts.get(region.key);
+      const before = (draft && draft.snapshot) || {};
+
       try {
-        const res = await fetch(`${API}/api/dev/save-story`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
+        if (region.kind === "story") {
+          const live = readStory(region.el);
+          const data = payloadOverride
+            ? Object.assign({}, live || {}, payloadOverride)
+            : live;
+          if (!data || !data.stem) throw new Error("Could not read story fields.");
+          if (!data.moral) throw new Error("Moral paragraph missing (needs Moral:/İbrət:/Мораль:/Сабак:).");
+          setStatus(`Saving ${data.stem}…`);
+          const json = await postSave("/api/dev/save-story", {
             lang: pageLang(),
             stem: data.stem,
             title: data.title,
             body: data.body,
             moral: data.moral,
             source: data.source,
-          }),
-        });
-        const json = await res.json().catch(() => ({}));
-        if (!res.ok || !json.ok) {
-          throw new Error((json && json.error) || res.statusText || "save failed");
-        }
-        story.setAttribute("data-title", data.title);
-        const card = document.querySelector(
-          `a.cat-card[href="#${CSS.escape(data.stem)}"], a.cat-card[data-stem="${CSS.escape(data.stem)}"]`
-        );
-        if (card) {
-          card.setAttribute("data-title", data.title);
-          card.setAttribute("data-blurb", data.body[0] || data.title);
-          const cardTitle = card.querySelector(".card-title");
-          const cardDesc = card.querySelector(".card-desc");
-          if (cardTitle) cardTitle.textContent = data.title;
-          if (cardDesc) cardDesc.textContent = data.body[0] || data.title;
-        }
-        const toc = document.querySelector(`li[data-stem="${CSS.escape(data.stem)}"] a`);
-        if (toc) toc.textContent = data.title;
-        if (window.__BIRINCI_STORIES__) {
-          (window.__BIRINCI_STORIES__.categories || []).forEach((cat) => {
-            (cat.stories || []).forEach((row) => {
-              if (row.stem === data.stem) {
-                row.title = data.title;
-                row.paragraphs = data.body.concat([data.moral, data.source]);
-              }
-            });
           });
+          const after = {
+            title: data.title,
+            body: data.body.slice(),
+            moral: data.moral,
+            source: data.source,
+          };
+          lastSave = {
+            kind: "story",
+            key: region.key,
+            endpoint: "/api/dev/save-story",
+            before: json.before || before,
+            after: json.after || after,
+            payload: {
+              lang: pageLang(),
+              stem: data.stem,
+              title: (json.before || before).title,
+              body: ((json.before || before).body || []).slice(),
+              moral: (json.before || before).moral,
+              source: (json.before || before).source,
+            },
+          };
+          drafts.delete(region.key);
+          if (undoBtn) undoBtn.disabled = false;
+          applyStoryToDom(region.el, data);
+          showDiff(lastSave.before, lastSave.after, json.paths || [json.docx].filter(Boolean));
+          setStatus(`Saved ${data.stem}`, "ok");
+          return;
         }
-        setStatus(`Saved ${data.stem} → ${json.docx}`, "ok");
+
+        if (region.kind === "category-card" || region.kind === "category-hero") {
+          const live =
+            region.kind === "category-card"
+              ? readCategoryCard(region.el)
+              : readCategoryHero(region.el);
+          const data = payloadOverride
+            ? Object.assign({}, live || {}, payloadOverride)
+            : live;
+          if (!data || !data.slug) throw new Error("Could not read category fields.");
+          setStatus(`Saving category ${data.slug}…`);
+          const json = await postSave("/api/dev/save-category-meta", {
+            lang: pageLang(),
+            slug: data.slug,
+            title: data.title,
+            blurb: data.blurb,
+          });
+          lastSave = {
+            kind: region.kind,
+            key: region.key,
+            endpoint: "/api/dev/save-category-meta",
+            before: json.before || before,
+            after: json.after || { title: data.title, blurb: data.blurb },
+            payload: {
+              lang: pageLang(),
+              slug: data.slug,
+              title: (json.before || before).title,
+              blurb: (json.before || before).blurb,
+            },
+          };
+          drafts.delete(region.key);
+          if (undoBtn) undoBtn.disabled = false;
+          if (region.kind === "category-card") {
+            region.el.setAttribute("data-title", data.title);
+            region.el.setAttribute("data-blurb", data.blurb);
+          }
+          showDiff(lastSave.before, lastSave.after, json.paths || []);
+          setStatus(`Saved category ${data.slug}`, "ok");
+          return;
+        }
+
+        if (region.kind === "about") {
+          const live = readAbout(region.el);
+          const data = payloadOverride
+            ? Object.assign({}, live || {}, payloadOverride)
+            : live;
+          if (!data) throw new Error("Could not read About fields.");
+          // Mirror values title into pills names after save via server HTML rewrite;
+          // also mirror deyerler h2 live.
+          const deyerlerH2 = region.el.querySelector("#deyerler h2");
+          if (deyerlerH2) deyerlerH2.textContent = data.values_title;
+          data.els?.values?.forEach((v, idx) => {
+            const pill = region.el.querySelector(
+              `#deyerler a.about-pill[href="#vd-${idx + 1}"] .about-pill__name`
+            );
+            if (pill) pill.textContent = data.values[idx]?.name || v.name;
+          });
+          setStatus("Saving About body…");
+          const json = await postSave("/api/dev/save-about-body", {
+            lang: pageLang(),
+            mission_title: data.mission_title,
+            mission_body: data.mission_body,
+            vision_title: data.vision_title,
+            vision_body: data.vision_body,
+            values_title: data.values_title,
+            values_intro: data.values_intro,
+            values: data.values,
+          });
+          lastSave = {
+            kind: "about",
+            key: region.key,
+            endpoint: "/api/dev/save-about-body",
+            before: json.before || before,
+            after: json.after || data,
+            payload: Object.assign({ lang: pageLang() }, json.before || before),
+          };
+          drafts.delete(region.key);
+          if (undoBtn) undoBtn.disabled = false;
+          showDiff(lastSave.before, lastSave.after, json.paths || []);
+          setStatus("Saved About body", "ok");
+          return;
+        }
+
+        if (region.kind === "discovery") {
+          const live = readDiscovery(region.el);
+          const data = payloadOverride
+            ? Object.assign({}, live || {}, payloadOverride)
+            : live;
+          if (!data || !data.id) throw new Error("Could not read discovery article.");
+          setStatus(`Saving discovery ${data.id}…`);
+          const json = await postSave("/api/dev/save-discovery", {
+            lang: pageLang(),
+            id: data.id,
+            title: data.title,
+            period_line: data.period_line,
+            summary: data.summary,
+            facts: data.facts,
+            sections: data.sections,
+          });
+          lastSave = {
+            kind: "discovery",
+            key: region.key,
+            endpoint: "/api/dev/save-discovery",
+            before: json.before || before,
+            after: json.after || data,
+            payload: Object.assign({ lang: pageLang(), id: data.id }, json.before || before),
+          };
+          drafts.delete(region.key);
+          if (undoBtn) undoBtn.disabled = false;
+          const toc = document.querySelector(
+            `.inventions-toc-entry[data-toc-entry="${CSS.escape(data.id)}"] a`
+          );
+          if (toc) toc.textContent = data.title;
+          const cardTitle = document.querySelector(
+            `.inventions-card[data-entry="${CSS.escape(data.id)}"] .inventions-card__title`
+          );
+          const cardSum = document.querySelector(
+            `.inventions-card[data-entry="${CSS.escape(data.id)}"] .inventions-card__summary`
+          );
+          if (cardTitle) cardTitle.textContent = data.title;
+          if (cardSum) cardSum.textContent = data.summary;
+          showDiff(lastSave.before, lastSave.after, json.paths || []);
+          setStatus(`Saved discovery ${data.id}`, "ok");
+          return;
+        }
+
+        if (region.kind === "figure") {
+          const live = readFigure(region.el);
+          const data = payloadOverride
+            ? Object.assign({}, live || {}, payloadOverride)
+            : live;
+          if (!data || !data.id) throw new Error("Could not read figure.");
+          // Re-parse alt from live element text if needed
+          let alt = data.alt;
+          if (data.altEl) alt = textOf(data.altEl).replace(/^Also known as:\s*/i, "").trim();
+          setStatus(`Saving figure ${data.id}…`);
+          const json = await postSave("/api/dev/save-figure", {
+            id: data.id,
+            category_id: data.category_id,
+            name: data.name,
+            alt,
+            meta_line: data.meta_line,
+            body: data.body,
+            sections: data.sections,
+          });
+          lastSave = {
+            kind: "figure",
+            key: region.key,
+            endpoint: "/api/dev/save-figure",
+            before: json.before || before,
+            after: json.after || data,
+            payload: {
+              id: data.id,
+              category_id: data.category_id,
+              name: (json.before || before).name || before.name,
+              alt: before.alt || "",
+              meta_line: before.meta_line || "",
+              body: (before.body || []).slice(),
+              sections: (before.sections || []).slice(),
+            },
+          };
+          drafts.delete(region.key);
+          if (undoBtn) undoBtn.disabled = false;
+          const toc = document.querySelector(
+            `.inventions-toc-entry[data-toc-entry="${CSS.escape(data.id)}"] a`
+          );
+          if (toc) toc.textContent = data.name;
+          showDiff(lastSave.before, lastSave.after, json.paths || []);
+          setStatus(`Saved figure ${data.id}`, "ok");
+          return;
+        }
+
+        setStatus("Unsupported edit region.", "error");
       } catch (err) {
         setStatus(String((err && err.message) || err), "error");
       }
+    };
+
+    const undoLastSave = async () => {
+      if (!lastSave) {
+        setStatus("No saved edit to undo.", "error");
+        return;
+      }
+      const region =
+        activeRegion && activeRegion.key === lastSave.key
+          ? activeRegion
+          : (() => {
+              if (lastSave.kind === "story") {
+                const el = document.querySelector(
+                  `article.story[data-stem="${CSS.escape(lastSave.payload.stem)}"], article.story#${CSS.escape(lastSave.payload.stem)}`
+                );
+                return el ? { kind: "story", el, key: lastSave.key } : null;
+              }
+              if (lastSave.kind === "about") {
+                const el = aboutMain();
+                return el ? { kind: "about", el, key: lastSave.key } : null;
+              }
+              if (lastSave.kind === "category-card" || lastSave.kind === "category-hero") {
+                const hero = categoryHero();
+                if (hero && lastSave.kind === "category-hero") {
+                  return { kind: "category-hero", el: hero, key: lastSave.key };
+                }
+                const card = document.querySelector(
+                  `a.cat-card[href="categories/${CSS.escape(lastSave.payload.slug)}.html"]`
+                );
+                return card ? { kind: "category-card", el: card, key: lastSave.key } : null;
+              }
+              if (lastSave.kind === "discovery") {
+                const el = document.getElementById(lastSave.payload.id);
+                return el ? { kind: "discovery", el, key: lastSave.key } : null;
+              }
+              if (lastSave.kind === "figure") {
+                const el = document.getElementById(lastSave.payload.id);
+                return el ? { kind: "figure", el, key: lastSave.key } : null;
+              }
+              return null;
+            })();
+      if (!region) {
+        setStatus("Previously saved region is not on this page.", "error");
+        return;
+      }
+      await saveRegion(region, lastSave.payload);
+      setStatus("Undid last save.", "ok");
     };
 
     panel.addEventListener("click", (event) => {
@@ -11543,37 +12350,96 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         return;
       }
       if (t.closest("[data-dev-edit-save-focused]")) {
-        const story =
-          activeStory ||
-          (document.activeElement && document.activeElement.closest("article.story"));
-        if (story) saveStory(story);
-        else setStatus("Focus a story field first.", "error");
+        const region =
+          activeRegion ||
+          regionFromEl(document.activeElement);
+        if (region) saveRegion(region);
+        else setStatus("Focus an editable field first.", "error");
+        return;
+      }
+      if (t.closest("[data-dev-edit-cancel-focused]")) {
+        const region =
+          activeRegion ||
+          regionFromEl(document.activeElement);
+        if (region) restoreDraft(region);
+        else setStatus("Focus an editable field first.", "error");
+        return;
+      }
+      if (t.closest("[data-dev-edit-undo]")) {
+        undoLastSave();
       }
     });
 
     document.addEventListener("click", (event) => {
-      const save = event.target.closest("[data-dev-story-save]");
-      if (!save) return;
-      event.preventDefault();
-      event.stopPropagation();
-      const story = save.closest("article.story");
-      if (story) saveStory(story);
-    });
+      if (!editOn) return;
+      const save = event.target.closest("[data-dev-page-save], [data-dev-story-save]");
+      if (save) {
+        event.preventDefault();
+        event.stopPropagation();
+        const region = regionFromEl(save);
+        if (region) saveRegion(region);
+        return;
+      }
+      const cancel = event.target.closest("[data-dev-page-cancel], [data-dev-story-cancel]");
+      if (cancel) {
+        event.preventDefault();
+        event.stopPropagation();
+        const region = regionFromEl(cancel);
+        if (region) restoreDraft(region);
+        return;
+      }
+      // Prevent navigation while editing linked cards / pills.
+      const editable = event.target.closest('[contenteditable="true"]');
+      if (editable) {
+        const link = editable.closest("a");
+        if (link) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+      }
+    }, true);
 
     document.addEventListener("focusin", (event) => {
-      const story = event.target.closest && event.target.closest("article.story");
-      if (story) activeStory = story;
+      const region = regionFromEl(event.target);
+      if (!region) return;
+      activeRegion = region;
+      if (editOn) captureDraft(region);
     });
 
     document.addEventListener("keydown", (event) => {
       if (!editOn) return;
       if ((event.ctrlKey || event.metaKey) && String(event.key).toLowerCase() === "s") {
-        const story =
-          (document.activeElement && document.activeElement.closest("article.story")) ||
-          activeStory;
-        if (!story) return;
+        const region =
+          regionFromEl(document.activeElement) || activeRegion;
+        if (!region) return;
         event.preventDefault();
-        saveStory(story);
+        saveRegion(region);
+      }
+      if (event.key === "Escape") {
+        const region =
+          regionFromEl(document.activeElement) || activeRegion;
+        if (region) restoreDraft(region);
+      }
+    });
+
+    // Keep About values title fields in sync while typing.
+    document.addEventListener("input", (event) => {
+      if (!editOn) return;
+      const t = event.target;
+      if (!(t instanceof HTMLElement)) return;
+      if (t.id === "about-values-detail-title") {
+        const other = document.querySelector("#deyerler h2");
+        if (other && other !== t) other.textContent = t.textContent;
+      } else if (t.closest && t.closest("#deyerler h2")) {
+        const other = document.querySelector("#about-values-detail-title");
+        if (other && other !== t) other.textContent = t.textContent;
+      } else if (t.classList && t.classList.contains("about-vd__title")) {
+        const vd = t.closest("article.about-vd");
+        if (!vd || !vd.id) return;
+        const pill = document.querySelector(
+          `#deyerler a.about-pill[href="#${CSS.escape(vd.id)}"] .about-pill__name`
+        );
+        if (pill) pill.textContent = t.textContent;
       }
     });
 
@@ -11593,8 +12459,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
         });
 
     ping();
-    // Re-apply editable flags when home list re-renders stories.
-    const root = document.getElementById("stories-list") || document.querySelector("main");
+    const root = document.getElementById("stories-list") || document.querySelector("main") || document.body;
     if (root && typeof MutationObserver === "function") {
       let timer = 0;
       const obs = new MutationObserver(() => {

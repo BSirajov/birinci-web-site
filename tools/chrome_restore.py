@@ -112,7 +112,7 @@ SITE_ASSET_VERSION = "20261103titles"
 # All active story illustration text panels synchronized with their Word sources.
 ILLUSTRATION_ASSET_VERSION = "20261109panels1530"
 # Shared site.css / site.js (phone illustration-control chrome).
-SITE_CHROME_ASSET_VERSION = "20261109panels1530"
+SITE_CHROME_ASSET_VERSION = "20261119langswitch1"
 INVENTIONS_BRIDGE_ASSET_VERSION = "20260924bg"
 # Discoveries catalog JS (view=list URL cache-bust). Independent of site chrome.
 KT_INVENTIONS_JS_VERSION = "20261004qa1"
@@ -4315,7 +4315,8 @@ def _build_about_nav_dropdown(markup: str, lang: str, rel_path: str = "") -> str
     copy = _about_nav_copy(lang)
     prefix = _legal_href_prefix(rel_path or infer_html_rel_path(markup, lang), lang)
     mission_href = f"{prefix}about/mission-vision-values.html"
-    if lang == "de":
+    if lang == "de" and not (ROOT / "de" / "about" / "mission-vision-values.html").is_file():
+        # Older German trees linked About to English until the DE page shipped.
         prefix = f"{_rel_depth_prefix(rel_path or infer_html_rel_path(markup, lang))}en/"
         mission_href = f"{prefix}about/mission-vision-values.html"
     nested_links = []
@@ -4561,21 +4562,19 @@ def _rel_depth_prefix(rel_path: str) -> str:
 
 
 def _locale_target_available(lang: str, rest: str) -> bool:
-    """Partial locales advertise only built pages in their published sections.
+    """Partial locales advertise only pages that exist on disk.
 
-    Full locales retain the established switch/hreflang behavior. German is
-    currently wisdom-only; author/story builders still own their precise URLs.
+    Full locales retain the established switch/hreflang behavior (may list
+    planned siblings). For scoped locales such as German, any real file — wisdom,
+    about, legal, feedback — is available once published.
     """
     sections = _LANGUAGE_META.get(lang, {}).get("available_sections")
+    page = rest.split("?", 1)[0].split("#", 1)[0]
+    if (ROOT / lang / page).is_file():
+        return True
     if sections is None:
         return True
-    page = rest.split("?", 1)[0].split("#", 1)[0]
-    if page in LEGAL_HTML_FILES:
-        return (ROOT / lang / page).is_file()
-    wisdom = page in ("index.html", "sitemap.html") or page.startswith(("categories/", "stories/", "authors/"))
-    if "wisdom" not in sections or not wisdom:
-        return False
-    return (ROOT / lang / page).is_file()
+    return False
 
 
 def _sibling_lang_href(rel_path: str, target_lang: str) -> str:

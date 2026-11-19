@@ -153,7 +153,9 @@
         "Aşağıdakı düymə adlarını olduğu kimi görmək üçün oflayn kitabxananın interfeys dili menyusunda EN · English seçin. Bu seçim hekayələrin dilini deyil, idarəetmə mətnlərini dəyişir. Hər iki platformada eyni beş dil paketi mövcuddur. Sistem menyularının adları cihaz və versiyaya görə dəyişə bilər."
       ],
       "url": "https://birinci.cloud/offline/",
-      "link_label": "Birİnci Offline versiyasını aç"
+      "link_label": "Birİnci Offline versiyasını aç",
+      "shot": "offline-install",
+      "caption": "Birİnci Offline dil kitabxanası: quraşdırma və ya açma üçün beş dil paketi."
     },
     {
       "id": "offline-download",
@@ -168,7 +170,9 @@
         "Lazım olduqda Pause download seçin. İnternetə qoşulduqdan sonra Download və ya Download / repair artıq yüklənmiş fayllardan istifadə edərək yükləməni davam etdirir. Eyni addımları digər dillər üçün də təkrarlayın. Aralarında keçid etmək və ya mətnlərini müqayisə etmək istədiyiniz hər iki dilin paketini yükləyin. Eyni quraşdırılmış tətbiq və brauzer profilindən istifadə edin; yükləmələr başqa cihaza avtomatik köçürülmür."
       ],
       "url": "https://birinci.cloud/offline/",
-      "link_label": "Birİnci Offline versiyasını aç"
+      "link_label": "Birİnci Offline versiyasını aç",
+      "shot": "offline-download",
+      "caption": "Yükləmə, illüstrasiya və yoxlama idarəetmələri olan dil kartları."
     },
     {
       "id": "offline-test",
@@ -183,7 +187,9 @@
         "Tətbiq yenidən açılır, mətnlər və şəkillər görünür, axtarış və oxu funksiyaları internet olmadan işləyirsə, yoxlama uğurla başa çatıb. Hər hansı paket açılmırsa, internetə qoşulub onu bərpa edin, sonra yoxlamanı təkrarlayın. İşiniz bitdikdə internet bağlantısını yenidən aktivləşdirin. Rəy göndərilməsi, kənar saytların açılması və yeniləmələrin yüklənməsi üçün internet lazımdır."
       ],
       "url": "https://birinci.cloud/offline/",
-      "link_label": "Birİnci Offline versiyasını aç"
+      "link_label": "Birİnci Offline versiyasını aç",
+      "shot": "offline-test",
+      "caption": "Saxlanmış dil açıldıqdan sonra internetsiz oxu üçün oflayn nəşr."
     },
     {
       "id": "offline-usb",
@@ -198,7 +204,9 @@
         "Quraşdırma və yükləmə təkrar uğursuz olarsa, internet bağlantısını və yaddaşdakı boş yeri yoxlayın, tətbiqi açıq saxlayıb Download / repair seçin. Şəkil çatışmırsa, Ready offline · with illustrations vəziyyətini və şəkillərin göstərilməsi seçiminin aktiv olduğunu yoxlayın. Problem davam edərsə, istifadə etdiyiniz dili və xəta bildirişinin tam mətnini «Rəy və təklif» bölməsindən göndərin."
       ],
       "url": "https://birinci.cloud/offline/",
-      "link_label": "Birİnci Offline versiyasını aç"
+      "link_label": "Birİnci Offline versiyasını aç",
+      "shot": "offline-usb",
+      "caption": "Oflayn kitabxanada cihaz yaddaşı, qorunan yaddaş və yeniləmə idarəetmələri."
     },
     {
       "id": "help",

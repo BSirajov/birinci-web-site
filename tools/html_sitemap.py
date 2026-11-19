@@ -48,8 +48,12 @@ _HOME_CONTENT_RE = re.compile(
     r"<div class=\"page-home__content\">[\s\S]*?</div>\s*(?=</main>)",
     re.I,
 )
-_LANG_OPTION_RE = re.compile(
+_LANG_OPTION_HREF_RE = re.compile(
     r'(<a class="lang-switcher__option"[^>]*href="(?:\.\./(?:az|de|en|ru|ky)/)?)index\.html"',
+    re.I,
+)
+_LANG_OPTION_TARGET_RE = re.compile(
+    r'(<a class="lang-switcher__option"[^>]*data-lang-target="(?:\.\./(?:az|de|en|ru|ky)/)?)index\.html"',
     re.I,
 )
 _OG_TITLE_RE = re.compile(r'(<meta\s+property="og:title"\s+content=")[^"]*(")', re.I)
@@ -97,12 +101,16 @@ def _sitemap_copy(lang: str) -> dict:
         "stories_section": loc.get("nav_stories_label", ""),
         "discoveries_section": (ui.get("inventions") or {}).get("page_title", ""),
         "about_section": (ui.get("about") or {}).get("kicker", ""),
+        "authors_section": loc.get("all_authors", "Authors"),
+        "authors_desc": "",
+        "authors_all_desc": "",
         "languages_section": ui.get("lang_switcher_label", "Language"),
         "languages_lead": "",
         "legal_section": "Legal",
         "legal_lead": "",
         "stories_count": "{n}",
         "articles_count": "{n}",
+        "authors_count": "{n}",
         "browse_chapter": "",
     }
     for key, value in defaults.items():
@@ -130,6 +138,7 @@ _SITEMAP_ICONS = {
     "stories": '<path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/>',
     "discoveries": '<path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/>',
     "about": '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>',
+    "authors": '<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>',
     "legal": '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/>',
 }
 
@@ -172,6 +181,31 @@ def _fallback_label(lang: str, href: str, title: str) -> str:
     if lang == "de" and href.startswith("../en/") and "(Englisch)" not in title:
         return f"{title} (Englisch)"
     return title
+
+
+def _author_pages(lang: str) -> list[dict]:
+    """Locale-specific author directory pages (currently DE wisdom only)."""
+    folder = ROOT / lang / "authors"
+    if not folder.is_dir():
+        return []
+    loc = _locale(lang)
+    rows: list[dict] = []
+    index = folder / "index.html"
+    if index.is_file():
+        rows.append(
+            {
+                "href": "authors/index.html",
+                "title": loc.get("all_authors", "Authors"),
+                "is_index": True,
+            }
+        )
+    for path in sorted(folder.glob("*.html")):
+        if path.name == "index.html":
+            continue
+        key = path.stem
+        title = loc.get(f"author_{key}", key.replace("-", " ").title())
+        rows.append({"href": f"authors/{path.name}", "title": title, "is_index": False})
+    return rows
 
 
 def _invention_chapters(lang: str) -> list[dict]:
@@ -240,10 +274,13 @@ def build_sitemap_inner_html(lang: str) -> str:
     copy = _sitemap_copy(lang)
     stories = _story_categories(lang)
     chapters = _invention_chapters(lang)
+    authors = _author_pages(lang)
     story_total = sum(len(cat["stories"]) for cat in stories)
     article_total = sum(len(ch["entries"]) for ch in chapters)
+    author_total = max(0, len(authors) - (1 if any(a.get("is_index") for a in authors) else 0))
     disc_href = _local_href(lang, "discoveries/discoveries-and-inventions.html")
     about_href = _local_href(lang, "about/mission-vision-values.html")
+    authors_index_href = "authors/index.html" if authors else ""
 
     def links(items: list[dict], href_for) -> str:
         rows = []
@@ -307,6 +344,18 @@ def build_sitemap_inner_html(lang: str) -> str:
             "meta": "",
         },
     ]
+    if authors and authors_index_href:
+        overview.insert(
+            2,
+            {
+                "tone": "authors",
+                "href": authors_index_href,
+                "kicker": copy["authors_section"],
+                "title": copy["authors_section"],
+                "desc": copy.get("authors_all_desc") or copy.get("authors_desc") or "",
+                "meta": _count_label(copy["authors_count"], author_total),
+            },
+        )
     overview_html = []
     for card in overview:
         meta_html = (
@@ -387,13 +436,19 @@ def build_sitemap_inner_html(lang: str) -> str:
             f'<li><a href="{html.escape(href, quote=True)}"><span>{_esc(title)}</span></a></li>'
         )
 
-    jump_items = (
+    jump_items = [
         ("overview", "#sitemap-overview", copy["overview_title"]),
         ("stories", "#sitemap-stories", copy["stories_section"]),
-        ("discoveries", "#sitemap-discoveries", copy["discoveries_section"]),
-        ("about", "#sitemap-about", copy["about_section"]),
-        ("legal", "#sitemap-legal", copy["legal_section"]),
-        ("languages", "#sitemap-languages", copy["languages_section"]),
+    ]
+    if authors:
+        jump_items.append(("authors", "#sitemap-authors", copy["authors_section"]))
+    jump_items.extend(
+        [
+            ("discoveries", "#sitemap-discoveries", copy["discoveries_section"]),
+            ("about", "#sitemap-about", copy["about_section"]),
+            ("legal", "#sitemap-legal", copy["legal_section"]),
+            ("languages", "#sitemap-languages", copy["languages_section"]),
+        ]
     )
     jump_chips = "".join(
         f'<a class="sitemap-jump__chip sitemap-jump__chip--{tone}" '
@@ -427,6 +482,23 @@ def build_sitemap_inner_html(lang: str) -> str:
 
     title = copy["page_title"]
     title_alt = html.escape(title, quote=True)
+    authors_section = ""
+    if authors:
+        author_links = "".join(
+            f'<li><a href="{html.escape(item["href"], quote=True)}">'
+            f'<span>{_esc(item["title"])}</span></a></li>'
+            for item in authors
+        )
+        authors_section = (
+            f'    <section class="sitemap-section sitemap-section--authors" id="sitemap-authors" aria-labelledby="sitemap-authors-title">\n'
+            f'      {section_head("sitemap-authors-title", copy["authors_section"], authors_index_href, copy["authors_section"])}\n'
+            f'      <p class="sitemap-langs__lead">{_esc(copy.get("authors_desc") or "")}</p>\n'
+            '      <article class="sitemap-block sitemap-block--authors">\n'
+            f'        {_orb_icon("authors", 18)}\n'
+            f'        <ul class="sitemap-links">\n{author_links}\n        </ul>\n'
+            "      </article>\n"
+            "    </section>\n"
+        )
     return (
         '<div class="sitemap-page">\n'
         f"  {search}\n"
@@ -455,6 +527,7 @@ def build_sitemap_inner_html(lang: str) -> str:
         f'      {section_head("sitemap-stories-title", copy["stories_section"], "index.html?view=list", loc.get("nav_stories_all", copy["browse_chapter"]))}\n'
         f'      <div class="sitemap-grid">\n{" ".join(story_blocks)}\n      </div>\n'
         "    </section>\n"
+        f"{authors_section}"
         f'    <section class="sitemap-section sitemap-section--discoveries" id="sitemap-discoveries" aria-labelledby="sitemap-discoveries-title">\n'
         f'      {section_head("sitemap-discoveries-title", copy["discoveries_section"], disc_href, copy["browse_chapter"])}\n'
         f'      <div class="sitemap-grid">\n{" ".join(disc_blocks)}\n      </div>\n'
@@ -530,7 +603,11 @@ def build_sitemap_page_html(index_html: str, lang: str) -> str:
         markup,
         count=1,
     )
-    markup = _LANG_OPTION_RE.sub(r'\1sitemap.html"', markup)
+    # Keep href and data-lang-target in lockstep. Updating only href left the
+    # German sitemap pointing data-lang-target at index.html, and site.js then
+    # treated that stale target as a home fallback.
+    markup = _LANG_OPTION_HREF_RE.sub(r'\1sitemap.html"', markup)
+    markup = _LANG_OPTION_TARGET_RE.sub(r'\1sitemap.html"', markup)
     markup = _INDEX_PUBLIC_URL_RE.sub(r"\1sitemap.html", markup)
     markup = _OG_TITLE_RE.sub(lambda m: f"{m.group(1)}{html.escape(title, quote=True)}{m.group(2)}", markup)
     markup = _OG_DESC_RE.sub(lambda m: f"{m.group(1)}{html.escape(desc, quote=True)}{m.group(2)}", markup)

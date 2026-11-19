@@ -170,6 +170,24 @@ DISCOVERY_LEAK_MARKERS = (
 )
 TEXT_SUFFIXES = frozenset({".html", ".htm", ".xml", ".txt", ".js", ".json", ".css"})
 
+_DEV_EDIT_FLAG_RE = re.compile(
+    r"(const\s+DEV_STORY_EDIT_BUILD_FLAG\s*=\s*)true(\s*;)",
+    re.M,
+)
+
+
+def scrub_dev_story_edit(site_js: Path) -> None:
+    """Force the in-page story editor off in the publish copy of site.js."""
+    if not site_js.is_file():
+        return
+    text = site_js.read_text(encoding="utf-8")
+    updated, n = _DEV_EDIT_FLAG_RE.subn(r"\1false\2", text, count=1)
+    if n:
+        site_js.write_text(updated, encoding="utf-8", newline="\n")
+        print("dev-edit: disabled DEV_STORY_EDIT_BUILD_FLAG in deployment/assets/site.js")
+    else:
+        print("dev-edit: warning — DEV_STORY_EDIT_BUILD_FLAG not found to scrub")
+
 
 def strip_root_entry_i18n(html: str) -> str:
     """Drop the Discoveries card and nav labels from the root language payload."""
@@ -450,6 +468,7 @@ def main() -> None:
     shared_assets = ROOT / "assets"
     if shared_assets.is_dir():
         shutil.copytree(shared_assets, DEPLOY / "assets", ignore=IGNORE_PUBLISH)
+    scrub_dev_story_edit(DEPLOY / "assets" / "site.js")
     copy_private()
 
     for lang in LANGS:

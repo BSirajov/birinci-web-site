@@ -1,0 +1,4 @@
+severity,area,lang,path,detail
+info,help_claim,en,user-manual.html#reading,Help ‘no audio’ matches AUDIO_CONTROLS_ENABLED=false (Listen chrome gated/hidden)
+warn,help_missing,de,user-manual.html,DE Autoren pages exist in sitemap but Help does not document author directory pages
+info,assets,*,site.js,Consistent pin 20261119langswitch1

@@ -1032,7 +1032,7 @@
         "title": "Hikmət və həyat dərsləri",
         "slug": "hikmet-ve-heyat-dersleri",
         "blurb": "Həyatın mənası, seçimlər və düşüncə tərzi.",
-        "count": 49,
+        "count": 46,
         "stories": [
           {
             "stem": "different-door",
@@ -1113,12 +1113,6 @@
             "title": "Düşüncələr",
             "hasImage": true,
             "source": "az/wisdom-stories/Etibar Siracsoy/reflections.docx"
-          },
-          {
-            "stem": "different-path",
-            "title": "Fərqli yol",
-            "hasImage": true,
-            "source": "az/wisdom-stories/different-path.docx"
           },
           {
             "stem": "before-it-is-too-late",
@@ -2700,14 +2694,8 @@
         "title": "Wisdom and life lessons",
         "slug": "hikmet-ve-heyat-dersleri",
         "blurb": "Meaning, choices, and ways of thinking.",
-        "count": 46,
+        "count": 43,
         "stories": [
-          {
-            "stem": "different-path",
-            "title": "A different path",
-            "hasImage": true,
-            "source": "en/wisdom-stories/different-path.docx"
-          },
           {
             "stem": "human-being-emerged",
             "title": "A human being emerged",
@@ -4372,7 +4360,7 @@
         "title": "Мудрость и уроки жизни",
         "slug": "hikmet-ve-heyat-dersleri",
         "blurb": "Смысл жизни, выборы и образ мышления.",
-        "count": 46,
+        "count": 43,
         "stories": [
           {
             "stem": "its-pointless",
@@ -4415,12 +4403,6 @@
             "title": "Дорога к хлопковому полю",
             "hasImage": true,
             "source": "ru/wisdom-stories/beyond-the-cotton-field.docx"
-          },
-          {
-            "stem": "different-path",
-            "title": "Другой путь",
-            "hasImage": true,
-            "source": "ru/wisdom-stories/different-path.docx"
           },
           {
             "stem": "different-door",
@@ -6022,7 +6004,7 @@
         "title": "Акылмандык жана өмүр сабактары",
         "slug": "hikmet-ve-heyat-dersleri",
         "blurb": "Өмүрдүн мааниси, тандоолор жана ой жүгүртүү.",
-        "count": 46,
+        "count": 43,
         "stories": [
           {
             "stem": "another-day",
@@ -6058,12 +6040,6 @@
             "title": "Көпчүлүк дайыма эле туура боло бербейт",
             "hasImage": true,
             "source": "ky/wisdom-stories/price-of-belonging.docx"
-          },
-          {
-            "stem": "different-path",
-            "title": "Башка жол",
-            "hasImage": true,
-            "source": "ky/wisdom-stories/different-path.docx"
           },
           {
             "stem": "its-pointless",
@@ -8444,7 +8420,7 @@
         "slug": "hikmet-ve-heyat-dersleri",
         "title": "Weisheit und Lebenslehren",
         "blurb": "Sinn, Entscheidungen und Denkweisen.",
-        "count": 46,
+        "count": 43,
         "stories": [
           {
             "stem": "different-door",
@@ -8577,17 +8553,6 @@
             "hasImage": true,
             "href": "categories/hikmet-ve-heyat-dersleri.html#place-in-loving-hearts",
             "source": "de/wisdom-stories/place-in-loving-hearts.docx"
-          },
-          {
-            "stem": "different-path",
-            "path": "de/wisdom-stories/different-path.docx",
-            "imageStem": "different-path",
-            "title": "Ein anderer Weg",
-            "authorKey": "",
-            "image": "wisdom-stories/illustrations/different-path.webp",
-            "hasImage": true,
-            "href": "categories/hikmet-ve-heyat-dersleri.html#different-path",
-            "source": "de/wisdom-stories/different-path.docx"
           },
           {
             "stem": "before-it-is-too-late",

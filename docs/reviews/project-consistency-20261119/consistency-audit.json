@@ -1,0 +1,331 @@
+{
+  "summary": {
+    "findings": 23,
+    "by_severity": {
+      "info": 23
+    },
+    "by_area": {
+      "page_parity": 1,
+      "stories": 21,
+      "assets": 1
+    },
+    "pages_per_lang": {
+      "az": 24,
+      "en": 25,
+      "ru": 24,
+      "ky": 24,
+      "de": 25
+    },
+    "stories_per_lang": {
+      "az": 251,
+      "en": 246,
+      "ru": 246,
+      "ky": 246,
+      "de": 246
+    },
+    "categories_per_lang": {
+      "az": 12,
+      "en": 12,
+      "ru": 12,
+      "ky": 12,
+      "de": 12
+    }
+  },
+  "findings": [
+    {
+      "severity": "info",
+      "area": "page_parity",
+      "lang": "az,ru,ky,de",
+      "path": "prominent-figures/index.html",
+      "detail": "EN-only draft (noindex preview); intentionally missing in az, ru, ky, de"
+    },
+    {
+      "severity": "info",
+      "area": "stories",
+      "lang": "az",
+      "path": "flowers",
+      "detail": "AZ-only catalog stem (policy); not in en"
+    },
+    {
+      "severity": "info",
+      "area": "stories",
+      "lang": "az",
+      "path": "my-lifes-journey",
+      "detail": "AZ-only catalog stem (policy); not in en"
+    },
+    {
+      "severity": "info",
+      "area": "stories",
+      "lang": "az",
+      "path": "pandemic-and-quarantine",
+      "detail": "AZ-only catalog stem (policy); not in en"
+    },
+    {
+      "severity": "info",
+      "area": "stories",
+      "lang": "az",
+      "path": "reflections",
+      "detail": "AZ-only catalog stem (policy); not in en"
+    },
+    {
+      "severity": "info",
+      "area": "stories",
+      "lang": "az",
+      "path": "time-has-passed",
+      "detail": "AZ-only catalog stem (policy); not in en"
+    },
+    {
+      "severity": "info",
+      "area": "stories",
+      "lang": "az",
+      "path": "flowers",
+      "detail": "AZ-only catalog stem (policy); not in ru"
+    },
+    {
+      "severity": "info",
+      "area": "stories",
+      "lang": "az",
+      "path": "my-lifes-journey",
+      "detail": "AZ-only catalog stem (policy); not in ru"
+    },
+    {
+      "severity": "info",
+      "area": "stories",
+      "lang": "az",
+      "path": "pandemic-and-quarantine",
+      "detail": "AZ-only catalog stem (policy); not in ru"
+    },
+    {
+      "severity": "info",
+      "area": "stories",
+      "lang": "az",
+      "path": "reflections",
+      "detail": "AZ-only catalog stem (policy); not in ru"
+    },
+    {
+      "severity": "info",
+      "area": "stories",
+      "lang": "az",
+      "path": "time-has-passed",
+      "detail": "AZ-only catalog stem (policy); not in ru"
+    },
+    {
+      "severity": "info",
+      "area": "stories",
+      "lang": "az",
+      "path": "flowers",
+      "detail": "AZ-only catalog stem (policy); not in ky"
+    },
+    {
+      "severity": "info",
+      "area": "stories",
+      "lang": "az",
+      "path": "my-lifes-journey",
+      "detail": "AZ-only catalog stem (policy); not in ky"
+    },
+    {
+      "severity": "info",
+      "area": "stories",
+      "lang": "az",
+      "path": "pandemic-and-quarantine",
+      "detail": "AZ-only catalog stem (policy); not in ky"
+    },
+    {
+      "severity": "info",
+      "area": "stories",
+      "lang": "az",
+      "path": "reflections",
+      "detail": "AZ-only catalog stem (policy); not in ky"
+    },
+    {
+      "severity": "info",
+      "area": "stories",
+      "lang": "az",
+      "path": "time-has-passed",
+      "detail": "AZ-only catalog stem (policy); not in ky"
+    },
+    {
+      "severity": "info",
+      "area": "stories",
+      "lang": "de",
+      "path": "stem-coverage",
+      "detail": "DE has 246 stems; AZ has 251; AZ-only policy=5; unexpected missing vs AZ=0; extra vs AZ=0"
+    },
+    {
+      "severity": "info",
+      "area": "stories",
+      "lang": "de",
+      "path": "flowers",
+      "detail": "AZ-only catalog stem (policy); not in DE"
+    },
+    {
+      "severity": "info",
+      "area": "stories",
+      "lang": "de",
+      "path": "my-lifes-journey",
+      "detail": "AZ-only catalog stem (policy); not in DE"
+    },
+    {
+      "severity": "info",
+      "area": "stories",
+      "lang": "de",
+      "path": "pandemic-and-quarantine",
+      "detail": "AZ-only catalog stem (policy); not in DE"
+    },
+    {
+      "severity": "info",
+      "area": "stories",
+      "lang": "de",
+      "path": "reflections",
+      "detail": "AZ-only catalog stem (policy); not in DE"
+    },
+    {
+      "severity": "info",
+      "area": "stories",
+      "lang": "de",
+      "path": "time-has-passed",
+      "detail": "AZ-only catalog stem (policy); not in DE"
+    },
+    {
+      "severity": "info",
+      "area": "assets",
+      "lang": "*",
+      "path": "site.js",
+      "detail": "Consistent site.js version: 20261119langswitch1"
+    }
+  ],
+  "inventory": {
+    "az": [
+      "about/mission-vision-values.html",
+      "categories/aile-ve-terbiye.html",
+      "categories/dostluq-ve-insan-munasibetleri.html",
+      "categories/edalet-ve-cemiyyet.html",
+      "categories/emek-ruzi-ve-servet.html",
+      "categories/exlaq-ve-xarakter.html",
+      "categories/hikmet-ve-heyat-dersleri.html",
+      "categories/iman-ve-meneviyyat.html",
+      "categories/sevgi-ve-evlilik.html",
+      "categories/soz-sukut-ve-unsiyyet.html",
+      "categories/tarix-ve-taninmish-shexsiyyetler.html",
+      "categories/temsiller-ve-meseller.html",
+      "categories/yaslanma-ve-zaman.html",
+      "cookie-policy.html",
+      "discoveries/compare.html",
+      "discoveries/discoveries-and-inventions.html",
+      "feedback.html",
+      "index.html",
+      "legal-notice.html",
+      "privacy-notice.html",
+      "sitemap.html",
+      "stories/compare.html",
+      "terms-of-use.html",
+      "user-manual.html"
+    ],
+    "en": [
+      "about/mission-vision-values.html",
+      "categories/aile-ve-terbiye.html",
+      "categories/dostluq-ve-insan-munasibetleri.html",
+      "categories/edalet-ve-cemiyyet.html",
+      "categories/emek-ruzi-ve-servet.html",
+      "categories/exlaq-ve-xarakter.html",
+      "categories/hikmet-ve-heyat-dersleri.html",
+      "categories/iman-ve-meneviyyat.html",
+      "categories/sevgi-ve-evlilik.html",
+      "categories/soz-sukut-ve-unsiyyet.html",
+      "categories/tarix-ve-taninmish-shexsiyyetler.html",
+      "categories/temsiller-ve-meseller.html",
+      "categories/yaslanma-ve-zaman.html",
+      "cookie-policy.html",
+      "discoveries/compare.html",
+      "discoveries/discoveries-and-inventions.html",
+      "feedback.html",
+      "index.html",
+      "legal-notice.html",
+      "privacy-notice.html",
+      "prominent-figures/index.html",
+      "sitemap.html",
+      "stories/compare.html",
+      "terms-of-use.html",
+      "user-manual.html"
+    ],
+    "ru": [
+      "about/mission-vision-values.html",
+      "categories/aile-ve-terbiye.html",
+      "categories/dostluq-ve-insan-munasibetleri.html",
+      "categories/edalet-ve-cemiyyet.html",
+      "categories/emek-ruzi-ve-servet.html",
+      "categories/exlaq-ve-xarakter.html",
+      "categories/hikmet-ve-heyat-dersleri.html",
+      "categories/iman-ve-meneviyyat.html",
+      "categories/sevgi-ve-evlilik.html",
+      "categories/soz-sukut-ve-unsiyyet.html",
+      "categories/tarix-ve-taninmish-shexsiyyetler.html",
+      "categories/temsiller-ve-meseller.html",
+      "categories/yaslanma-ve-zaman.html",
+      "cookie-policy.html",
+      "discoveries/compare.html",
+      "discoveries/discoveries-and-inventions.html",
+      "feedback.html",
+      "index.html",
+      "legal-notice.html",
+      "privacy-notice.html",
+      "sitemap.html",
+      "stories/compare.html",
+      "terms-of-use.html",
+      "user-manual.html"
+    ],
+    "ky": [
+      "about/mission-vision-values.html",
+      "categories/aile-ve-terbiye.html",
+      "categories/dostluq-ve-insan-munasibetleri.html",
+      "categories/edalet-ve-cemiyyet.html",
+      "categories/emek-ruzi-ve-servet.html",
+      "categories/exlaq-ve-xarakter.html",
+      "categories/hikmet-ve-heyat-dersleri.html",
+      "categories/iman-ve-meneviyyat.html",
+      "categories/sevgi-ve-evlilik.html",
+      "categories/soz-sukut-ve-unsiyyet.html",
+      "categories/tarix-ve-taninmish-shexsiyyetler.html",
+      "categories/temsiller-ve-meseller.html",
+      "categories/yaslanma-ve-zaman.html",
+      "cookie-policy.html",
+      "discoveries/compare.html",
+      "discoveries/discoveries-and-inventions.html",
+      "feedback.html",
+      "index.html",
+      "legal-notice.html",
+      "privacy-notice.html",
+      "sitemap.html",
+      "stories/compare.html",
+      "terms-of-use.html",
+      "user-manual.html"
+    ],
+    "de": [
+      "about/mission-vision-values.html",
+      "authors/bakhtiyar.html",
+      "authors/etibar.html",
+      "authors/index.html",
+      "categories/aile-ve-terbiye.html",
+      "categories/dostluq-ve-insan-munasibetleri.html",
+      "categories/edalet-ve-cemiyyet.html",
+      "categories/emek-ruzi-ve-servet.html",
+      "categories/exlaq-ve-xarakter.html",
+      "categories/hikmet-ve-heyat-dersleri.html",
+      "categories/iman-ve-meneviyyat.html",
+      "categories/sevgi-ve-evlilik.html",
+      "categories/soz-sukut-ve-unsiyyet.html",
+      "categories/tarix-ve-taninmish-shexsiyyetler.html",
+      "categories/temsiller-ve-meseller.html",
+      "categories/yaslanma-ve-zaman.html",
+      "cookie-policy.html",
+      "feedback.html",
+      "index.html",
+      "legal-notice.html",
+      "privacy-notice.html",
+      "sitemap.html",
+      "stories/compare.html",
+      "terms-of-use.html",
+      "user-manual.html"
+    ]
+  }
+}

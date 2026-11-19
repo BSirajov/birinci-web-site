@@ -1,0 +1,24 @@
+﻿severity,area,lang,path,detail
+info,page_parity,"az,ru,ky,de",prominent-figures/index.html,"EN-only draft (noindex preview); intentionally missing in az, ru, ky, de"
+info,stories,az,flowers,AZ-only catalog stem (policy); not in en
+info,stories,az,my-lifes-journey,AZ-only catalog stem (policy); not in en
+info,stories,az,pandemic-and-quarantine,AZ-only catalog stem (policy); not in en
+info,stories,az,reflections,AZ-only catalog stem (policy); not in en
+info,stories,az,time-has-passed,AZ-only catalog stem (policy); not in en
+info,stories,az,flowers,AZ-only catalog stem (policy); not in ru
+info,stories,az,my-lifes-journey,AZ-only catalog stem (policy); not in ru
+info,stories,az,pandemic-and-quarantine,AZ-only catalog stem (policy); not in ru
+info,stories,az,reflections,AZ-only catalog stem (policy); not in ru
+info,stories,az,time-has-passed,AZ-only catalog stem (policy); not in ru
+info,stories,az,flowers,AZ-only catalog stem (policy); not in ky
+info,stories,az,my-lifes-journey,AZ-only catalog stem (policy); not in ky
+info,stories,az,pandemic-and-quarantine,AZ-only catalog stem (policy); not in ky
+info,stories,az,reflections,AZ-only catalog stem (policy); not in ky
+info,stories,az,time-has-passed,AZ-only catalog stem (policy); not in ky
+info,stories,de,stem-coverage,DE has 246 stems; AZ has 251; AZ-only policy=5; unexpected missing vs AZ=0; extra vs AZ=0
+info,stories,de,flowers,AZ-only catalog stem (policy); not in DE
+info,stories,de,my-lifes-journey,AZ-only catalog stem (policy); not in DE
+info,stories,de,pandemic-and-quarantine,AZ-only catalog stem (policy); not in DE
+info,stories,de,reflections,AZ-only catalog stem (policy); not in DE
+info,stories,de,time-has-passed,AZ-only catalog stem (policy); not in DE
+info,assets,*,site.js,Consistent site.js version: 20261119langswitch1

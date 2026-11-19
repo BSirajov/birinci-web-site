@@ -7990,6 +7990,26 @@ mark.search-hit {
 }
 
 /* Local-only story edit mode (tools/dev_story_edit_server.py) */
+.dev-edit-mode-badge {
+  position: fixed;
+  top: 0.85rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10060;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid #2f5d3a;
+  background: #2f5d3a;
+  color: #fff;
+  font: 700 0.78rem/1.2 Georgia, "Times New Roman", serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: 0 6px 18px rgba(30, 22, 8, 0.2);
+  pointer-events: none;
+}
+.dev-edit-mode-badge[hidden] {
+  display: none !important;
+}
 .dev-story-edit-panel {
   position: fixed;
   right: 1rem;
@@ -8056,18 +8076,58 @@ mark.search-hit {
 .dev-story-edit-panel__status.is-ok {
   color: #1f6a38;
 }
-body.dev-story-edit .story__text {
+.dev-story-edit-panel__hint {
+  margin: 0;
+  font-weight: 500;
+  font-size: 0.72rem;
+  color: #6a5730;
+}
+.dev-story-edit-panel__diff {
+  margin: 0;
+  max-height: 12rem;
+  overflow: auto;
+  padding: 0.45rem 0.5rem;
+  border: 1px solid rgba(40, 30, 10, 0.14);
+  border-radius: 8px;
+  background: #f7f1e4;
+  font: 500 0.7rem/1.35 Consolas, "Courier New", monospace;
+  white-space: pre-wrap;
+  color: #2c2414;
+}
+.dev-story-edit-panel__diff[hidden] {
+  display: none !important;
+}
+body.dev-story-edit .story__text,
+body.dev-story-edit .about-main,
+body.dev-story-edit .category-hero,
+body.dev-story-edit .inventions-entry {
   cursor: text;
 }
 body.dev-story-edit .story__title[contenteditable="true"],
-body.dev-story-edit .story__text p[contenteditable="true"] {
+body.dev-story-edit .story__text p[contenteditable="true"],
+body.dev-story-edit .dev-page-edit-target[contenteditable="true"],
+body.dev-story-edit [contenteditable="true"].dev-page-edit-target {
   outline: 2px dashed rgba(47, 93, 58, 0.45);
   outline-offset: 3px;
   border-radius: 4px;
   background: rgba(47, 93, 58, 0.05);
 }
-.story__dev-save {
+body.dev-story-edit .story__title[contenteditable="true"]:hover,
+body.dev-story-edit .story__text p[contenteditable="true"]:hover,
+body.dev-story-edit .dev-page-edit-target[contenteditable="true"]:hover {
+  outline-color: rgba(47, 93, 58, 0.85);
+  background: rgba(47, 93, 58, 0.1);
+}
+.story__dev-actions {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
   margin-left: 0.35rem;
+  vertical-align: middle;
+}
+.story__dev-save,
+.story__dev-cancel {
+  margin-left: 0;
 }
 
 /* Shared story prose and legacy archive pagination. */

@@ -1,0 +1,23 @@
+[
+  {
+    "severity": "info",
+    "area": "help_claim",
+    "lang": "en",
+    "path": "user-manual.html#reading",
+    "detail": "Help ‘no audio’ matches AUDIO_CONTROLS_ENABLED=false (Listen chrome gated/hidden)"
+  },
+  {
+    "severity": "warn",
+    "area": "help_missing",
+    "lang": "de",
+    "path": "user-manual.html",
+    "detail": "DE Autoren pages exist in sitemap but Help does not document author directory pages"
+  },
+  {
+    "severity": "info",
+    "area": "assets",
+    "lang": "*",
+    "path": "site.js",
+    "detail": "Consistent pin 20261119langswitch1"
+  }
+]

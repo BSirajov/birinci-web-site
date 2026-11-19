@@ -42,7 +42,15 @@ def normalize(text):
 
 
 def read_story(path, lang, stem, approved_title, keep_urls=False, preserve_breaks=False, credit_display=None):
-    paragraphs = [p.text.strip() for p in Document(path).paragraphs if p.text.strip()]
+    # Poems keep blank Word paragraphs as stanza breaks; prose stories drop them.
+    if stem in POEMS:
+        paragraphs = [p.text.rstrip() for p in Document(path).paragraphs]
+        while paragraphs and not paragraphs[0].strip():
+            paragraphs.pop(0)
+        while paragraphs and not paragraphs[-1].strip():
+            paragraphs.pop()
+    else:
+        paragraphs = [p.text.strip() for p in Document(path).paragraphs if p.text.strip()]
     if lang == "en" and stem == "not-my-concern":
         paragraphs = paragraphs[paragraphs.index("English") + 1:]
     if len(paragraphs) < 2:
@@ -54,6 +62,11 @@ def read_story(path, lang, stem, approved_title, keep_urls=False, preserve_break
         title = approved_title
     body = []
     for p in paragraphs[1:]:
+        if stem in POEMS and not p.strip():
+            # Keep interior blank lines between stanzas.
+            if body and body[-1] != "":
+                body.append("")
+            continue
         if (normalize(p) in LEGACY_NOTICES or is_generic_story_notice(p)
                 or (not keep_urls and re.fullmatch(r"https?://\S+", p))
                 or p.casefold() in {"top of form", "bottom of form"}):
@@ -63,6 +76,11 @@ def read_story(path, lang, stem, approved_title, keep_urls=False, preserve_break
         else:
             keep_break = preserve_breaks is True or (isinstance(preserve_breaks, list) and len(body) in preserve_breaks)
             body.append(p if keep_break else normalize(p))
+    while body and body[-1] == "":
+        body.pop()
+    # Drop a blank line immediately before the poem author/source line.
+    if stem in POEMS and len(body) >= 2 and body[-2] == "":
+        body.pop(-2)
     if not any(MORAL.match(p) for p in body) and stem not in POEMS:
         raise ValueError(f"Missing moral: {path}")
     if credit_display:
@@ -75,6 +93,10 @@ def read_story(path, lang, stem, approved_title, keep_urls=False, preserve_break
 def paragraph_markup(paragraphs, stem):
     parts, after_moral = [], False
     for i, text in enumerate(paragraphs):
+        # Poem stanza break: keep a visible blank line between verses.
+        if stem in POEMS and not str(text).strip():
+            parts.append("<p aria-hidden=\"true\"><br /></p>")
+            continue
         moral = bool(MORAL.match(text))
         source = after_moral or (stem in POEMS and i == len(paragraphs) - 1)
         cls = ' class="story__moral"' if moral else ' class="story__source"' if source else ''

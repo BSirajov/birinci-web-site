@@ -1,0 +1,14 @@
+[
+  {
+    "severity": "info",
+    "area": "help_offline",
+    "lang": "*",
+    "detail": "Help offline sections link to separately published birinci.cloud/offline/ (not in this repo)"
+  },
+  {
+    "severity": "info",
+    "area": "help_ui",
+    "lang": "*",
+    "detail": "Guide search/topic controls start hidden; JS should reveal"
+  }
+]

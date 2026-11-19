@@ -153,7 +153,9 @@
         "For the exact button labels used below, select EN · English in the offline library’s interface-language menu. This changes the language of the controls, not the stories. The same five language packs are available on both platforms. System menu wording varies by device and version."
       ],
       "url": "https://birinci.cloud/offline/",
-      "link_label": "Open Birİnci Offline"
+      "link_label": "Open Birİnci Offline",
+      "shot": "offline-install",
+      "caption": "Birİnci Offline language library with five language packs ready to install or open."
     },
     {
       "id": "offline-download",
@@ -168,7 +170,9 @@
         "Use Pause download if needed. While online, Download or Download / repair resumes an interrupted download using the files already saved. Repeat for your other languages. Download both languages you plan to navigate between or compare. Keep using the same installed app and browser profile; downloads do not automatically transfer to another device."
       ],
       "url": "https://birinci.cloud/offline/",
-      "link_label": "Open Birİnci Offline"
+      "link_label": "Open Birİnci Offline",
+      "shot": "offline-download",
+      "caption": "Language cards with download, illustration and verification controls."
     },
     {
       "id": "offline-test",
@@ -183,7 +187,9 @@
         "The check passes when the app reopens and the required text, illustrations, search and reading views work with internet connections off. Reconnect to repair any failed pack, then repeat the disconnected test. Turn your usual connections back on when finished. Feedback, external websites and updates require internet."
       ],
       "url": "https://birinci.cloud/offline/",
-      "link_label": "Open Birİnci Offline"
+      "link_label": "Open Birİnci Offline",
+      "shot": "offline-test",
+      "caption": "Offline edition after opening a saved language for reading without internet."
     },
     {
       "id": "offline-usb",
@@ -198,7 +204,9 @@
         "If installation or downloads repeatedly fail, check the internet connection and storage, keep the app open and retry Download / repair. If pictures are missing, check that the status is Ready offline · with illustrations and that images are set to be shown. Report the language and exact error through online Feedback if the problem persists."
       ],
       "url": "https://birinci.cloud/offline/",
-      "link_label": "Open Birİnci Offline"
+      "link_label": "Open Birİnci Offline",
+      "shot": "offline-usb",
+      "caption": "Device storage, protected storage and update controls in the offline library."
     },
     {
       "id": "help",

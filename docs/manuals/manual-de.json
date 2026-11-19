@@ -153,7 +153,9 @@
         "Wähle im Sprachmenü der Offline-Bibliothek EN · English, damit die folgenden Schaltflächennamen genau übereinstimmen. Damit änderst du die Sprache der Bedienelemente; die Sprache der Geschichten bleibt gleich. Auf beiden Plattformen stehen dieselben fünf Sprachpakete bereit. Systemmenüs unterscheiden sich je nach Gerät und Version."
       ],
       "url": "https://birinci.cloud/offline/",
-      "link_label": "Birİnci Offline öffnen"
+      "link_label": "Birİnci Offline öffnen",
+      "shot": "offline-install",
+      "caption": "Birİnci-Offline-Sprachbibliothek mit fünf Sprachpaketen zum Installieren oder Öffnen."
     },
     {
       "id": "offline-download",
@@ -168,7 +170,9 @@
         "Mit Pause download kannst du unterbrechen. Bei bestehender Verbindung setzt Download oder Download / repair den Vorgang fort und verwendet bereits heruntergeladene Dateien weiter. Wiederhole dies für weitere Sprachen. Lade beide Sprachen für Sprachwechsel und Vergleiche herunter. Verwende dieselbe installierte App und dasselbe Browserprofil; Downloads werden nicht automatisch auf andere Geräte übertragen."
       ],
       "url": "https://birinci.cloud/offline/",
-      "link_label": "Birİnci Offline öffnen"
+      "link_label": "Birİnci Offline öffnen",
+      "shot": "offline-download",
+      "caption": "Sprachkarten mit Download-, Illustrations- und Prüfsteuerungen."
     },
     {
       "id": "offline-test",
@@ -183,7 +187,9 @@
         "Der Test ist bestanden, wenn die App erneut startet und Texte, Bilder, Suche und Leseansichten ohne Internet funktionieren. Verbinde dich zur Reparatur eines fehlerhaften Pakets und wiederhole danach den Test ohne Verbindung. Stelle abschließend die üblichen Verbindungen wieder her. Feedback, externe Websites und Updates benötigen Internet."
       ],
       "url": "https://birinci.cloud/offline/",
-      "link_label": "Birİnci Offline öffnen"
+      "link_label": "Birİnci Offline öffnen",
+      "shot": "offline-test",
+      "caption": "Offline-Ausgabe nach dem Öffnen einer gespeicherten Sprache zum Lesen ohne Internet."
     },
     {
       "id": "offline-usb",
@@ -198,7 +204,9 @@
         "Wenn Installation oder Download wiederholt fehlschlagen, prüfe die Internetverbindung und den freien Speicher. Lass die App geöffnet und wähle Download / repair. Fehlen Bilder, prüfe, ob Ready offline · with illustrations angezeigt wird und die Bilder in der Leseansicht eingeblendet sind. Gib bei anhaltenden Problemen im Online-Feedback die gewählte Sprache und den genauen Wortlaut der Fehlermeldung an."
       ],
       "url": "https://birinci.cloud/offline/",
-      "link_label": "Birİnci Offline öffnen"
+      "link_label": "Birİnci Offline öffnen",
+      "shot": "offline-usb",
+      "caption": "Gerätespeicher, geschützter Speicher und Aktualisierungssteuerungen in der Offline-Bibliothek."
     },
     {
       "id": "help",

@@ -6,6 +6,8 @@ set "HOST=127.0.0.1"
 set "PYTHONIOENCODING=utf-8"
 set "SITE_PORT=8765"
 set "EDIT_PORT=8768"
+set "EDIT_MODE=1"
+set "BIRINCI_EDIT_MODE=1"
 
 where python >nul 2>&1
 if errorlevel 1 (

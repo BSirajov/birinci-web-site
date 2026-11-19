@@ -393,8 +393,10 @@ class Builder:
             for lang in LANGS:
                 if lang not in alternatives:
                     continue
-                option = etree.SubElement(menu, "a", {"class": "lang-switcher__option", "role": "option", "href": rel(alternatives[lang], page),
-                    "hreflang": lang, "data-lang": lang, "aria-selected": str(lang == "de").lower(), "title": NAMES[lang]})
+                option_href = rel(alternatives[lang], page)
+                option = etree.SubElement(menu, "a", {"class": "lang-switcher__option", "role": "option", "href": option_href,
+                    "hreflang": lang, "data-lang": lang, "data-lang-target": option_href,
+                    "aria-selected": str(lang == "de").lower(), "title": NAMES[lang]})
                 etree.SubElement(option, "img", {"class": "lang-switcher__flag", "src": rel(f"flags/{lang}.svg", page), "alt": "", "width": "20", "height": "14", "decoding": "async"})
                 etree.SubElement(option, "span").text = lang.upper()
         for script in root.xpath('//script[@src]'):
