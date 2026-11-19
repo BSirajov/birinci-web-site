@@ -7357,8 +7357,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       }
       return paragraphs
         .map((p, i) => {
+          // Keep this helper self-contained: tooling extracts paragraphsHtml alone.
           if (!String(p || "").trim()) {
-            return storyParagraphHtml("");
+            return '<p class="story__stanza-break" aria-hidden="true"><br /></p>';
           }
           const isSrc = lastIsSrc && i === last;
           const isAuthorCredit = i === last && (isEtibarAuthorCredit(p) || isBakhtiyarAuthorCredit(p));
