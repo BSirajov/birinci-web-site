@@ -112,7 +112,7 @@ SITE_ASSET_VERSION = "20261103titles"
 # All active story illustration text panels synchronized with their Word sources.
 ILLUSTRATION_ASSET_VERSION = "20261109panels1530"
 # Shared site.css / site.js (phone illustration-control chrome).
-SITE_CHROME_ASSET_VERSION = "20261119roothome1"
+SITE_CHROME_ASSET_VERSION = "20261119legalhero2"
 INVENTIONS_BRIDGE_ASSET_VERSION = "20260924bg"
 # Discoveries catalog JS (view=list URL cache-bust). Independent of site chrome.
 KT_INVENTIONS_JS_VERSION = "20261004qa1"
