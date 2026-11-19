@@ -307,6 +307,16 @@ def hide_discoveries_i18n(js: str) -> str:
     return f"{prefix}{payload};\n"
 
 
+def hide_discoveries_site_js(js: str) -> str:
+    """Neutralize Discoveries compare route literals in the publish copy of site.js."""
+    if "discoveries/compare" not in js:
+        return js
+    # Discovery compare pages are not shipped; keep JS syntactically valid.
+    return js.replace("discoveries/compare.html", "#").replace(
+        "discoveries/compare", "#"
+    )
+
+
 def hide_discoveries(tree: Path) -> int:
     """Remove every public entry point to Discoveries from a publish tree."""
     edited = 0
@@ -326,6 +336,13 @@ def hide_discoveries(tree: Path) -> int:
         updated = hide_discoveries_i18n(text)
         if updated != text:
             path.write_text(updated, encoding="utf-8", newline="\n")
+            edited += 1
+    site_js = tree / "assets" / "site.js"
+    if site_js.is_file():
+        text = site_js.read_text(encoding="utf-8")
+        updated = hide_discoveries_site_js(text)
+        if updated != text:
+            site_js.write_text(updated, encoding="utf-8", newline="\n")
             edited += 1
     sitemap = tree / "sitemap.xml"
     if sitemap.is_file():
