@@ -65,9 +65,9 @@ _DEV_EDIT_FLAG_RE = re.compile(
 def asset_fingerprint(path: Path) -> str:
     """Hash shared assets, ignoring publish-time CSS image ?v= restamps and newlines.
 
-    For site.js, also normalize DEV_STORY_EDIT_BUILD_FLAG to false so the source
-    tree (flag true for local edit) matches deployment/ after build_deployment
-    scrubs it.
+    For site.js, also normalize DEV_STORY_EDIT_BUILD_FLAG to false and Discoveries
+    compare route literals so the source tree matches deployment/ after
+    build_deployment scrubs both.
     """
     data = path.read_bytes()
     if path.suffix.lower() in {".css", ".js"}:
@@ -76,6 +76,10 @@ def asset_fingerprint(path: Path) -> str:
             text = _V_QUERY_RE.sub("", text)
         if path.name == "site.js":
             text = _DEV_EDIT_FLAG_RE.sub(r"\1false\2", text, count=1)
+            # Same neutralization as tools/build_deployment.hide_discoveries_site_js.
+            text = text.replace("discoveries/compare.html", "#").replace(
+                "discoveries/compare", "#"
+            )
         data = text.encode("utf-8")
     return hashlib.sha256(data).hexdigest()[:16]
 
