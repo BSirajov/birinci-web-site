@@ -56,13 +56,26 @@ def warn(name: str, detail: str = "") -> None:
 _V_QUERY_RE = re.compile(r"\?v=[^\"')\s]+")
 
 
+_DEV_EDIT_FLAG_RE = re.compile(
+    r"(const\s+DEV_STORY_EDIT_BUILD_FLAG\s*=\s*)(?:true|false)(\s*;)",
+    re.M,
+)
+
+
 def asset_fingerprint(path: Path) -> str:
-    """Hash shared assets, ignoring publish-time CSS image ?v= restamps and newlines."""
+    """Hash shared assets, ignoring publish-time CSS image ?v= restamps and newlines.
+
+    For site.js, also normalize DEV_STORY_EDIT_BUILD_FLAG to false so the source
+    tree (flag true for local edit) matches deployment/ after build_deployment
+    scrubs it.
+    """
     data = path.read_bytes()
     if path.suffix.lower() in {".css", ".js"}:
         text = data.decode("utf-8").replace("\r\n", "\n")
         if path.suffix.lower() == ".css":
             text = _V_QUERY_RE.sub("", text)
+        if path.name == "site.js":
+            text = _DEV_EDIT_FLAG_RE.sub(r"\1false\2", text, count=1)
         data = text.encode("utf-8")
     return hashlib.sha256(data).hexdigest()[:16]
 
