@@ -454,7 +454,11 @@
     // Flat title / prose / moral / source / figure slots so .sc-grid can align
     // rows across language columns via CSS subgrid (space sits above moral).
     const bodyHtml = (parts.body || [])
-      .map((p) => '<p class="sc-col__text" style="white-space: pre-line">' + escapeHtml(p) + "</p>")
+      .map((p) =>
+        !String(p || "").trim()
+          ? '<p class="story__stanza-break sc-col__text" aria-hidden="true"><br /></p>'
+          : '<p class="sc-col__text" style="white-space: pre-line">' + escapeHtml(p) + "</p>"
+      )
       .join("");
     const moralHtml = parts.moral
       ? '<p class="sc-col__moral story__moral" style="white-space: pre-line">' + escapeHtml(parts.moral.replace(/^\s*(?:[İiIı]brət|ibret|nəticə|moral|lesson|(?:die\s+)?lehre|мораль|урок|үлгү|сабак)\s*:\s*/i, "")) + "</p>"

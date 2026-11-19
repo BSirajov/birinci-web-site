@@ -8132,6 +8132,13 @@ body.dev-story-edit .dev-page-edit-target[contenteditable="true"]:hover {
 
 /* Shared story prose and legacy archive pagination. */
 .story__text p { white-space: pre-line; }
+.story__text p.story__stanza-break,
+.card-text p.story__stanza-break,
+.sc-col__text.story__stanza-break {
+  margin: 0.55em 0;
+  min-height: 1em;
+  line-height: 1;
+}
 .wisdom-pager { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; margin: 1.5rem 0; }
 
 /* Language-switch availability and retained-search feedback. */

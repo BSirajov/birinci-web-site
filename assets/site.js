@@ -3619,6 +3619,16 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       .replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;");
 
+  // Empty catalog paragraphs are poem stanza breaks. Keep a forced line box so
+  // browsers do not collapse them to height 0 after JS re-renders the text.
+  const storyParagraphHtml = (value, { className = "" } = {}) => {
+    if (!String(value || "").trim()) {
+      return '<p class="story__stanza-break" aria-hidden="true"><br /></p>';
+    }
+    const cls = className ? ` class="${className}"` : "";
+    return `<p${cls}>${escapeLiveHtml(value).replace(/\n/g, "<br />")}</p>`;
+  };
+
   const applyStoriesFromCatalog = (catalog) => {
     if (!catalog) return;
     const byStem = new Map();
@@ -3642,9 +3652,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       }
       const text = el.querySelector(".story__text, .card-text");
       if (text && Array.isArray(story.paragraphs)) {
-        text.innerHTML = story.paragraphs
-          .map((p) => "<p>" + escapeLiveHtml(p) + "</p>")
-          .join("");
+        text.innerHTML = story.paragraphs.map((p) => storyParagraphHtml(p)).join("");
       }
     });
     if (typeof window.__birinciRefreshStoryCategoryFilter === "function") {
@@ -7349,6 +7357,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
       }
       return paragraphs
         .map((p, i) => {
+          if (!String(p || "").trim()) {
+            return storyParagraphHtml("");
+          }
           const isSrc = lastIsSrc && i === last;
           const isAuthorCredit = i === last && (isEtibarAuthorCredit(p) || isBakhtiyarAuthorCredit(p));
           const cls = i === moralI ? "story__moral" : isSrc || isAuthorCredit || (moralI >= 0 && i > moralI) ? "story__source" : "";
@@ -7364,7 +7375,7 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
               .map((line) => `<span class="story__source-line">${escapeHtml(line)}</span>`)
               .join("");
           } else {
-            html = escapeHtml(i === moralI ? String(text).replace(/^\s*(?:[İiIı]brət|ibret|nəticə|moral|lesson|(?:die\s+)?lehre|мораль|урок|үлгү|сабак)\s*:\s*/i, "") : text);
+            html = escapeHtml(i === moralI ? String(text).replace(/^\s*(?:[İiIı]brət|ibret|nəticə|moral|lesson|(?:die\s+)?lehre|мораль|урок|үлгү|сабак)\s*:\s*/i, "") : text).replace(/\n/g, "<br />");
           }
           return `<p${cls ? ` class="${cls}"` : ""}>${html}</p>`;
         })

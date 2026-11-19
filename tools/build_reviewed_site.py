@@ -95,7 +95,7 @@ def paragraph_markup(paragraphs, stem):
     for i, text in enumerate(paragraphs):
         # Poem stanza break: keep a visible blank line between verses.
         if stem in POEMS and not str(text).strip():
-            parts.append("<p aria-hidden=\"true\"><br /></p>")
+            parts.append('<p class="story__stanza-break" aria-hidden="true"><br /></p>')
             continue
         moral = bool(MORAL.match(text))
         source = after_moral or (stem in POEMS and i == len(paragraphs) - 1)

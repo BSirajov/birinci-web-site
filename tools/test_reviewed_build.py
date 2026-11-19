@@ -65,6 +65,20 @@ def test_page_refresh_keeps_controls_and_poem_line_breaks():
     assert patch_page(rebuilt, {'flowers': story})[0] == rebuilt
 
 
+def test_poem_stanza_breaks_render_as_visible_blank_paragraphs():
+    original = ('<article class="story" id="flowers"><h2 class="story__title">Old</h2>'
+                '<div class="story__text"><p>Old</p></div></article>')
+    story = {
+        'title': 'Güllər',
+        'paragraphs': ['Line one', 'Line two', 'Line three', 'Line four', '', 'Next stanza', 'Etibar Siracsoy'],
+    }
+    rebuilt, seen = patch_page(original, {'flowers': story})
+    assert seen == {'flowers'}
+    assert 'class="story__stanza-break" aria-hidden="true"><br' in rebuilt
+    assert rebuilt.count('story__stanza-break') == 1
+    assert patch_page(rebuilt, {'flowers': story})[0] == rebuilt
+
+
 def test_reviewed_image_labels_replace_stale_template_labels():
     original = ('<article id="door"><h2 class="story__title">Old</h2>'
                 '<div class="story__text"><p>Old</p></div>'
