@@ -4149,8 +4149,9 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   const finePointerQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
   const canHoverNav = () => finePointerQuery.matches && !mobileNavQuery.matches;
 
-  const PAGE_TOOLBAR_SEL =
-    '.tools-bar[data-tools="home"], .tools-bar[data-tools="category"], .tools-bar[data-tools="inventions"], .tools-bar[data-tools="sitemap"]';
+  const CATALOG_TOOLBAR_SEL =
+    '.tools-bar[data-tools="home"], .tools-bar[data-tools="category"], .tools-bar[data-tools="inventions"]';
+  const PAGE_TOOLBAR_SEL = `${CATALOG_TOOLBAR_SEL}, .tools-bar[data-tools="sitemap"]`;
 
   const syncStickyChrome = () => {
     const root = document.documentElement;
@@ -4174,6 +4175,24 @@ window.__BIRINCI_STORY_ICONS__ = {"text": "<svg class=\"tools-bar__glyph\" viewB
   window.__birinciSyncStickyChrome = syncStickyChrome;
 
   const placePageToolbar = () => {
+    // Root gateway + legal/feedback: no story catalog — drop leftover catalog tools bars.
+    // Sitemap keeps its own page-search tools-bar (lifted under breadcrumbs below).
+    if (
+      document.body &&
+      (document.body.classList.contains("page-root-home") ||
+        document.body.classList.contains("page-legal") ||
+        /\/feedback\.html(?:[?#]|$)/i.test(String(location.pathname || "")))
+    ) {
+      document.querySelectorAll(CATALOG_TOOLBAR_SEL).forEach((el) => el.remove());
+      const rootSlot = document.querySelector(".page-toolbar");
+      if (rootSlot) rootSlot.remove();
+      document.body.classList.remove("has-page-toolbar");
+      syncStickyChrome();
+      return null;
+    }
+    if (document.body && document.body.classList.contains("page-sitemap")) {
+      document.querySelectorAll(CATALOG_TOOLBAR_SEL).forEach((el) => el.remove());
+    }
     const bar = document.querySelector(PAGE_TOOLBAR_SEL);
     const crumbs = document.querySelector(".breadcrumbs");
     let slot = document.querySelector(".page-toolbar");

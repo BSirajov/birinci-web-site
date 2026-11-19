@@ -41,6 +41,10 @@ _BREADCRUMBS_RE = re.compile(
     r"[ \t]*<nav class=\"breadcrumbs\"[\s\S]*?</nav>\s*",
     re.I,
 )
+_PAGE_TOOLBAR_RE = re.compile(
+    r"[ \t]*<div class=\"page-toolbar\"[^>]*>[\s\S]*?</div>\s*(?=<main\b)",
+    re.I,
+)
 _HOME_CONTENT_RE = re.compile(
     r"<div class=\"page-home__content\">[\s\S]*?</div>\s*(?=</main>)",
     re.I,
@@ -141,8 +145,15 @@ def _legal_group_crumb(lang: str) -> str:
 
 def _legal_breadcrumbs_html(lang: str, filename: str, page_title: str) -> str:
     home = _home_crumb(lang)
+    # Feedback is a top-level primary-nav item, not under About us.
+    if filename == "feedback.html":
+        items: list[tuple[str | None, str, bool]] = [
+            ("index.html", home, False),
+            (None, page_title, True),
+        ]
+        return render_breadcrumbs_nav(items, lang)
     about = _about_crumb(lang)
-    items: list[tuple[str | None, str, bool]] = [
+    items = [
         ("index.html", home, False),
         ("about/mission-vision-values.html", about, False),
     ]
@@ -325,6 +336,12 @@ def build_legal_inner_html(lang: str, filename: str) -> str:
     if page.get("form"):
         form = _form_html(lang, page["form"])
     title = page["title"]
+    # Match intro__brand: ink lead + gradient accent on the final word/phrase.
+    parts = title.rsplit(" ", 1)
+    if len(parts) == 2:
+        title_html = f"{_esc(parts[0])} <span>{_esc(parts[1])}</span>"
+    else:
+        title_html = f"<span>{_esc(title)}</span>"
     panel_title = (PANEL_TITLE.get(lang) or PANEL_TITLE["en"]).get(slug, highlights_title)
     panel_copy = page.get("panel") or page.get("lead", "")
     article_bits = []
@@ -344,7 +361,7 @@ def build_legal_inner_html(lang: str, filename: str) -> str:
         '  <header class="hero legal-hero">\n'
         '    <div class="hero-wrap">\n'
         "      <section>\n"
-        f'        <h1 id="page-title">{_esc(title)}</h1>\n'
+        f'        <h1 id="page-title">{title_html}</h1>\n'
         f'        <p class="page-hero-subtitle" id="page-hero-subtitle" role="doc-subtitle">'
         f"{_esc(page.get('lead', ''))}</p>\n"
         "      </section>\n"
@@ -388,6 +405,8 @@ def build_legal_page_html(index_html: str, lang: str, filename: str) -> str:
         )
 
     markup = _BODY_RE.sub(_body, markup, count=1)
+    # Legal pages are not story browsers — drop the home tools / search bar.
+    markup = _PAGE_TOOLBAR_RE.sub("", markup)
     crumbs = _legal_breadcrumbs_html(lang, filename, page["title"])
     if _BREADCRUMBS_RE.search(markup):
         markup = _BREADCRUMBS_RE.sub(crumbs, markup, count=1)
@@ -428,18 +447,25 @@ def write_german_feedback():
 
 
 def _write_german_legal_page(filename):
-    from chrome_restore import ensure_about_nav, ensure_lang_switcher_dropdown, ensure_seo_head
+    from chrome_restore import (
+        ensure_about_nav,
+        ensure_breadcrumb_home_href,
+        ensure_info_page_breadcrumbs,
+        ensure_lang_switcher_dropdown,
+        ensure_seo_head,
+    )
     source = (ROOT / "de/index.html").read_text(encoding="utf-8")
     markup = build_legal_page_html(source, "de", filename)
     markup = markup.replace(' data-wisdom-generator="german-docx"', '')
     markup = re.sub(r'<link\b[^>]*rel="(?:canonical|alternate)"[^>]*>', '', markup)
-    markup = re.sub(r'<li class="breadcrumbs__item"><a href="about/mission-vision-values.html">.*?</a></li>', '', markup)
     path = ROOT / "de" / filename
-    path.write_text(markup, encoding="utf-8")
-    markup = ensure_about_nav(markup, "de", "de/" + filename)
-    markup = ensure_lang_switcher_dropdown(markup, "de", "de/" + filename)
-    markup = ensure_seo_head(markup, "de", "de/" + filename)
-    path.write_text(markup, encoding="utf-8")
+    rel = f"de/{filename}"
+    markup = ensure_about_nav(markup, "de", rel)
+    markup = ensure_lang_switcher_dropdown(markup, "de", rel)
+    markup = ensure_seo_head(markup, "de", rel)
+    markup = ensure_info_page_breadcrumbs(markup, "de", rel_path=rel)
+    markup = ensure_breadcrumb_home_href(markup)
+    path.write_text(markup, encoding="utf-8", newline="\n")
 
 
 if __name__ == "__main__":

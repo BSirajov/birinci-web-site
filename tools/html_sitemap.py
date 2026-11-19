@@ -13,13 +13,22 @@ TOOLS = Path(__file__).resolve().parent
 if str(TOOLS) not in __import__("sys").path:
     __import__("sys").path.insert(0, str(TOOLS))
 
-from build_html_manuals import sitemap_link
+from build_html_manuals import LABELS as MANUAL_LABELS
 from stories_catalog import load_stories_catalog  # noqa: E402
+from legal_copy import page_for  # noqa: E402
 from legal_meta import (  # noqa: E402
     FOOTER_LEGAL_ITEMS,
     FOOTER_LEGAL_LABEL_FALLBACKS,
     render_breadcrumbs_nav,
 )
+
+HELP_NAV_LABELS = {
+    "az": "Kömək",
+    "de": "Hilfe",
+    "en": "Help",
+    "ky": "Жардам",
+    "ru": "Помощь",
+}
 
 LIVE_LANGS = ("az", "en", "ru", "ky")
 
@@ -42,6 +51,10 @@ _META_DESC_RE = re.compile(
 _BODY_RE = re.compile(r"<body\b([^>]*)>", re.I)
 _BREADCRUMBS_RE = re.compile(
     r"[ \t]*<nav class=\"breadcrumbs\"[\s\S]*?</nav>\s*",
+    re.I,
+)
+_PAGE_TOOLBAR_RE = re.compile(
+    r"[ \t]*<div class=\"page-toolbar\"[^>]*>[\s\S]*?</div>\s*(?=<main\b)",
     re.I,
 )
 _HOME_CONTENT_RE = re.compile(
@@ -90,7 +103,7 @@ def _sitemap_copy(lang: str) -> dict:
         "lead": "",
         "jump_label": "On this page",
         "search_label": "Search this page",
-        "search_placeholder": "Search stories and sections…",
+        "search_placeholder": "Search sections…",
         "search_no_match": "No matching items on this page.",
         "overview_title": "Main sections",
         "home_title": loc.get("home_crumb", "Home"),
@@ -101,9 +114,20 @@ def _sitemap_copy(lang: str) -> dict:
         "stories_section": loc.get("nav_stories_label", ""),
         "discoveries_section": (ui.get("inventions") or {}).get("page_title", ""),
         "about_section": (ui.get("about") or {}).get("kicker", ""),
-        "authors_section": loc.get("all_authors", "Authors"),
+        "authors_section": ui.get("all_authors") or loc.get("all_authors", "Authors"),
         "authors_desc": "",
         "authors_all_desc": "",
+        "feedback_section": ui.get("footer_feedback") or "Feedback",
+        "feedback_desc": "",
+        "help_section": HELP_NAV_LABELS.get(lang, "Help"),
+        "help_desc": "",
+        "help_title": (MANUAL_LABELS.get(lang) or MANUAL_LABELS["en"])[0],
+        "tools_section": "Tools",
+        "tools_lead": "",
+        "stories_compare_title": "Compare stories",
+        "discoveries_compare_title": "Compare discoveries",
+        "stories_list_label": ui.get("view_list") or "List",
+        "stories_cards_label": ui.get("view_cards") or "Cards",
         "languages_section": ui.get("lang_switcher_label", "Language"),
         "languages_lead": "",
         "legal_section": "Legal",
@@ -139,6 +163,9 @@ _SITEMAP_ICONS = {
     "discoveries": '<path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/>',
     "about": '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>',
     "authors": '<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>',
+    "feedback": '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>',
+    "help": '<circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 2-2.5 2-2.5 4M12 16h.01"/>',
+    "tools": '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>',
     "legal": '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/>',
 }
 
@@ -189,13 +216,14 @@ def _author_pages(lang: str) -> list[dict]:
     if not folder.is_dir():
         return []
     loc = _locale(lang)
+    ui = loc.get("ui") or {}
     rows: list[dict] = []
     index = folder / "index.html"
     if index.is_file():
         rows.append(
             {
                 "href": "authors/index.html",
-                "title": loc.get("all_authors", "Authors"),
+                "title": ui.get("all_authors") or loc.get("all_authors", "Authors"),
                 "is_index": True,
             }
         )
@@ -203,7 +231,11 @@ def _author_pages(lang: str) -> list[dict]:
         if path.name == "index.html":
             continue
         key = path.stem
-        title = loc.get(f"author_{key}", key.replace("-", " ").title())
+        title = (
+            ui.get(f"author_{key}")
+            or loc.get(f"author_{key}")
+            or key.replace("-", " ").title()
+        )
         rows.append({"href": f"authors/{path.name}", "title": title, "is_index": False})
     return rows
 
@@ -291,13 +323,22 @@ def build_sitemap_inner_html(lang: str) -> str:
             )
         return f'<ul class="sitemap-links">\n{" ".join(rows)}\n</ul>'
 
-    def section_head(title_id: str, title: str, more_href: str = "", more_label: str = "") -> str:
-        more = ""
+    def section_head(
+        title_id: str,
+        title: str,
+        more_href: str = "",
+        more_label: str = "",
+        more_links: list[tuple[str, str]] | None = None,
+    ) -> str:
+        links_more = list(more_links or [])
         if more_href:
-            more = (
-                f'<a class="sitemap-section__more" href="{html.escape(more_href, quote=True)}">'
-                f"<span>{_esc(more_label)}</span></a>"
-            )
+            links_more.insert(0, (more_href, more_label))
+        more = "".join(
+            f'<a class="sitemap-section__more" href="{html.escape(href, quote=True)}">'
+            f"<span>{_esc(label)}</span></a>"
+            for href, label in links_more
+            if href and label
+        )
         return (
             '<div class="sitemap-section__head">'
             '<div class="sitemap-section__title">'
@@ -305,6 +346,22 @@ def build_sitemap_inner_html(lang: str) -> str:
             "</div>"
             f"{more}</div>"
         )
+
+    try:
+        feedback_page = page_for(lang, "feedback")
+    except (KeyError, TypeError):
+        feedback_page = {}
+    feedback_title = str(
+        feedback_page.get("title") or copy["feedback_section"] or ui.get("footer_feedback") or "Feedback"
+    )
+    feedback_desc = str(
+        copy.get("feedback_desc")
+        or feedback_page.get("lead")
+        or feedback_page.get("description")
+        or ""
+    )
+    help_title = copy["help_title"]
+    help_desc = str(copy.get("help_desc") or help_title)
 
     overview = [
         {
@@ -341,6 +398,22 @@ def build_sitemap_inner_html(lang: str) -> str:
                 lang, about_href, about.get("page_title", copy["about_section"])
             ),
             "desc": copy["about_desc"] or about.get("page_description", ""),
+            "meta": "",
+        },
+        {
+            "tone": "feedback",
+            "href": _local_href(lang, "feedback.html"),
+            "kicker": copy["feedback_section"],
+            "title": feedback_title,
+            "desc": feedback_desc,
+            "meta": "",
+        },
+        {
+            "tone": "help",
+            "href": _local_href(lang, "user-manual.html"),
+            "kicker": copy["help_section"],
+            "title": help_title,
+            "desc": help_desc,
             "meta": "",
         },
     ]
@@ -426,7 +499,8 @@ def build_sitemap_inner_html(lang: str) -> str:
     fallbacks = FOOTER_LEGAL_LABEL_FALLBACKS.get(lang) or FOOTER_LEGAL_LABEL_FALLBACKS["en"]
     legal_links = []
     for filename, key in FOOTER_LEGAL_ITEMS:
-        if filename == "sitemap.html":
+        # Feedback and Sitemap are top-level destinations, not legal docs.
+        if filename in {"sitemap.html", "feedback.html"}:
             continue
         href = _local_href(lang, filename)
         title = _fallback_label(
@@ -434,6 +508,45 @@ def build_sitemap_inner_html(lang: str) -> str:
         )
         legal_links.append(
             f'<li><a href="{html.escape(href, quote=True)}"><span>{_esc(title)}</span></a></li>'
+        )
+
+    tool_items: list[dict] = []
+    stories_compare = "stories/compare.html"
+    if _page_exists(lang, stories_compare) or lang == "de":
+        href = _local_href(lang, stories_compare)
+        tool_items.append(
+            {
+                "href": href,
+                "title": _fallback_label(lang, href, copy["stories_compare_title"]),
+            }
+        )
+    discoveries_compare = "discoveries/compare.html"
+    if _page_exists(lang, discoveries_compare) or (
+        lang == "de" and _page_exists("en", discoveries_compare)
+    ):
+        href = _local_href(lang, discoveries_compare)
+        tool_items.append(
+            {
+                "href": href,
+                "title": _fallback_label(lang, href, copy["discoveries_compare_title"]),
+            }
+        )
+    tools_section = ""
+    if tool_items:
+        tool_links = "".join(
+            f'<li><a href="{html.escape(item["href"], quote=True)}">'
+            f'<span>{_esc(item["title"])}</span></a></li>'
+            for item in tool_items
+        )
+        tools_section = (
+            f'    <section class="sitemap-section sitemap-section--tools" id="sitemap-tools" aria-labelledby="sitemap-tools-title">\n'
+            f'      {section_head("sitemap-tools-title", copy["tools_section"])}\n'
+            f'      <p class="sitemap-langs__lead">{_esc(copy.get("tools_lead") or "")}</p>\n'
+            '      <article class="sitemap-block sitemap-block--tools">\n'
+            f'        {_orb_icon("tools", 18)}\n'
+            f'        <ul class="sitemap-links">\n{tool_links}\n        </ul>\n'
+            "      </article>\n"
+            "    </section>\n"
         )
 
     jump_items = [
@@ -446,6 +559,14 @@ def build_sitemap_inner_html(lang: str) -> str:
         [
             ("discoveries", "#sitemap-discoveries", copy["discoveries_section"]),
             ("about", "#sitemap-about", copy["about_section"]),
+            ("feedback", "feedback.html", copy["feedback_section"]),
+            ("help", "user-manual.html", copy["help_title"]),
+        ]
+    )
+    if tool_items:
+        jump_items.append(("tools", "#sitemap-tools", copy["tools_section"]))
+    jump_items.extend(
+        [
             ("legal", "#sitemap-legal", copy["legal_section"]),
             ("languages", "#sitemap-languages", copy["languages_section"]),
         ]
@@ -455,7 +576,6 @@ def build_sitemap_inner_html(lang: str) -> str:
         f'href="{html.escape(href, quote=True)}">{_esc(label)}</a>'
         for tone, href, label in jump_items
     )
-    jump_chips += sitemap_link(lang)
     jump = (
         f'<nav class="sitemap-jump" aria-label="{_esc(copy["jump_label"])}">'
         f'<div class="sitemap-jump__inner">'
@@ -524,7 +644,7 @@ def build_sitemap_inner_html(lang: str) -> str:
         f'      <div class="sitemap-overview">\n{" ".join(overview_html)}\n      </div>\n'
         "    </section>\n"
         f'    <section class="sitemap-section sitemap-section--stories" id="sitemap-stories" aria-labelledby="sitemap-stories-title">\n'
-        f'      {section_head("sitemap-stories-title", copy["stories_section"], "index.html?view=list", loc.get("nav_stories_all", copy["browse_chapter"]))}\n'
+        f'      {section_head("sitemap-stories-title", copy["stories_section"], more_links=[("index.html?view=list", copy["stories_list_label"]), ("index.html?view=cards", copy["stories_cards_label"])])}\n'
         f'      <div class="sitemap-grid">\n{" ".join(story_blocks)}\n      </div>\n'
         "    </section>\n"
         f"{authors_section}"
@@ -543,6 +663,7 @@ def build_sitemap_inner_html(lang: str) -> str:
         "</a>\n"
         "      </div>\n"
         "    </section>\n"
+        f"{tools_section}"
         f'    <section class="sitemap-section sitemap-section--legal" id="sitemap-legal" aria-labelledby="sitemap-legal-title">\n'
         f'      {section_head("sitemap-legal-title", copy["legal_section"])}\n'
         f'      <p class="sitemap-langs__lead">{_esc(copy.get("legal_lead") or "")}</p>\n'
@@ -568,7 +689,6 @@ def build_sitemap_page_html(index_html: str, lang: str) -> str:
     title = f"{copy['page_title']} · {site}"
     desc = copy["page_description"]
     home = loc.get("home_crumb", "Home")
-    about = ((loc.get("ui") or {}).get("about") or {}).get("kicker") or "About"
     markup = index_html
     markup = _TITLE_RE.sub(f"<title>{html.escape(title)}</title>", markup, count=1)
     meta = (
@@ -588,10 +708,12 @@ def build_sitemap_page_html(index_html: str, lang: str) -> str:
         return f'<body class="page-home page-sitemap" data-lang-page="sitemap.html"{attrs}>'
 
     markup = _BODY_RE.sub(_body, markup, count=1)
+    # Sitemap is not a story browser — drop the home tools / search bar.
+    markup = _PAGE_TOOLBAR_RE.sub("", markup)
+    # Sitemap is a top-level primary-nav item, not under About us.
     crumbs = render_breadcrumbs_nav(
         [
             ("index.html", home, False),
-            (_local_href(lang, "about/mission-vision-values.html"), about, False),
             (None, copy["page_title"], True),
         ],
         lang,

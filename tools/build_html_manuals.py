@@ -146,14 +146,17 @@ def main():
         page = re.sub(r'\.\./assets/manuals/[^/"?]+/[^/"?]+\.webp',
                       version_screenshot, page)
         _atomic_write_text(ROOT / lang / 'user-manual.html', page)
-        # Keep checked-in sitemaps discoverable without rebuilding unrelated pages.
+        # Help / user-manual is listed by html_sitemap jump chips + overview cards.
         sitemap = ROOT / lang / 'sitemap.html'
-        text = sitemap.read_text(encoding='utf-8')
-        text = re.sub(r'<p class="manual-link">.*?</p>', '', text)
-        text = re.sub(r'<a class="sitemap-jump__chip sitemap-jump__chip--manual"[^>]*>.*?</a>', '', text)
-        text = re.sub(r'(<a class="sitemap-jump__chip sitemap-jump__chip--languages"[^>]*>.*?</a>)',
-                      lambda match: match[1] + sitemap_link(lang), text, count=1)
-        _atomic_write_text(sitemap, text)
+        if sitemap.is_file():
+            text = sitemap.read_text(encoding='utf-8')
+            text = re.sub(r'<p class="manual-link">.*?</p>', '', text)
+            text = re.sub(
+                r'<a class="sitemap-jump__chip sitemap-jump__chip--manual"[^>]*>.*?</a>',
+                '',
+                text,
+            )
+            _atomic_write_text(sitemap, text)
     print('Built 5 HTML guides with localized optimized screenshots.')
 
 if __name__ == '__main__':

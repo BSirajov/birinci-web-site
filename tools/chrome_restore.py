@@ -112,7 +112,7 @@ SITE_ASSET_VERSION = "20261103titles"
 # All active story illustration text panels synchronized with their Word sources.
 ILLUSTRATION_ASSET_VERSION = "20261109panels1530"
 # Shared site.css / site.js (phone illustration-control chrome).
-SITE_CHROME_ASSET_VERSION = "20261119poemstanzas1"
+SITE_CHROME_ASSET_VERSION = "20261119roothome1"
 INVENTIONS_BRIDGE_ASSET_VERSION = "20260924bg"
 # Discoveries catalog JS (view=list URL cache-bust). Independent of site chrome.
 KT_INVENTIONS_JS_VERSION = "20261004qa1"
@@ -4707,6 +4707,8 @@ def patch_emitted_html(
     html = ensure_seo_head(html, lang, rel_path)
     html = rewrite_content_media_paths(html)
     html = dehydrate_story_illustrations(html)
+    # Re-apply after later rewrites that may rebuild crumbs with bare index.html.
+    html = ensure_breadcrumb_home_href(html)
     return html
 
 
@@ -4808,14 +4810,31 @@ def _info_page_filename(html: str, rel_path: str) -> str:
 
 
 def ensure_info_page_breadcrumbs(html: str, lang: str, rel_path: str = "") -> str:
-    """Keep About / legal / sitemap sticky crumbs aligned with the About dropdown IA."""
+    """Keep sticky crumbs aligned with primary-nav IA.
+
+    Feedback and Sitemap are top-level nav items (Home → Page).
+    Nested legal docs stay under About → Legal group.
+    """
     if 'class="breadcrumbs"' not in html:
         return html
     filename = _info_page_filename(html, rel_path)
     home = _home_crumb_label(lang)
     about = _about_kicker_label(lang)
     items: list[tuple[str | None, str, bool]] | None = None
-    if filename in LEGAL_HTML_FILES or "page-legal" in html:
+    if filename == "feedback.html":
+        from legal_copy import page_for  # noqa: WPS433
+
+        try:
+            page_title = str(page_for(lang, "feedback").get("title") or "")
+        except (KeyError, TypeError):
+            page_title = ""
+        if not page_title:
+            return html
+        items = [
+            ("index.html", home, False),
+            (None, page_title, True),
+        ]
+    elif filename in ABOUT_LEGAL_NESTED_FILES:
         from legal_copy import page_for  # noqa: WPS433
 
         slug = filename.replace(".html", "")
@@ -4828,16 +4847,17 @@ def ensure_info_page_breadcrumbs(html: str, lang: str, rel_path: str = "") -> st
         items = [
             ("index.html", home, False),
             ("about/mission-vision-values.html", about, False),
+            (None, _legal_group_crumb_label(lang), False),
+            (None, page_title, True),
         ]
-        if filename in ABOUT_LEGAL_NESTED_FILES:
-            items.append((None, _legal_group_crumb_label(lang), False))
-        items.append((None, page_title, True))
+    elif filename in LEGAL_HTML_FILES or "page-legal" in html:
+        # Unknown legal slug — leave authored crumbs alone.
+        return html
     elif "page-sitemap" in html or filename == "sitemap.html":
         loc = _load_locale(lang)
         title = str(((loc.get("ui") or {}).get("sitemap") or {}).get("page_title") or "Sitemap")
         items = [
             ("index.html", home, False),
-            ("about/mission-vision-values.html", about, False),
             (None, title, True),
         ]
     elif "page-about" in html or filename == "mission-vision-values.html":
@@ -4868,6 +4888,11 @@ _HOME_INLINE_SCRIPT_RE = re.compile(
 )
 _CATEGORIES_SECTION_RE = re.compile(
     r"[ \t]*<section id=\"kateqoriyalar\"[\s\S]*?</section>\s*",
+    re.I,
+)
+# Root gateway is not a story browser — drop the AZ home tools bar when cloning chrome.
+_PAGE_TOOLBAR_RE = re.compile(
+    r"[ \t]*<div class=\"page-toolbar\"[^>]*>[\s\S]*?</div>\s*(?=<main\b)",
     re.I,
 )
 
@@ -5414,6 +5439,16 @@ def build_root_home_html(az_html: str) -> str:
     # Keep the sticky breadcrumbs strip (Home only) — do not strip it.
     html = _HOME_INLINE_SCRIPT_RE.sub("", html)
     html = _CATEGORIES_SECTION_RE.sub("", html)
+    html = _PAGE_TOOLBAR_RE.sub("", html)
+    html = re.sub(
+        r'(<body\b[^>]*\bclass=")([^"]*)"',
+        lambda m: m.group(1)
+        + re.sub(r"\bhas-page-toolbar\b", "", m.group(2)).replace("  ", " ").strip()
+        + '"',
+        html,
+        count=1,
+        flags=re.I,
+    )
 
     root_hero = build_root_intro_hero_html()
     entry = build_root_entry_section()

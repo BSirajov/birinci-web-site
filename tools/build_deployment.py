@@ -153,6 +153,19 @@ _SITEMAP_SECTION_RE = re.compile(
     r".*?</section>\n?",
     re.S,
 )
+_SITEMAP_TOOLS_CHIP_RE = re.compile(
+    r'\s*<a class="sitemap-jump__chip[^"]*sitemap-jump__chip--tools[^"]*"[^>]*>.*?</a>',
+    re.S,
+)
+_SITEMAP_COMPARE_DISC_LI_RE = re.compile(
+    r'\s*<li><a href="[^"]*discoveries/compare\.html"[^>]*>.*?</a></li>',
+    re.S,
+)
+_SITEMAP_TOOLS_SECTION_RE = re.compile(
+    r'[ \t]*<section class="sitemap-section[^"]*sitemap-section--tools[^"]*"'
+    r".*?</section>\n?",
+    re.S,
+)
 _ROOT_ENTRY_I18N_RE = re.compile(
     r'(<script type="application/json" id="root-entry-i18n">)(.*?)(</script>)',
     re.S,
@@ -166,6 +179,7 @@ _SITEMAP_URL_RE = re.compile(r"\s*<url>.*?</url>", re.S)
 DISCOVERY_LEAK_MARKERS = (
     "discoveries/discoveries-and-inventions",
     "discoveries-and-inventions.html",
+    "discoveries/compare",
     "discovery-articles/",
 )
 TEXT_SUFFIXES = frozenset({".html", ".htm", ".xml", ".txt", ".js", ".json", ".css"})
@@ -210,6 +224,14 @@ def hide_discoveries_html(html: str) -> str:
     html = _SITEMAP_CHIP_RE.sub("", html, count=1)
     html = _SITEMAP_CARD_RE.sub("", html, count=1)
     html = _SITEMAP_SECTION_RE.sub("", html, count=1)
+    html = _SITEMAP_COMPARE_DISC_LI_RE.sub("", html)
+    # Drop the Tools jump chip / section when only discoveries-compare remained.
+    if "discoveries/compare" not in html and "stories/compare.html" not in html:
+        html = _SITEMAP_TOOLS_CHIP_RE.sub("", html, count=1)
+        html = _SITEMAP_TOOLS_SECTION_RE.sub("", html, count=1)
+    elif "discoveries/compare" not in html and 'sitemap-jump__chip--tools' in html:
+        # Stories compare may remain; keep the Tools section, drop nothing else.
+        pass
     if 'id="root-entry-i18n"' in html:
         html = strip_root_entry_i18n(html)
     # After Discoveries is removed, center the remaining Wisdom + About cards.

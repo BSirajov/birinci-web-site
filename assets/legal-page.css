@@ -33,18 +33,18 @@
   padding-inline: 0;
 }
 
+/* Shared intro-style hero for Feedback + Legal Information pages. */
 .page-legal .legal-hero.hero {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   color: var(--ink, #08263b);
   width: 100%;
   max-width: var(--legal-column-max);
   margin-inline: auto;
-  padding: 0;
+  margin-top: 0;
+  padding: 0.55rem 0 0.35rem;
   box-sizing: border-box;
-  background:
-    radial-gradient(1200px 420px at 12% -10%, rgba(0, 105, 180, 0.1), transparent 60%),
-    linear-gradient(180deg, #f7fbff 0%, transparent 70%);
+  background: transparent;
 }
 
 .page-legal .legal-hero .hero-wrap {
@@ -52,66 +52,88 @@
   z-index: 1;
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
-  gap: 24px;
-  align-items: start;
+  align-items: center;
+  gap: clamp(0.75rem, 2.5vw, 1.75rem);
   width: 100%;
   max-width: none;
   margin: 0;
-  padding: 28px var(--legal-gutter) 20px;
+  padding: 0.85rem 1.25rem 0.75rem;
   box-sizing: border-box;
+  border: 1px solid var(--line-14, rgba(0, 78, 140, 0.14));
+  border-radius: 28px;
+  background: var(--nav-blue-soft, #dff2ff);
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.85) inset,
+    0 18px 40px rgba(0, 78, 140, 0.12);
 }
 
 .page-legal .legal-hero h1 {
-  margin: 0 0 12px;
+  margin: 0 0 0.35rem;
   font-family: var(--font-display, Fraunces, Georgia, serif);
-  font-size: clamp(1.7rem, 3.2vw, 2.45rem);
-  font-weight: 700;
-  line-height: 1.18;
-  letter-spacing: -0.02em;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  font-size: clamp(1.7rem, 3.6vw, 2.6rem);
   color: var(--ink, #08263b);
 }
 
+.page-legal .legal-hero h1 span {
+  background: linear-gradient(135deg, var(--nav-blue, #0069b4) 10%, var(--blue-400, #2e9fd4) 55%, #2e9fd4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 .page-legal .page-hero-subtitle {
-  margin: 0.35rem 0 0;
-  max-width: 36rem;
-  font-family: var(--font-ui, "Source Sans 3", sans-serif);
-  font-size: clamp(1rem, 1.65vw, 1.125rem);
+  margin: 0;
+  max-width: none;
+  font-family: var(--font-display, Fraunces, Georgia, serif);
+  font-size: clamp(0.92rem, 1.45vw, 1.12rem);
   font-weight: 500;
   font-style: italic;
-  line-height: 1.5;
-  letter-spacing: 0.01em;
-  color: var(--muted-hero);
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft, #345f86);
   text-align: left;
 }
 
 .page-legal .hero-panel {
   align-self: start;
-  padding: 0;
+  padding: 10px;
+  background: rgba(245, 251, 255, 0.72);
+  border: 1px solid var(--line-14, rgba(0, 78, 140, 0.14));
+  border-radius: 22px;
+  box-shadow: 0 12px 32px rgba(0, 78, 140, 0.1);
+  backdrop-filter: blur(18px);
+  box-sizing: border-box;
 }
 
 .page-legal .panel-card {
-  padding: 16px 18px;
-  border: 1px solid var(--legal-accent-line);
+  padding: 12px 14px;
+  border: 1px solid var(--line-10, rgba(0, 78, 140, 0.1));
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 10px 28px rgba(8, 38, 59, 0.06);
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: none;
 }
 
 .page-legal .panel-title {
   margin: 0 0 6px;
   font-family: var(--font-display, Fraunces, Georgia, serif);
-  font-size: 0.91rem;
+  font-size: 1.05rem;
   font-weight: 700;
   line-height: 1.15;
-  color: var(--ink, #08263b);
+  text-align: center;
+  color: var(--nav-blue-deep, #004e8c);
 }
 
 .page-legal .panel-copy,
 .page-legal .panel-copy p {
   margin: 0;
-  font-size: 13px;
-  line-height: 1.48;
-  color: var(--ink, #08263b);
+  font-family: var(--font-ui, "Source Sans 3", sans-serif);
+  font-size: 0.8125rem;
+  line-height: 1.36;
+  color: var(--ink-soft, #345f86);
 }
 
 .page-legal .legal-doc {
@@ -301,6 +323,11 @@
   margin: 0 auto 2rem;
   padding: 0 var(--legal-gutter) 8px;
   box-sizing: border-box;
+}
+
+/* Feedback hero has no side gutter — keep the form panel the same outer width. */
+.page-legal[data-lang-page="feedback.html"] .legal-feedback-form {
+  padding-inline: 0;
 }
 
 .page-legal .form-section {
@@ -659,8 +686,8 @@
 @media (max-width: 1060px) {
   .page-legal .legal-hero .hero-wrap {
     grid-template-columns: 1fr;
-    gap: 12px;
-    padding-block: 14px 12px;
+    gap: 0.75rem;
+    padding: 0.7rem 1rem 0.65rem;
   }
 }
 
@@ -695,6 +722,18 @@
 }
 
 @media (max-width: 760px) {
+  /* Match stories/home intro: keep rounded heroes off the screen edges. */
+  .page-legal .legal-hero.hero {
+    padding-inline: max(var(--legal-gutter), env(safe-area-inset-left, 0px))
+      max(var(--legal-gutter), env(safe-area-inset-right, 0px));
+  }
+
+  .page-legal[data-lang-page="feedback.html"] .legal-feedback-form,
+  .page-legal[data-lang-page="feedback.html"] .success-screen {
+    padding-inline: max(var(--legal-gutter), env(safe-area-inset-left, 0px))
+      max(var(--legal-gutter), env(safe-area-inset-right, 0px));
+  }
+
   .page-legal .page-hero-subtitle {
     max-width: none;
     font-size: 0.92rem;
@@ -714,6 +753,10 @@
 @media (max-width: 640px) {
   .page-legal {
     --legal-gutter: 16px;
+  }
+
+  .page-legal .legal-hero .hero-wrap {
+    border-radius: 22px;
   }
 
   .page-legal .legal-doc {
