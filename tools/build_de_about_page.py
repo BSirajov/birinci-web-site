@@ -264,6 +264,12 @@ def main() -> None:
     markup = patch_emitted_html(template, "de", rel_path="de/about/mission-vision-values.html")
     markup = ensure_lang_switcher_dropdown(markup, "de", "de/about/mission-vision-values.html")
     markup = ensure_seo_head(markup, "de", rel_path="de/about/mission-vision-values.html")
+    # Feedback chrome uses ../assets; about/ needs ../../assets except locale i18n.
+    markup = re.sub(
+        r'(?P<pre>(?:src|href)=")\.\./assets/(?!i18n\.js)',
+        r"\g<pre>../../assets/",
+        markup,
+    )
     markup = pin_asset_versions(markup)
     markup = re.sub(
         r'(src="(?:(?:\.\./){0,3}assets/site\.js)\?v=)[^"]+(")',
@@ -290,6 +296,11 @@ def main() -> None:
     final = dest.read_text(encoding="utf-8")
     final = ensure_lang_switcher_dropdown(final, "de", "de/about/mission-vision-values.html")
     final = ensure_seo_head(final, "de", rel_path="de/about/mission-vision-values.html")
+    final = re.sub(
+        r'(?P<pre>(?:src|href)=")\.\./assets/(?!i18n\.js)',
+        r"\g<pre>../../assets/",
+        final,
+    )
     final = pin_asset_versions(final)
     final = re.sub(
         r'(src="(?:(?:\.\./){0,3}assets/site\.js)\?v=)[^"]+(")',
