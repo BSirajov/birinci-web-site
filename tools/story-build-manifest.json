@@ -1221,7 +1221,10 @@
             "stem": "windmill-turning-without-wind",
             "title": "Küləksiz havada fırlanan yel dəyirmanı",
             "hasImage": true,
-            "source": "az/wisdom-stories/windmill-turning-without-wind.docx"
+            "source": "az/wisdom-stories/windmill-turning-without-wind.docx",
+            "preserveLineBreaks": [
+              1
+            ]
           },
           {
             "stem": "do-you-remember-me",
@@ -2718,7 +2721,10 @@
             "stem": "windmill-turning-without-wind",
             "title": "A windmill turning without wind",
             "hasImage": true,
-            "source": "en/wisdom-stories/windmill-turning-without-wind.docx"
+            "source": "en/wisdom-stories/windmill-turning-without-wind.docx",
+            "preserveLineBreaks": [
+              1
+            ]
           },
           {
             "stem": "bookstore",
@@ -4480,7 +4486,10 @@
             "stem": "windmill-turning-without-wind",
             "title": "Мельница, вращающаяся в безветрие",
             "hasImage": true,
-            "source": "ru/wisdom-stories/windmill-turning-without-wind.docx"
+            "source": "ru/wisdom-stories/windmill-turning-without-wind.docx",
+            "preserveLineBreaks": [
+              1
+            ]
           },
           {
             "stem": "living-with-loss",
@@ -6233,7 +6242,10 @@
             "stem": "windmill-turning-without-wind",
             "title": "Шамалсыз айланган жел тегирмен",
             "hasImage": true,
-            "source": "ky/wisdom-stories/windmill-turning-without-wind.docx"
+            "source": "ky/wisdom-stories/windmill-turning-without-wind.docx",
+            "preserveLineBreaks": [
+              1
+            ]
           },
           {
             "stem": "two-bowls-of-water",
@@ -8739,7 +8751,10 @@
             "image": "wisdom-stories/illustrations/windmill-turning-without-wind.webp",
             "hasImage": true,
             "href": "categories/hikmet-ve-heyat-dersleri.html#windmill-turning-without-wind",
-            "source": "de/wisdom-stories/windmill-turning-without-wind.docx"
+            "source": "de/wisdom-stories/windmill-turning-without-wind.docx",
+            "preserveLineBreaks": [
+              1
+            ]
           },
           {
             "stem": "do-you-remember-me",

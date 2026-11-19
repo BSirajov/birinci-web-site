@@ -2391,7 +2391,13 @@ def ensure_seo_head(markup: str, lang: str, rel_path: str = "") -> str:
     )
     block = "\n".join(lines) + "\n"
     markup = _SEO_BLOCK_RE.sub("\n", markup)
-    markup = re.sub(r'<link\b[^>]*\bhreflang="[^"]+"[^>]*>\s*', '', markup, flags=re.I)
+    # Also drop orphaned canonical/alternate tags left outside the SEO markers.
+    markup = re.sub(
+        r'[ \t]*<link\b[^>]*\brel=["\'](?:canonical|alternate)["\'][^>]*>\s*',
+        "",
+        markup,
+        flags=re.I,
+    )
     if re.search(r"</head>", markup, re.I):
         markup = re.sub(r"[ \t]*</head>", block + "</head>", markup, count=1, flags=re.I)
     return markup
